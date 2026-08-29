@@ -244,6 +244,74 @@ functionality is available of the following modules are installed.
 * `metpy <https://unidata.github.io/MetPy/latest/>`_.
   Required for plotting gridded cross sections.
 
+Domestic radar data (X/S/C band)
+================================
+
+This fork extends Py-ART with reader entry points for Chinese weather radar
+base-data, covering X-band (CINRAD AXPT/DXK and non-standard formats),
+S-band (CINRAD-SA/WSR98D) and C-band (CINRAD-CB/CC/SC/CD and C98D)
+dual-polarization data.
+
+* ``pyart.io.read_cinrad`` - reads CINRAD base-data through PyCINRAD
+  (``standard_data_to_pyart``) with a pycwr fallback.  Pass ``band='S'``,
+  ``'C'`` or ``'X'`` to select the default radius (460 / 230 / 150 km).
+* ``pyart.io.read_xband`` - X-band dispatch on filename patterns
+  (AXPT/DXK/XAD/XCD/XSP) with the same PyCINRAD + pycwr backend chain.
+* ``pyart.io.read_pa`` - CINRAD phased-array (AXPT/DXK) standard data.
+* ``pyart.io.read_mocmosaic`` - detection-center composite products
+  (MocMosaic / ACHN, e.g. CREF/ET/VIL).
+* ``pyart.io.read_xband_724xsp`` and ``pyart.io.read_xband_scrxd01`` -
+  **experimental** non-standard X-band readers; validate with real samples.
+* ``pyart.io.read_c98d_archive`` / ``pyart.io.read_sband_archive`` - the
+  bundled C-band C98D and S-band CINRAD-SA readers.
+
+The optional dependencies can be installed with::
+
+    pip install arm_pyart[cinrad]      # PyCINRAD + pycwr (keep in extras)
+    pip install arm_pyart[xradar]      # xradar interop
+
+GIF animations
+==============
+
+The ``pyart.graph`` module can render PPI / RHI / map animations to GIF via
+``imageio`` (``pip install arm_pyart[animation]``).  All animation
+functions accept a list of ``Radar`` objects or file paths, and honour the
+``MAX_FRAMES`` cap (200 by default).
+
+* ``animate_ppi`` - animated PPI sweeps; supports a ``template`` preset
+  (``dualpol``, ``timeseries``) that pre-sets fields, figure size and
+  title format.
+* ``animate_rhi`` - animated RHI cross-sections (azimuth value or sweep
+  index).
+* ``animate_map_ppi`` - PPI animation on a cartopy map.
+* ``animate_ppi_batch`` - batch-generate one GIF per input file from a
+  list or glob pattern; returns a ``{'success': [...], 'failed': [...]}``
+  report.
+* ``animate_multi_band`` - side-by-side S/C/X band comparison GIF
+  (``{'S': radar, 'C': radar, 'X': radar}``) with shared color limits.
+
+Example::
+
+    import pyart
+    from pyart.graph import animate_ppi_batch, animate_multi_band
+
+    report = animate_ppi_batch("data/*AXPT*.bin", "reflectivity",
+                               template="dualpol")
+    animate_multi_band({"S": s_radar, "C": c_radar, "X": x_radar},
+                       "reflectivity", out="xsc_compare.gif")
+
+Extras matrix
+=============
+
+======================================== =================== ===========
+extra                                     dependencies       provides
+======================================== =================== ===========
+``cinrad``                                PyCINRAD, pycwr    domestic radar readers
+``animation``                             imageio, moviepy   GIF animations
+``xradar``                                xradar, xarray     xradar datatree interop
+``full``                                  all of the above   everything
+======================================== =================== ===========
+
 Installing from source
 ======================
 

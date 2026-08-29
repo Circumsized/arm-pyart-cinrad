@@ -308,6 +308,22 @@ Relative paths can also be used::
         cd pyart
         pytest ./pyart/retrieve/tests/test_vad.py
 
+This fork keeps the upstream test layout, which lives in the top-level
+``tests/`` directory, plus package-local suites under ``pyart/**/tests``.
+Run them from the repository root with::
+
+        python -m pytest tests/ pyart/io/tests/ pyart/graph/tests/ -q
+
+Optional-dependency tests (domestic radar bridge, animations, xradar)
+are gated with ``importorskip`` so they skip cleanly when a dependency is
+not installed.  Install the extras to exercise them::
+
+        pip install .[cinrad,animation,xradar]
+
+Real-data regression tests are marked ``realdata`` and gated on
+environment variables (e.g. ``CINRAD_TEST_FILE``); they are skipped unless
+the variable is set.
+
 For more on pytest:
 
 - https://docs.pytest.org/en/latest/
