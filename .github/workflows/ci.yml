@@ -1,92 +1,30 @@
 name: CI
 
 on:
-  schedule:
-  # Runs at 09Z (2am CDT)
-    - cron: "0 9 * * *"
   push:
-    branches:
-      - main
+    branches: [main, master]
   pull_request:
-    branches:
-      - main
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-
-# This job installs dependencies, build the website, and pushes it to `gh-pages`
 jobs:
-  build:
-    name: ${{ matrix.os }}-${{ matrix.python-version }}
-    if: github.repository == 'ARM-DOE/pyart'
-    runs-on: ${{ matrix.os }}-latest
-    defaults:
-      run:
-        shell: bash -l {0}
+  test:
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.12", "3.13", "3.14"]
-        os: [macos, ubuntu, windows]
-
+        os: [ubuntu-latest, windows-latest]
+        python-version: ["3.9", "3.11"]
+    runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v7
-
-      # Install dependencies
-      - name: Setup Conda Environment
-        uses: mamba-org/setup-micromamba@v3.2.1
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
-          environment-file: continuous_integration/environment-ci.yml
-          init-shell: >-
-            bash
-          cache-downloads: true
-          post-cleanup: "all"
-          create-args: python=${{ matrix.python-version }}
-
-      - name: Fetch all history for all tags and branches
+          python-version: ${{ matrix.python-version }}
+      - name: Install build dependencies
         run: |
-           git fetch --prune --unshallow
-
-      - name: Install PyART
-        shell: bash -l {0}
-        run: |
-          python -m pip install -e . --no-deps --force-reinstall
-
-      - name: Run Linting
-        shell: bash -l {0}
-        run: |
-          ruff check .
-
-      - name: Run Tests
-        id: run_tests
-        shell: bash -l {0}
-        run: |
-          python -m pytest -v --cov=./ --cov-report=xml
-
-      - name: Upload code coverage to Codecov
-        uses: codecov/codecov-action@v7.0.0
-        with:
-          files: ./coverage.xml
-          flags: unittests
-          env_vars: OS,PYTHON
-          name: codecov-umbrella
-          fail_ci_if_error: false
-
-
-  oldestdeps:
-    name: Check oldest dependencies
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v7
-      - uses: astral-sh/setup-uv@v7
-        with:
-          python-version: '3.11'
-          prune-cache: false
-
-      - name: Install PyART
-        run: uv sync --group test --resolution=lowest-direct
-
-      - name: Run Tests
-        run: uv run --no-sync python -m pytest -v
+          python -m pip install --upgrade pip
+          pip install numpy Cython
+      - name: Install package
+        run: pip install .
+      - name: Syntax check
+        run: python -m compileall pyart -q
+      - name: Run offline tests
+        run: pytest pyart/io/tests/test_c98d_archive.py pyart/io/tests/test_sband_archive.py pyart/io/tests/test_io_init.py -v

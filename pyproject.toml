@@ -59,9 +59,28 @@ dependencies = [
 ]
 dynamic = ["readme", "version"]
 
+[project.optional-dependencies]
+cinrad = [
+    "cinrad",
+    "pycwr>=1.0.8",
+]
+animation = [
+    "imageio>=2.5.0",
+    "moviepy>=1.0.3",
+]
+xradar = [
+    "xradar>=0.12.0",
+]
+full = [
+    "arm_pyart[cinrad]",
+    "arm_pyart[animation]",
+    "arm_pyart[xradar]",
+]
+
 [dependency-groups]
 test = [
     "pytest>=9.0.1",
+    "pytest-mpl",
 ]
 
 [tool.setuptools]
@@ -94,10 +113,6 @@ exclude = [
 ]
 
 [tool.ruff.lint]
-# E402: module level import not at top of file
-# E501: line too long - let black worry about that
-# E731: do not assign a lambda expression, use a def
-# E733: do not use bare `except`
 ignore = [
     "E402",
     "E501",
@@ -105,23 +120,19 @@ ignore = [
     "E722",
 ]
 select = [
-    # Pyflakes
     "F",
-    # Pycodestyle
     "E",
     "W",
-    # isort
     "I",
-    # Pyupgrade
     "UP",
 ]
 
 [tool.cibuildwheel]
 build-verbosity = 1
 skip = [
-    "cp3*t-*", # free-threading is not supported
-    "cp314-*", # missing support from cartopy
-    "*musllinux*", # missing support from netCDF4
+    "cp3*t-*",
+    "cp314-*",
+    "*musllinux*",
 ]
 test-requires = [
     "pytest",

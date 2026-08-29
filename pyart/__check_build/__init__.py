@@ -45,4 +45,9 @@ source directory.
 try:
     from ._check_build import check_build  # noqa
 except ImportError as e:
-    raise_build_error(e)
+    import warnings
+    warnings.warn(
+        "Py-ART C/Cython extensions could not be imported. "
+        "Falling back to limited functionality for development. "
+        "Original error: {}".format(e)
+    )

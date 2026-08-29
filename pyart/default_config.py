@@ -1661,3 +1661,30 @@ DEFAULT_FIELD_LIMITS = {
     "reflectivity_horizontal": (-10.0, 65.0),
     "corr_reflectivity": (-10.0, 65.0),
 }
+
+# CINRAD bridge field mappings (PyCINRAD/pycwr)
+FIELD_MAPPINGS = {
+    "cinrad_bridge": {
+        "REF": "reflectivity",
+        "RHO": "cross_correlation_ratio",
+        "ZDR": "differential_reflectivity",
+        "PHI": "differential_phase",
+        "KDP": "specific_differential_phase",
+        "VEL": "velocity",
+        "SW": "spectrum_width",
+    },
+    "mocmosaic": {
+        "CREF": "composite_reflectivity",
+        "ET": "echo_tops",
+        "VIL": "vert_integrated_liquid",
+        "CR": "rain_rate",
+    },
+}
+
+# CINRAD bridge metadata defaults
+FILE_SPECIFIC_METADATA = {
+    "cinrad_bridge": {
+        "X-band reflectivity": {"valid_min": -10.0, "valid_max": 65.0},
+        "X-band ZDR": {"valid_min": -7.0, "valid_max": 10.0},
+    }
+}

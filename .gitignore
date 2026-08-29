@@ -9,10 +9,8 @@
 *.org
 .project
 .pydevproject
-.spyproject
 *.rej
 .settings/
-.spyproject
 .*.sw[nop]
 .sw[nop]
 *.tmp
@@ -60,6 +58,10 @@ doc/build
 doc/cdoc/build
 # Egg metadata
 *.egg-info
+# Python bytecode cache
+__pycache__/
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/
 # The shelf plugin uses this dir
 ./.shelf
 MANIFEST
@@ -95,22 +97,12 @@ Thumbs.db
 sandbox
 pyart/version.py
 pyart/retrieve/_echo_steinermodule.c
-pyart/io/nexrad_interpolate.c
-pyart/io/_sigmetfile.c
-pyart/__check_build/_check_build.c
-pyart/map/_gate_to_grid_map.c
-pyart/map/ckdtree.c
-pyart/map/_load_nn_field_data.c
-pyart/correct/_unwrap_1d.c
-pyart/correct/_fast_edge_finder.c
-pyart/correct/_unwrap_2d.c
-pyart/correct/_unwrap_3d.c
-pyart/retrieve/_kdp_proc.c
 
 # Documentation files #
 #######################
 /doc/build
-/doc/source/API/generated
+/doc/source/user_reference/generated
+/doc/source/dev_reference/generated
 /doc/source/auto_examples
 
 # radar data files #
