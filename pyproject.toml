@@ -101,6 +101,11 @@ namespaces = false
 version_scheme = "post-release"
 local_scheme = "dirty-tag"
 
+[tool.pytest.ini_options]
+markers = [
+    "realdata: tests requiring real radar data files (gated by environment variables)",
+]
+
 [tool.black]
 line-length = 88
 

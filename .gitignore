@@ -28,6 +28,8 @@ tags
 *.o
 *.py[ocd]
 *.so
+*.pyd
+*.pyd.manifest
 
 # Packages #
 ############
