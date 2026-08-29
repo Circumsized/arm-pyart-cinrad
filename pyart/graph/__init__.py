@@ -65,5 +65,12 @@ from .radardisplay import RadarDisplay  # noqa
 from .radardisplay_airborne import AirborneRadarDisplay  # noqa
 from .radarmapdisplay import RadarMapDisplay  # noqa
 from .radarmapdisplay_basemap import RadarMapDisplayBasemap  # noqa
+from .animation import (  # noqa
+    animate_ppi,
+    animate_rhi,
+    animate_map_ppi,
+    animate_ppi_batch,
+    animate_multi_band,
+)
 
 __all__ = [s for s in dir() if not s.startswith("_")]
