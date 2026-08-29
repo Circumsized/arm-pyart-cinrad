@@ -15,6 +15,8 @@ from .bias_and_noise import (
     cloud_threshold,  # noqa
     range_correction,  # noqa
 )  # noqa
+from .cinrad_wrappers import dualpol_qc  # noqa
+from .clutter import clutter_mask, apply_clutter_mask  # noqa
 from .dealias import dealias_fourdd  # noqa
 from .despeckle import despeckle_field, find_objects  # noqa
 from .phase_proc import phase_proc_lp, phase_proc_lp_gf  # noqa
