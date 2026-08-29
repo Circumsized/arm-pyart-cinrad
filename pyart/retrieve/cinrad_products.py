@@ -98,26 +98,99 @@ def _read_tilts(filename, radius, dtype='REF'):
             for i in cinrad_obj.angleindex_r]
 
 
-def composite_reflectivity(filename, radius=230, dtype='REF'):
-    """ Composite reflectivity via PyCINRAD's ``quick_cr``. """
-    from cinrad.calc import quick_cr
-    rl = _read_tilts(filename, radius, dtype)
-    return quick_cr(rl)
+def composite_reflectivity(filename, radius=230, dtype='REF', backend='auto'):
+    """ Composite reflectivity via PyCINRAD/pycwr. """
+    if backend in ('auto', 'cinrad'):
+        try:
+            from cinrad.calc import quick_cr
+            rl = _read_tilts(filename, radius, dtype)
+            return quick_cr(rl)
+        except ImportError:
+            pass
+    if backend in ('auto', 'pycwr'):
+        try:
+            from pycwr.retrieve import composite_reflectivity as pycwr_cr
+            return pycwr_cr(filename, radius=radius)
+        except ImportError as exc:
+            raise ImportError(
+                'pycwr is required for the pycwr backend; install it with '
+                '"pip install arm_pyart[cinrad]"') from exc
+    raise IOError('No available backend for composite_reflectivity')
 
 
-def echo_tops(filename, radius=230):
-    """ Echo-top heights via PyCINRAD's ``quick_et``. """
-    from cinrad.calc import quick_et
-    rl = _read_tilts(filename, radius, 'REF')
-    return quick_et(rl)
+def echo_tops(filename, radius=230, backend='auto'):
+    """ Echo-top heights via PyCINRAD/pycwr. """
+    if backend in ('auto', 'cinrad'):
+        try:
+            from cinrad.calc import quick_et
+            rl = _read_tilts(filename, radius, 'REF')
+            return quick_et(rl)
+        except ImportError:
+            pass
+    if backend in ('auto', 'pycwr'):
+        try:
+            from pycwr.retrieve import echo_tops as pycwr_et
+            return pycwr_et(filename, radius=radius)
+        except ImportError as exc:
+            raise ImportError(
+                'pycwr is required for the pycwr backend; install it with '
+                '"pip install arm_pyart[cinrad]"') from exc
+    raise IOError('No available backend for echo_tops')
 
 
-def vert_integrated_liquid(filename, radius=230):
-    """ Vertically integrated liquid via PyCINRAD's ``quick_vil``. """
-    from cinrad.calc import quick_vil
-    rl = _read_tilts(filename, radius, 'REF')
-    return quick_vil(rl)
+def vert_integrated_liquid(filename, radius=230, backend='auto'):
+    """ Vertically integrated liquid via PyCINRAD/pycwr. """
+    if backend in ('auto', 'cinrad'):
+        try:
+            from cinrad.calc import quick_vil
+            rl = _read_tilts(filename, radius, 'REF')
+            return quick_vil(rl)
+        except ImportError:
+            pass
+    if backend in ('auto', 'pycwr'):
+        try:
+            from pycwr.retrieve import vert_integrated_liquid as pycwr_vil
+            return pycwr_vil(filename, radius=radius)
+        except ImportError as exc:
+            raise ImportError(
+                'pycwr is required for the pycwr backend; install it with '
+                '"pip install arm_pyart[cinrad]"') from exc
+    raise IOError('No available backend for vert_integrated_liquid')
+
+
+def cappi(radar, height_levels, backend='auto'):
+    """
+    Generate CAPPI grids at specified heights using pycwr interpolation.
+
+    Parameters
+    ----------
+    radar : Radar
+        Radar object.
+    height_levels : sequence of float
+        Heights in metres above sea level.
+    backend : str, optional
+        ``'auto'``, ``'pycwr'``, or ``'cinrad'``.
+
+    Returns
+    -------
+    grids : list of Grid
+        CAPPI grids for each height level.
+
+    """
+    if backend in ('auto', 'pycwr'):
+        try:
+            from pycwr.grid import cappi as pycwr_cappi
+            return pycwr_cappi(radar, height_levels=height_levels)
+        except ImportError as exc:
+            if backend == 'pycwr':
+                raise ImportError(
+                    'pycwr is required for CAPPI; install it with '
+                    '"pip install arm_pyart[cinrad]"') from exc
+    if backend in ('auto', 'cinrad'):
+        raise NotImplementedError(
+            'CAPPI via PyCINRAD is not yet implemented')
+    raise ValueError('Unsupported backend: ' + str(backend))
 
 
 __all__ = ['hydro_class', 'composite_reflectivity', 'echo_tops',
-           'vert_integrated_liquid']
+           'vert_integrated_liquid', 'cappi']

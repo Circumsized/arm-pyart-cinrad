@@ -1058,6 +1058,55 @@ rsl_metadata = {}
 # Metadata for CSU-CHILL, CHL files
 chl_metadata = {}
 
+# Metadata for the C-band C98D and S-band CINRAD-SA readers
+sband_metadata = {
+    reflectivity: {
+        'units': 'dBZ',
+        'standard_name': 'equivalent_reflectivity_factor',
+        'long_name': 'Reflectivity',
+        'valid_max': 94.5,
+        'valid_min': -32.0,
+        'coordinates': 'elevation azimuth range'},
+
+    velocity: {
+        'units': 'meters_per_second',
+        'standard_name': 'radial_velocity_of_scatterers_away_from_instrument',
+        'long_name': 'Mean doppler Velocity',
+        'valid_max': 95.0,
+        'valid_min': -95.0,
+        'coordinates': 'elevation azimuth range'},
+
+    spectrum_width: {
+        'units': 'meters_per_second',
+        'standard_name': 'doppler_spectrum_width',
+        'long_name': 'Spectrum Width',
+        'valid_max': 63.0,
+        'valid_min': -63.5,
+        'coordinates': 'elevation azimuth range'},
+}
+
+c98d_archive_field_mapping = {
+    # C98D moment name: Py-ART field name
+    'dBT': total_power,
+    'dBZ': reflectivity,
+    'V': velocity,
+    'W': spectrum_width,
+    'SQI': normalized_coherent_power,
+    'CPA': None,
+    'ZDR': differential_reflectivity,
+    'LDR': linear_depolarization_ratio,
+    'CC': cross_correlation_ratio,
+    'QDP': differential_phase,
+    'KDP': specific_differential_phase,
+    'CP': None,
+    'FLAG': None,
+    'HCL': radar_echo_classification,
+    'CF': None,
+    'Zc': corrected_reflectivity,
+    'Vc': corrected_velocity,
+    'Wc': None,
+}
+
 FILE_SPECIFIC_METADATA = {  # Required
     "sigmet": sigmet_metadata,
     "nexrad_archive": nexrad_metadata,
@@ -1067,6 +1116,11 @@ FILE_SPECIFIC_METADATA = {  # Required
     "mdv": mdv_metadata,
     "rsl": rsl_metadata,
     "chl": chl_metadata,
+    "c98d_archive": sband_metadata,
+    "cinrad_bridge": {
+        "X-band reflectivity": {"valid_min": -10.0, "valid_max": 65.0},
+        "X-band ZDR": {"valid_min": -7.0, "valid_max": 10.0},
+    },
 }
 
 ##############################################################################
@@ -1505,6 +1559,22 @@ FIELD_MAPPINGS = {  # Required variable
     "gamic": gamic_field_mapping,
     "uf": uf_field_mapping,
     "write_uf": write_uf_mapping,
+    "c98d_archive": c98d_archive_field_mapping,
+    "cinrad_bridge": {
+        "REF": "reflectivity",
+        "RHO": "cross_correlation_ratio",
+        "ZDR": "differential_reflectivity",
+        "PHI": "differential_phase",
+        "KDP": "specific_differential_phase",
+        "VEL": "velocity",
+        "SW": "spectrum_width",
+    },
+    "mocmosaic": {
+        "CREF": "composite_reflectivity",
+        "ET": "echo_tops",
+        "VIL": "vert_integrated_liquid",
+        "CR": "rain_rate",
+    },
 }
 
 
@@ -1660,31 +1730,4 @@ DEFAULT_FIELD_LIMITS = {
     "DBZ_K": (-10.0, 65.0),
     "reflectivity_horizontal": (-10.0, 65.0),
     "corr_reflectivity": (-10.0, 65.0),
-}
-
-# CINRAD bridge field mappings (PyCINRAD/pycwr)
-FIELD_MAPPINGS = {
-    "cinrad_bridge": {
-        "REF": "reflectivity",
-        "RHO": "cross_correlation_ratio",
-        "ZDR": "differential_reflectivity",
-        "PHI": "differential_phase",
-        "KDP": "specific_differential_phase",
-        "VEL": "velocity",
-        "SW": "spectrum_width",
-    },
-    "mocmosaic": {
-        "CREF": "composite_reflectivity",
-        "ET": "echo_tops",
-        "VIL": "vert_integrated_liquid",
-        "CR": "rain_rate",
-    },
-}
-
-# CINRAD bridge metadata defaults
-FILE_SPECIFIC_METADATA = {
-    "cinrad_bridge": {
-        "X-band reflectivity": {"valid_min": -10.0, "valid_max": 65.0},
-        "X-band ZDR": {"valid_min": -7.0, "valid_max": 10.0},
-    }
 }

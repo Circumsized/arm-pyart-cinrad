@@ -12,6 +12,9 @@ from .arm_sonde import read_arm_sonde, read_arm_sonde_vap  # noqa
 from .auto_read import read  # noqa
 from .cfradial import read_cfradial, write_cfradial  # noqa
 from .chl import read_chl  # noqa
+from .cinrad_bridge import (  # noqa
+    read_cinrad, read_xband, read_pa, read_mocmosaic)
+from .xband_native import read_xband_724xsp, read_xband_scrxd01  # noqa
 from .common import prepare_for_read  # noqa
 from .grid_io import read_grid, write_grid  # noqa
 from .mdv_grid import read_grid_mdv, write_grid_mdv  # noqa

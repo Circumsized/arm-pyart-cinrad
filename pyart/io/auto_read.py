@@ -10,6 +10,8 @@ import netCDF4
 
 from .cfradial import read_cfradial
 from .chl import read_chl
+from .cinrad_bridge import read_cinrad, read_pa, read_mocmosaic
+from .common import prepare_for_read
 from .mdv_radar import read_mdv
 from .nexrad_archive import read_nexrad_archive
 from .nexrad_cdm import read_nexrad_cdm
@@ -133,6 +135,10 @@ def read(filename, use_rsl=False, **kwargs):
     rsl_formats = ["HDF4", "RSL", "DORADE", "LASSEN"]
     if filetype in rsl_formats and _RSL_AVAILABLE:
         return read_rsl(filename, **kwargs)
+
+    # CINRAD fallback based on filename patterns
+    if _try_cinrad(filename, **kwargs) is not None:
+        return _try_cinrad(filename, **kwargs)
 
     raise TypeError("Unknown or unsupported file format: " + filetype)
 
@@ -270,3 +276,24 @@ def determine_filetype(filename):
         return "GZ"
     # Cannot determine filetype
     return "UNKNOWN"
+
+
+def _try_cinrad(filename, **kwargs):
+    """Attempt to read a CINRAD file based on filename patterns."""
+    import os
+    name = os.path.basename(filename).upper()
+    cinrad_patterns = [
+        'AXPT', 'DXK', 'XAD', 'XCD', 'XSP',
+        'SA', 'SB', 'CB', 'CC', 'SC', 'CD',
+        'WSR98D', 'C98D', 'MOCMOSAIC', 'ACHN',
+    ]
+    if any(pattern in name for pattern in cinrad_patterns):
+        try:
+            if 'MOCMOSAIC' in name or 'ACHN' in name:
+                return read_mocmosaic(filename, **kwargs)
+            if any(p in name for p in ('AXPT', 'DXK')):
+                return read_pa(filename, **kwargs)
+            return read_cinrad(filename, **kwargs)
+        except Exception:
+            return None
+    return None
