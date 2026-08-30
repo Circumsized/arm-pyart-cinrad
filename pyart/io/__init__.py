@@ -32,8 +32,8 @@ from .uf_write import write_uf  # noqa
 
 try:  # optional remote-acquisition layer (requests/s3fs/pooch)
     from .remote import (  # noqa
-        RemoteDataError, RadarSite, RadarSource, get_source, list_sources,
-        read_time_span, register_source)
+        RemoteDataError, RadarSite, RadarSource, CmaMusicSource,
+        get_source, list_sources, read_time_span, register_source)
 except ImportError:  # pragma: no cover - optional deps missing
     pass
 

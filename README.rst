@@ -262,13 +262,57 @@ dual-polarization data.
   (MocMosaic / ACHN, e.g. CREF/ET/VIL).
 * ``pyart.io.read_xband_724xsp`` and ``pyart.io.read_xband_scrxd01`` -
   **experimental** non-standard X-band readers; validate with real samples.
-* ``pyart.io.read_c98d_archive`` / ``pyart.io.read_sband_archive`` - the
+* ``pyart.io.read_c98d`` / ``pyart.io.c98dfile_archive`` and
+  ``pyart.io.read_sband_radar`` / ``pyart.io.read_sband_archive`` - the
   bundled C-band C98D and S-band CINRAD-SA readers.
 
 The optional dependencies can be installed with::
 
     pip install arm_pyart[cinrad]      # PyCINRAD + pycwr (keep in extras)
     pip install arm_pyart[xradar]      # xradar interop
+
+Remote radar sources
+====================
+
+``pyart.io.remote`` provides a source-agnostic data-acquisition layer (the
+"list a time span -> fetch to a local cache -> read into a Radar" pattern
+popularised by ``zssherman/pyart_animation``).  The registered sources are::
+
+    >>> pyart.io.list_sources()
+    ['cine', 'cma_mos', 'cma_music', 'nexrad', 'nmc_cn']
+
+* ``nexrad`` - NEXRAD Level II via the public anonymous AWS S3 bucket
+  (``noaa-nexrad-level2``).  ``NexradSource.list_files('KTLX', start, end,
+  step)`` picks one volume per ``step`` grid point; ``read`` reads each via
+  ``pyart.io.read_nexrad_archive``.
+* ``cma_music`` - the China Meteorological Administration **天擎 MUSIC**
+  service, the only public service that returns real CINRAD Level-2 base
+  data (X / S / C-band dual-polarization) by station and time range.
+  Credentials are read from ``CMA_MUSIC_USER_ID`` / ``CMA_MUSIC_API_KEY``
+  (optionally ``CMA_MUSIC_SERVER_ID``, default ``NMIC_MUSIC_CMADAAS``).
+  The ``cma_music_api`` client package is optional and imported lazily.
+* ``cma_mos`` - per-province CMA mirrors.  CMA publishes no documented,
+  stable anonymous mirror layout, so **no URL templates are shipped**;
+  inject them via ``CmaMosSource(station_config={'code': {'template':
+  'http://...'}})``.  ``list_sites`` probes reachability and drops
+  unreachable entries.
+* ``nmc_cn`` - central observatory (nmc.cn) public endpoints.  **These
+  serve raster composite PNGs, not polar volumes**: ``read()`` returns a
+  local file path, and the source cannot be used for dual-polarization
+  processing.  It is useful only for mosaic discovery/caching.
+* ``cine`` - fully offline index over a tree of local CINRAD/CINE files.
+  ``CineSource(root=...).scan_cache()`` batch-converts every cached file
+  into ``Radar`` objects without touching the network.
+
+The optional dependencies for the remote layer::
+
+    pip install arm_pyart[remote]      # requests, pooch, s3fs
+
+Real-endpoint validation requires network access and (for 天擎) credentials.
+Run the self-contained checklist to see what is configured on the current
+machine::
+
+    python scripts/verify_remote_sources.py
 
 GIF animations
 ==============
@@ -303,14 +347,15 @@ Example::
 Extras matrix
 =============
 
-======================================== =================== ===========
-extra                                     dependencies       provides
-======================================== =================== ===========
-``cinrad``                                PyCINRAD, pycwr    domestic radar readers
-``animation``                             imageio, moviepy   GIF animations
-``xradar``                                xradar, xarray     xradar datatree interop
-``full``                                  all of the above   everything
-======================================== =================== ===========
+======================================== =========================== ======================
+extra                                     dependencies               provides
+======================================== =========================== ======================
+``cinrad``                                PyCINRAD, pycwr            domestic radar readers
+``animation``                             imageio                    GIF animations
+``remote``                                requests, pooch, s3fs      remote radar sources
+``xradar``                                xradar, xarray             xradar datatree interop
+``full``                                  all of the above           everything
+======================================== =========================== ======================
 
 Installing from source
 ======================

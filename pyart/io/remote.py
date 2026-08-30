@@ -29,6 +29,8 @@ import time
 from datetime import datetime, timedelta
 from typing import NamedTuple, Protocol, runtime_checkable
 
+import numpy as np  # noqa: F401  (used by raster decode helpers)
+
 
 class RemoteDataError(RuntimeError):
     """Raised when a remote source cannot be reached or returns bad data."""
@@ -268,6 +270,7 @@ __all__ = [
     "read_time_span",
     "NexradSource",
     "NmcCnSource",
+    "CmaMusicSource",
     "CmaMosSource",
     "CineSource",
 ]
@@ -485,49 +488,249 @@ class NmcCnSource(_BaseSource):
 
 
 # ---------------------------------------------------------------------------
-# Per-province CMA MOS / CINE public mirrors
+# 天擎 MUSIC (CMA data service) — the only public service that exposes real
+# CINRAD Level-2 base data (X / S / C-band dual-polarization) by station and
+# time range. Requires registration; credentials are read from environment
+# variables and never hard-coded.
+#
+#   CMA_MUSIC_USER_ID   userId for the MUSIC service
+#   CMA_MUSIC_API_KEY   apiKey for the MUSIC service
+#   CMA_MUSIC_SERVER_ID serverId, default "NMIC_MUSIC_CMADAAS"
+#
+# The ``cma_music_api`` client package is optional and imported lazily; when
+# it (or the credentials) is missing, calls raise :class:`RemoteDataError`
+# with an actionable message instead of failing at import time.
 # ---------------------------------------------------------------------------
 
-# Best-effort per-province CMA data portal mirrors. Each entry is a URL
-# template with {date}/{time} placeholders. list_sites probes reachability.
-_CMA_MOS_REGIONS = {
-    "beijing": "http://data.cma.cn/radar/{date}/{time}.bin",
-    "shanghai": "http://data.cma.cn/radar/sh/{date}/{time}.bin",
-    "guangdong": "http://data.cma.cn/radar/gd/{date}/{time}.bin",
-}
+_MUSIC_DEFAULT_SERVER_ID = "NMIC_MUSIC_CMADAAS"
+_MUSIC_DATACODE = "RADA_L2_FMT"
 
+
+@register_source
+class CmaMusicSource(_BaseSource):
+    """China Meteorological Administration MUSIC (天擎) radar source.
+
+    Pulls real CINRAD Level-2 base-data files (X / S / C-band) via the
+    ``cma_music_api`` client (interface ``getRadaFileByTimeRangeAndStaId``)
+    and reads them through :func:`pyart.io.read_cinrad`.
+
+    Parameters
+    ----------
+    station_table : dict or None, optional
+        Optional mapping of station code -> :class:`RadarSite`. When given it
+        is returned by :meth:`list_sites`; otherwise station discovery is
+        attempted via the MUSIC ``getStaInfoByDataCode`` interface, and an
+        empty dict with a warning is returned when that is unavailable.
+    user_id, api_key, server_id : str or None, optional
+        Credential overrides. When None, read from the ``CMA_MUSIC_USER_ID``,
+        ``CMA_MUSIC_API_KEY`` and ``CMA_MUSIC_SERVER_ID`` environment
+        variables (``server_id`` defaults to ``NMIC_MUSIC_CMADAAS``).
+
+    Notes
+    -----
+    This source cannot be exercised in CI without credentials; tests mock the
+    client. Run ``python scripts/verify_remote_sources.py cma_music`` on an
+    authorized machine to validate the real endpoint.
+    """
+
+    name = "cma_music"
+    bands = ("X", "S", "C")
+
+    def __init__(self, station_table=None, user_id=None, api_key=None,
+                 server_id=None):
+        self.station_table = dict(station_table or {})
+        self.user_id = os.environ.get("CMA_MUSIC_USER_ID") if user_id is None \
+            else user_id
+        self.api_key = os.environ.get("CMA_MUSIC_API_KEY") if api_key is None \
+            else api_key
+        self.server_id = server_id or os.environ.get(
+            "CMA_MUSIC_SERVER_ID", _MUSIC_DEFAULT_SERVER_ID)
+
+    # -- lazy MUSIC client ------------------------------------------------
+    def _client(self, timeout=15.0):
+        if not self.user_id or not self.api_key:
+            raise RemoteDataError(
+                "CmaMusicSource requires MUSIC credentials. Set the "
+                "CMA_MUSIC_USER_ID and CMA_MUSIC_API_KEY environment "
+                "variables (and optionally CMA_MUSIC_SERVER_ID).")
+        try:
+            from cma_music_api.client import DataQueryClient
+        except ImportError as exc:  # pragma: no cover - optional dep
+            raise RemoteDataError(
+                "cma_music_api is required for CmaMusicSource; install it "
+                "with 'pip install cma-music-api'") from exc
+        return DataQueryClient(self.user_id, self.api_key,
+                               self.server_id, timeout=timeout)
+
+    def list_sites(self) -> dict:
+        if self.station_table:
+            return dict(self.station_table)
+        try:
+            client = self._client()
+            raw = client.getStaInfoByDataCode(_MUSIC_DATACODE)
+            out = {}
+            for row in raw or []:
+                code = row.get("staId") or row.get("Station_Id_d")
+                if not code:
+                    continue
+                try:
+                    lat = float(row.get("staLat") or row.get("Lat"))
+                    lon = float(row.get("staLon") or row.get("Lon"))
+                    alt = float(row.get("staEle") or row.get("Height") or 0.0)
+                    # MUSIC stations carry no band info by default; the band
+                    # is resolved at read time from the file.
+                except (TypeError, ValueError):
+                    lat = lon = alt = 0.0
+                out[code] = RadarSite(code, lat, lon, alt, "C", "CN")
+            if not out:
+                import warnings as _w
+                _w.warn(
+                    "CmaMusicSource: station discovery returned no stations; "
+                    "pass station_table=... in the constructor.",
+                    RuntimeWarning)
+            return out
+        except Exception as exc:  # noqa: BLE001 - fail soft without creds
+            import warnings as _w
+            _w.warn(
+                f"CmaMusicSource: station discovery unavailable ({exc}); "
+                "pass station_table=... in the constructor.",
+                RuntimeWarning)
+            return {}
+
+    def _list_keys(self, site, start, end, step):
+        if isinstance(end, str) and end.lower() == "now":
+            end = datetime.utcnow()
+        keys = []
+        for t in _timespan(start, end, step):
+            keys.append({
+                "dataCode": _MUSIC_DATACODE,
+                "staId": site,
+                "timeRange": f"({t:%Y-%m-%d %H:%M:%S},{t:%Y-%m-%d %H:%M:%S}]",
+            })
+        return keys
+
+    def list_files(self, site, start, end, step) -> list:
+        return self._list_keys(site, start, end, step)
+
+    def fetch(self, key, dest=None) -> str:
+        local = dest or self.cache_path(
+            f"cma_music_{key['dataCode']}_{key['staId']}_{key['timeRange']}")
+        if os.path.exists(local) and os.path.getsize(local) > 0:
+            return local
+        import warnings as _w
+        _w.warn(
+            "CmaMusicSource.fetch triggered a real MUSIC download; this "
+            "requires valid credentials and network access.",
+            UserWarning)
+        url = key.get("url")
+        if url is None:
+            # Documented MUSIC interface: returns file entries for a station
+            # and time range. The exact response shape is client-version
+            # dependent, so we defensively look up a download URL.
+            client = self._client()
+            try:
+                entries = client.getRadaFileByTimeRangeAndStaId(
+                    dataCode=key["dataCode"], staId=key["staId"],
+                    timeRange=key["timeRange"])
+            except AttributeError as exc:
+                raise RemoteDataError(
+                    "The installed cma_music_api client does not expose "
+                    "getRadaFileByTimeRangeAndStaId; provide the download "
+                    "URL directly via key['url'].") from exc
+            if not entries:
+                raise RemoteDataError(
+                    f"No MUSIC file returned for station {key['staId']} at "
+                    f"{key['timeRange']}.")
+            entry = entries[0]
+            url = None
+            for field in ("url", "downloadUrl", "fileUrl", "ftpUrl"):
+                if entry.get(field):
+                    url = entry[field]
+                    break
+            if url is None:
+                raise RemoteDataError(
+                    "MUSIC file entry has no recognized download URL field: "
+                    f"{list(entry)}")
+        data = self._http_get(url)
+        with open(local, "wb") as fh:
+            fh.write(data)
+        return local
+
+    def read(self, key, dest=None, **kwargs):
+        local = self.fetch(key, dest=dest)
+        from .cinrad_bridge import is_xband_filename, read_cinrad
+        if is_xband_filename(local):
+            kwargs.setdefault("band", "X")
+        else:
+            kwargs.setdefault("band", None)
+        try:
+            return read_cinrad(local, **kwargs)
+        except Exception:
+            # Not a base-data file the bridge can decode; return the local
+            # path so callers can inspect or reprocess it.
+            return local
+
+
+# ---------------------------------------------------------------------------
+# Per-province CMA public mirrors — honest implementation
+# ---------------------------------------------------------------------------
 
 @register_source
 class CmaMosSource(_BaseSource):
     """Per-province CMA radar mirrors (public, anonymous).
 
-    Each entry in ``_CMA_MOS_REGIONS`` is probed for reachability; unreachable
-    provinces are dropped. Fetched files are assumed to be CINRAD-style binary
-    and are read with :func:`pyart.io.read_cinrad`; if that fails the local
-    path is returned unchanged (raster / unsupported binary).
+    Unlike the NEXRAD/天擎 sources, CMA does not publish a stable,
+    documented anonymous mirror layout. The URL templates are therefore
+    **not shipped by default**; supply them via ``station_config`` (mapping
+    station code -> URL template with ``{date}`` / ``{time}`` placeholders,
+    plus an optional ``band`` key). ``list_sites`` probes each template for
+    reachability and drops unreachable entries.
+
+    Parameters
+    ----------
+    station_config : dict or None, optional
+        Mapping of station code -> dict with a ``template`` key and an
+        optional ``band`` key. When None, no sites are configured and
+        :meth:`list_sites` returns ``{}`` with a warning.
     """
 
     name = "cma_mos"
     bands = ("S", "C")
+
+    def __init__(self, station_config=None):
+        self.station_config = dict(station_config or {})
 
     def _fill_url(self, template, when):
         return template.format(
             date=when.strftime("%Y%m%d"), time=when.strftime("%H%M"))
 
     def list_sites(self) -> dict:
+        if not self.station_config:
+            import warnings as _w
+            _w.warn(
+                "CmaMosSource: no station_config supplied; list_sites empty. "
+                "Pass station_config={'code': {'template': 'http://...",
+                RuntimeWarning)
+            return {}
         out = {}
-        for region, template in _CMA_MOS_REGIONS.items():
-            probe = self._fill_url(template, datetime(2000, 1, 1))
+        for code, cfg in self.station_config.items():
+            try:
+                template = cfg["template"]
+                band = cfg.get("band", "S")
+                probe = self._fill_url(template, datetime(2000, 1, 1))
+            except (KeyError, TypeError):
+                continue
             if self._is_reachable(probe):
-                out[region] = RadarSite(region, 0.0, 0.0, 0.0, "S", "CN")
+                out[code] = RadarSite(code, 0.0, 0.0, 0.0, band, "CN")
         return out
 
     def list_files(self, site, start, end, step) -> list:
-        if site not in _CMA_MOS_REGIONS:
+        cfg = self.station_config.get(site)
+        if not cfg:
             return []
         if isinstance(end, str) and end.lower() == "now":
             end = datetime.utcnow()
-        template = _CMA_MOS_REGIONS[site]
+        template = cfg["template"]
         return [self._fill_url(template, t)
                 for t in _timespan(start, end, step)]
 
@@ -618,3 +821,39 @@ class CineSource(_BaseSource):
         from .auto_read import read as _read
         local = self.fetch(key, dest=dest)
         return _read(local, **kwargs)
+
+    def scan_cache(self, site=None, start=None, end=None, **kwargs) -> list:
+        """Batch-convert cached local files into :class:`Radar` objects.
+
+        Loops over every cached file beneath ``root`` (optionally restrained
+        to ``site`` and the ``[start, end)`` mtime window) and reads each with
+        :meth:`read`; failed reads are skipped. Unlike ``read_time_span`` this
+        does **not** touch the network -- it is the fully offline path for
+        turning downloaded CINRAD/CINE files into Radar objects.
+
+        Returns
+        -------
+        radars : list of Radar
+        """
+        keys = self._scan()
+        if site is not None:
+            keys = [k for k in keys if self._site_of(k) == site]
+        if start is not None or end is not None:
+            start_ts = start.timestamp() if start is not None else None
+            end_ts = end.timestamp() if end is not None else None
+            out = []
+            for k in keys:
+                m = os.path.getmtime(k)
+                if start_ts is not None and m < start_ts:
+                    continue
+                if end_ts is not None and m >= end_ts:
+                    continue
+                out.append(k)
+            keys = out
+        radars = []
+        for key in keys:
+            try:
+                radars.append(self.read(key, **kwargs))
+            except Exception:  # noqa: BLE001
+                continue
+        return radars

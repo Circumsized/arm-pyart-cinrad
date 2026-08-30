@@ -7,7 +7,6 @@ import pytest
 from pyart.io.remote import (
     CmaMosSource,
     NmcCnSource,
-    get_source,
     list_sources,
 )
 
@@ -92,21 +91,40 @@ def test_nmc_fetch_uses_cache(monkeypatch, tmp_path):
 
 
 def test_cma_list_sites_reachable(monkeypatch):
-    src = CmaMosSource()
+    src = CmaMosSource(station_config={
+        "beijing": {"template": "http://x/radar/{date}/{time}.bin"},
+    })
     monkeypatch.setattr(src, "_is_reachable",
                         lambda url, timeout=8.0: True)
     sites = src.list_sites()
     assert "beijing" in sites
+    assert sites["beijing"].band == "S"
+
+
+def test_cma_list_sites_empty_config():
+    src = CmaMosSource()
+    with pytest.warns(RuntimeWarning):
+        sites = src.list_sites()
+    assert sites == {}
 
 
 def test_cma_list_files_grid(monkeypatch):
-    src = CmaMosSource()
+    src = CmaMosSource(station_config={
+        "shanghai": {"template": "http://x/radar/{date}/{time}.bin"},
+    })
     start = datetime(2020, 6, 1, 0, 0)
     end = datetime(2020, 6, 1, 1, 0)
     step = timedelta(minutes=30)
     files = src.list_files("shanghai", start, end, step)
     assert len(files) == 2
     assert "20200601" in files[0]
+
+
+def test_cma_list_files_unknown_site():
+    src = CmaMosSource()
+    assert src.list_files("atlantis", datetime(2020, 1, 1),
+                          datetime(2020, 1, 1, 1),
+                          timedelta(hours=1)) == []
 
 
 def test_cma_read_falls_back_to_path(monkeypatch, tmp_path):
