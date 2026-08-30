@@ -82,6 +82,9 @@ MANIFEST
 # Unit test #
 #############
 .pytest_cache/
+# pytest-mpl baseline/compare output
+test_*_output.png
+*.actual.png
 
 # OS generated files #
 ######################
