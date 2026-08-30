@@ -76,6 +76,43 @@ def test_autoread_raises():
     pytest.raises(TypeError, pyart.io.read, f)
 
 
+def test_try_cinrad_called_once(monkeypatch):
+    # CR-002: pyart.io.read must invoke _try_cinrad only once (double read
+    # was wasteful and error-prone).
+    import pyart.io.auto_read as ar
+
+    calls = {"n": 0}
+
+    def spy(filename, **kwargs):
+        calls["n"] += 1
+        return None
+
+    monkeypatch.setattr(ar, "_try_cinrad", spy)
+    with pytest.raises(TypeError):
+        ar.read(BytesIO(b"0000000000000000000"))
+    assert calls["n"] == 1
+
+
+def test_try_cinrad_does_not_swallow_real_errors(monkeypatch, tmp_path):
+    # CR-002: a corrupted CINRAD-named file must raise a real error, not a
+    # misleading "Unknown format".
+    import pyart.io.auto_read as ar
+
+    p = tmp_path / "SAMPLE_AXPT_20200101.bin"
+    p.write_bytes(b"\x00\x01\x02\x03")  # matches AXPT pattern, not decodable
+
+    def boom(filename, **kwargs):
+        raise ValueError("internal decode failure")
+
+    monkeypatch.setattr(ar, "read_pa", boom)
+    monkeypatch.setattr(ar, "read_mocmosaic", boom)
+    monkeypatch.setattr(ar, "read_c98d", boom)
+    monkeypatch.setattr(ar, "read_cinrad", boom)
+
+    with pytest.raises(ValueError, match="internal decode failure"):
+        ar._try_cinrad(str(p))
+
+
 headers = [
     (b"\x00\x00\x03\xf8\x00\x007>\x00\x00\x00\x01", "MDV"),
     (b"\x89HDF\r\n\x1a\n\x02\x08\x08\x00", "NETCDF4"),

@@ -72,6 +72,13 @@ def plot_dualpol_diagnostic(
         fig, axes = plt.subplots(2, 2, figsize=(12, 12))
         axes = np.asarray(axes).ravel()
 
+    if axes.size == 0:
+        raise ValueError("no axes provided for plot_dualpol_diagnostic")
+    if axes.size < len(fields):
+        raise ValueError(
+            f"{len(fields)} fields requested but only {axes.size} axes "
+            "provided")
+
     display = RadarDisplay(radar)
     for axi, field in zip(axes, fields):
         if field not in radar.fields:

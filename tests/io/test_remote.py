@@ -5,9 +5,9 @@ from datetime import datetime, timedelta
 import pytest
 
 from pyart.io.remote import (
-    RemoteDataError,
     RadarSite,
     RadarSource,
+    RemoteDataError,
     _BaseSource,
     get_source,
     list_sources,
@@ -134,3 +134,48 @@ def test_radar_site_namedtuple():
     assert s.name == "A"
     assert s.band == "S"
     assert s.country == "CN"
+
+
+def test_cache_path_sanitizes_separators():
+    # CR-004: backslash/forward-slash traversal keys stay inside cache dir
+    import os
+    base = _BaseSource()
+    for key in ("..\\..\\evil", "../../evil", "C:\\Windows\\x"):
+        p = base.cache_path(key)
+        real = os.path.realpath(p)
+        real_base = os.path.realpath(base.cache_dir())
+        assert real.startswith(real_base + os.sep) or real == real_base
+
+
+def test_cache_path_stays_inside_cache_dir():
+    # CR-004: defense-in-depth — realpath must never escape cache dir
+    import os
+    base = _BaseSource()
+    real_base = os.path.realpath(base.cache_dir())
+    for key in ("a/b/c.bin", "a\\b\\c.bin", "x:y", "normal.bin"):
+        real = os.path.realpath(base.cache_path(key))
+        assert real.startswith(real_base + os.sep) or real == real_base
+
+
+def test_validate_url_rejects_unsafe():
+    # CR-005: SSRF guard
+    base = _BaseSource()
+    assert base._validate_url("file:///etc/passwd") is False
+    assert base._validate_url("http://127.0.0.1/x") is False
+    assert base._validate_url("http://169.254.169.254/latest") is False
+    assert base._validate_url("ftp://example.com/x") is False
+    assert base._validate_url("http://example.com/x") is True
+
+
+def test_validate_url_allow_private():
+    base = _BaseSource()
+    assert base._validate_url("http://10.0.0.1/x", allow_private=True) is True
+
+
+def test_atomic_write(tmp_path):
+    # CR-008: atomic write produces complete content and no .tmp leftover
+    base = _BaseSource()
+    target = tmp_path / "f.bin"
+    base._atomic_write(str(target), b"hello")
+    assert target.read_bytes() == b"hello"
+    assert not (tmp_path / "f.bin.tmp").exists()

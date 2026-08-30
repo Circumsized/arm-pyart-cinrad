@@ -59,7 +59,7 @@ def test_fetch_uses_documented_interface(monkeypatch, tmp_path):
                         lambda timeout=15.0: _fake_client(entries))
     downloaded = {}
 
-    def fake_http(url, timeout=15.0):
+    def fake_http(url, timeout=15.0, **kwargs):
         downloaded["url"] = url
         return b"CINRAD-BYTES"
 
@@ -76,7 +76,7 @@ def test_fetch_direct_url_key(monkeypatch, tmp_path):
     src = _music_source()
     downloaded = {}
 
-    def fake_http(url, timeout=15.0):
+    def fake_http(url, timeout=15.0, **kwargs):
         downloaded["url"] = url
         return b"DATA"
 

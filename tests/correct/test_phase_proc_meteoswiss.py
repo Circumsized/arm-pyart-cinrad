@@ -34,6 +34,18 @@ def test_correct_sys_phase_adds_field():
     assert np.allclose(out["data"], 120.0)
 
 
+def test_correct_sys_phase_preserves_mask():
+    # CR-007: masked gates must stay masked after the offset correction
+    radar = make_dualpol_radar()
+    raw = radar.fields["differential_phase"]["data"]
+    masked = np.ma.array(raw, mask=np.zeros(raw.shape, dtype=bool))
+    masked.mask[5, 5] = True  # one masked gate
+    radar.fields["differential_phase"]["data"] = masked
+    out = correct_sys_phase(radar, 60.0)
+    assert np.ma.isMaskedArray(out["data"])
+    assert bool(out["data"].mask[5, 5]) is True
+
+
 def test_det_sys_phase_ray_returns_scalar():
     radar = make_dualpol_radar()
     val = det_sys_phase_ray(radar, ind_rmin=0, ind_rmax=50,

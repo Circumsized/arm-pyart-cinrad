@@ -50,15 +50,20 @@ TEMPLATES = {
 
 
 def _apply_template(kwargs, template):
+    """Return ``(display_kwargs, figsize, title_fmt)`` from a template.
+
+    Template-derived ``figsize`` and ``title_fmt`` are returned separately so
+    they are never forwarded into the plotting kwargs (which would crash
+    ``pcolormesh`` with an unexpected keyword argument). Explicit values in
+    ``kwargs`` take precedence over template presets.
+    """
     if template is None or template not in TEMPLATES:
-        return kwargs
+        return kwargs, None, None
     preset = TEMPLATES[template]
     out = dict(kwargs)
-    if 'figsize' in preset and 'figsize' not in out:
-        out['figsize'] = preset['figsize']
-    if 'title_fmt' in preset and 'title_fmt' not in out:
-        out['title_fmt'] = preset['title_fmt']
-    return out
+    figsize = out.pop('figsize', preset.get('figsize'))
+    title_fmt = out.pop('title_fmt', preset.get('title_fmt'))
+    return out, figsize, title_fmt
 
 
 def _import_imageio():
@@ -101,17 +106,26 @@ def _check_frames(radars, out):
 
 def _collect_frames(plot_frame, radars, out, fps):
     imageio = _import_imageio()
-    frames = []
+
+    # Stream each frame to disk with get_writer (v2) so we never hold every
+    # RGBA buffer in memory (200 frames ~ >1 GB otherwise). imageio v3 uses
+    # a plugin-based writer instead.
+    try:
+        writer = imageio.get_writer(out, fps=fps, loop=0)
+    except TypeError:
+        import imageio.v3 as iio3
+        writer = iio3.imopen(out, "w", plugin="pillow", fps=fps, loop=0)
+
     with matplotlib.rc_context({'backend': 'Agg'}):
         import matplotlib.pyplot as plt
-        for i, radar in enumerate(radars):
-            with _free_radar(radar) as radar:
-                fig = plot_frame(i, radar)
-                fig.canvas.draw()
-                buf = np.asarray(fig.canvas.buffer_rgba())
-                frames.append(buf.copy())
-                plt.close(fig)
-    imageio.mimwrite(out, frames, fps=fps, loop=0)
+        with writer:
+            for i, radar in enumerate(radars):
+                with _free_radar(radar) as radar:
+                    fig = plot_frame(i, radar)
+                    fig.canvas.draw()
+                    buf = np.asarray(fig.canvas.buffer_rgba())
+                    writer.append_data(buf)
+                    plt.close(fig)
     return out
 
 
@@ -127,6 +141,39 @@ def _free_radar(radar):
         yield radar
     finally:
         del radar
+
+
+def _radar_time_str(radar, fmt='%Y-%m-%d %H:%M UTC'):
+    """Return a formatted volume start time, or '' when unavailable."""
+    try:
+        from pyart.util.datetime_utils import datetime_from_radar
+        return datetime_from_radar(radar).strftime(fmt)
+    except Exception:
+        return ''
+
+
+def _format_title(title_fmt, **context):
+    """Format a title template with a context dict, never raising KeyError.
+
+    Templates may reference ``{field}``, ``{i}``, ``{time}``, ``{site}`` or
+    ``{band}``; any placeholder missing from the provided context is rendered
+    as an empty string instead of crashing the animation.
+    """
+    if title_fmt is None:
+        return None
+    try:
+        return title_fmt.format(**context)
+    except (KeyError, IndexError, ValueError):
+        import string
+
+        class _Safe(string.Formatter):
+            def get_field(self, field_name, args, kwargs):
+                try:
+                    return super().get_field(field_name, args, kwargs)
+                except (KeyError, IndexError):
+                    return '', field_name
+
+        return _Safe().format(title_fmt, **context)
 
 
 def _draw_basemap_features(ax, draw_coastline=True, draw_borders=True):
@@ -157,7 +204,12 @@ def _stamp_time(ax, radar, timestamp_fmt='%Y-%m-%d %H:%M UTC'):
 
 
 def _with_colorbar_units(fig, field, radar):
-    """Attach the field ``units`` to the most recent colorbar, if present."""
+    """Attach the field ``units`` to the most recent colorbar, if present.
+
+    Matplotlib attaches the colorbar to the *mappable* (QuadMesh, ScalarMappable)
+    rather than to the axes, so scan every mappable in the figure for a
+    ``colorbar`` attribute instead of ``ax.colorbar``.
+    """
     units = None
     try:
         units = radar.fields[field].get('units')
@@ -166,10 +218,13 @@ def _with_colorbar_units(fig, field, radar):
     if not units:
         return
     for ax in fig.axes:
-        cbar = getattr(ax, 'colorbar', None)
-        if cbar is not None and hasattr(cbar, 'set_label'):
-            cbar.set_label(units)
-            break
+        mappables = list(getattr(ax, 'collections', []))
+        mappables += list(getattr(ax, 'images', []))
+        for m in mappables:
+            cbar = getattr(m, 'colorbar', None)
+            if cbar is not None and hasattr(cbar, 'set_label'):
+                cbar.set_label(units)
+                return
 
 
 def animate_ppi(radars_or_files, field, sweep=0, out='ppi.gif', vmin=None,
@@ -216,21 +271,24 @@ def animate_ppi(radars_or_files, field, sweep=0, out='ppi.gif', vmin=None,
     radars = _to_radars(radars_or_files)
     radars = _check_frames(radars, out)
     display_kwargs = dict(display_kwargs or {})
-    display_kwargs = _apply_template(display_kwargs, template)
-    if title_fmt is None and template in TEMPLATES:
-        title_fmt = TEMPLATES[template].get('title_fmt')
+    display_kwargs, t_figsize, t_title_fmt = _apply_template(
+        display_kwargs, template)
+    if title_fmt is None:
+        title_fmt = t_title_fmt
 
     def plot_frame(i, radar):
         import matplotlib.pyplot as plt
         display = pyart.graph.RadarDisplay(radar)
-        figsize = display_kwargs.get('figsize', (8, 8))
+        figsize = t_figsize or (8, 8)
         fig = plt.figure(figsize=figsize)
         display.plot(field, sweep, vmin=vmin, vmax=vmax,
                      gatefilter=gatefilter,
                      colorbar_label='', ax=fig.add_subplot(111),
                      **display_kwargs)
-        if title_fmt is not None:
-            plt.title(title_fmt.format(i=i))
+        title = _format_title(title_fmt, i=i, field=field,
+                              time=_radar_time_str(radar))
+        if title is not None:
+            plt.title(title)
         return fig
 
     return _collect_frames(plot_frame, radars, out, fps)
@@ -246,7 +304,7 @@ def _azimuth_to_sweep(radar, azimuth):
     if azimuth is None:
         return 0
     if not isinstance(azimuth, bool) and isinstance(azimuth, (int, np.integer)):
-        return min(int(azimuth), radar.nsweeps - 1)
+        return max(0, min(int(azimuth), radar.nsweeps - 1))
     target = float(azimuth) % 360.0
     az_values = np.asarray(radar.azimuth['data'], dtype='float64') % 360.0
     best, best_diff = 0, 361.0
@@ -284,8 +342,10 @@ def animate_rhi(radars_or_files, field, azimuth=None, out='rhi.gif', vmin=None,
         display.plot_rhi(field, sweep, vmin=vmin, vmax=vmax,
                          colorbar_label='', ax=fig.add_subplot(111),
                          **display_kwargs)
-        if title_fmt is not None:
-            plt.title(title_fmt.format(i=i))
+        title = _format_title(title_fmt, i=i, field=field,
+                              time=_radar_time_str(radar))
+        if title is not None:
+            plt.title(title)
         return fig
 
     return _collect_frames(plot_frame, radars, out, fps)
@@ -368,8 +428,10 @@ def animate_map_ppi(radars_or_files, field, sweep=0, out='map.gif', vmin=None,
         if show_timestamp:
             _stamp_time(ax, radar, timestamp_fmt)
         _with_colorbar_units(fig, field, radar)
-        if title_fmt is not None:
-            plt.title(title_fmt.format(i=i))
+        title = _format_title(title_fmt, i=i, field=field,
+                              time=_radar_time_str(radar))
+        if title is not None:
+            plt.title(title)
         return fig
 
     return _collect_frames(plot_frame, radars, out, fps)
@@ -543,8 +605,9 @@ def animate_multi_band(radars_by_band, field, out='multi_band.gif',
                 band_kwargs.update({'vmin': vmin, 'vmax': vmax})
             display.plot(field, sweep, colorbar_label='', ax=ax,
                          **band_kwargs)
-            ax.set_title(title_fmt.format(band=band, field=field)
-                         if title_fmt else '{0} band'.format(band))
+            title = _format_title(title_fmt, band=band, field=field,
+                                  i=i, time=_radar_time_str(radar))
+            ax.set_title(title or '{0} band'.format(band))
         fig.tight_layout()
         return fig
 

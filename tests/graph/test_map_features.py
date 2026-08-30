@@ -1,5 +1,6 @@
 """Tests for the map-animation enhancements in pyart.graph.animation."""
 
+import numpy as np
 import pytest
 
 cartopy = pytest.importorskip("cartopy")
@@ -7,12 +8,86 @@ import matplotlib.pyplot as plt  # noqa: E402
 
 import pyart  # noqa: E402
 from pyart.graph.animation import (  # noqa: E402
+    TEMPLATES,
+    _apply_template,
+    _azimuth_to_sweep,
     _draw_basemap_features,
     _free_radar,
     _stamp_time,
     _with_colorbar_units,
     animate_map_ppi,
 )
+
+
+def test_apply_template_returns_tuple():
+    kwargs, figsize, title_fmt = _apply_template({}, 'timespan')
+    assert kwargs == {}
+    assert figsize == (10, 8)
+    assert title_fmt == '{site} {time}'
+
+
+def test_apply_template_none():
+    kwargs, figsize, title_fmt = _apply_template({'a': 1}, None)
+    assert kwargs == {'a': 1}
+    assert figsize is None and title_fmt is None
+
+
+def test_apply_template_never_leaks_keys_into_kwargs():
+    # CR-001: template figsize/title_fmt must not end up in plotting kwargs
+    kwargs, figsize, title_fmt = _apply_template({}, 'dualpol')
+    assert 'figsize' not in kwargs
+    assert 'title_fmt' not in kwargs
+    assert figsize == TEMPLATES['dualpol']['figsize']
+
+
+def test_azimuth_negative_clamped():
+    import pyart as _p
+    radar = _p.testing.make_target_radar()
+    assert _azimuth_to_sweep(radar, -1) == 0
+
+
+def test_format_title_never_raises():
+    # CR-001 follow-up: template titles with missing placeholders render as
+    # empty strings instead of raising KeyError.
+    from pyart.graph.animation import _format_title
+    # {field} provided
+    assert _format_title('{field} - {i}', i=3, field='refl') == 'refl - 3'
+    # {time} missing -> safe empty
+    assert _format_title('{site} {time}', site='KTLX') == 'KTLX '
+    # missing both -> safe empty
+    assert _format_title('{time}',) == ''
+    # None -> None
+    assert _format_title(None) is None
+
+
+def test_plot_range_ring_range_annulus(_fake_display=None):
+    # CR-003: the annulus fill must produce a real polar polygon, not the
+    # old fill_between(theta, ...) stripe.
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+
+    import pyart as _p
+    from pyart.graph import RadarDisplay
+
+    radar = _p.testing.make_target_radar()
+    display = RadarDisplay(radar)
+    # Draw a PPI first so the display owns a radar-coordinate axes.
+    fig, ax = plt.subplots()
+    display.plot("reflectivity", 0, ax=ax)
+    display.plot_range_ring_range((20, 50), ax=ax)
+
+    # one filled annulus polygon present
+    annulus = [p for p in ax.patches if p.get_alpha()][0]
+    verts = np.concatenate([p.get_verts() for p in [annulus]])
+    xs, ys = verts[:, 0], verts[:, 1]
+    # outer radius 50, inner radius 20 in both axes -> a true ring, never a
+    # stripe with x confined to [0, 2*pi]
+    assert np.max(np.abs(xs)) > 40
+    assert np.max(np.abs(ys)) > 40
+    assert np.min(np.abs(xs)) < 25
+    assert np.min(np.abs(ys)) < 25
+    plt.close(fig)
 
 
 class _FakeAx:

@@ -1194,11 +1194,16 @@ class RadarDisplay:
         inner, outer = sorted(ranges)
         self.plot_range_ring(inner, ax=ax, col=col, ls=ls, lw=lw)
         self.plot_range_ring(outer, ax=ax, col=col, ls=ls, lw=lw)
+        # Build a true annulus polygon in radar (km) coordinates: outer ring
+        # traversed one way, inner ring traversed back, then closed.
         theta = np.linspace(0, 2 * np.pi, 360)
-        ax.fill_between(
-            theta,
-            np.full_like(theta, inner),
-            np.full_like(theta, outer),
+        x_outer = outer * np.sin(theta)
+        y_outer = outer * np.cos(theta)
+        x_inner = inner * np.sin(theta[::-1])
+        y_inner = inner * np.cos(theta[::-1])
+        ax.fill(
+            np.concatenate([x_outer, x_inner]),
+            np.concatenate([y_outer, y_inner]),
             facecolor=fill_color,
             alpha=alpha,
             edgecolor="none",

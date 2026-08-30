@@ -1670,7 +1670,10 @@ def correct_sys_phase(radar, phi0, phi_name="corrected_differential_phase",
     if phidp_field is None:
         phidp_field = get_field_name("differential_phase")
     out = copy.deepcopy(radar.fields[phidp_field])
-    out["data"] = np.asarray(radar.fields[phidp_field]["data"]) - phi0
+    # Keep the source mask: subtracting on the masked array preserves masked
+    # gates as masked (np.asarray would drop the mask and treat fill values
+    # as real data).
+    out["data"] = radar.fields[phidp_field]["data"] - phi0
     out["_FillValue"] = get_fillvalue()
     radar.fields[phi_name] = out
     return out

@@ -81,10 +81,10 @@ def read(filename, use_rsl=False, **kwargs):
         bzfile = bz2.BZ2File(filename)
         try:
             radar = read(bzfile, use_rsl, **kwargs)
-        except:
+        except Exception as exc:
             raise ValueError(
                 "Bzip file cannot be read compressed, uncompress and try again"
-            )
+            ) from exc
         finally:
             bzfile.close()
         return radar
@@ -94,10 +94,10 @@ def read(filename, use_rsl=False, **kwargs):
         gzfile = gzip.open(filename, "rb")
         try:
             radar = read(gzfile, use_rsl, **kwargs)
-        except:
+        except Exception as exc:
             raise ValueError(
                 "Gzip file cannot be read compressed, uncompress and try again"
-            )
+            ) from exc
         finally:
             gzfile.close()
         return radar
@@ -138,8 +138,9 @@ def read(filename, use_rsl=False, **kwargs):
         return read_rsl(filename, **kwargs)
 
     # CINRAD fallback based on filename patterns
-    if _try_cinrad(filename, **kwargs) is not None:
-        return _try_cinrad(filename, **kwargs)
+    cinrad_radar = _try_cinrad(filename, **kwargs)
+    if cinrad_radar is not None:
+        return cinrad_radar
 
     raise TypeError("Unknown or unsupported file format: " + filetype)
 
@@ -280,7 +281,15 @@ def determine_filetype(filename):
 
 
 def _try_cinrad(filename, **kwargs):
-    """Attempt to read a CINRAD file based on filename patterns."""
+    """Attempt to read a CINRAD file based on filename patterns.
+
+    Returns the Radar when the filename matches a CINRAD pattern and the
+    file can be decoded. ``None`` is returned only when the filename does not
+    look like a CINRAD file, or the optional reader backend is unavailable
+    (``ImportError``) so the caller can try other formats. Any other
+    exception (parse failure, corrupted file) propagates, so the caller's
+    "unknown format" error is never used to mask a real read error.
+    """
     import os
     name = os.path.basename(filename).upper()
     cinrad_patterns = [
@@ -288,15 +297,19 @@ def _try_cinrad(filename, **kwargs):
         'SA', 'SB', 'CB', 'CC', 'SC', 'CD',
         'WSR98D', 'C98D', 'MOCMOSAIC', 'ACHN',
     ]
-    if any(pattern in name for pattern in cinrad_patterns):
-        try:
-            if 'MOCMOSAIC' in name or 'ACHN' in name:
-                return read_mocmosaic(filename, **kwargs)
-            if 'C98D' in name:
-                return read_c98d(filename, **kwargs)
-            if any(p in name for p in ('AXPT', 'DXK')):
-                return read_pa(filename, **kwargs)
-            return read_cinrad(filename, **kwargs)
-        except Exception:
-            return None
-    return None
+    if not any(pattern in name for pattern in cinrad_patterns):
+        return None
+    try:
+        if 'MOCMOSAIC' in name or 'ACHN' in name:
+            return read_mocmosaic(filename, **kwargs)
+        if 'C98D' in name:
+            return read_c98d(filename, **kwargs)
+        if any(p in name for p in ('AXPT', 'DXK')):
+            return read_pa(filename, **kwargs)
+        return read_cinrad(filename, **kwargs)
+    except ImportError:
+        # optional backend missing -- not a fatal format error
+        return None
+    except TypeError:
+        # reader got unsupported arguments -- not a match
+        return None

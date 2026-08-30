@@ -96,8 +96,19 @@ class _BaseSource:
         return path
 
     def cache_path(self, key: str) -> str:
-        safe = key.replace("/", "_").replace(":", "_")
-        return os.path.join(self.cache_dir(), safe)
+        # Sanitize both path separators so a caller-controlled key can never
+        # escape the cache directory (Windows accepts both '/' and '\\').
+        safe = key.replace("/", "_").replace("\\", "_").replace(":", "_")
+        local = os.path.join(self.cache_dir(), safe)
+        # Defend against any remaining traversal: resolve and verify the final
+        # path still lives inside the cache directory.
+        real_local = os.path.realpath(local)
+        real_base = os.path.realpath(self.cache_dir())
+        if not (real_local == real_base or real_local.startswith(
+                real_base + os.sep)):
+            raise RemoteDataError(
+                f"cache key escapes cache directory: {key!r}")
+        return local
 
     @staticmethod
     def _retry(callable_, *args, retries: int = 2, backoff: float = 1.5,
@@ -147,8 +158,44 @@ class _BaseSource:
         return radars
 
     # -- HTTP helpers -------------------------------------------------------
-    def _http_get(self, url, timeout=15.0):
+    @staticmethod
+    def _validate_url(url, allow_private=False):
+        """Return True when ``url`` is safe to request.
+
+        Restricts the scheme to ``http``/``https`` and (unless
+        ``allow_private``) rejects loopback, link-local, private, and cloud
+        metadata hosts. This is an SSRF guard for caller-supplied URLs
+        (``key['url']``, ``station_config['template']``).
+        """
+        try:
+            from urllib.parse import urlparse
+
+            parsed = urlparse(url)
+        except Exception:  # noqa: BLE001
+            return False
+        if parsed.scheme not in ("http", "https") or not parsed.hostname:
+            return False
+        if allow_private:
+            return True
+        host = parsed.hostname.lower()
+        if host in ("localhost", "127.0.0.1", "::1", "169.254.169.254"):
+            return False
+        import ipaddress
+        try:
+            ip = ipaddress.ip_address(host)
+        except ValueError:
+            # Not a raw IP; could be a DNS name. Allow (we cannot resolve it
+            # here without a DNS call, which itself is out of scope).
+            return True
+        return not (
+            ip.is_private or ip.is_loopback or ip.is_link_local
+            or ip.is_reserved or ip.is_multicast)
+
+    def _http_get(self, url, timeout=15.0, allow_private=False):
         """GET ``url`` and return bytes, with bounded retries."""
+        if not self._validate_url(url, allow_private=allow_private):
+            raise RemoteDataError(
+                f"Refusing to request unsafe URL: {url!r}")
         try:
             import requests
         except ImportError as exc:
@@ -163,9 +210,11 @@ class _BaseSource:
 
         return self._retry(_do, retries=2, timeout=timeout)
 
-    def _http_get_json(self, url, timeout=15.0):
+    def _http_get_json(self, url, timeout=15.0, allow_private=False):
         import json
-        return json.loads(self._http_get(url, timeout=timeout).decode("utf-8"))
+        return json.loads(
+            self._http_get(url, timeout=timeout,
+                           allow_private=allow_private).decode("utf-8"))
 
     @staticmethod
     def _is_reachable(url, timeout=8.0):
@@ -178,6 +227,19 @@ class _BaseSource:
             return r.status_code < 500
         except Exception:  # noqa: BLE001
             return False
+
+    @staticmethod
+    def _atomic_write(local, data):
+        """Write ``data`` to ``local`` atomically.
+
+        Writes to a sibling temp file first, then ``os.replace`` so concurrent
+        readers never observe a half-written cache entry and concurrent
+        writers never interleave.
+        """
+        tmp = local + ".tmp"
+        with open(tmp, "wb") as fh:
+            fh.write(data)
+        os.replace(tmp, local)
 
 
 def _accepts_timeout(func) -> bool:
@@ -477,8 +539,7 @@ class NmcCnSource(_BaseSource):
         if os.path.exists(local) and os.path.getsize(local) > 0:
             return local
         data = self._http_get(key)
-        with open(local, "wb") as fh:
-            fh.write(data)
+        self._atomic_write(local, data)
         return local
 
     def read(self, key, dest=None, **kwargs):
@@ -651,9 +712,10 @@ class CmaMusicSource(_BaseSource):
                 raise RemoteDataError(
                     "MUSIC file entry has no recognized download URL field: "
                     f"{list(entry)}")
-        data = self._http_get(url)
-        with open(local, "wb") as fh:
-            fh.write(data)
+        # 天擎 download URLs may sit on private address space, so allow them
+        # through the SSRF guard explicitly.
+        data = self._http_get(url, allow_private=True)
+        self._atomic_write(local, data)
         return local
 
     def read(self, key, dest=None, **kwargs):
@@ -739,8 +801,7 @@ class CmaMosSource(_BaseSource):
         if os.path.exists(local) and os.path.getsize(local) > 0:
             return local
         data = self._http_get(key)
-        with open(local, "wb") as fh:
-            fh.write(data)
+        self._atomic_write(local, data)
         return local
 
     def read(self, key, dest=None, **kwargs):

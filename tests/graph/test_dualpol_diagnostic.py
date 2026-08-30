@@ -1,9 +1,11 @@
 """Tests for the four-panel dual-polarization diagnostic plot."""
 
 import matplotlib
+
 matplotlib.use("Agg")
 
 import numpy as np
+import pytest
 
 import pyart
 from pyart.graph import plot_dualpol_diagnostic
@@ -44,3 +46,11 @@ def test_plot_dualpol_diagnostic_with_limits():
         title="diagnostic",
     )
     assert axes.shape == (4,)
+
+
+def test_plot_dualpol_diagnostic_too_few_axes_raises():
+    # CR-017: silently truncating via zip() is a bug; must raise instead
+    radar = make_dualpol_radar()
+    ax = [None] * 1  # 1 axis < 4 fields
+    with pytest.raises(ValueError):
+        plot_dualpol_diagnostic(radar, ax=ax)
