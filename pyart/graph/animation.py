@@ -35,6 +35,17 @@ TEMPLATES = {
         'figsize': (10, 8),
         'title_fmt': '{time}',
     },
+    'dualpol_map': {
+        'fields': ['reflectivity', 'differential_reflectivity',
+                   'cross_correlation_ratio', 'specific_differential_phase'],
+        'figsize': (12, 12),
+        'title_fmt': '{field} - {i}',
+    },
+    'timespan': {
+        'fields': ['reflectivity'],
+        'figsize': (10, 8),
+        'title_fmt': '{site} {time}',
+    },
 }
 
 
@@ -94,13 +105,71 @@ def _collect_frames(plot_frame, radars, out, fps):
     with matplotlib.rc_context({'backend': 'Agg'}):
         import matplotlib.pyplot as plt
         for i, radar in enumerate(radars):
-            fig = plot_frame(i, radar)
-            fig.canvas.draw()
-            buf = np.asarray(fig.canvas.buffer_rgba())
-            frames.append(buf.copy())
-            plt.close(fig)
+            with _free_radar(radar) as radar:
+                fig = plot_frame(i, radar)
+                fig.canvas.draw()
+                buf = np.asarray(fig.canvas.buffer_rgba())
+                frames.append(buf.copy())
+                plt.close(fig)
     imageio.mimwrite(out, frames, fps=fps, loop=0)
     return out
+
+
+@contextlib.contextmanager
+def _free_radar(radar):
+    """Yield ``radar`` and drop the local reference afterwards.
+
+    Best-effort memory hygiene aligned with the ``del radar`` idiom used by
+    ``zssherman/pyart_animation`` when animating long time spans. The radar
+    object itself is not deallocated while the caller still holds a reference.
+    """
+    try:
+        yield radar
+    finally:
+        del radar
+
+
+def _draw_basemap_features(ax, draw_coastline=True, draw_borders=True):
+    """Add coastline and country-border features to a cartopy GeoAxes.
+
+    This is the cartopy equivalent of the Basemap-era
+    ``display.basemap.drawcounties()`` call from zssherman/pyart_animation.
+    """
+    import cartopy.feature as cfeature
+    if draw_coastline:
+        ax.add_feature(cfeature.COASTLINE.with_scale('50m'))
+    if draw_borders:
+        ax.add_feature(cfeature.BORDERS.with_scale('50m'))
+
+
+def _stamp_time(ax, radar, timestamp_fmt='%Y-%m-%d %H:%M UTC'):
+    """Write the volume start time in the top-right corner of the axes."""
+    ts = None
+    try:
+        from pyart.util.datetime_utils import datetime_from_radar
+        ts = datetime_from_radar(radar).strftime(timestamp_fmt)
+    except Exception:
+        ts = None
+    if ts:
+        ax.text(0.99, 0.99, ts, transform=ax.transAxes, ha='right',
+                va='top', fontsize='small',
+                bbox=dict(facecolor='white', alpha=0.6, edgecolor='none'))
+
+
+def _with_colorbar_units(fig, field, radar):
+    """Attach the field ``units`` to the most recent colorbar, if present."""
+    units = None
+    try:
+        units = radar.fields[field].get('units')
+    except (AttributeError, KeyError):
+        units = None
+    if not units:
+        return
+    for ax in fig.axes:
+        cbar = getattr(ax, 'colorbar', None)
+        if cbar is not None and hasattr(cbar, 'set_label'):
+            cbar.set_label(units)
+            break
 
 
 def animate_ppi(radars_or_files, field, sweep=0, out='ppi.gif', vmin=None,
@@ -224,7 +293,12 @@ def animate_rhi(radars_or_files, field, azimuth=None, out='rhi.gif', vmin=None,
 
 def animate_map_ppi(radars_or_files, field, sweep=0, out='map.gif', vmin=None,
                     vmax=None, fps=4, title_fmt=None, projection=None,
-                    extent=None, display_kwargs=None):
+                    extent=None, display_kwargs=None, cmap=None,
+                    resolution='110m', mask_outside=False, lat_lines=None,
+                    lon_lines=None, min_lon=None, max_lon=None, min_lat=None,
+                    max_lat=None, raster=False, gatefilter=None,
+                    shapefile=None, draw_coastline=True, draw_borders=True,
+                    show_timestamp=False, timestamp_fmt='%Y-%m-%d %H:%M UTC'):
     """
     Create a GIF animation of PPI sweeps on a projected map (cartopy).
 
@@ -234,6 +308,28 @@ def animate_map_ppi(radars_or_files, field, sweep=0, out='map.gif', vmin=None,
         Defaults to ``cartopy.crs.PlateCarree()``.
     extent : 4-tuple, optional
         Map extent (lon0, lon1, lat0, lat1).
+    cmap : str or None, optional
+        Colormap name forwarded to ``RadarMapDisplay.plot_ppi_map``.
+    resolution : str, optional
+        Cartopy feature resolution (e.g. ``'110m'``, ``'50m'``).
+    mask_outside : bool, optional
+        Mask data outside ``vmin``/``vmax``.
+    lat_lines, lon_lines : array or None, optional
+        Locations for latitude/longitude grid lines.
+    min_lon, max_lon, min_lat, max_lat : float, optional
+        Map projection region in degrees.
+    raster : bool, optional
+        Rasterize the pcolormesh.
+    gatefilter : GateFilter or None, optional
+        Optional gate filter applied to every frame.
+    shapefile : str or None, optional
+        Shapefile to overlay.
+    draw_coastline, draw_borders : bool, optional
+        Add coastline / country borders (cartopy features).
+    show_timestamp : bool, optional
+        Stamp the volume time in the top-right corner.
+    timestamp_fmt : str, optional
+        ``strftime`` format for the timestamp.
     Others as in :func:`animate_ppi`.
 
     """
@@ -259,15 +355,81 @@ def animate_map_ppi(radars_or_files, field, sweep=0, out='map.gif', vmin=None,
         display = pyart.graph.RadarMapDisplay(radar)
         fig = plt.figure(figsize=(10, 8))
         ax = fig.add_subplot(111, projection=projection)
-        display.plot(field, sweep, vmin=vmin, vmax=vmax,
-                     colorbar_label='', ax=ax, **display_kwargs)
+        display.plot_ppi_map(
+            field, sweep, ax=ax, vmin=vmin, vmax=vmax, cmap=cmap,
+            resolution=resolution, mask_outside=mask_outside,
+            lat_lines=lat_lines, lon_lines=lon_lines,
+            min_lon=min_lon, max_lon=max_lon, min_lat=min_lat,
+            max_lat=max_lat, raster=raster, gatefilter=gatefilter,
+            shapefile=shapefile, colorbar_label='', **display_kwargs)
         if extent is not None:
             ax.set_extent(extent)
+        _draw_basemap_features(ax, draw_coastline, draw_borders)
+        if show_timestamp:
+            _stamp_time(ax, radar, timestamp_fmt)
+        _with_colorbar_units(fig, field, radar)
         if title_fmt is not None:
             plt.title(title_fmt.format(i=i))
         return fig
 
     return _collect_frames(plot_frame, radars, out, fps)
+
+
+def animate_map_timespan(source, site, start, end, step, field='reflectivity',
+                         sweep=0, out='timespan.gif', fps=4, cmap=None,
+                         resolution='110m', mask_outside=False, lat_lines=None,
+                         lon_lines=None, min_lon=None, max_lon=None,
+                         min_lat=None, max_lat=None, draw_coastline=True,
+                         draw_borders=True, show_timestamp=True,
+                         timestamp_fmt='%Y-%m-%d %H:%M UTC',
+                         title_fmt='{site} {time}', template=None,
+                         gatefilter=None, share_colorbar=True,
+                         display_kwargs=None):
+    """
+    Pull data for a time span from a remote source and make a map GIF.
+
+    This composes :func:`pyart.io.read_time_span` with :func:`animate_map_ppi`,
+    mirroring the ``zssherman/pyart_animation`` workflow of *list a time span*
+    -> *read each volume* -> *animate onto a geographic map*.
+
+    Parameters
+    ----------
+    source : str or RadarSource
+        Source name (e.g. ``'nexrad'``) or instance.
+    site : str
+        Site identifier.
+    start, end : datetime.datetime
+        Time range. ``end='now'`` resolves to the current UTC time.
+    step : datetime.timedelta
+        Cadence between scans.
+    title_fmt : str or None, optional
+        Title template with ``{site}`` and ``{time}`` placeholders.
+    share_colorbar : bool, optional
+        Unused for a single field; kept for API symmetry with
+        :func:`animate_map_ppi`.
+    Others as in :func:`animate_map_ppi`.
+
+    Returns
+    -------
+    out : str
+        The output GIF path.
+
+    """
+    import pyart
+
+    if template in TEMPLATES and title_fmt == '{site} {time}':
+        title_fmt = TEMPLATES[template].get('title_fmt', title_fmt)
+
+    radars = pyart.io.read_time_span(source, site, start, end, step)
+    return animate_map_ppi(
+        radars, field, sweep=sweep, out=out, fps=fps, cmap=cmap,
+        resolution=resolution, mask_outside=mask_outside,
+        lat_lines=lat_lines, lon_lines=lon_lines,
+        min_lon=min_lon, max_lon=max_lon, min_lat=min_lat, max_lat=max_lat,
+        draw_coastline=draw_coastline, draw_borders=draw_borders,
+        show_timestamp=show_timestamp, timestamp_fmt=timestamp_fmt,
+        title_fmt=title_fmt, gatefilter=gatefilter,
+        display_kwargs=display_kwargs)
 
 
 def animate_ppi_batch(files, field, out_dir='.', sweep=0, fps=4,
@@ -394,6 +556,7 @@ __all__ = [
     'animate_ppi',
     'animate_rhi',
     'animate_map_ppi',
+    'animate_map_timespan',
     'animate_ppi_batch',
     'animate_multi_band',
 ]

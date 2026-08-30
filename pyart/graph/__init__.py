@@ -65,10 +65,12 @@ from .radardisplay import RadarDisplay  # noqa
 from .radardisplay_airborne import AirborneRadarDisplay  # noqa
 from .radarmapdisplay import RadarMapDisplay  # noqa
 from .radarmapdisplay_basemap import RadarMapDisplayBasemap  # noqa
+from .dualpol_diagnostic import plot_dualpol_diagnostic  # noqa
 from .animation import (  # noqa
     animate_ppi,
     animate_rhi,
     animate_map_ppi,
+    animate_map_timespan,
     animate_ppi_batch,
     animate_multi_band,
 )
