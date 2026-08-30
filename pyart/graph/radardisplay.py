@@ -1162,6 +1162,82 @@ class RadarDisplay:
         y = r * np.cos(theta)
         ax.plot(x, y, c=col, ls=ls, lw=lw)
 
+    def plot_range_ring_range(
+        self, ranges, ax=None, col="k", ls="--", lw=1.5, fill_color="y", alpha=0.15
+    ):
+        """
+        Highlight a radial band between two range rings.
+
+        MeteoSwiss-style helper used to annotate a precipitation core band;
+        draws the two bounding range rings and a translucent filled annulus
+        between them.
+
+        Parameters
+        ----------
+        ranges : 2-tuple of float
+            Inner and outer range ring locations in km.
+        ax : Axis
+            Axis to plot on. None will use the current axis.
+        col : str or value
+            Color for the bounding rings.
+        ls : str
+            Linestyle for the bounding rings.
+        lw : float
+            Line width for the bounding rings.
+        fill_color : str or value
+            Face color of the annulus.
+        alpha : float
+            Alpha transparency of the annulus.
+
+        """
+        ax = common.parse_ax(ax)
+        inner, outer = sorted(ranges)
+        self.plot_range_ring(inner, ax=ax, col=col, ls=ls, lw=lw)
+        self.plot_range_ring(outer, ax=ax, col=col, ls=ls, lw=lw)
+        theta = np.linspace(0, 2 * np.pi, 360)
+        ax.fill_between(
+            theta,
+            np.full_like(theta, inner),
+            np.full_like(theta, outer),
+            facecolor=fill_color,
+            alpha=alpha,
+            edgecolor="none",
+        )
+
+    def plot_point_labels(self, points, labels, symbols="r+", text_color="k",
+                          ax=None):
+        """
+        Plot symbols and labels at given (range, azimuth) locations.
+
+        MeteoSwiss-style helper for marking points of interest in radar
+        coordinate space.
+
+        Parameters
+        ----------
+        points : list of 2-tuples
+            List of ``(range_km, azimuth_deg)`` tuples.
+        labels : list of str
+            List of labels, one per point.
+        symbols : str or list of str
+            Matplotlib color+marker string(s).
+        text_color : str
+            Label text color.
+        ax : Axis
+            Axis to plot on. None will use the current axis.
+
+        """
+        ax = common.parse_ax(ax)
+        if isinstance(symbols, str):
+            symbols = [symbols] * len(points)
+        if len(points) != len(labels) or len(points) != len(symbols):
+            raise ValueError("length of points, labels and symbols must match")
+        for (range_km, azimuth_deg), label, sym in zip(points, labels, symbols):
+            az = np.radians(azimuth_deg)
+            x = range_km * np.sin(az)
+            y = range_km * np.cos(az)
+            ax.plot([x], [y], sym)
+            ax.text(x, y, label, color=text_color)
+
     @staticmethod
     def plot_grid_lines(ax=None, col="k", ls=":"):
         """
