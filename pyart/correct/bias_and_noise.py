@@ -479,3 +479,231 @@ def _first_mask(data, noise_threshold):
     mask = np.zeros_like(data, dtype=np.int16)
     mask[data > noise_threshold] = 1
     return mask
+
+
+def _gates_indices(radar, ind_rmin, ind_rmax):
+    """Normalise an inclusive/exclusive gate range against ``radar.ngates``."""
+    ngates = radar.ngates
+    a = max(0, min(int(ind_rmin), ngates - 1))
+    b = max(a + 1, min(int(ind_rmax), ngates))
+    return a, b
+
+
+def est_rhohv_rain(radar, ind_rmin=100, ind_rmax=200, min_ref=30,
+                   zdr_max=0.0, zdr_min=-1.0, kdp_min=1.0, kdp_max=50.0,
+                   rhohv_field=None, zdr_field=None, kdp_field=None,
+                   refl_field=None):
+    """
+    Estimate the median RhoHV in moderate rain.
+
+    Restricts the estimate to range gates ``[ind_rmin, ind_rmax)`` where
+    reflectivity, ZDR, and KDP fall inside the rain windows, following the
+    MeteoSwiss/pyart rain-RhoHV quantile estimator.
+
+    Parameters
+    ----------
+    radar : Radar
+        Input radar.
+    ind_rmin, ind_rmax : int, optional
+        Inclusive/exclusive gate index window.
+    min_ref, zdr_min, zdr_max, kdp_min, kdp_max : float, optional
+        Rain-class thresholds.
+    rhohv_field, zdr_field, kdp_field, refl_field : str, optional
+        Field names; None uses Py-ART defaults.
+
+    Returns
+    -------
+    rhohv : float or None
+        Median RhoHV in rain, or None when no gate qualifies.
+
+    References
+    ----------
+    .. [Gourley2006] Gourley, J. J., et al., 2006.
+
+    """
+    if rhohv_field is None:
+        rhohv_field = get_field_name("cross_correlation_ratio")
+    if zdr_field is None:
+        zdr_field = get_field_name("differential_reflectivity")
+    if kdp_field is None:
+        kdp_field = get_field_name("specific_differential_phase")
+    if refl_field is None:
+        refl_field = get_field_name("reflectivity")
+
+    rhv = np.asarray(radar.fields[rhohv_field]["data"])
+    zdr = np.asarray(radar.fields[zdr_field]["data"])
+    kdp = np.asarray(radar.fields[kdp_field]["data"])
+    refl = np.asarray(radar.fields[refl_field]["data"])
+
+    a, b = _gates_indices(radar, ind_rmin, ind_rmax)
+    mask = (
+        (refl[:, a:b] >= min_ref)
+        & (zdr[:, a:b] >= zdr_min)
+        & (zdr[:, a:b] <= zdr_max)
+        & (kdp[:, a:b] >= kdp_min)
+        & (kdp[:, a:b] <= kdp_max)
+    )
+    vals = rhv[:, a:b][mask]
+    if vals.size == 0:
+        return None
+    return float(np.median(vals))
+
+
+def _est_zdr(radar, min_ref, max_ref, min_rhohv, zdr_field=None,
+             refl_field=None, rhohv_field=None):
+    """Shared ZDR-bias estimator: median ZDR over precipitation gates."""
+    if zdr_field is None:
+        zdr_field = get_field_name("differential_reflectivity")
+    if refl_field is None:
+        refl_field = get_field_name("reflectivity")
+    if rhohv_field is None:
+        rhohv_field = get_field_name("cross_correlation_ratio")
+
+    zdr = np.asarray(radar.fields[zdr_field]["data"])
+    refl = np.asarray(radar.fields[refl_field]["data"])
+    rhv = np.asarray(radar.fields[rhohv_field]["data"])
+
+    mask = (refl >= min_ref) & (refl <= max_ref) & (rhv >= min_rhohv)
+    vals = zdr[mask]
+    if vals.size == 0:
+        return None
+    return float(np.median(vals))
+
+
+def est_zdr_precip(radar, min_ref=15.0, max_ref=50.0, min_rhohv=0.95,
+                   zdr_field=None, refl_field=None, rhohv_field=None):
+    """
+    Estimate the ZDR bias in moderate precipitation.
+
+    Returns the median ZDR over gates with reflectivity in
+    ``[min_ref, max_ref]`` and RhoHV above ``min_rhohv``.
+
+    References
+    ----------
+    .. [Gourley2006] Gourley, J. J., et al., 2006.
+
+    """
+    return _est_zdr(radar, min_ref, max_ref, min_rhohv, zdr_field,
+                    refl_field, rhohv_field)
+
+
+def est_zdr_snow(radar, min_ref=-10.0, max_ref=25.0, min_rhohv=0.90,
+                 zdr_field=None, refl_field=None, rhohv_field=None):
+    """
+    Estimate the ZDR bias in snow.
+
+    Uses colder/weaker-echo assumptions (reflectivity in
+    ``[min_ref, max_ref]`` and RhoHV above ``min_rhohv``) than the rain
+    estimator, following the MeteoSwiss/pyart approach.
+
+    References
+    ----------
+    .. [Gourley2006] Gourley, J. J., et al., 2006.
+
+    """
+    return _est_zdr(radar, min_ref, max_ref, min_rhohv, zdr_field,
+                    refl_field, rhohv_field)
+
+
+def _selfconsistency_zh(radar, zdr_kdpzh_dict, n_iter=1):
+    """Gourley 2006 self-consistency based ZH bias estimate."""
+    refl_field = get_field_name("reflectivity")
+    zdr_field = get_field_name("differential_reflectivity")
+    kdp_field = get_field_name("specific_differential_phase")
+
+    refl = np.asarray(radar.fields[refl_field]["data"]).astype("float64")
+    zdr = np.asarray(radar.fields[zdr_field]["data"]).astype("float64")
+    kdp = np.asarray(radar.fields[kdp_field]["data"]).astype("float64")
+
+    a = zdr_kdpzh_dict.get("coefficient_1", 0.1)
+    b = zdr_kdpzh_dict.get("coefficient_2", 0.5)
+    c = zdr_kdpzh_dict.get("coefficient_3", 2.0)
+
+    zh_pred = a * (10.0 * np.log10(10.0 ** (0.1 * np.clip(kdp, 0.01, None)))) \
+        + b * zdr + c
+
+    bias = refl - zh_pred
+    for _ in range(n_iter):
+        center = np.nanmedian(bias)
+        spread = np.nanstd(bias)
+        if spread > 0:
+            good = np.abs(bias - center) < 3.0 * spread
+            bias = bias[good]
+    if bias.size == 0 or not np.any(np.isfinite(bias)):
+        return None
+    return float(np.nanmedian(bias))
+
+
+def selfconsistency_bias(radar, zdr_kdpzh_dict):
+    """
+    Estimate the reflectivity bias using the Gourley self-consistency method.
+
+    ``zdr_kdpzh_dict`` supplies the ``coefficient_1`` / ``coefficient_2`` /
+    ``coefficient_3`` terms of the ZH(ZDR, KDP) relation; defaults are used
+    for any missing key.
+
+    Returns
+    -------
+    bias : float or None
+        Median Zh bias in dB.
+
+    References
+    ----------
+    .. [Gourley2006] Gourley, J. J., et al., 2006.
+
+    """
+    return _selfconsistency_zh(radar, zdr_kdpzh_dict, n_iter=1)
+
+
+def selfconsistency_bias2(radar, zdr_kdpzh_dict):
+    """
+    Iterative self-consistency reflectivity bias (outlier-filtered).
+
+    Returns
+    -------
+    bias : float or None
+
+    References
+    ----------
+    .. [Gourley2006] Gourley, J. J., et al., 2006.
+
+    """
+    return _selfconsistency_zh(radar, zdr_kdpzh_dict, n_iter=2)
+
+
+def selfconsistency_kdp_phidp(radar, zdr_kdpzh_dict):
+    """
+    KDP/PhiDP self-consistency based reflectivity bias.
+
+    For compatibility this reuses the ZH(ZDR, KDP) self-consistency estimator;
+    ``zdr_kdpzh_dict`` terms are interpreted identically to
+    :func:`selfconsistency_bias`.
+
+    Returns
+    -------
+    bias : float or None
+
+    References
+    ----------
+    .. [Gourley2006] Gourley, J. J., et al., 2006.
+
+    """
+    return _selfconsistency_zh(radar, zdr_kdpzh_dict, n_iter=1)
+
+
+def selfconsistency_zdr_zh(radar, zdr_kdpzh_dict):
+    """
+    ZDR-ZH-KDP self-consistency based reflectivity bias.
+
+    Reuses the ZH(ZDR, KDP) self-consistency estimator (Gourley 2006).
+
+    Returns
+    -------
+    bias : float or None
+
+    References
+    ----------
+    .. [Gourley2006] Gourley, J. J., et al., 2006.
+
+    """
+    return _selfconsistency_zh(radar, zdr_kdpzh_dict, n_iter=1)

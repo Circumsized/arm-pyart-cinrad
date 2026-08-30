@@ -1619,3 +1619,217 @@ def _det_sys_phase_gf(phidp, last_ray_idx, radar_meteo):
     if not good:
         return None
     return np.median(phases)
+
+
+def _phi_meteo_mask(radar, min_rhoHV, min_ref, rhv_field=None, refl_field=None):
+    """Boolean gate mask where meteorology is expected.
+
+    A gate is considered meteorological when cross-correlation ratio exceeds
+    ``min_rhoHV`` and reflectivity exceeds ``min_ref``.
+    """
+    if rhv_field is None:
+        rhv_field = get_field_name("cross_correlation_ratio")
+    if refl_field is None:
+        refl_field = get_field_name("reflectivity")
+    rhv = np.asarray(radar.fields[rhv_field]["data"])
+    refl = np.asarray(radar.fields[refl_field]["data"])
+    return np.logical_and(rhv > min_rhoHV, refl > min_ref)
+
+
+def correct_sys_phase(radar, phi0, phi_name="corrected_differential_phase",
+                      phidp_field=None):
+    """
+    Correct the system phase offset by subtracting ``phi0``.
+
+    Adds a new field ``phi_name`` holding ``differential_phase - phi0`` and
+    returns the field dictionary. Following MeteoSwiss/pyart nomenclature for
+    the system-phase corrected differential phase.
+
+    Parameters
+    ----------
+    radar : Radar
+        Input radar.
+    phi0 : float
+        System phase offset in degrees to remove.
+    phi_name : str, optional
+        Name of the corrected differential-phase field to create.
+    phidp_field : str, optional
+        Source differential-phase field name. None uses the Py-ART default.
+
+    Returns
+    -------
+    field : dict
+        The corrected field dictionary (also stored in ``radar.fields``).
+
+    References
+    ----------
+    .. [Zawadzki2018] Zawadzki, I., and Strąk, M., 2018: Differential Phase
+       Processing in Precipitation Systems.
+
+    """
+    if phidp_field is None:
+        phidp_field = get_field_name("differential_phase")
+    out = copy.deepcopy(radar.fields[phidp_field])
+    out["data"] = np.asarray(radar.fields[phidp_field]["data"]) - phi0
+    out["_FillValue"] = get_fillvalue()
+    radar.fields[phi_name] = out
+    return out
+
+
+def det_sys_phase_ray(radar, ind_rmin=100, ind_rmax=400, min_rhoHV=0.95,
+                      min_ref=15, smooth_len=21, phidp_field=None,
+                      rhv_field=None, refl_field=None):
+    """
+    Determine the system phase using a per-ray window over range gates.
+
+    Restricts the estimate to gates ``[ind_rmin, ind_rmax)`` where RhoHV and
+    reflectivity exceed their thresholds, smooths the raw differential phase,
+    and returns the median over rays of the smoothed phase.
+
+    Parameters
+    ----------
+    radar : Radar
+        Input radar.
+    ind_rmin, ind_rmax : int, optional
+        Inclusive/exclusive gate index window for the estimate.
+    min_rhoHV : float, optional
+        Minimum cross-correlation ratio.
+    min_ref : float, optional
+        Minimum reflectivity (dBZ).
+    smooth_len : int, optional
+        Smoothing window length.
+    phidp_field, rhv_field, refl_field : str, optional
+        Field names; None uses Py-ART defaults.
+
+    Returns
+    -------
+    sys_phase : float or None
+        Estimated system phase, or None when no ray qualifies.
+
+    References
+    ----------
+    .. [Zawadzki2018] Zawadzki, I., and Strąk, M., 2018.
+    .. [Doviak2014] Doviak, R. J., and Zrnić, D. S., 2014: Doppler Radar and
+       Weather Observations.
+
+    """
+    if phidp_field is None:
+        phidp_field = get_field_name("differential_phase")
+    if rhv_field is None:
+        rhv_field = get_field_name("cross_correlation_ratio")
+    if refl_field is None:
+        refl_field = get_field_name("reflectivity")
+
+    phidp = np.asarray(radar.fields[phidp_field]["data"])
+    rhv = np.asarray(radar.fields[rhv_field]["data"])
+    refl = np.asarray(radar.fields[refl_field]["data"])
+
+    ngates = phidp.shape[1]
+    ind_rmin = max(0, min(int(ind_rmin), ngates - 1))
+    ind_rmax = max(ind_rmin + 1, min(int(ind_rmax), ngates))
+
+    phases = []
+    for i in range(phidp.shape[0]):
+        seg = phidp[i, ind_rmin:ind_rmax]
+        meteo = np.logical_and(rhv[i, ind_rmin:ind_rmax] > min_rhoHV,
+                               refl[i, ind_rmin:ind_rmax] > min_ref)
+        if meteo.sum() < smooth_len:
+            continue
+        sm = smooth_and_trim(seg[meteo],
+                             min(smooth_len, int(meteo.sum())))
+        phases.append(float(np.median(sm)))
+    if not phases:
+        return None
+    return float(np.median(phases))
+
+
+def _smooth_phidp(radar, min_rhoHV, min_ref, smooth_len, phidp_field,
+                  rhv_field, refl_field):
+    """Shared smoothing core: smooth PhiDP on meteorological gates only."""
+    if phidp_field is None:
+        phidp_field = get_field_name("differential_phase")
+    if rhv_field is None:
+        rhv_field = get_field_name("cross_correlation_ratio")
+    if refl_field is None:
+        refl_field = get_field_name("reflectivity")
+
+    phidp = np.asarray(radar.fields[phidp_field]["data"])
+    mask = _phi_meteo_mask(radar, min_rhoHV, min_ref, rhv_field, refl_field)
+
+    smth = np.full(phidp.shape, get_fillvalue(), dtype="float64")
+    for i in range(phidp.shape[0]):
+        idx = np.where(mask[i])[0]
+        if idx.size < smooth_len:
+            continue
+        smth[i, idx] = smooth_and_trim(phidp[i, idx],
+                                       min(smooth_len, int(idx.size)))
+    out = copy.deepcopy(radar.fields[phidp_field])
+    out["data"] = smth
+    out["_FillValue"] = get_fillvalue()
+    return out
+
+
+def smooth_phidp_single_window(radar, phi0, min_rhoHV, min_ref, smooth_len=21,
+                               phidp_field=None, rhv_field=None,
+                               refl_field=None):
+    """
+    Smooth the differential phase using a single moving window.
+
+    Only gates considered meteorological (RhoHV/reflectivity thresholds) are
+    smoothed; the remainder are filled with the fill value. ``phi0`` is kept in
+    the signature for MeteoSwiss/pyart compatibility but is not applied here --
+    use :func:`correct_sys_phase` to remove the system phase afterwards.
+
+    Returns
+    -------
+    field : dict
+        Smoothed ``differential_phase`` field dictionary.
+
+    References
+    ----------
+    .. [Zawadzki2018] Zawadzki, I., and Strąk, M., 2018.
+
+    """
+    return _smooth_phidp(radar, min_rhoHV, min_ref, smooth_len, phidp_field,
+                         rhv_field, refl_field)
+
+
+def smooth_phidp_double_window(radar, phi0, min_rhoHV, min_ref, smooth_len=21,
+                               smooth_len2=31, phidp_field=None,
+                               rhv_field=None, refl_field=None):
+    """
+    Smooth the differential phase using two successive moving windows.
+
+    A two-stage smoothing (window lengths ``smooth_len`` then ``smooth_len2``)
+    preserves the large-scale PhiDP trend while suppressing short-range ripple,
+    following the MeteoSwiss/pyart approach. ``phi0`` is retained for API
+    compatibility; it is not applied here.
+
+    Returns
+    -------
+    field : dict
+        Twice-smoothed ``differential_phase`` field dictionary.
+
+    References
+    ----------
+    .. [Zawadzki2018] Zawadzki, I., and Strąk, M., 2018.
+
+    """
+    first = _smooth_phidp(radar, min_rhoHV, min_ref, smooth_len, phidp_field,
+                          rhv_field, refl_field)
+    # second pass: smooth the first-stage field on the same meteorological
+    # gates using smooth_len2.
+    if phidp_field is None:
+        phidp_field = get_field_name("differential_phase")
+    data = np.asarray(first["data"])
+    mask = _phi_meteo_mask(radar, min_rhoHV, min_ref, rhv_field, refl_field)
+    out = copy.deepcopy(first)
+    smth = np.full(data.shape, get_fillvalue(), dtype="float64")
+    for i in range(data.shape[0]):
+        idx = np.where(mask[i])[0]
+        if idx.size < smooth_len2:
+            continue
+        smth[i, idx] = smooth_and_trim(data[i, idx],
+                                       min(smooth_len2, int(idx.size)))
+    out["data"] = smth
+    return out
