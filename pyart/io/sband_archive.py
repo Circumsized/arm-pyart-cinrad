@@ -219,6 +219,31 @@ def read_sband_archive(filename, field_names=None, additional_metadata=None,
         instrument_parameters=instrument_parameters)
 
 
+def read_sband_radar(filename, **kwargs):
+    """
+    Convenience wrapper around :func:`read_sband_archive`.
+
+    Reads a Chinese S-band (CINRAD-SA) Level II Archive file and returns a
+    :class:`pyart.core.Radar`. This is the band-named entry point matching
+    ``read_xband`` / ``read_c98d``; it delegates to :func:`read_sband_archive`
+    without adding behaviour.
+
+    Parameters
+    ----------
+    filename : str
+        Filename of the S-band archive file.
+    **kwargs
+        Forwarded to :func:`read_sband_archive` (e.g. ``station``,
+        ``scans``, ``field_names``).
+
+    Returns
+    -------
+    radar : Radar
+
+    """
+    return read_sband_archive(filename, **kwargs)
+
+
 def _find_range_params(scan_info, filemetadata):
     """ Return range parameters, first_gate, gate_spacing, last_gate. """
     min_first_gate = 999999

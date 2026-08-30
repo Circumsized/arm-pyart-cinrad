@@ -17,6 +17,10 @@ import numpy as np
 
 XBAND_FILENAME_PATTERNS = ('AXPT', 'DXK', 'XAD', 'XCD', 'XSP')
 
+XBAND_DEFAULT_RADIUS = 150
+CBAND_DEFAULT_RADIUS = 230
+SBAND_DEFAULT_RADIUS = 460
+
 
 def is_xband_filename(filename):
     """ Return True when the filename looks like a CINRAD X-band file. """
@@ -47,7 +51,8 @@ def _detect_reader(filename):
     return _reader
 
 
-def read_xband(filename, radius=150, station=None, align_gates=True):
+def read_xband(filename, radius=XBAND_DEFAULT_RADIUS, station=None,
+                align_gates=True):
     """
     Read a CINRAD X-band base-data file, falling back to pycwr.
 
@@ -106,8 +111,8 @@ def _import_cinrad():
     return CinradReader, StandardData, standard_data_to_pyart
 
 
-def read_cinrad(filename, radius=460, station=None, use_standard=True,
-                align_gates=True, band=None, reader=None):
+def read_cinrad(filename, radius=SBAND_DEFAULT_RADIUS, station=None,
+                use_standard=True, align_gates=True, band=None, reader=None):
     """
     Read a CINRAD file using PyCINRAD/pycwr and return a :class:`pyart.core.Radar`.
 
@@ -143,8 +148,12 @@ def read_cinrad(filename, radius=460, station=None, use_standard=True,
     """
     if band is not None:
         band = band.upper()
-        if radius == 460:
-            radius = {'S': 460, 'C': 230, 'X': 150}.get(band, radius)
+        if radius == SBAND_DEFAULT_RADIUS:
+            radius = {
+                'S': SBAND_DEFAULT_RADIUS,
+                'C': CBAND_DEFAULT_RADIUS,
+                'X': XBAND_DEFAULT_RADIUS,
+            }.get(band, radius)
 
     backend = reader or 'cinrad'
     radar = None
@@ -241,7 +250,8 @@ def align_range_gates(radar):
     return radar
 
 
-def read_pa(filename, radius=230, station=None, align_gates=True):
+def read_pa(filename, radius=XBAND_DEFAULT_RADIUS, station=None,
+            align_gates=True):
     """
     Read a CINRAD phased-array file (AXPT/DXK) and return a Radar.
 

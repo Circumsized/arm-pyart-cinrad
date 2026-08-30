@@ -227,3 +227,28 @@ def c98dfile_archive(filename, field_names=None, additional_metadata=None,
                  azimuth, elevation,
                  instrument_parameters=instrument_parameters,
                  radar_calibration=radar_calibration)
+
+
+def read_c98d(filename, **kwargs):
+    """
+    Convenience wrapper around :func:`c98dfile_archive`.
+
+    Reads a C98D (C-band dual-polarization, NUIST) radar archive file and
+    returns a :class:`pyart.core.Radar`. This is the band-named entry point
+    matching ``read_xband`` / ``read_sband_radar``; it delegates to
+    :func:`c98dfile_archive` without adding behaviour.
+
+    Parameters
+    ----------
+    filename : str or file-like
+        Filename or file-like object of the C98D archive file.
+    **kwargs
+        Forwarded to :func:`c98dfile_archive` (e.g. ``cutnum``,
+        ``field_names``).
+
+    Returns
+    -------
+    radar : Radar
+
+    """
+    return c98dfile_archive(filename, **kwargs)

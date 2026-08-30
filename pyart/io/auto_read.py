@@ -11,6 +11,7 @@ import netCDF4
 from .cfradial import read_cfradial
 from .chl import read_chl
 from .cinrad_bridge import read_cinrad, read_pa, read_mocmosaic
+from .c98d_archive import read_c98d
 from .common import prepare_for_read
 from .mdv_radar import read_mdv
 from .nexrad_archive import read_nexrad_archive
@@ -291,6 +292,8 @@ def _try_cinrad(filename, **kwargs):
         try:
             if 'MOCMOSAIC' in name or 'ACHN' in name:
                 return read_mocmosaic(filename, **kwargs)
+            if 'C98D' in name:
+                return read_c98d(filename, **kwargs)
             if any(p in name for p in ('AXPT', 'DXK')):
                 return read_pa(filename, **kwargs)
             return read_cinrad(filename, **kwargs)
