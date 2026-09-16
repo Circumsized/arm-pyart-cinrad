@@ -64,13 +64,26 @@ exclude_patterns = [
     "examples/**/*.json",
 ]
 
+# In CI the example gallery would otherwise perform hundreds of network
+# downloads (open-radar-data, adc.arm.gov), pushing the build well past an
+# hour. Setting PYART_DOCS_OFFLINE=1 keeps the build bounded:
+#   * example failures become warnings instead of aborting the whole site
+#   * examples that hard-require remote datasets are skipped
+# Local/interactive builds leave PYART_DOCS_OFFLINE unset and stay strict.
+_offline = os.environ.get("PYART_DOCS_OFFLINE") == "1"
+
 sphinx_gallery_conf = {
     "examples_dirs": "../../examples",
     "gallery_dirs": "examples",
-    "abort_on_example_error": True,
+    "abort_on_example_error": not _offline,
     "filename_pattern": r"plot_.*\.py$",
+    "ignore_pattern": (
+        r"(plot_nexrad_data_aws|plot_older_nexrad_data_aws"
+        r"|plot_nexrad_data_google_cloud|plot_read_cfradial2)\.py$"
+        if _offline
+        else r"^$"
+    ),
 }
-
 
 # Configuration options for plot_directive. See:
 # https://github.com/matplotlib/matplotlib/blob/f3ed922d935751e08494e5fb5311d3050a3b637b/lib/matplotlib/sphinxext/plot_directive.py#L81
