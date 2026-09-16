@@ -14,6 +14,7 @@ Map animations additionally require cartopy.
 """
 
 import contextlib
+import itertools
 import os
 import warnings
 
@@ -76,35 +77,149 @@ def _import_imageio():
     return imageio
 
 
-def _to_radars(radars_or_files):
-    """ Normalize a list of Radar objects or file paths to Radar objects. """
+def _iter_radars(radars_or_files):
+    """Yield Radar objects, reading paths lazily.
+
+    The previous implementation eagerly materialised the whole list via
+    :func:`pyart.io.read` for every entry *before* a single frame was drawn.
+    Combined with the 200-frame ``MAX_FRAMES`` cap and a 64+ MB per-radar
+    memory footprint, that turned "stream frames to disk" into a lie:
+    hundreds of Radar objects stayed resident in RAM, so :func:`_free_radar`
+    could not free anything. Laziness keeps only the current radar alive,
+    which actually lets :func:`_free_radar` recover memory and keeps the
+    long timespan cases that the docstring promises within reasonable RAM.
+    """
     import pyart
 
-    radars = []
     for item in radars_or_files:
         if hasattr(item, 'fields'):
-            radars.append(item)
+            yield item
         else:
-            radars.append(pyart.io.read(item))
-    return radars
+            yield pyart.io.read(item)
+
+
+def _to_radars(radars_or_files):
+    """Materialise a Radar/file iterable into a list.
+
+    Thin compatibility shim preserved for callers and tests that legitimately
+    need the full list (e.g. counting frames, asserting on a specific entry).
+    """
+    return list(_iter_radars(radars_or_files))
 
 
 def _check_frames(radars, out):
-    if len(radars) == 0:
-        raise ValueError('No radar frames provided')
-    if len(radars) > MAX_FRAMES:
-        warnings.warn(
-            'Truncating animation from {0} to {1} frames'.format(
-                len(radars), MAX_FRAMES))
-        radars = radars[:MAX_FRAMES]
+    """Validate output directory; return a *count* when cheap, else ``None``.
+
+    The previous version materialised the iterable into a truncated list, which
+    defeated the streaming contract. We now return the count when it is cheap
+    (``list`` / ``tuple``) and otherwise leave the iteration alone so the
+    stream can take over.
+    """
     directory = os.path.dirname(os.path.abspath(out))
     if not os.path.isdir(directory):
         raise ValueError('Output directory does not exist: {0}'.format(
             directory))
-    return radars
+    if isinstance(radars, (list, tuple)):
+        if len(radars) == 0:
+            raise ValueError('No radar frames provided')
+        return len(radars)
+    return None
 
 
-def _collect_frames(plot_frame, radars, out, fps):
+def _iter_or_list(radars):
+    """Return a sized list, draining a generator if necessary.
+
+    Used only by the public entry points so the "empty input raises
+    ValueError" contract is preserved without paying the cost twice (the
+    streaming path does not need a sized collection).
+    """
+    if isinstance(radars, (list, tuple)):
+        return radars
+    return list(radars)
+
+
+class _PeekedFirst:
+    """Stream-like wrapper that yields ``head`` first, then ``tail``.
+
+    Lets a public entry point honour "empty input raises ValueError" **and**
+    hand the rest of the iterator to :func:`_collect_frames` so the 200-frame
+    truncation, ``_free_radar`` memory hygiene and streaming imageio writer
+    still apply. Without this, every public function would have to materialise
+    the full list just to discover it is non-empty, which is exactly the
+    defect that was hiding behind ``_to_radars``.
+    """
+
+    __slots__ = ("_head", "_tail", "_exhausted")
+
+    def __init__(self, head, tail):
+        self._head = head
+        self._tail = tail
+        self._exhausted = False
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self._head is not None:
+            value = self._head
+            self._head = None
+            return value
+        if self._exhausted:
+            raise StopIteration
+        try:
+            return next(self._tail)
+        except StopIteration:
+            self._exhausted = True
+            raise
+
+    def __getitem__(self, index):
+        """Support ``radars[0]`` and similar subscript access.
+
+        ``_PeekedFirst`` is a streaming wrapper, so the only safe indices
+        are non-negative integers relative to the already-yielded head
+        (``0`` returns the head frame; ``1+`` advances through the tail).
+        Slices and negative indices raise :class:`TypeError` because we
+        cannot honour them without materialising the entire stream —
+        callers that need random access should call :func:`_iter_or_list`
+        on the input first.
+        """
+        if isinstance(index, slice):
+            raise TypeError(
+                '_PeekedFirst does not support slicing; use _iter_or_list '
+                'if you need indexed/len access to every frame')
+        if not isinstance(index, int):
+            raise TypeError(
+                '_PeekedFirst indices must be int, not {0}'.format(
+                    type(index).__name__))
+        if index < 0:
+            raise TypeError(
+                '_PeekedFirst does not support negative indices; use '
+                '_iter_or_list if you need random access')
+        # Stream through self until the requested index is reached.
+        for offset, value in enumerate(self):
+            if offset == index:
+                return value
+        raise IndexError(
+            '_PeekedFirst index {0} out of range'.format(index))
+
+
+def _check_non_empty(radars_or_files):
+    """Validate that ``radars_or_files`` is non-empty.
+
+    Returns a :class:`_PeekedFirst` that yields the pre-validated first frame
+    followed by the rest of the stream, so the animation pipeline keeps its
+    streaming contract (and per-frame memory hygiene) end-to-end. Output
+    directory validation lives in :func:`_check_frames`.
+    """
+    iterator = _iter_radars(radars_or_files)
+    try:
+        first = next(iterator)
+    except StopIteration:
+        raise ValueError('No radar frames provided')
+    return _PeekedFirst(first, iterator)
+
+
+def _collect_frames(plot_frame, radars, out, fps, max_frames=MAX_FRAMES):
     imageio = _import_imageio()
 
     # Stream each frame to disk with get_writer (v2) so we never hold every
@@ -118,14 +233,22 @@ def _collect_frames(plot_frame, radars, out, fps):
 
     with matplotlib.rc_context({'backend': 'Agg'}):
         import matplotlib.pyplot as plt
+        truncated = False
         with writer:
             for i, radar in enumerate(radars):
+                if i >= max_frames:
+                    truncated = True
+                    break
                 with _free_radar(radar) as radar:
                     fig = plot_frame(i, radar)
                     fig.canvas.draw()
                     buf = np.asarray(fig.canvas.buffer_rgba())
                     writer.append_data(buf)
                     plt.close(fig)
+    if truncated:
+        warnings.warn(
+            'Truncating animation at MAX_FRAMES={0} frames'.format(
+                max_frames))
     return out
 
 
@@ -268,8 +391,11 @@ def animate_ppi(radars_or_files, field, sweep=0, out='ppi.gif', vmin=None,
     """
     import pyart
 
-    radars = _to_radars(radars_or_files)
-    radars = _check_frames(radars, out)
+    radars = _check_non_empty(radars_or_files)
+    _check_frames(radars, out)  # validate dir + count
+    # The 200-frame cap is enforced inside ``_collect_frames`` (it breaks
+    # out of the iteration loop) so the stream contract is preserved; we
+    # used to slice here, which forced an eager materialisation.
     display_kwargs = dict(display_kwargs or {})
     display_kwargs, t_figsize, t_title_fmt = _apply_template(
         display_kwargs, template)
@@ -330,8 +456,11 @@ def animate_rhi(radars_or_files, field, azimuth=None, out='rhi.gif', vmin=None,
     """
     import pyart
 
-    radars = _to_radars(radars_or_files)
-    radars = _check_frames(radars, out)
+    radars = _check_non_empty(radars_or_files)
+    _check_frames(radars, out)  # validate dir + count
+    # The 200-frame cap is enforced inside ``_collect_frames`` (it breaks
+    # out of the iteration loop) so the stream contract is preserved; we
+    # used to slice here, which forced an eager materialisation.
     display_kwargs = dict(display_kwargs or {})
 
     def plot_frame(i, radar):
@@ -402,8 +531,11 @@ def animate_map_ppi(radars_or_files, field, sweep=0, out='map.gif', vmin=None,
             'cartopy is required for map animations; install it with '
             '"pip install cartopy"') from exc
 
-    radars = _to_radars(radars_or_files)
-    radars = _check_frames(radars, out)
+    radars = _check_non_empty(radars_or_files)
+    _check_frames(radars, out)  # validate dir + count
+    # The 200-frame cap is enforced inside ``_collect_frames`` (it breaks
+    # out of the iteration loop) so the stream contract is preserved; we
+    # used to slice here, which forced an eager materialisation.
     display_kwargs = dict(display_kwargs or {})
 
     if projection is None:
@@ -519,7 +651,9 @@ def animate_ppi_batch(files, field, out_dir='.', sweep=0, fps=4,
     Returns
     -------
     report : dict
-        Dictionary with ``success``, ``failed``, and ``outputs`` lists.
+        Dictionary with two entries: ``success`` -- list of generated GIF
+        paths; ``failed`` -- list of ``{'file': path, 'error': message}``
+        dicts.
 
     """
     import glob as glob_module

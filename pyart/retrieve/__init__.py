@@ -35,4 +35,10 @@ from .cfad import create_cfad  # noqa
 from .cappi import create_cappi  # noqa
 from .srv import storm_relative_velocity  # noqa
 
+# Domestic product helpers are exposed as a submodule rather than as
+# top-level names: ``cinrad_products.composite_reflectivity`` takes a
+# filename, while the upstream ``pyart.retrieve.composite_reflectivity``
+# takes a Radar object. Re-exporting both would shadow the upstream API.
+from . import cinrad_products  # noqa
+
 __all__ = [s for s in dir() if not s.startswith("_")]

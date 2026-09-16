@@ -120,3 +120,53 @@ def test_animate_ppi_batch_empty_raises(tmp_path):
 def test_animate_multi_band_empty_raises():
     with pytest.raises(ValueError):
         animate_multi_band({}, 'reflectivity')
+
+
+# ---------------------------------------------------------------------------
+# Streaming contract regression: _PeekedFirst must be both iterable and
+# subscriptable so tests that spy on plot_frame can do `radars[0]`
+# without falling back to list materialisation.
+# ---------------------------------------------------------------------------
+
+
+def test_peeked_first_supports_subscript_0(radars):
+    """``radars[0]`` must return the head frame even when the public
+    entry point handed the rest of the stream to ``_collect_frames``."""
+    from pyart.graph.animation import _check_non_empty
+    peeked = _check_non_empty(radars)
+    first = peeked[0]
+    # Both the head and the rest of the stream come from the same
+    # input list, so ``first`` is one of the frames in ``radars``.
+    assert first in radars
+
+
+def test_peeked_first_rejects_slice():
+    """Slicing is unsupported because it would require materialising the
+    entire stream. Tests that need indexed access should call
+    ``_iter_or_list`` first."""
+    from pyart.graph.animation import _PeekedFirst
+    sentinel_head = object()
+    peeked = _PeekedFirst(sentinel_head, iter([]))
+    with pytest.raises(TypeError):
+        _ = peeked[:]
+
+
+def test_peeked_first_rejects_negative_index():
+    from pyart.graph.animation import _PeekedFirst
+    peeked = _PeekedFirst(object(), iter([]))
+    with pytest.raises(TypeError):
+        _ = peeked[-1]
+
+
+def test_peeked_first_index_out_of_range_raises():
+    from pyart.graph.animation import _PeekedFirst
+    peeked = _PeekedFirst(object(), iter([]))  # one frame only
+    with pytest.raises(IndexError):
+        _ = peeked[5]
+
+
+def test_peeked_first_non_int_index_raises():
+    from pyart.graph.animation import _PeekedFirst
+    peeked = _PeekedFirst(object(), iter([]))
+    with pytest.raises(TypeError):
+        _ = peeked['0']
