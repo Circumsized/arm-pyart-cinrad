@@ -22,6 +22,9 @@ repos:
     hooks:
       - id: black
       - id: black-jupyter
+        # Upstream blog notebook has inconsistent tabs/spaces that black
+        # cannot parse; it is documentation content, not maintained here.
+        exclude: ^doc/source/blog_posts/2022/first_pullrequest\.ipynb$
 
   - repo: https://github.com/charliermarsh/ruff-pre-commit
     rev: 'v0.14.14'

@@ -11,7 +11,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest]
-        python-version: ["3.9", "3.11"]
+        python-version: ["3.10", "3.11", "3.12"]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
@@ -24,7 +24,10 @@ jobs:
           pip install numpy Cython
       - name: Install package
         run: pip install .
+      - name: Install test dependencies
+        run: pip install pytest pytest-mpl
       - name: Syntax check
         run: python -m compileall pyart -q
       - name: Run offline tests
-        run: pytest pyart/io/tests/test_c98d_archive.py pyart/io/tests/test_sband_archive.py pyart/io/tests/test_io_init.py -v
+        run: |
+          python -m pytest pyart/io/tests/test_c98d_archive.py pyart/io/tests/test_sband_archive.py pyart/io/tests/test_xband_bridge.py pyart/io/tests/test_xband_native.py pyart/io/tests/test_cinrad_routing.py pyart/io/tests/test_cinrad_bridge.py pyart/graph/tests/test_animation.py pyart/correct/tests/test_dualpol_pipeline.py -v
