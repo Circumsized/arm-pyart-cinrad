@@ -86,6 +86,12 @@ MANIFEST
 test_*_output.png
 *.actual.png
 
+# Animation outputs from examples
+[*_]animation.gif
+ppi_animation.gif
+rhi_animation.gif
+map_animation.gif
+
 # OS generated files #
 ######################
 .DS_Store*
