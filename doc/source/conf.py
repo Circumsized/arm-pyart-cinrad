@@ -72,16 +72,40 @@ exclude_patterns = [
 # Local/interactive builds leave PYART_DOCS_OFFLINE unset and stay strict.
 _offline = os.environ.get("PYART_DOCS_OFFLINE") == "1"
 
+# Examples that fetch remote datasets. Kept explicit (rather than a heuristic)
+# so the offline gallery is deterministic; the fork's own examples are
+# expected to be self-contained and must NOT be listed here.
+_OFFLINE_SKIP = [
+    "plot_cloud_mask",
+    "plot_dealias_rhi",
+    "plot_zdr_check",
+    "plot_nexrad_data_aws",
+    "plot_nexrad_data_google_cloud",
+    "plot_older_nexrad_data_aws",
+    "plot_read_cfradial2",
+    "plot_grid_single_sweep_ppi",
+    "plot_cappi",
+    "plot_corner_reflector",
+    "plot_max_cappi",
+    "plot_nexrad_image_muted_reflectivity",
+    "plot_nexrad_multiple_moments",
+    "plot_nexrad_reflectivity",
+    "plot_cfad",
+    "plot_convective_stratiform",
+    "plot_feature_detection",
+    "plot_hydrometeor_class_x_band",
+    "plot_hydrometeor",
+    "plot_qpe",
+    "plot_vad",
+]
+
 sphinx_gallery_conf = {
     "examples_dirs": "../../examples",
     "gallery_dirs": "examples",
     "abort_on_example_error": not _offline,
     "filename_pattern": r"plot_.*\.py$",
     "ignore_pattern": (
-        r"(plot_nexrad_data_aws|plot_older_nexrad_data_aws"
-        r"|plot_nexrad_data_google_cloud|plot_read_cfradial2)\.py$"
-        if _offline
-        else r"^$"
+        r"(" + "|".join(_OFFLINE_SKIP) + r")\.py$" if _offline else r"^$"
     ),
 }
 
