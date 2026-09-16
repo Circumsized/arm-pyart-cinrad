@@ -34,6 +34,7 @@ def _check_nexrad():
     print("  Usage:    pyart.io.get_source('nexrad').list_files('KTLX', ...)")
     try:
         import s3fs  # noqa: F401
+
         print("  s3fs: installed")
     except ImportError:
         print("  s3fs: NOT installed (pip install s3fs or arm_pyart[remote])")
@@ -46,6 +47,7 @@ def _check_nmc_cn():
     print("        read() returns a local path, not a pyart Radar.")
     try:
         import requests  # noqa: F401
+
         print("  requests: installed")
     except ImportError:
         print("  requests: NOT installed (pip install arm_pyart[remote])")
@@ -58,12 +60,14 @@ def _check_cma_music():
         "CMA_MUSIC_USER_ID": os.environ.get("CMA_MUSIC_USER_ID"),
         "CMA_MUSIC_API_KEY": os.environ.get("CMA_MUSIC_API_KEY"),
         "CMA_MUSIC_SERVER_ID": os.environ.get(
-            "CMA_MUSIC_SERVER_ID", "(default NMIC_MUSIC_CMADAAS)"),
+            "CMA_MUSIC_SERVER_ID", "(default NMIC_MUSIC_CMADAAS)"
+        ),
     }
     for k, v in env.items():
         print(f"  {k}: {'SET' if v else 'MISSING'}")
     try:
         import cma_music_api  # noqa: F401
+
         print("  cma_music_api: installed")
     except ImportError:
         print("  cma_music_api: NOT installed (pip install cma-music-api)")
@@ -87,7 +91,11 @@ def _check_cine():
 
 def _main():
     targets = sys.argv[1:] or [
-        "nexrad", "nmc_cn", "cma_music", "cma_mos", "cine",
+        "nexrad",
+        "nmc_cn",
+        "cma_music",
+        "cma_mos",
+        "cine",
     ]
     print("Registered sources:", pyart.io.list_sources())
     for name in targets:

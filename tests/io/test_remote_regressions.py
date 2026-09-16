@@ -55,11 +55,15 @@ class _FakeS3:
 # NEXRAD listing / path handling
 # --------------------------------------------------------------------------
 
-@pytest.mark.parametrize("key", [
-    _REAL_KEY,
-    "KLOT20240601_120738_V08",
-    f"{_BUCKET}/2024/06/01/KTLX/{_REAL_KEY}",
-])
+
+@pytest.mark.parametrize(
+    "key",
+    [
+        _REAL_KEY,
+        "KLOT20240601_120738_V08",
+        f"{_BUCKET}/2024/06/01/KTLX/{_REAL_KEY}",
+    ],
+)
 def test_nexrad_parse_time_matches_real_filenames(key):
     """Real keys carry no underscore between the site code and the date."""
     assert NexradSource._parse_time(key) is not None, key
@@ -72,22 +76,36 @@ def test_nexrad_parse_time_value():
 def test_nexrad_list_files_with_real_naming():
     """End-to-end: a realistic bucket listing must yield files."""
     src = get_source("nexrad")
-    fake = _FakeS3([f"{_BUCKET}/2024/06/01/KTLX/{_REAL_KEY}",
-                    f"{_BUCKET}/2024/06/01/KTLX/{_REAL_KEY_2}"])
+    fake = _FakeS3(
+        [
+            f"{_BUCKET}/2024/06/01/KTLX/{_REAL_KEY}",
+            f"{_BUCKET}/2024/06/01/KTLX/{_REAL_KEY_2}",
+        ]
+    )
     src._fs = lambda: fake
-    keys = src.list_files("KTLX", datetime(2024, 6, 1, 0, 0),
-                          datetime(2024, 6, 1, 0, 30), timedelta(minutes=10))
+    keys = src.list_files(
+        "KTLX",
+        datetime(2024, 6, 1, 0, 0),
+        datetime(2024, 6, 1, 0, 30),
+        timedelta(minutes=10),
+    )
     assert keys, "real-naming listing degraded to empty (original defect)"
 
 
-@pytest.mark.parametrize("key,expected", [
-    ("2024/06/01/KTLX/" + _REAL_KEY,
-     f"{_BUCKET}/2024/06/01/KTLX/{_REAL_KEY}"),
-    (f"{_BUCKET}/2024/06/01/KTLX/{_REAL_KEY}",
-     f"{_BUCKET}/2024/06/01/KTLX/{_REAL_KEY}"),
-    (f"/{_BUCKET}/2024/06/01/KTLX/{_REAL_KEY}",
-     f"{_BUCKET}/2024/06/01/KTLX/{_REAL_KEY}"),
-])
+@pytest.mark.parametrize(
+    "key,expected",
+    [
+        ("2024/06/01/KTLX/" + _REAL_KEY, f"{_BUCKET}/2024/06/01/KTLX/{_REAL_KEY}"),
+        (
+            f"{_BUCKET}/2024/06/01/KTLX/{_REAL_KEY}",
+            f"{_BUCKET}/2024/06/01/KTLX/{_REAL_KEY}",
+        ),
+        (
+            f"/{_BUCKET}/2024/06/01/KTLX/{_REAL_KEY}",
+            f"{_BUCKET}/2024/06/01/KTLX/{_REAL_KEY}",
+        ),
+    ],
+)
 def test_nexrad_s3_path_is_normalised_once(key, expected):
     """``list_files`` keys already carry the bucket; never prepend twice."""
     assert NexradSource._s3_path(key) == expected
@@ -109,6 +127,7 @@ def test_nexrad_fetch_uses_single_bucket_prefix(monkeypatch, tmp_path):
 # Time-grid robustness
 # --------------------------------------------------------------------------
 
+
 @pytest.mark.parametrize("step", [timedelta(0), timedelta(minutes=-10)])
 def test_non_positive_step_rejected_instead_of_hanging(step):
     """A zero/negative step never advances the grid: it must raise, not hang."""
@@ -124,8 +143,9 @@ def test_step_type_checked():
 
 def test_read_time_span_rejects_bad_step():
     with pytest.raises(ValueError):
-        read_time_span("nexrad", "KTLX", datetime(2024, 1, 1),
-                       datetime(2024, 1, 2), timedelta(0))
+        read_time_span(
+            "nexrad", "KTLX", datetime(2024, 1, 1), datetime(2024, 1, 2), timedelta(0)
+        )
 
 
 def test_utcnow_helper_is_naive():
@@ -136,6 +156,7 @@ def test_utcnow_helper_is_naive():
 # --------------------------------------------------------------------------
 # SSRF guard
 # --------------------------------------------------------------------------
+
 
 class _RedirectResp:
     status_code = 302
@@ -171,11 +192,11 @@ def test_redirect_to_private_host_is_blocked(monkeypatch, tmp_path):
 
 def test_redirect_loop_is_bounded(monkeypatch, tmp_path):
     monkeypatch.setenv("PYART_CACHE_DIR", str(tmp_path))
-    with mock.patch("requests.get",
-                    lambda url, **kw: _RedirectResp("http://example.com/next")):
+    with mock.patch(
+        "requests.get", lambda url, **kw: _RedirectResp("http://example.com/next")
+    ):
         with pytest.raises(RemoteDataError, match="too many redirects"):
-            get_source("cma_mos")._http_get("http://example.com/start",
-                                            timeout=5)
+            get_source("cma_mos")._http_get("http://example.com/start", timeout=5)
 
 
 def test_is_reachable_guards_private_by_default(monkeypatch, tmp_path):
@@ -208,6 +229,7 @@ def test_cma_mos_private_mirror_requires_opt_in(monkeypatch, tmp_path):
 # --------------------------------------------------------------------------
 # Cache integrity
 # --------------------------------------------------------------------------
+
 
 def test_concurrent_atomic_write_does_not_interleave(monkeypatch, tmp_path):
     """Sharing one ``<name>.tmp`` let writers mix payloads in the same file.
@@ -247,8 +269,11 @@ def test_concurrent_atomic_write_does_not_interleave(monkeypatch, tmp_path):
             data = fh.read()
         assert data in expected, f"interleaved payload detected: {set(data)[:5]}"
         assert len(set(data)) == 1, f"interleaved bytes in file: {set(data)}"
-    leftovers = [n for n in os.listdir(os.path.dirname(target))
-                 if n.endswith(".part") or n.endswith(".tmp")]
+    leftovers = [
+        n
+        for n in os.listdir(os.path.dirname(target))
+        if n.endswith(".part") or n.endswith(".tmp")
+    ]
     assert not leftovers, f"temp files leaked: {leftovers}"
     assert len(successes) + len(errors) == len(payloads)
 
@@ -287,6 +312,7 @@ def test_clear_cache_empties_source_directory(monkeypatch, tmp_path):
 # Failure observability
 # --------------------------------------------------------------------------
 
+
 def test_read_fallback_warns(monkeypatch, tmp_path):
     """Returning a path instead of a Radar must not happen silently."""
     monkeypatch.setenv("PYART_CACHE_DIR", str(tmp_path))
@@ -296,11 +322,11 @@ def test_read_fallback_warns(monkeypatch, tmp_path):
     with mock.patch.object(type(src), "fetch", return_value=str(junk)):
         with warnings.catch_warnings(record=True) as caught:
             warnings.simplefilter("always")
-            result = src.read({"dataCode": "X", "staId": "Z",
-                               "timeRange": "(t,t]"})
+            result = src.read({"dataCode": "X", "staId": "Z", "timeRange": "(t,t]"})
     assert isinstance(result, str), "backward-compatible fallback removed"
-    assert any("could not decode" in str(w.message) for w in caught), (
-        "silent contract violation restored")
+    assert any(
+        "could not decode" in str(w.message) for w in caught
+    ), "silent contract violation restored"
 
 
 def test_read_time_span_warns_when_reads_fail(monkeypatch, tmp_path):
@@ -321,7 +347,8 @@ def test_read_time_span_warns_when_reads_fail(monkeypatch, tmp_path):
 
     with warnings.catch_warnings(record=True) as caught:
         warnings.simplefilter("always")
-        out = _Src().read_time_span("s", datetime(2024, 1, 1),
-                                    datetime(2024, 1, 2), timedelta(hours=1))
+        out = _Src().read_time_span(
+            "s", datetime(2024, 1, 1), datetime(2024, 1, 2), timedelta(hours=1)
+        )
     assert out == []
     assert any("reads failed" in str(w.message) for w in caught)

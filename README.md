@@ -10,7 +10,7 @@
 
 ![Focus](https://img.shields.io/badge/focus-CINRAD%20X%2FS%2FC%20dual--pol-orange)
 
-在 ARM-DOE/pyart 之上,面向中国天气雷达业务与科研的增强 fork.  
+在 ARM-DOE/pyart 之上,面向中国天气雷达业务与科研的增强 fork.
 补齐四项核心能力:CINRAD 基数据读取 · X/S/C 三波段双偏振处理 · GIF 动画管线 · 国内远程数据源.
 
 **核心亮点**
@@ -52,13 +52,18 @@
 | **本 fork 自检脚本**  | `scripts/verify_remote_sources.py`                    |
 | **代码示例补编**       | `README_CODE_EXAMPLES.md`（§4.1–§4.5 与 §8 的大段示例已移至此文件） |
 
-> [!IMPORTANT]>   
-> 本 fork **未发布**到 PyPI / conda,与上游共用包名 `arm_pyart`;>   
-> `pip install arm_pyart` 仅安装上游版本,不含本 fork 任何增强.>   
+> [!IMPORTANT]
+>
+> 本 fork **未发布**到 PyPI / conda,与上游共用包名 `arm_pyart`;
+>
+> `pip install arm_pyart` 仅安装上游版本,不含本 fork 任何增强.
+>
 > 获取本 fork 请按 [§3 安装](#3-安装)从源码安装.
 
-> [!NOTE]>   
-> 本文档中所有 API 名称、签名、默认值与环境变量均于 2026-08-31 在>   
+> [!NOTE]
+>
+> 本文档中所有 API 名称、签名、默认值与环境变量均于 2026-08-31 在
+>
 > Python 3.12 / Windows / pyart 2.2.5.post13+dirty 环境实测核验.
 
 
@@ -113,7 +118,7 @@
 
 ### 1.1 总览架构
 
-下图为本 fork 的分层能力全景:数据自上而下依次流经输入层、IO 读取层、核心数据模型与处理层,  
+下图为本 fork 的分层能力全景:数据自上而下依次流经输入层、IO 读取层、核心数据模型与处理层,
 最终经网格层或直接导出为 `Grid` 对象与图像产品.
 
 ```mermaid
@@ -175,17 +180,19 @@ graph TB
 
 **配色语义**:橙色节点为本 fork 新增或增强的能力,蓝色节点为上游既有能力(行为未改动),绿色节点为数据产出.
 
-> [!NOTE]>   
-> 例外路径:`read_mocmosaic` 读取的 MocMosaic / ACHN 为格点产品,>   
+> [!NOTE]
+>
+> 例外路径:`read_mocmosaic` 读取的 MocMosaic / ACHN 为格点产品,
+>
 > 直接返回 `Grid` 而非 `Radar`,不经过核心数据模型(详见 [§5.1](#51-io-读取层)).
 
 各层内部设计详见 [§5 架构与设计](#5-架构与设计);与上游逐模块的差异清单见 [§2.5](#25-模块级差异).
 
 ### 1.2 问题陈述
 
-`ARM-DOE/pyart` 是 Atmospheric Radiation Measurement(ARM)用户设施维护的科学级雷达工具包,  
-其设计目标是 ARM 在 **X / Ka / W** 波段的多平台雷达科研场景.  
-中国气象业务雷达网(CINRAD,见 [§7 术语表](#7-术语表))以 **S 波段为主、C 波段次之、  
+`ARM-DOE/pyart` 是 Atmospheric Radiation Measurement(ARM)用户设施维护的科学级雷达工具包,
+其设计目标是 ARM 在 **X / Ka / W** 波段的多平台雷达科研场景.
+中国气象业务雷达网(CINRAD,见 [§7 术语表](#7-术语表))以 **S 波段为主、C 波段次之、
 X 波段相控阵为新兴力量**,波段特性与数据格式均与 ARM 体系不同,带来三个层面的缺口:
 
 | 层次       | 上游现状                | 造成的后果               |
@@ -194,8 +201,8 @@ X 波段相控阵为新兴力量**,波段特性与数据格式均与 ARM 体系�
 | **参数化**  | 标定参数面向 ARM 科研波段     | S / C 波段套用会引入系统性偏差  |
 | **数据源**  | 远程获取以 AWS NEXRAD 为例 | 国内缺乏可用的拉取通道         |
 
-本 fork 针对上述缺口,在**保持与上游 API 完全兼容**的前提下做增强,  
-不修改任何上游既有函数的行为.波段参数通过 `BAND_PARAMS`(见 [§5.2](#52-双偏振流水线))  
+本 fork 针对上述缺口,在**保持与上游 API 完全兼容**的前提下做增强,
+不修改任何上游既有函数的行为.波段参数通过 `BAND_PARAMS`(见 [§5.2](#52-双偏振流水线))
 收敛到统一字典,数据源通过注册机制(`pyart.io.remote`)扩展为 5 个.
 
 ### 1.3 与上游的关键差异

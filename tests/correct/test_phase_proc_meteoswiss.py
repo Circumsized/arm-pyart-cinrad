@@ -48,8 +48,9 @@ def test_correct_sys_phase_preserves_mask():
 
 def test_det_sys_phase_ray_returns_scalar():
     radar = make_dualpol_radar()
-    val = det_sys_phase_ray(radar, ind_rmin=0, ind_rmax=50,
-                            min_rhoHV=0.9, min_ref=-10, smooth_len=21)
+    val = det_sys_phase_ray(
+        radar, ind_rmin=0, ind_rmax=50, min_rhoHV=0.9, min_ref=-10, smooth_len=21
+    )
     assert val is not None
     assert np.isfinite(val)
 
@@ -64,14 +65,16 @@ def test_det_sys_phase_ray_no_meteo_returns_none():
 def test_smooth_phidp_single_window_shape():
     radar = make_dualpol_radar()
     out = smooth_phidp_single_window(
-        radar, 0.0, min_rhoHV=0.9, min_ref=-10, smooth_len=21)
+        radar, 0.0, min_rhoHV=0.9, min_ref=-10, smooth_len=21
+    )
     assert out["data"].shape == (360, 50)
 
 
 def test_smooth_phidp_double_window_shape():
     radar = make_dualpol_radar()
     out = smooth_phidp_double_window(
-        radar, 0.0, min_rhoHV=0.9, min_ref=-10, smooth_len=21, smooth_len2=31)
+        radar, 0.0, min_rhoHV=0.9, min_ref=-10, smooth_len=21, smooth_len2=31
+    )
     assert out["data"].shape == (360, 50)
 
 
@@ -80,6 +83,7 @@ def test_smooth_phidp_masks_non_meteo():
     # force all reflectivity below threshold so nothing is meteorological
     radar.fields["reflectivity"]["data"] = np.full((360, 50), -50.0)
     out = smooth_phidp_single_window(
-        radar, 0.0, min_rhoHV=0.9, min_ref=0.0, smooth_len=21)
+        radar, 0.0, min_rhoHV=0.9, min_ref=0.0, smooth_len=21
+    )
     fill = pyart.config.get_fillvalue()
     assert np.all(out["data"] == fill)

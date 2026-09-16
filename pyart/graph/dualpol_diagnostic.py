@@ -76,8 +76,8 @@ def plot_dualpol_diagnostic(
         raise ValueError("no axes provided for plot_dualpol_diagnostic")
     if axes.size < len(fields):
         raise ValueError(
-            f"{len(fields)} fields requested but only {axes.size} axes "
-            "provided")
+            f"{len(fields)} fields requested but only {axes.size} axes " "provided"
+        )
 
     display = RadarDisplay(radar)
     for axi, field in zip(axes, fields):

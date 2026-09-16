@@ -13,8 +13,7 @@ from .auto_read import read  # noqa
 from .c98d_archive import c98dfile_archive, read_c98d  # noqa
 from .cfradial import read_cfradial, write_cfradial  # noqa
 from .chl import read_chl  # noqa
-from .cinrad_bridge import (  # noqa
-    read_cinrad, read_xband, read_pa, read_mocmosaic)
+from .cinrad_bridge import read_cinrad, read_xband, read_pa, read_mocmosaic  # noqa
 from .sband_archive import read_sband_archive, read_sband_radar  # noqa
 from .xband_native import read_xband_724xsp, read_xband_scrxd01  # noqa
 from .common import prepare_for_read  # noqa
@@ -32,8 +31,15 @@ from .uf_write import write_uf  # noqa
 
 try:  # optional remote-acquisition layer (requests/s3fs/pooch)
     from .remote import (  # noqa
-        RemoteDataError, RadarSite, RadarSource, CmaMusicSource,
-        get_source, list_sources, read_time_span, register_source)
+        RemoteDataError,
+        RadarSite,
+        RadarSource,
+        CmaMusicSource,
+        get_source,
+        list_sources,
+        read_time_span,
+        register_source,
+    )
 except ImportError:  # pragma: no cover - optional deps missing
     pass
 

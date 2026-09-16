@@ -38,11 +38,17 @@ def test_cine_list_files_filters(cine_tree):
     src = CineSource(root=str(cine_tree))
     # set a fixed mtime for deterministic filtering
     ts = datetime(2020, 6, 1, 0, 0).timestamp()
-    for name in ("BJ_SAMPLE_202006010000.cine",
-                 "BJ_SAMPLE_202006010030.cine",
-                 "SH_SAMPLE_202006010000.cine"):
-        os.utime(os.path.join(cine_tree, "beijing" if name.startswith("BJ")
-                              else "shanghai", name), (ts, ts))
+    for name in (
+        "BJ_SAMPLE_202006010000.cine",
+        "BJ_SAMPLE_202006010030.cine",
+        "SH_SAMPLE_202006010000.cine",
+    ):
+        os.utime(
+            os.path.join(
+                cine_tree, "beijing" if name.startswith("BJ") else "shanghai", name
+            ),
+            (ts, ts),
+        )
     start = datetime(2020, 6, 1, 0, 0)
     end = datetime(2020, 6, 1, 1, 0)
     files = src.list_files("BJ", start, end, timedelta(minutes=30))
@@ -64,8 +70,7 @@ def test_cine_fetch_missing_raises(tmp_path):
 def test_cine_read_delegates(cine_tree, monkeypatch):
     src = CineSource(root=str(cine_tree))
     p = str(cine_tree / "beijing" / "BJ_SAMPLE_202006010000.cine")
-    monkeypatch.setattr("pyart.io.auto_read.read",
-                        lambda local, **kw: "RADAR-OBJECT")
+    monkeypatch.setattr("pyart.io.auto_read.read", lambda local, **kw: "RADAR-OBJECT")
     assert src.read(p) == "RADAR-OBJECT"
 
 
@@ -78,10 +83,13 @@ def test_cine_scan_cache_offline(cine_tree, monkeypatch):
         "SH_SAMPLE_202006010000.cine": datetime(2020, 6, 1, 0, 10).timestamp(),
     }
     for name, ts in times.items():
-        os.utime(os.path.join(cine_tree, "beijing" if name.startswith("BJ")
-                              else "shanghai", name), (ts, ts))
-    monkeypatch.setattr("pyart.io.auto_read.read",
-                        lambda local, **kw: ("RADAR", local))
+        os.utime(
+            os.path.join(
+                cine_tree, "beijing" if name.startswith("BJ") else "shanghai", name
+            ),
+            (ts, ts),
+        )
+    monkeypatch.setattr("pyart.io.auto_read.read", lambda local, **kw: ("RADAR", local))
 
     # all cached files -> Radar list
     all_ = src.scan_cache()
@@ -92,14 +100,16 @@ def test_cine_scan_cache_offline(cine_tree, monkeypatch):
     assert len(bj) == 2
 
     # time-window filter [00:00, 00:20) -> only the 00:00 and 00:10 files
-    win = src.scan_cache(start=datetime(2020, 6, 1, 0, 0),
-                         end=datetime(2020, 6, 1, 0, 20))
+    win = src.scan_cache(
+        start=datetime(2020, 6, 1, 0, 0), end=datetime(2020, 6, 1, 0, 20)
+    )
     assert len(win) == 2
 
 
 def test_cine_scan_cache_skips_failures(cine_tree, monkeypatch):
     src = CineSource(root=str(cine_tree))
-    monkeypatch.setattr("pyart.io.auto_read.read",
-                        lambda local, **kw: (_ for _ in ()).throw(
-                            RuntimeError("decode")))
+    monkeypatch.setattr(
+        "pyart.io.auto_read.read",
+        lambda local, **kw: (_ for _ in ()).throw(RuntimeError("decode")),
+    )
     assert src.scan_cache() == []

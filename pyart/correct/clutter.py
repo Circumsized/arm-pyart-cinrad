@@ -24,16 +24,21 @@ def _reflectivity_texture(refl, window=5):
     from scipy.ndimage import uniform_filter1d
 
     data = np.ma.filled(np.ma.asarray(refl, dtype=float), np.nan)
-    mean = uniform_filter1d(data, size=window, axis=1, mode='nearest')
-    sq_mean = uniform_filter1d(data ** 2, size=window, axis=1,
-                               mode='nearest')
-    variance = np.clip(sq_mean - mean ** 2, 0.0, None)
+    mean = uniform_filter1d(data, size=window, axis=1, mode="nearest")
+    sq_mean = uniform_filter1d(data**2, size=window, axis=1, mode="nearest")
+    variance = np.clip(sq_mean - mean**2, 0.0, None)
     texture = np.sqrt(variance)
     return np.ma.masked_invalid(texture)
 
 
-def clutter_mask(radar, refl_field=None, rho_field=None, texture_window=5,
-                 max_texture=3.0, min_rho=0.95):
+def clutter_mask(
+    radar,
+    refl_field=None,
+    rho_field=None,
+    texture_window=5,
+    max_texture=3.0,
+    min_rho=0.95,
+):
     """
     Return a boolean ground-clutter mask for a Radar object.
 
@@ -63,20 +68,20 @@ def clutter_mask(radar, refl_field=None, rho_field=None, texture_window=5,
         Array of shape (nrays, ngates); True marks suspected clutter gates.
 
     """
-    refl_name = refl_field or get_field_name('reflectivity')
-    rho_name = rho_field or get_field_name('cross_correlation_ratio')
+    refl_name = refl_field or get_field_name("reflectivity")
+    rho_name = rho_field or get_field_name("cross_correlation_ratio")
 
     if refl_name not in radar.fields:
-        raise ValueError('Radar does not contain a "{0}" field'.format(
-            refl_name))
+        raise ValueError(f'Radar does not contain a "{refl_name}" field')
 
     texture = _reflectivity_texture(
-        radar.fields[refl_name]['data'], window=texture_window)
+        radar.fields[refl_name]["data"], window=texture_window
+    )
 
     clutter = texture <= max_texture
 
     if rho_name in radar.fields:
-        rho = radar.fields[rho_name]['data']
+        rho = radar.fields[rho_name]["data"]
         rho_arr = np.ma.filled(np.ma.asarray(rho, dtype=float), np.nan)
         clutter &= (rho_arr >= min_rho) | np.isnan(rho_arr)
 
@@ -100,17 +105,16 @@ def apply_clutter_mask(radar, mask, refl_field=None, fill_value=np.nan):
         masked-array conversion turns into masked entries).
 
     """
-    refl_name = refl_field or get_field_name('reflectivity')
+    refl_name = refl_field or get_field_name("reflectivity")
     if refl_name not in radar.fields:
-        raise ValueError('Radar does not contain a "{0}" field'.format(
-            refl_name))
-    data = radar.fields[refl_name]['data']
+        raise ValueError(f'Radar does not contain a "{refl_name}" field')
+    data = radar.fields[refl_name]["data"]
     masked = np.ma.masked_where(mask, np.ma.asarray(data, dtype=float))
     if fill_value is not None:
         masked = np.ma.filled(masked, fill_value)
         masked = np.ma.masked_invalid(masked)
-    radar.fields[refl_name]['data'] = masked
+    radar.fields[refl_name]["data"] = masked
     return radar
 
 
-__all__ = ['clutter_mask', 'apply_clutter_mask']
+__all__ = ["clutter_mask", "apply_clutter_mask"]

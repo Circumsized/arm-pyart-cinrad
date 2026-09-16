@@ -489,10 +489,20 @@ def _gates_indices(radar, ind_rmin, ind_rmax):
     return a, b
 
 
-def est_rhohv_rain(radar, ind_rmin=100, ind_rmax=200, min_ref=30,
-                   zdr_max=0.0, zdr_min=-1.0, kdp_min=1.0, kdp_max=50.0,
-                   rhohv_field=None, zdr_field=None, kdp_field=None,
-                   refl_field=None):
+def est_rhohv_rain(
+    radar,
+    ind_rmin=100,
+    ind_rmax=200,
+    min_ref=30,
+    zdr_max=0.0,
+    zdr_min=-1.0,
+    kdp_min=1.0,
+    kdp_max=50.0,
+    rhohv_field=None,
+    zdr_field=None,
+    kdp_field=None,
+    refl_field=None,
+):
     """
     Estimate the median RhoHV in moderate rain.
 
@@ -549,8 +559,15 @@ def est_rhohv_rain(radar, ind_rmin=100, ind_rmax=200, min_ref=30,
     return float(np.median(vals))
 
 
-def _est_zdr(radar, min_ref, max_ref, min_rhohv, zdr_field=None,
-             refl_field=None, rhohv_field=None):
+def _est_zdr(
+    radar,
+    min_ref,
+    max_ref,
+    min_rhohv,
+    zdr_field=None,
+    refl_field=None,
+    rhohv_field=None,
+):
     """Shared ZDR-bias estimator: median ZDR over precipitation gates."""
     if zdr_field is None:
         zdr_field = get_field_name("differential_reflectivity")
@@ -570,8 +587,15 @@ def _est_zdr(radar, min_ref, max_ref, min_rhohv, zdr_field=None,
     return float(np.median(vals))
 
 
-def est_zdr_precip(radar, min_ref=15.0, max_ref=50.0, min_rhohv=0.95,
-                   zdr_field=None, refl_field=None, rhohv_field=None):
+def est_zdr_precip(
+    radar,
+    min_ref=15.0,
+    max_ref=50.0,
+    min_rhohv=0.95,
+    zdr_field=None,
+    refl_field=None,
+    rhohv_field=None,
+):
     """
     Estimate the ZDR bias in moderate precipitation.
 
@@ -583,12 +607,20 @@ def est_zdr_precip(radar, min_ref=15.0, max_ref=50.0, min_rhohv=0.95,
     .. [Gourley2006] Gourley, J. J., et al., 2006.
 
     """
-    return _est_zdr(radar, min_ref, max_ref, min_rhohv, zdr_field,
-                    refl_field, rhohv_field)
+    return _est_zdr(
+        radar, min_ref, max_ref, min_rhohv, zdr_field, refl_field, rhohv_field
+    )
 
 
-def est_zdr_snow(radar, min_ref=-10.0, max_ref=25.0, min_rhohv=0.90,
-                 zdr_field=None, refl_field=None, rhohv_field=None):
+def est_zdr_snow(
+    radar,
+    min_ref=-10.0,
+    max_ref=25.0,
+    min_rhohv=0.90,
+    zdr_field=None,
+    refl_field=None,
+    rhohv_field=None,
+):
     """
     Estimate the ZDR bias in snow.
 
@@ -601,8 +633,9 @@ def est_zdr_snow(radar, min_ref=-10.0, max_ref=25.0, min_rhohv=0.90,
     .. [Gourley2006] Gourley, J. J., et al., 2006.
 
     """
-    return _est_zdr(radar, min_ref, max_ref, min_rhohv, zdr_field,
-                    refl_field, rhohv_field)
+    return _est_zdr(
+        radar, min_ref, max_ref, min_rhohv, zdr_field, refl_field, rhohv_field
+    )
 
 
 def _selfconsistency_zh(radar, zdr_kdpzh_dict, n_iter=1):
@@ -619,8 +652,9 @@ def _selfconsistency_zh(radar, zdr_kdpzh_dict, n_iter=1):
     b = zdr_kdpzh_dict.get("coefficient_2", 0.5)
     c = zdr_kdpzh_dict.get("coefficient_3", 2.0)
 
-    zh_pred = a * (10.0 * np.log10(10.0 ** (0.1 * np.clip(kdp, 0.01, None)))) \
-        + b * zdr + c
+    zh_pred = (
+        a * (10.0 * np.log10(10.0 ** (0.1 * np.clip(kdp, 0.01, None)))) + b * zdr + c
+    )
 
     bias = refl - zh_pred
     for _ in range(n_iter):

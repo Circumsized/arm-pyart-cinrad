@@ -31,9 +31,16 @@ def make_dualpol_radar():
 
 def test_est_rhohv_rain_returns_scalar():
     radar = make_dualpol_radar()
-    val = est_rhohv_rain(radar, ind_rmin=0, ind_rmax=50, min_ref=-10,
-                         zdr_min=-2.0, zdr_max=2.0,
-                         kdp_min=0.0, kdp_max=100.0)
+    val = est_rhohv_rain(
+        radar,
+        ind_rmin=0,
+        ind_rmax=50,
+        min_ref=-10,
+        zdr_min=-2.0,
+        zdr_max=2.0,
+        kdp_min=0.0,
+        kdp_max=100.0,
+    )
     assert val is not None
     assert 0.0 <= val <= 1.0
 
@@ -60,7 +67,11 @@ def test_est_zdr_snow():
 def test_selfconsistency_returns_scalar():
     radar = make_dualpol_radar()
     params = {}
-    for fn in (selfconsistency_bias, selfconsistency_bias2,
-               selfconsistency_kdp_phidp, selfconsistency_zdr_zh):
+    for fn in (
+        selfconsistency_bias,
+        selfconsistency_bias2,
+        selfconsistency_kdp_phidp,
+        selfconsistency_zdr_zh,
+    ):
         val = fn(radar, params)
         assert val is None or np.isfinite(val)

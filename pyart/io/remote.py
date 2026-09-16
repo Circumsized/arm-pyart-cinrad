@@ -85,8 +85,9 @@ class RadarSource(Protocol):
     def read(self, key, dest=None, **kwargs):  # pragma: no cover - protocol
         ...
 
-    def read_time_span(self, site, start, end, step, **kwargs) -> list:
-        ...  # pragma: no cover - protocol
+    def read_time_span(
+        self, site, start, end, step, **kwargs
+    ) -> list: ...  # pragma: no cover - protocol
 
 
 class _BaseSource:
@@ -103,8 +104,8 @@ class _BaseSource:
 
     def cache_dir(self) -> str:
         base = os.environ.get(
-            "PYART_CACHE_DIR", os.path.join(os.path.expanduser("~"), ".pyart",
-                                           "cache"))
+            "PYART_CACHE_DIR", os.path.join(os.path.expanduser("~"), ".pyart", "cache")
+        )
         path = os.path.join(base, self.name)
         os.makedirs(path, exist_ok=True)
         return path
@@ -118,10 +119,8 @@ class _BaseSource:
         # path still lives inside the cache directory.
         real_local = os.path.realpath(local)
         real_base = os.path.realpath(self.cache_dir())
-        if not (real_local == real_base or real_local.startswith(
-                real_base + os.sep)):
-            raise RemoteDataError(
-                f"cache key escapes cache directory: {key!r}")
+        if not (real_local == real_base or real_local.startswith(real_base + os.sep)):
+            raise RemoteDataError(f"cache key escapes cache directory: {key!r}")
         return local
 
     def _cache_hit(self, local, force_refresh: bool = False) -> bool:
@@ -163,8 +162,14 @@ class _BaseSource:
         return removed
 
     @staticmethod
-    def _retry(callable_, *args, retries: int = 2, backoff: float = 1.5,
-               timeout: float = 15.0, **kwargs):
+    def _retry(
+        callable_,
+        *args,
+        retries: int = 2,
+        backoff: float = 1.5,
+        timeout: float = 15.0,
+        **kwargs,
+    ):
         """Call ``callable_(*args, **kwargs)`` with bounded retries.
 
         ``timeout`` is advisory: callers that issue HTTP/S3 requests should
@@ -174,16 +179,19 @@ class _BaseSource:
         last_exc = None
         for attempt in range(retries + 1):
             try:
-                return callable_(*args, timeout=timeout, **kwargs) \
-                    if _accepts_timeout(callable_) else \
-                    callable_(*args, **kwargs)
+                return (
+                    callable_(*args, timeout=timeout, **kwargs)
+                    if _accepts_timeout(callable_)
+                    else callable_(*args, **kwargs)
+                )
             except Exception as exc:  # noqa: BLE001
                 last_exc = exc
                 if attempt < retries:
-                    time.sleep(backoff ** attempt)
+                    time.sleep(backoff**attempt)
         raise RemoteDataError(
             f"{getattr(callable_, '__name__', callable_)} failed after "
-            f"{retries + 1} attempts: {last_exc}") from last_exc
+            f"{retries + 1} attempts: {last_exc}"
+        ) from last_exc
 
     # The four protocol methods have sensible default implementations that
     # raise NotImplementedError so subclasses only override what they need.
@@ -214,14 +222,17 @@ class _BaseSource:
             # exactly like "no data in this window". Keep skipping (the
             # documented behaviour) but make it observable.
             import warnings as _w
+
             detail = "; ".join(
-                f"{k!r}: {type(e).__name__}: {e}" for k, e in failures[:3])
+                f"{k!r}: {type(e).__name__}: {e}" for k, e in failures[:3]
+            )
             if len(failures) > 3:
                 detail += f"; ... (+{len(failures) - 3} more)"
             _w.warn(
                 f"{type(self).__name__}.read_time_span: {len(failures)} of "
                 f"{len(keys)} reads failed and were skipped ({detail}).",
-                RuntimeWarning)
+                RuntimeWarning,
+            )
         return radars
 
     # -- HTTP helpers -------------------------------------------------------
@@ -248,6 +259,7 @@ class _BaseSource:
         if host in ("localhost", "127.0.0.1", "::1", "169.254.169.254"):
             return False
         import ipaddress
+
         try:
             ip = ipaddress.ip_address(host)
         except ValueError:
@@ -255,11 +267,14 @@ class _BaseSource:
             # here without a DNS call, which itself is out of scope).
             return True
         return not (
-            ip.is_private or ip.is_loopback or ip.is_link_local
-            or ip.is_reserved or ip.is_multicast)
+            ip.is_private
+            or ip.is_loopback
+            or ip.is_link_local
+            or ip.is_reserved
+            or ip.is_multicast
+        )
 
-    def _http_get(self, url, timeout=15.0, allow_private=False,
-                  max_redirects=3):
+    def _http_get(self, url, timeout=15.0, allow_private=False, max_redirects=3):
         """GET ``url`` and return bytes, with bounded retries.
 
         Redirects are followed **manually** and re-validated at every hop.
@@ -273,13 +288,13 @@ class _BaseSource:
         except ImportError as exc:
             raise ImportError(
                 "requests is required for HTTP sources; install it with "
-                '"pip install arm_pyart[remote]"') from exc
+                '"pip install arm_pyart[remote]"'
+            ) from exc
         from urllib.parse import urljoin
 
         for _hop in range(max_redirects + 1):
             if not self._validate_url(url, allow_private=allow_private):
-                raise RemoteDataError(
-                    f"Refusing to request unsafe URL: {url!r}")
+                raise RemoteDataError(f"Refusing to request unsafe URL: {url!r}")
 
             def _do(timeout=None):
                 r = requests.get(url, timeout=timeout, allow_redirects=False)
@@ -291,18 +306,23 @@ class _BaseSource:
                 location = response.headers.get("Location")
                 if not location:
                     raise RemoteDataError(
-                        f"Redirect without Location header from {url!r}")
+                        f"Redirect without Location header from {url!r}"
+                    )
                 url = urljoin(url, location)
                 continue
             return response.content
         raise RemoteDataError(
-            f"too many redirects (>{max_redirects}) while fetching {url!r}")
+            f"too many redirects (>{max_redirects}) while fetching {url!r}"
+        )
 
     def _http_get_json(self, url, timeout=15.0, allow_private=False):
         import json
+
         return json.loads(
-            self._http_get(url, timeout=timeout,
-                           allow_private=allow_private).decode("utf-8"))
+            self._http_get(url, timeout=timeout, allow_private=allow_private).decode(
+                "utf-8"
+            )
+        )
 
     @staticmethod
     def _is_reachable(url, timeout=8.0, allow_private=False):
@@ -374,7 +394,8 @@ def _unique_tmp(local: str) -> str:
     directory = os.path.dirname(os.path.abspath(local)) or "."
     os.makedirs(directory, exist_ok=True)
     fd, tmp = tempfile.mkstemp(
-        prefix=os.path.basename(local) + ".", suffix=".part", dir=directory)
+        prefix=os.path.basename(local) + ".", suffix=".part", dir=directory
+    )
     os.close(fd)
     return tmp
 
@@ -423,8 +444,7 @@ def get_source(name: str, **kwargs) -> RadarSource:
         If ``name`` is not registered.
     """
     if name not in _SOURCES:
-        raise KeyError(
-            f"Unknown radar source '{name}'. Available: {list_sources()}")
+        raise KeyError(f"Unknown radar source '{name}'. Available: {list_sources()}")
     return _SOURCES[name](**kwargs)
 
 
@@ -460,12 +480,12 @@ def read_time_span(source, site, start, end, step, **kwargs) -> list:
     if isinstance(source, str):
         source = get_source(source)
     if not isinstance(step, timedelta):
-        raise TypeError(
-            f"step must be a datetime.timedelta, got {type(step).__name__}")
+        raise TypeError(f"step must be a datetime.timedelta, got {type(step).__name__}")
     if step <= timedelta(0):
         raise ValueError(
             f"step must be strictly positive, got {step!r}: a non-positive "
-            "step never advances the time grid and never terminates.")
+            "step never advances the time grid and never terminates."
+        )
     if isinstance(end, str) and end.lower() == "now":
         end = _utcnow()
     return source.read_time_span(site, start, end, step, **kwargs)
@@ -524,12 +544,12 @@ def _timespan(start, end, step):
         process is killed.
     """
     if not isinstance(step, timedelta):
-        raise TypeError(
-            f"step must be a datetime.timedelta, got {type(step).__name__}")
+        raise TypeError(f"step must be a datetime.timedelta, got {type(step).__name__}")
     if step <= timedelta(0):
         raise ValueError(
             f"step must be strictly positive, got {step!r}: a non-positive "
-            "step never advances the time grid and never terminates.")
+            "step never advances the time grid and never terminates."
+        )
     t = start
     while t < end:
         yield t
@@ -559,7 +579,8 @@ class NexradSource(_BaseSource):
         except ImportError as exc:
             raise ImportError(
                 "s3fs is required for NexradSource; install it with "
-                '"pip install s3fs"') from exc
+                '"pip install s3fs"'
+            ) from exc
         return s3fs.S3FileSystem(anon=self._anon)
 
     def list_sites(self) -> dict:
@@ -571,8 +592,7 @@ class NexradSource(_BaseSource):
         if m is None:
             return None
         try:
-            return datetime.strptime(m.group(1) + m.group(2),
-                                      "%Y%m%d%H%M%S")
+            return datetime.strptime(m.group(1) + m.group(2), "%Y%m%d%H%M%S")
         except ValueError:
             return None
 
@@ -611,8 +631,9 @@ class NexradSource(_BaseSource):
         # Pick the nearest key to each step grid point (zssherman approach).
         selected = []
         for grid_t in _timespan(start, end, step):
-            best = min(parsed, key=lambda kt, gt=grid_t: abs((kt[1] - gt)
-                       .total_seconds()))
+            best = min(
+                parsed, key=lambda kt, gt=grid_t: abs((kt[1] - gt).total_seconds())
+            )
             if best not in selected:
                 selected.append(best)
         return [k for k, _ in selected]
@@ -648,8 +669,7 @@ class NexradSource(_BaseSource):
                 # s3fs.get may create a directory named like the key.
                 moved = os.path.join(tmp, os.path.basename(key))
                 if not os.path.isfile(moved):
-                    raise RemoteDataError(
-                        f"s3fs produced no file for {key!r}")
+                    raise RemoteDataError(f"s3fs produced no file for {key!r}")
                 os.replace(moved, local)
             else:
                 if os.path.getsize(tmp) == 0:
@@ -661,6 +681,7 @@ class NexradSource(_BaseSource):
 
     def read(self, key, dest=None, **kwargs):
         from .nexrad_archive import read_nexrad_archive
+
         local = self.fetch(key, dest=dest)
         scans = kwargs.pop("scans", None)
         reader_kwargs = {"storage_options": {"anon": self._anon}}
@@ -714,14 +735,15 @@ class NmcCnSource(_BaseSource):
         for region, (code, desc) in _NMC_REGIONS.items():
             url = f"{_NMC_BASE}/publish/radar/{code}.html"
             if self._is_reachable(url):
-                out[region] = RadarSite(
-                    region, 0.0, 0.0, 0.0, "C", "CN")
+                out[region] = RadarSite(region, 0.0, 0.0, 0.0, "C", "CN")
         if not out:
             import warnings
+
             warnings.warn(
                 "NmcCnSource: no nmc.cn region reachable; list_sites empty. "
                 "The upstream site may have changed; review _NMC_REGIONS.",
-                RuntimeWarning)
+                RuntimeWarning,
+            )
         return out
 
     def list_files(self, site, start, end, step) -> list:
@@ -797,15 +819,17 @@ class CmaMusicSource(_BaseSource):
     name = "cma_music"
     bands = ("X", "S", "C")
 
-    def __init__(self, station_table=None, user_id=None, api_key=None,
-                 server_id=None):
+    def __init__(self, station_table=None, user_id=None, api_key=None, server_id=None):
         self.station_table = dict(station_table or {})
-        self.user_id = os.environ.get("CMA_MUSIC_USER_ID") if user_id is None \
-            else user_id
-        self.api_key = os.environ.get("CMA_MUSIC_API_KEY") if api_key is None \
-            else api_key
+        self.user_id = (
+            os.environ.get("CMA_MUSIC_USER_ID") if user_id is None else user_id
+        )
+        self.api_key = (
+            os.environ.get("CMA_MUSIC_API_KEY") if api_key is None else api_key
+        )
         self.server_id = server_id or os.environ.get(
-            "CMA_MUSIC_SERVER_ID", _MUSIC_DEFAULT_SERVER_ID)
+            "CMA_MUSIC_SERVER_ID", _MUSIC_DEFAULT_SERVER_ID
+        )
 
     # -- lazy MUSIC client ------------------------------------------------
     def _client(self, timeout=15.0):
@@ -813,15 +837,18 @@ class CmaMusicSource(_BaseSource):
             raise RemoteDataError(
                 "CmaMusicSource requires MUSIC credentials. Set the "
                 "CMA_MUSIC_USER_ID and CMA_MUSIC_API_KEY environment "
-                "variables (and optionally CMA_MUSIC_SERVER_ID).")
+                "variables (and optionally CMA_MUSIC_SERVER_ID)."
+            )
         try:
             from cma_music_api.client import DataQueryClient
         except ImportError as exc:  # pragma: no cover - optional dep
             raise RemoteDataError(
                 "cma_music_api is required for CmaMusicSource; install it "
-                "with 'pip install cma-music-api'") from exc
-        return DataQueryClient(self.user_id, self.api_key,
-                               self.server_id, timeout=timeout)
+                "with 'pip install cma-music-api'"
+            ) from exc
+        return DataQueryClient(
+            self.user_id, self.api_key, self.server_id, timeout=timeout
+        )
 
     def list_sites(self) -> dict:
         if self.station_table:
@@ -845,17 +872,21 @@ class CmaMusicSource(_BaseSource):
                 out[code] = RadarSite(code, lat, lon, alt, "C", "CN")
             if not out:
                 import warnings as _w
+
                 _w.warn(
                     "CmaMusicSource: station discovery returned no stations; "
                     "pass station_table=... in the constructor.",
-                    RuntimeWarning)
+                    RuntimeWarning,
+                )
             return out
         except Exception as exc:  # noqa: BLE001 - fail soft without creds
             import warnings as _w
+
             _w.warn(
                 f"CmaMusicSource: station discovery unavailable ({exc}); "
                 "pass station_table=... in the constructor.",
-                RuntimeWarning)
+                RuntimeWarning,
+            )
             return {}
 
     def _list_keys(self, site, start, end, step):
@@ -863,11 +894,13 @@ class CmaMusicSource(_BaseSource):
             end = _utcnow()
         keys = []
         for t in _timespan(start, end, step):
-            keys.append({
-                "dataCode": _MUSIC_DATACODE,
-                "staId": site,
-                "timeRange": f"({t:%Y-%m-%d %H:%M:%S},{t:%Y-%m-%d %H:%M:%S}]",
-            })
+            keys.append(
+                {
+                    "dataCode": _MUSIC_DATACODE,
+                    "staId": site,
+                    "timeRange": f"({t:%Y-%m-%d %H:%M:%S},{t:%Y-%m-%d %H:%M:%S}]",
+                }
+            )
         return keys
 
     def list_files(self, site, start, end, step) -> list:
@@ -875,14 +908,17 @@ class CmaMusicSource(_BaseSource):
 
     def fetch(self, key, dest=None, force_refresh: bool = False) -> str:
         local = dest or self.cache_path(
-            f"cma_music_{key['dataCode']}_{key['staId']}_{key['timeRange']}")
+            f"cma_music_{key['dataCode']}_{key['staId']}_{key['timeRange']}"
+        )
         if self._cache_hit(local, force_refresh=force_refresh):
             return local
         import warnings as _w
+
         _w.warn(
             "CmaMusicSource.fetch triggered a real MUSIC download; this "
             "requires valid credentials and network access.",
-            UserWarning)
+            UserWarning,
+        )
         url = key.get("url")
         if url is None:
             # Documented MUSIC interface: returns file entries for a station
@@ -891,17 +927,21 @@ class CmaMusicSource(_BaseSource):
             client = self._client()
             try:
                 entries = client.getRadaFileByTimeRangeAndStaId(
-                    dataCode=key["dataCode"], staId=key["staId"],
-                    timeRange=key["timeRange"])
+                    dataCode=key["dataCode"],
+                    staId=key["staId"],
+                    timeRange=key["timeRange"],
+                )
             except AttributeError as exc:
                 raise RemoteDataError(
                     "The installed cma_music_api client does not expose "
                     "getRadaFileByTimeRangeAndStaId; provide the download "
-                    "URL directly via key['url'].") from exc
+                    "URL directly via key['url']."
+                ) from exc
             if not entries:
                 raise RemoteDataError(
                     f"No MUSIC file returned for station {key['staId']} at "
-                    f"{key['timeRange']}.")
+                    f"{key['timeRange']}."
+                )
             entry = entries[0]
             url = None
             for field in ("url", "downloadUrl", "fileUrl", "ftpUrl"):
@@ -911,7 +951,8 @@ class CmaMusicSource(_BaseSource):
             if url is None:
                 raise RemoteDataError(
                     "MUSIC file entry has no recognized download URL field: "
-                    f"{list(entry)}")
+                    f"{list(entry)}"
+                )
         # 天擎 download URLs may sit on private address space, so allow them
         # through the SSRF guard explicitly.
         data = self._http_get(url, allow_private=True)
@@ -921,6 +962,7 @@ class CmaMusicSource(_BaseSource):
     def read(self, key, dest=None, **kwargs):
         local = self.fetch(key, dest=dest)
         from .cinrad_bridge import is_xband_filename, read_cinrad
+
         if is_xband_filename(local):
             kwargs.setdefault("band", "X")
         else:
@@ -932,16 +974,20 @@ class CmaMusicSource(_BaseSource):
             # here breaks the documented ``list[Radar]`` contract, so the
             # failure must be observable rather than silently swallowed.
             import warnings as _w
+
             _w.warn(
                 f"CmaMusicSource.read could not decode {local!r} as CINRAD "
                 f"base data ({type(exc).__name__}: {exc}); returning the local "
-                "path instead of a Radar object.", RuntimeWarning)
+                "path instead of a Radar object.",
+                RuntimeWarning,
+            )
             return local
 
 
 # ---------------------------------------------------------------------------
 # Per-province CMA public mirrors — honest implementation
 # ---------------------------------------------------------------------------
+
 
 @register_source
 class CmaMosSource(_BaseSource):
@@ -972,16 +1018,17 @@ class CmaMosSource(_BaseSource):
         self.station_config = dict(station_config or {})
 
     def _fill_url(self, template, when):
-        return template.format(
-            date=when.strftime("%Y%m%d"), time=when.strftime("%H%M"))
+        return template.format(date=when.strftime("%Y%m%d"), time=when.strftime("%H%M"))
 
     def list_sites(self) -> dict:
         if not self.station_config:
             import warnings as _w
+
             _w.warn(
                 "CmaMosSource: no station_config supplied; list_sites empty. "
                 "Pass station_config={'code': {'template': 'http://...",
-                RuntimeWarning)
+                RuntimeWarning,
+            )
             return {}
         out = {}
         for code, cfg in self.station_config.items():
@@ -1008,8 +1055,7 @@ class CmaMosSource(_BaseSource):
         if isinstance(end, str) and end.lower() == "now":
             end = _utcnow()
         template = cfg["template"]
-        return [self._fill_url(template, t)
-                for t in _timespan(start, end, step)]
+        return [self._fill_url(template, t) for t in _timespan(start, end, step)]
 
     def fetch(self, key, dest=None, force_refresh: bool = False) -> str:
         local = dest or self.cache_path(key)
@@ -1023,15 +1069,19 @@ class CmaMosSource(_BaseSource):
         local = self.fetch(key, dest=dest)
         try:
             from .cinrad_bridge import read_cinrad
+
             return read_cinrad(local, **kwargs)
         except Exception as exc:
             # See CmaMusicSource.read: the path fallback breaks the documented
             # ``list[Radar]`` contract, so surface it as a warning.
             import warnings as _w
+
             _w.warn(
                 f"CmaMosSource.read could not decode {local!r} as CINRAD base "
                 f"data ({type(exc).__name__}: {exc}); returning the local path "
-                "instead of a Radar object.", RuntimeWarning)
+                "instead of a Radar object.",
+                RuntimeWarning,
+            )
             return local
 
 
@@ -1065,10 +1115,12 @@ class CineSource(_BaseSource):
 
     def _scan(self):
         import glob as _glob
+
         files = []
         for ext in _CINE_EXTS:
-            files.extend(_glob.glob(
-                os.path.join(self.root, "**", "*" + ext), recursive=True))
+            files.extend(
+                _glob.glob(os.path.join(self.root, "**", "*" + ext), recursive=True)
+            )
         # Deduplicate: on case-insensitive filesystems '.cine' and '.CINE'
         # match the same files.
         return sorted(set(files))
@@ -1081,8 +1133,7 @@ class CineSource(_BaseSource):
         out = {}
         for path in self._scan():
             site = self._site_of(path)
-            out.setdefault(
-                site, RadarSite(site, 0.0, 0.0, 0.0, "C", "CN"))
+            out.setdefault(site, RadarSite(site, 0.0, 0.0, 0.0, "C", "CN"))
         return out
 
     def list_files(self, site, start, end, step) -> list:
@@ -1105,6 +1156,7 @@ class CineSource(_BaseSource):
 
     def read(self, key, dest=None, **kwargs):
         from .auto_read import read as _read
+
         local = self.fetch(key, dest=dest)
         return _read(local, **kwargs)
 

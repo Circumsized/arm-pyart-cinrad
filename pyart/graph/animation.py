@@ -14,38 +14,44 @@ Map animations additionally require cartopy.
 """
 
 import contextlib
-import itertools
 import os
 import warnings
 
 import matplotlib
 import numpy as np
 
-
 MAX_FRAMES = 200
 
 TEMPLATES = {
-    'dualpol': {
-        'fields': ['reflectivity', 'differential_reflectivity',
-                   'cross_correlation_ratio', 'specific_differential_phase'],
-        'figsize': (12, 12),
-        'title_fmt': '{field} - {i}',
+    "dualpol": {
+        "fields": [
+            "reflectivity",
+            "differential_reflectivity",
+            "cross_correlation_ratio",
+            "specific_differential_phase",
+        ],
+        "figsize": (12, 12),
+        "title_fmt": "{field} - {i}",
     },
-    'timeseries': {
-        'fields': ['reflectivity'],
-        'figsize': (10, 8),
-        'title_fmt': '{time}',
+    "timeseries": {
+        "fields": ["reflectivity"],
+        "figsize": (10, 8),
+        "title_fmt": "{time}",
     },
-    'dualpol_map': {
-        'fields': ['reflectivity', 'differential_reflectivity',
-                   'cross_correlation_ratio', 'specific_differential_phase'],
-        'figsize': (12, 12),
-        'title_fmt': '{field} - {i}',
+    "dualpol_map": {
+        "fields": [
+            "reflectivity",
+            "differential_reflectivity",
+            "cross_correlation_ratio",
+            "specific_differential_phase",
+        ],
+        "figsize": (12, 12),
+        "title_fmt": "{field} - {i}",
     },
-    'timespan': {
-        'fields': ['reflectivity'],
-        'figsize': (10, 8),
-        'title_fmt': '{site} {time}',
+    "timespan": {
+        "fields": ["reflectivity"],
+        "figsize": (10, 8),
+        "title_fmt": "{site} {time}",
     },
 }
 
@@ -62,8 +68,8 @@ def _apply_template(kwargs, template):
         return kwargs, None, None
     preset = TEMPLATES[template]
     out = dict(kwargs)
-    figsize = out.pop('figsize', preset.get('figsize'))
-    title_fmt = out.pop('title_fmt', preset.get('title_fmt'))
+    figsize = out.pop("figsize", preset.get("figsize"))
+    title_fmt = out.pop("title_fmt", preset.get("title_fmt"))
     return out, figsize, title_fmt
 
 
@@ -72,8 +78,9 @@ def _import_imageio():
         import imageio
     except ImportError as exc:
         raise ImportError(
-            'imageio is required for animations; install it with '
-            '"pip install arm_pyart[animation]"') from exc
+            "imageio is required for animations; install it with "
+            '"pip install arm_pyart[animation]"'
+        ) from exc
     return imageio
 
 
@@ -92,7 +99,7 @@ def _iter_radars(radars_or_files):
     import pyart
 
     for item in radars_or_files:
-        if hasattr(item, 'fields'):
+        if hasattr(item, "fields"):
             yield item
         else:
             yield pyart.io.read(item)
@@ -117,11 +124,10 @@ def _check_frames(radars, out):
     """
     directory = os.path.dirname(os.path.abspath(out))
     if not os.path.isdir(directory):
-        raise ValueError('Output directory does not exist: {0}'.format(
-            directory))
+        raise ValueError(f"Output directory does not exist: {directory}")
     if isinstance(radars, (list, tuple)):
         if len(radars) == 0:
-            raise ValueError('No radar frames provided')
+            raise ValueError("No radar frames provided")
         return len(radars)
     return None
 
@@ -185,22 +191,23 @@ class _PeekedFirst:
         """
         if isinstance(index, slice):
             raise TypeError(
-                '_PeekedFirst does not support slicing; use _iter_or_list '
-                'if you need indexed/len access to every frame')
+                "_PeekedFirst does not support slicing; use _iter_or_list "
+                "if you need indexed/len access to every frame"
+            )
         if not isinstance(index, int):
             raise TypeError(
-                '_PeekedFirst indices must be int, not {0}'.format(
-                    type(index).__name__))
+                f"_PeekedFirst indices must be int, not {type(index).__name__}"
+            )
         if index < 0:
             raise TypeError(
-                '_PeekedFirst does not support negative indices; use '
-                '_iter_or_list if you need random access')
+                "_PeekedFirst does not support negative indices; use "
+                "_iter_or_list if you need random access"
+            )
         # Stream through self until the requested index is reached.
         for offset, value in enumerate(self):
             if offset == index:
                 return value
-        raise IndexError(
-            '_PeekedFirst index {0} out of range'.format(index))
+        raise IndexError(f"_PeekedFirst index {index} out of range")
 
 
 def _check_non_empty(radars_or_files):
@@ -215,7 +222,7 @@ def _check_non_empty(radars_or_files):
     try:
         first = next(iterator)
     except StopIteration:
-        raise ValueError('No radar frames provided')
+        raise ValueError("No radar frames provided")
     return _PeekedFirst(first, iterator)
 
 
@@ -229,10 +236,12 @@ def _collect_frames(plot_frame, radars, out, fps, max_frames=MAX_FRAMES):
         writer = imageio.get_writer(out, fps=fps, loop=0)
     except TypeError:
         import imageio.v3 as iio3
+
         writer = iio3.imopen(out, "w", plugin="pillow", fps=fps, loop=0)
 
-    with matplotlib.rc_context({'backend': 'Agg'}):
+    with matplotlib.rc_context({"backend": "Agg"}):
         import matplotlib.pyplot as plt
+
         truncated = False
         with writer:
             for i, radar in enumerate(radars):
@@ -246,9 +255,7 @@ def _collect_frames(plot_frame, radars, out, fps, max_frames=MAX_FRAMES):
                     writer.append_data(buf)
                     plt.close(fig)
     if truncated:
-        warnings.warn(
-            'Truncating animation at MAX_FRAMES={0} frames'.format(
-                max_frames))
+        warnings.warn(f"Truncating animation at MAX_FRAMES={max_frames} frames")
     return out
 
 
@@ -266,13 +273,14 @@ def _free_radar(radar):
         del radar
 
 
-def _radar_time_str(radar, fmt='%Y-%m-%d %H:%M UTC'):
+def _radar_time_str(radar, fmt="%Y-%m-%d %H:%M UTC"):
     """Return a formatted volume start time, or '' when unavailable."""
     try:
         from pyart.util.datetime_utils import datetime_from_radar
+
         return datetime_from_radar(radar).strftime(fmt)
     except Exception:
-        return ''
+        return ""
 
 
 def _format_title(title_fmt, **context):
@@ -294,7 +302,7 @@ def _format_title(title_fmt, **context):
                 try:
                     return super().get_field(field_name, args, kwargs)
                 except (KeyError, IndexError):
-                    return '', field_name
+                    return "", field_name
 
         return _Safe().format(title_fmt, **context)
 
@@ -306,24 +314,33 @@ def _draw_basemap_features(ax, draw_coastline=True, draw_borders=True):
     ``display.basemap.drawcounties()`` call from zssherman/pyart_animation.
     """
     import cartopy.feature as cfeature
+
     if draw_coastline:
-        ax.add_feature(cfeature.COASTLINE.with_scale('50m'))
+        ax.add_feature(cfeature.COASTLINE.with_scale("50m"))
     if draw_borders:
-        ax.add_feature(cfeature.BORDERS.with_scale('50m'))
+        ax.add_feature(cfeature.BORDERS.with_scale("50m"))
 
 
-def _stamp_time(ax, radar, timestamp_fmt='%Y-%m-%d %H:%M UTC'):
+def _stamp_time(ax, radar, timestamp_fmt="%Y-%m-%d %H:%M UTC"):
     """Write the volume start time in the top-right corner of the axes."""
     ts = None
     try:
         from pyart.util.datetime_utils import datetime_from_radar
+
         ts = datetime_from_radar(radar).strftime(timestamp_fmt)
     except Exception:
         ts = None
     if ts:
-        ax.text(0.99, 0.99, ts, transform=ax.transAxes, ha='right',
-                va='top', fontsize='small',
-                bbox=dict(facecolor='white', alpha=0.6, edgecolor='none'))
+        ax.text(
+            0.99,
+            0.99,
+            ts,
+            transform=ax.transAxes,
+            ha="right",
+            va="top",
+            fontsize="small",
+            bbox=dict(facecolor="white", alpha=0.6, edgecolor="none"),
+        )
 
 
 def _with_colorbar_units(fig, field, radar):
@@ -335,24 +352,34 @@ def _with_colorbar_units(fig, field, radar):
     """
     units = None
     try:
-        units = radar.fields[field].get('units')
+        units = radar.fields[field].get("units")
     except (AttributeError, KeyError):
         units = None
     if not units:
         return
     for ax in fig.axes:
-        mappables = list(getattr(ax, 'collections', []))
-        mappables += list(getattr(ax, 'images', []))
+        mappables = list(getattr(ax, "collections", []))
+        mappables += list(getattr(ax, "images", []))
         for m in mappables:
-            cbar = getattr(m, 'colorbar', None)
-            if cbar is not None and hasattr(cbar, 'set_label'):
+            cbar = getattr(m, "colorbar", None)
+            if cbar is not None and hasattr(cbar, "set_label"):
                 cbar.set_label(units)
                 return
 
 
-def animate_ppi(radars_or_files, field, sweep=0, out='ppi.gif', vmin=None,
-                vmax=None, fps=4, title_fmt=None, gatefilter=None,
-                display_kwargs=None, template=None):
+def animate_ppi(
+    radars_or_files,
+    field,
+    sweep=0,
+    out="ppi.gif",
+    vmin=None,
+    vmax=None,
+    fps=4,
+    title_fmt=None,
+    gatefilter=None,
+    display_kwargs=None,
+    template=None,
+):
     """
     Create a GIF animation of PPI sweeps.
 
@@ -397,22 +424,27 @@ def animate_ppi(radars_or_files, field, sweep=0, out='ppi.gif', vmin=None,
     # out of the iteration loop) so the stream contract is preserved; we
     # used to slice here, which forced an eager materialisation.
     display_kwargs = dict(display_kwargs or {})
-    display_kwargs, t_figsize, t_title_fmt = _apply_template(
-        display_kwargs, template)
+    display_kwargs, t_figsize, t_title_fmt = _apply_template(display_kwargs, template)
     if title_fmt is None:
         title_fmt = t_title_fmt
 
     def plot_frame(i, radar):
         import matplotlib.pyplot as plt
+
         display = pyart.graph.RadarDisplay(radar)
         figsize = t_figsize or (8, 8)
         fig = plt.figure(figsize=figsize)
-        display.plot(field, sweep, vmin=vmin, vmax=vmax,
-                     gatefilter=gatefilter,
-                     colorbar_label='', ax=fig.add_subplot(111),
-                     **display_kwargs)
-        title = _format_title(title_fmt, i=i, field=field,
-                              time=_radar_time_str(radar))
+        display.plot(
+            field,
+            sweep,
+            vmin=vmin,
+            vmax=vmax,
+            gatefilter=gatefilter,
+            colorbar_label="",
+            ax=fig.add_subplot(111),
+            **display_kwargs,
+        )
+        title = _format_title(title_fmt, i=i, field=field, time=_radar_time_str(radar))
         if title is not None:
             plt.title(title)
         return fig
@@ -421,7 +453,7 @@ def animate_ppi(radars_or_files, field, sweep=0, out='ppi.gif', vmin=None,
 
 
 def _azimuth_to_sweep(radar, azimuth):
-    """ Return the sweep index for an RHI cross-section.
+    """Return the sweep index for an RHI cross-section.
 
     An integer is interpreted directly as a sweep index; a float is
     interpreted as an azimuth in degrees and mapped to the sweep with the
@@ -432,7 +464,7 @@ def _azimuth_to_sweep(radar, azimuth):
     if not isinstance(azimuth, bool) and isinstance(azimuth, (int, np.integer)):
         return max(0, min(int(azimuth), radar.nsweeps - 1))
     target = float(azimuth) % 360.0
-    az_values = np.asarray(radar.azimuth['data'], dtype='float64') % 360.0
+    az_values = np.asarray(radar.azimuth["data"], dtype="float64") % 360.0
     best, best_diff = 0, 361.0
     for sweep in range(radar.nsweeps):
         start, end = radar.get_start_end(sweep)
@@ -444,8 +476,17 @@ def _azimuth_to_sweep(radar, azimuth):
     return best
 
 
-def animate_rhi(radars_or_files, field, azimuth=None, out='rhi.gif', vmin=None,
-                vmax=None, fps=4, title_fmt=None, display_kwargs=None):
+def animate_rhi(
+    radars_or_files,
+    field,
+    azimuth=None,
+    out="rhi.gif",
+    vmin=None,
+    vmax=None,
+    fps=4,
+    title_fmt=None,
+    display_kwargs=None,
+):
     """
     Create a GIF animation of RHI cross-sections.
 
@@ -465,14 +506,20 @@ def animate_rhi(radars_or_files, field, azimuth=None, out='rhi.gif', vmin=None,
 
     def plot_frame(i, radar):
         import matplotlib.pyplot as plt
+
         display = pyart.graph.RadarDisplay(radar)
         sweep = _azimuth_to_sweep(radar, azimuth)
         fig = plt.figure(figsize=(10, 6))
-        display.plot_rhi(field, sweep, vmin=vmin, vmax=vmax,
-                         colorbar_label='', ax=fig.add_subplot(111),
-                         **display_kwargs)
-        title = _format_title(title_fmt, i=i, field=field,
-                              time=_radar_time_str(radar))
+        display.plot_rhi(
+            field,
+            sweep,
+            vmin=vmin,
+            vmax=vmax,
+            colorbar_label="",
+            ax=fig.add_subplot(111),
+            **display_kwargs,
+        )
+        title = _format_title(title_fmt, i=i, field=field, time=_radar_time_str(radar))
         if title is not None:
             plt.title(title)
         return fig
@@ -480,14 +527,35 @@ def animate_rhi(radars_or_files, field, azimuth=None, out='rhi.gif', vmin=None,
     return _collect_frames(plot_frame, radars, out, fps)
 
 
-def animate_map_ppi(radars_or_files, field, sweep=0, out='map.gif', vmin=None,
-                    vmax=None, fps=4, title_fmt=None, projection=None,
-                    extent=None, display_kwargs=None, cmap=None,
-                    resolution='110m', mask_outside=False, lat_lines=None,
-                    lon_lines=None, min_lon=None, max_lon=None, min_lat=None,
-                    max_lat=None, raster=False, gatefilter=None,
-                    shapefile=None, draw_coastline=True, draw_borders=True,
-                    show_timestamp=False, timestamp_fmt='%Y-%m-%d %H:%M UTC'):
+def animate_map_ppi(
+    radars_or_files,
+    field,
+    sweep=0,
+    out="map.gif",
+    vmin=None,
+    vmax=None,
+    fps=4,
+    title_fmt=None,
+    projection=None,
+    extent=None,
+    display_kwargs=None,
+    cmap=None,
+    resolution="110m",
+    mask_outside=False,
+    lat_lines=None,
+    lon_lines=None,
+    min_lon=None,
+    max_lon=None,
+    min_lat=None,
+    max_lat=None,
+    raster=False,
+    gatefilter=None,
+    shapefile=None,
+    draw_coastline=True,
+    draw_borders=True,
+    show_timestamp=False,
+    timestamp_fmt="%Y-%m-%d %H:%M UTC",
+):
     """
     Create a GIF animation of PPI sweeps on a projected map (cartopy).
 
@@ -528,8 +596,9 @@ def animate_map_ppi(radars_or_files, field, sweep=0, out='map.gif', vmin=None,
         import cartopy  # noqa: F401
     except ImportError as exc:
         raise ImportError(
-            'cartopy is required for map animations; install it with '
-            '"pip install cartopy"') from exc
+            "cartopy is required for map animations; install it with "
+            '"pip install cartopy"'
+        ) from exc
 
     radars = _check_non_empty(radars_or_files)
     _check_frames(radars, out)  # validate dir + count
@@ -540,28 +609,43 @@ def animate_map_ppi(radars_or_files, field, sweep=0, out='map.gif', vmin=None,
 
     if projection is None:
         import cartopy.crs as ccrs
+
         projection = ccrs.PlateCarree()
 
     def plot_frame(i, radar):
         import matplotlib.pyplot as plt
+
         display = pyart.graph.RadarMapDisplay(radar)
         fig = plt.figure(figsize=(10, 8))
         ax = fig.add_subplot(111, projection=projection)
         display.plot_ppi_map(
-            field, sweep, ax=ax, vmin=vmin, vmax=vmax, cmap=cmap,
-            resolution=resolution, mask_outside=mask_outside,
-            lat_lines=lat_lines, lon_lines=lon_lines,
-            min_lon=min_lon, max_lon=max_lon, min_lat=min_lat,
-            max_lat=max_lat, raster=raster, gatefilter=gatefilter,
-            shapefile=shapefile, colorbar_label='', **display_kwargs)
+            field,
+            sweep,
+            ax=ax,
+            vmin=vmin,
+            vmax=vmax,
+            cmap=cmap,
+            resolution=resolution,
+            mask_outside=mask_outside,
+            lat_lines=lat_lines,
+            lon_lines=lon_lines,
+            min_lon=min_lon,
+            max_lon=max_lon,
+            min_lat=min_lat,
+            max_lat=max_lat,
+            raster=raster,
+            gatefilter=gatefilter,
+            shapefile=shapefile,
+            colorbar_label="",
+            **display_kwargs,
+        )
         if extent is not None:
             ax.set_extent(extent)
         _draw_basemap_features(ax, draw_coastline, draw_borders)
         if show_timestamp:
             _stamp_time(ax, radar, timestamp_fmt)
         _with_colorbar_units(fig, field, radar)
-        title = _format_title(title_fmt, i=i, field=field,
-                              time=_radar_time_str(radar))
+        title = _format_title(title_fmt, i=i, field=field, time=_radar_time_str(radar))
         if title is not None:
             plt.title(title)
         return fig
@@ -569,16 +653,35 @@ def animate_map_ppi(radars_or_files, field, sweep=0, out='map.gif', vmin=None,
     return _collect_frames(plot_frame, radars, out, fps)
 
 
-def animate_map_timespan(source, site, start, end, step, field='reflectivity',
-                         sweep=0, out='timespan.gif', fps=4, cmap=None,
-                         resolution='110m', mask_outside=False, lat_lines=None,
-                         lon_lines=None, min_lon=None, max_lon=None,
-                         min_lat=None, max_lat=None, draw_coastline=True,
-                         draw_borders=True, show_timestamp=True,
-                         timestamp_fmt='%Y-%m-%d %H:%M UTC',
-                         title_fmt='{site} {time}', template=None,
-                         gatefilter=None, share_colorbar=True,
-                         display_kwargs=None):
+def animate_map_timespan(
+    source,
+    site,
+    start,
+    end,
+    step,
+    field="reflectivity",
+    sweep=0,
+    out="timespan.gif",
+    fps=4,
+    cmap=None,
+    resolution="110m",
+    mask_outside=False,
+    lat_lines=None,
+    lon_lines=None,
+    min_lon=None,
+    max_lon=None,
+    min_lat=None,
+    max_lat=None,
+    draw_coastline=True,
+    draw_borders=True,
+    show_timestamp=True,
+    timestamp_fmt="%Y-%m-%d %H:%M UTC",
+    title_fmt="{site} {time}",
+    template=None,
+    gatefilter=None,
+    share_colorbar=True,
+    display_kwargs=None,
+):
     """
     Pull data for a time span from a remote source and make a map GIF.
 
@@ -611,23 +714,38 @@ def animate_map_timespan(source, site, start, end, step, field='reflectivity',
     """
     import pyart
 
-    if template in TEMPLATES and title_fmt == '{site} {time}':
-        title_fmt = TEMPLATES[template].get('title_fmt', title_fmt)
+    if template in TEMPLATES and title_fmt == "{site} {time}":
+        title_fmt = TEMPLATES[template].get("title_fmt", title_fmt)
 
     radars = pyart.io.read_time_span(source, site, start, end, step)
     return animate_map_ppi(
-        radars, field, sweep=sweep, out=out, fps=fps, cmap=cmap,
-        resolution=resolution, mask_outside=mask_outside,
-        lat_lines=lat_lines, lon_lines=lon_lines,
-        min_lon=min_lon, max_lon=max_lon, min_lat=min_lat, max_lat=max_lat,
-        draw_coastline=draw_coastline, draw_borders=draw_borders,
-        show_timestamp=show_timestamp, timestamp_fmt=timestamp_fmt,
-        title_fmt=title_fmt, gatefilter=gatefilter,
-        display_kwargs=display_kwargs)
+        radars,
+        field,
+        sweep=sweep,
+        out=out,
+        fps=fps,
+        cmap=cmap,
+        resolution=resolution,
+        mask_outside=mask_outside,
+        lat_lines=lat_lines,
+        lon_lines=lon_lines,
+        min_lon=min_lon,
+        max_lon=max_lon,
+        min_lat=min_lat,
+        max_lat=max_lat,
+        draw_coastline=draw_coastline,
+        draw_borders=draw_borders,
+        show_timestamp=show_timestamp,
+        timestamp_fmt=timestamp_fmt,
+        title_fmt=title_fmt,
+        gatefilter=gatefilter,
+        display_kwargs=display_kwargs,
+    )
 
 
-def animate_ppi_batch(files, field, out_dir='.', sweep=0, fps=4,
-                       template=None, **kwargs):
+def animate_ppi_batch(
+    files, field, out_dir=".", sweep=0, fps=4, template=None, **kwargs
+):
     """
     Batch-generate PPI GIFs from a list of files or a glob pattern.
 
@@ -657,12 +775,13 @@ def animate_ppi_batch(files, field, out_dir='.', sweep=0, fps=4,
 
     """
     import glob as glob_module
+
     import pyart
 
     if isinstance(files, str):
         files = sorted(glob_module.glob(files))
     if len(files) == 0:
-        raise ValueError('No files matched for batch animation')
+        raise ValueError("No files matched for batch animation")
 
     os.makedirs(out_dir, exist_ok=True)
     success = []
@@ -671,19 +790,34 @@ def animate_ppi_batch(files, field, out_dir='.', sweep=0, fps=4,
         try:
             radar = pyart.io.read(filepath)
             name = os.path.splitext(os.path.basename(filepath))[0]
-            out = os.path.join(out_dir, '{0}_{1}.gif'.format(name, field))
-            animate_ppi([radar], field, sweep=sweep, out=out, fps=fps,
-                        template=template, **kwargs)
+            out = os.path.join(out_dir, f"{name}_{field}.gif")
+            animate_ppi(
+                [radar],
+                field,
+                sweep=sweep,
+                out=out,
+                fps=fps,
+                template=template,
+                **kwargs,
+            )
             success.append(out)
         except Exception as exc:
-            failed.append({'file': filepath, 'error': str(exc)})
-    return {'success': success, 'failed': failed}
+            failed.append({"file": filepath, "error": str(exc)})
+    return {"success": success, "failed": failed}
 
 
-def animate_multi_band(radars_by_band, field, out='multi_band.gif',
-                        sweep=0, vmin=None, vmax=None, fps=4,
-                        title_fmt=None, display_kwargs=None,
-                        share_colorbar=True):
+def animate_multi_band(
+    radars_by_band,
+    field,
+    out="multi_band.gif",
+    sweep=0,
+    vmin=None,
+    vmax=None,
+    fps=4,
+    title_fmt=None,
+    display_kwargs=None,
+    share_colorbar=True,
+):
     """
     Create a side-by-side GIF comparing multiple radar bands.
 
@@ -721,27 +855,27 @@ def animate_multi_band(radars_by_band, field, out='multi_band.gif',
 
     bands = list(radars_by_band.keys())
     if len(bands) == 0:
-        raise ValueError('radars_by_band must contain at least one band')
+        raise ValueError("radars_by_band must contain at least one band")
     n_bands = len(bands)
 
     display_kwargs = dict(display_kwargs or {})
 
     def plot_frame(i, radar_by_band):
         import matplotlib.pyplot as plt
-        fig, axes = plt.subplots(1, n_bands, figsize=(5 * n_bands, 5),
-                                 squeeze=False)
+
+        fig, axes = plt.subplots(1, n_bands, figsize=(5 * n_bands, 5), squeeze=False)
         axes = axes[0]
         for ax, band in zip(axes, bands):
             radar = radar_by_band[band]
             display = pyart.graph.RadarDisplay(radar)
             band_kwargs = dict(display_kwargs)
             if share_colorbar:
-                band_kwargs.update({'vmin': vmin, 'vmax': vmax})
-            display.plot(field, sweep, colorbar_label='', ax=ax,
-                         **band_kwargs)
-            title = _format_title(title_fmt, band=band, field=field,
-                                  i=i, time=_radar_time_str(radar))
-            ax.set_title(title or '{0} band'.format(band))
+                band_kwargs.update({"vmin": vmin, "vmax": vmax})
+            display.plot(field, sweep, colorbar_label="", ax=ax, **band_kwargs)
+            title = _format_title(
+                title_fmt, band=band, field=field, i=i, time=_radar_time_str(radar)
+            )
+            ax.set_title(title or f"{band} band")
         fig.tight_layout()
         return fig
 
@@ -750,10 +884,10 @@ def animate_multi_band(radars_by_band, field, out='multi_band.gif',
 
 
 __all__ = [
-    'animate_ppi',
-    'animate_rhi',
-    'animate_map_ppi',
-    'animate_map_timespan',
-    'animate_ppi_batch',
-    'animate_multi_band',
+    "animate_ppi",
+    "animate_rhi",
+    "animate_map_ppi",
+    "animate_map_timespan",
+    "animate_ppi_batch",
+    "animate_multi_band",
 ]

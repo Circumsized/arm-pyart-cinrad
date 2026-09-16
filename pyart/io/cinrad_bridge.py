@@ -16,7 +16,7 @@ import warnings
 
 import numpy as np
 
-XBAND_FILENAME_PATTERNS = ('AXPT', 'DXK', 'XAD', 'XCD', 'XSP')
+XBAND_FILENAME_PATTERNS = ("AXPT", "DXK", "XAD", "XCD", "XSP")
 
 XBAND_DEFAULT_RADIUS = 150
 CBAND_DEFAULT_RADIUS = 230
@@ -29,18 +29,18 @@ SBAND_DEFAULT_RADIUS = 460
 # known type string). ``is_wsr98d_filename`` is the bridge-level detector
 # that lets ``read_cinrad`` route the file to the SA decoder explicitly
 # and surface a non-silent warning to the caller.
-WSR98D_RADAR_TYPE = 'SA'
-WSR98D_FILENAME_PATTERNS = ('WSR98D',)
+WSR98D_RADAR_TYPE = "SA"
+WSR98D_FILENAME_PATTERNS = ("WSR98D",)
 
 
 def is_xband_filename(filename):
-    """ Return True when the filename looks like a CINRAD X-band file. """
+    """Return True when the filename looks like a CINRAD X-band file."""
     name = os.path.basename(filename).upper()
     return any(pattern in name for pattern in XBAND_FILENAME_PATTERNS)
 
 
 def is_wsr98d_filename(filename):
-    """ Return True when the filename looks like a WSR-98D (CINRAD-SA 前代).
+    """Return True when the filename looks like a WSR-98D (CINRAD-SA 前代).
 
     The detector is intentionally permissive: any occurrence of ``WSR98D`` in
     the basename triggers it. False positives are tolerable because the SA
@@ -57,14 +57,14 @@ def is_wsr98d_filename(filename):
 # is mapped to ``'S'`` here too (its band is fixed by the historical 1998
 # design) so the ``_resolve_band`` silent fallback cannot happen.
 _CINRAD_NAME_BAND = (
-    ('SC',     'S'),  # S+C dual-polarization; predominantly S-band
-    ('CD',     'C'),  # C+D dual-polarization; predominantly C-band
-    ('SA',     'S'),
-    ('SB',     'S'),
-    ('CB',     'C'),
-    ('CCJ',    'C'),
-    ('CC',     'C'),
-    ('WSR98D', 'S'),
+    ("SC", "S"),  # S+C dual-polarization; predominantly S-band
+    ("CD", "C"),  # C+D dual-polarization; predominantly C-band
+    ("SA", "S"),
+    ("SB", "S"),
+    ("CB", "C"),
+    ("CCJ", "C"),
+    ("CC", "C"),
+    ("WSR98D", "S"),
 )
 
 
@@ -86,30 +86,32 @@ def _infer_band_from_filename(filename):
 
 
 def _read_via_pywr(filename):
-    """ Read a CINRAD file through pycwr, returning a pyart.core.Radar. """
+    """Read a CINRAD file through pycwr, returning a pyart.core.Radar."""
     try:
         from pycwr.io import read_auto
         from pycwr.reader import standard_data_to_pyart as pycwr_to_pyart
     except ImportError as exc:
         raise ImportError(
-            'pycwr is required for the pycwr backend; install it with '
-            '"pip install arm_pyart[cinrad]"') from exc
+            "pycwr is required for the pycwr backend; install it with "
+            '"pip install arm_pyart[cinrad]"'
+        ) from exc
     return pycwr_to_pyart(read_auto(filename))
 
 
 def _detect_reader(filename):
-    """ Return a callable that opens ``filename`` with PyCINRAD. """
+    """Return a callable that opens ``filename`` with PyCINRAD."""
+
     def _reader():
         CinradReader, StandardData, _ = _import_cinrad()
         try:
             return StandardData(filename)
         except Exception:
             return CinradReader(filename)
+
     return _reader
 
 
-def read_xband(filename, radius=XBAND_DEFAULT_RADIUS, station=None,
-                align_gates=True):
+def read_xband(filename, radius=XBAND_DEFAULT_RADIUS, station=None, align_gates=True):
     """
     Read a CINRAD X-band base-data file, falling back to pycwr.
 
@@ -144,32 +146,40 @@ def read_xband(filename, radius=XBAND_DEFAULT_RADIUS, station=None,
 
     if station is not None:
         lat, lon, alt = station
-        radar.latitude['data'] = np.array([lat], dtype='float64')
-        radar.longitude['data'] = np.array([lon], dtype='float64')
-        radar.altitude['data'] = np.array([alt], dtype='float64')
+        radar.latitude["data"] = np.array([lat], dtype="float64")
+        radar.longitude["data"] = np.array([lon], dtype="float64")
+        radar.altitude["data"] = np.array([alt], dtype="float64")
 
     if align_gates:
         align_range_gates(radar)
 
-    radar.metadata['radar_band'] = 'X'
-    radar.metadata['original_container'] = 'CINRAD-X'
+    radar.metadata["radar_band"] = "X"
+    radar.metadata["original_container"] = "CINRAD-X"
     return radar
 
 
 def _import_cinrad():
-    """ Return the PyCINRAD reader and exporter entry points. """
+    """Return the PyCINRAD reader and exporter entry points."""
     try:
         from cinrad.io import CinradReader, StandardData
         from cinrad.io.export import standard_data_to_pyart
     except ImportError as exc:
         raise ImportError(
-            'PyCINRAD is required for read_cinrad; install it with '
-            '"pip install arm_pyart[cinrad]"') from exc
+            "PyCINRAD is required for read_cinrad; install it with "
+            '"pip install arm_pyart[cinrad]"'
+        ) from exc
     return CinradReader, StandardData, standard_data_to_pyart
 
 
-def read_cinrad(filename, radius=SBAND_DEFAULT_RADIUS, station=None,
-                use_standard=True, align_gates=True, band=None, reader=None):
+def read_cinrad(
+    filename,
+    radius=SBAND_DEFAULT_RADIUS,
+    station=None,
+    use_standard=True,
+    align_gates=True,
+    band=None,
+    reader=None,
+):
     """
     Read a CINRAD file using PyCINRAD/pycwr and return a :class:`pyart.core.Radar`.
 
@@ -207,9 +217,9 @@ def read_cinrad(filename, radius=SBAND_DEFAULT_RADIUS, station=None,
         band = band.upper()
         if radius == SBAND_DEFAULT_RADIUS:
             radius = {
-                'S': SBAND_DEFAULT_RADIUS,
-                'C': CBAND_DEFAULT_RADIUS,
-                'X': XBAND_DEFAULT_RADIUS,
+                "S": SBAND_DEFAULT_RADIUS,
+                "C": CBAND_DEFAULT_RADIUS,
+                "X": XBAND_DEFAULT_RADIUS,
             }.get(band, radius)
 
     # WSR-98D: PyCINRAD's ``infer_type`` cannot recover the radar type from
@@ -224,21 +234,22 @@ def read_cinrad(filename, radius=SBAND_DEFAULT_RADIUS, station=None,
             radius = SBAND_DEFAULT_RADIUS
         else:
             band = WSR98D_RADAR_TYPE  # override whatever the caller passed;
-                                       # WSR-98D is S-band by definition
+            # WSR-98D is S-band by definition
             radius = SBAND_DEFAULT_RADIUS
         warnings.warn(
-            "WSR-98D filename detected: '{name}'. PyCINRAD's infer_type "
+            f"WSR-98D filename detected: '{os.path.basename(filename)}'. PyCINRAD's infer_type "
             "cannot recover the radar type from this historical naming "
             "convention, so the bridge is forcing the CINRAD-SA decoder. "
             "If parsing fails, install pycwr (`pip install arm_pyart[cinrad]`) "
-            "and retry with `reader='pycwr'`.".format(name=os.path.basename(filename)),
-            RuntimeWarning, stacklevel=2,
+            "and retry with `reader='pycwr'`.",
+            RuntimeWarning,
+            stacklevel=2,
         )
 
-    backend = reader or 'cinrad'
+    backend = reader or "cinrad"
     radar = None
 
-    if backend in ('cinrad', None):
+    if backend in ("cinrad", None):
         try:
             CinradReader, StandardData, standard_data_to_pyart = _import_cinrad()
             if use_standard:
@@ -248,7 +259,9 @@ def read_cinrad(filename, radius=SBAND_DEFAULT_RADIUS, station=None,
                     # For WSR-98D, ``CinradReader`` needs an explicit
                     # ``radar_type`` because ``infer_type`` returned None.
                     if wsr98d_detected:
-                        cinrad_obj = CinradReader(filename, radar_type=WSR98D_RADAR_TYPE)
+                        cinrad_obj = CinradReader(
+                            filename, radar_type=WSR98D_RADAR_TYPE
+                        )
                     else:
                         cinrad_obj = CinradReader(filename)
             else:
@@ -258,31 +271,33 @@ def read_cinrad(filename, radius=SBAND_DEFAULT_RADIUS, station=None,
                     cinrad_obj = CinradReader(filename)
             radar = standard_data_to_pyart(cinrad_obj, radius=radius)
         except Exception:
-            if backend == 'cinrad':
+            if backend == "cinrad":
                 radar = None
             raise
 
-    if radar is None and backend in ('pycwr', None):
+    if radar is None and backend in ("pycwr", None):
         try:
             from pycwr.io import read_auto
             from pycwr.reader import standard_data_to_pyart as pycwr_to_pyart
+
             cinrad_obj = read_auto(filename)
             radar = pycwr_to_pyart(cinrad_obj, radius=radius)
         except ImportError as exc:
             raise ImportError(
-                'pycwr is required for the pycwr backend; install it with '
-                '"pip install arm_pyart[cinrad]"') from exc
+                "pycwr is required for the pycwr backend; install it with "
+                '"pip install arm_pyart[cinrad]"'
+            ) from exc
         except Exception:
             raise
 
     if radar is None:
-        raise IOError('Failed to read CINRAD file with available backends')
+        raise OSError("Failed to read CINRAD file with available backends")
 
     if station is not None:
         lat, lon, alt = station
-        radar.latitude['data'] = np.array([lat], dtype='float64')
-        radar.longitude['data'] = np.array([lon], dtype='float64')
-        radar.altitude['data'] = np.array([alt], dtype='float64')
+        radar.latitude["data"] = np.array([lat], dtype="float64")
+        radar.longitude["data"] = np.array([lon], dtype="float64")
+        radar.altitude["data"] = np.array([alt], dtype="float64")
 
     if align_gates:
         align_range_gates(radar)
@@ -298,12 +313,12 @@ def read_cinrad(filename, radius=SBAND_DEFAULT_RADIUS, station=None,
     if effective_band is None:
         effective_band = _infer_band_from_filename(filename)
     if effective_band is not None:
-        radar.metadata['radar_band'] = effective_band
+        radar.metadata["radar_band"] = effective_band
 
     # Tag the WSR-98D provenance so downstream tooling can tell the SA
     # decoder was used on historical WSR-98D bytes, not modern SA data.
     if wsr98d_detected:
-        radar.metadata['original_container'] = 'CINRAD-WSR98D'
+        radar.metadata["original_container"] = "CINRAD-WSR98D"
 
     return radar
 
@@ -331,33 +346,32 @@ def align_range_gates(radar):
     if not radar.fields or len(radar.fields) == 0:
         return radar
 
-    max_ngates = max(dic['data'].shape[1] for dic in radar.fields.values())
+    max_ngates = max(dic["data"].shape[1] for dic in radar.fields.values())
 
-    rng = np.asarray(radar.range['data'], dtype='float64')
+    rng = np.asarray(radar.range["data"], dtype="float64")
     if rng.size < max_ngates:
         spacing = rng[-1] - rng[-2] if rng.size >= 2 else 1.0
         appended = rng[-1] + spacing + spacing * np.arange(max_ngates - rng.size)
-        radar.range['data'] = np.concatenate([rng, appended])
-        radar.range['meters_between_gates'] = float(spacing)
+        radar.range["data"] = np.concatenate([rng, appended])
+        radar.range["meters_between_gates"] = float(spacing)
 
     for dic in radar.fields.values():
-        data = dic['data']
+        data = dic["data"]
         ngates = data.shape[1]
         if ngates == max_ngates:
             continue
         if max_ngates % ngates == 0:
             repeat = max_ngates // ngates
-            dic['data'] = data.repeat(repeat, axis=1)
+            dic["data"] = data.repeat(repeat, axis=1)
         else:
             pad = np.ma.masked_all((data.shape[0], max_ngates - ngates))
-            dic['data'] = np.ma.hstack([data, pad])
+            dic["data"] = np.ma.hstack([data, pad])
 
     radar.ngates = max_ngates
     return radar
 
 
-def read_pa(filename, radius=XBAND_DEFAULT_RADIUS, station=None,
-            align_gates=True):
+def read_pa(filename, radius=XBAND_DEFAULT_RADIUS, station=None, align_gates=True):
     """
     Read a CINRAD phased-array file (AXPT/DXK) and return a Radar.
 
@@ -378,8 +392,13 @@ def read_pa(filename, radius=XBAND_DEFAULT_RADIUS, station=None,
 
     """
     return read_cinrad(
-        filename, radius=radius, station=station,
-        align_gates=align_gates, band='X', reader='pycwr')
+        filename,
+        radius=radius,
+        station=station,
+        align_gates=align_gates,
+        band="X",
+        reader="pycwr",
+    )
 
 
 def read_mocmosaic(filename, product=None):
@@ -399,15 +418,16 @@ def read_mocmosaic(filename, product=None):
 
     """
     try:
+        from pycwr.grid import get_griddata as pycwr_grid
         from pycwr.io import read_auto
         from pycwr.reader import standard_data_to_pyart as pycwr_to_pyart
-        from pycwr.grid import get_griddata as pycwr_grid
     except ImportError as exc:
         raise ImportError(
-            'pycwr is required for read_mocmosaic; install it with '
-            '"pip install arm_pyart[cinrad]"') from exc
+            "pycwr is required for read_mocmosaic; install it with "
+            '"pip install arm_pyart[cinrad]"'
+        ) from exc
 
     cinrad_obj = read_auto(filename)
-    if product and product.upper() in ('CREF', 'ET', 'VIL'):
+    if product and product.upper() in ("CREF", "ET", "VIL"):
         return pycwr_grid(cinrad_obj, product=product.upper())
     return pycwr_to_pyart(cinrad_obj)

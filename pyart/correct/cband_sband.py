@@ -22,44 +22,43 @@ import numpy as np
 from ..config import get_field_name
 from .phase_proc import phase_proc_lp
 
-
 # Band-dependent processing defaults. The system offsets (zdr/phase/ldr) are
 # used as fallbacks when the in-file ``radar_calibration`` does not carry a
 # value; ``self_const`` is the default self-consistency factor forwarded to
 # :func:`pyart.correct.phase_proc_lp`.
 BAND_PARAMS = {
-    'X': {
-        'zdr_offset': 0.0,
-        'phase_offset': 0.0,
-        'ldr_offset': 0.0,
-        'self_const': 100000.0,
+    "X": {
+        "zdr_offset": 0.0,
+        "phase_offset": 0.0,
+        "ldr_offset": 0.0,
+        "self_const": 100000.0,
     },
-    'C': {
-        'zdr_offset': 0.0,
-        'phase_offset': 0.0,
-        'ldr_offset': 0.0,
-        'self_const': 60000.0,
+    "C": {
+        "zdr_offset": 0.0,
+        "phase_offset": 0.0,
+        "ldr_offset": 0.0,
+        "self_const": 60000.0,
     },
-    'S': {
-        'zdr_offset': 0.0,
-        'phase_offset': 0.0,
-        'ldr_offset': 0.0,
-        'self_const': 60000.0,
+    "S": {
+        "zdr_offset": 0.0,
+        "phase_offset": 0.0,
+        "ldr_offset": 0.0,
+        "self_const": 60000.0,
     },
 }
 
 
 def _resolve_band(radar):
     """Return the X/C/S band key for ``radar``, defaulting to ``'C'``."""
-    band = (radar.metadata or {}).get('radar_band')
+    band = (radar.metadata or {}).get("radar_band")
     if band is not None:
         band = str(band).upper()
         if band in BAND_PARAMS:
             return band
     warnings.warn(
-        "radar_band metadata missing or unknown; defaulting to 'C'",
-        UserWarning)
-    return 'C'
+        "radar_band metadata missing or unknown; defaulting to 'C'", UserWarning
+    )
+    return "C"
 
 
 def calibrate_dualpol(radar):
@@ -91,15 +90,24 @@ def calibrate_dualpol(radar):
     band_params = BAND_PARAMS[band]
 
     offsets = [
-        (get_field_name('differential_reflectivity'), 'zdr_calibration',
-         band_params['zdr_offset']),
-        (get_field_name('differential_phase'), 'phase_calibration',
-         band_params['phase_offset']),
-        (get_field_name('linear_depolarization_ratio'), 'ldr_calibration',
-         band_params['ldr_offset']),
+        (
+            get_field_name("differential_reflectivity"),
+            "zdr_calibration",
+            band_params["zdr_offset"],
+        ),
+        (
+            get_field_name("differential_phase"),
+            "phase_calibration",
+            band_params["phase_offset"],
+        ),
+        (
+            get_field_name("linear_depolarization_ratio"),
+            "ldr_calibration",
+            band_params["ldr_offset"],
+        ),
     ]
 
-    calibration = getattr(radar, 'radar_calibration', {}) or {}
+    calibration = getattr(radar, "radar_calibration", {}) or {}
 
     corrections = {}
     for field, key, default_offset in offsets:
@@ -110,18 +118,19 @@ def calibrate_dualpol(radar):
             offset = default_offset
         corrected = dict(radar.fields[field])
         if offset != 0.0:
-            corrected['data'] = radar.fields[field]['data'] - offset
-        corrected['long_name'] = 'Corrected ' + radar.fields[field].get(
-            'long_name', field)
+            corrected["data"] = radar.fields[field]["data"] - offset
+        corrected["long_name"] = "Corrected " + radar.fields[field].get(
+            "long_name", field
+        )
         corrections[field] = corrected
 
     return corrections
 
 
 def _cal_offset(calibration, key):
-    """ Return the calibration offset value or 0.0. """
+    """Return the calibration offset value or 0.0."""
     entry = calibration.get(key, {})
-    data = entry.get('data') if isinstance(entry, dict) else None
+    data = entry.get("data") if isinstance(entry, dict) else None
     if data is None:
         return 0.0
     return float(np.asarray(data).ravel()[0])
@@ -154,21 +163,20 @@ def process_phi_kdp(radar, offset=0.0, **kwargs):
         specific differential phase fields added.
 
     """
-    phi_field = get_field_name('differential_phase')
+    phi_field = get_field_name("differential_phase")
     if radar.fields.get(phi_field) is None:
-        raise ValueError(
-            'Radar does not contain a "{0}" field.'.format(phi_field))
+        raise ValueError(f'Radar does not contain a "{phi_field}" field.')
 
     band = _resolve_band(radar)
-    kwargs.setdefault('self_const', BAND_PARAMS[band]['self_const'])
+    kwargs.setdefault("self_const", BAND_PARAMS[band]["self_const"])
 
     phase_proc_lp(radar, offset, **kwargs)
     return radar
 
 
 __all__ = [
-    'BAND_PARAMS',
-    'calibrate_dualpol',
-    'process_phi_kdp',
-    '_resolve_band',
+    "BAND_PARAMS",
+    "calibrate_dualpol",
+    "process_phi_kdp",
+    "_resolve_band",
 ]

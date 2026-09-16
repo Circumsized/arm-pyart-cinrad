@@ -1278,7 +1278,7 @@ static int __Pyx_init_tpflags_variables(void) {
 #include <stdio.h>
 
     /* Using NumPy API declarations from "numpy/__init__.cython-30.pxd" */
-    
+
 #include "numpy/arrayobject.h"
 #include "numpy/ndarrayobject.h"
 #include "numpy/ndarraytypes.h"
@@ -1754,7 +1754,7 @@ typedef struct {
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":761
  * # in Cython to enable them only on the right systems.
- * 
+ *
  * ctypedef npy_int8       int8_t             # <<<<<<<<<<<<<<
  * ctypedef npy_int16      int16_t
  * ctypedef npy_int32      int32_t
@@ -1762,7 +1762,7 @@ typedef struct {
 typedef npy_int8 __pyx_t_5numpy_int8_t;
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":762
- * 
+ *
  * ctypedef npy_int8       int8_t
  * ctypedef npy_int16      int16_t             # <<<<<<<<<<<<<<
  * ctypedef npy_int32      int32_t
@@ -1775,7 +1775,7 @@ typedef npy_int16 __pyx_t_5numpy_int16_t;
  * ctypedef npy_int16      int16_t
  * ctypedef npy_int32      int32_t             # <<<<<<<<<<<<<<
  * ctypedef npy_int64      int64_t
- * 
+ *
 */
 typedef npy_int32 __pyx_t_5numpy_int32_t;
 
@@ -1783,14 +1783,14 @@ typedef npy_int32 __pyx_t_5numpy_int32_t;
  * ctypedef npy_int16      int16_t
  * ctypedef npy_int32      int32_t
  * ctypedef npy_int64      int64_t             # <<<<<<<<<<<<<<
- * 
+ *
  * ctypedef npy_uint8      uint8_t
 */
 typedef npy_int64 __pyx_t_5numpy_int64_t;
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":766
  * ctypedef npy_int64      int64_t
- * 
+ *
  * ctypedef npy_uint8      uint8_t             # <<<<<<<<<<<<<<
  * ctypedef npy_uint16     uint16_t
  * ctypedef npy_uint32     uint32_t
@@ -1798,7 +1798,7 @@ typedef npy_int64 __pyx_t_5numpy_int64_t;
 typedef npy_uint8 __pyx_t_5numpy_uint8_t;
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":767
- * 
+ *
  * ctypedef npy_uint8      uint8_t
  * ctypedef npy_uint16     uint16_t             # <<<<<<<<<<<<<<
  * ctypedef npy_uint32     uint32_t
@@ -1811,7 +1811,7 @@ typedef npy_uint16 __pyx_t_5numpy_uint16_t;
  * ctypedef npy_uint16     uint16_t
  * ctypedef npy_uint32     uint32_t             # <<<<<<<<<<<<<<
  * ctypedef npy_uint64     uint64_t
- * 
+ *
 */
 typedef npy_uint32 __pyx_t_5numpy_uint32_t;
 
@@ -1819,14 +1819,14 @@ typedef npy_uint32 __pyx_t_5numpy_uint32_t;
  * ctypedef npy_uint16     uint16_t
  * ctypedef npy_uint32     uint32_t
  * ctypedef npy_uint64     uint64_t             # <<<<<<<<<<<<<<
- * 
+ *
  * ctypedef npy_float32    float32_t
 */
 typedef npy_uint64 __pyx_t_5numpy_uint64_t;
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":771
  * ctypedef npy_uint64     uint64_t
- * 
+ *
  * ctypedef npy_float32    float32_t             # <<<<<<<<<<<<<<
  * ctypedef npy_float64    float64_t
  * #ctypedef npy_float80    float80_t
@@ -1834,7 +1834,7 @@ typedef npy_uint64 __pyx_t_5numpy_uint64_t;
 typedef npy_float32 __pyx_t_5numpy_float32_t;
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":772
- * 
+ *
  * ctypedef npy_float32    float32_t
  * ctypedef npy_float64    float64_t             # <<<<<<<<<<<<<<
  * #ctypedef npy_float80    float80_t
@@ -1844,43 +1844,43 @@ typedef npy_float64 __pyx_t_5numpy_float64_t;
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":779
  * ctypedef double complex complex128_t
- * 
+ *
  * ctypedef npy_longlong   longlong_t             # <<<<<<<<<<<<<<
  * ctypedef npy_ulonglong  ulonglong_t
- * 
+ *
 */
 typedef npy_longlong __pyx_t_5numpy_longlong_t;
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":780
- * 
+ *
  * ctypedef npy_longlong   longlong_t
  * ctypedef npy_ulonglong  ulonglong_t             # <<<<<<<<<<<<<<
- * 
+ *
  * ctypedef npy_intp       intp_t
 */
 typedef npy_ulonglong __pyx_t_5numpy_ulonglong_t;
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":782
  * ctypedef npy_ulonglong  ulonglong_t
- * 
+ *
  * ctypedef npy_intp       intp_t             # <<<<<<<<<<<<<<
  * ctypedef npy_uintp      uintp_t
- * 
+ *
 */
 typedef npy_intp __pyx_t_5numpy_intp_t;
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":783
- * 
+ *
  * ctypedef npy_intp       intp_t
  * ctypedef npy_uintp      uintp_t             # <<<<<<<<<<<<<<
- * 
+ *
  * ctypedef npy_double     float_t
 */
 typedef npy_uintp __pyx_t_5numpy_uintp_t;
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":785
  * ctypedef npy_uintp      uintp_t
- * 
+ *
  * ctypedef npy_double     float_t             # <<<<<<<<<<<<<<
  * ctypedef npy_double     double_t
  * ctypedef npy_longdouble longdouble_t
@@ -1888,11 +1888,11 @@ typedef npy_uintp __pyx_t_5numpy_uintp_t;
 typedef npy_double __pyx_t_5numpy_float_t;
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":786
- * 
+ *
  * ctypedef npy_double     float_t
  * ctypedef npy_double     double_t             # <<<<<<<<<<<<<<
  * ctypedef npy_longdouble longdouble_t
- * 
+ *
 */
 typedef npy_double __pyx_t_5numpy_double_t;
 
@@ -1900,7 +1900,7 @@ typedef npy_double __pyx_t_5numpy_double_t;
  * ctypedef npy_double     float_t
  * ctypedef npy_double     double_t
  * ctypedef npy_longdouble longdouble_t             # <<<<<<<<<<<<<<
- * 
+ *
  * ctypedef float complex       cfloat_t
 */
 typedef npy_longdouble __pyx_t_5numpy_longdouble_t;
@@ -1949,7 +1949,7 @@ struct __pyx_opt_args_5pyart_2io_11_sigmetfile_10SigmetFile__incr_rbuf_pos;
 
 /* "pyart/io/_sigmetfile.pyx":380
  *         return 0
- * 
+ *
  *     cdef int _incr_rbuf_pos(self, int incr=1):             # <<<<<<<<<<<<<<
  *         """
  *         Increment the record buffer position, load a new record if needed.
@@ -1960,8 +1960,8 @@ struct __pyx_opt_args_5pyart_2io_11_sigmetfile_10SigmetFile__incr_rbuf_pos {
 };
 
 /* "pyart/io/_sigmetfile.pyx":17
- * 
- * 
+ *
+ *
  * cdef class SigmetFile:             # <<<<<<<<<<<<<<
  *     """
  *     A class for accessing data from Sigmet (IRIS) product files.
@@ -3523,14 +3523,14 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_18_unpack_ingest_data_header(
 static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_20_unpack_raw_prod_bhdr(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_record); /* proto */
 static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_22_unpack_product_hdr(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_record); /* proto */
 static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_24_unpack_ingest_header(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_record); /* proto */
-static PyObject *__pyx_tp_new__initialisation_5pyart_2io_11_sigmetfile_SigmetFile(PyObject *o, 
+static PyObject *__pyx_tp_new__initialisation_5pyart_2io_11_sigmetfile_SigmetFile(PyObject *o,
 #if CYTHON_VECTORCALL_TPNEW
     PyObject *const *args, Py_ssize_t nargs, PyObject *kwnames
 #else
     PyObject *a, PyObject *k
 #endif
 ); /*proto*/
-static PyObject *__pyx_tp_new_vectorcall_5pyart_2io_11_sigmetfile_SigmetFile(PyTypeObject *t, 
+static PyObject *__pyx_tp_new_vectorcall_5pyart_2io_11_sigmetfile_SigmetFile(PyTypeObject *t,
 #if CYTHON_VECTORCALL_TPNEW
     PyObject *const *args, Py_ssize_t nargs, PyObject *kwnames
 #else
@@ -4576,7 +4576,7 @@ return 0;
 /* #### Code section: module_code ### */
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":230
- * 
+ *
  *     ctypedef class numpy.dtype [object PyArray_Descr, check_size ignore]:
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline PyTypeObject* typeobj(self) noexcept nogil:
@@ -4590,7 +4590,7 @@ static CYTHON_INLINE PyTypeObject *__pyx_f_5numpy_5dtype_7typeobj___get__(PyArra
  *         @property
  *         cdef inline PyTypeObject* typeobj(self) noexcept nogil:
  *             return PyDataType_TYPEOBJ(self)             # <<<<<<<<<<<<<<
- * 
+ *
  *         @property
 */
   {
@@ -4600,7 +4600,7 @@ static CYTHON_INLINE PyTypeObject *__pyx_f_5numpy_5dtype_7typeobj___get__(PyArra
   goto __pyx_L0;
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":230
- * 
+ *
  *     ctypedef class numpy.dtype [object PyArray_Descr, check_size ignore]:
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline PyTypeObject* typeobj(self) noexcept nogil:
@@ -4614,7 +4614,7 @@ static CYTHON_INLINE PyTypeObject *__pyx_f_5numpy_5dtype_7typeobj___get__(PyArra
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":234
  *             return PyDataType_TYPEOBJ(self)
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline char kind(self) noexcept nogil:
  *             return PyDataType_KIND(self)
@@ -4627,7 +4627,7 @@ static CYTHON_INLINE char __pyx_f_5numpy_5dtype_4kind___get__(PyArray_Descr *__p
  *         @property
  *         cdef inline char kind(self) noexcept nogil:
  *             return PyDataType_KIND(self)             # <<<<<<<<<<<<<<
- * 
+ *
  *         @property
 */
   {
@@ -4638,7 +4638,7 @@ static CYTHON_INLINE char __pyx_f_5numpy_5dtype_4kind___get__(PyArray_Descr *__p
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":234
  *             return PyDataType_TYPEOBJ(self)
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline char kind(self) noexcept nogil:
  *             return PyDataType_KIND(self)
@@ -4651,7 +4651,7 @@ static CYTHON_INLINE char __pyx_f_5numpy_5dtype_4kind___get__(PyArray_Descr *__p
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":238
  *             return PyDataType_KIND(self)
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline char type(self) noexcept nogil:
  *             return PyDataType_TYPE(self)
@@ -4664,7 +4664,7 @@ static CYTHON_INLINE char __pyx_f_5numpy_5dtype_4type___get__(PyArray_Descr *__p
  *         @property
  *         cdef inline char type(self) noexcept nogil:
  *             return PyDataType_TYPE(self)             # <<<<<<<<<<<<<<
- * 
+ *
  *         # Numpy sometimes mutates this without warning (e.g. it'll
 */
   {
@@ -4675,7 +4675,7 @@ static CYTHON_INLINE char __pyx_f_5numpy_5dtype_4type___get__(PyArray_Descr *__p
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":238
  *             return PyDataType_KIND(self)
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline char type(self) noexcept nogil:
  *             return PyDataType_TYPE(self)
@@ -4701,7 +4701,7 @@ static CYTHON_INLINE char __pyx_f_5numpy_5dtype_9byteorder___get__(PyArray_Descr
  *         @property
  *         cdef inline char byteorder(self) noexcept nogil:
  *             return PyDataType_BYTEORDER(self)             # <<<<<<<<<<<<<<
- * 
+ *
  *         @property
 */
   {
@@ -4725,7 +4725,7 @@ static CYTHON_INLINE char __pyx_f_5numpy_5dtype_9byteorder___get__(PyArray_Descr
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":251
  *             return PyDataType_BYTEORDER(self)
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline int type_num(self) noexcept nogil:
  *             return PyDataType_TYPENUM(self)
@@ -4738,7 +4738,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_5dtype_8type_num___get__(PyArray_Descr *
  *         @property
  *         cdef inline int type_num(self) noexcept nogil:
  *             return PyDataType_TYPENUM(self)             # <<<<<<<<<<<<<<
- * 
+ *
  *         @property
 */
   {
@@ -4749,7 +4749,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_5dtype_8type_num___get__(PyArray_Descr *
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":251
  *             return PyDataType_BYTEORDER(self)
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline int type_num(self) noexcept nogil:
  *             return PyDataType_TYPENUM(self)
@@ -4762,7 +4762,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_5dtype_8type_num___get__(PyArray_Descr *
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":255
  *             return PyDataType_TYPENUM(self)
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline npy_intp itemsize(self) noexcept nogil:
  *             return PyDataType_ELSIZE(self)
@@ -4775,7 +4775,7 @@ static CYTHON_INLINE npy_intp __pyx_f_5numpy_5dtype_8itemsize___get__(PyArray_De
  *         @property
  *         cdef inline npy_intp itemsize(self) noexcept nogil:
  *             return PyDataType_ELSIZE(self)             # <<<<<<<<<<<<<<
- * 
+ *
  *         @property
 */
   {
@@ -4786,7 +4786,7 @@ static CYTHON_INLINE npy_intp __pyx_f_5numpy_5dtype_8itemsize___get__(PyArray_De
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":255
  *             return PyDataType_TYPENUM(self)
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline npy_intp itemsize(self) noexcept nogil:
  *             return PyDataType_ELSIZE(self)
@@ -4799,7 +4799,7 @@ static CYTHON_INLINE npy_intp __pyx_f_5numpy_5dtype_8itemsize___get__(PyArray_De
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":259
  *             return PyDataType_ELSIZE(self)
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline npy_intp alignment(self) noexcept nogil:
  *             return PyDataType_ALIGNMENT(self)
@@ -4812,7 +4812,7 @@ static CYTHON_INLINE npy_intp __pyx_f_5numpy_5dtype_9alignment___get__(PyArray_D
  *         @property
  *         cdef inline npy_intp alignment(self) noexcept nogil:
  *             return PyDataType_ALIGNMENT(self)             # <<<<<<<<<<<<<<
- * 
+ *
  *         # Use fields/names with care as they may be NULL.  You must check
 */
   {
@@ -4823,7 +4823,7 @@ static CYTHON_INLINE npy_intp __pyx_f_5numpy_5dtype_9alignment___get__(PyArray_D
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":259
  *             return PyDataType_ELSIZE(self)
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline npy_intp alignment(self) noexcept nogil:
  *             return PyDataType_ALIGNMENT(self)
@@ -4852,7 +4852,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_5dtype_6fields___get__(PyArray_Des
  *         @property
  *         cdef inline object fields(self):
  *             return <object>PyDataType_FIELDS(self)             # <<<<<<<<<<<<<<
- * 
+ *
  *         @property
 */
   __pyx_t_1 = PyDataType_FIELDS(__pyx_v_self);
@@ -4886,7 +4886,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_5dtype_6fields___get__(PyArray_Des
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":269
  *             return <object>PyDataType_FIELDS(self)
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline tuple names(self):
  *             return <tuple>PyDataType_NAMES(self)
@@ -4902,7 +4902,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_5dtype_5names___get__(PyArray_Desc
  *         @property
  *         cdef inline tuple names(self):
  *             return <tuple>PyDataType_NAMES(self)             # <<<<<<<<<<<<<<
- * 
+ *
  *         # Use PyDataType_HASSUBARRAY to test whether this field is
 */
   __pyx_t_1 = PyDataType_NAMES(__pyx_v_self);
@@ -4921,7 +4921,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_5dtype_5names___get__(PyArray_Desc
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":269
  *             return <object>PyDataType_FIELDS(self)
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline tuple names(self):
  *             return <tuple>PyDataType_NAMES(self)
@@ -4949,7 +4949,7 @@ static CYTHON_INLINE PyArray_ArrayDescr *__pyx_f_5numpy_5dtype_8subarray___get__
  *         @property
  *         cdef inline PyArray_ArrayDescr* subarray(self) noexcept nogil:
  *             return PyDataType_SUBARRAY(self)             # <<<<<<<<<<<<<<
- * 
+ *
  *         @property
 */
   {
@@ -4973,7 +4973,7 @@ static CYTHON_INLINE PyArray_ArrayDescr *__pyx_f_5numpy_5dtype_8subarray___get__
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":280
  *             return PyDataType_SUBARRAY(self)
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline npy_uint64 flags(self) noexcept nogil:
  *             """The data types flags."""
@@ -4986,8 +4986,8 @@ static CYTHON_INLINE npy_uint64 __pyx_f_5numpy_5dtype_5flags___get__(PyArray_Des
  *         cdef inline npy_uint64 flags(self) noexcept nogil:
  *             """The data types flags."""
  *             return PyDataType_FLAGS(self)             # <<<<<<<<<<<<<<
- * 
- * 
+ *
+ *
 */
   {
 
@@ -4997,7 +4997,7 @@ static CYTHON_INLINE npy_uint64 __pyx_f_5numpy_5dtype_5flags___get__(PyArray_Des
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":280
  *             return PyDataType_SUBARRAY(self)
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline npy_uint64 flags(self) noexcept nogil:
  *             """The data types flags."""
@@ -5010,7 +5010,7 @@ static CYTHON_INLINE npy_uint64 __pyx_f_5numpy_5dtype_5flags___get__(PyArray_Des
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":292
  *     ctypedef class numpy.broadcast [object PyArrayMultiIterObject, check_size ignore]:
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline int numiter(self) noexcept nogil:
  *             """The number of arrays that need to be broadcast to the same shape."""
@@ -5023,7 +5023,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_9broadcast_7numiter___get__(PyArrayMulti
  *         cdef inline int numiter(self) noexcept nogil:
  *             """The number of arrays that need to be broadcast to the same shape."""
  *             return PyArray_MultiIter_NUMITER(self)             # <<<<<<<<<<<<<<
- * 
+ *
  *         @property
 */
   {
@@ -5034,7 +5034,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_9broadcast_7numiter___get__(PyArrayMulti
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":292
  *     ctypedef class numpy.broadcast [object PyArrayMultiIterObject, check_size ignore]:
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline int numiter(self) noexcept nogil:
  *             """The number of arrays that need to be broadcast to the same shape."""
@@ -5047,7 +5047,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_9broadcast_7numiter___get__(PyArrayMulti
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":297
  *             return PyArray_MultiIter_NUMITER(self)
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline npy_intp size(self) noexcept nogil:
  *             """The total broadcasted size."""
@@ -5060,7 +5060,7 @@ static CYTHON_INLINE npy_intp __pyx_f_5numpy_9broadcast_4size___get__(PyArrayMul
  *         cdef inline npy_intp size(self) noexcept nogil:
  *             """The total broadcasted size."""
  *             return PyArray_MultiIter_SIZE(self)             # <<<<<<<<<<<<<<
- * 
+ *
  *         @property
 */
   {
@@ -5071,7 +5071,7 @@ static CYTHON_INLINE npy_intp __pyx_f_5numpy_9broadcast_4size___get__(PyArrayMul
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":297
  *             return PyArray_MultiIter_NUMITER(self)
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline npy_intp size(self) noexcept nogil:
  *             """The total broadcasted size."""
@@ -5084,7 +5084,7 @@ static CYTHON_INLINE npy_intp __pyx_f_5numpy_9broadcast_4size___get__(PyArrayMul
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":302
  *             return PyArray_MultiIter_SIZE(self)
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline npy_intp index(self) noexcept nogil:
  *             """The current (1-d) index into the broadcasted result."""
@@ -5097,7 +5097,7 @@ static CYTHON_INLINE npy_intp __pyx_f_5numpy_9broadcast_5index___get__(PyArrayMu
  *         cdef inline npy_intp index(self) noexcept nogil:
  *             """The current (1-d) index into the broadcasted result."""
  *             return PyArray_MultiIter_INDEX(self)             # <<<<<<<<<<<<<<
- * 
+ *
  *         @property
 */
   {
@@ -5108,7 +5108,7 @@ static CYTHON_INLINE npy_intp __pyx_f_5numpy_9broadcast_5index___get__(PyArrayMu
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":302
  *             return PyArray_MultiIter_SIZE(self)
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline npy_intp index(self) noexcept nogil:
  *             """The current (1-d) index into the broadcasted result."""
@@ -5121,7 +5121,7 @@ static CYTHON_INLINE npy_intp __pyx_f_5numpy_9broadcast_5index___get__(PyArrayMu
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":307
  *             return PyArray_MultiIter_INDEX(self)
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline int nd(self) noexcept nogil:
  *             """The number of dimensions in the broadcasted result."""
@@ -5134,7 +5134,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_9broadcast_2nd___get__(PyArrayMultiIterO
  *         cdef inline int nd(self) noexcept nogil:
  *             """The number of dimensions in the broadcasted result."""
  *             return PyArray_MultiIter_NDIM(self)             # <<<<<<<<<<<<<<
- * 
+ *
  *         @property
 */
   {
@@ -5145,7 +5145,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_9broadcast_2nd___get__(PyArrayMultiIterO
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":307
  *             return PyArray_MultiIter_INDEX(self)
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline int nd(self) noexcept nogil:
  *             """The number of dimensions in the broadcasted result."""
@@ -5158,7 +5158,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_9broadcast_2nd___get__(PyArrayMultiIterO
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":312
  *             return PyArray_MultiIter_NDIM(self)
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline npy_intp* dimensions(self) noexcept nogil:
  *             """The shape of the broadcasted result."""
@@ -5171,7 +5171,7 @@ static CYTHON_INLINE npy_intp *__pyx_f_5numpy_9broadcast_10dimensions___get__(Py
  *         cdef inline npy_intp* dimensions(self) noexcept nogil:
  *             """The shape of the broadcasted result."""
  *             return PyArray_MultiIter_DIMS(self)             # <<<<<<<<<<<<<<
- * 
+ *
  *         @property
 */
   {
@@ -5182,7 +5182,7 @@ static CYTHON_INLINE npy_intp *__pyx_f_5numpy_9broadcast_10dimensions___get__(Py
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":312
  *             return PyArray_MultiIter_NDIM(self)
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline npy_intp* dimensions(self) noexcept nogil:
  *             """The shape of the broadcasted result."""
@@ -5195,7 +5195,7 @@ static CYTHON_INLINE npy_intp *__pyx_f_5numpy_9broadcast_10dimensions___get__(Py
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":317
  *             return PyArray_MultiIter_DIMS(self)
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline void** iters(self) noexcept nogil:
  *             """An array of iterator objects that holds the iterators for the arrays to be broadcast together.
@@ -5208,8 +5208,8 @@ static CYTHON_INLINE void **__pyx_f_5numpy_9broadcast_5iters___get__(PyArrayMult
  *             """An array of iterator objects that holds the iterators for the arrays to be broadcast together.
  *             On return, the iterators are adjusted for broadcasting."""
  *             return PyArray_MultiIter_ITERS(self)             # <<<<<<<<<<<<<<
- * 
- * 
+ *
+ *
 */
   {
 
@@ -5219,7 +5219,7 @@ static CYTHON_INLINE void **__pyx_f_5numpy_9broadcast_5iters___get__(PyArrayMult
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":317
  *             return PyArray_MultiIter_DIMS(self)
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline void** iters(self) noexcept nogil:
  *             """An array of iterator objects that holds the iterators for the arrays to be broadcast together.
@@ -5232,7 +5232,7 @@ static CYTHON_INLINE void **__pyx_f_5numpy_9broadcast_5iters___get__(PyArrayMult
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":335
  *         # Instead, we use properties that map to the corresponding C-API functions.
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline PyObject* base(self) noexcept nogil:
  *             """Returns a borrowed reference to the object owning the data/memory.
@@ -5245,7 +5245,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_7ndarray_4base___get__(PyArrayObje
  *             """Returns a borrowed reference to the object owning the data/memory.
  *             """
  *             return PyArray_BASE(self)             # <<<<<<<<<<<<<<
- * 
+ *
  *         @property
 */
   {
@@ -5256,7 +5256,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_7ndarray_4base___get__(PyArrayObje
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":335
  *         # Instead, we use properties that map to the corresponding C-API functions.
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline PyObject* base(self) noexcept nogil:
  *             """Returns a borrowed reference to the object owning the data/memory.
@@ -5269,7 +5269,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_7ndarray_4base___get__(PyArrayObje
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":341
  *             return PyArray_BASE(self)
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline dtype descr(self):
  *             """Returns an owned reference to the dtype of the array.
@@ -5285,7 +5285,7 @@ static CYTHON_INLINE PyArray_Descr *__pyx_f_5numpy_7ndarray_5descr___get__(PyArr
  *             """Returns an owned reference to the dtype of the array.
  *             """
  *             return <dtype>PyArray_DESCR(self)             # <<<<<<<<<<<<<<
- * 
+ *
  *         @property
 */
   __pyx_t_1 = PyArray_DESCR(__pyx_v_self);
@@ -5304,7 +5304,7 @@ static CYTHON_INLINE PyArray_Descr *__pyx_f_5numpy_7ndarray_5descr___get__(PyArr
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":341
  *             return PyArray_BASE(self)
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline dtype descr(self):
  *             """Returns an owned reference to the dtype of the array.
@@ -5319,7 +5319,7 @@ static CYTHON_INLINE PyArray_Descr *__pyx_f_5numpy_7ndarray_5descr___get__(PyArr
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":347
  *             return <dtype>PyArray_DESCR(self)
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline int ndim(self) noexcept nogil:
  *             """Returns the number of dimensions in the array.
@@ -5332,7 +5332,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_7ndarray_4ndim___get__(PyArrayObject *__
  *             """Returns the number of dimensions in the array.
  *             """
  *             return PyArray_NDIM(self)             # <<<<<<<<<<<<<<
- * 
+ *
  *         @property
 */
   {
@@ -5343,7 +5343,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_7ndarray_4ndim___get__(PyArrayObject *__
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":347
  *             return <dtype>PyArray_DESCR(self)
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline int ndim(self) noexcept nogil:
  *             """Returns the number of dimensions in the array.
@@ -5356,7 +5356,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_7ndarray_4ndim___get__(PyArrayObject *__
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":353
  *             return PyArray_NDIM(self)
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline npy_intp *shape(self) noexcept nogil:
  *             """Returns a pointer to the dimensions/shape of the array.
@@ -5369,7 +5369,7 @@ static CYTHON_INLINE npy_intp *__pyx_f_5numpy_7ndarray_5shape___get__(PyArrayObj
  *             Can return NULL for 0-dimensional arrays.
  *             """
  *             return PyArray_DIMS(self)             # <<<<<<<<<<<<<<
- * 
+ *
  *         @property
 */
   {
@@ -5380,7 +5380,7 @@ static CYTHON_INLINE npy_intp *__pyx_f_5numpy_7ndarray_5shape___get__(PyArrayObj
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":353
  *             return PyArray_NDIM(self)
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline npy_intp *shape(self) noexcept nogil:
  *             """Returns a pointer to the dimensions/shape of the array.
@@ -5393,7 +5393,7 @@ static CYTHON_INLINE npy_intp *__pyx_f_5numpy_7ndarray_5shape___get__(PyArrayObj
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":361
  *             return PyArray_DIMS(self)
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline npy_intp *strides(self) noexcept nogil:
  *             """Returns a pointer to the strides of the array.
@@ -5406,7 +5406,7 @@ static CYTHON_INLINE npy_intp *__pyx_f_5numpy_7ndarray_7strides___get__(PyArrayO
  *             The number of elements matches the number of dimensions of the array (ndim).
  *             """
  *             return PyArray_STRIDES(self)             # <<<<<<<<<<<<<<
- * 
+ *
  *         @property
 */
   {
@@ -5417,7 +5417,7 @@ static CYTHON_INLINE npy_intp *__pyx_f_5numpy_7ndarray_7strides___get__(PyArrayO
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":361
  *             return PyArray_DIMS(self)
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline npy_intp *strides(self) noexcept nogil:
  *             """Returns a pointer to the strides of the array.
@@ -5430,7 +5430,7 @@ static CYTHON_INLINE npy_intp *__pyx_f_5numpy_7ndarray_7strides___get__(PyArrayO
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":368
  *             return PyArray_STRIDES(self)
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline npy_intp size(self) noexcept nogil:
  *             """Returns the total size (in number of elements) of the array.
@@ -5443,7 +5443,7 @@ static CYTHON_INLINE npy_intp __pyx_f_5numpy_7ndarray_4size___get__(PyArrayObjec
  *             """Returns the total size (in number of elements) of the array.
  *             """
  *             return PyArray_SIZE(self)             # <<<<<<<<<<<<<<
- * 
+ *
  *         @property
 */
   {
@@ -5454,7 +5454,7 @@ static CYTHON_INLINE npy_intp __pyx_f_5numpy_7ndarray_4size___get__(PyArrayObjec
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":368
  *             return PyArray_STRIDES(self)
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline npy_intp size(self) noexcept nogil:
  *             """Returns the total size (in number of elements) of the array.
@@ -5467,7 +5467,7 @@ static CYTHON_INLINE npy_intp __pyx_f_5numpy_7ndarray_4size___get__(PyArrayObjec
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":374
  *             return PyArray_SIZE(self)
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline char* data(self) noexcept nogil:
  *             """The pointer to the data buffer as a char*.
@@ -5480,8 +5480,8 @@ static CYTHON_INLINE char *__pyx_f_5numpy_7ndarray_4data___get__(PyArrayObject *
  *             of `PyArray_DATA()` instead, which returns a 'void*'.
  *             """
  *             return PyArray_BYTES(self)             # <<<<<<<<<<<<<<
- * 
- * 
+ *
+ *
 */
   {
 
@@ -5491,7 +5491,7 @@ static CYTHON_INLINE char *__pyx_f_5numpy_7ndarray_4data___get__(PyArrayObject *
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":374
  *             return PyArray_SIZE(self)
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline char* data(self) noexcept nogil:
  *             """The pointer to the data buffer as a char*.
@@ -5504,10 +5504,10 @@ static CYTHON_INLINE char *__pyx_f_5numpy_7ndarray_4data___get__(PyArrayObject *
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":794
  * ctypedef long double complex clongdouble_t
- * 
+ *
  * cdef inline object PyArray_MultiIterNew1(a):             # <<<<<<<<<<<<<<
  *     return PyArray_MultiIterNew(1, <void*>a)
- * 
+ *
 */
 
 static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew1(PyObject *__pyx_v_a) {
@@ -5520,10 +5520,10 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew1(PyObject *__
   __Pyx_RefNannySetupContext("PyArray_MultiIterNew1", 0);
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":795
- * 
+ *
  * cdef inline object PyArray_MultiIterNew1(a):
  *     return PyArray_MultiIterNew(1, <void*>a)             # <<<<<<<<<<<<<<
- * 
+ *
  * cdef inline object PyArray_MultiIterNew2(a, b):
 */
   __pyx_t_1 = PyArray_MultiIterNew(1, ((void *)__pyx_v_a)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 795, __pyx_L1_error)
@@ -5541,10 +5541,10 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew1(PyObject *__
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":794
  * ctypedef long double complex clongdouble_t
- * 
+ *
  * cdef inline object PyArray_MultiIterNew1(a):             # <<<<<<<<<<<<<<
  *     return PyArray_MultiIterNew(1, <void*>a)
- * 
+ *
 */
 
   /* function exit code */
@@ -5560,10 +5560,10 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew1(PyObject *__
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":797
  *     return PyArray_MultiIterNew(1, <void*>a)
- * 
+ *
  * cdef inline object PyArray_MultiIterNew2(a, b):             # <<<<<<<<<<<<<<
  *     return PyArray_MultiIterNew(2, <void*>a, <void*>b)
- * 
+ *
 */
 
 static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew2(PyObject *__pyx_v_a, PyObject *__pyx_v_b) {
@@ -5576,10 +5576,10 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew2(PyObject *__
   __Pyx_RefNannySetupContext("PyArray_MultiIterNew2", 0);
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":798
- * 
+ *
  * cdef inline object PyArray_MultiIterNew2(a, b):
  *     return PyArray_MultiIterNew(2, <void*>a, <void*>b)             # <<<<<<<<<<<<<<
- * 
+ *
  * cdef inline object PyArray_MultiIterNew3(a, b, c):
 */
   __pyx_t_1 = PyArray_MultiIterNew(2, ((void *)__pyx_v_a), ((void *)__pyx_v_b)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 798, __pyx_L1_error)
@@ -5597,10 +5597,10 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew2(PyObject *__
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":797
  *     return PyArray_MultiIterNew(1, <void*>a)
- * 
+ *
  * cdef inline object PyArray_MultiIterNew2(a, b):             # <<<<<<<<<<<<<<
  *     return PyArray_MultiIterNew(2, <void*>a, <void*>b)
- * 
+ *
 */
 
   /* function exit code */
@@ -5616,10 +5616,10 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew2(PyObject *__
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":800
  *     return PyArray_MultiIterNew(2, <void*>a, <void*>b)
- * 
+ *
  * cdef inline object PyArray_MultiIterNew3(a, b, c):             # <<<<<<<<<<<<<<
  *     return PyArray_MultiIterNew(3, <void*>a, <void*>b, <void*> c)
- * 
+ *
 */
 
 static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew3(PyObject *__pyx_v_a, PyObject *__pyx_v_b, PyObject *__pyx_v_c) {
@@ -5632,10 +5632,10 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew3(PyObject *__
   __Pyx_RefNannySetupContext("PyArray_MultiIterNew3", 0);
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":801
- * 
+ *
  * cdef inline object PyArray_MultiIterNew3(a, b, c):
  *     return PyArray_MultiIterNew(3, <void*>a, <void*>b, <void*> c)             # <<<<<<<<<<<<<<
- * 
+ *
  * cdef inline object PyArray_MultiIterNew4(a, b, c, d):
 */
   __pyx_t_1 = PyArray_MultiIterNew(3, ((void *)__pyx_v_a), ((void *)__pyx_v_b), ((void *)__pyx_v_c)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 801, __pyx_L1_error)
@@ -5653,10 +5653,10 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew3(PyObject *__
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":800
  *     return PyArray_MultiIterNew(2, <void*>a, <void*>b)
- * 
+ *
  * cdef inline object PyArray_MultiIterNew3(a, b, c):             # <<<<<<<<<<<<<<
  *     return PyArray_MultiIterNew(3, <void*>a, <void*>b, <void*> c)
- * 
+ *
 */
 
   /* function exit code */
@@ -5672,10 +5672,10 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew3(PyObject *__
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":803
  *     return PyArray_MultiIterNew(3, <void*>a, <void*>b, <void*> c)
- * 
+ *
  * cdef inline object PyArray_MultiIterNew4(a, b, c, d):             # <<<<<<<<<<<<<<
  *     return PyArray_MultiIterNew(4, <void*>a, <void*>b, <void*>c, <void*> d)
- * 
+ *
 */
 
 static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew4(PyObject *__pyx_v_a, PyObject *__pyx_v_b, PyObject *__pyx_v_c, PyObject *__pyx_v_d) {
@@ -5688,10 +5688,10 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew4(PyObject *__
   __Pyx_RefNannySetupContext("PyArray_MultiIterNew4", 0);
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":804
- * 
+ *
  * cdef inline object PyArray_MultiIterNew4(a, b, c, d):
  *     return PyArray_MultiIterNew(4, <void*>a, <void*>b, <void*>c, <void*> d)             # <<<<<<<<<<<<<<
- * 
+ *
  * cdef inline object PyArray_MultiIterNew5(a, b, c, d, e):
 */
   __pyx_t_1 = PyArray_MultiIterNew(4, ((void *)__pyx_v_a), ((void *)__pyx_v_b), ((void *)__pyx_v_c), ((void *)__pyx_v_d)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 804, __pyx_L1_error)
@@ -5709,10 +5709,10 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew4(PyObject *__
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":803
  *     return PyArray_MultiIterNew(3, <void*>a, <void*>b, <void*> c)
- * 
+ *
  * cdef inline object PyArray_MultiIterNew4(a, b, c, d):             # <<<<<<<<<<<<<<
  *     return PyArray_MultiIterNew(4, <void*>a, <void*>b, <void*>c, <void*> d)
- * 
+ *
 */
 
   /* function exit code */
@@ -5728,10 +5728,10 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew4(PyObject *__
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":806
  *     return PyArray_MultiIterNew(4, <void*>a, <void*>b, <void*>c, <void*> d)
- * 
+ *
  * cdef inline object PyArray_MultiIterNew5(a, b, c, d, e):             # <<<<<<<<<<<<<<
  *     return PyArray_MultiIterNew(5, <void*>a, <void*>b, <void*>c, <void*> d, <void*> e)
- * 
+ *
 */
 
 static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew5(PyObject *__pyx_v_a, PyObject *__pyx_v_b, PyObject *__pyx_v_c, PyObject *__pyx_v_d, PyObject *__pyx_v_e) {
@@ -5744,10 +5744,10 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew5(PyObject *__
   __Pyx_RefNannySetupContext("PyArray_MultiIterNew5", 0);
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":807
- * 
+ *
  * cdef inline object PyArray_MultiIterNew5(a, b, c, d, e):
  *     return PyArray_MultiIterNew(5, <void*>a, <void*>b, <void*>c, <void*> d, <void*> e)             # <<<<<<<<<<<<<<
- * 
+ *
  * cdef inline tuple PyDataType_SHAPE(dtype d):
 */
   __pyx_t_1 = PyArray_MultiIterNew(5, ((void *)__pyx_v_a), ((void *)__pyx_v_b), ((void *)__pyx_v_c), ((void *)__pyx_v_d), ((void *)__pyx_v_e)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 807, __pyx_L1_error)
@@ -5765,10 +5765,10 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew5(PyObject *__
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":806
  *     return PyArray_MultiIterNew(4, <void*>a, <void*>b, <void*>c, <void*> d)
- * 
+ *
  * cdef inline object PyArray_MultiIterNew5(a, b, c, d, e):             # <<<<<<<<<<<<<<
  *     return PyArray_MultiIterNew(5, <void*>a, <void*>b, <void*>c, <void*> d, <void*> e)
- * 
+ *
 */
 
   /* function exit code */
@@ -5784,7 +5784,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew5(PyObject *__
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":809
  *     return PyArray_MultiIterNew(5, <void*>a, <void*>b, <void*>c, <void*> d, <void*> e)
- * 
+ *
  * cdef inline tuple PyDataType_SHAPE(dtype d):             # <<<<<<<<<<<<<<
  *     if PyDataType_HASSUBARRAY(d):
  *         return <tuple>d.subarray.shape
@@ -5798,7 +5798,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyDataType_SHAPE(PyArray_Descr *__
   __Pyx_RefNannySetupContext("PyDataType_SHAPE", 0);
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":810
- * 
+ *
  * cdef inline tuple PyDataType_SHAPE(dtype d):
  *     if PyDataType_HASSUBARRAY(d):             # <<<<<<<<<<<<<<
  *         return <tuple>d.subarray.shape
@@ -5831,7 +5831,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyDataType_SHAPE(PyArray_Descr *__
     goto __pyx_L0;
 
     /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":810
- * 
+ *
  * cdef inline tuple PyDataType_SHAPE(dtype d):
  *     if PyDataType_HASSUBARRAY(d):             # <<<<<<<<<<<<<<
  *         return <tuple>d.subarray.shape
@@ -5843,8 +5843,8 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyDataType_SHAPE(PyArray_Descr *__
  *         return <tuple>d.subarray.shape
  *     else:
  *         return ()             # <<<<<<<<<<<<<<
- * 
- * 
+ *
+ *
 */
   /*else*/ {
     {
@@ -5861,7 +5861,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyDataType_SHAPE(PyArray_Descr *__
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":809
  *     return PyArray_MultiIterNew(5, <void*>a, <void*>b, <void*>c, <void*> d, <void*> e)
- * 
+ *
  * cdef inline tuple PyDataType_SHAPE(dtype d):             # <<<<<<<<<<<<<<
  *     if PyDataType_HASSUBARRAY(d):
  *         return <tuple>d.subarray.shape
@@ -5875,7 +5875,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyDataType_SHAPE(PyArray_Descr *__
 }
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":947
- * 
+ *
  *     ctypedef class numpy.ufunc [object PyUFuncObject, check_size ignore]:
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline int nin(self) noexcept nogil:
@@ -5889,7 +5889,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_5ufunc_3nin___get__(PyUFuncObject *__pyx
  *         @property
  *         cdef inline int nin(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).nin             # <<<<<<<<<<<<<<
- * 
+ *
  *         @property
 */
   {
@@ -5899,7 +5899,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_5ufunc_3nin___get__(PyUFuncObject *__pyx
   goto __pyx_L0;
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":947
- * 
+ *
  *     ctypedef class numpy.ufunc [object PyUFuncObject, check_size ignore]:
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline int nin(self) noexcept nogil:
@@ -5913,7 +5913,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_5ufunc_3nin___get__(PyUFuncObject *__pyx
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":951
  *             return _PyUFuncObject_GET_ITEM_DATA(self).nin
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline int nout(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).nout
@@ -5926,7 +5926,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_5ufunc_4nout___get__(PyUFuncObject *__py
  *         @property
  *         cdef inline int nout(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).nout             # <<<<<<<<<<<<<<
- * 
+ *
  *         @property
 */
   {
@@ -5937,7 +5937,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_5ufunc_4nout___get__(PyUFuncObject *__py
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":951
  *             return _PyUFuncObject_GET_ITEM_DATA(self).nin
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline int nout(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).nout
@@ -5950,7 +5950,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_5ufunc_4nout___get__(PyUFuncObject *__py
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":955
  *             return _PyUFuncObject_GET_ITEM_DATA(self).nout
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline int nargs(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).nargs
@@ -5963,7 +5963,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_5ufunc_5nargs___get__(PyUFuncObject *__p
  *         @property
  *         cdef inline int nargs(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).nargs             # <<<<<<<<<<<<<<
- * 
+ *
  *         @property
 */
   {
@@ -5974,7 +5974,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_5ufunc_5nargs___get__(PyUFuncObject *__p
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":955
  *             return _PyUFuncObject_GET_ITEM_DATA(self).nout
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline int nargs(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).nargs
@@ -5987,7 +5987,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_5ufunc_5nargs___get__(PyUFuncObject *__p
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":959
  *             return _PyUFuncObject_GET_ITEM_DATA(self).nargs
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline PyUFuncGenericFunction* functions(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).functions
@@ -6000,7 +6000,7 @@ static CYTHON_INLINE PyUFuncGenericFunction *__pyx_f_5numpy_5ufunc_9functions___
  *         @property
  *         cdef inline PyUFuncGenericFunction* functions(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).functions             # <<<<<<<<<<<<<<
- * 
+ *
  *         @property
 */
   {
@@ -6011,7 +6011,7 @@ static CYTHON_INLINE PyUFuncGenericFunction *__pyx_f_5numpy_5ufunc_9functions___
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":959
  *             return _PyUFuncObject_GET_ITEM_DATA(self).nargs
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline PyUFuncGenericFunction* functions(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).functions
@@ -6024,7 +6024,7 @@ static CYTHON_INLINE PyUFuncGenericFunction *__pyx_f_5numpy_5ufunc_9functions___
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":963
  *             return _PyUFuncObject_GET_ITEM_DATA(self).functions
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline void ** data(self) noexcept nogil:
  *             return <void **>_PyUFuncObject_GET_ITEM_DATA(self).data
@@ -6037,7 +6037,7 @@ static CYTHON_INLINE void **__pyx_f_5numpy_5ufunc_4data___get__(PyUFuncObject *_
  *         @property
  *         cdef inline void ** data(self) noexcept nogil:
  *             return <void **>_PyUFuncObject_GET_ITEM_DATA(self).data             # <<<<<<<<<<<<<<
- * 
+ *
  *         @property
 */
   {
@@ -6048,7 +6048,7 @@ static CYTHON_INLINE void **__pyx_f_5numpy_5ufunc_4data___get__(PyUFuncObject *_
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":963
  *             return _PyUFuncObject_GET_ITEM_DATA(self).functions
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline void ** data(self) noexcept nogil:
  *             return <void **>_PyUFuncObject_GET_ITEM_DATA(self).data
@@ -6061,7 +6061,7 @@ static CYTHON_INLINE void **__pyx_f_5numpy_5ufunc_4data___get__(PyUFuncObject *_
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":967
  *             return <void **>_PyUFuncObject_GET_ITEM_DATA(self).data
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline int ntypes(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).ntypes
@@ -6074,7 +6074,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_5ufunc_6ntypes___get__(PyUFuncObject *__
  *         @property
  *         cdef inline int ntypes(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).ntypes             # <<<<<<<<<<<<<<
- * 
+ *
  *         @property
 */
   {
@@ -6085,7 +6085,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_5ufunc_6ntypes___get__(PyUFuncObject *__
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":967
  *             return <void **>_PyUFuncObject_GET_ITEM_DATA(self).data
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline int ntypes(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).ntypes
@@ -6098,7 +6098,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_5ufunc_6ntypes___get__(PyUFuncObject *__
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":971
  *             return _PyUFuncObject_GET_ITEM_DATA(self).ntypes
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline const char* name(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).name
@@ -6111,7 +6111,7 @@ static CYTHON_INLINE char const *__pyx_f_5numpy_5ufunc_4name___get__(PyUFuncObje
  *         @property
  *         cdef inline const char* name(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).name             # <<<<<<<<<<<<<<
- * 
+ *
  *         @property
 */
   {
@@ -6122,7 +6122,7 @@ static CYTHON_INLINE char const *__pyx_f_5numpy_5ufunc_4name___get__(PyUFuncObje
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":971
  *             return _PyUFuncObject_GET_ITEM_DATA(self).ntypes
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline const char* name(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).name
@@ -6135,7 +6135,7 @@ static CYTHON_INLINE char const *__pyx_f_5numpy_5ufunc_4name___get__(PyUFuncObje
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":975
  *             return _PyUFuncObject_GET_ITEM_DATA(self).name
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline const char* doc(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).doc
@@ -6148,7 +6148,7 @@ static CYTHON_INLINE char const *__pyx_f_5numpy_5ufunc_3doc___get__(PyUFuncObjec
  *         @property
  *         cdef inline const char* doc(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).doc             # <<<<<<<<<<<<<<
- * 
+ *
  *         @property
 */
   {
@@ -6159,7 +6159,7 @@ static CYTHON_INLINE char const *__pyx_f_5numpy_5ufunc_3doc___get__(PyUFuncObjec
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":975
  *             return _PyUFuncObject_GET_ITEM_DATA(self).name
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline const char* doc(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).doc
@@ -6172,7 +6172,7 @@ static CYTHON_INLINE char const *__pyx_f_5numpy_5ufunc_3doc___get__(PyUFuncObjec
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":979
  *             return _PyUFuncObject_GET_ITEM_DATA(self).doc
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline void* ptr(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).ptr
@@ -6185,7 +6185,7 @@ static CYTHON_INLINE void *__pyx_f_5numpy_5ufunc_3ptr___get__(PyUFuncObject *__p
  *         @property
  *         cdef inline void* ptr(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).ptr             # <<<<<<<<<<<<<<
- * 
+ *
  *         @property
 */
   {
@@ -6196,7 +6196,7 @@ static CYTHON_INLINE void *__pyx_f_5numpy_5ufunc_3ptr___get__(PyUFuncObject *__p
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":979
  *             return _PyUFuncObject_GET_ITEM_DATA(self).doc
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline void* ptr(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).ptr
@@ -6209,7 +6209,7 @@ static CYTHON_INLINE void *__pyx_f_5numpy_5ufunc_3ptr___get__(PyUFuncObject *__p
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":983
  *             return _PyUFuncObject_GET_ITEM_DATA(self).ptr
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline PyObject* obj(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).obj
@@ -6222,7 +6222,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_5ufunc_3obj___get__(PyUFuncObject 
  *         @property
  *         cdef inline PyObject* obj(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).obj             # <<<<<<<<<<<<<<
- * 
+ *
  *         @property
 */
   {
@@ -6233,7 +6233,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_5ufunc_3obj___get__(PyUFuncObject 
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":983
  *             return _PyUFuncObject_GET_ITEM_DATA(self).ptr
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline PyObject* obj(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).obj
@@ -6246,7 +6246,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_5ufunc_3obj___get__(PyUFuncObject 
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":987
  *             return _PyUFuncObject_GET_ITEM_DATA(self).obj
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline PyObject* userloops(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).userloops
@@ -6259,7 +6259,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_5ufunc_9userloops___get__(PyUFuncO
  *         @property
  *         cdef inline PyObject* userloops(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).userloops             # <<<<<<<<<<<<<<
- * 
+ *
  *     PyUFuncObject_fields *_PyUFuncObject_GET_ITEM_DATA(ufunc) nogil
 */
   {
@@ -6270,7 +6270,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_5ufunc_9userloops___get__(PyUFuncO
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":987
  *             return _PyUFuncObject_GET_ITEM_DATA(self).obj
- * 
+ *
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline PyObject* userloops(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).userloops
@@ -6283,7 +6283,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_5ufunc_9userloops___get__(PyUFuncO
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1065
  *     int _import_umath() except -1
- * 
+ *
  * cdef inline void set_array_base(ndarray arr, object base) except *:             # <<<<<<<<<<<<<<
  *     Py_INCREF(base) # important to do this before stealing the reference below!
  *     PyArray_SetBaseObject(arr, base)
@@ -6296,11 +6296,11 @@ static CYTHON_INLINE void __pyx_f_5numpy_set_array_base(PyArrayObject *__pyx_v_a
   int __pyx_clineno = 0;
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1066
- * 
+ *
  * cdef inline void set_array_base(ndarray arr, object base) except *:
  *     Py_INCREF(base) # important to do this before stealing the reference below!             # <<<<<<<<<<<<<<
  *     PyArray_SetBaseObject(arr, base)
- * 
+ *
 */
   Py_INCREF(__pyx_v_base);
 
@@ -6308,7 +6308,7 @@ static CYTHON_INLINE void __pyx_f_5numpy_set_array_base(PyArrayObject *__pyx_v_a
  * cdef inline void set_array_base(ndarray arr, object base) except *:
  *     Py_INCREF(base) # important to do this before stealing the reference below!
  *     PyArray_SetBaseObject(arr, base)             # <<<<<<<<<<<<<<
- * 
+ *
  * cdef inline object get_array_base(ndarray arr):
 */
   __pyx_t_1 = PyArray_SetBaseObject(__pyx_v_arr, __pyx_v_base); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(1, 1067, __pyx_L1_error)
@@ -6316,7 +6316,7 @@ static CYTHON_INLINE void __pyx_f_5numpy_set_array_base(PyArrayObject *__pyx_v_a
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1065
  *     int _import_umath() except -1
- * 
+ *
  * cdef inline void set_array_base(ndarray arr, object base) except *:             # <<<<<<<<<<<<<<
  *     Py_INCREF(base) # important to do this before stealing the reference below!
  *     PyArray_SetBaseObject(arr, base)
@@ -6332,7 +6332,7 @@ static CYTHON_INLINE void __pyx_f_5numpy_set_array_base(PyArrayObject *__pyx_v_a
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1069
  *     PyArray_SetBaseObject(arr, base)
- * 
+ *
  * cdef inline object get_array_base(ndarray arr):             # <<<<<<<<<<<<<<
  *     base = PyArray_BASE(arr)
  *     if base is NULL:
@@ -6346,7 +6346,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_get_array_base(PyArrayObject *__py
   __Pyx_RefNannySetupContext("get_array_base", 0);
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1070
- * 
+ *
  * cdef inline object get_array_base(ndarray arr):
  *     base = PyArray_BASE(arr)             # <<<<<<<<<<<<<<
  *     if base is NULL:
@@ -6371,7 +6371,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_get_array_base(PyArrayObject *__py
  *     if base is NULL:
  *         return None             # <<<<<<<<<<<<<<
  *     return <object>base
- * 
+ *
 */
     {
       PyObject *__pyx_temp;
@@ -6396,7 +6396,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_get_array_base(PyArrayObject *__py
  *     if base is NULL:
  *         return None
  *     return <object>base             # <<<<<<<<<<<<<<
- * 
+ *
  * # Versions of the import_* functions which are more suitable for
 */
   {
@@ -6412,7 +6412,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_get_array_base(PyArrayObject *__py
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1069
  *     PyArray_SetBaseObject(arr, base)
- * 
+ *
  * cdef inline object get_array_base(ndarray arr):             # <<<<<<<<<<<<<<
  *     base = PyArray_BASE(arr)
  *     if base is NULL:
@@ -6497,7 +6497,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_array(void) {
  *         __pyx_import_array()
  *     except Exception:             # <<<<<<<<<<<<<<
  *         raise ImportError("numpy._core.multiarray failed to import")
- * 
+ *
 */
     __pyx_t_4 = __Pyx_PyErr_ExceptionMatches(((PyObject *)(((PyTypeObject*)PyExc_Exception))));
     if (__pyx_t_4) {
@@ -6511,7 +6511,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_array(void) {
  *         __pyx_import_array()
  *     except Exception:
  *         raise ImportError("numpy._core.multiarray failed to import")             # <<<<<<<<<<<<<<
- * 
+ *
  * cdef inline int import_umath() except -1:
 */
       __pyx_t_9 = NULL;
@@ -6572,7 +6572,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_array(void) {
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1083
  *         raise ImportError("numpy._core.multiarray failed to import")
- * 
+ *
  * cdef inline int import_umath() except -1:             # <<<<<<<<<<<<<<
  *     try:
  *         _import_umath()
@@ -6597,7 +6597,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_umath(void) {
   __Pyx_RefNannySetupContext("import_umath", 0);
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1084
- * 
+ *
  * cdef inline int import_umath() except -1:
  *     try:             # <<<<<<<<<<<<<<
  *         _import_umath()
@@ -6623,7 +6623,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_umath(void) {
 
 
       /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1084
- * 
+ *
  * cdef inline int import_umath() except -1:
  *     try:             # <<<<<<<<<<<<<<
  *         _import_umath()
@@ -6641,7 +6641,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_umath(void) {
  *         _import_umath()
  *     except Exception:             # <<<<<<<<<<<<<<
  *         raise ImportError("numpy._core.umath failed to import")
- * 
+ *
 */
     __pyx_t_4 = __Pyx_PyErr_ExceptionMatches(((PyObject *)(((PyTypeObject*)PyExc_Exception))));
     if (__pyx_t_4) {
@@ -6655,7 +6655,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_umath(void) {
  *         _import_umath()
  *     except Exception:
  *         raise ImportError("numpy._core.umath failed to import")             # <<<<<<<<<<<<<<
- * 
+ *
  * cdef inline int import_ufunc() except -1:
 */
       __pyx_t_9 = NULL;
@@ -6674,7 +6674,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_umath(void) {
     goto __pyx_L5_except_error;
 
     /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1084
- * 
+ *
  * cdef inline int import_umath() except -1:
  *     try:             # <<<<<<<<<<<<<<
  *         _import_umath()
@@ -6691,7 +6691,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_umath(void) {
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1083
  *         raise ImportError("numpy._core.multiarray failed to import")
- * 
+ *
  * cdef inline int import_umath() except -1:             # <<<<<<<<<<<<<<
  *     try:
  *         _import_umath()
@@ -6716,7 +6716,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_umath(void) {
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1089
  *         raise ImportError("numpy._core.umath failed to import")
- * 
+ *
  * cdef inline int import_ufunc() except -1:             # <<<<<<<<<<<<<<
  *     try:
  *         _import_umath()
@@ -6741,7 +6741,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
   __Pyx_RefNannySetupContext("import_ufunc", 0);
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1090
- * 
+ *
  * cdef inline int import_ufunc() except -1:
  *     try:             # <<<<<<<<<<<<<<
  *         _import_umath()
@@ -6767,7 +6767,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
 
 
       /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1090
- * 
+ *
  * cdef inline int import_ufunc() except -1:
  *     try:             # <<<<<<<<<<<<<<
  *         _import_umath()
@@ -6785,7 +6785,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
  *         _import_umath()
  *     except Exception:             # <<<<<<<<<<<<<<
  *         raise ImportError("numpy._core.umath failed to import")
- * 
+ *
 */
     __pyx_t_4 = __Pyx_PyErr_ExceptionMatches(((PyObject *)(((PyTypeObject*)PyExc_Exception))));
     if (__pyx_t_4) {
@@ -6799,8 +6799,8 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
  *         _import_umath()
  *     except Exception:
  *         raise ImportError("numpy._core.umath failed to import")             # <<<<<<<<<<<<<<
- * 
- * 
+ *
+ *
 */
       __pyx_t_9 = NULL;
       __pyx_t_10 = 1;
@@ -6818,7 +6818,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
     goto __pyx_L5_except_error;
 
     /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1090
- * 
+ *
  * cdef inline int import_ufunc() except -1:
  *     try:             # <<<<<<<<<<<<<<
  *         _import_umath()
@@ -6835,7 +6835,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1089
  *         raise ImportError("numpy._core.umath failed to import")
- * 
+ *
  * cdef inline int import_ufunc() except -1:             # <<<<<<<<<<<<<<
  *     try:
  *         _import_umath()
@@ -6859,8 +6859,8 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
 }
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1096
- * 
- * 
+ *
+ *
  * cdef inline bint is_timedelta64_object(object obj) noexcept:             # <<<<<<<<<<<<<<
  *     """
  *     Cython equivalent of `isinstance(obj, np.timedelta64)`
@@ -6873,8 +6873,8 @@ static CYTHON_INLINE int __pyx_f_5numpy_is_timedelta64_object(PyObject *__pyx_v_
  *     bool
  *     """
  *     return PyObject_TypeCheck(obj, &PyTimedeltaArrType_Type)             # <<<<<<<<<<<<<<
- * 
- * 
+ *
+ *
 */
   {
 
@@ -6883,8 +6883,8 @@ static CYTHON_INLINE int __pyx_f_5numpy_is_timedelta64_object(PyObject *__pyx_v_
   goto __pyx_L0;
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1096
- * 
- * 
+ *
+ *
  * cdef inline bint is_timedelta64_object(object obj) noexcept:             # <<<<<<<<<<<<<<
  *     """
  *     Cython equivalent of `isinstance(obj, np.timedelta64)`
@@ -6897,8 +6897,8 @@ static CYTHON_INLINE int __pyx_f_5numpy_is_timedelta64_object(PyObject *__pyx_v_
 }
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1111
- * 
- * 
+ *
+ *
  * cdef inline bint is_datetime64_object(object obj) noexcept:             # <<<<<<<<<<<<<<
  *     """
  *     Cython equivalent of `isinstance(obj, np.datetime64)`
@@ -6911,8 +6911,8 @@ static CYTHON_INLINE int __pyx_f_5numpy_is_datetime64_object(PyObject *__pyx_v_o
  *     bool
  *     """
  *     return PyObject_TypeCheck(obj, &PyDatetimeArrType_Type)             # <<<<<<<<<<<<<<
- * 
- * 
+ *
+ *
 */
   {
 
@@ -6921,8 +6921,8 @@ static CYTHON_INLINE int __pyx_f_5numpy_is_datetime64_object(PyObject *__pyx_v_o
   goto __pyx_L0;
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1111
- * 
- * 
+ *
+ *
  * cdef inline bint is_datetime64_object(object obj) noexcept:             # <<<<<<<<<<<<<<
  *     """
  *     Cython equivalent of `isinstance(obj, np.datetime64)`
@@ -6935,8 +6935,8 @@ static CYTHON_INLINE int __pyx_f_5numpy_is_datetime64_object(PyObject *__pyx_v_o
 }
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1126
- * 
- * 
+ *
+ *
  * cdef inline npy_datetime get_datetime64_value(object obj) noexcept nogil:             # <<<<<<<<<<<<<<
  *     """
  *     returns the int64 value underlying scalar numpy datetime64 object
@@ -6949,8 +6949,8 @@ static CYTHON_INLINE npy_datetime __pyx_f_5numpy_get_datetime64_value(PyObject *
  *     also needed.  That can be found using `get_datetime64_unit`.
  *     """
  *     return _PyDatetimeScalarObject_GetValue(obj)             # <<<<<<<<<<<<<<
- * 
- * 
+ *
+ *
 */
   {
 
@@ -6959,8 +6959,8 @@ static CYTHON_INLINE npy_datetime __pyx_f_5numpy_get_datetime64_value(PyObject *
   goto __pyx_L0;
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1126
- * 
- * 
+ *
+ *
  * cdef inline npy_datetime get_datetime64_value(object obj) noexcept nogil:             # <<<<<<<<<<<<<<
  *     """
  *     returns the int64 value underlying scalar numpy datetime64 object
@@ -6972,8 +6972,8 @@ static CYTHON_INLINE npy_datetime __pyx_f_5numpy_get_datetime64_value(PyObject *
 }
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1136
- * 
- * 
+ *
+ *
  * cdef inline npy_timedelta get_timedelta64_value(object obj) noexcept nogil:             # <<<<<<<<<<<<<<
  *     """
  *     returns the int64 value underlying scalar numpy timedelta64 object
@@ -6986,8 +6986,8 @@ static CYTHON_INLINE npy_timedelta __pyx_f_5numpy_get_timedelta64_value(PyObject
  *     returns the int64 value underlying scalar numpy timedelta64 object
  *     """
  *     return _PyTimedeltaScalarObject_GetValue(obj)             # <<<<<<<<<<<<<<
- * 
- * 
+ *
+ *
 */
   {
 
@@ -6996,8 +6996,8 @@ static CYTHON_INLINE npy_timedelta __pyx_f_5numpy_get_timedelta64_value(PyObject
   goto __pyx_L0;
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1136
- * 
- * 
+ *
+ *
  * cdef inline npy_timedelta get_timedelta64_value(object obj) noexcept nogil:             # <<<<<<<<<<<<<<
  *     """
  *     returns the int64 value underlying scalar numpy timedelta64 object
@@ -7009,8 +7009,8 @@ static CYTHON_INLINE npy_timedelta __pyx_f_5numpy_get_timedelta64_value(PyObject
 }
 
 /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1143
- * 
- * 
+ *
+ *
  * cdef inline NPY_DATETIMEUNIT get_datetime64_unit(object obj) noexcept nogil:             # <<<<<<<<<<<<<<
  *     """
  *     returns the unit part of the dtype for a numpy datetime64 object.
@@ -7023,8 +7023,8 @@ static CYTHON_INLINE NPY_DATETIMEUNIT __pyx_f_5numpy_get_datetime64_unit(PyObjec
  *     returns the unit part of the dtype for a numpy datetime64 object.
  *     """
  *     return _PyDatetimeScalarObject_GetMetadata(obj).base             # <<<<<<<<<<<<<<
- * 
- * 
+ *
+ *
 */
   {
 
@@ -7033,8 +7033,8 @@ static CYTHON_INLINE NPY_DATETIMEUNIT __pyx_f_5numpy_get_datetime64_unit(PyObjec
   goto __pyx_L0;
 
   /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1143
- * 
- * 
+ *
+ *
  * cdef inline NPY_DATETIMEUNIT get_datetime64_unit(object obj) noexcept nogil:             # <<<<<<<<<<<<<<
  *     """
  *     returns the unit part of the dtype for a numpy datetime64 object.
@@ -7047,14 +7047,14 @@ static CYTHON_INLINE NPY_DATETIMEUNIT __pyx_f_5numpy_get_datetime64_unit(PyObjec
 
 /* "pyart/io/_sigmetfile.pyx":58
  *     cdef public int _rbuf_pos, _record_number
- * 
+ *
  *     def __init__(self, filename, debug=False):             # <<<<<<<<<<<<<<
  *         """ initalize the object. """
- * 
+ *
 */
 
 /* Python wrapper */
-static int __pyx_pw_5pyart_2io_11_sigmetfile_10SigmetFile_1__init__(PyObject *__pyx_v_self, 
+static int __pyx_pw_5pyart_2io_11_sigmetfile_10SigmetFile_1__init__(PyObject *__pyx_v_self,
 #if CYTHON_VECTORCALL_TPNEW
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -7065,7 +7065,7 @@ PyDoc_STRVAR(__pyx_doc_5pyart_2io_11_sigmetfile_10SigmetFile___init__, " initali
 #if CYTHON_UPDATE_DESCRIPTOR_DOC
 struct wrapperbase __pyx_wrapperbase_5pyart_2io_11_sigmetfile_10SigmetFile___init__;
 #endif
-static int __pyx_pw_5pyart_2io_11_sigmetfile_10SigmetFile_1__init__(PyObject *__pyx_v_self, 
+static int __pyx_pw_5pyart_2io_11_sigmetfile_10SigmetFile_1__init__(PyObject *__pyx_v_self,
 #if CYTHON_VECTORCALL_TPNEW
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -7178,9 +7178,9 @@ static int __pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile___init__(struct __pyx_
 
   /* "pyart/io/_sigmetfile.pyx":61
  *         """ initalize the object. """
- * 
+ *
  *         self.debug = debug             # <<<<<<<<<<<<<<
- * 
+ *
  *         # open the file
 */
   __Pyx_INCREF(__pyx_v_debug);
@@ -7190,7 +7190,7 @@ static int __pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile___init__(struct __pyx_
   __pyx_v_self->debug = __pyx_v_debug;
 
   /* "pyart/io/_sigmetfile.pyx":64
- * 
+ *
  *         # open the file
  *         if hasattr(filename, 'read'):             # <<<<<<<<<<<<<<
  *             fh = filename
@@ -7211,7 +7211,7 @@ static int __pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile___init__(struct __pyx_
     __pyx_v_fh = __pyx_v_filename;
 
     /* "pyart/io/_sigmetfile.pyx":64
- * 
+ *
  *         # open the file
  *         if hasattr(filename, 'read'):             # <<<<<<<<<<<<<<
  *             fh = filename
@@ -7224,7 +7224,7 @@ static int __pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile___init__(struct __pyx_
  *             fh = filename
  *         else:
  *             fh = open(filename, 'rb')             # <<<<<<<<<<<<<<
- * 
+ *
  *         # read the headers from the first 2 records.
 */
   /*else*/ {
@@ -7243,11 +7243,11 @@ static int __pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile___init__(struct __pyx_
   __pyx_L3:;
 
   /* "pyart/io/_sigmetfile.pyx":70
- * 
+ *
  *         # read the headers from the first 2 records.
  *         self.product_hdr = _unpack_product_hdr(fh.read(RECORD_SIZE))             # <<<<<<<<<<<<<<
  *         self.ingest_header = _unpack_ingest_header(fh.read(RECORD_SIZE))
- * 
+ *
 */
   __pyx_t_3 = NULL;
   __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_unpack_product_hdr); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 70, __pyx_L1_error)
@@ -7296,7 +7296,7 @@ static int __pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile___init__(struct __pyx_
  *         # read the headers from the first 2 records.
  *         self.product_hdr = _unpack_product_hdr(fh.read(RECORD_SIZE))
  *         self.ingest_header = _unpack_ingest_header(fh.read(RECORD_SIZE))             # <<<<<<<<<<<<<<
- * 
+ *
  *         # determine data types contained in the file
 */
   __pyx_t_5 = NULL;
@@ -7343,7 +7343,7 @@ static int __pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile___init__(struct __pyx_
   __pyx_t_2 = 0;
 
   /* "pyart/io/_sigmetfile.pyx":74
- * 
+ *
  *         # determine data types contained in the file
  *         self.data_types = self._determine_data_types()             # <<<<<<<<<<<<<<
  *         self.ndata_types = len(self.data_types)
@@ -7370,7 +7370,7 @@ static int __pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile___init__(struct __pyx_
  *         self.data_types = self._determine_data_types()
  *         self.ndata_types = len(self.data_types)             # <<<<<<<<<<<<<<
  *         self.data_type_names = [SIGMET_DATA_TYPES[i] for i in self.data_types]
- * 
+ *
 */
   __pyx_t_2 = __pyx_v_self->data_types;
   __Pyx_INCREF(__pyx_t_2);
@@ -7389,7 +7389,7 @@ static int __pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile___init__(struct __pyx_
  *         self.data_types = self._determine_data_types()
  *         self.ndata_types = len(self.data_types)
  *         self.data_type_names = [SIGMET_DATA_TYPES[i] for i in self.data_types]             # <<<<<<<<<<<<<<
- * 
+ *
  *         # set attributes
 */
   { /* enter inner scope */
@@ -7470,7 +7470,7 @@ static int __pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile___init__(struct __pyx_
   __pyx_t_2 = 0;
 
   /* "pyart/io/_sigmetfile.pyx":79
- * 
+ *
  *         # set attributes
  *         self.ingest_data_headers = None             # <<<<<<<<<<<<<<
  *         self._fh = fh
@@ -7500,7 +7500,7 @@ static int __pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile___init__(struct __pyx_
  *         self._fh = fh
  *         self._record_number = 2             # <<<<<<<<<<<<<<
  *         self._raw_product_bhdrs = []
- * 
+ *
 */
   __pyx_v_self->_record_number = 2;
 
@@ -7508,7 +7508,7 @@ static int __pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile___init__(struct __pyx_
  *         self._fh = fh
  *         self._record_number = 2
  *         self._raw_product_bhdrs = []             # <<<<<<<<<<<<<<
- * 
+ *
  *     def _determine_data_types(self):
 */
   __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 82, __pyx_L1_error)
@@ -7521,10 +7521,10 @@ static int __pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile___init__(struct __pyx_
 
   /* "pyart/io/_sigmetfile.pyx":58
  *     cdef public int _rbuf_pos, _record_number
- * 
+ *
  *     def __init__(self, filename, debug=False):             # <<<<<<<<<<<<<<
  *         """ initalize the object. """
- * 
+ *
 */
 
   /* function exit code */
@@ -7549,14 +7549,14 @@ static int __pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile___init__(struct __pyx_
 
 /* "pyart/io/_sigmetfile.pyx":84
  *         self._raw_product_bhdrs = []
- * 
+ *
  *     def _determine_data_types(self):             # <<<<<<<<<<<<<<
  *         """ Determine the available data types in the file. """
  *         # determine the available fields
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_10SigmetFile_3_determine_data_types(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_10SigmetFile_3_determine_data_types(PyObject *__pyx_v_self,
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -7565,7 +7565,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 ); /*proto*/
 PyDoc_STRVAR(__pyx_doc_5pyart_2io_11_sigmetfile_10SigmetFile_2_determine_data_types, " Determine the available data types in the file. ");
 static PyMethodDef __pyx_mdef_5pyart_2io_11_sigmetfile_10SigmetFile_3_determine_data_types = {"_determine_data_types", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5pyart_2io_11_sigmetfile_10SigmetFile_3_determine_data_types, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5pyart_2io_11_sigmetfile_10SigmetFile_2_determine_data_types};
-static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_10SigmetFile_3_determine_data_types(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_10SigmetFile_3_determine_data_types(PyObject *__pyx_v_self,
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -7690,7 +7690,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_2_determine_data
  *         word2 = task_dsp_info['current_data_type_mask']['mask_word_2']
  *         word3 = task_dsp_info['current_data_type_mask']['mask_word_3']             # <<<<<<<<<<<<<<
  *         return _data_types_from_mask(word0, word1, word2, word3)
- * 
+ *
 */
   __pyx_t_2 = __Pyx_PyObject_Dict_GetItem(__pyx_v_task_dsp_info, __pyx_mstate_global->__pyx_n_u_current_data_type_mask); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 92, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -7704,7 +7704,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_2_determine_data
  *         word2 = task_dsp_info['current_data_type_mask']['mask_word_2']
  *         word3 = task_dsp_info['current_data_type_mask']['mask_word_3']
  *         return _data_types_from_mask(word0, word1, word2, word3)             # <<<<<<<<<<<<<<
- * 
+ *
  *     def close(self):
 */
   __pyx_t_2 = NULL;
@@ -7743,7 +7743,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_2_determine_data
 
   /* "pyart/io/_sigmetfile.pyx":84
  *         self._raw_product_bhdrs = []
- * 
+ *
  *     def _determine_data_types(self):             # <<<<<<<<<<<<<<
  *         """ Determine the available data types in the file. """
  *         # determine the available fields
@@ -7770,14 +7770,14 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_2_determine_data
 
 /* "pyart/io/_sigmetfile.pyx":95
  *         return _data_types_from_mask(word0, word1, word2, word3)
- * 
+ *
  *     def close(self):             # <<<<<<<<<<<<<<
  *         """ Close the file. """
  *         self._fh.close()
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_10SigmetFile_5close(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_10SigmetFile_5close(PyObject *__pyx_v_self,
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -7786,7 +7786,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 ); /*proto*/
 PyDoc_STRVAR(__pyx_doc_5pyart_2io_11_sigmetfile_10SigmetFile_4close, " Close the file. ");
 static PyMethodDef __pyx_mdef_5pyart_2io_11_sigmetfile_10SigmetFile_5close = {"close", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5pyart_2io_11_sigmetfile_10SigmetFile_5close, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5pyart_2io_11_sigmetfile_10SigmetFile_4close};
-static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_10SigmetFile_5close(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_10SigmetFile_5close(PyObject *__pyx_v_self,
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -7834,7 +7834,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_4close(struct __
  *     def close(self):
  *         """ Close the file. """
  *         self._fh.close()             # <<<<<<<<<<<<<<
- * 
+ *
  *     def read_data(self, full_xhdr=False):
 */
   __pyx_t_2 = __pyx_v_self->_fh;
@@ -7851,7 +7851,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_4close(struct __
 
   /* "pyart/io/_sigmetfile.pyx":95
  *         return _data_types_from_mask(word0, word1, word2, word3)
- * 
+ *
  *     def close(self):             # <<<<<<<<<<<<<<
  *         """ Close the file. """
  *         self._fh.close()
@@ -7873,14 +7873,14 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_4close(struct __
 
 /* "pyart/io/_sigmetfile.pyx":99
  *         self._fh.close()
- * 
+ *
  *     def read_data(self, full_xhdr=False):             # <<<<<<<<<<<<<<
  *         """
  *         Read all data from the file.
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_10SigmetFile_7read_data(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_10SigmetFile_7read_data(PyObject *__pyx_v_self,
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -7889,7 +7889,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 ); /*proto*/
 PyDoc_STRVAR(__pyx_doc_5pyart_2io_11_sigmetfile_10SigmetFile_6read_data, "\n        Read all data from the file.\n\n        Parameters\n        ----------\n        full_xhdr : bool\n            True to return the full extended headers if they exist padded with\n            ones.  False will return a length 1 extended header converted to\n            int32.  This is useful when the file contains a customer specified\n            extended header (for example aircraft radar).\n\n        Returns\n        -------\n        data : dict of ndarrays\n            Data arrays of shape=(nsweeps, nrays, nbins) for each data type.\n            Indexed by data type name (str).\n        metadata : dict of dicts\n            Arrays of \047azimuth_0\047, \047azimuth_1\047, \047elevation_0\047, \047elevation_1\047,\n            \047nbins\047, and \047time\047 for each data type.  Indexed by data type name\n            (str).  Rays which were not collected are marked with a value of\n            -1 in the \047nbins\047 array.\n\n        ");
 static PyMethodDef __pyx_mdef_5pyart_2io_11_sigmetfile_10SigmetFile_7read_data = {"read_data", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5pyart_2io_11_sigmetfile_10SigmetFile_7read_data, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5pyart_2io_11_sigmetfile_10SigmetFile_6read_data};
-static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_10SigmetFile_7read_data(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_10SigmetFile_7read_data(PyObject *__pyx_v_self,
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -8030,7 +8030,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_6read_data(struc
   __Pyx_RefNannySetupContext("read_data", 0);
 
   /* "pyart/io/_sigmetfile.pyx":125
- * 
+ *
  *         # determine size of data
  *         nsweeps = self.ingest_header['task_configuration'][             # <<<<<<<<<<<<<<
  *             'task_scan_info']['number_sweeps']
@@ -8075,7 +8075,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_6read_data(struc
  *         nbins = self.product_hdr['product_end']['number_bins']
  *         nrays = self.ingest_header['ingest_configuration'][             # <<<<<<<<<<<<<<
  *             'number_rays_sweep']
- * 
+ *
 */
   __pyx_t_2 = __Pyx_PyObject_Dict_GetItem(__pyx_v_self->ingest_header, __pyx_mstate_global->__pyx_n_u_ingest_configuration); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 128, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -8086,7 +8086,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_6read_data(struc
   __pyx_t_1 = 0;
 
   /* "pyart/io/_sigmetfile.pyx":132
- * 
+ *
  *         # create empty outputs
  *         shape = (nsweeps, nrays, nbins)             # <<<<<<<<<<<<<<
  *         data = dict([(name, np.ma.empty(shape, dtype='float32'))
@@ -8338,7 +8338,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_6read_data(struc
  *                 data['XHDR'] = np.ones(shape, dtype='int16')
  *             else:
  *                 data['XHDR'] = np.ones((nsweeps, nrays, 1), dtype='int32')             # <<<<<<<<<<<<<<
- * 
+ *
  *         metadata = {}
 */
     /*else*/ {
@@ -8409,7 +8409,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_6read_data(struc
 
   /* "pyart/io/_sigmetfile.pyx":141
  *                 data['XHDR'] = np.ones((nsweeps, nrays, 1), dtype='int32')
- * 
+ *
  *         metadata = {}             # <<<<<<<<<<<<<<
  *         for name in self.data_type_names:
  *             header_dic = {
@@ -8420,7 +8420,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_6read_data(struc
   __pyx_t_1 = 0;
 
   /* "pyart/io/_sigmetfile.pyx":142
- * 
+ *
  *         metadata = {}
  *         for name in self.data_type_names:             # <<<<<<<<<<<<<<
  *             header_dic = {
@@ -8833,7 +8833,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_6read_data(struc
  *                 'time': np.empty((nsweeps, nrays), dtype='uint16'),
  *                 'prf_flag': np.empty((nsweeps, nrays), dtype='int16')}             # <<<<<<<<<<<<<<
  *             metadata[name] = header_dic
- * 
+ *
 */
     __pyx_t_4 = NULL;
     __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 150, __pyx_L1_error)
@@ -8892,13 +8892,13 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_6read_data(struc
  *                 'time': np.empty((nsweeps, nrays), dtype='uint16'),
  *                 'prf_flag': np.empty((nsweeps, nrays), dtype='int16')}
  *             metadata[name] = header_dic             # <<<<<<<<<<<<<<
- * 
+ *
  *         self.ingest_data_headers = dict([(name, []) for name in
 */
     if (unlikely((PyDict_SetItem(__pyx_v_metadata, __pyx_v_name, __pyx_v_header_dic) < 0))) __PYX_ERR(0, 151, __pyx_L1_error)
 
     /* "pyart/io/_sigmetfile.pyx":142
- * 
+ *
  *         metadata = {}
  *         for name in self.data_type_names:             # <<<<<<<<<<<<<<
  *             header_dic = {
@@ -8909,10 +8909,10 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_6read_data(struc
 
   /* "pyart/io/_sigmetfile.pyx":153
  *             metadata[name] = header_dic
- * 
+ *
  *         self.ingest_data_headers = dict([(name, []) for name in             # <<<<<<<<<<<<<<
  *                                          self.data_type_names])
- * 
+ *
 */
   __pyx_t_3 = NULL;
   { /* enter inner scope */
@@ -8920,10 +8920,10 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_6read_data(struc
     __Pyx_GOTREF(__pyx_t_10);
 
     /* "pyart/io/_sigmetfile.pyx":154
- * 
+ *
  *         self.ingest_data_headers = dict([(name, []) for name in
  *                                          self.data_type_names])             # <<<<<<<<<<<<<<
- * 
+ *
  *         self._raw_product_bhdrs = []
 */
     if (likely(PyList_CheckExact(__pyx_v_self->data_type_names)) || PyTuple_CheckExact(__pyx_v_self->data_type_names)) {
@@ -8980,10 +8980,10 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_6read_data(struc
 
       /* "pyart/io/_sigmetfile.pyx":153
  *             metadata[name] = header_dic
- * 
+ *
  *         self.ingest_data_headers = dict([(name, []) for name in             # <<<<<<<<<<<<<<
  *                                          self.data_type_names])
- * 
+ *
 */
       __pyx_t_7 = PyList_New(0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 153, __pyx_L17_error)
       __Pyx_GOTREF(__pyx_t_7);
@@ -9024,9 +9024,9 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_6read_data(struc
 
   /* "pyart/io/_sigmetfile.pyx":156
  *                                          self.data_type_names])
- * 
+ *
  *         self._raw_product_bhdrs = []             # <<<<<<<<<<<<<<
- * 
+ *
  *         # read in data sweep by sweep
 */
   __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 156, __pyx_L1_error)
@@ -9038,7 +9038,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_6read_data(struc
   __pyx_t_1 = 0;
 
   /* "pyart/io/_sigmetfile.pyx":159
- * 
+ *
  *         # read in data sweep by sweep
  *         for i in xrange(nsweeps):             # <<<<<<<<<<<<<<
  *             ingest_data_hdrs, sweep_data, sweep_metadata = self._get_sweep(
@@ -9078,7 +9078,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_6read_data(struc
  *         for i in xrange(nsweeps):
  *             ingest_data_hdrs, sweep_data, sweep_metadata = self._get_sweep(             # <<<<<<<<<<<<<<
  *                 full_xhdr=full_xhdr)
- * 
+ *
 */
     __pyx_t_3 = ((PyObject *)__pyx_v_self);
     __Pyx_INCREF(__pyx_t_3);
@@ -9087,7 +9087,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_6read_data(struc
  *         for i in xrange(nsweeps):
  *             ingest_data_hdrs, sweep_data, sweep_metadata = self._get_sweep(
  *                 full_xhdr=full_xhdr)             # <<<<<<<<<<<<<<
- * 
+ *
  *             # check for a truncated file, return sweep(s) read up until error
 */
     __pyx_t_11 = 0;
@@ -9176,7 +9176,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_6read_data(struc
  *         for i in xrange(nsweeps):
  *             ingest_data_hdrs, sweep_data, sweep_metadata = self._get_sweep(             # <<<<<<<<<<<<<<
  *                 full_xhdr=full_xhdr)
- * 
+ *
 */
     __Pyx_XDECREF_SET(__pyx_v_ingest_data_hdrs, __pyx_t_9);
     __pyx_t_9 = 0;
@@ -9186,10 +9186,10 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_6read_data(struc
     __pyx_t_2 = 0;
 
     /* "pyart/io/_sigmetfile.pyx":164
- * 
+ *
  *             # check for a truncated file, return sweep(s) read up until error
  *             if ingest_data_hdrs is None:             # <<<<<<<<<<<<<<
- * 
+ *
  *                 mess = ('File truncated or corrupt, %i of %i sweeps read' %
 */
     __pyx_t_12 = (__pyx_v_ingest_data_hdrs == Py_None);
@@ -9197,11 +9197,11 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_6read_data(struc
 
 
       /* "pyart/io/_sigmetfile.pyx":167
- * 
+ *
  *                 mess = ('File truncated or corrupt, %i of %i sweeps read' %
  *                         (i, nsweeps))             # <<<<<<<<<<<<<<
  *                 warnings.warn(mess)
- * 
+ *
 */
       __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 167, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
@@ -9214,7 +9214,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_6read_data(struc
 
       /* "pyart/io/_sigmetfile.pyx":166
  *             if ingest_data_hdrs is None:
- * 
+ *
  *                 mess = ('File truncated or corrupt, %i of %i sweeps read' %             # <<<<<<<<<<<<<<
  *                         (i, nsweeps))
  *                 warnings.warn(mess)
@@ -9229,7 +9229,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_6read_data(struc
  *                 mess = ('File truncated or corrupt, %i of %i sweeps read' %
  *                         (i, nsweeps))
  *                 warnings.warn(mess)             # <<<<<<<<<<<<<<
- * 
+ *
  *                 for name in self.data_type_names:
 */
       __pyx_t_1 = NULL;
@@ -9262,7 +9262,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_6read_data(struc
 
       /* "pyart/io/_sigmetfile.pyx":170
  *                 warnings.warn(mess)
- * 
+ *
  *                 for name in self.data_type_names:             # <<<<<<<<<<<<<<
  *                     data[name] = data[name][:i]
  *                     for k in metadata[name]:
@@ -9320,7 +9320,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_6read_data(struc
         __pyx_t_9 = 0;
 
         /* "pyart/io/_sigmetfile.pyx":171
- * 
+ *
  *                 for name in self.data_type_names:
  *                     data[name] = data[name][:i]             # <<<<<<<<<<<<<<
  *                     for k in metadata[name]:
@@ -9401,7 +9401,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_6read_data(struc
  *                     for k in metadata[name]:
  *                         metadata[name][k] = metadata[name][k][:i]             # <<<<<<<<<<<<<<
  *                 return data, metadata
- * 
+ *
 */
           __pyx_t_1 = __Pyx_PyDict_GetItem(__pyx_v_metadata, __pyx_v_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 173, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_1);
@@ -9429,7 +9429,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_6read_data(struc
 
         /* "pyart/io/_sigmetfile.pyx":170
  *                 warnings.warn(mess)
- * 
+ *
  *                 for name in self.data_type_names:             # <<<<<<<<<<<<<<
  *                     data[name] = data[name][:i]
  *                     for k in metadata[name]:
@@ -9441,7 +9441,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_6read_data(struc
  *                     for k in metadata[name]:
  *                         metadata[name][k] = metadata[name][k][:i]
  *                 return data, metadata             # <<<<<<<<<<<<<<
- * 
+ *
  *             for j, name in enumerate(self.data_type_names):
 */
       __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 174, __pyx_L1_error)
@@ -9465,17 +9465,17 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_6read_data(struc
       goto __pyx_L0;
 
       /* "pyart/io/_sigmetfile.pyx":164
- * 
+ *
  *             # check for a truncated file, return sweep(s) read up until error
  *             if ingest_data_hdrs is None:             # <<<<<<<<<<<<<<
- * 
+ *
  *                 mess = ('File truncated or corrupt, %i of %i sweeps read' %
 */
     }
 
     /* "pyart/io/_sigmetfile.pyx":176
  *                 return data, metadata
- * 
+ *
  *             for j, name in enumerate(self.data_type_names):             # <<<<<<<<<<<<<<
  *                 temp = sweep_metadata[j]
  *                 (az0, el0, az1, el1, ray_nbins, ray_time, prf_flag) = temp
@@ -9542,11 +9542,11 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_6read_data(struc
       __pyx_t_1 = 0;
 
       /* "pyart/io/_sigmetfile.pyx":177
- * 
+ *
  *             for j, name in enumerate(self.data_type_names):
  *                 temp = sweep_metadata[j]             # <<<<<<<<<<<<<<
  *                 (az0, el0, az1, el1, ray_nbins, ray_time, prf_flag) = temp
- * 
+ *
 */
       __pyx_t_1 = __Pyx_PyObject_GetItem(__pyx_v_sweep_metadata, __pyx_v_j); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 177, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
@@ -9557,7 +9557,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_6read_data(struc
  *             for j, name in enumerate(self.data_type_names):
  *                 temp = sweep_metadata[j]
  *                 (az0, el0, az1, el1, ray_nbins, ray_time, prf_flag) = temp             # <<<<<<<<<<<<<<
- * 
+ *
  *                 data[name][i] = sweep_data[j]
 */
       if ((likely(PyTuple_CheckExact(__pyx_v_temp))) || (PyList_CheckExact(__pyx_v_temp))) {
@@ -9657,7 +9657,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_6read_data(struc
 
       /* "pyart/io/_sigmetfile.pyx":180
  *                 (az0, el0, az1, el1, ray_nbins, ray_time, prf_flag) = temp
- * 
+ *
  *                 data[name][i] = sweep_data[j]             # <<<<<<<<<<<<<<
  *                 metadata[name]['azimuth_0'][i] = az0
  *                 metadata[name]['azimuth_1'][i] = az1
@@ -9671,7 +9671,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_6read_data(struc
       __Pyx_DECREF(__pyx_t_18); __pyx_t_18 = 0;
 
       /* "pyart/io/_sigmetfile.pyx":181
- * 
+ *
  *                 data[name][i] = sweep_data[j]
  *                 metadata[name]['azimuth_0'][i] = az0             # <<<<<<<<<<<<<<
  *                 metadata[name]['azimuth_1'][i] = az1
@@ -9765,7 +9765,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_6read_data(struc
  *                 metadata[name]['time'][i] = ray_time
  *                 metadata[name]['prf_flag'][i] = prf_flag             # <<<<<<<<<<<<<<
  *                 self.ingest_data_headers[name].append(ingest_data_hdrs[j])
- * 
+ *
 */
       __pyx_t_18 = __Pyx_PyDict_GetItem(__pyx_v_metadata, __pyx_v_name); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 187, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_18);
@@ -9779,7 +9779,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_6read_data(struc
  *                 metadata[name]['time'][i] = ray_time
  *                 metadata[name]['prf_flag'][i] = prf_flag
  *                 self.ingest_data_headers[name].append(ingest_data_hdrs[j])             # <<<<<<<<<<<<<<
- * 
+ *
  *         # scale 1-byte velocity by the Nyquist (section 4.3.29)
 */
       __pyx_t_17 = __Pyx_PyObject_GetItem(__pyx_v_self->ingest_data_headers, __pyx_v_name); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 188, __pyx_L1_error)
@@ -9793,7 +9793,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_6read_data(struc
 
       /* "pyart/io/_sigmetfile.pyx":176
  *                 return data, metadata
- * 
+ *
  *             for j, name in enumerate(self.data_type_names):             # <<<<<<<<<<<<<<
  *                 temp = sweep_metadata[j]
  *                 (az0, el0, az1, el1, ray_nbins, ray_time, prf_flag) = temp
@@ -9803,7 +9803,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_6read_data(struc
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
     /* "pyart/io/_sigmetfile.pyx":159
- * 
+ *
  *         # read in data sweep by sweep
  *         for i in xrange(nsweeps):             # <<<<<<<<<<<<<<
  *             ingest_data_hdrs, sweep_data, sweep_metadata = self._get_sweep(
@@ -10125,7 +10125,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_6read_data(struc
  *             wavelength_cm = self.product_hdr['product_end']['wavelength']
  *             data['KDP'] /= (wavelength_cm / 100.0)             # <<<<<<<<<<<<<<
  *         return data, metadata
- * 
+ *
 */
     __Pyx_INCREF(__pyx_mstate_global->__pyx_n_u_KDP);
     __pyx_t_22 = __pyx_mstate_global->__pyx_n_u_KDP;
@@ -10154,7 +10154,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_6read_data(struc
  *             wavelength_cm = self.product_hdr['product_end']['wavelength']
  *             data['KDP'] /= (wavelength_cm / 100.0)
  *         return data, metadata             # <<<<<<<<<<<<<<
- * 
+ *
  *     def _get_sweep(self, full_xhdr=False, raw_data=False):
 */
   __pyx_t_9 = PyTuple_New(2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 222, __pyx_L1_error)
@@ -10178,7 +10178,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_6read_data(struc
 
   /* "pyart/io/_sigmetfile.pyx":99
  *         self._fh.close()
- * 
+ *
  *     def read_data(self, full_xhdr=False):             # <<<<<<<<<<<<<<
  *         """
  *         Read all data from the file.
@@ -10239,14 +10239,14 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_6read_data(struc
 
 /* "pyart/io/_sigmetfile.pyx":224
  *         return data, metadata
- * 
+ *
  *     def _get_sweep(self, full_xhdr=False, raw_data=False):             # <<<<<<<<<<<<<<
  *         """
  *         Get the data and metadata from the next sweep.
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_10SigmetFile_9_get_sweep(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_10SigmetFile_9_get_sweep(PyObject *__pyx_v_self,
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -10255,7 +10255,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 ); /*proto*/
 PyDoc_STRVAR(__pyx_doc_5pyart_2io_11_sigmetfile_10SigmetFile_8_get_sweep, "\n        Get the data and metadata from the next sweep.\n\n        If the file ends early None is returned for all values.\n\n        Parameters\n        ----------\n        full_xhdr : bool\n            True to return the full extended headers if they exist padded with\n            ones.  False will return a length 1 extended header converted to\n            int32.  This is useful when the file contains a customer specified\n            extended header (for example aircraft radar).\n        raw_data : bool, optional\n            True to return the raw_data for the given sweep, False to\n            convert the data to floating point representation.\n\n        Returns\n        -------\n        ingest_data_headers : list of dict\n            List of ingest_data_header structures for each data type.\n        sweep_data : list of arrays\n            Sweep data for each data types in the order they appear in the\n            file.\n        sweep_metadata : list of tuples\n            Sweep metadata for each data type in the same order as sweep_data.\n\n        ");
 static PyMethodDef __pyx_mdef_5pyart_2io_11_sigmetfile_10SigmetFile_9_get_sweep = {"_get_sweep", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5pyart_2io_11_sigmetfile_10SigmetFile_9_get_sweep, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5pyart_2io_11_sigmetfile_10SigmetFile_8_get_sweep};
-static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_10SigmetFile_9_get_sweep(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_10SigmetFile_9_get_sweep(PyObject *__pyx_v_self,
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -10384,11 +10384,11 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_8_get_sweep(stru
   __Pyx_RefNannySetupContext("_get_sweep", 0);
 
   /* "pyart/io/_sigmetfile.pyx":254
- * 
+ *
  *         # get the next record
  *         lead_record = self._fh.read(RECORD_SIZE)             # <<<<<<<<<<<<<<
  *         self._record_number += 1
- * 
+ *
 */
   __pyx_t_2 = __pyx_v_self->_fh;
   __Pyx_INCREF(__pyx_t_2);
@@ -10410,17 +10410,17 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_8_get_sweep(stru
  *         # get the next record
  *         lead_record = self._fh.read(RECORD_SIZE)
  *         self._record_number += 1             # <<<<<<<<<<<<<<
- * 
+ *
  *         # check if the file ended early, if so return Nones
 */
   __pyx_v_self->_record_number = (__pyx_v_self->_record_number + 1);
 
   /* "pyart/io/_sigmetfile.pyx":258
- * 
+ *
  *         # check if the file ended early, if so return Nones
  *         if len(lead_record) != RECORD_SIZE:             # <<<<<<<<<<<<<<
  *             return None, None, None
- * 
+ *
 */
   __pyx_t_5 = PyObject_Length(__pyx_v_lead_record); if (unlikely(__pyx_t_5 == ((Py_ssize_t)-1))) __PYX_ERR(0, 258, __pyx_L1_error)
   __pyx_t_1 = PyLong_FromSsize_t(__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 258, __pyx_L1_error)
@@ -10438,7 +10438,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_8_get_sweep(stru
  *         # check if the file ended early, if so return Nones
  *         if len(lead_record) != RECORD_SIZE:
  *             return None, None, None             # <<<<<<<<<<<<<<
- * 
+ *
  *         # unpack structures
 */
     {
@@ -10453,16 +10453,16 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_8_get_sweep(stru
     goto __pyx_L0;
 
     /* "pyart/io/_sigmetfile.pyx":258
- * 
+ *
  *         # check if the file ended early, if so return Nones
  *         if len(lead_record) != RECORD_SIZE:             # <<<<<<<<<<<<<<
  *             return None, None, None
- * 
+ *
 */
   }
 
   /* "pyart/io/_sigmetfile.pyx":262
- * 
+ *
  *         # unpack structures
  *         raw_prod_bhdr = _unpack_raw_prod_bhdr(lead_record)             # <<<<<<<<<<<<<<
  *         self._raw_product_bhdrs.append([raw_prod_bhdr])
@@ -10556,7 +10556,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_8_get_sweep(stru
  *             lead_record, self.ndata_types)
  *         if ingest_data_headers is None:             # <<<<<<<<<<<<<<
  *             return None, None, None
- * 
+ *
 */
   __pyx_t_6 = (__pyx_v_ingest_data_headers == Py_None);
   if (__pyx_t_6) {
@@ -10566,7 +10566,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_8_get_sweep(stru
  *             lead_record, self.ndata_types)
  *         if ingest_data_headers is None:
  *             return None, None, None             # <<<<<<<<<<<<<<
- * 
+ *
  *         # determine size of data
 */
     {
@@ -10585,12 +10585,12 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_8_get_sweep(stru
  *             lead_record, self.ndata_types)
  *         if ingest_data_headers is None:             # <<<<<<<<<<<<<<
  *             return None, None, None
- * 
+ *
 */
   }
 
   /* "pyart/io/_sigmetfile.pyx":270
- * 
+ *
  *         # determine size of data
  *         nray_data_types = [d['number_rays_file_expected']             # <<<<<<<<<<<<<<
  *                            for d in ingest_data_headers]
@@ -10660,7 +10660,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_8_get_sweep(stru
       __pyx_t_2 = 0;
 
       /* "pyart/io/_sigmetfile.pyx":270
- * 
+ *
  *         # determine size of data
  *         nray_data_types = [d['number_rays_file_expected']             # <<<<<<<<<<<<<<
  *                            for d in ingest_data_headers]
@@ -10696,7 +10696,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_8_get_sweep(stru
  *                            for d in ingest_data_headers]
  *         nrays = sum(nray_data_types)    # total rays             # <<<<<<<<<<<<<<
  *         nbins = self.product_hdr['product_end']['number_bins']
- * 
+ *
 */
   __pyx_t_1 = NULL;
   __pyx_t_4 = 1;
@@ -10714,7 +10714,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_8_get_sweep(stru
  *                            for d in ingest_data_headers]
  *         nrays = sum(nray_data_types)    # total rays
  *         nbins = self.product_hdr['product_end']['number_bins']             # <<<<<<<<<<<<<<
- * 
+ *
  *         # prepare to read rays
 */
   __pyx_t_3 = __Pyx_PyObject_Dict_GetItem(__pyx_v_self->product_hdr, __pyx_mstate_global->__pyx_n_u_product_end); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 273, __pyx_L1_error)
@@ -10726,7 +10726,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_8_get_sweep(stru
   __pyx_t_1 = 0;
 
   /* "pyart/io/_sigmetfile.pyx":276
- * 
+ *
  *         # prepare to read rays
  *         self._rbuf = np.frombuffer(lead_record, dtype='int16')             # <<<<<<<<<<<<<<
  *         self._rbuf_p = <np.int16_t*>self._rbuf.data
@@ -10819,7 +10819,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_8_get_sweep(stru
  *         # set data initially to ones so that missing data can be better
  *         # seen when debugging
  *         raw_sweep_data = np.ones((nrays, nbins + 6), dtype='int16')             # <<<<<<<<<<<<<<
- * 
+ *
  *         # get the raw data ray-by-ray
 */
   __pyx_t_9 = NULL;
@@ -10876,7 +10876,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_8_get_sweep(stru
   __pyx_t_1 = 0;
 
   /* "pyart/io/_sigmetfile.pyx":284
- * 
+ *
  *         # get the raw data ray-by-ray
  *         for ray_i in xrange(nrays):             # <<<<<<<<<<<<<<
  *             if self.debug:
@@ -10987,7 +10987,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_8_get_sweep(stru
  *                 print("self._rbuf_pos is", self._rbuf_pos)
  *             if self._get_ray(nbins, raw_sweep_data[ray_i]):             # <<<<<<<<<<<<<<
  *                 return None, None, None
- * 
+ *
 */
     __pyx_t_10 = __Pyx_PyLong_As_int(__pyx_v_nbins); if (unlikely((__pyx_t_10 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 288, __pyx_L1_error)
     __pyx_t_1 = __Pyx_PyObject_GetItem(__pyx_v_raw_sweep_data, __pyx_v_ray_i); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 288, __pyx_L1_error)
@@ -11006,7 +11006,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_8_get_sweep(stru
  *                 print("self._rbuf_pos is", self._rbuf_pos)
  *             if self._get_ray(nbins, raw_sweep_data[ray_i]):
  *                 return None, None, None             # <<<<<<<<<<<<<<
- * 
+ *
  *         # return raw data if requested
 */
       {
@@ -11026,12 +11026,12 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_8_get_sweep(stru
  *                 print("self._rbuf_pos is", self._rbuf_pos)
  *             if self._get_ray(nbins, raw_sweep_data[ray_i]):             # <<<<<<<<<<<<<<
  *                 return None, None, None
- * 
+ *
 */
     }
 
     /* "pyart/io/_sigmetfile.pyx":284
- * 
+ *
  *         # get the raw data ray-by-ray
  *         for ray_i in xrange(nrays):             # <<<<<<<<<<<<<<
  *             if self.debug:
@@ -11041,11 +11041,11 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_8_get_sweep(stru
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "pyart/io/_sigmetfile.pyx":292
- * 
+ *
  *         # return raw data if requested
  *         if raw_data:             # <<<<<<<<<<<<<<
  *             return ingest_data_headers, raw_sweep_data
- * 
+ *
 */
   __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_v_raw_data); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 292, __pyx_L1_error)
   if (__pyx_t_6) {
@@ -11055,7 +11055,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_8_get_sweep(stru
  *         # return raw data if requested
  *         if raw_data:
  *             return ingest_data_headers, raw_sweep_data             # <<<<<<<<<<<<<<
- * 
+ *
  *         # convert the data and parse the metadata
 */
     __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 293, __pyx_L1_error)
@@ -11078,16 +11078,16 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_8_get_sweep(stru
     goto __pyx_L0;
 
     /* "pyart/io/_sigmetfile.pyx":292
- * 
+ *
  *         # return raw data if requested
  *         if raw_data:             # <<<<<<<<<<<<<<
  *             return ingest_data_headers, raw_sweep_data
- * 
+ *
 */
   }
 
   /* "pyart/io/_sigmetfile.pyx":296
- * 
+ *
  *         # convert the data and parse the metadata
  *         sweep_data = []             # <<<<<<<<<<<<<<
  *         sweep_metadata = []
@@ -11341,7 +11341,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_8_get_sweep(stru
  *             sweep_metadata.append(_parse_ray_headers(
  *                 raw_sweep_data[i::self.ndata_types, :6]))             # <<<<<<<<<<<<<<
  *         return ingest_data_headers, sweep_data, sweep_metadata
- * 
+ *
 */
     __pyx_t_14 = PySlice_New(__pyx_v_i, Py_None, __pyx_v_self->ndata_types); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 306, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_14);
@@ -11404,7 +11404,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_8_get_sweep(stru
  *             sweep_metadata.append(_parse_ray_headers(
  *                 raw_sweep_data[i::self.ndata_types, :6]))
  *         return ingest_data_headers, sweep_data, sweep_metadata             # <<<<<<<<<<<<<<
- * 
+ *
  *     @cython.wraparound(False)
 */
   __pyx_t_3 = PyTuple_New(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 307, __pyx_L1_error)
@@ -11431,7 +11431,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_8_get_sweep(stru
 
   /* "pyart/io/_sigmetfile.pyx":224
  *         return data, metadata
- * 
+ *
  *     def _get_sweep(self, full_xhdr=False, raw_data=False):             # <<<<<<<<<<<<<<
  *         """
  *         Get the data and metadata from the next sweep.
@@ -11470,7 +11470,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_8_get_sweep(stru
 
 /* "pyart/io/_sigmetfile.pyx":309
  *         return ingest_data_headers, sweep_data, sweep_metadata
- * 
+ *
  *     @cython.wraparound(False)             # <<<<<<<<<<<<<<
  *     cdef int _get_ray(self, int nbins, np.ndarray[np.int16_t, ndim=1] out):
  *         """
@@ -11510,7 +11510,7 @@ static int __pyx_f_5pyart_2io_11_sigmetfile_10SigmetFile__get_ray(struct __pyx_o
 
   /* "pyart/io/_sigmetfile.pyx":330
  *         cdef int words, remain, out_pos, first_end, i
- * 
+ *
  *         if self._incr_rbuf_pos():             # <<<<<<<<<<<<<<
  *             return -1   # failed read
  *         compression_code = self._rbuf_p[self._rbuf_pos]
@@ -11523,7 +11523,7 @@ static int __pyx_f_5pyart_2io_11_sigmetfile_10SigmetFile__get_ray(struct __pyx_o
 
 
     /* "pyart/io/_sigmetfile.pyx":331
- * 
+ *
  *         if self._incr_rbuf_pos():
  *             return -1   # failed read             # <<<<<<<<<<<<<<
  *         compression_code = self._rbuf_p[self._rbuf_pos]
@@ -11537,7 +11537,7 @@ static int __pyx_f_5pyart_2io_11_sigmetfile_10SigmetFile__get_ray(struct __pyx_o
 
     /* "pyart/io/_sigmetfile.pyx":330
  *         cdef int words, remain, out_pos, first_end, i
- * 
+ *
  *         if self._incr_rbuf_pos():             # <<<<<<<<<<<<<<
  *             return -1   # failed read
  *         compression_code = self._rbuf_p[self._rbuf_pos]
@@ -11549,7 +11549,7 @@ static int __pyx_f_5pyart_2io_11_sigmetfile_10SigmetFile__get_ray(struct __pyx_o
  *             return -1   # failed read
  *         compression_code = self._rbuf_p[self._rbuf_pos]             # <<<<<<<<<<<<<<
  *         out_pos = 0
- * 
+ *
 */
   __pyx_v_compression_code = (__pyx_v_self->_rbuf_p[__pyx_v_self->_rbuf_pos]);
 
@@ -11557,14 +11557,14 @@ static int __pyx_f_5pyart_2io_11_sigmetfile_10SigmetFile__get_ray(struct __pyx_o
  *             return -1   # failed read
  *         compression_code = self._rbuf_p[self._rbuf_pos]
  *         out_pos = 0             # <<<<<<<<<<<<<<
- * 
+ *
  *         if compression_code == 1:
 */
   __pyx_v_out_pos = 0;
 
   /* "pyart/io/_sigmetfile.pyx":335
  *         out_pos = 0
- * 
+ *
  *         if compression_code == 1:             # <<<<<<<<<<<<<<
  *             # mark ray as missing by setting numbers of bins to -1
  *             out[4] = -1
@@ -11579,7 +11579,7 @@ static int __pyx_f_5pyart_2io_11_sigmetfile_10SigmetFile__get_ray(struct __pyx_o
  *             # mark ray as missing by setting numbers of bins to -1
  *             out[4] = -1             # <<<<<<<<<<<<<<
  *             return 0
- * 
+ *
 */
     __pyx_t_3 = 4;
     __pyx_t_1 = -1;
@@ -11596,7 +11596,7 @@ static int __pyx_f_5pyart_2io_11_sigmetfile_10SigmetFile__get_ray(struct __pyx_o
  *             # mark ray as missing by setting numbers of bins to -1
  *             out[4] = -1
  *             return 0             # <<<<<<<<<<<<<<
- * 
+ *
  *         while compression_code != 1:
 */
     {
@@ -11607,7 +11607,7 @@ static int __pyx_f_5pyart_2io_11_sigmetfile_10SigmetFile__get_ray(struct __pyx_o
 
     /* "pyart/io/_sigmetfile.pyx":335
  *         out_pos = 0
- * 
+ *
  *         if compression_code == 1:             # <<<<<<<<<<<<<<
  *             # mark ray as missing by setting numbers of bins to -1
  *             out[4] = -1
@@ -11616,9 +11616,9 @@ static int __pyx_f_5pyart_2io_11_sigmetfile_10SigmetFile__get_ray(struct __pyx_o
 
   /* "pyart/io/_sigmetfile.pyx":340
  *             return 0
- * 
+ *
  *         while compression_code != 1:             # <<<<<<<<<<<<<<
- * 
+ *
  *             if self._incr_rbuf_pos():
 */
   while (1) {
@@ -11629,7 +11629,7 @@ static int __pyx_f_5pyart_2io_11_sigmetfile_10SigmetFile__get_ray(struct __pyx_o
 
     /* "pyart/io/_sigmetfile.pyx":342
  *         while compression_code != 1:
- * 
+ *
  *             if self._incr_rbuf_pos():             # <<<<<<<<<<<<<<
  *                 return -1   # failed read
  *             if compression_code < 0:
@@ -11642,7 +11642,7 @@ static int __pyx_f_5pyart_2io_11_sigmetfile_10SigmetFile__get_ray(struct __pyx_o
 
 
       /* "pyart/io/_sigmetfile.pyx":343
- * 
+ *
  *             if self._incr_rbuf_pos():
  *                 return -1   # failed read             # <<<<<<<<<<<<<<
  *             if compression_code < 0:
@@ -11656,7 +11656,7 @@ static int __pyx_f_5pyart_2io_11_sigmetfile_10SigmetFile__get_ray(struct __pyx_o
 
       /* "pyart/io/_sigmetfile.pyx":342
  *         while compression_code != 1:
- * 
+ *
  *             if self._incr_rbuf_pos():             # <<<<<<<<<<<<<<
  *                 return -1   # failed read
  *             if compression_code < 0:
@@ -11811,7 +11811,7 @@ static int __pyx_f_5pyart_2io_11_sigmetfile_10SigmetFile__get_ray(struct __pyx_o
  *                     first_end = out_pos + words - remain
  *                     for i in range(first_end - out_pos):             # <<<<<<<<<<<<<<
  *                         out[out_pos + i] = self._rbuf_p[self._rbuf_pos + i]
- * 
+ *
 */
 
         __pyx_t_1 = (__pyx_v_first_end - __pyx_v_out_pos);
@@ -11824,7 +11824,7 @@ static int __pyx_f_5pyart_2io_11_sigmetfile_10SigmetFile__get_ray(struct __pyx_o
  *                     first_end = out_pos + words - remain
  *                     for i in range(first_end - out_pos):
  *                         out[out_pos + i] = self._rbuf_p[self._rbuf_pos + i]             # <<<<<<<<<<<<<<
- * 
+ *
  *                     # read data from next record and store
 */
           __pyx_t_3 = (__pyx_v_out_pos + __pyx_v_i);
@@ -11841,7 +11841,7 @@ static int __pyx_f_5pyart_2io_11_sigmetfile_10SigmetFile__get_ray(struct __pyx_o
 
 
         /* "pyart/io/_sigmetfile.pyx":362
- * 
+ *
  *                     # read data from next record and store
  *                     self._load_record()             # <<<<<<<<<<<<<<
  *                     for i in range(out_pos + words - first_end):
@@ -11854,7 +11854,7 @@ static int __pyx_f_5pyart_2io_11_sigmetfile_10SigmetFile__get_ray(struct __pyx_o
  *                     self._load_record()
  *                     for i in range(out_pos + words - first_end):             # <<<<<<<<<<<<<<
  *                         out[first_end + i] = self._rbuf_p[self._rbuf_pos + i]
- * 
+ *
 */
 
         __pyx_t_1 = ((__pyx_v_out_pos + __pyx_v_words) - __pyx_v_first_end);
@@ -11867,7 +11867,7 @@ static int __pyx_f_5pyart_2io_11_sigmetfile_10SigmetFile__get_ray(struct __pyx_o
  *                     self._load_record()
  *                     for i in range(out_pos + words - first_end):
  *                         out[first_end + i] = self._rbuf_p[self._rbuf_pos + i]             # <<<<<<<<<<<<<<
- * 
+ *
  *                     if self._incr_rbuf_pos(remain):
 */
           __pyx_t_3 = (__pyx_v_first_end + __pyx_v_i);
@@ -11885,7 +11885,7 @@ static int __pyx_f_5pyart_2io_11_sigmetfile_10SigmetFile__get_ray(struct __pyx_o
 
         /* "pyart/io/_sigmetfile.pyx":366
  *                         out[first_end + i] = self._rbuf_p[self._rbuf_pos + i]
- * 
+ *
  *                     if self._incr_rbuf_pos(remain):             # <<<<<<<<<<<<<<
  *                         return -1   # failed read
  *                     out_pos += words
@@ -11900,7 +11900,7 @@ static int __pyx_f_5pyart_2io_11_sigmetfile_10SigmetFile__get_ray(struct __pyx_o
 
 
           /* "pyart/io/_sigmetfile.pyx":367
- * 
+ *
  *                     if self._incr_rbuf_pos(remain):
  *                         return -1   # failed read             # <<<<<<<<<<<<<<
  *                     out_pos += words
@@ -11914,7 +11914,7 @@ static int __pyx_f_5pyart_2io_11_sigmetfile_10SigmetFile__get_ray(struct __pyx_o
 
           /* "pyart/io/_sigmetfile.pyx":366
  *                         out[first_end + i] = self._rbuf_p[self._rbuf_pos + i]
- * 
+ *
  *                     if self._incr_rbuf_pos(remain):             # <<<<<<<<<<<<<<
  *                         return -1   # failed read
  *                     out_pos += words
@@ -12016,7 +12016,7 @@ static int __pyx_f_5pyart_2io_11_sigmetfile_10SigmetFile__get_ray(struct __pyx_o
  *                     out[out_pos + i] = 0
  *                 out_pos += compression_code             # <<<<<<<<<<<<<<
  *             compression_code = self._rbuf_p[self._rbuf_pos]
- * 
+ *
 */
       __pyx_v_out_pos = (__pyx_v_out_pos + __pyx_v_compression_code);
     }
@@ -12026,7 +12026,7 @@ static int __pyx_f_5pyart_2io_11_sigmetfile_10SigmetFile__get_ray(struct __pyx_o
  *                     out[out_pos + i] = 0
  *                 out_pos += compression_code
  *             compression_code = self._rbuf_p[self._rbuf_pos]             # <<<<<<<<<<<<<<
- * 
+ *
  *         return 0
 */
     __pyx_v_compression_code = (__pyx_v_self->_rbuf_p[__pyx_v_self->_rbuf_pos]);
@@ -12034,9 +12034,9 @@ static int __pyx_f_5pyart_2io_11_sigmetfile_10SigmetFile__get_ray(struct __pyx_o
 
   /* "pyart/io/_sigmetfile.pyx":378
  *             compression_code = self._rbuf_p[self._rbuf_pos]
- * 
+ *
  *         return 0             # <<<<<<<<<<<<<<
- * 
+ *
  *     cdef int _incr_rbuf_pos(self, int incr=1):
 */
   {
@@ -12047,7 +12047,7 @@ static int __pyx_f_5pyart_2io_11_sigmetfile_10SigmetFile__get_ray(struct __pyx_o
 
   /* "pyart/io/_sigmetfile.pyx":309
  *         return ingest_data_headers, sweep_data, sweep_metadata
- * 
+ *
  *     @cython.wraparound(False)             # <<<<<<<<<<<<<<
  *     cdef int _get_ray(self, int nbins, np.ndarray[np.int16_t, ndim=1] out):
  *         """
@@ -12081,7 +12081,7 @@ static int __pyx_f_5pyart_2io_11_sigmetfile_10SigmetFile__get_ray(struct __pyx_o
 
 /* "pyart/io/_sigmetfile.pyx":380
  *         return 0
- * 
+ *
  *     cdef int _incr_rbuf_pos(self, int incr=1):             # <<<<<<<<<<<<<<
  *         """
  *         Increment the record buffer position, load a new record if needed.
@@ -12141,7 +12141,7 @@ static int __pyx_f_5pyart_2io_11_sigmetfile_10SigmetFile__incr_rbuf_pos(struct _
  *             if self._load_record():
  *                 return -1   # failed read             # <<<<<<<<<<<<<<
  *         return 0
- * 
+ *
 */
       {
 
@@ -12171,7 +12171,7 @@ static int __pyx_f_5pyart_2io_11_sigmetfile_10SigmetFile__incr_rbuf_pos(struct _
  *             if self._load_record():
  *                 return -1   # failed read
  *         return 0             # <<<<<<<<<<<<<<
- * 
+ *
  *     cdef int _load_record(self):
 */
   {
@@ -12182,7 +12182,7 @@ static int __pyx_f_5pyart_2io_11_sigmetfile_10SigmetFile__incr_rbuf_pos(struct _
 
   /* "pyart/io/_sigmetfile.pyx":380
  *         return 0
- * 
+ *
  *     cdef int _incr_rbuf_pos(self, int incr=1):             # <<<<<<<<<<<<<<
  *         """
  *         Increment the record buffer position, load a new record if needed.
@@ -12199,7 +12199,7 @@ static int __pyx_f_5pyart_2io_11_sigmetfile_10SigmetFile__incr_rbuf_pos(struct _
 
 /* "pyart/io/_sigmetfile.pyx":390
  *         return 0
- * 
+ *
  *     cdef int _load_record(self):             # <<<<<<<<<<<<<<
  *         """ Load the next record. returns -1 on fail, 0 if success. """
  *         record = self._fh.read(RECORD_SIZE)
@@ -12440,7 +12440,7 @@ static int __pyx_f_5pyart_2io_11_sigmetfile_10SigmetFile__load_record(struct __p
  *         self._rbuf_pos = 6
  *         self._rbuf_p = <np.int16_t*>self._rbuf.data             # <<<<<<<<<<<<<<
  *         return 0
- * 
+ *
 */
   __pyx_t_2 = ((PyObject *)__pyx_v_self->_rbuf);
   __Pyx_INCREF(__pyx_t_2);
@@ -12451,7 +12451,7 @@ static int __pyx_f_5pyart_2io_11_sigmetfile_10SigmetFile__load_record(struct __p
  *         self._rbuf_pos = 6
  *         self._rbuf_p = <np.int16_t*>self._rbuf.data
  *         return 0             # <<<<<<<<<<<<<<
- * 
+ *
  * # functions used by the SigmetFile class
 */
   {
@@ -12462,7 +12462,7 @@ static int __pyx_f_5pyart_2io_11_sigmetfile_10SigmetFile__load_record(struct __p
 
   /* "pyart/io/_sigmetfile.pyx":390
  *         return 0
- * 
+ *
  *     cdef int _load_record(self):             # <<<<<<<<<<<<<<
  *         """ Load the next record. returns -1 on fail, 0 if success. """
  *         record = self._fh.read(RECORD_SIZE)
@@ -12484,7 +12484,7 @@ static int __pyx_f_5pyart_2io_11_sigmetfile_10SigmetFile__load_record(struct __p
 }
 
 /* "pyart/io/_sigmetfile.pyx":50
- * 
+ *
  *     """
  *     cdef public debug, product_hdr, ingest_header, ingest_data_headers, \             # <<<<<<<<<<<<<<
  *         data_types, data_type_names, ndata_types,
@@ -13124,7 +13124,7 @@ static int __pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_19ingest_data_headers_
  *     cdef public debug, product_hdr, ingest_header, ingest_data_headers, \
  *         data_types, data_type_names, ndata_types,             # <<<<<<<<<<<<<<
  *     cdef public _fh, _raw_product_bhdrs
- * 
+ *
 */
 
 /* Python wrapper */
@@ -13602,7 +13602,7 @@ static int __pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_11ndata_types_4__del__
  *     cdef public debug, product_hdr, ingest_header, ingest_data_headers, \
  *         data_types, data_type_names, ndata_types,
  *     cdef public _fh, _raw_product_bhdrs             # <<<<<<<<<<<<<<
- * 
+ *
  *     cdef np.ndarray _rbuf
 */
 
@@ -13924,7 +13924,7 @@ static int __pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_18_raw_product_bhdrs_4
  *     cdef np.ndarray _rbuf
  *     cdef np.int16_t * _rbuf_p   # hack for fast indexing of _rbuf
  *     cdef public int _rbuf_pos, _record_number             # <<<<<<<<<<<<<<
- * 
+ *
  *     def __init__(self, filename, debug=False):
 */
 
@@ -14203,7 +14203,7 @@ static int __pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_14_record_number_2__se
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_10SigmetFile_11__reduce_cython__(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_10SigmetFile_11__reduce_cython__(PyObject *__pyx_v_self,
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -14211,7 +14211,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
 static PyMethodDef __pyx_mdef_5pyart_2io_11_sigmetfile_10SigmetFile_11__reduce_cython__ = {"__reduce_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5pyart_2io_11_sigmetfile_10SigmetFile_11__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_10SigmetFile_11__reduce_cython__(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_10SigmetFile_11__reduce_cython__(PyObject *__pyx_v_self,
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -14284,7 +14284,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_10__reduce_cytho
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_10SigmetFile_13__setstate_cython__(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_10SigmetFile_13__setstate_cython__(PyObject *__pyx_v_self,
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -14292,7 +14292,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
 static PyMethodDef __pyx_mdef_5pyart_2io_11_sigmetfile_10SigmetFile_13__setstate_cython__ = {"__setstate_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5pyart_2io_11_sigmetfile_10SigmetFile_13__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_10SigmetFile_13__setstate_cython__(PyObject *__pyx_v_self, 
+static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_10SigmetFile_13__setstate_cython__(PyObject *__pyx_v_self,
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -14401,15 +14401,15 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10SigmetFile_12__setstate_cyt
 }
 
 /* "pyart/io/_sigmetfile.pyx":407
- * 
- * 
+ *
+ *
  * def _data_types_from_mask(word0, word1, word2, word3):             # <<<<<<<<<<<<<<
  *     """
  *     Return a list of the data types from the words in the data_type mask.
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_1_data_types_from_mask(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_1_data_types_from_mask(PyObject *__pyx_self,
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -14418,7 +14418,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 ); /*proto*/
 PyDoc_STRVAR(__pyx_doc_5pyart_2io_11_sigmetfile__data_types_from_mask, "\n    Return a list of the data types from the words in the data_type mask.\n    ");
 static PyMethodDef __pyx_mdef_5pyart_2io_11_sigmetfile_1_data_types_from_mask = {"_data_types_from_mask", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5pyart_2io_11_sigmetfile_1_data_types_from_mask, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5pyart_2io_11_sigmetfile__data_types_from_mask};
-static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_1_data_types_from_mask(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_1_data_types_from_mask(PyObject *__pyx_self,
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -14709,7 +14709,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile__data_types_from_mask(CYTHON_
  *     data_types += [i+64 for i in range(32) if _is_bit_set(word2, i)]
  *     data_types += [i+96 for i in range(32) if _is_bit_set(word3, i)]             # <<<<<<<<<<<<<<
  *     return data_types
- * 
+ *
 */
   { /* enter inner scope */
     __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 414, __pyx_L1_error)
@@ -14764,8 +14764,8 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile__data_types_from_mask(CYTHON_
  *     data_types += [i+64 for i in range(32) if _is_bit_set(word2, i)]
  *     data_types += [i+96 for i in range(32) if _is_bit_set(word3, i)]
  *     return data_types             # <<<<<<<<<<<<<<
- * 
- * 
+ *
+ *
 */
   {
     PyObject *__pyx_temp;
@@ -14779,8 +14779,8 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile__data_types_from_mask(CYTHON_
   goto __pyx_L0;
 
   /* "pyart/io/_sigmetfile.pyx":407
- * 
- * 
+ *
+ *
  * def _data_types_from_mask(word0, word1, word2, word3):             # <<<<<<<<<<<<<<
  *     """
  *     Return a list of the data types from the words in the data_type mask.
@@ -14807,15 +14807,15 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile__data_types_from_mask(CYTHON_
 }
 
 /* "pyart/io/_sigmetfile.pyx":418
- * 
- * 
+ *
+ *
  * def _is_bit_set(number, bit):             # <<<<<<<<<<<<<<
  *     """ Return True if bit is set in number. """
  *     return number >> bit & 1 == 1
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_3_is_bit_set(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_3_is_bit_set(PyObject *__pyx_self,
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -14824,7 +14824,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 ); /*proto*/
 PyDoc_STRVAR(__pyx_doc_5pyart_2io_11_sigmetfile_2_is_bit_set, " Return True if bit is set in number. ");
 static PyMethodDef __pyx_mdef_5pyart_2io_11_sigmetfile_3_is_bit_set = {"_is_bit_set", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5pyart_2io_11_sigmetfile_3_is_bit_set, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5pyart_2io_11_sigmetfile_2_is_bit_set};
-static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_3_is_bit_set(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_3_is_bit_set(PyObject *__pyx_self,
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -14922,8 +14922,8 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_2_is_bit_set(CYTHON_UNUSED Py
  * def _is_bit_set(number, bit):
  *     """ Return True if bit is set in number. """
  *     return number >> bit & 1 == 1             # <<<<<<<<<<<<<<
- * 
- * 
+ *
+ *
 */
   __pyx_t_1 = PyNumber_Rshift(__pyx_v_number, __pyx_v_bit); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 420, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -14945,8 +14945,8 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_2_is_bit_set(CYTHON_UNUSED Py
   goto __pyx_L0;
 
   /* "pyart/io/_sigmetfile.pyx":418
- * 
- * 
+ *
+ *
  * def _is_bit_set(number, bit):             # <<<<<<<<<<<<<<
  *     """ Return True if bit is set in number. """
  *     return number >> bit & 1 == 1
@@ -14965,15 +14965,15 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_2_is_bit_set(CYTHON_UNUSED Py
 }
 
 /* "pyart/io/_sigmetfile.pyx":423
- * 
- * 
+ *
+ *
  * def _parse_ray_headers(ray_headers):             # <<<<<<<<<<<<<<
  *     """
  *     Parse the metadata from Sigmet ray headers.
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_5_parse_ray_headers(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_5_parse_ray_headers(PyObject *__pyx_self,
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -14982,7 +14982,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 ); /*proto*/
 PyDoc_STRVAR(__pyx_doc_5pyart_2io_11_sigmetfile_4_parse_ray_headers, "\n    Parse the metadata from Sigmet ray headers.\n\n    Parameters\n    ----------\n    ray_headers : array, shape=(..., 6)\n        Ray headers to parse.\n\n    Returns\n    -------\n    az0 : array\n        Azimuth angles (in degrees) at beginning of the rays.\n    el0 : array\n        Elevation angles at the beginning of the rays.\n    az1 : array\n        Azimuth angles at the end of the rays.\n    el1 : array\n        Elevation angles at the end of the rays.\n    nbins : array\n        Number of bins in the rays.\n    time : array\n        Seconds since the start of the sweep for the rays.\n    prf_flag : array\n        Numerical indication of what PRF was used, 0 for high, 1 for low.\n        Not applicable if dual-PRF is not used during collection.\n\n    ");
 static PyMethodDef __pyx_mdef_5pyart_2io_11_sigmetfile_5_parse_ray_headers = {"_parse_ray_headers", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5pyart_2io_11_sigmetfile_5_parse_ray_headers, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5pyart_2io_11_sigmetfile_4_parse_ray_headers};
-static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_5_parse_ray_headers(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_5_parse_ray_headers(PyObject *__pyx_self,
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -15080,7 +15080,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_4_parse_ray_headers(CYTHON_UN
   __Pyx_RefNannySetupContext("_parse_ray_headers", 0);
 
   /* "pyart/io/_sigmetfile.pyx":451
- * 
+ *
  *     """
  *     az0 = bin2_to_angle(ray_headers.view('uint16')[..., 0])             # <<<<<<<<<<<<<<
  *     el0 = bin2_to_angle(ray_headers.view('uint16')[..., 1])
@@ -15318,7 +15318,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_4_parse_ray_headers(CYTHON_UN
  *     time = ray_headers.view('uint16')[..., 5]
  *     prf_flag = np.mod(ray_headers.view('int16')[..., 0], 2)             # <<<<<<<<<<<<<<
  *     return (az0, el0, az1, el1, nbins, time, prf_flag)
- * 
+ *
 */
   __pyx_t_2 = NULL;
   __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 457, __pyx_L1_error)
@@ -15367,8 +15367,8 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_4_parse_ray_headers(CYTHON_UN
  *     time = ray_headers.view('uint16')[..., 5]
  *     prf_flag = np.mod(ray_headers.view('int16')[..., 0], 2)
  *     return (az0, el0, az1, el1, nbins, time, prf_flag)             # <<<<<<<<<<<<<<
- * 
- * 
+ *
+ *
 */
   __pyx_t_1 = PyTuple_New(7); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 458, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -15405,8 +15405,8 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_4_parse_ray_headers(CYTHON_UN
   goto __pyx_L0;
 
   /* "pyart/io/_sigmetfile.pyx":423
- * 
- * 
+ *
+ *
  * def _parse_ray_headers(ray_headers):             # <<<<<<<<<<<<<<
  *     """
  *     Parse the metadata from Sigmet ray headers.
@@ -15443,7 +15443,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_4_parse_ray_headers(CYTHON_UN
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_7convert_sigmet_data(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_7convert_sigmet_data(PyObject *__pyx_self,
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -15452,7 +15452,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 ); /*proto*/
 PyDoc_STRVAR(__pyx_doc_5pyart_2io_11_sigmetfile_6convert_sigmet_data, " Convert sigmet data. ");
 static PyMethodDef __pyx_mdef_5pyart_2io_11_sigmetfile_7convert_sigmet_data = {"convert_sigmet_data", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5pyart_2io_11_sigmetfile_7convert_sigmet_data, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5pyart_2io_11_sigmetfile_6convert_sigmet_data};
-static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_7convert_sigmet_data(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_7convert_sigmet_data(PyObject *__pyx_self,
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -15576,7 +15576,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
  *     """ Convert sigmet data. """
  *     out = np.empty_like(data, dtype='float32')             # <<<<<<<<<<<<<<
  *     mask = np.zeros_like(data, dtype='bool')
- * 
+ *
 */
   __pyx_t_2 = NULL;
   __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 604, __pyx_L1_error)
@@ -15624,7 +15624,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
  *     """ Convert sigmet data. """
  *     out = np.empty_like(data, dtype='float32')
  *     mask = np.zeros_like(data, dtype='bool')             # <<<<<<<<<<<<<<
- * 
+ *
  *     data_type_name = SIGMET_DATA_TYPES[data_type]
 */
   __pyx_t_4 = NULL;
@@ -15671,9 +15671,9 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
 
   /* "pyart/io/_sigmetfile.pyx":607
  *     mask = np.zeros_like(data, dtype='bool')
- * 
+ *
  *     data_type_name = SIGMET_DATA_TYPES[data_type]             # <<<<<<<<<<<<<<
- * 
+ *
  *     like_dbt2 = [
 */
   __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_SIGMET_DATA_TYPES); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 607, __pyx_L1_error)
@@ -15686,7 +15686,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
 
   /* "pyart/io/_sigmetfile.pyx":609
  *     data_type_name = SIGMET_DATA_TYPES[data_type]
- * 
+ *
  *     like_dbt2 = [             # <<<<<<<<<<<<<<
  *         'DBT2',     # 2-byte Reflectivity Format, section 4.3.4
  *         'DBZ2',     # " "
@@ -15749,7 +15749,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
 
   /* "pyart/io/_sigmetfile.pyx":629
  *     ]
- * 
+ *
  *     like_sqi = [             # <<<<<<<<<<<<<<
  *         'RHOH',     # 1-byte Rho Format, section 4.3.21
  *         'RHOV',     # " "
@@ -15776,7 +15776,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
 
   /* "pyart/io/_sigmetfile.pyx":637
  *     ]
- * 
+ *
  *     like_sqi2 = [             # <<<<<<<<<<<<<<
  *         'RHOV2',    # 2-byte Rho Format, section 4.3.22
  *         'RHOH2',    # " "
@@ -15803,7 +15803,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
 
   /* "pyart/io/_sigmetfile.pyx":645
  *     ]
- * 
+ *
  *     like_dbt = [             # <<<<<<<<<<<<<<
  *         'DBT',      # 1-bytes Reflectivity Format, section 4.3.3
  *         'DBZ',      # " "
@@ -15842,7 +15842,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
 
   /* "pyart/io/_sigmetfile.pyx":657
  *     ]
- * 
+ *
  *     if data_type_name in like_dbt2:             # <<<<<<<<<<<<<<
  *         # value = (N - 32768) / 100.
  *         # 0 : no data available (mask)
@@ -15856,7 +15856,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
  *         # 65535 Reserved for area not scanned in product file (nothing)
  *         out[:] = (data.view('uint16') - 32768.) / 100.             # <<<<<<<<<<<<<<
  *         mask[data.view('uint16') == 0] = True
- * 
+ *
 */
     __pyx_t_1 = __pyx_v_data;
     __Pyx_INCREF(__pyx_t_1);
@@ -15881,7 +15881,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
  *         # 65535 Reserved for area not scanned in product file (nothing)
  *         out[:] = (data.view('uint16') - 32768.) / 100.
  *         mask[data.view('uint16') == 0] = True             # <<<<<<<<<<<<<<
- * 
+ *
  *     elif data_type_name in like_sqi2:
 */
     __pyx_t_1 = __pyx_v_data;
@@ -15902,7 +15902,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
 
     /* "pyart/io/_sigmetfile.pyx":657
  *     ]
- * 
+ *
  *     if data_type_name in like_dbt2:             # <<<<<<<<<<<<<<
  *         # value = (N - 32768) / 100.
  *         # 0 : no data available (mask)
@@ -15912,7 +15912,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
 
   /* "pyart/io/_sigmetfile.pyx":664
  *         mask[data.view('uint16') == 0] = True
- * 
+ *
  *     elif data_type_name in like_sqi2:             # <<<<<<<<<<<<<<
  *         # value = (N - 1) / 65533
  *         # 0 : no data available (mask)
@@ -15926,7 +15926,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
  *         # 65535 Area not scanned
  *         out[:] = (data.view('uint16') - 1.) / 65533.             # <<<<<<<<<<<<<<
  *         mask[data.view('uint16') == 0] = True
- * 
+ *
 */
     __pyx_t_2 = __pyx_v_data;
     __Pyx_INCREF(__pyx_t_2);
@@ -15951,7 +15951,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
  *         # 65535 Area not scanned
  *         out[:] = (data.view('uint16') - 1.) / 65533.
  *         mask[data.view('uint16') == 0] = True             # <<<<<<<<<<<<<<
- * 
+ *
  *     elif data_type_name == 'WIDTH2':
 */
     __pyx_t_2 = __pyx_v_data;
@@ -15972,7 +15972,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
 
     /* "pyart/io/_sigmetfile.pyx":664
  *         mask[data.view('uint16') == 0] = True
- * 
+ *
  *     elif data_type_name in like_sqi2:             # <<<<<<<<<<<<<<
  *         # value = (N - 1) / 65533
  *         # 0 : no data available (mask)
@@ -15982,7 +15982,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
 
   /* "pyart/io/_sigmetfile.pyx":671
  *         mask[data.view('uint16') == 0] = True
- * 
+ *
  *     elif data_type_name == 'WIDTH2':             # <<<<<<<<<<<<<<
  *         # DB_WIDTH2, 11, Width (2 byte)
  *         # 2-byte Width Format, section 4.3.36
@@ -15996,7 +15996,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
  *         # 2-byte Width Format, section 4.3.36
  *         out[:] = data.view('uint16') / 100.             # <<<<<<<<<<<<<<
  *         mask[data.view('uint16') == 0] = True
- * 
+ *
 */
     __pyx_t_1 = __pyx_v_data;
     __Pyx_INCREF(__pyx_t_1);
@@ -16018,7 +16018,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
  *         # 2-byte Width Format, section 4.3.36
  *         out[:] = data.view('uint16') / 100.
  *         mask[data.view('uint16') == 0] = True             # <<<<<<<<<<<<<<
- * 
+ *
  *     elif data_type_name == 'PHIDP2':
 */
     __pyx_t_2 = __pyx_v_data;
@@ -16039,7 +16039,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
 
     /* "pyart/io/_sigmetfile.pyx":671
  *         mask[data.view('uint16') == 0] = True
- * 
+ *
  *     elif data_type_name == 'WIDTH2':             # <<<<<<<<<<<<<<
  *         # DB_WIDTH2, 11, Width (2 byte)
  *         # 2-byte Width Format, section 4.3.36
@@ -16049,7 +16049,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
 
   /* "pyart/io/_sigmetfile.pyx":677
  *         mask[data.view('uint16') == 0] = True
- * 
+ *
  *     elif data_type_name == 'PHIDP2':             # <<<<<<<<<<<<<<
  *         # DB_PHIDP2, 24, PhiDP (Differential Phase) (2 byte)
  *         # 2-byte PhiDP format, section 4.3.19
@@ -16063,7 +16063,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
  *         # 2-byte PhiDP format, section 4.3.19
  *         out[:] = 360. * (data.view('uint16') - 1.) / 65534.             # <<<<<<<<<<<<<<
  *         mask[data.view('uint16') == 0] = True
- * 
+ *
 */
     __pyx_t_1 = __pyx_v_data;
     __Pyx_INCREF(__pyx_t_1);
@@ -16091,7 +16091,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
  *         # 2-byte PhiDP format, section 4.3.19
  *         out[:] = 360. * (data.view('uint16') - 1.) / 65534.
  *         mask[data.view('uint16') == 0] = True             # <<<<<<<<<<<<<<
- * 
+ *
  *     elif data_type_name == 'HCLASS2':
 */
     __pyx_t_2 = __pyx_v_data;
@@ -16112,7 +16112,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
 
     /* "pyart/io/_sigmetfile.pyx":677
  *         mask[data.view('uint16') == 0] = True
- * 
+ *
  *     elif data_type_name == 'PHIDP2':             # <<<<<<<<<<<<<<
  *         # DB_PHIDP2, 24, PhiDP (Differential Phase) (2 byte)
  *         # 2-byte PhiDP format, section 4.3.19
@@ -16122,7 +16122,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
 
   /* "pyart/io/_sigmetfile.pyx":683
  *         mask[data.view('uint16') == 0] = True
- * 
+ *
  *     elif data_type_name == 'HCLASS2':             # <<<<<<<<<<<<<<
  *         # DB_HCLASS2, 56, Hydrometeor class (2 byte)
  *         # 2-byte HydroClass Format, section 4.3.9
@@ -16135,7 +16135,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
  *         # DB_HCLASS2, 56, Hydrometeor class (2 byte)
  *         # 2-byte HydroClass Format, section 4.3.9
  *         out[:] = data.view('uint16')             # <<<<<<<<<<<<<<
- * 
+ *
  *     elif data_type_name == 'XHDR':
 */
     __pyx_t_1 = __pyx_v_data;
@@ -16153,7 +16153,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
 
     /* "pyart/io/_sigmetfile.pyx":683
  *         mask[data.view('uint16') == 0] = True
- * 
+ *
  *     elif data_type_name == 'HCLASS2':             # <<<<<<<<<<<<<<
  *         # DB_HCLASS2, 56, Hydrometeor class (2 byte)
  *         # 2-byte HydroClass Format, section 4.3.9
@@ -16163,7 +16163,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
 
   /* "pyart/io/_sigmetfile.pyx":688
  *         out[:] = data.view('uint16')
- * 
+ *
  *     elif data_type_name == 'XHDR':             # <<<<<<<<<<<<<<
  *         # Extended Headers, 0
  *         # extended_header_v0, _v1, _v2, section 4.2.8-4.2.10
@@ -16176,7 +16176,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
  *         # extended_header_v0, _v1, _v2, section 4.2.8-4.2.10
  *         # Here we return an array with the times in milliseconds.
  *         return data[..., :2].copy().view('i4')             # <<<<<<<<<<<<<<
- * 
+ *
  *     # one byte data types
 */
     __pyx_t_7 = __Pyx_PyObject_GetItem(__pyx_v_data, __pyx_mstate_global->__pyx_tuple[9]); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 692, __pyx_L1_error)
@@ -16216,7 +16216,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
 
     /* "pyart/io/_sigmetfile.pyx":688
  *         out[:] = data.view('uint16')
- * 
+ *
  *     elif data_type_name == 'XHDR':             # <<<<<<<<<<<<<<
  *         # Extended Headers, 0
  *         # extended_header_v0, _v1, _v2, section 4.2.8-4.2.10
@@ -16224,7 +16224,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
   }
 
   /* "pyart/io/_sigmetfile.pyx":695
- * 
+ *
  *     # one byte data types
  *     elif data_type_name[-1] != '2':             # <<<<<<<<<<<<<<
  *         # make a view of left half of the data as uint8,
@@ -16242,7 +16242,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
  *         # this is the actual ray data collected, the right half is blank.
  *         nrays, nbin = data.shape             # <<<<<<<<<<<<<<
  *         ndata = data.view('(2,) uint8').reshape(nrays, -1)[:, :nbin]
- * 
+ *
 */
     __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_data, __pyx_mstate_global->__pyx_n_u_shape); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 698, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
@@ -16305,7 +16305,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
  *         # this is the actual ray data collected, the right half is blank.
  *         nrays, nbin = data.shape
  *         ndata = data.view('(2,) uint8').reshape(nrays, -1)[:, :nbin]             # <<<<<<<<<<<<<<
- * 
+ *
  *         if data_type_name in like_dbt:
 */
     __pyx_t_7 = __pyx_v_data;
@@ -16348,7 +16348,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
 
     /* "pyart/io/_sigmetfile.pyx":701
  *         ndata = data.view('(2,) uint8').reshape(nrays, -1)[:, :nbin]
- * 
+ *
  *         if data_type_name in like_dbt:             # <<<<<<<<<<<<<<
  *             # DB_DBT, 1, Total Power (1 byte)
  *             # 1-byte Reflectivity Format, section 4.3.3
@@ -16362,7 +16362,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
  *             # 1-byte Reflectivity Format, section 4.3.3
  *             out[:] = (ndata - 64.) / 2.             # <<<<<<<<<<<<<<
  *             mask[ndata == 0] = True
- * 
+ *
 */
       __pyx_t_3 = __Pyx_PyFloat_SubtractObjC(__pyx_v_ndata, __pyx_mstate_global->__pyx_float_64_, 64., 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 704, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
@@ -16376,7 +16376,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
  *             # 1-byte Reflectivity Format, section 4.3.3
  *             out[:] = (ndata - 64.) / 2.
  *             mask[ndata == 0] = True             # <<<<<<<<<<<<<<
- * 
+ *
  *         elif data_type_name in like_sqi:
 */
       __pyx_t_1 = __Pyx_PyLong_EqObjC(__pyx_v_ndata, __pyx_mstate_global->__pyx_int_0, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 705, __pyx_L1_error)
@@ -16386,7 +16386,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
 
       /* "pyart/io/_sigmetfile.pyx":701
  *         ndata = data.view('(2,) uint8').reshape(nrays, -1)[:, :nbin]
- * 
+ *
  *         if data_type_name in like_dbt:             # <<<<<<<<<<<<<<
  *             # DB_DBT, 1, Total Power (1 byte)
  *             # 1-byte Reflectivity Format, section 4.3.3
@@ -16396,7 +16396,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
 
     /* "pyart/io/_sigmetfile.pyx":707
  *             mask[ndata == 0] = True
- * 
+ *
  *         elif data_type_name in like_sqi:             # <<<<<<<<<<<<<<
  *             # value = sqrt((N - 1) / 253)
  *             # 0 : no data available (mask)
@@ -16452,7 +16452,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
  *             out[:] = np.sqrt((ndata - 1.) / 253.)
  *             mask[ndata == 0] = True             # <<<<<<<<<<<<<<
  *             mask[ndata == 255] = True
- * 
+ *
 */
       __pyx_t_1 = __Pyx_PyLong_EqObjC(__pyx_v_ndata, __pyx_mstate_global->__pyx_int_0, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 712, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
@@ -16463,7 +16463,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
  *             out[:] = np.sqrt((ndata - 1.) / 253.)
  *             mask[ndata == 0] = True
  *             mask[ndata == 255] = True             # <<<<<<<<<<<<<<
- * 
+ *
  *         elif data_type_name == 'VEL':
 */
       __pyx_t_1 = __Pyx_PyLong_EqObjC(__pyx_v_ndata, __pyx_mstate_global->__pyx_int_255, 0xFF, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 713, __pyx_L1_error)
@@ -16473,7 +16473,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
 
       /* "pyart/io/_sigmetfile.pyx":707
  *             mask[ndata == 0] = True
- * 
+ *
  *         elif data_type_name in like_sqi:             # <<<<<<<<<<<<<<
  *             # value = sqrt((N - 1) / 253)
  *             # 0 : no data available (mask)
@@ -16483,7 +16483,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
 
     /* "pyart/io/_sigmetfile.pyx":715
  *             mask[ndata == 255] = True
- * 
+ *
  *         elif data_type_name == 'VEL':             # <<<<<<<<<<<<<<
  *             # VEL, 3, Velocity (1 byte)
  *             # 1-byte Velocity Format, section 4.3.29
@@ -16497,7 +16497,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
  *             # this is done in the get_data method of the SigmetFile class.
  *             out[:] = (ndata - 128.) / 127.             # <<<<<<<<<<<<<<
  *             mask[ndata == 0] = True
- * 
+ *
 */
       __pyx_t_1 = __Pyx_PyFloat_SubtractObjC(__pyx_v_ndata, __pyx_mstate_global->__pyx_float_128_, 128., 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 720, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
@@ -16511,7 +16511,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
  *             # this is done in the get_data method of the SigmetFile class.
  *             out[:] = (ndata - 128.) / 127.
  *             mask[ndata == 0] = True             # <<<<<<<<<<<<<<
- * 
+ *
  *         elif data_type_name == 'VELC':
 */
       __pyx_t_7 = __Pyx_PyLong_EqObjC(__pyx_v_ndata, __pyx_mstate_global->__pyx_int_0, 0, 0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 721, __pyx_L1_error)
@@ -16521,7 +16521,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
 
       /* "pyart/io/_sigmetfile.pyx":715
  *             mask[ndata == 255] = True
- * 
+ *
  *         elif data_type_name == 'VEL':             # <<<<<<<<<<<<<<
  *             # VEL, 3, Velocity (1 byte)
  *             # 1-byte Velocity Format, section 4.3.29
@@ -16531,7 +16531,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
 
     /* "pyart/io/_sigmetfile.pyx":723
  *             mask[ndata == 0] = True
- * 
+ *
  *         elif data_type_name == 'VELC':             # <<<<<<<<<<<<<<
  *             # VELC, 3, Velocity (1 byte)
  *             # 1-byte Corrected Velocity Format, section 4.4.42
@@ -16563,7 +16563,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
  *             out[:] = (ndata - 128.) / 127. *75.
  *             mask[ndata == 0] = True             # <<<<<<<<<<<<<<
  *             mask[ndata == 255] = True
- * 
+ *
 */
       __pyx_t_7 = __Pyx_PyLong_EqObjC(__pyx_v_ndata, __pyx_mstate_global->__pyx_int_0, 0, 0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 727, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
@@ -16574,7 +16574,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
  *             out[:] = (ndata - 128.) / 127. *75.
  *             mask[ndata == 0] = True
  *             mask[ndata == 255] = True             # <<<<<<<<<<<<<<
- * 
+ *
  *         elif data_type_name == 'WIDTH':
 */
       __pyx_t_7 = __Pyx_PyLong_EqObjC(__pyx_v_ndata, __pyx_mstate_global->__pyx_int_255, 0xFF, 0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 728, __pyx_L1_error)
@@ -16584,7 +16584,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
 
       /* "pyart/io/_sigmetfile.pyx":723
  *             mask[ndata == 0] = True
- * 
+ *
  *         elif data_type_name == 'VELC':             # <<<<<<<<<<<<<<
  *             # VELC, 3, Velocity (1 byte)
  *             # 1-byte Corrected Velocity Format, section 4.4.42
@@ -16594,7 +16594,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
 
     /* "pyart/io/_sigmetfile.pyx":730
  *             mask[ndata == 255] = True
- * 
+ *
  *         elif data_type_name == 'WIDTH':             # <<<<<<<<<<<<<<
  *             # WIDTH, 4, Width (1 byte)
  *             # 1-byte Width format, section 4.3.25
@@ -16608,7 +16608,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
  *             # velocity
  *             out[:] = ndata / 256.             # <<<<<<<<<<<<<<
  *             mask[ndata == 0] = True
- * 
+ *
 */
       __pyx_t_7 = __Pyx_PyFloat_TrueDivideObjC(__pyx_v_ndata, __pyx_mstate_global->__pyx_float_256_, 256., 0, 0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 735, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
@@ -16619,7 +16619,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
  *             # velocity
  *             out[:] = ndata / 256.
  *             mask[ndata == 0] = True             # <<<<<<<<<<<<<<
- * 
+ *
  *         elif data_type_name == 'ZDR':
 */
       __pyx_t_7 = __Pyx_PyLong_EqObjC(__pyx_v_ndata, __pyx_mstate_global->__pyx_int_0, 0, 0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 736, __pyx_L1_error)
@@ -16629,7 +16629,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
 
       /* "pyart/io/_sigmetfile.pyx":730
  *             mask[ndata == 255] = True
- * 
+ *
  *         elif data_type_name == 'WIDTH':             # <<<<<<<<<<<<<<
  *             # WIDTH, 4, Width (1 byte)
  *             # 1-byte Width format, section 4.3.25
@@ -16639,7 +16639,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
 
     /* "pyart/io/_sigmetfile.pyx":738
  *             mask[ndata == 0] = True
- * 
+ *
  *         elif data_type_name == 'ZDR':             # <<<<<<<<<<<<<<
  *             # ZDR, 5, Differential reflectivity (1 byte)
  *             # 1-byte ZDR format, section 4.3.37
@@ -16653,7 +16653,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
  *             # 1-byte ZDR format, section 4.3.37
  *             out[:] = (ndata - 128.) / 16.             # <<<<<<<<<<<<<<
  *             mask[ndata == 0] = True
- * 
+ *
 */
       __pyx_t_7 = __Pyx_PyFloat_SubtractObjC(__pyx_v_ndata, __pyx_mstate_global->__pyx_float_128_, 128., 0, 0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 741, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
@@ -16667,7 +16667,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
  *             # 1-byte ZDR format, section 4.3.37
  *             out[:] = (ndata - 128.) / 16.
  *             mask[ndata == 0] = True             # <<<<<<<<<<<<<<
- * 
+ *
  *         elif data_type_name == 'KDP':
 */
       __pyx_t_1 = __Pyx_PyLong_EqObjC(__pyx_v_ndata, __pyx_mstate_global->__pyx_int_0, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 742, __pyx_L1_error)
@@ -16677,7 +16677,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
 
       /* "pyart/io/_sigmetfile.pyx":738
  *             mask[ndata == 0] = True
- * 
+ *
  *         elif data_type_name == 'ZDR':             # <<<<<<<<<<<<<<
  *             # ZDR, 5, Differential reflectivity (1 byte)
  *             # 1-byte ZDR format, section 4.3.37
@@ -16687,7 +16687,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
 
     /* "pyart/io/_sigmetfile.pyx":744
  *             mask[ndata == 0] = True
- * 
+ *
  *         elif data_type_name == 'KDP':             # <<<<<<<<<<<<<<
  *             # KDP, 14, KDP (Differential phase) (1 byte)
  *             # 1-byte KDP format, section 4.3.12
@@ -16697,7 +16697,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
 
 
       /* "pyart/io/_sigmetfile.pyx":751
- * 
+ *
  *             # above 128 use positive value equation
  *             exp = np.power(600., (ndata[ndata > 128] - 129.) / 126.)             # <<<<<<<<<<<<<<
  *             out[ndata > 128] = 0.25 * exp
@@ -16822,7 +16822,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
  *             out[ndata < 128] = -0.25 * exp
  *             # equal to 128, zero
  *             out[ndata == 128] = 0             # <<<<<<<<<<<<<<
- * 
+ *
  *             mask[ndata == 0] = True
 */
       __pyx_t_1 = __Pyx_PyLong_EqObjC(__pyx_v_ndata, __pyx_mstate_global->__pyx_int_128, 0x80, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 757, __pyx_L1_error)
@@ -16832,10 +16832,10 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
 
       /* "pyart/io/_sigmetfile.pyx":759
  *             out[ndata == 128] = 0
- * 
+ *
  *             mask[ndata == 0] = True             # <<<<<<<<<<<<<<
  *             mask[ndata == 255] = True
- * 
+ *
 */
       __pyx_t_1 = __Pyx_PyLong_EqObjC(__pyx_v_ndata, __pyx_mstate_global->__pyx_int_0, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 759, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
@@ -16843,10 +16843,10 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
       /* "pyart/io/_sigmetfile.pyx":760
- * 
+ *
  *             mask[ndata == 0] = True
  *             mask[ndata == 255] = True             # <<<<<<<<<<<<<<
- * 
+ *
  *         elif data_type_name == 'PHIDP':
 */
       __pyx_t_1 = __Pyx_PyLong_EqObjC(__pyx_v_ndata, __pyx_mstate_global->__pyx_int_255, 0xFF, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 760, __pyx_L1_error)
@@ -16856,7 +16856,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
 
       /* "pyart/io/_sigmetfile.pyx":744
  *             mask[ndata == 0] = True
- * 
+ *
  *         elif data_type_name == 'KDP':             # <<<<<<<<<<<<<<
  *             # KDP, 14, KDP (Differential phase) (1 byte)
  *             # 1-byte KDP format, section 4.3.12
@@ -16866,7 +16866,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
 
     /* "pyart/io/_sigmetfile.pyx":762
  *             mask[ndata == 255] = True
- * 
+ *
  *         elif data_type_name == 'PHIDP':             # <<<<<<<<<<<<<<
  *             # PHIDP, 16, PhiDP(Differential phase) (1 byte)
  *             # 1-byte PhiDP format, section 4.3.18
@@ -16898,7 +16898,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
  *             out[:] = 180. * ((ndata - 1.) / 254.)
  *             mask[ndata == 0] = True             # <<<<<<<<<<<<<<
  *             mask[ndata == 255] = True
- * 
+ *
 */
       __pyx_t_1 = __Pyx_PyLong_EqObjC(__pyx_v_ndata, __pyx_mstate_global->__pyx_int_0, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 766, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
@@ -16909,7 +16909,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
  *             out[:] = 180. * ((ndata - 1.) / 254.)
  *             mask[ndata == 0] = True
  *             mask[ndata == 255] = True             # <<<<<<<<<<<<<<
- * 
+ *
  *         elif data_type_name == "HCLASS":
 */
       __pyx_t_1 = __Pyx_PyLong_EqObjC(__pyx_v_ndata, __pyx_mstate_global->__pyx_int_255, 0xFF, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 767, __pyx_L1_error)
@@ -16919,7 +16919,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
 
       /* "pyart/io/_sigmetfile.pyx":762
  *             mask[ndata == 255] = True
- * 
+ *
  *         elif data_type_name == 'PHIDP':             # <<<<<<<<<<<<<<
  *             # PHIDP, 16, PhiDP(Differential phase) (1 byte)
  *             # 1-byte PhiDP format, section 4.3.18
@@ -16929,7 +16929,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
 
     /* "pyart/io/_sigmetfile.pyx":769
  *             mask[ndata == 255] = True
- * 
+ *
  *         elif data_type_name == "HCLASS":             # <<<<<<<<<<<<<<
  *             # HCLASS, 55, Hydrometeor class (1 byte)
  *             # 1-byte HydroClass format, section 4.3.8
@@ -16955,7 +16955,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
  *             out[:] = ndata[:]
  *             mask[ndata == 0] = True     # No data available             # <<<<<<<<<<<<<<
  *             mask[ndata == 255] = True   # Area not scanned
- * 
+ *
 */
       __pyx_t_1 = __Pyx_PyLong_EqObjC(__pyx_v_ndata, __pyx_mstate_global->__pyx_int_0, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 773, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
@@ -16966,7 +16966,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
  *             out[:] = ndata[:]
  *             mask[ndata == 0] = True     # No data available
  *             mask[ndata == 255] = True   # Area not scanned             # <<<<<<<<<<<<<<
- * 
+ *
  *         else:
 */
       __pyx_t_1 = __Pyx_PyLong_EqObjC(__pyx_v_ndata, __pyx_mstate_global->__pyx_int_255, 0xFF, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 774, __pyx_L1_error)
@@ -16976,7 +16976,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
 
       /* "pyart/io/_sigmetfile.pyx":769
  *             mask[ndata == 255] = True
- * 
+ *
  *         elif data_type_name == "HCLASS":             # <<<<<<<<<<<<<<
  *             # HCLASS, 55, Hydrometeor class (1 byte)
  *             # 1-byte HydroClass format, section 4.3.8
@@ -17070,7 +17070,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
     __pyx_L6:;
 
     /* "pyart/io/_sigmetfile.pyx":695
- * 
+ *
  *     # one byte data types
  *     elif data_type_name[-1] != '2':             # <<<<<<<<<<<<<<
  *         # make a view of left half of the data as uint8,
@@ -17123,7 +17123,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
  *         warnings.warn('Unknown type: %s, returning raw data' % data_type)
  *         out[:] = data             # <<<<<<<<<<<<<<
  *         return np.ma.masked_array(out)
- * 
+ *
 */
     if (__Pyx_PyObject_SetSlice(__pyx_v_out, __pyx_v_data, 0, 0, NULL, NULL, &__pyx_mstate_global->__pyx_slice[2], 0, 0, 1) < (0)) __PYX_ERR(0, 784, __pyx_L1_error)
 
@@ -17131,7 +17131,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
  *         warnings.warn('Unknown type: %s, returning raw data' % data_type)
  *         out[:] = data
  *         return np.ma.masked_array(out)             # <<<<<<<<<<<<<<
- * 
+ *
  *     # mask any gates which are beyond the number of gates in that ray.
 */
     __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 785, __pyx_L1_error)
@@ -17164,10 +17164,10 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
   __pyx_L3:;
 
   /* "pyart/io/_sigmetfile.pyx":788
- * 
+ *
  *     # mask any gates which are beyond the number of gates in that ray.
  *     _mask_gates_not_collected(mask.view(np.uint8), nbins)             # <<<<<<<<<<<<<<
- * 
+ *
  *     return np.ma.masked_array(out, mask=mask, fill_value=-9999.0,
 */
   __pyx_t_7 = __pyx_v_mask;
@@ -17195,10 +17195,10 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
 
   /* "pyart/io/_sigmetfile.pyx":790
  *     _mask_gates_not_collected(mask.view(np.uint8), nbins)
- * 
+ *
  *     return np.ma.masked_array(out, mask=mask, fill_value=-9999.0,             # <<<<<<<<<<<<<<
  *                               shrink=False)
- * 
+ *
 */
   __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 790, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
@@ -17209,11 +17209,11 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
   __Pyx_INCREF(__pyx_t_1);
 
   /* "pyart/io/_sigmetfile.pyx":791
- * 
+ *
  *     return np.ma.masked_array(out, mask=mask, fill_value=-9999.0,
  *                               shrink=False)             # <<<<<<<<<<<<<<
- * 
- * 
+ *
+ *
 */
   __pyx_t_5 = 0;
   {
@@ -17283,8 +17283,8 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_6convert_sigmet_data(CYTHON_U
 }
 
 /* "pyart/io/_sigmetfile.pyx":794
- * 
- * 
+ *
+ *
  * @cython.boundscheck(False)             # <<<<<<<<<<<<<<
  * cdef _mask_gates_not_collected(
  *         np.ndarray[np.uint8_t, ndim=2] mask,
@@ -17395,7 +17395,7 @@ static PyObject *__pyx_f_5pyart_2io_11_sigmetfile__mask_gates_not_collected(PyAr
  *         for j in range(nbin, full_nbins):
  *             mask[i, j] = 1             # <<<<<<<<<<<<<<
  *     return
- * 
+ *
 */
       __pyx_t_4 = __pyx_v_i;
       __pyx_t_8 = __pyx_v_j;
@@ -17411,8 +17411,8 @@ static PyObject *__pyx_f_5pyart_2io_11_sigmetfile__mask_gates_not_collected(PyAr
  *         for j in range(nbin, full_nbins):
  *             mask[i, j] = 1
  *     return             # <<<<<<<<<<<<<<
- * 
- * 
+ *
+ *
 */
   {
     PyObject *__pyx_temp;
@@ -17425,8 +17425,8 @@ static PyObject *__pyx_f_5pyart_2io_11_sigmetfile__mask_gates_not_collected(PyAr
   goto __pyx_L0;
 
   /* "pyart/io/_sigmetfile.pyx":794
- * 
- * 
+ *
+ *
  * @cython.boundscheck(False)             # <<<<<<<<<<<<<<
  * cdef _mask_gates_not_collected(
  *         np.ndarray[np.uint8_t, ndim=2] mask,
@@ -17463,15 +17463,15 @@ static PyObject *__pyx_f_5pyart_2io_11_sigmetfile__mask_gates_not_collected(PyAr
 }
 
 /* "pyart/io/_sigmetfile.pyx":809
- * 
- * 
+ *
+ *
  * def bin2_to_angle(bin2):             # <<<<<<<<<<<<<<
  *     """ Return an angle from Sigmet bin2 encoded value (or array). """
  *     return 360. * bin2 / 65536
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_9bin2_to_angle(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_9bin2_to_angle(PyObject *__pyx_self,
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -17480,7 +17480,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 ); /*proto*/
 PyDoc_STRVAR(__pyx_doc_5pyart_2io_11_sigmetfile_8bin2_to_angle, " Return an angle from Sigmet bin2 encoded value (or array). ");
 static PyMethodDef __pyx_mdef_5pyart_2io_11_sigmetfile_9bin2_to_angle = {"bin2_to_angle", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5pyart_2io_11_sigmetfile_9bin2_to_angle, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5pyart_2io_11_sigmetfile_8bin2_to_angle};
-static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_9bin2_to_angle(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_9bin2_to_angle(PyObject *__pyx_self,
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -17570,8 +17570,8 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_8bin2_to_angle(CYTHON_UNUSED 
  * def bin2_to_angle(bin2):
  *     """ Return an angle from Sigmet bin2 encoded value (or array). """
  *     return 360. * bin2 / 65536             # <<<<<<<<<<<<<<
- * 
- * 
+ *
+ *
 */
   __pyx_t_1 = __Pyx_PyNumber_Multiply_float_object(__pyx_mstate_global->__pyx_float_360_, __pyx_v_bin2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 811, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -17590,8 +17590,8 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_8bin2_to_angle(CYTHON_UNUSED 
   goto __pyx_L0;
 
   /* "pyart/io/_sigmetfile.pyx":809
- * 
- * 
+ *
+ *
  * def bin2_to_angle(bin2):             # <<<<<<<<<<<<<<
  *     """ Return an angle from Sigmet bin2 encoded value (or array). """
  *     return 360. * bin2 / 65536
@@ -17610,15 +17610,15 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_8bin2_to_angle(CYTHON_UNUSED 
 }
 
 /* "pyart/io/_sigmetfile.pyx":814
- * 
- * 
+ *
+ *
  * def bin4_to_angle(bin4):             # <<<<<<<<<<<<<<
  *     """ Return an angle from Sigmet bin4 encoded value (or array). """
  *     return 360. * bin4 / 4294967296
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_11bin4_to_angle(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_11bin4_to_angle(PyObject *__pyx_self,
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -17627,7 +17627,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 ); /*proto*/
 PyDoc_STRVAR(__pyx_doc_5pyart_2io_11_sigmetfile_10bin4_to_angle, " Return an angle from Sigmet bin4 encoded value (or array). ");
 static PyMethodDef __pyx_mdef_5pyart_2io_11_sigmetfile_11bin4_to_angle = {"bin4_to_angle", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5pyart_2io_11_sigmetfile_11bin4_to_angle, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5pyart_2io_11_sigmetfile_10bin4_to_angle};
-static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_11bin4_to_angle(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_11bin4_to_angle(PyObject *__pyx_self,
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -17717,8 +17717,8 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10bin4_to_angle(CYTHON_UNUSED
  * def bin4_to_angle(bin4):
  *     """ Return an angle from Sigmet bin4 encoded value (or array). """
  *     return 360. * bin4 / 4294967296             # <<<<<<<<<<<<<<
- * 
- * 
+ *
+ *
 */
   __pyx_t_1 = __Pyx_PyNumber_Multiply_float_object(__pyx_mstate_global->__pyx_float_360_, __pyx_v_bin4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 816, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -17737,8 +17737,8 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10bin4_to_angle(CYTHON_UNUSED
   goto __pyx_L0;
 
   /* "pyart/io/_sigmetfile.pyx":814
- * 
- * 
+ *
+ *
  * def bin4_to_angle(bin4):             # <<<<<<<<<<<<<<
  *     """ Return an angle from Sigmet bin4 encoded value (or array). """
  *     return 360. * bin4 / 4294967296
@@ -17757,15 +17757,15 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_10bin4_to_angle(CYTHON_UNUSED
 }
 
 /* "pyart/io/_sigmetfile.pyx":824
- * 
- * 
+ *
+ *
  * def _unpack_structure(string, structure):             # <<<<<<<<<<<<<<
  *     """ Unpack a structure """
  *     fmt = ''.join([i[1] for i in structure])
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_13_unpack_structure(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_13_unpack_structure(PyObject *__pyx_self,
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -17774,7 +17774,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 ); /*proto*/
 PyDoc_STRVAR(__pyx_doc_5pyart_2io_11_sigmetfile_12_unpack_structure, " Unpack a structure ");
 static PyMethodDef __pyx_mdef_5pyart_2io_11_sigmetfile_13_unpack_structure = {"_unpack_structure", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5pyart_2io_11_sigmetfile_13_unpack_structure, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5pyart_2io_11_sigmetfile_12_unpack_structure};
-static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_13_unpack_structure(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_13_unpack_structure(PyObject *__pyx_self,
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -17966,7 +17966,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_12_unpack_structure(CYTHON_UN
  *     fmt = ''.join([i[1] for i in structure])
  *     l = struct.unpack(fmt, string)             # <<<<<<<<<<<<<<
  *     return dict(zip([i[0] for i in structure], l))
- * 
+ *
 */
   __pyx_t_1 = NULL;
   __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_struct); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 827, __pyx_L1_error)
@@ -18001,8 +18001,8 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_12_unpack_structure(CYTHON_UN
  *     fmt = ''.join([i[1] for i in structure])
  *     l = struct.unpack(fmt, string)
  *     return dict(zip([i[0] for i in structure], l))             # <<<<<<<<<<<<<<
- * 
- * 
+ *
+ *
 */
   __pyx_t_6 = NULL;
   __pyx_t_5 = NULL;
@@ -18104,8 +18104,8 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_12_unpack_structure(CYTHON_UN
   goto __pyx_L0;
 
   /* "pyart/io/_sigmetfile.pyx":824
- * 
- * 
+ *
+ *
  * def _unpack_structure(string, structure):             # <<<<<<<<<<<<<<
  *     """ Unpack a structure """
  *     fmt = ''.join([i[1] for i in structure])
@@ -18133,15 +18133,15 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_12_unpack_structure(CYTHON_UN
 }
 
 /* "pyart/io/_sigmetfile.pyx":831
- * 
- * 
+ *
+ *
  * def _unpack_key(dic, key, structure):             # <<<<<<<<<<<<<<
  *     """ Unpack a key. """
  *     dic[key] = _unpack_structure(dic[key], structure)
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_15_unpack_key(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_15_unpack_key(PyObject *__pyx_self,
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -18150,7 +18150,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 ); /*proto*/
 PyDoc_STRVAR(__pyx_doc_5pyart_2io_11_sigmetfile_14_unpack_key, " Unpack a key. ");
 static PyMethodDef __pyx_mdef_5pyart_2io_11_sigmetfile_15_unpack_key = {"_unpack_key", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5pyart_2io_11_sigmetfile_15_unpack_key, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5pyart_2io_11_sigmetfile_14_unpack_key};
-static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_15_unpack_key(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_15_unpack_key(PyObject *__pyx_self,
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -18259,8 +18259,8 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_14_unpack_key(CYTHON_UNUSED P
  * def _unpack_key(dic, key, structure):
  *     """ Unpack a key. """
  *     dic[key] = _unpack_structure(dic[key], structure)             # <<<<<<<<<<<<<<
- * 
- * 
+ *
+ *
 */
   __pyx_t_2 = NULL;
   __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_unpack_structure); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 833, __pyx_L1_error)
@@ -18292,8 +18292,8 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_14_unpack_key(CYTHON_UNUSED P
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "pyart/io/_sigmetfile.pyx":831
- * 
- * 
+ *
+ *
  * def _unpack_key(dic, key, structure):             # <<<<<<<<<<<<<<
  *     """ Unpack a key. """
  *     dic[key] = _unpack_structure(dic[key], structure)
@@ -18316,15 +18316,15 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_14_unpack_key(CYTHON_UNUSED P
 }
 
 /* "pyart/io/_sigmetfile.pyx":836
- * 
- * 
+ *
+ *
  * def _unpack_ingest_data_headers(record, ndata_types):             # <<<<<<<<<<<<<<
  *     """
  *     Unpack one or more ingest_data_header from a record.
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_17_unpack_ingest_data_headers(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_17_unpack_ingest_data_headers(PyObject *__pyx_self,
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -18333,7 +18333,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 ); /*proto*/
 PyDoc_STRVAR(__pyx_doc_5pyart_2io_11_sigmetfile_16_unpack_ingest_data_headers, "\n    Unpack one or more ingest_data_header from a record.\n\n    Returns a list of dictionaries or None when an error occurs.\n\n    ");
 static PyMethodDef __pyx_mdef_5pyart_2io_11_sigmetfile_17_unpack_ingest_data_headers = {"_unpack_ingest_data_headers", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5pyart_2io_11_sigmetfile_17_unpack_ingest_data_headers, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5pyart_2io_11_sigmetfile_16_unpack_ingest_data_headers};
-static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_17_unpack_ingest_data_headers(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_17_unpack_ingest_data_headers(PyObject *__pyx_self,
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -18436,7 +18436,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_16_unpack_ingest_data_headers
   __Pyx_RefNannySetupContext("_unpack_ingest_data_headers", 0);
 
   /* "pyart/io/_sigmetfile.pyx":843
- * 
+ *
  *     """
  *     idh = [_unpack_ingest_data_header(record, i) for i in range(ndata_types)]             # <<<<<<<<<<<<<<
  *     if None in idh:
@@ -18552,8 +18552,8 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_16_unpack_ingest_data_headers
  *         return None
  *     else:
  *         return idh             # <<<<<<<<<<<<<<
- * 
- * 
+ *
+ *
 */
   /*else*/ {
     {
@@ -18569,8 +18569,8 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_16_unpack_ingest_data_headers
   }
 
   /* "pyart/io/_sigmetfile.pyx":836
- * 
- * 
+ *
+ *
  * def _unpack_ingest_data_headers(record, ndata_types):             # <<<<<<<<<<<<<<
  *     """
  *     Unpack one or more ingest_data_header from a record.
@@ -18594,15 +18594,15 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_16_unpack_ingest_data_headers
 }
 
 /* "pyart/io/_sigmetfile.pyx":850
- * 
- * 
+ *
+ *
  * def _unpack_ingest_data_header(record, number):             # <<<<<<<<<<<<<<
  *     """
  *     Unpack a single ingest_data_header from record.  Return None on error.
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_19_unpack_ingest_data_header(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_19_unpack_ingest_data_header(PyObject *__pyx_self,
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -18611,7 +18611,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 ); /*proto*/
 PyDoc_STRVAR(__pyx_doc_5pyart_2io_11_sigmetfile_18_unpack_ingest_data_header, "\n    Unpack a single ingest_data_header from record.  Return None on error.\n    ");
 static PyMethodDef __pyx_mdef_5pyart_2io_11_sigmetfile_19_unpack_ingest_data_header = {"_unpack_ingest_data_header", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5pyart_2io_11_sigmetfile_19_unpack_ingest_data_header, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5pyart_2io_11_sigmetfile_18_unpack_ingest_data_header};
-static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_19_unpack_ingest_data_header(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_19_unpack_ingest_data_header(PyObject *__pyx_self,
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -18870,7 +18870,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_18_unpack_ingest_data_header(
  *     if idh['structure_header']['structure_identifier'] != 24:
  *         return None             # <<<<<<<<<<<<<<
  *     return idh
- * 
+ *
 */
     {
       PyObject *__pyx_temp;
@@ -18895,8 +18895,8 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_18_unpack_ingest_data_header(
  *     if idh['structure_header']['structure_identifier'] != 24:
  *         return None
  *     return idh             # <<<<<<<<<<<<<<
- * 
- * 
+ *
+ *
 */
   {
     PyObject *__pyx_temp;
@@ -18910,8 +18910,8 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_18_unpack_ingest_data_header(
   goto __pyx_L0;
 
   /* "pyart/io/_sigmetfile.pyx":850
- * 
- * 
+ *
+ *
  * def _unpack_ingest_data_header(record, number):             # <<<<<<<<<<<<<<
  *     """
  *     Unpack a single ingest_data_header from record.  Return None on error.
@@ -18935,15 +18935,15 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_18_unpack_ingest_data_header(
 }
 
 /* "pyart/io/_sigmetfile.pyx":864
- * 
- * 
+ *
+ *
  * def _unpack_raw_prod_bhdr(record):             # <<<<<<<<<<<<<<
  *     """ Return a dict with the unpacked raw_prod_bhdr from a record. """
  *     return _unpack_structure(record[:12], RAW_PROD_BHDR)
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_21_unpack_raw_prod_bhdr(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_21_unpack_raw_prod_bhdr(PyObject *__pyx_self,
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -18952,7 +18952,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 ); /*proto*/
 PyDoc_STRVAR(__pyx_doc_5pyart_2io_11_sigmetfile_20_unpack_raw_prod_bhdr, " Return a dict with the unpacked raw_prod_bhdr from a record. ");
 static PyMethodDef __pyx_mdef_5pyart_2io_11_sigmetfile_21_unpack_raw_prod_bhdr = {"_unpack_raw_prod_bhdr", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5pyart_2io_11_sigmetfile_21_unpack_raw_prod_bhdr, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5pyart_2io_11_sigmetfile_20_unpack_raw_prod_bhdr};
-static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_21_unpack_raw_prod_bhdr(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_21_unpack_raw_prod_bhdr(PyObject *__pyx_self,
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -19046,8 +19046,8 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_20_unpack_raw_prod_bhdr(CYTHO
  * def _unpack_raw_prod_bhdr(record):
  *     """ Return a dict with the unpacked raw_prod_bhdr from a record. """
  *     return _unpack_structure(record[:12], RAW_PROD_BHDR)             # <<<<<<<<<<<<<<
- * 
- * 
+ *
+ *
 */
   __pyx_t_2 = NULL;
   __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_unpack_structure); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 866, __pyx_L1_error)
@@ -19090,8 +19090,8 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_20_unpack_raw_prod_bhdr(CYTHO
   goto __pyx_L0;
 
   /* "pyart/io/_sigmetfile.pyx":864
- * 
- * 
+ *
+ *
  * def _unpack_raw_prod_bhdr(record):             # <<<<<<<<<<<<<<
  *     """ Return a dict with the unpacked raw_prod_bhdr from a record. """
  *     return _unpack_structure(record[:12], RAW_PROD_BHDR)
@@ -19113,15 +19113,15 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_20_unpack_raw_prod_bhdr(CYTHO
 }
 
 /* "pyart/io/_sigmetfile.pyx":869
- * 
- * 
+ *
+ *
  * def _unpack_product_hdr(record):             # <<<<<<<<<<<<<<
  *     """
  *     Return a dict with the unpacked product_hdr from the first record.
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_23_unpack_product_hdr(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_23_unpack_product_hdr(PyObject *__pyx_self,
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -19130,7 +19130,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 ); /*proto*/
 PyDoc_STRVAR(__pyx_doc_5pyart_2io_11_sigmetfile_22_unpack_product_hdr, "\n    Return a dict with the unpacked product_hdr from the first record.\n    ");
 static PyMethodDef __pyx_mdef_5pyart_2io_11_sigmetfile_23_unpack_product_hdr = {"_unpack_product_hdr", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5pyart_2io_11_sigmetfile_23_unpack_product_hdr, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5pyart_2io_11_sigmetfile_22_unpack_product_hdr};
-static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_23_unpack_product_hdr(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_23_unpack_product_hdr(PyObject *__pyx_self,
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -19224,10 +19224,10 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_22_unpack_product_hdr(CYTHON_
   __Pyx_RefNannySetupContext("_unpack_product_hdr", 0);
 
   /* "pyart/io/_sigmetfile.pyx":875
- * 
+ *
  *     # unpack the product_hdr structure from the first record
  *     product_hdr = _unpack_structure(record[:640], PRODUCT_HDR)             # <<<<<<<<<<<<<<
- * 
+ *
  *     # product_hdr substructure
 */
   __pyx_t_2 = NULL;
@@ -19263,7 +19263,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_22_unpack_product_hdr(CYTHON_
   __pyx_t_1 = 0;
 
   /* "pyart/io/_sigmetfile.pyx":878
- * 
+ *
  *     # product_hdr substructure
  *     _unpack_key(product_hdr, 'structure_header', STRUCTURE_HEADER)             # <<<<<<<<<<<<<<
  *     _unpack_key(product_hdr, 'product_configuration',
@@ -19313,7 +19313,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_22_unpack_product_hdr(CYTHON_
  *     _unpack_key(product_hdr, 'product_configuration',
  *                 PRODUCT_CONFIGURATION)             # <<<<<<<<<<<<<<
  *     _unpack_key(product_hdr, 'product_end', PRODUCT_END)
- * 
+ *
 */
   __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_PRODUCT_CONFIGURATION); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 880, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
@@ -19344,7 +19344,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_22_unpack_product_hdr(CYTHON_
  *     _unpack_key(product_hdr, 'product_configuration',
  *                 PRODUCT_CONFIGURATION)
  *     _unpack_key(product_hdr, 'product_end', PRODUCT_END)             # <<<<<<<<<<<<<<
- * 
+ *
  *     # product_config substructure
 */
   __pyx_t_4 = NULL;
@@ -19376,7 +19376,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_22_unpack_product_hdr(CYTHON_
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "pyart/io/_sigmetfile.pyx":884
- * 
+ *
  *     # product_config substructure
  *     product_config = product_hdr['product_configuration']             # <<<<<<<<<<<<<<
  *     _unpack_key(product_config, 'structure_header', STRUCTURE_HEADER)
@@ -19497,7 +19497,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_22_unpack_product_hdr(CYTHON_
  *     _unpack_key(product_config, 'sweep_ingest_time', YMDS_TIME)
  *     _unpack_key(product_config, 'file_ingest_time', YMDS_TIME)             # <<<<<<<<<<<<<<
  *     _unpack_key(product_config, 'color_scale_def', COLOR_SCALE_DEF)
- * 
+ *
 */
   __pyx_t_3 = NULL;
   __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_unpack_key); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 888, __pyx_L1_error)
@@ -19531,7 +19531,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_22_unpack_product_hdr(CYTHON_
  *     _unpack_key(product_config, 'sweep_ingest_time', YMDS_TIME)
  *     _unpack_key(product_config, 'file_ingest_time', YMDS_TIME)
  *     _unpack_key(product_config, 'color_scale_def', COLOR_SCALE_DEF)             # <<<<<<<<<<<<<<
- * 
+ *
  *     # product_end substructure
 */
   __pyx_t_5 = NULL;
@@ -19563,11 +19563,11 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_22_unpack_product_hdr(CYTHON_
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "pyart/io/_sigmetfile.pyx":892
- * 
+ *
  *     # product_end substructure
  *     product_end = product_hdr['product_end']             # <<<<<<<<<<<<<<
  *     _unpack_key(product_end, 'ingest_time', YMDS_TIME)
- * 
+ *
 */
   __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_v_product_hdr, __pyx_mstate_global->__pyx_n_u_product_end); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 892, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -19578,7 +19578,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_22_unpack_product_hdr(CYTHON_
  *     # product_end substructure
  *     product_end = product_hdr['product_end']
  *     _unpack_key(product_end, 'ingest_time', YMDS_TIME)             # <<<<<<<<<<<<<<
- * 
+ *
  *     return product_hdr
 */
   __pyx_t_4 = NULL;
@@ -19611,10 +19611,10 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_22_unpack_product_hdr(CYTHON_
 
   /* "pyart/io/_sigmetfile.pyx":895
  *     _unpack_key(product_end, 'ingest_time', YMDS_TIME)
- * 
+ *
  *     return product_hdr             # <<<<<<<<<<<<<<
- * 
- * 
+ *
+ *
 */
   {
     PyObject *__pyx_temp;
@@ -19628,8 +19628,8 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_22_unpack_product_hdr(CYTHON_
   goto __pyx_L0;
 
   /* "pyart/io/_sigmetfile.pyx":869
- * 
- * 
+ *
+ *
  * def _unpack_product_hdr(record):             # <<<<<<<<<<<<<<
  *     """
  *     Return a dict with the unpacked product_hdr from the first record.
@@ -19654,15 +19654,15 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_22_unpack_product_hdr(CYTHON_
 }
 
 /* "pyart/io/_sigmetfile.pyx":898
- * 
- * 
+ *
+ *
  * def _unpack_ingest_header(record):             # <<<<<<<<<<<<<<
  *     """
  *     Return a dict with the unpacked ingest_header from the second record.
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_25_unpack_ingest_header(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_25_unpack_ingest_header(PyObject *__pyx_self,
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -19671,7 +19671,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 ); /*proto*/
 PyDoc_STRVAR(__pyx_doc_5pyart_2io_11_sigmetfile_24_unpack_ingest_header, "\n    Return a dict with the unpacked ingest_header from the second record.\n    ");
 static PyMethodDef __pyx_mdef_5pyart_2io_11_sigmetfile_25_unpack_ingest_header = {"_unpack_ingest_header", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5pyart_2io_11_sigmetfile_25_unpack_ingest_header, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5pyart_2io_11_sigmetfile_24_unpack_ingest_header};
-static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_25_unpack_ingest_header(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_5pyart_2io_11_sigmetfile_25_unpack_ingest_header(PyObject *__pyx_self,
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -19767,10 +19767,10 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_24_unpack_ingest_header(CYTHO
   __Pyx_RefNannySetupContext("_unpack_ingest_header", 0);
 
   /* "pyart/io/_sigmetfile.pyx":904
- * 
+ *
  *     # unpack the ingest_header structure from the second_record
  *     ingest_header = _unpack_structure(record[:4884], INGEST_HEADER)             # <<<<<<<<<<<<<<
- * 
+ *
  *     # ingest_header substructure
 */
   __pyx_t_2 = NULL;
@@ -19806,7 +19806,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_24_unpack_ingest_header(CYTHO
   __pyx_t_1 = 0;
 
   /* "pyart/io/_sigmetfile.pyx":907
- * 
+ *
  *     # ingest_header substructure
  *     _unpack_key(ingest_header, 'structure_header', STRUCTURE_HEADER)             # <<<<<<<<<<<<<<
  *     _unpack_key(ingest_header, 'ingest_configuration',
@@ -19856,7 +19856,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_24_unpack_ingest_header(CYTHO
  *     _unpack_key(ingest_header, 'ingest_configuration',
  *                 INGEST_CONFIGURATION)             # <<<<<<<<<<<<<<
  *     _unpack_key(ingest_header, 'task_configuration', TASK_CONFIGURATION)
- * 
+ *
 */
   __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_INGEST_CONFIGURATION); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 909, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
@@ -19887,7 +19887,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_24_unpack_ingest_header(CYTHO
  *     _unpack_key(ingest_header, 'ingest_configuration',
  *                 INGEST_CONFIGURATION)
  *     _unpack_key(ingest_header, 'task_configuration', TASK_CONFIGURATION)             # <<<<<<<<<<<<<<
- * 
+ *
  *     # ingest_configuration substructure
 */
   __pyx_t_4 = NULL;
@@ -19919,11 +19919,11 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_24_unpack_ingest_header(CYTHO
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "pyart/io/_sigmetfile.pyx":913
- * 
+ *
  *     # ingest_configuration substructure
  *     ingest_configuration = ingest_header['ingest_configuration']             # <<<<<<<<<<<<<<
  *     _unpack_key(ingest_configuration, 'volume_scan_start_time', YMDS_TIME)
- * 
+ *
 */
   __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_v_ingest_header, __pyx_mstate_global->__pyx_n_u_ingest_configuration); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 913, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -19934,7 +19934,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_24_unpack_ingest_header(CYTHO
  *     # ingest_configuration substructure
  *     ingest_configuration = ingest_header['ingest_configuration']
  *     _unpack_key(ingest_configuration, 'volume_scan_start_time', YMDS_TIME)             # <<<<<<<<<<<<<<
- * 
+ *
  *     # task_configuration substructure
 */
   __pyx_t_3 = NULL;
@@ -19966,7 +19966,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_24_unpack_ingest_header(CYTHO
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "pyart/io/_sigmetfile.pyx":917
- * 
+ *
  *     # task_configuration substructure
  *     task_configuration = ingest_header['task_configuration']             # <<<<<<<<<<<<<<
  *     _unpack_key(task_configuration, 'structure_header', STRUCTURE_HEADER)
@@ -20192,7 +20192,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_24_unpack_ingest_header(CYTHO
  *     _unpack_key(task_configuration, 'task_scan_info', TASK_SCAN_INFO)
  *     _unpack_key(task_configuration, 'task_misc_info', TASK_MISC_INFO)             # <<<<<<<<<<<<<<
  *     _unpack_key(task_configuration, 'task_end_info', TASK_END_INFO)
- * 
+ *
 */
   __pyx_t_5 = NULL;
   __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_unpack_key); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 924, __pyx_L1_error)
@@ -20226,7 +20226,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_24_unpack_ingest_header(CYTHO
  *     _unpack_key(task_configuration, 'task_scan_info', TASK_SCAN_INFO)
  *     _unpack_key(task_configuration, 'task_misc_info', TASK_MISC_INFO)
  *     _unpack_key(task_configuration, 'task_end_info', TASK_END_INFO)             # <<<<<<<<<<<<<<
- * 
+ *
  *     # task_dsp_info substructure
 */
   __pyx_t_4 = NULL;
@@ -20258,7 +20258,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_24_unpack_ingest_header(CYTHO
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "pyart/io/_sigmetfile.pyx":928
- * 
+ *
  *     # task_dsp_info substructure
  *     task_dsp_info = task_configuration['task_dsp_info']             # <<<<<<<<<<<<<<
  *     _unpack_key(task_dsp_info, 'current_data_type_mask', DSP_DATA_MASK)
@@ -20309,7 +20309,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_24_unpack_ingest_header(CYTHO
  *     _unpack_key(task_dsp_info, 'current_data_type_mask', DSP_DATA_MASK)
  *     _unpack_key(task_dsp_info, 'original_data_type_mask', DSP_DATA_MASK)             # <<<<<<<<<<<<<<
  *     _unpack_key(task_dsp_info, 'task_dsp_mode', TASK_DSP_MODE_BATCH)
- * 
+ *
 */
   __pyx_t_5 = NULL;
   __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_unpack_key); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 930, __pyx_L1_error)
@@ -20343,7 +20343,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_24_unpack_ingest_header(CYTHO
  *     _unpack_key(task_dsp_info, 'current_data_type_mask', DSP_DATA_MASK)
  *     _unpack_key(task_dsp_info, 'original_data_type_mask', DSP_DATA_MASK)
  *     _unpack_key(task_dsp_info, 'task_dsp_mode', TASK_DSP_MODE_BATCH)             # <<<<<<<<<<<<<<
- * 
+ *
  *     # task_scan_info substructure
 */
   __pyx_t_4 = NULL;
@@ -20375,11 +20375,11 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_24_unpack_ingest_header(CYTHO
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "pyart/io/_sigmetfile.pyx":941
- * 
+ *
  *     # task_end_info substructure
  *     task_end_info = task_configuration['task_end_info']             # <<<<<<<<<<<<<<
  *     _unpack_key(task_end_info, 'task_data_time', YMDS_TIME)
- * 
+ *
 */
   __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_v_task_configuration, __pyx_mstate_global->__pyx_n_u_task_end_info); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 941, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -20390,7 +20390,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_24_unpack_ingest_header(CYTHO
  *     # task_end_info substructure
  *     task_end_info = task_configuration['task_end_info']
  *     _unpack_key(task_end_info, 'task_data_time', YMDS_TIME)             # <<<<<<<<<<<<<<
- * 
+ *
  *     return ingest_header
 */
   __pyx_t_3 = NULL;
@@ -20423,10 +20423,10 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_24_unpack_ingest_header(CYTHO
 
   /* "pyart/io/_sigmetfile.pyx":944
  *     _unpack_key(task_end_info, 'task_data_time', YMDS_TIME)
- * 
+ *
  *     return ingest_header             # <<<<<<<<<<<<<<
- * 
- * 
+ *
+ *
 */
   {
     PyObject *__pyx_temp;
@@ -20440,8 +20440,8 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_24_unpack_ingest_header(CYTHO
   goto __pyx_L0;
 
   /* "pyart/io/_sigmetfile.pyx":898
- * 
- * 
+ *
+ *
  * def _unpack_ingest_header(record):             # <<<<<<<<<<<<<<
  *     """
  *     Return a dict with the unpacked ingest_header from the second record.
@@ -20469,7 +20469,7 @@ static PyObject *__pyx_pf_5pyart_2io_11_sigmetfile_24_unpack_ingest_header(CYTHO
 /* #### Code section: module_exttypes ### */
 static struct __pyx_vtabstruct_5pyart_2io_11_sigmetfile_SigmetFile __pyx_vtable_5pyart_2io_11_sigmetfile_SigmetFile;
 
-static PyObject *__pyx_tp_new__initialisation_5pyart_2io_11_sigmetfile_SigmetFile(PyObject *o, 
+static PyObject *__pyx_tp_new__initialisation_5pyart_2io_11_sigmetfile_SigmetFile(PyObject *o,
 #if CYTHON_VECTORCALL_TPNEW
     CYTHON_UNUSED PyObject *const *args, CYTHON_UNUSED Py_ssize_t nargs, CYTHON_UNUSED PyObject *kwnames
 #else
@@ -20491,7 +20491,7 @@ static PyObject *__pyx_tp_new__initialisation_5pyart_2io_11_sigmetfile_SigmetFil
   return o;
 }
 
-static PyObject *__pyx_tp_new_vectorcall_5pyart_2io_11_sigmetfile_SigmetFile(PyTypeObject *t, 
+static PyObject *__pyx_tp_new_vectorcall_5pyart_2io_11_sigmetfile_SigmetFile(PyTypeObject *t,
 #if CYTHON_VECTORCALL_TPNEW
     PyObject *const *args, Py_ssize_t nargs, PyObject *kwnames
 #else
@@ -20501,7 +20501,7 @@ static PyObject *__pyx_tp_new_vectorcall_5pyart_2io_11_sigmetfile_SigmetFile(PyT
   PyObject *o;
   o = __Pyx_AllocateExtensionType(t, 0);
   if (unlikely(!o)) return 0;
-  return __pyx_tp_new__initialisation_5pyart_2io_11_sigmetfile_SigmetFile(o, 
+  return __pyx_tp_new__initialisation_5pyart_2io_11_sigmetfile_SigmetFile(o,
 #if CYTHON_VECTORCALL_TPNEW
     args, nargs, kwnames
 #else
@@ -21484,7 +21484,7 @@ static CYTHON_SMALL_CODE int __pyx_pymod_exec__sigmetfile(PyObject *__pyx_pyinit
         Py_FatalError("failed to import 'refnanny' module");
   }
   #endif
-  
+
 __Pyx_RefNannySetupContext("PyInit__sigmetfile", 0);
   __Pyx_init_runtime_version();
   if (__Pyx_check_binary_version(__PYX_LIMITED_VERSION_HEX, __Pyx_get_runtime_version(), CYTHON_COMPILING_IN_LIMITED_API) < (0)) __PYX_ERR(0, 1, __pyx_L1_error)
@@ -21523,7 +21523,7 @@ __Pyx_RefNannySetupContext("PyInit__sigmetfile", 0);
   /*--- Execution code ---*/
 
   /* "pyart/io/_sigmetfile.pyx":5
- * 
+ *
  * """
  * import datetime             # <<<<<<<<<<<<<<
  * import struct
@@ -21540,7 +21540,7 @@ __Pyx_RefNannySetupContext("PyInit__sigmetfile", 0);
  * import datetime
  * import struct             # <<<<<<<<<<<<<<
  * import warnings
- * 
+ *
 */
   __pyx_t_1 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_struct, 0, 0, NULL, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 6, __pyx_L1_error)
   __pyx_t_2 = __pyx_t_1;
@@ -21552,7 +21552,7 @@ __Pyx_RefNannySetupContext("PyInit__sigmetfile", 0);
  * import datetime
  * import struct
  * import warnings             # <<<<<<<<<<<<<<
- * 
+ *
  * import numpy as np
 */
   __pyx_t_1 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_warnings, 0, 0, NULL, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 7, __pyx_L1_error)
@@ -21563,9 +21563,9 @@ __Pyx_RefNannySetupContext("PyInit__sigmetfile", 0);
 
   /* "pyart/io/_sigmetfile.pyx":9
  * import warnings
- * 
+ *
  * import numpy as np             # <<<<<<<<<<<<<<
- * 
+ *
  * cimport cython
 */
   __pyx_t_1 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_numpy, 0, 0, NULL, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 9, __pyx_L1_error)
@@ -21576,16 +21576,16 @@ __Pyx_RefNannySetupContext("PyInit__sigmetfile", 0);
 
   /* "pyart/io/_sigmetfile.pyx":14
  * cimport numpy as np
- * 
+ *
  * RECORD_SIZE = 6144      # Raw product file blocked into 6144 byte records             # <<<<<<<<<<<<<<
- * 
- * 
+ *
+ *
 */
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_RECORD_SIZE, __pyx_mstate_global->__pyx_int_6144) < (0)) __PYX_ERR(0, 14, __pyx_L1_error)
 
   /* "pyart/io/_sigmetfile.pyx":84
  *         self._raw_product_bhdrs = []
- * 
+ *
  *     def _determine_data_types(self):             # <<<<<<<<<<<<<<
  *         """ Determine the available data types in the file. """
  *         # determine the available fields
@@ -21600,7 +21600,7 @@ __Pyx_RefNannySetupContext("PyInit__sigmetfile", 0);
 
   /* "pyart/io/_sigmetfile.pyx":95
  *         return _data_types_from_mask(word0, word1, word2, word3)
- * 
+ *
  *     def close(self):             # <<<<<<<<<<<<<<
  *         """ Close the file. """
  *         self._fh.close()
@@ -21615,7 +21615,7 @@ __Pyx_RefNannySetupContext("PyInit__sigmetfile", 0);
 
   /* "pyart/io/_sigmetfile.pyx":99
  *         self._fh.close()
- * 
+ *
  *     def read_data(self, full_xhdr=False):             # <<<<<<<<<<<<<<
  *         """
  *         Read all data from the file.
@@ -21631,7 +21631,7 @@ __Pyx_RefNannySetupContext("PyInit__sigmetfile", 0);
 
   /* "pyart/io/_sigmetfile.pyx":224
  *         return data, metadata
- * 
+ *
  *     def _get_sweep(self, full_xhdr=False, raw_data=False):             # <<<<<<<<<<<<<<
  *         """
  *         Get the data and metadata from the next sweep.
@@ -21673,8 +21673,8 @@ __Pyx_RefNannySetupContext("PyInit__sigmetfile", 0);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "pyart/io/_sigmetfile.pyx":407
- * 
- * 
+ *
+ *
  * def _data_types_from_mask(word0, word1, word2, word3):             # <<<<<<<<<<<<<<
  *     """
  *     Return a list of the data types from the words in the data_type mask.
@@ -21688,8 +21688,8 @@ __Pyx_RefNannySetupContext("PyInit__sigmetfile", 0);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "pyart/io/_sigmetfile.pyx":418
- * 
- * 
+ *
+ *
  * def _is_bit_set(number, bit):             # <<<<<<<<<<<<<<
  *     """ Return True if bit is set in number. """
  *     return number >> bit & 1 == 1
@@ -21703,8 +21703,8 @@ __Pyx_RefNannySetupContext("PyInit__sigmetfile", 0);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "pyart/io/_sigmetfile.pyx":423
- * 
- * 
+ *
+ *
  * def _parse_ray_headers(ray_headers):             # <<<<<<<<<<<<<<
  *     """
  *     Parse the metadata from Sigmet ray headers.
@@ -21873,8 +21873,8 @@ __Pyx_RefNannySetupContext("PyInit__sigmetfile", 0);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "pyart/io/_sigmetfile.pyx":809
- * 
- * 
+ *
+ *
  * def bin2_to_angle(bin2):             # <<<<<<<<<<<<<<
  *     """ Return an angle from Sigmet bin2 encoded value (or array). """
  *     return 360. * bin2 / 65536
@@ -21888,8 +21888,8 @@ __Pyx_RefNannySetupContext("PyInit__sigmetfile", 0);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "pyart/io/_sigmetfile.pyx":814
- * 
- * 
+ *
+ *
  * def bin4_to_angle(bin4):             # <<<<<<<<<<<<<<
  *     """ Return an angle from Sigmet bin4 encoded value (or array). """
  *     return 360. * bin4 / 4294967296
@@ -21903,8 +21903,8 @@ __Pyx_RefNannySetupContext("PyInit__sigmetfile", 0);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "pyart/io/_sigmetfile.pyx":824
- * 
- * 
+ *
+ *
  * def _unpack_structure(string, structure):             # <<<<<<<<<<<<<<
  *     """ Unpack a structure """
  *     fmt = ''.join([i[1] for i in structure])
@@ -21918,8 +21918,8 @@ __Pyx_RefNannySetupContext("PyInit__sigmetfile", 0);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "pyart/io/_sigmetfile.pyx":831
- * 
- * 
+ *
+ *
  * def _unpack_key(dic, key, structure):             # <<<<<<<<<<<<<<
  *     """ Unpack a key. """
  *     dic[key] = _unpack_structure(dic[key], structure)
@@ -21933,8 +21933,8 @@ __Pyx_RefNannySetupContext("PyInit__sigmetfile", 0);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "pyart/io/_sigmetfile.pyx":836
- * 
- * 
+ *
+ *
  * def _unpack_ingest_data_headers(record, ndata_types):             # <<<<<<<<<<<<<<
  *     """
  *     Unpack one or more ingest_data_header from a record.
@@ -21948,8 +21948,8 @@ __Pyx_RefNannySetupContext("PyInit__sigmetfile", 0);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "pyart/io/_sigmetfile.pyx":850
- * 
- * 
+ *
+ *
  * def _unpack_ingest_data_header(record, number):             # <<<<<<<<<<<<<<
  *     """
  *     Unpack a single ingest_data_header from record.  Return None on error.
@@ -21963,8 +21963,8 @@ __Pyx_RefNannySetupContext("PyInit__sigmetfile", 0);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "pyart/io/_sigmetfile.pyx":864
- * 
- * 
+ *
+ *
  * def _unpack_raw_prod_bhdr(record):             # <<<<<<<<<<<<<<
  *     """ Return a dict with the unpacked raw_prod_bhdr from a record. """
  *     return _unpack_structure(record[:12], RAW_PROD_BHDR)
@@ -21978,8 +21978,8 @@ __Pyx_RefNannySetupContext("PyInit__sigmetfile", 0);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "pyart/io/_sigmetfile.pyx":869
- * 
- * 
+ *
+ *
  * def _unpack_product_hdr(record):             # <<<<<<<<<<<<<<
  *     """
  *     Return a dict with the unpacked product_hdr from the first record.
@@ -21993,8 +21993,8 @@ __Pyx_RefNannySetupContext("PyInit__sigmetfile", 0);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "pyart/io/_sigmetfile.pyx":898
- * 
- * 
+ *
+ *
  * def _unpack_ingest_header(record):             # <<<<<<<<<<<<<<
  *     """
  *     Return a dict with the unpacked ingest_header from the second record.
@@ -22008,7 +22008,7 @@ __Pyx_RefNannySetupContext("PyInit__sigmetfile", 0);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "pyart/io/_sigmetfile.pyx":952
- * 
+ *
  * # scalar defitions, section 4.1, table 7, and corresponding
  * SINT1 = 'b'             # <<<<<<<<<<<<<<
  * UINT1 = 'B'
@@ -22111,7 +22111,7 @@ __Pyx_RefNannySetupContext("PyInit__sigmetfile", 0);
  * BIN4 = 'I'      # these values need to be decoded with _bin4_to_angle
  * MESSAGE = 'I'             # <<<<<<<<<<<<<<
  * UINT16_T = 'H'
- * 
+ *
 */
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_MESSAGE, __pyx_mstate_global->__pyx_n_u_I) < (0)) __PYX_ERR(0, 963, __pyx_L1_error)
 
@@ -22119,7 +22119,7 @@ __Pyx_RefNannySetupContext("PyInit__sigmetfile", 0);
  * BIN4 = 'I'      # these values need to be decoded with _bin4_to_angle
  * MESSAGE = 'I'
  * UINT16_T = 'H'             # <<<<<<<<<<<<<<
- * 
+ *
  * # structures are taken from Vaisala PROGRAMMER'S MANUAL IRIS
 */
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_UINT16_T, __pyx_mstate_global->__pyx_n_u_H) < (0)) __PYX_ERR(0, 964, __pyx_L1_error)
@@ -22202,7 +22202,7 @@ __Pyx_RefNannySetupContext("PyInit__sigmetfile", 0);
  *     ('reserved', SINT2),
  *     ('flag', SINT2),             # <<<<<<<<<<<<<<
  * )
- * 
+ *
 */
   __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_SINT2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 985, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -22708,7 +22708,7 @@ __Pyx_RefNannySetupContext("PyInit__sigmetfile", 0);
  *     ('month', SINT2),
  *     ('day', SINT2),             # <<<<<<<<<<<<<<
  * )
- * 
+ *
 */
   __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_SINT2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1034, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -24668,7 +24668,7 @@ __Pyx_RefNannySetupContext("PyInit__sigmetfile", 0);
  *     ('mask_word_3', UINT4),
  *     ('mask_word_4', UINT4),             # <<<<<<<<<<<<<<
  * )
- * 
+ *
 */
   __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_UINT4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1224, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -25642,7 +25642,7 @@ __Pyx_RefNannySetupContext("PyInit__sigmetfile", 0);
  *     ('flags', UINT2),
  *     ('spare_0', '198s'),             # <<<<<<<<<<<<<<
  * )
- * 
+ *
 */
   {
     PyObject* __pyx_temp[2] = {__pyx_t_40, __pyx_mstate_global->__pyx_tuple[92]};
@@ -26141,7 +26141,7 @@ __Pyx_RefNannySetupContext("PyInit__sigmetfile", 0);
   /* "pyart/io/_sigmetfile.pyx":1
  * """             # <<<<<<<<<<<<<<
  * A class and supporting functions for reading Sigmet (raw format) files.
- * 
+ *
 */
   __pyx_t_2 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -26280,7 +26280,7 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
  *         for i in xrange(nsweeps):
  *             ingest_data_hdrs, sweep_data, sweep_metadata = self._get_sweep(             # <<<<<<<<<<<<<<
  *                 full_xhdr=full_xhdr)
- * 
+ *
 */
   {
     PyObject* __pyx_temp[1] = {__pyx_mstate_global->__pyx_n_u_full_xhdr};
@@ -26293,7 +26293,7 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
  *         # check if the file ended early, if so return Nones
  *         if len(lead_record) != RECORD_SIZE:
  *             return None, None, None             # <<<<<<<<<<<<<<
- * 
+ *
  *         # unpack structures
 */
   {
@@ -26319,14 +26319,14 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
  *             sweep_metadata.append(_parse_ray_headers(
  *                 raw_sweep_data[i::self.ndata_types, :6]))             # <<<<<<<<<<<<<<
  *         return ingest_data_headers, sweep_data, sweep_metadata
- * 
+ *
 */
   __pyx_mstate_global->__pyx_slice[1] = PySlice_New(Py_None, __pyx_mstate_global->__pyx_int_6, Py_None); if (unlikely(!__pyx_mstate_global->__pyx_slice[1])) __PYX_ERR(0, 306, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_mstate_global->__pyx_slice[1]);
   __Pyx_GIVEREF(__pyx_mstate_global->__pyx_slice[1]);
 
   /* "pyart/io/_sigmetfile.pyx":451
- * 
+ *
  *     """
  *     az0 = bin2_to_angle(ray_headers.view('uint16')[..., 0])             # <<<<<<<<<<<<<<
  *     el0 = bin2_to_angle(ray_headers.view('uint16')[..., 1])
@@ -26414,7 +26414,7 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
  *         # 65535 Reserved for area not scanned in product file (nothing)
  *         out[:] = (data.view('uint16') - 32768.) / 100.             # <<<<<<<<<<<<<<
  *         mask[data.view('uint16') == 0] = True
- * 
+ *
 */
   __pyx_mstate_global->__pyx_slice[2] = PySlice_New(Py_None, Py_None, Py_None); if (unlikely(!__pyx_mstate_global->__pyx_slice[2])) __PYX_ERR(0, 661, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_mstate_global->__pyx_slice[2]);
@@ -26424,7 +26424,7 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
  *         # extended_header_v0, _v1, _v2, section 4.2.8-4.2.10
  *         # Here we return an array with the times in milliseconds.
  *         return data[..., :2].copy().view('i4')             # <<<<<<<<<<<<<<
- * 
+ *
  *     # one byte data types
 */
   __pyx_mstate_global->__pyx_slice[3] = PySlice_New(Py_None, __pyx_mstate_global->__pyx_int_2, Py_None); if (unlikely(!__pyx_mstate_global->__pyx_slice[3])) __PYX_ERR(0, 692, __pyx_L1_error)
@@ -26439,10 +26439,10 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
 
   /* "pyart/io/_sigmetfile.pyx":790
  *     _mask_gates_not_collected(mask.view(np.uint8), nbins)
- * 
+ *
  *     return np.ma.masked_array(out, mask=mask, fill_value=-9999.0,             # <<<<<<<<<<<<<<
  *                               shrink=False)
- * 
+ *
 */
   {
     PyObject* __pyx_temp[3] = {__pyx_mstate_global->__pyx_n_u_mask, __pyx_mstate_global->__pyx_n_u_fill_value, __pyx_mstate_global->__pyx_n_u_shrink};
@@ -26455,18 +26455,18 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
  * def _unpack_raw_prod_bhdr(record):
  *     """ Return a dict with the unpacked raw_prod_bhdr from a record. """
  *     return _unpack_structure(record[:12], RAW_PROD_BHDR)             # <<<<<<<<<<<<<<
- * 
- * 
+ *
+ *
 */
   __pyx_mstate_global->__pyx_slice[4] = PySlice_New(Py_None, __pyx_mstate_global->__pyx_int_12, Py_None); if (unlikely(!__pyx_mstate_global->__pyx_slice[4])) __PYX_ERR(0, 866, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_mstate_global->__pyx_slice[4]);
   __Pyx_GIVEREF(__pyx_mstate_global->__pyx_slice[4]);
 
   /* "pyart/io/_sigmetfile.pyx":875
- * 
+ *
  *     # unpack the product_hdr structure from the first record
  *     product_hdr = _unpack_structure(record[:640], PRODUCT_HDR)             # <<<<<<<<<<<<<<
- * 
+ *
  *     # product_hdr substructure
 */
   __pyx_mstate_global->__pyx_slice[5] = PySlice_New(Py_None, __pyx_mstate_global->__pyx_int_640, Py_None); if (unlikely(!__pyx_mstate_global->__pyx_slice[5])) __PYX_ERR(0, 875, __pyx_L1_error)
@@ -26474,10 +26474,10 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
   __Pyx_GIVEREF(__pyx_mstate_global->__pyx_slice[5]);
 
   /* "pyart/io/_sigmetfile.pyx":904
- * 
+ *
  *     # unpack the ingest_header structure from the second_record
  *     ingest_header = _unpack_structure(record[:4884], INGEST_HEADER)             # <<<<<<<<<<<<<<
- * 
+ *
  *     # ingest_header substructure
 */
   __pyx_mstate_global->__pyx_slice[6] = PySlice_New(Py_None, __pyx_mstate_global->__pyx_int_4884, Py_None); if (unlikely(!__pyx_mstate_global->__pyx_slice[6])) __PYX_ERR(0, 904, __pyx_L1_error)
@@ -26486,7 +26486,7 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
 
   /* "pyart/io/_sigmetfile.pyx":99
  *         self._fh.close()
- * 
+ *
  *     def read_data(self, full_xhdr=False):             # <<<<<<<<<<<<<<
  *         """
  *         Read all data from the file.
@@ -26500,7 +26500,7 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
 
   /* "pyart/io/_sigmetfile.pyx":224
  *         return data, metadata
- * 
+ *
  *     def _get_sweep(self, full_xhdr=False, raw_data=False):             # <<<<<<<<<<<<<<
  *         """
  *         Get the data and metadata from the next sweep.
@@ -26545,7 +26545,7 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
  *     ('product_configuration', '320s'),  # 320 bytes
  *     ('product_end', '308s'),            # 308 bytes             # <<<<<<<<<<<<<<
  * )
- * 
+ *
 */
   {
     PyObject* __pyx_temp[2] = {__pyx_mstate_global->__pyx_n_u_product_end, __pyx_mstate_global->__pyx_kp_u_308s};
@@ -26727,7 +26727,7 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
  *     ('spare_2', '12s'),             # 12 bytes
  *     ('color_scale_def', '48s')      # 48 bytes: color_scale_def             # <<<<<<<<<<<<<<
  * )
- * 
+ *
 */
   {
     PyObject* __pyx_temp[2] = {__pyx_mstate_global->__pyx_n_u_color_scale_def, __pyx_mstate_global->__pyx_kp_u_48s};
@@ -26741,7 +26741,7 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
  *     ('iset_and_scale', UINT2),
  *     ('ilevel_seams', '32s')     # 32 bytes: UINT2[16]             # <<<<<<<<<<<<<<
  * )
- * 
+ *
 */
   {
     PyObject* __pyx_temp[2] = {__pyx_mstate_global->__pyx_n_u_ilevel_seams, __pyx_mstate_global->__pyx_kp_u_32s};
@@ -26923,7 +26923,7 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
  *     ('extended_product_header_offset', UINT4),
  *     ('spare_4', '4s'),              # 4 bytes             # <<<<<<<<<<<<<<
  * )
- * 
+ *
 */
   {
     PyObject* __pyx_temp[2] = {__pyx_mstate_global->__pyx_n_u_spare_4, __pyx_mstate_global->__pyx_kp_u_4s};
@@ -26993,7 +26993,7 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
  *     ('gparm', '128s'),                  # 128 bytes
  *     ('reserved', '920s'),               # 920 bytes             # <<<<<<<<<<<<<<
  * )
- * 
+ *
 */
   {
     PyObject* __pyx_temp[2] = {__pyx_mstate_global->__pyx_n_u_reserved, __pyx_mstate_global->__pyx_kp_u_920s};
@@ -27147,7 +27147,7 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
  *     ('configuration_name', '16s'),
  *     ('spare_3', '228s')             # <<<<<<<<<<<<<<
  * )
- * 
+ *
 */
   {
     PyObject* __pyx_temp[2] = {__pyx_mstate_global->__pyx_n_u_spare_3, __pyx_mstate_global->__pyx_kp_u_228s};
@@ -27259,7 +27259,7 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
  *     ('task_end_info', '320s'),      # 320 bytes: task_end_info
  *     ('comments', '720s'),             # <<<<<<<<<<<<<<
  * )
- * 
+ *
 */
   {
     PyObject* __pyx_temp[2] = {__pyx_mstate_global->__pyx_n_u_comments, __pyx_mstate_global->__pyx_kp_u_720s};
@@ -27287,7 +27287,7 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
  *     ('flag', UINT2),
  *     ('spare_0', '94s'),             # <<<<<<<<<<<<<<
  * )
- * 
+ *
 */
   {
     PyObject* __pyx_temp[2] = {__pyx_mstate_global->__pyx_n_u_spare_0, __pyx_mstate_global->__pyx_kp_u_94s};
@@ -27399,7 +27399,7 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
  *     ('custom_ray_header_name', '16s'),
  *     ('spare_2', '120s')             # <<<<<<<<<<<<<<
  * )
- * 
+ *
 */
   {
     PyObject* __pyx_temp[2] = {__pyx_mstate_global->__pyx_n_u_spare_2, __pyx_mstate_global->__pyx_kp_u_120s};
@@ -27413,7 +27413,7 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
  *     ('width_unfolding_threshold', SINT2),
  *     ('spare_0', '18s'),             # <<<<<<<<<<<<<<
  * )
- * 
+ *
 */
   {
     PyObject* __pyx_temp[2] = {__pyx_mstate_global->__pyx_n_u_spare_0, __pyx_mstate_global->__pyx_kp_u_18s};
@@ -27455,7 +27455,7 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
  *     ('flags2', UINT16_T),
  *     ('spare_3', '256s'),             # <<<<<<<<<<<<<<
  * )
- * 
+ *
 */
   {
     PyObject* __pyx_temp[2] = {__pyx_mstate_global->__pyx_n_u_spare_3, __pyx_mstate_global->__pyx_kp_u_256s};
@@ -27469,7 +27469,7 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
  *     ('range_bin_averaging_flag', SINT2),
  *     ('spare_0', '136s'),             # <<<<<<<<<<<<<<
  * )
- * 
+ *
 */
   {
     PyObject* __pyx_temp[2] = {__pyx_mstate_global->__pyx_n_u_spare_0, __pyx_mstate_global->__pyx_kp_u_136s};
@@ -27511,7 +27511,7 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
  *     ('task_scan_type_scan_info', '200s'),   # 200 bytes: task_foo_scan_info
  *     ('spare_1', '112s'),             # <<<<<<<<<<<<<<
  * )
- * 
+ *
 */
   {
     PyObject* __pyx_temp[2] = {__pyx_mstate_global->__pyx_n_u_spare_1, __pyx_mstate_global->__pyx_kp_u_112s};
@@ -27553,7 +27553,7 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
  *     ('spare_0', '115s'),
  *     ('start_first_sector_flag', 'c'),   # unknown type             # <<<<<<<<<<<<<<
  * )
- * 
+ *
 */
   {
     PyObject* __pyx_temp[2] = {__pyx_mstate_global->__pyx_n_u_start_first_sector_flag, __pyx_mstate_global->__pyx_n_u_c};
@@ -27581,7 +27581,7 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
  *     ('spare_0', '115s'),
  *     ('start_first_section_flag', 'c'),  # unknown type             # <<<<<<<<<<<<<<
  * )
- * 
+ *
 */
   {
     PyObject* __pyx_temp[2] = {__pyx_mstate_global->__pyx_n_u_start_first_section_flag, __pyx_mstate_global->__pyx_n_u_c};
@@ -27609,7 +27609,7 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
  *     ('filename', '12s'),
  *     ('spare_0', '184s'),             # <<<<<<<<<<<<<<
  * )
- * 
+ *
 */
   {
     PyObject* __pyx_temp[2] = {__pyx_mstate_global->__pyx_n_u_spare_0, __pyx_mstate_global->__pyx_kp_u_184s};
@@ -27623,7 +27623,7 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
  *     ('flags', UINT2),
  *     ('spare_0', '198s'),             # <<<<<<<<<<<<<<
  * )
- * 
+ *
 */
   {
     PyObject* __pyx_temp[2] = {__pyx_mstate_global->__pyx_n_u_spare_0, __pyx_mstate_global->__pyx_kp_u_198s};
@@ -27679,7 +27679,7 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
  *     ('customer_storage', '40s'),    # 40 bytes, uint4[10]
  *     ('spare_2', '208s'),             # <<<<<<<<<<<<<<
  * )
- * 
+ *
 */
   {
     PyObject* __pyx_temp[2] = {__pyx_mstate_global->__pyx_n_u_spare_2, __pyx_mstate_global->__pyx_kp_u_208s};
@@ -27735,7 +27735,7 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
  *     ('task_data_time', '12s'),      # 12 bytes: ymds_time
  *     ('spare_1', '204s'),             # <<<<<<<<<<<<<<
  * )
- * 
+ *
 */
   {
     PyObject* __pyx_temp[2] = {__pyx_mstate_global->__pyx_n_u_spare_1, __pyx_mstate_global->__pyx_kp_u_204s};
@@ -28105,7 +28105,7 @@ static int __Pyx_InitGlobals(void) {
   int __pyx_clineno = 0;
   /* PythonCompatibility.init */
   if (likely(__Pyx_init_co_variables() == 0 && __Pyx_init_tpflags_variables() == 0)); else
-  
+
   if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 1, __pyx_L1_error)
 
   /* PyFrozenDict.init */
@@ -28127,7 +28127,7 @@ static int __Pyx_InitGlobals(void) {
       }
   } // error handling follows
   #endif
-  
+
   if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 1, __pyx_L1_error)
 
   /* NumpyImportArray.init */
@@ -28146,12 +28146,12 @@ static int __Pyx_InitGlobals(void) {
   }
   #endif
   #endif
-  
+
   if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 1, __pyx_L1_error)
 
   /* CommonTypesMetaclass.init */
   if (likely(__pyx_CommonTypesMetaclass_init(__pyx_m) == 0)); else
-  
+
   if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 1, __pyx_L1_error)
 
   /* CachedMethodType.init */
@@ -28165,7 +28165,7 @@ static int __Pyx_InitGlobals(void) {
       }
   } // error handling follows
   #endif
-  
+
   if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 1, __pyx_L1_error)
 
   return 0;
@@ -28180,7 +28180,7 @@ static int __Pyx_InitAfterSharedUtility(void) {
   int __pyx_clineno = 0;
   /* CythonFunctionPerModule.init */
   if (likely(__pyx_CyFunction_init(__pyx_m) == 0)); else
-  
+
   if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 1, __pyx_L1_error)
 
   return 0;
@@ -28938,7 +28938,7 @@ static CYTHON_INLINE int __Pyx_PyObject_CompareBoolEq_str_str(PyObject *op1, PyO
     if (unlikely(op2 == Py_None)) {
         if (op1 == Py_None) goto __pyx_return_true; else goto __pyx_return_false;
     }
-    
+
     if (likely(op1 != Py_None)) {
         if (op1 == op2) goto __pyx_return_true;
         if (likely(op2 != Py_None)) {
@@ -28946,7 +28946,7 @@ static CYTHON_INLINE int __Pyx_PyObject_CompareBoolEq_str_str(PyObject *op1, PyO
         }
         goto __pyx_richcmp;
     }
-    
+
     if ((0)) goto __pyx_richcmp;
     if ((0)) goto __pyx_return_true;
     if ((0)) goto __pyx_return_false;
@@ -30362,7 +30362,7 @@ static PyObject* __Pyx_Unpacked___Pyx_PyLong_AddObjC(PyObject *op1, PyObject *op
             llx = lla + llb;
             return PyLong_FromLongLong(llx);
         }
-    
+
 }
 #endif
 static PyObject* __Pyx_Float___Pyx_PyLong_AddObjC(PyObject *float_val, long intval, int zerodivision_check) {
@@ -30370,7 +30370,7 @@ static PyObject* __Pyx_Float___Pyx_PyLong_AddObjC(PyObject *float_val, long intv
     const long b = intval;
     double a = __Pyx_PyFloat_AS_DOUBLE(float_val);
         double result;
-        
+
         result = ((double)a) + (double)b;
         return PyFloat_FromDouble(result);
 }
@@ -31011,13 +31011,13 @@ static PyObject* __Pyx_PyFloat_TrueDivideObjC(PyObject *op1, PyObject *op2, doub
     CYTHON_UNUSED_VAR(zerodivision_check);
     if (likely(PyFloat_CheckExact(op1))) {
         a = __Pyx_PyFloat_AS_DOUBLE(op1);
-        
+
     } else
     if (likely(PyLong_CheckExact(op1))) {
         #if CYTHON_USE_PYLONG_INTERNALS
         if (__Pyx_PyLong_IsZero(op1)) {
             a = 0.0;
-            
+
             goto digits_done;
         } else if (__Pyx_PyLong_IsCompact(op1)) {
             a = (double) __Pyx_PyLong_CompactValue(op1);
@@ -31264,7 +31264,7 @@ static PyObject* __Pyx_Unpacked___Pyx_PyLong_SubtractObjC(PyObject *op1, PyObjec
             llx = lla - llb;
             return PyLong_FromLongLong(llx);
         }
-    
+
 }
 #endif
 static PyObject* __Pyx_Float___Pyx_PyLong_SubtractObjC(PyObject *float_val, long intval, int zerodivision_check) {
@@ -31272,7 +31272,7 @@ static PyObject* __Pyx_Float___Pyx_PyLong_SubtractObjC(PyObject *float_val, long
     const long b = intval;
     double a = __Pyx_PyFloat_AS_DOUBLE(float_val);
         double result;
-        
+
         result = ((double)a) - (double)b;
         return PyFloat_FromDouble(result);
 }
@@ -31342,7 +31342,7 @@ static PyObject* __Pyx_Float___Pyx_PyLong_TrueDivideObjC(PyObject *float_val, lo
     const long b = intval;
     double a = __Pyx_PyFloat_AS_DOUBLE(float_val);
         double result;
-        
+
         result = ((double)a) / (double)b;
         return PyFloat_FromDouble(result);
 }
@@ -31426,7 +31426,7 @@ static PyObject* __Pyx_Unpacked___Pyx_PyLong_AddCObj(PyObject *op1, PyObject *op
             llx = lla + llb;
             return PyLong_FromLongLong(llx);
         }
-    
+
 }
 #endif
 static PyObject* __Pyx_Float___Pyx_PyLong_AddCObj(PyObject *float_val, long intval, int zerodivision_check) {
@@ -31434,7 +31434,7 @@ static PyObject* __Pyx_Float___Pyx_PyLong_AddCObj(PyObject *float_val, long intv
     const long a = intval;
     double b = __Pyx_PyFloat_AS_DOUBLE(float_val);
         double result;
-        
+
         result = ((double)a) + (double)b;
         return PyFloat_FromDouble(result);
 }
@@ -31517,7 +31517,7 @@ static PyObject* __Pyx_Unpacked___Pyx_PyLong_MultiplyCObj(PyObject *op1, PyObjec
             llx = lla * llb;
             return PyLong_FromLongLong(llx);
         }
-    
+
 }
 #endif
 static PyObject* __Pyx_Float___Pyx_PyLong_MultiplyCObj(PyObject *float_val, long intval, int zerodivision_check) {
@@ -31525,7 +31525,7 @@ static PyObject* __Pyx_Float___Pyx_PyLong_MultiplyCObj(PyObject *float_val, long
     const long a = intval;
     double b = __Pyx_PyFloat_AS_DOUBLE(float_val);
         double result;
-        
+
         result = ((double)a) * (double)b;
         return PyFloat_FromDouble(result);
 }
@@ -32298,7 +32298,7 @@ static PyObject* __Pyx_Unpacked___Pyx_PyLong_AndObjC(PyObject *op1, PyObject *op
             llx = lla & llb;
             return PyLong_FromLongLong(llx);
         }
-    
+
 }
 #endif
 static CYTHON_INLINE PyObject* __Pyx_PyLong_AndObjC(PyObject *op1, PyObject *op2, long intval, int inplace, int zerodivision_check) {
@@ -32322,13 +32322,13 @@ static PyObject* __Pyx_PyFloat_SubtractObjC(PyObject *op1, PyObject *op2, double
     CYTHON_UNUSED_VAR(zerodivision_check);
     if (likely(PyFloat_CheckExact(op1))) {
         a = __Pyx_PyFloat_AS_DOUBLE(op1);
-        
+
     } else
     if (likely(PyLong_CheckExact(op1))) {
         #if CYTHON_USE_PYLONG_INTERNALS
         if (__Pyx_PyLong_IsZero(op1)) {
             a = 0.0;
-            
+
             goto digits_done;
         } else if (__Pyx_PyLong_IsCompact(op1)) {
             a = (double) __Pyx_PyLong_CompactValue(op1);
@@ -32471,7 +32471,7 @@ static CYTHON_INLINE int __Pyx_PyObject_CompareBoolEq_object_str(PyObject *op1, 
         if (op1 == op2) goto __pyx_return_true;
         goto __pyx_richcmp;
     }
-    
+
     if (likely(PyUnicode_CheckExact(op1))) {
         if (op1 == op2) goto __pyx_return_true;
         if (likely(op2 != Py_None)) {
@@ -32479,7 +32479,7 @@ static CYTHON_INLINE int __Pyx_PyObject_CompareBoolEq_object_str(PyObject *op1, 
         }
         goto __pyx_richcmp;
     }
-    
+
     if ((0)) goto __pyx_richcmp;
     if ((0)) goto __pyx_return_true;
     if ((0)) goto __pyx_return_false;
@@ -32791,13 +32791,13 @@ static PyObject* __Pyx_PyFloat_SubtractCObj(PyObject *op1, PyObject *op2, double
     CYTHON_UNUSED_VAR(zerodivision_check);
     if (likely(PyFloat_CheckExact(op2))) {
         b = __Pyx_PyFloat_AS_DOUBLE(op2);
-        
+
     } else
     if (likely(PyLong_CheckExact(op2))) {
         #if CYTHON_USE_PYLONG_INTERNALS
         if (__Pyx_PyLong_IsZero(op2)) {
             b = 0.0;
-            
+
             goto digits_done;
         } else if (__Pyx_PyLong_IsCompact(op2)) {
             b = (double) __Pyx_PyLong_CompactValue(op2);

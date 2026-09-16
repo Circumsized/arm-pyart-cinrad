@@ -1209,8 +1209,7 @@ class RadarDisplay:
             edgecolor="none",
         )
 
-    def plot_point_labels(self, points, labels, symbols="r+", text_color="k",
-                          ax=None):
+    def plot_point_labels(self, points, labels, symbols="r+", text_color="k", ax=None):
         """
         Plot symbols and labels at given (range, azimuth) locations.
 

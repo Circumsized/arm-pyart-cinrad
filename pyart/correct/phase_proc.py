@@ -1636,8 +1636,9 @@ def _phi_meteo_mask(radar, min_rhoHV, min_ref, rhv_field=None, refl_field=None):
     return np.logical_and(rhv > min_rhoHV, refl > min_ref)
 
 
-def correct_sys_phase(radar, phi0, phi_name="corrected_differential_phase",
-                      phidp_field=None):
+def correct_sys_phase(
+    radar, phi0, phi_name="corrected_differential_phase", phidp_field=None
+):
     """
     Correct the system phase offset by subtracting ``phi0``.
 
@@ -1679,9 +1680,17 @@ def correct_sys_phase(radar, phi0, phi_name="corrected_differential_phase",
     return out
 
 
-def det_sys_phase_ray(radar, ind_rmin=100, ind_rmax=400, min_rhoHV=0.95,
-                      min_ref=15, smooth_len=21, phidp_field=None,
-                      rhv_field=None, refl_field=None):
+def det_sys_phase_ray(
+    radar,
+    ind_rmin=100,
+    ind_rmax=400,
+    min_rhoHV=0.95,
+    min_ref=15,
+    smooth_len=21,
+    phidp_field=None,
+    rhv_field=None,
+    refl_field=None,
+):
     """
     Determine the system phase using a per-ray window over range gates.
 
@@ -1734,20 +1743,21 @@ def det_sys_phase_ray(radar, ind_rmin=100, ind_rmax=400, min_rhoHV=0.95,
     phases = []
     for i in range(phidp.shape[0]):
         seg = phidp[i, ind_rmin:ind_rmax]
-        meteo = np.logical_and(rhv[i, ind_rmin:ind_rmax] > min_rhoHV,
-                               refl[i, ind_rmin:ind_rmax] > min_ref)
+        meteo = np.logical_and(
+            rhv[i, ind_rmin:ind_rmax] > min_rhoHV, refl[i, ind_rmin:ind_rmax] > min_ref
+        )
         if meteo.sum() < smooth_len:
             continue
-        sm = smooth_and_trim(seg[meteo],
-                             min(smooth_len, int(meteo.sum())))
+        sm = smooth_and_trim(seg[meteo], min(smooth_len, int(meteo.sum())))
         phases.append(float(np.median(sm)))
     if not phases:
         return None
     return float(np.median(phases))
 
 
-def _smooth_phidp(radar, min_rhoHV, min_ref, smooth_len, phidp_field,
-                  rhv_field, refl_field):
+def _smooth_phidp(
+    radar, min_rhoHV, min_ref, smooth_len, phidp_field, rhv_field, refl_field
+):
     """Shared smoothing core: smooth PhiDP on meteorological gates only."""
     if phidp_field is None:
         phidp_field = get_field_name("differential_phase")
@@ -1764,17 +1774,23 @@ def _smooth_phidp(radar, min_rhoHV, min_ref, smooth_len, phidp_field,
         idx = np.where(mask[i])[0]
         if idx.size < smooth_len:
             continue
-        smth[i, idx] = smooth_and_trim(phidp[i, idx],
-                                       min(smooth_len, int(idx.size)))
+        smth[i, idx] = smooth_and_trim(phidp[i, idx], min(smooth_len, int(idx.size)))
     out = copy.deepcopy(radar.fields[phidp_field])
     out["data"] = smth
     out["_FillValue"] = get_fillvalue()
     return out
 
 
-def smooth_phidp_single_window(radar, phi0, min_rhoHV, min_ref, smooth_len=21,
-                               phidp_field=None, rhv_field=None,
-                               refl_field=None):
+def smooth_phidp_single_window(
+    radar,
+    phi0,
+    min_rhoHV,
+    min_ref,
+    smooth_len=21,
+    phidp_field=None,
+    rhv_field=None,
+    refl_field=None,
+):
     """
     Smooth the differential phase using a single moving window.
 
@@ -1793,13 +1809,22 @@ def smooth_phidp_single_window(radar, phi0, min_rhoHV, min_ref, smooth_len=21,
     .. [Zawadzki2018] Zawadzki, I., and Strąk, M., 2018.
 
     """
-    return _smooth_phidp(radar, min_rhoHV, min_ref, smooth_len, phidp_field,
-                         rhv_field, refl_field)
+    return _smooth_phidp(
+        radar, min_rhoHV, min_ref, smooth_len, phidp_field, rhv_field, refl_field
+    )
 
 
-def smooth_phidp_double_window(radar, phi0, min_rhoHV, min_ref, smooth_len=21,
-                               smooth_len2=31, phidp_field=None,
-                               rhv_field=None, refl_field=None):
+def smooth_phidp_double_window(
+    radar,
+    phi0,
+    min_rhoHV,
+    min_ref,
+    smooth_len=21,
+    smooth_len2=31,
+    phidp_field=None,
+    rhv_field=None,
+    refl_field=None,
+):
     """
     Smooth the differential phase using two successive moving windows.
 
@@ -1818,8 +1843,9 @@ def smooth_phidp_double_window(radar, phi0, min_rhoHV, min_ref, smooth_len=21,
     .. [Zawadzki2018] Zawadzki, I., and Strąk, M., 2018.
 
     """
-    first = _smooth_phidp(radar, min_rhoHV, min_ref, smooth_len, phidp_field,
-                          rhv_field, refl_field)
+    first = _smooth_phidp(
+        radar, min_rhoHV, min_ref, smooth_len, phidp_field, rhv_field, refl_field
+    )
     # second pass: smooth the first-stage field on the same meteorological
     # gates using smooth_len2.
     if phidp_field is None:
@@ -1832,7 +1858,6 @@ def smooth_phidp_double_window(radar, phi0, min_rhoHV, min_ref, smooth_len=21,
         idx = np.where(mask[i])[0]
         if idx.size < smooth_len2:
             continue
-        smth[i, idx] = smooth_and_trim(data[i, idx],
-                                       min(smooth_len2, int(idx.size)))
+        smth[i, idx] = smooth_and_trim(data[i, idx], min(smooth_len2, int(idx.size)))
     out["data"] = smth
     return out

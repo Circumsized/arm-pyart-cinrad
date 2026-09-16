@@ -19,19 +19,26 @@ def _fake_client(entries=None):
 
 
 def _music_source(user_id="u", api_key="k", server_id=None, station_table=None):
-    return CmaMusicSource(station_table=station_table, user_id=user_id,
-                          api_key=api_key, server_id=server_id)
+    return CmaMusicSource(
+        station_table=station_table,
+        user_id=user_id,
+        api_key=api_key,
+        server_id=server_id,
+    )
 
 
 def test_cma_music_registered():
     from pyart.io.remote import list_sources
+
     assert "cma_music" in list_sources()
 
 
 def test_list_sites_uses_station_table():
-    src = _music_source(station_table={
-        "Z9532": RadarSite("Z9532", 30.0, 120.0, 50.0, "S", "CN"),
-    })
+    src = _music_source(
+        station_table={
+            "Z9532": RadarSite("Z9532", 30.0, 120.0, 50.0, "S", "CN"),
+        }
+    )
     assert src.list_sites()["Z9532"].band == "S"
 
 
@@ -46,8 +53,11 @@ def test_list_sites_no_creds_empty(monkeypatch):
 
 def test_fetch_missing_creds_raises(monkeypatch, tmp_path):
     src = CmaMusicSource()
-    key = {"dataCode": "RADA_L2_FMT", "staId": "Z9532",
-           "timeRange": "(2020-01-01 00:00:00,2020-01-01 00:00:00]"}
+    key = {
+        "dataCode": "RADA_L2_FMT",
+        "staId": "Z9532",
+        "timeRange": "(2020-01-01 00:00:00,2020-01-01 00:00:00]",
+    }
     with pytest.raises(RemoteDataError):
         src.fetch(key, dest=str(tmp_path / "f.bin"))
 
@@ -55,8 +65,7 @@ def test_fetch_missing_creds_raises(monkeypatch, tmp_path):
 def test_fetch_uses_documented_interface(monkeypatch, tmp_path):
     entries = [{"url": "http://music.example/radar.bin"}]
     src = _music_source()
-    monkeypatch.setattr(src, "_client",
-                        lambda timeout=15.0: _fake_client(entries))
+    monkeypatch.setattr(src, "_client", lambda timeout=15.0: _fake_client(entries))
     downloaded = {}
 
     def fake_http(url, timeout=15.0, **kwargs):
@@ -64,8 +73,11 @@ def test_fetch_uses_documented_interface(monkeypatch, tmp_path):
         return b"CINRAD-BYTES"
 
     monkeypatch.setattr(src, "_http_get", fake_http)
-    key = {"dataCode": "RADA_L2_FMT", "staId": "Z9532",
-           "timeRange": "(2020-01-01 00:00:00,2020-01-01 00:00:00]"}
+    key = {
+        "dataCode": "RADA_L2_FMT",
+        "staId": "Z9532",
+        "timeRange": "(2020-01-01 00:00:00,2020-01-01 00:00:00]",
+    }
     out = src.fetch(key, dest=str(tmp_path / "f.bin"))
     assert downloaded["url"] == "http://music.example/radar.bin"
     with open(out, "rb") as fh:
@@ -81,20 +93,22 @@ def test_fetch_direct_url_key(monkeypatch, tmp_path):
         return b"DATA"
 
     monkeypatch.setattr(src, "_http_get", fake_http)
-    key = {"dataCode": "RADA_L2_FMT", "staId": "Z9532",
-           "timeRange": "(2020-01-01 00:00:00,2020-01-01 00:00:00]",
-           "url": "http://direct.example/x.bin"}
+    key = {
+        "dataCode": "RADA_L2_FMT",
+        "staId": "Z9532",
+        "timeRange": "(2020-01-01 00:00:00,2020-01-01 00:00:00]",
+        "url": "http://direct.example/x.bin",
+    }
     src.fetch(key, dest=str(tmp_path / "f.bin"))
     assert downloaded["url"] == "http://direct.example/x.bin"
 
 
 def test_read_returns_cinrad(monkeypatch, tmp_path):
     src = _music_source()
-    monkeypatch.setattr(src, "fetch",
-                        lambda key, dest=None: str(tmp_path / "x.bin"))
+    monkeypatch.setattr(src, "fetch", lambda key, dest=None: str(tmp_path / "x.bin"))
     monkeypatch.setattr(
-        "pyart.io.cinrad_bridge.read_cinrad",
-        lambda local, **kw: "RADAR-FROM-CINRAD")
+        "pyart.io.cinrad_bridge.read_cinrad", lambda local, **kw: "RADAR-FROM-CINRAD"
+    )
     key = {"dataCode": "RADA_L2_FMT", "staId": "Z9532", "timeRange": "()"}
     assert src.read(key) == "RADAR-FROM-CINRAD"
 
@@ -105,7 +119,8 @@ def test_read_fallback_path(monkeypatch, tmp_path):
     monkeypatch.setattr(src, "fetch", lambda key, dest=None: local)
     monkeypatch.setattr(
         "pyart.io.cinrad_bridge.read_cinrad",
-        lambda local, **kw: (_ for _ in ()).throw(RuntimeError("decode")))
+        lambda local, **kw: (_ for _ in ()).throw(RuntimeError("decode")),
+    )
     key = {"dataCode": "RADA_L2_FMT", "staId": "Z9532", "timeRange": "()"}
     assert src.read(key) == local
 

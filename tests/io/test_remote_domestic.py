@@ -31,8 +31,9 @@ def test_cma_mos_registered():
 
 def test_nmc_list_sites_unreachable_returns_empty(monkeypatch):
     src = NmcCnSource()
-    monkeypatch.setattr(src, "_is_reachable",
-                        lambda url, timeout=8.0, allow_private=False: False)
+    monkeypatch.setattr(
+        src, "_is_reachable", lambda url, timeout=8.0, allow_private=False: False
+    )
     with pytest.warns(RuntimeWarning):
         sites = src.list_sites()
     assert sites == {}
@@ -40,8 +41,9 @@ def test_nmc_list_sites_unreachable_returns_empty(monkeypatch):
 
 def test_nmc_list_sites_reachable(monkeypatch):
     src = NmcCnSource()
-    monkeypatch.setattr(src, "_is_reachable",
-                        lambda url, timeout=8.0, allow_private=False: True)
+    monkeypatch.setattr(
+        src, "_is_reachable", lambda url, timeout=8.0, allow_private=False: True
+    )
     sites = src.list_sites()
     assert "nationwide" in sites
     assert sites["nationwide"].country == "CN"
@@ -49,8 +51,9 @@ def test_nmc_list_sites_reachable(monkeypatch):
 
 def test_nmc_list_files_grid(monkeypatch):
     src = NmcCnSource()
-    monkeypatch.setattr(src, "_is_reachable",
-                        lambda url, timeout=8.0, allow_private=False: True)
+    monkeypatch.setattr(
+        src, "_is_reachable", lambda url, timeout=8.0, allow_private=False: True
+    )
     start = datetime(2020, 6, 1, 0, 0)
     end = datetime(2020, 6, 1, 2, 0)
     step = timedelta(hours=1)
@@ -62,15 +65,20 @@ def test_nmc_list_files_grid(monkeypatch):
 
 def test_nmc_list_files_unknown_region():
     src = NmcCnSource()
-    assert src.list_files("atlantis", datetime(2020, 1, 1),
-                          datetime(2020, 1, 1, 1),
-                          timedelta(hours=1)) == []
+    assert (
+        src.list_files(
+            "atlantis",
+            datetime(2020, 1, 1),
+            datetime(2020, 1, 1, 1),
+            timedelta(hours=1),
+        )
+        == []
+    )
 
 
 def test_nmc_fetch_caches_and_read_returns_path(monkeypatch, tmp_path):
     src = NmcCnSource()
-    monkeypatch.setattr(src, "_http_get",
-                        lambda url, timeout=15.0: b"PNG-DATA")
+    monkeypatch.setattr(src, "_http_get", lambda url, timeout=15.0: b"PNG-DATA")
     key = "http://www.nmc.cn/publish/radar/all/2020060100.png"
     out = src.fetch(key, dest=str(tmp_path / "cached.png"))
     assert out == str(tmp_path / "cached.png")
@@ -84,18 +92,22 @@ def test_nmc_fetch_uses_cache(monkeypatch, tmp_path):
     src = NmcCnSource()
     local = tmp_path / "cached.png"
     local.write_bytes(b"already")
-    monkeypatch.setattr(src, "_http_get",
-                        lambda *a, **k: pytest.fail("should not download"))
+    monkeypatch.setattr(
+        src, "_http_get", lambda *a, **k: pytest.fail("should not download")
+    )
     out = src.fetch("http://x/x.png", dest=str(local))
     assert out == str(local)
 
 
 def test_cma_list_sites_reachable(monkeypatch):
-    src = CmaMosSource(station_config={
-        "beijing": {"template": "http://x/radar/{date}/{time}.bin"},
-    })
-    monkeypatch.setattr(src, "_is_reachable",
-                        lambda url, timeout=8.0, allow_private=False: True)
+    src = CmaMosSource(
+        station_config={
+            "beijing": {"template": "http://x/radar/{date}/{time}.bin"},
+        }
+    )
+    monkeypatch.setattr(
+        src, "_is_reachable", lambda url, timeout=8.0, allow_private=False: True
+    )
     sites = src.list_sites()
     assert "beijing" in sites
     assert sites["beijing"].band == "S"
@@ -109,9 +121,11 @@ def test_cma_list_sites_empty_config():
 
 
 def test_cma_list_files_grid(monkeypatch):
-    src = CmaMosSource(station_config={
-        "shanghai": {"template": "http://x/radar/{date}/{time}.bin"},
-    })
+    src = CmaMosSource(
+        station_config={
+            "shanghai": {"template": "http://x/radar/{date}/{time}.bin"},
+        }
+    )
     start = datetime(2020, 6, 1, 0, 0)
     end = datetime(2020, 6, 1, 1, 0)
     step = timedelta(minutes=30)
@@ -122,15 +136,20 @@ def test_cma_list_files_grid(monkeypatch):
 
 def test_cma_list_files_unknown_site():
     src = CmaMosSource()
-    assert src.list_files("atlantis", datetime(2020, 1, 1),
-                          datetime(2020, 1, 1, 1),
-                          timedelta(hours=1)) == []
+    assert (
+        src.list_files(
+            "atlantis",
+            datetime(2020, 1, 1),
+            datetime(2020, 1, 1, 1),
+            timedelta(hours=1),
+        )
+        == []
+    )
 
 
 def test_cma_read_falls_back_to_path(monkeypatch, tmp_path):
     src = CmaMosSource()
-    monkeypatch.setattr(src, "_http_get",
-                        lambda url, timeout=15.0: b"not-cinrad")
+    monkeypatch.setattr(src, "_http_get", lambda url, timeout=15.0: b"not-cinrad")
     key = "http://data.cma.cn/radar/sh/20200601/0000.bin"
     out = src.read(key, dest=str(tmp_path / "cma.bin"))
     # read_cinrad will fail on bogus bytes -> fallback returns local path
@@ -139,11 +158,11 @@ def test_cma_read_falls_back_to_path(monkeypatch, tmp_path):
 
 def test_cma_read_uses_read_cinrad(monkeypatch, tmp_path):
     src = CmaMosSource()
-    monkeypatch.setattr(src, "_http_get",
-                        lambda url, timeout=15.0: b"fake-cinrad")
+    monkeypatch.setattr(src, "_http_get", lambda url, timeout=15.0: b"fake-cinrad")
     monkeypatch.setattr(
-        "pyart.io.cinrad_bridge.read_cinrad",
-        lambda local, **kw: "RADAR-FROM-CINRAD")
-    out = src.read("http://data.cma.cn/radar/sh/20200601/0000.bin",
-                   dest=str(tmp_path / "cma.bin"))
+        "pyart.io.cinrad_bridge.read_cinrad", lambda local, **kw: "RADAR-FROM-CINRAD"
+    )
+    out = src.read(
+        "http://data.cma.cn/radar/sh/20200601/0000.bin", dest=str(tmp_path / "cma.bin")
+    )
     assert out == "RADAR-FROM-CINRAD"

@@ -136,6 +136,7 @@ def test_radar_site_namedtuple():
 def test_cache_path_sanitizes_separators():
     # CR-004: backslash/forward-slash traversal keys stay inside cache dir
     import os
+
     base = _BaseSource()
     for key in ("..\\..\\evil", "../../evil", "C:\\Windows\\x"):
         p = base.cache_path(key)
@@ -147,6 +148,7 @@ def test_cache_path_sanitizes_separators():
 def test_cache_path_stays_inside_cache_dir():
     # CR-004: defense-in-depth — realpath must never escape cache dir
     import os
+
     base = _BaseSource()
     real_base = os.path.realpath(base.cache_dir())
     for key in ("a/b/c.bin", "a\\b\\c.bin", "x:y", "normal.bin"):

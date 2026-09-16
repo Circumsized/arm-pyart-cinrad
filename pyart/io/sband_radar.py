@@ -17,7 +17,7 @@ from datetime import datetime, timedelta
 import numpy as np
 
 
-class SbandRadarFile(object):
+class SbandRadarFile:
     """
     Class for accessing data in a S band file.
 
@@ -45,13 +45,14 @@ class SbandRadarFile(object):
         File like object from which data is read.
 
     """
+
     def __init__(self, filename):
-        """ initalize the object. """
+        """initalize the object."""
         # read in the volume header and compression_record
-        if hasattr(filename, 'read'):
+        if hasattr(filename, "read"):
             fh = filename
         else:
-            fh = open(filename, 'rb')
+            fh = open(filename, "rb")
 
         buf = fh.read()
 
@@ -68,10 +69,12 @@ class SbandRadarFile(object):
         # pull out radial records which contain the moment data.
         self.radial_records = [r for r in self._records]
 
-        elev_nums = np.array([m['msg_header']['elevation_number']
-                              for m in self.radial_records])
-        self.scan_msgs = [np.where(elev_nums == i + 1)[0]
-                          for i in range(elev_nums.max())]
+        elev_nums = np.array(
+            [m["msg_header"]["elevation_number"] for m in self.radial_records]
+        )
+        self.scan_msgs = [
+            np.where(elev_nums == i + 1)[0] for i in range(elev_nums.max())
+        ]
         self.nscans = len(self.scan_msgs)
 
         # pull out the vcp record
@@ -80,7 +83,7 @@ class SbandRadarFile(object):
         return
 
     def close(self):
-        """ Close the file. """
+        """Close the file."""
         self._fh.close()
 
     def scan_info(self, scans=None):
@@ -115,18 +118,21 @@ class SbandRadarFile(object):
             msg_number = self.scan_msgs[scan][0]
             msg = self.radial_records[msg_number]
 
-            nexrad_moments = ['REF', 'VEL', 'SW', 'ZDR', 'PHI', 'RHO']
+            nexrad_moments = ["REF", "VEL", "SW", "ZDR", "PHI", "RHO"]
             moments = [f for f in nexrad_moments if f in msg]
-            ngates = [msg[f]['ngates'] for f in moments]
-            gate_spacing = [msg[f]['gate_spacing'] for f in moments]
-            first_gate = [msg[f]['first_gate'] for f in moments]
+            ngates = [msg[f]["ngates"] for f in moments]
+            gate_spacing = [msg[f]["gate_spacing"] for f in moments]
+            first_gate = [msg[f]["first_gate"] for f in moments]
 
-            info.append({
-                'nrays': nrays,
-                'ngates': ngates,
-                'gate_spacing': gate_spacing,
-                'first_gate': first_gate,
-                'moments': moments})
+            info.append(
+                {
+                    "nrays": nrays,
+                    "ngates": ngates,
+                    "gate_spacing": gate_spacing,
+                    "first_gate": first_gate,
+                    "moments": moments,
+                }
+            )
 
         return info
 
@@ -137,7 +143,7 @@ class SbandRadarFile(object):
         if self.vcp is None:
             return None
         else:
-            return self.vcp['msg5_header']['pattern_number']
+            return self.vcp["msg5_header"]["pattern_number"]
 
     def get_nrays(self, scan):
         """
@@ -174,14 +180,14 @@ class SbandRadarFile(object):
 
         """
         dic = self.radial_records[self.scan_msgs[scan_num][0]][moment]
-        ngates = dic['ngates']
-        first_gate = dic['first_gate']
-        gate_spacing = dic['gate_spacing']
+        ngates = dic["ngates"]
+        first_gate = dic["first_gate"]
+        gate_spacing = dic["gate_spacing"]
         return np.arange(ngates) * gate_spacing + first_gate
 
     # helper functions for looping over scans
     def _msg_nums(self, scans):
-        """ Find the all message number for a list of scans. """
+        """Find the all message number for a list of scans."""
 
         return np.concatenate([self.scan_msgs[i] for i in scans])
 
@@ -191,7 +197,7 @@ class SbandRadarFile(object):
         """
         msg_nums = self._msg_nums(scans)
 
-        temp = [self.radial_records[i]['msg_header'][key] for i in msg_nums]
+        temp = [self.radial_records[i]["msg_header"][key] for i in msg_nums]
         return np.array(temp)
 
     def _radial_sub_array(self, scans, key):
@@ -200,7 +206,7 @@ class SbandRadarFile(object):
         """
         msg_nums = self._msg_nums(scans)
 
-        tmp = [self.radial_records[i]['msg_header'][key] for i in msg_nums]
+        tmp = [self.radial_records[i]["msg_header"][key] for i in msg_nums]
 
         return np.array(tmp)
 
@@ -226,8 +232,8 @@ class SbandRadarFile(object):
         """
         if scans is None:
             scans = range(self.nscans)
-        days = self._radial_array(scans, 'collect_date')
-        secs = self._radial_array(scans, 'collect_ms') / 1000.
+        days = self._radial_array(scans, "collect_date")
+        secs = self._radial_array(scans, "collect_ms") / 1000.0
         offset = timedelta(days=int(days[0]) - 1, seconds=int(secs[0]))
         time_start = datetime(1970, 1, 1) + offset
         time = secs - int(secs[0]) + (days - days[0]) * 86400
@@ -250,12 +256,12 @@ class SbandRadarFile(object):
             Azimuth angles in degress for all rays in the requested scans.
 
         """
-        scale = 180 / (4096 * 8.)
+        scale = 180 / (4096 * 8.0)
 
         if scans is None:
             scans = range(self.nscans)
 
-        return self._radial_array(scans, 'azimuth_angle') * scale
+        return self._radial_array(scans, "azimuth_angle") * scale
 
     def get_elevation_angles(self, scans=None):
         """
@@ -274,12 +280,12 @@ class SbandRadarFile(object):
             Elevation angles in degress for all rays in the requested scans.
 
         """
-        scale = 180 / (4096 * 8.)
+        scale = 180 / (4096 * 8.0)
 
         if scans is None:
             scans = range(self.nscans)
 
-        return self._radial_array(scans, 'elevation_angle') * scale
+        return self._radial_array(scans, "elevation_angle") * scale
 
     def get_target_angles(self, scans=None):
         """
@@ -301,11 +307,15 @@ class SbandRadarFile(object):
         if scans is None:
             scans = range(self.nscans)
 
-        scale = 180 / (4096 * 8.)
+        scale = 180 / (4096 * 8.0)
         msgs = [self.radial_records[self.scan_msgs[i][0]] for i in scans]
-        return np.round(np.array(
-            [m['msg_header']['elevation_angle'] * scale for m in msgs],
-            dtype='float32'), 1)
+        return np.round(
+            np.array(
+                [m["msg_header"]["elevation_angle"] * scale for m in msgs],
+                dtype="float32",
+            ),
+            1,
+        )
 
     def get_nyquist_vel(self, scans=None):
         """
@@ -326,7 +336,7 @@ class SbandRadarFile(object):
         """
         if scans is None:
             scans = range(self.nscans)
-        return self._radial_sub_array(scans, 'nyquist_vel') * 0.01
+        return self._radial_sub_array(scans, "nyquist_vel") * 0.01
 
     def get_unambigous_range(self, scans=None):
         """
@@ -348,7 +358,7 @@ class SbandRadarFile(object):
         if scans is None:
             scans = range(self.nscans)
         # unambiguous range is stored in tenths of km, x100 for meters
-        return self._radial_sub_array(scans, 'unambig_range') / 10.
+        return self._radial_sub_array(scans, "unambig_range") / 10.0
 
     def get_data(self, moment, max_ngates, scans=None, raw_data=False):
         """
@@ -387,14 +397,14 @@ class SbandRadarFile(object):
         nrays = len(msg_nums)
 
         # extract the data
-        data = np.ones((nrays, max_ngates), dtype='u1')
+        data = np.ones((nrays, max_ngates), dtype="u1")
 
         for i, msg_num in enumerate(msg_nums):
             msg = self.radial_records[msg_num]
             if moment not in msg.keys():
                 continue
-            ngates = msg[moment]['ngates']
-            data[i, :ngates] = msg[moment]['data']
+            ngates = msg[moment]["ngates"]
+            data[i, :ngates] = msg[moment]["data"]
 
         # return raw data if requested
         if raw_data:
@@ -406,8 +416,8 @@ class SbandRadarFile(object):
             msg_num = self.scan_msgs[scan][0]
             msg = self.radial_records[msg_num]
             if moment in msg.keys():
-                offset = np.float32(msg[moment]['offset'])
-                scale = np.float32(msg[moment]['scale'])
+                offset = np.float32(msg[moment]["offset"])
+                scale = np.float32(msg[moment]["scale"])
 
                 mask = data <= 1
 
@@ -419,92 +429,95 @@ class SbandRadarFile(object):
 
 
 def _unpack_from_buf(buf, pos, structure):
-    """ Unpack a structure from a buffer. """
+    """Unpack a structure from a buffer."""
     size = _structure_size(structure)
-    return _unpack_structure(buf[pos:pos + size], structure)
+    return _unpack_structure(buf[pos : pos + size], structure)
+
 
 def _get_record_from_buf(buf, pos):
-    """ Retrieve and unpack a NEXRAD record from a buffer. """
-    dic = {'header': _unpack_from_buf(buf, pos, MSG_HEADER)}
+    """Retrieve and unpack a NEXRAD record from a buffer."""
+    dic = {"header": _unpack_from_buf(buf, pos, MSG_HEADER)}
 
     new_pos = _get_msg1_from_buf(buf, pos, dic)
 
     return new_pos, dic
 
+
 def _get_msg1_from_buf(buf, pos, dic):
-    """ Retrieve and unpack a MSG1 record from a buffer. """
+    """Retrieve and unpack a MSG1 record from a buffer."""
     msg_header_size = _structure_size(MSG_HEADER)
     msg1_header = _unpack_from_buf(buf, pos + msg_header_size, MSG_1)
-    dic['msg_header'] = msg1_header
+    dic["msg_header"] = msg1_header
 
-    sur_nbins = int(msg1_header['sur_nbins'])
-    doppler_nbins = int(msg1_header['doppler_nbins'])
+    sur_nbins = int(msg1_header["sur_nbins"])
+    doppler_nbins = int(msg1_header["doppler_nbins"])
 
-    sur_step = int(msg1_header['sur_range_step'])
-    doppler_step = int(msg1_header['doppler_range_step'])
+    sur_step = int(msg1_header["sur_range_step"])
+    doppler_step = int(msg1_header["doppler_range_step"])
 
-    sur_first = int(msg1_header['sur_range_first'])
-    doppler_first = int(msg1_header['doppler_range_first'])
+    sur_first = int(msg1_header["sur_range_first"])
+    doppler_first = int(msg1_header["doppler_range_first"])
 
     if doppler_first > 2**15:
         doppler_first = doppler_first - 2**16
 
-    if msg1_header['sur_pointer']:
-        offset = pos + msg_header_size + msg1_header['sur_pointer']
-        data = np.frombuffer(buf[offset:offset+sur_nbins], '>u1')
-        dic['REF'] = {
-            'ngates': sur_nbins,
-            'gate_spacing': sur_step,
-            'first_gate': sur_first,
-            'data': data,
-            'scale': 2.,
-            'offset': 66.,
+    if msg1_header["sur_pointer"]:
+        offset = pos + msg_header_size + msg1_header["sur_pointer"]
+        data = np.frombuffer(buf[offset : offset + sur_nbins], ">u1")
+        dic["REF"] = {
+            "ngates": sur_nbins,
+            "gate_spacing": sur_step,
+            "first_gate": sur_first,
+            "data": data,
+            "scale": 2.0,
+            "offset": 66.0,
         }
-    if msg1_header['vel_pointer']:
-        offset = pos + msg_header_size + msg1_header['vel_pointer']
-        data = np.frombuffer(buf[offset:offset+doppler_nbins], '>u1')
+    if msg1_header["vel_pointer"]:
+        offset = pos + msg_header_size + msg1_header["vel_pointer"]
+        data = np.frombuffer(buf[offset : offset + doppler_nbins], ">u1")
 
-        dic['VEL'] = {
-            'ngates': doppler_nbins,
-            'gate_spacing': doppler_step,
-            'first_gate': doppler_first,
-            'data': data,
-            'scale': 2.,
-            'offset': 129.0,
+        dic["VEL"] = {
+            "ngates": doppler_nbins,
+            "gate_spacing": doppler_step,
+            "first_gate": doppler_first,
+            "data": data,
+            "scale": 2.0,
+            "offset": 129.0,
         }
-        if msg1_header['doppler_resolution'] == 4:
+        if msg1_header["doppler_resolution"] == 4:
             # 1 m/s resolution velocity, offset remains 129.
-            dic['VEL']['scale'] = 1.
-    if msg1_header['width_pointer']:
-        offset = pos + msg_header_size + msg1_header['width_pointer']
-        data = np.frombuffer(buf[offset:offset+doppler_nbins], '>u1')
-        dic['SW'] = {
-            'ngates': doppler_nbins,
-            'gate_spacing': doppler_step,
-            'first_gate': doppler_first,
-            'data': data,
-            'scale': 2.,
-            'offset': 129.0,
+            dic["VEL"]["scale"] = 1.0
+    if msg1_header["width_pointer"]:
+        offset = pos + msg_header_size + msg1_header["width_pointer"]
+        data = np.frombuffer(buf[offset : offset + doppler_nbins], ">u1")
+        dic["SW"] = {
+            "ngates": doppler_nbins,
+            "gate_spacing": doppler_step,
+            "first_gate": doppler_first,
+            "data": data,
+            "scale": 2.0,
+            "offset": 129.0,
         }
     return pos + RECORD_SIZE
 
+
 def _unpack_from_buf(buf, pos, structure):
-    """ Unpack a structure from a buffer. """
+    """Unpack a structure from a buffer."""
     size = _structure_size(structure)
-    return _unpack_structure(buf[pos:pos + size], structure)
+    return _unpack_structure(buf[pos : pos + size], structure)
+
 
 def _structure_size(structure):
-    """ Find the size of a structure in bytes. """
+    """Find the size of a structure in bytes."""
     return struct.calcsize("=" + "".join([i[1] for i in structure]))
 
+
 def _unpack_structure(string, structure):
-    """Unpack a structure from a string
-    """
+    """Unpack a structure from a string"""
     fmt = "=" + "".join([i[1] for i in structure])
     lst = struct.unpack(fmt, string)
 
     return dict(zip([i[0] for i in structure], lst))
-
 
 
 # NEXRAD Level II file structures and sizes
@@ -520,27 +533,28 @@ RECORD_SIZE = 2432
 
 # format of structure elements
 # section 3.2.1, page 3-2
-CODE1 = 'B'
-CODE2 = 'H'
-INT1 = 'B'
-INT2 = 'H'
-INT4 = 'I'
-REAL4 = 'f'
-REAL8 = 'd'
-SINT1 = 'b'
-SINT2 = 'h'
-SINT4 = 'i'
+CODE1 = "B"
+CODE2 = "H"
+INT1 = "B"
+INT2 = "H"
+INT4 = "I"
+REAL4 = "f"
+REAL8 = "d"
+SINT1 = "b"
+SINT2 = "h"
+SINT4 = "i"
 
 MSG_HEADER = (
-    ('reserved0', '14s'),
+    ("reserved0", "14s"),
     ("style", "H"),
-    ("reserved1", "12s"),)
+    ("reserved1", "12s"),
+)
 
 MSG_1 = (
-    ('collect_ms', 'I'),
-    ('collect_date', 'H'),
-    ('unambig_range', 'H'),
-    ('azimuth_angle', 'H'),
+    ("collect_ms", "I"),
+    ("collect_date", "H"),
+    ("unambig_range", "H"),
+    ("azimuth_angle", "H"),
     ("azimuth_number", "H"),
     ("radial_status", "H"),
     ("elevation_angle", "H"),

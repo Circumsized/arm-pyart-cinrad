@@ -17,8 +17,9 @@ def _import_classifier():
         from pycwr.retrieve import classify_hydrometeors
     except ImportError as exc:
         raise ImportError(
-            'pycwr is required for hydro_class; install it with '
-            '"pip install arm_pyart[cinrad]"') from exc
+            "pycwr is required for hydro_class; install it with "
+            '"pip install arm_pyart[cinrad]"'
+        ) from exc
     return classify_hydrometeors
 
 
@@ -35,7 +36,7 @@ def _pad_to(radar, arr):
     return np.hstack([arr, pad])
 
 
-def hydro_class(radar, band='C', method='hybrid', **kwargs):
+def hydro_class(radar, band="C", method="hybrid", **kwargs):
     """
     Fuzzy-logic hydrometeor classification via pycwr.
 
@@ -58,107 +59,125 @@ def hydro_class(radar, band='C', method='hybrid', **kwargs):
     """
     classify = _import_classifier()
 
-    refl = _get(radar, 'reflectivity')
-    zdr = _get(radar, 'differential_reflectivity')
-    kdp = _get(radar, 'specific_differential_phase')
-    cc = _get(radar, 'cross_correlation_ratio')
+    refl = _get(radar, "reflectivity")
+    zdr = _get(radar, "differential_reflectivity")
+    kdp = _get(radar, "specific_differential_phase")
+    cc = _get(radar, "cross_correlation_ratio")
 
     if refl is None:
-        raise ValueError('Radar does not contain a reflectivity field')
+        raise ValueError("Radar does not contain a reflectivity field")
     if zdr is None and kdp is None and cc is None:
-        raise ValueError('Hydrometeor classification requires at least one '
-                         'of ZDR, KDP, or correlation coefficient')
+        raise ValueError(
+            "Hydrometeor classification requires at least one "
+            "of ZDR, KDP, or correlation coefficient"
+        )
 
     classes = classify(
-        dBZ=refl['data'],
-        ZDR=_pad_to(radar, zdr['data']) if zdr is not None else None,
-        KDP=_pad_to(radar, kdp['data']) if kdp is not None else None,
-        CC=_pad_to(radar, cc['data']) if cc is not None else None,
-        method=method, band=band, **kwargs)
+        dBZ=refl["data"],
+        ZDR=_pad_to(radar, zdr["data"]) if zdr is not None else None,
+        KDP=_pad_to(radar, kdp["data"]) if kdp is not None else None,
+        CC=_pad_to(radar, cc["data"]) if cc is not None else None,
+        method=method,
+        band=band,
+        **kwargs,
+    )
 
-    radar.add_field('hydrometeor_classification', {
-        'data': np.ma.masked_invalid(classes),
-        'units': 'class_id',
-        'standard_name': 'hydrometeor_classification',
-        'long_name': 'Hydrometeor classification',
-        'valid_min': 0,
-        'valid_max': 10,
-        '_FillValue': get_fillvalue(),
-    }, replace_existing=True)
-    return radar.fields['hydrometeor_classification']['data']
+    radar.add_field(
+        "hydrometeor_classification",
+        {
+            "data": np.ma.masked_invalid(classes),
+            "units": "class_id",
+            "standard_name": "hydrometeor_classification",
+            "long_name": "Hydrometeor classification",
+            "valid_min": 0,
+            "valid_max": 10,
+            "_FillValue": get_fillvalue(),
+        },
+        replace_existing=True,
+    )
+    return radar.fields["hydrometeor_classification"]["data"]
 
 
-def _read_tilts(filename, radius, dtype='REF'):
+def _read_tilts(filename, radius, dtype="REF"):
     from cinrad.io import CinradReader, StandardData
+
     try:
         cinrad_obj = StandardData(filename)
     except Exception:
         cinrad_obj = CinradReader(filename)
-    return [cinrad_obj.get_data(i, radius, dtype)
-            for i in cinrad_obj.angleindex_r]
+    return [cinrad_obj.get_data(i, radius, dtype) for i in cinrad_obj.angleindex_r]
 
 
-def composite_reflectivity(filename, radius=230, dtype='REF', backend='auto'):
-    """ Composite reflectivity via PyCINRAD/pycwr. """
-    if backend in ('auto', 'cinrad'):
+def composite_reflectivity(filename, radius=230, dtype="REF", backend="auto"):
+    """Composite reflectivity via PyCINRAD/pycwr."""
+    if backend in ("auto", "cinrad"):
         try:
             from cinrad.calc import quick_cr
+
             rl = _read_tilts(filename, radius, dtype)
             return quick_cr(rl)
         except ImportError:
             pass
-    if backend in ('auto', 'pycwr'):
+    if backend in ("auto", "pycwr"):
         try:
             from pycwr.retrieve import composite_reflectivity as pycwr_cr
+
             return pycwr_cr(filename, radius=radius)
         except ImportError as exc:
             raise ImportError(
-                'pycwr is required for the pycwr backend; install it with '
-                '"pip install arm_pyart[cinrad]"') from exc
-    raise IOError('No available backend for composite_reflectivity')
+                "pycwr is required for the pycwr backend; install it with "
+                '"pip install arm_pyart[cinrad]"'
+            ) from exc
+    raise OSError("No available backend for composite_reflectivity")
 
 
-def echo_tops(filename, radius=230, backend='auto'):
-    """ Echo-top heights via PyCINRAD/pycwr. """
-    if backend in ('auto', 'cinrad'):
+def echo_tops(filename, radius=230, backend="auto"):
+    """Echo-top heights via PyCINRAD/pycwr."""
+    if backend in ("auto", "cinrad"):
         try:
             from cinrad.calc import quick_et
-            rl = _read_tilts(filename, radius, 'REF')
+
+            rl = _read_tilts(filename, radius, "REF")
             return quick_et(rl)
         except ImportError:
             pass
-    if backend in ('auto', 'pycwr'):
+    if backend in ("auto", "pycwr"):
         try:
             from pycwr.retrieve import echo_tops as pycwr_et
+
             return pycwr_et(filename, radius=radius)
         except ImportError as exc:
             raise ImportError(
-                'pycwr is required for the pycwr backend; install it with '
-                '"pip install arm_pyart[cinrad]"') from exc
-    raise IOError('No available backend for echo_tops')
+                "pycwr is required for the pycwr backend; install it with "
+                '"pip install arm_pyart[cinrad]"'
+            ) from exc
+    raise OSError("No available backend for echo_tops")
 
 
-def vert_integrated_liquid(filename, radius=230, backend='auto'):
-    """ Vertically integrated liquid via PyCINRAD/pycwr. """
-    if backend in ('auto', 'cinrad'):
+def vert_integrated_liquid(filename, radius=230, backend="auto"):
+    """Vertically integrated liquid via PyCINRAD/pycwr."""
+    if backend in ("auto", "cinrad"):
         try:
             from cinrad.calc import quick_vil
-            rl = _read_tilts(filename, radius, 'REF')
+
+            rl = _read_tilts(filename, radius, "REF")
             return quick_vil(rl)
         except ImportError:
             pass
-    if backend in ('auto', 'pycwr'):
+    if backend in ("auto", "pycwr"):
         try:
             from pycwr.retrieve import vert_integrated_liquid as pycwr_vil
+
             return pycwr_vil(filename, radius=radius)
         except ImportError as exc:
             raise ImportError(
-                'pycwr is required for the pycwr backend; install it with '
-                '"pip install arm_pyart[cinrad]"') from exc
-    raise IOError('No available backend for vert_integrated_liquid')
+                "pycwr is required for the pycwr backend; install it with "
+                '"pip install arm_pyart[cinrad]"'
+            ) from exc
+    raise OSError("No available backend for vert_integrated_liquid")
 
 
-def cappi(radar, height_levels, backend='auto'):
+def cappi(radar, height_levels, backend="auto"):
     """
     Generate CAPPI grids at specified heights using pycwr interpolation.
 
@@ -177,20 +196,26 @@ def cappi(radar, height_levels, backend='auto'):
         CAPPI grids for each height level.
 
     """
-    if backend in ('auto', 'pycwr'):
+    if backend in ("auto", "pycwr"):
         try:
             from pycwr.grid import cappi as pycwr_cappi
+
             return pycwr_cappi(radar, height_levels=height_levels)
         except ImportError as exc:
-            if backend == 'pycwr':
+            if backend == "pycwr":
                 raise ImportError(
-                    'pycwr is required for CAPPI; install it with '
-                    '"pip install arm_pyart[cinrad]"') from exc
-    if backend in ('auto', 'cinrad'):
-        raise NotImplementedError(
-            'CAPPI via PyCINRAD is not yet implemented')
-    raise ValueError('Unsupported backend: ' + str(backend))
+                    "pycwr is required for CAPPI; install it with "
+                    '"pip install arm_pyart[cinrad]"'
+                ) from exc
+    if backend in ("auto", "cinrad"):
+        raise NotImplementedError("CAPPI via PyCINRAD is not yet implemented")
+    raise ValueError("Unsupported backend: " + str(backend))
 
 
-__all__ = ['hydro_class', 'composite_reflectivity', 'echo_tops',
-           'vert_integrated_liquid', 'cappi']
+__all__ = [
+    "hydro_class",
+    "composite_reflectivity",
+    "echo_tops",
+    "vert_integrated_liquid",
+    "cappi",
+]

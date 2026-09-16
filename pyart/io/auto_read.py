@@ -8,11 +8,10 @@ import gzip
 
 import netCDF4
 
+from .c98d_archive import read_c98d
 from .cfradial import read_cfradial
 from .chl import read_chl
-from .cinrad_bridge import read_cinrad, read_pa, read_mocmosaic
-from .c98d_archive import read_c98d
-from .common import prepare_for_read
+from .cinrad_bridge import read_cinrad, read_mocmosaic, read_pa
 from .mdv_radar import read_mdv
 from .nexrad_archive import read_nexrad_archive
 from .nexrad_cdm import read_nexrad_cdm
@@ -291,20 +290,33 @@ def _try_cinrad(filename, **kwargs):
     "unknown format" error is never used to mask a real read error.
     """
     import os
+
     name = os.path.basename(filename).upper()
     cinrad_patterns = [
-        'AXPT', 'DXK', 'XAD', 'XCD', 'XSP',
-        'SA', 'SB', 'CB', 'CC', 'SC', 'CD',
-        'WSR98D', 'C98D', 'MOCMOSAIC', 'ACHN',
+        "AXPT",
+        "DXK",
+        "XAD",
+        "XCD",
+        "XSP",
+        "SA",
+        "SB",
+        "CB",
+        "CC",
+        "SC",
+        "CD",
+        "WSR98D",
+        "C98D",
+        "MOCMOSAIC",
+        "ACHN",
     ]
     if not any(pattern in name for pattern in cinrad_patterns):
         return None
     try:
-        if 'MOCMOSAIC' in name or 'ACHN' in name:
+        if "MOCMOSAIC" in name or "ACHN" in name:
             return read_mocmosaic(filename, **kwargs)
-        if 'C98D' in name:
+        if "C98D" in name:
             return read_c98d(filename, **kwargs)
-        if any(p in name for p in ('AXPT', 'DXK')):
+        if any(p in name for p in ("AXPT", "DXK")):
             return read_pa(filename, **kwargs)
         return read_cinrad(filename, **kwargs)
     except ImportError:

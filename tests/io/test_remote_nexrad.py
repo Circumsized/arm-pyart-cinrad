@@ -4,7 +4,6 @@ from datetime import datetime, timedelta
 
 import pytest
 
-from pyart.io import remote
 from pyart.io.remote import NexradSource, get_source, list_sources
 
 
@@ -51,8 +50,7 @@ def test_nexrad_list_files_mock(monkeypatch):
     keys = []
     for day in ("20200101",):
         for hh in ("000000", "003000", "010000", "013000", "020000"):
-            keys.append(
-                f"noaa-nexrad-level2/2020/01/01/KLOT/KLOT_{day}_{hh}_V06.gz")
+            keys.append(f"noaa-nexrad-level2/2020/01/01/KLOT/KLOT_{day}_{hh}_V06.gz")
     listing = {"noaa-nexrad-level2/2020/01/01/KLOT": keys}
 
     src = NexradSource()
@@ -86,12 +84,10 @@ def test_nexrad_fetch_uses_cache(monkeypatch, tmp_path):
     # Pretend the file is already cached.
     local = tmp_path / "KLOT_20200101_000000_V06.gz"
     local.write_bytes(b"already-here")
-    out = src.fetch("2020/01/01/KLOT/KLOT_20200101_000000_V06.gz",
-                    dest=str(local))
+    out = src.fetch("2020/01/01/KLOT/KLOT_20200101_000000_V06.gz", dest=str(local))
     assert out == str(local)
     # _fs must not be called when the file is cached
-    monkeypatch.setattr(src, "_fs",
-                        lambda: pytest.fail("should not touch s3"))
+    monkeypatch.setattr(src, "_fs", lambda: pytest.fail("should not touch s3"))
 
 
 def test_nexrad_read_delegates(monkeypatch, tmp_path):
@@ -105,13 +101,10 @@ def test_nexrad_read_delegates(monkeypatch, tmp_path):
         return "RADAR"
 
     # fetch returns a fake local path
-    monkeypatch.setattr(src, "fetch",
-                        lambda key, dest=None: str(tmp_path / "fake.gz"))
-    monkeypatch.setattr(
-        "pyart.io.nexrad_archive.read_nexrad_archive", fake_read)
+    monkeypatch.setattr(src, "fetch", lambda key, dest=None: str(tmp_path / "fake.gz"))
+    monkeypatch.setattr("pyart.io.nexrad_archive.read_nexrad_archive", fake_read)
 
-    out = src.read("2020/01/01/KLOT/KLOT_20200101_000000_V06.gz",
-                   scans=(0, 1))
+    out = src.read("2020/01/01/KLOT/KLOT_20200101_000000_V06.gz", scans=(0, 1))
     assert out == "RADAR"
     assert captured["kwargs"]["scans"] == [0, 1]
     assert captured["kwargs"]["storage_options"] == {"anon": True}
@@ -120,6 +113,7 @@ def test_nexrad_read_delegates(monkeypatch, tmp_path):
 def test_nexrad_missing_s3fs(monkeypatch):
     src = NexradSource()
     import sys
+
     monkeypatch.setitem(sys.modules, "s3fs", None)
     with pytest.raises(ImportError):
         src._fs()
