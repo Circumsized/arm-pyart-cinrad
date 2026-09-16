@@ -20,6 +20,7 @@ dependencies:
   - pkg-config
   - Cython
   - fsspec
+  - imageio
   - s3fs
   - gcsfs>=2025.3.2
   - glpk
