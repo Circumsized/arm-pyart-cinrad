@@ -8,18 +8,22 @@ on:
     branches:
       - main
 
-# This job installs dependencies, build the website, and pushes it to `gh-pages`
+# The docs build executes every ``examples/**/plot_*.py`` via Sphinx-Gallery.
+# Run it in offline mode (PYART_DOCS_OFFLINE=1) so the many remote-data
+# downloads cannot stretch the job past its timeout, and cache the two data
+# caches so warm builds are fast. Publishing only happens on main pushes.
 jobs:
-  deploy-website:
+  build-docs:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 45
     defaults:
       run:
         shell: bash -l {0}
+    env:
+      PYART_DOCS_OFFLINE: "1"
     steps:
       - uses: actions/checkout@v7
 
-      # Create environment using micromamba
       - name: Install Conda environment with Micromamba
         uses: mamba-org/setup-micromamba@v3.2.1
         with:
@@ -30,22 +34,50 @@ jobs:
 
       - name: Fetch all history for all tags and branches
         run: |
-           git fetch --prune --unshallow
+          git fetch --prune --unshallow
+
+      - name: Cache example datasets
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/pyart-datasets
+            ~/.cache/open-radar-data
+          key: pyart-example-data-${{ hashFiles('doc/environment.yml', 'pyart/testing/registry.txt') }}
+          restore-keys: |
+            pyart-example-data-
 
       - name: Install PyART
         run: |
-          pip install -e .
+          pip install -e . --no-deps --force-reinstall
 
-      # Build the website
       - name: Build the site
         run: |
           cd doc
           make html
-      # Push the book's HTML to github-pages
+
+      - name: Upload built site
+        uses: actions/upload-artifact@v4
+        with:
+          name: html-docs
+          path: doc/build/html
+          retention-days: 7
+
+  deploy-docs:
+    needs: build-docs
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Download built site
+        uses: actions/download-artifact@v4
+        with:
+          name: html-docs
+          path: doc/build/html
+
       - name: GitHub Pages action
         uses: peaceiris/actions-gh-pages@v4.1.0
-        if: github.ref == 'refs/heads/main'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: doc/build/html
-          cname: https:/arm-doe.github.io/pyart/
+          publish_branch: gh-pages
