@@ -13,21 +13,36 @@ jobs:
         os: [ubuntu-latest, windows-latest]
         python-version: ["3.10", "3.11", "3.12"]
     runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        shell: bash -l {0}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      # Use a conda environment so numpy and the Cython build toolchain come
+      # from one consistent set of binaries. Building against a pip-installed
+      # numpy that disagrees with the vendored ``.c`` files leaves the
+      # extensions unbuilt (ModuleNotFoundError: pyart.io.nexrad_interpolate).
+      - name: Setup Conda environment
+        uses: mamba-org/setup-micromamba@v3.2.1
         with:
-          python-version: ${{ matrix.python-version }}
-      - name: Install build dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install numpy Cython
+          environment-file: continuous_integration/environment-ci.yml
+          init-shell: bash
+          cache-downloads: true
+          create-args: python=${{ matrix.python-version }}
       - name: Install package
-        run: pip install .
+        run: python -m pip install -e . --no-deps --force-reinstall
       - name: Install test dependencies
-        run: pip install pytest pytest-mpl
+        run: python -m pip install pytest pytest-mpl
       - name: Syntax check
         run: python -m compileall pyart -q
       - name: Run offline tests
         run: |
-          python -m pytest pyart/io/tests/test_c98d_archive.py pyart/io/tests/test_sband_archive.py pyart/io/tests/test_xband_bridge.py pyart/io/tests/test_xband_native.py pyart/io/tests/test_cinrad_routing.py pyart/io/tests/test_cinrad_bridge.py pyart/graph/tests/test_animation.py pyart/correct/tests/test_dualpol_pipeline.py -v
+          python -m pytest \
+            pyart/io/tests/test_c98d_archive.py \
+            pyart/io/tests/test_sband_archive.py \
+            pyart/io/tests/test_xband_bridge.py \
+            pyart/io/tests/test_xband_native.py \
+            pyart/io/tests/test_cinrad_routing.py \
+            pyart/io/tests/test_cinrad_bridge.py \
+            pyart/graph/tests/test_animation.py \
+            pyart/correct/tests/test_dualpol_pipeline.py -v
