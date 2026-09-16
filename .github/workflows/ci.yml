@@ -46,3 +46,20 @@ jobs:
             pyart/io/tests/test_cinrad_bridge.py \
             pyart/graph/tests/test_animation.py \
             pyart/correct/tests/test_dualpol_pipeline.py -v
+      # Lightweight guard for the Sphinx-Gallery contract: every plot_*.py
+      # must run with no arguments and no network. This catches broken
+      # examples in seconds instead of after a ~1h docs job.
+      - name: Gallery example contract (no-arg, offline)
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.12'
+        env:
+          MPLBACKEND: Agg
+          PYART_DOCS_OFFLINE: "1"
+        run: |
+          status=0
+          for f in $(find examples -name 'plot_*.py' | sort); do
+            if ! timeout 90 python "$f"; then
+              echo "::error file=$f::gallery example failed a no-argument run"
+              status=1
+            fi
+          done
+          exit $status
