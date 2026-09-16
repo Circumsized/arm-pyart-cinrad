@@ -116,7 +116,12 @@ class C98DRadFile:
             self.ranges = data.shape[0]
             return data.T
         elif header["bin_length"] == 2:
-            combined = np.array(data[1::2] * 256 + data[::2], dtype=np.float64)
+            # Widen to int32 *before* the big-endian recombination. Under
+            # NumPy 2.x, ``uint8_array * 256`` raises OverflowError instead of
+            # silently wrapping as it did on NumPy 1.x.
+            high = data[1::2].astype(np.int32)
+            low = data[::2].astype(np.int32)
+            combined = np.array(high * 256 + low, dtype=np.float64)
             self.ranges = combined.shape[0]
             combined[combined == 0] = np.nan
             combined = (combined - header["offset"]) / header["scale"]
