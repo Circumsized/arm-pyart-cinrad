@@ -103,6 +103,14 @@ sandbox
 pyart/version.py
 pyart/retrieve/_echo_steinermodule.c
 
+# Fork-specific: temporary audit/benchmark scripts #
+#####################################################
+# These are one-off probes created during development;
+# real regression tests live in pyart/**/tests/ or tests/
+/_*.py
+/_bench_cache/
+/_readme_assets/
+
 # Documentation files #
 #######################
 /doc/build

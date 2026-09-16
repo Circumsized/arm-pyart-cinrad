@@ -3,6 +3,7 @@ recursive-include doc *
 recursive-include examples *.py *.txt
 recursive-include pyart *.c *.h *.pyx *.pxd
 include README.rst
+include README.md
 include INSTALL.rst
 include pyart/testing/registry.txt
 include pyart/__check_build/README

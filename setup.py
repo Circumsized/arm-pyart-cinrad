@@ -198,7 +198,10 @@ extension_kdp = Extension(
 extensions.append(extension_kdp)
 
 setup(
-    long_description="\n".join(DOCLINES[2:]),
+    # NOTE: the package long description is declared as a dynamic field in
+    # ``pyproject.toml`` (``[tool.setuptools.dynamic] readme``). Passing
+    # ``long_description`` here would conflict with it and break PEP 517
+    # builds, so it is intentionally omitted.
     scripts=glob.glob("scripts/*"),
     ext_modules=cythonize(
         extensions, compiler_directives={"language_level": "3", "cpow": True}
