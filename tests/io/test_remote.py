@@ -99,10 +99,7 @@ def test_read_time_span_end_now(monkeypatch):
             return ["ok"]
 
     register_source(_FixedDummy)
-    monkeypatch.setattr(
-        "pyart.io.remote.datetime",
-        type("DT", (), {"utcnow": staticmethod(lambda: fixed)}),
-    )
+    monkeypatch.setattr("pyart.io.remote._utcnow", lambda: fixed)
     out = read_time_span("dummy", "Z_KMTX", fixed, "now", timedelta(hours=1))
     assert out == ["ok"]
 

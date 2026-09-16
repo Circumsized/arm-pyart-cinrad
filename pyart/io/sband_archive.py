@@ -240,8 +240,15 @@ def read_sband_radar(filename, **kwargs):
     -------
     radar : Radar
 
+    Notes
+    -----
+    The returned radar is tagged with ``metadata['radar_band'] = 'S'`` so the
+    band-aware dual-polarization helpers select the S-band parameters.
+
     """
-    return read_sband_archive(filename, **kwargs)
+    radar = read_sband_archive(filename, **kwargs)
+    radar.metadata['radar_band'] = 'S'
+    return radar
 
 
 def _find_range_params(scan_info, filemetadata):

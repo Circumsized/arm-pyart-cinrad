@@ -250,5 +250,12 @@ def read_c98d(filename, **kwargs):
     -------
     radar : Radar
 
+    Notes
+    -----
+    The returned radar is tagged with ``metadata['radar_band'] = 'C'`` so the
+    band-aware dual-polarization helpers select the C-band parameters.
+
     """
-    return c98dfile_archive(filename, **kwargs)
+    radar = c98dfile_archive(filename, **kwargs)
+    radar.metadata['radar_band'] = 'C'
+    return radar

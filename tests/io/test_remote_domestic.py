@@ -32,7 +32,7 @@ def test_cma_mos_registered():
 def test_nmc_list_sites_unreachable_returns_empty(monkeypatch):
     src = NmcCnSource()
     monkeypatch.setattr(src, "_is_reachable",
-                        lambda url, timeout=8.0: False)
+                        lambda url, timeout=8.0, allow_private=False: False)
     with pytest.warns(RuntimeWarning):
         sites = src.list_sites()
     assert sites == {}
@@ -41,7 +41,7 @@ def test_nmc_list_sites_unreachable_returns_empty(monkeypatch):
 def test_nmc_list_sites_reachable(monkeypatch):
     src = NmcCnSource()
     monkeypatch.setattr(src, "_is_reachable",
-                        lambda url, timeout=8.0: True)
+                        lambda url, timeout=8.0, allow_private=False: True)
     sites = src.list_sites()
     assert "nationwide" in sites
     assert sites["nationwide"].country == "CN"
@@ -50,7 +50,7 @@ def test_nmc_list_sites_reachable(monkeypatch):
 def test_nmc_list_files_grid(monkeypatch):
     src = NmcCnSource()
     monkeypatch.setattr(src, "_is_reachable",
-                        lambda url, timeout=8.0: True)
+                        lambda url, timeout=8.0, allow_private=False: True)
     start = datetime(2020, 6, 1, 0, 0)
     end = datetime(2020, 6, 1, 2, 0)
     step = timedelta(hours=1)
@@ -95,7 +95,7 @@ def test_cma_list_sites_reachable(monkeypatch):
         "beijing": {"template": "http://x/radar/{date}/{time}.bin"},
     })
     monkeypatch.setattr(src, "_is_reachable",
-                        lambda url, timeout=8.0: True)
+                        lambda url, timeout=8.0, allow_private=False: True)
     sites = src.list_sites()
     assert "beijing" in sites
     assert sites["beijing"].band == "S"

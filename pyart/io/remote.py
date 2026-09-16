@@ -25,11 +25,25 @@ dependency (``s3fs``, ``requests``) never breaks ``import pyart``.
 from __future__ import annotations
 
 import os
+import tempfile
 import time
 from datetime import datetime, timedelta
 from typing import NamedTuple, Protocol, runtime_checkable
 
 import numpy as np  # noqa: F401  (used by raster decode helpers)
+
+
+def _utcnow():
+    """Naive UTC ``datetime``.
+
+    ``datetime.utcnow()`` is deprecated on Python 3.12+; this helper keeps the
+    *naive* semantics required by the public API, where callers pass naive
+    ``datetime`` objects that are compared against ``start``/``end``. Using an
+    aware datetime here would raise ``TypeError`` on those comparisons.
+    """
+    from datetime import timezone
+
+    return datetime.now(timezone.utc).replace(tzinfo=None)
 
 
 class RemoteDataError(RuntimeError):
@@ -110,6 +124,44 @@ class _BaseSource:
                 f"cache key escapes cache directory: {key!r}")
         return local
 
+    def _cache_hit(self, local, force_refresh: bool = False) -> bool:
+        """Return True when ``local`` already holds a usable cached copy.
+
+        Only an existing, non-empty regular file counts. ``force_refresh``
+        gives callers a way out of a *poisoned* entry -- a truncated file
+        written by an older release or left behind by disk corruption is
+        otherwise served forever, because the size probe cannot tell it apart
+        from a complete download.
+        """
+        if force_refresh:
+            return False
+        try:
+            return os.path.isfile(local) and os.path.getsize(local) > 0
+        except OSError:
+            return False
+
+    def clear_cache(self) -> int:
+        """Delete every cached file for this source; return the count removed.
+
+        Recovery path for a poisoned cache; safer than hand-editing
+        ``$PYART_CACHE_DIR`` because it is scoped to one source directory.
+        """
+        removed = 0
+        directory = self.cache_dir()
+        try:
+            names = os.listdir(directory)
+        except OSError:
+            return 0
+        for name in names:
+            path = os.path.join(directory, name)
+            try:
+                if os.path.isfile(path):
+                    os.unlink(path)
+                    removed += 1
+            except OSError:
+                continue
+        return removed
+
     @staticmethod
     def _retry(callable_, *args, retries: int = 2, backoff: float = 1.5,
                timeout: float = 15.0, **kwargs):
@@ -150,11 +202,26 @@ class _BaseSource:
     def read_time_span(self, site, start, end, step, **kwargs) -> list:
         keys = self.list_files(site, start, end, step)
         radars = []
+        failures = []
         for key in keys:
             try:
                 radars.append(self.read(key, **kwargs))
-            except Exception:  # noqa: BLE001
+            except Exception as exc:  # noqa: BLE001
+                failures.append((key, exc))
                 continue
+        if failures:
+            # Skipping every failure silently made "all reads failed" look
+            # exactly like "no data in this window". Keep skipping (the
+            # documented behaviour) but make it observable.
+            import warnings as _w
+            detail = "; ".join(
+                f"{k!r}: {type(e).__name__}: {e}" for k, e in failures[:3])
+            if len(failures) > 3:
+                detail += f"; ... (+{len(failures) - 3} more)"
+            _w.warn(
+                f"{type(self).__name__}.read_time_span: {len(failures)} of "
+                f"{len(keys)} reads failed and were skipped ({detail}).",
+                RuntimeWarning)
         return radars
 
     # -- HTTP helpers -------------------------------------------------------
@@ -191,24 +258,45 @@ class _BaseSource:
             ip.is_private or ip.is_loopback or ip.is_link_local
             or ip.is_reserved or ip.is_multicast)
 
-    def _http_get(self, url, timeout=15.0, allow_private=False):
-        """GET ``url`` and return bytes, with bounded retries."""
-        if not self._validate_url(url, allow_private=allow_private):
-            raise RemoteDataError(
-                f"Refusing to request unsafe URL: {url!r}")
+    def _http_get(self, url, timeout=15.0, allow_private=False,
+                  max_redirects=3):
+        """GET ``url`` and return bytes, with bounded retries.
+
+        Redirects are followed **manually** and re-validated at every hop.
+        Letting ``requests`` follow them (its default) defeated the SSRF guard
+        completely: a validated public URL could answer 302 to
+        ``http://169.254.169.254/`` and the client fetched it anyway -- see the
+        ``_validate_url`` docstring for the residual hostname-resolution risk.
+        """
         try:
             import requests
         except ImportError as exc:
             raise ImportError(
                 "requests is required for HTTP sources; install it with "
                 '"pip install arm_pyart[remote]"') from exc
+        from urllib.parse import urljoin
 
-        def _do(timeout=None):
-            r = requests.get(url, timeout=timeout)
-            r.raise_for_status()
-            return r.content
+        for _hop in range(max_redirects + 1):
+            if not self._validate_url(url, allow_private=allow_private):
+                raise RemoteDataError(
+                    f"Refusing to request unsafe URL: {url!r}")
 
-        return self._retry(_do, retries=2, timeout=timeout)
+            def _do(timeout=None):
+                r = requests.get(url, timeout=timeout, allow_redirects=False)
+                r.raise_for_status()
+                return r
+
+            response = self._retry(_do, retries=2, timeout=timeout)
+            if response.is_redirect:
+                location = response.headers.get("Location")
+                if not location:
+                    raise RemoteDataError(
+                        f"Redirect without Location header from {url!r}")
+                url = urljoin(url, location)
+                continue
+            return response.content
+        raise RemoteDataError(
+            f"too many redirects (>{max_redirects}) while fetching {url!r}")
 
     def _http_get_json(self, url, timeout=15.0, allow_private=False):
         import json
@@ -217,13 +305,22 @@ class _BaseSource:
                            allow_private=allow_private).decode("utf-8"))
 
     @staticmethod
-    def _is_reachable(url, timeout=8.0):
+    def _is_reachable(url, timeout=8.0, allow_private=False):
+        """HEAD-probe ``url``; return True when it answers below 5xx.
+
+        The URL is run through :meth:`_validate_url` before any socket is
+        opened -- the probe previously requested arbitrary caller-supplied
+        hosts with no guard whatsoever. ``allow_private`` is opt-in for
+        operator-configured mirrors (see :class:`CmaMosSource`).
+        """
+        if not _BaseSource._validate_url(url, allow_private=allow_private):
+            return False
         try:
             import requests
         except ImportError:
             return False
         try:
-            r = requests.head(url, timeout=timeout, allow_redirects=True)
+            r = requests.head(url, timeout=timeout, allow_redirects=False)
             return r.status_code < 500
         except Exception:  # noqa: BLE001
             return False
@@ -232,14 +329,28 @@ class _BaseSource:
     def _atomic_write(local, data):
         """Write ``data`` to ``local`` atomically.
 
-        Writes to a sibling temp file first, then ``os.replace`` so concurrent
-        readers never observe a half-written cache entry and concurrent
-        writers never interleave.
+        Stages the payload in a **unique** sibling temp file and commits it with
+        ``os.replace``, so concurrent readers never observe a half-written cache
+        entry and concurrent writers never share a temp name. The temp file is
+        removed on both success and failure.
         """
-        tmp = local + ".tmp"
-        with open(tmp, "wb") as fh:
-            fh.write(data)
-        os.replace(tmp, local)
+        tmp = _unique_tmp(local)
+        try:
+            with open(tmp, "wb") as fh:
+                fh.write(data)
+                fh.flush()
+                os.fsync(fh.fileno())
+            os.replace(tmp, local)
+        finally:
+            # ``os.replace`` on Windows can transiently hold the directory
+            # entry, so the best-effort unlink is now also re-issued once the
+            # replace is done. Concurrent writers still cannot collide on a
+            # shared name (each has its own ``_unique_tmp``), but this avoids
+            # spurious PermissionError when the OS is mid-unlink.
+            _silent_unlink(tmp)
+            # On Windows, an immediately-prior unlink may race with the
+            # directory entry being committed; a second pass is harmless.
+            _silent_unlink(tmp)
 
 
 def _accepts_timeout(func) -> bool:
@@ -250,6 +361,30 @@ def _accepts_timeout(func) -> bool:
     except (TypeError, ValueError):
         return False
     return "timeout" in sig.parameters
+
+
+def _unique_tmp(local: str) -> str:
+    """Return a unique sibling temp path for ``local``.
+
+    All writers previously shared ``<local>.tmp``; two concurrent writers then
+    truncated and wrote the *same* file, and ``os.replace`` committed the
+    interleaved result as if it were valid content (verified by a 4-thread
+    probe). Unique names make each writer independent.
+    """
+    directory = os.path.dirname(os.path.abspath(local)) or "."
+    os.makedirs(directory, exist_ok=True)
+    fd, tmp = tempfile.mkstemp(
+        prefix=os.path.basename(local) + ".", suffix=".part", dir=directory)
+    os.close(fd)
+    return tmp
+
+
+def _silent_unlink(path: str) -> None:
+    """Remove ``path``, ignoring anything already gone."""
+    try:
+        os.unlink(path)
+    except OSError:
+        pass
 
 
 # ---------------------------------------------------------------------------
@@ -303,8 +438,8 @@ def read_time_span(source, site, start, end, step, **kwargs) -> list:
     site : str
         Site identifier (e.g. NEXRAD ICAO code or CMA station id).
     start, end : datetime.datetime
-        Time range. ``end='now'`` (string) resolves to ``datetime.utcnow()``,
-        mirroring ``zssherman/pyart_animation``.
+        Time range. ``end='now'`` (string) resolves to the current naive UTC
+        time (see :func:`_utcnow`), mirroring ``zssherman/pyart_animation``.
     step : datetime.timedelta
         Cadence between scans.
     **kwargs
@@ -313,12 +448,26 @@ def read_time_span(source, site, start, end, step, **kwargs) -> list:
     Returns
     -------
     radars : list of Radar
-        One entry per successfully read file; failed reads are skipped.
+        One entry per successfully read file; failed reads are skipped (a
+        warning is emitted when any read fails, so a short result can be
+        distinguished from an empty time window).
+
+    Raises
+    ------
+    TypeError, ValueError
+        If ``step`` is not a strictly positive :class:`~datetime.timedelta`.
     """
     if isinstance(source, str):
         source = get_source(source)
+    if not isinstance(step, timedelta):
+        raise TypeError(
+            f"step must be a datetime.timedelta, got {type(step).__name__}")
+    if step <= timedelta(0):
+        raise ValueError(
+            f"step must be strictly positive, got {step!r}: a non-positive "
+            "step never advances the time grid and never terminates.")
     if isinstance(end, str) and end.lower() == "now":
-        end = datetime.utcnow()
+        end = _utcnow()
     return source.read_time_span(site, start, end, step, **kwargs)
 
 
@@ -345,7 +494,12 @@ __all__ = [
 import re
 
 _NEXRAD_BUCKET = "noaa-nexrad-level2"
-_NEXRAD_KEY_RE = re.compile(r"_(\d{8})_(\d{6})_V")
+# Real NEXRAD Level II keys look like ``KTLX20240601_000012_V06``:
+# <SITE><YYYYMMDD>_<HHMMSS>_V<version>. The date follows the site code with
+# **no** separating underscore, so the pattern must not require one -- an
+# earlier revision anchored on ``_(\d{8})`` and therefore matched nothing,
+# silently degrading every listing to an empty result.
+_NEXRAD_KEY_RE = re.compile(r"(\d{8})_(\d{6})_V")
 # A small, non-exhaustive set of well-known WSR-88D ICAO sites. The full
 # network is ~160 sites; callers may pass any valid ICAO code to list_files.
 _NEXRAD_SITES = {
@@ -359,7 +513,23 @@ _NEXRAD_SITES = {
 
 
 def _timespan(start, end, step):
-    """Yield ``datetime`` grid points from ``start`` to ``end`` at ``step``."""
+    """Yield ``datetime`` grid points from ``start`` to ``end`` at ``step``.
+
+    Raises
+    ------
+    ValueError
+        If ``step`` is not strictly positive. A zero or negative step never
+        advances the grid point, so the loop runs forever -- verified: both
+        ``timedelta(0)`` and a negative step hang the interpreter until the
+        process is killed.
+    """
+    if not isinstance(step, timedelta):
+        raise TypeError(
+            f"step must be a datetime.timedelta, got {type(step).__name__}")
+    if step <= timedelta(0):
+        raise ValueError(
+            f"step must be strictly positive, got {step!r}: a non-positive "
+            "step never advances the time grid and never terminates.")
     t = start
     while t < end:
         yield t
@@ -421,7 +591,7 @@ class NexradSource(_BaseSource):
     def list_files(self, site, start, end, step) -> list:
         site = site.upper()
         if isinstance(end, str) and end.lower() == "now":
-            end = datetime.utcnow()
+            end = _utcnow()
         fs = self._fs()
         keys = []
         day = start.date()
@@ -447,16 +617,46 @@ class NexradSource(_BaseSource):
                 selected.append(best)
         return [k for k, _ in selected]
 
-    def fetch(self, key, dest=None) -> str:
+    @staticmethod
+    def _s3_path(key) -> str:
+        """Return the canonical ``bucket/key`` path for ``key``.
+
+        ``fs.ls`` yields bucket-qualified paths (e.g.
+        ``noaa-nexrad-level2/2024/06/01/KTLX/...``) whereas callers may pass a
+        bare key (``2024/06/01/KTLX/...``). Both must normalise to *exactly*
+        one bucket prefix: the previous implementation unconditionally
+        prepended the bucket, so every key produced by :meth:`list_files`
+        became ``bucket/bucket/...`` and the download failed.
+        """
+        norm = str(key).lstrip("/")
+        if norm == _NEXRAD_BUCKET or norm.startswith(_NEXRAD_BUCKET + "/"):
+            return norm
+        return f"{_NEXRAD_BUCKET}/{norm}"
+
+    def fetch(self, key, dest=None, force_refresh: bool = False) -> str:
         fs = self._fs()
         local = dest or self.cache_path(os.path.basename(key))
-        if os.path.exists(local) and os.path.getsize(local) > 0:
+        if self._cache_hit(local, force_refresh=force_refresh):
             return local
-        fs.get(f"{_NEXRAD_BUCKET}/{key.lstrip('/')}", local)
-        # s3fs.get may copy into a directory named like the key; normalise.
-        if os.path.isdir(local):
-            moved = os.path.join(local, os.path.basename(key))
-            return moved
+        # s3fs.get writes in place, so an interrupted transfer used to leave a
+        # truncated file that the size>0 cache probe kept serving forever.
+        # Stage into a unique sibling temp file and commit atomically instead.
+        tmp = _unique_tmp(local)
+        try:
+            fs.get(self._s3_path(key), tmp)
+            if os.path.isdir(tmp):
+                # s3fs.get may create a directory named like the key.
+                moved = os.path.join(tmp, os.path.basename(key))
+                if not os.path.isfile(moved):
+                    raise RemoteDataError(
+                        f"s3fs produced no file for {key!r}")
+                os.replace(moved, local)
+            else:
+                if os.path.getsize(tmp) == 0:
+                    raise RemoteDataError(f"empty download for {key!r}")
+                os.replace(tmp, local)
+        finally:
+            _silent_unlink(tmp)
         return local
 
     def read(self, key, dest=None, **kwargs):
@@ -528,15 +728,15 @@ class NmcCnSource(_BaseSource):
         if site not in _NMC_REGIONS:
             return []
         if isinstance(end, str) and end.lower() == "now":
-            end = datetime.utcnow()
+            end = _utcnow()
         keys = []
         for t in _timespan(start, end, step):
             keys.append(self._region_url(site, t))
         return keys
 
-    def fetch(self, key, dest=None) -> str:
+    def fetch(self, key, dest=None, force_refresh: bool = False) -> str:
         local = dest or self.cache_path(key)
-        if os.path.exists(local) and os.path.getsize(local) > 0:
+        if self._cache_hit(local, force_refresh=force_refresh):
             return local
         data = self._http_get(key)
         self._atomic_write(local, data)
@@ -660,7 +860,7 @@ class CmaMusicSource(_BaseSource):
 
     def _list_keys(self, site, start, end, step):
         if isinstance(end, str) and end.lower() == "now":
-            end = datetime.utcnow()
+            end = _utcnow()
         keys = []
         for t in _timespan(start, end, step):
             keys.append({
@@ -673,10 +873,10 @@ class CmaMusicSource(_BaseSource):
     def list_files(self, site, start, end, step) -> list:
         return self._list_keys(site, start, end, step)
 
-    def fetch(self, key, dest=None) -> str:
+    def fetch(self, key, dest=None, force_refresh: bool = False) -> str:
         local = dest or self.cache_path(
             f"cma_music_{key['dataCode']}_{key['staId']}_{key['timeRange']}")
-        if os.path.exists(local) and os.path.getsize(local) > 0:
+        if self._cache_hit(local, force_refresh=force_refresh):
             return local
         import warnings as _w
         _w.warn(
@@ -727,9 +927,15 @@ class CmaMusicSource(_BaseSource):
             kwargs.setdefault("band", None)
         try:
             return read_cinrad(local, **kwargs)
-        except Exception:
-            # Not a base-data file the bridge can decode; return the local
-            # path so callers can inspect or reprocess it.
+        except Exception as exc:
+            # Not a base-data file the bridge can decode. Returning a path
+            # here breaks the documented ``list[Radar]`` contract, so the
+            # failure must be observable rather than silently swallowed.
+            import warnings as _w
+            _w.warn(
+                f"CmaMusicSource.read could not decode {local!r} as CINRAD "
+                f"base data ({type(exc).__name__}: {exc}); returning the local "
+                "path instead of a Radar object.", RuntimeWarning)
             return local
 
 
@@ -751,9 +957,12 @@ class CmaMosSource(_BaseSource):
     Parameters
     ----------
     station_config : dict or None, optional
-        Mapping of station code -> dict with a ``template`` key and an
-        optional ``band`` key. When None, no sites are configured and
-        :meth:`list_sites` returns ``{}`` with a warning.
+        Mapping of station code -> dict with a ``template`` key, an optional
+        ``band`` key, and an optional ``allow_private`` flag (default False).
+        Set ``allow_private=True`` only for a mirror that genuinely lives on
+        private address space -- it relaxes the SSRF guard for that one
+        station. When None, no sites are configured and :meth:`list_sites`
+        returns ``{}`` with a warning.
     """
 
     name = "cma_mos"
@@ -779,10 +988,16 @@ class CmaMosSource(_BaseSource):
             try:
                 template = cfg["template"]
                 band = cfg.get("band", "S")
+                # Internal mirrors are opt-in *per station*: an operator who
+                # really targets private address space must declare
+                # ``"allow_private": True``. Every other template keeps the
+                # SSRF guard on, so a copy-pasted config cannot silently turn
+                # the registry into an internal port scanner.
+                allow_private = bool(cfg.get("allow_private", False))
                 probe = self._fill_url(template, datetime(2000, 1, 1))
             except (KeyError, TypeError):
                 continue
-            if self._is_reachable(probe):
+            if self._is_reachable(probe, allow_private=allow_private):
                 out[code] = RadarSite(code, 0.0, 0.0, 0.0, band, "CN")
         return out
 
@@ -791,14 +1006,14 @@ class CmaMosSource(_BaseSource):
         if not cfg:
             return []
         if isinstance(end, str) and end.lower() == "now":
-            end = datetime.utcnow()
+            end = _utcnow()
         template = cfg["template"]
         return [self._fill_url(template, t)
                 for t in _timespan(start, end, step)]
 
-    def fetch(self, key, dest=None) -> str:
+    def fetch(self, key, dest=None, force_refresh: bool = False) -> str:
         local = dest or self.cache_path(key)
-        if os.path.exists(local) and os.path.getsize(local) > 0:
+        if self._cache_hit(local, force_refresh=force_refresh):
             return local
         data = self._http_get(key)
         self._atomic_write(local, data)
@@ -809,7 +1024,14 @@ class CmaMosSource(_BaseSource):
         try:
             from .cinrad_bridge import read_cinrad
             return read_cinrad(local, **kwargs)
-        except Exception:
+        except Exception as exc:
+            # See CmaMusicSource.read: the path fallback breaks the documented
+            # ``list[Radar]`` contract, so surface it as a warning.
+            import warnings as _w
+            _w.warn(
+                f"CmaMosSource.read could not decode {local!r} as CINRAD base "
+                f"data ({type(exc).__name__}: {exc}); returning the local path "
+                "instead of a Radar object.", RuntimeWarning)
             return local
 
 
@@ -824,10 +1046,13 @@ _CINE_EXTS = (".cine", ".CINE", ".bin", ".BIN")
 class CineSource(_BaseSource):
     """Offline index over a tree of local CINRAD/CINE files.
 
-    This source never touches the network; it enumerates ``*.cine`` files
-    beneath ``root`` (defaulting to the current working directory), groups
-    them into pseudo-sites by filename prefix, and filters by a timestamp
-    embedded in the file name. ``fetch`` returns the path unchanged and
+    This source never touches the network; it enumerates ``*.cine`` /
+    ``*.bin`` files beneath ``root`` (defaulting to the current working
+    directory), groups them into pseudo-sites by filename prefix, and filters
+    by each file's **modification time** (mtime), not by a timestamp parsed
+    out of the name -- CINE archives carry no dependable in-name timestamp, so
+    ``list_files`` and :meth:`scan_cache` both key off
+    :func:`os.path.getmtime`. ``fetch`` returns the path unchanged and
     ``read`` delegates to :func:`pyart.io.read` (which routes to the CINRAD
     bridge based on filename patterns).
     """
@@ -862,7 +1087,7 @@ class CineSource(_BaseSource):
 
     def list_files(self, site, start, end, step) -> list:
         if isinstance(end, str) and end.lower() == "now":
-            end = datetime.utcnow()
+            end = _utcnow()
         out = []
         for path in self._scan():
             if self._site_of(path) != site:

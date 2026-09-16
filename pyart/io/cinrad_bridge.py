@@ -12,6 +12,7 @@ Requires the optional ``cinrad`` dependency (PyCINRAD)::
 """
 
 import os
+import warnings
 
 import numpy as np
 
@@ -21,11 +22,67 @@ XBAND_DEFAULT_RADIUS = 150
 CBAND_DEFAULT_RADIUS = 230
 SBAND_DEFAULT_RADIUS = 460
 
+# WSR-98D is the 1998-vintage prototype of the CINRAD-SA family. Its byte
+# layout shares the SA decoder, but PyCINRAD's ``infer_type`` cannot recover
+# the radar type from the historical ``Z_RADR_C_DOPPLER_WSR98D_...`` naming
+# convention (no ``O_DOR_<TYPE>_`` segment, so ``spart[7]`` never yields a
+# known type string). ``is_wsr98d_filename`` is the bridge-level detector
+# that lets ``read_cinrad`` route the file to the SA decoder explicitly
+# and surface a non-silent warning to the caller.
+WSR98D_RADAR_TYPE = 'SA'
+WSR98D_FILENAME_PATTERNS = ('WSR98D',)
+
 
 def is_xband_filename(filename):
     """ Return True when the filename looks like a CINRAD X-band file. """
     name = os.path.basename(filename).upper()
     return any(pattern in name for pattern in XBAND_FILENAME_PATTERNS)
+
+
+def is_wsr98d_filename(filename):
+    """ Return True when the filename looks like a WSR-98D (CINRAD-SA 前代).
+
+    The detector is intentionally permissive: any occurrence of ``WSR98D`` in
+    the basename triggers it. False positives are tolerable because the SA
+    decoder is also the correct fallback for SA-compatible files.
+    """
+    name = os.path.basename(str(filename)).upper()
+    return any(pattern in name for pattern in WSR98D_FILENAME_PATTERNS)
+
+
+# Mapping from CINRAD filename keywords to X/S/C band identifiers. The order
+# of evaluation matters because ``SC`` and ``CD`` substrings would also match
+# ``S``/``C`` standalone, so the longer compound identifiers must be tested
+# first. ``SA``/``SB`` are S-band, ``CB``/``CC``/``CD`` are C-band. ``WSR98D``
+# is mapped to ``'S'`` here too (its band is fixed by the historical 1998
+# design) so the ``_resolve_band`` silent fallback cannot happen.
+_CINRAD_NAME_BAND = (
+    ('SC',     'S'),  # S+C dual-polarization; predominantly S-band
+    ('CD',     'C'),  # C+D dual-polarization; predominantly C-band
+    ('SA',     'S'),
+    ('SB',     'S'),
+    ('CB',     'C'),
+    ('CCJ',    'C'),
+    ('CC',     'C'),
+    ('WSR98D', 'S'),
+)
+
+
+def _infer_band_from_filename(filename):
+    """Best-effort band inference from the CINRAD filename keywords.
+
+    Returns ``'X' | 'S' | 'C'`` or ``None`` if no keyword is recognised.
+    The result is advisory only — callers should still let the user
+    override via the ``band=`` argument when the inference is uncertain
+    (e.g. for renamed or un-conventional files).
+    """
+    if filename is None:
+        return None
+    name = os.path.basename(str(filename)).upper()
+    for keyword, band in _CINRAD_NAME_BAND:
+        if keyword in name:
+            return band
+    return None
 
 
 def _read_via_pywr(filename):
@@ -155,6 +212,29 @@ def read_cinrad(filename, radius=SBAND_DEFAULT_RADIUS, station=None,
                 'X': XBAND_DEFAULT_RADIUS,
             }.get(band, radius)
 
+    # WSR-98D: PyCINRAD's ``infer_type`` cannot recover the radar type from
+    # the historical ``Z_RADR_C_DOPPLER_WSR98D_...`` naming convention. We
+    # detect the file at the bridge level, force the SA decoder, and surface
+    # a warning so the caller knows the bridge made an explicit choice
+    # instead of silently guessing.
+    wsr98d_detected = is_wsr98d_filename(filename)
+    if wsr98d_detected:
+        if band is None:
+            band = WSR98D_RADAR_TYPE  # 'SA'
+            radius = SBAND_DEFAULT_RADIUS
+        else:
+            band = WSR98D_RADAR_TYPE  # override whatever the caller passed;
+                                       # WSR-98D is S-band by definition
+            radius = SBAND_DEFAULT_RADIUS
+        warnings.warn(
+            "WSR-98D filename detected: '{name}'. PyCINRAD's infer_type "
+            "cannot recover the radar type from this historical naming "
+            "convention, so the bridge is forcing the CINRAD-SA decoder. "
+            "If parsing fails, install pycwr (`pip install arm_pyart[cinrad]`) "
+            "and retry with `reader='pycwr'`.".format(name=os.path.basename(filename)),
+            RuntimeWarning, stacklevel=2,
+        )
+
     backend = reader or 'cinrad'
     radar = None
 
@@ -165,9 +245,17 @@ def read_cinrad(filename, radius=SBAND_DEFAULT_RADIUS, station=None,
                 try:
                     cinrad_obj = StandardData(filename)
                 except Exception:
-                    cinrad_obj = CinradReader(filename)
+                    # For WSR-98D, ``CinradReader`` needs an explicit
+                    # ``radar_type`` because ``infer_type`` returned None.
+                    if wsr98d_detected:
+                        cinrad_obj = CinradReader(filename, radar_type=WSR98D_RADAR_TYPE)
+                    else:
+                        cinrad_obj = CinradReader(filename)
             else:
-                cinrad_obj = CinradReader(filename)
+                if wsr98d_detected:
+                    cinrad_obj = CinradReader(filename, radar_type=WSR98D_RADAR_TYPE)
+                else:
+                    cinrad_obj = CinradReader(filename)
             radar = standard_data_to_pyart(cinrad_obj, radius=radius)
         except Exception:
             if backend == 'cinrad':
@@ -198,6 +286,24 @@ def read_cinrad(filename, radius=SBAND_DEFAULT_RADIUS, station=None,
 
     if align_gates:
         align_range_gates(radar)
+
+    # Propagate the band hint so downstream dual-polarization helpers
+    # (``cband_sband.calibrate_dualpol`` / ``process_phi_kdp``) select the
+    # correct BAND_PARAMS entry instead of silently falling back to 'C'.
+    #
+    # When the caller did not pass ``band``, infer it from the filename
+    # to avoid the silent ``_resolve_band`` fallback to 'C' that would
+    # otherwise treat an SA radar as C-band.
+    effective_band = band
+    if effective_band is None:
+        effective_band = _infer_band_from_filename(filename)
+    if effective_band is not None:
+        radar.metadata['radar_band'] = effective_band
+
+    # Tag the WSR-98D provenance so downstream tooling can tell the SA
+    # decoder was used on historical WSR-98D bytes, not modern SA data.
+    if wsr98d_detected:
+        radar.metadata['original_container'] = 'CINRAD-WSR98D'
 
     return radar
 
