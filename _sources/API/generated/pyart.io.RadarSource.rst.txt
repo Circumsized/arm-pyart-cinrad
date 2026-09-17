@@ -1,0 +1,35 @@
+pyart.io.RadarSource
+====================
+
+.. currentmodule:: pyart.io
+
+.. autoclass:: RadarSource
+
+   
+
+.. HACK -- the point here is that we don't want this to appear in the output, but the autosummary should still generate the pages.
+
+.. autosummary::
+   :toctree:
+
+
+   ~RadarSource.fetch
+   ~RadarSource.list_files
+   ~RadarSource.list_sites
+   ~RadarSource.read
+   ~RadarSource.read_time_span
+
+
+
+
+   
+
+.. HACK -- the point here is that we don't want this to appear in the output, but the autosummary should still generate the pages.
+
+.. autosummary::
+   :toctree:
+
+
+   ~RadarSource.name
+   ~RadarSource.bands
+

@@ -1,0 +1,36 @@
+pyart.io.RadarSite
+==================
+
+.. currentmodule:: pyart.io
+
+.. autoclass:: RadarSite
+
+   
+
+.. HACK -- the point here is that we don't want this to appear in the output, but the autosummary should still generate the pages.
+
+.. autosummary::
+   :toctree:
+
+
+   ~RadarSite.count
+   ~RadarSite.index
+
+
+
+
+   
+
+.. HACK -- the point here is that we don't want this to appear in the output, but the autosummary should still generate the pages.
+
+.. autosummary::
+   :toctree:
+
+
+   ~RadarSite.altitude
+   ~RadarSite.band
+   ~RadarSite.country
+   ~RadarSite.latitude
+   ~RadarSite.longitude
+   ~RadarSite.name
+

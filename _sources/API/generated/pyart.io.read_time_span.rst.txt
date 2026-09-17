@@ -1,0 +1,6 @@
+pyart.io.read\_time\_span
+=========================
+
+.. currentmodule:: pyart.io
+
+.. autofunction:: read_time_span

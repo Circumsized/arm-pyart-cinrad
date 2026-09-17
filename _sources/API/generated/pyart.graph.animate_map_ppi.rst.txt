@@ -1,0 +1,6 @@
+pyart.graph.animate\_map\_ppi
+=============================
+
+.. currentmodule:: pyart.graph
+
+.. autofunction:: animate_map_ppi

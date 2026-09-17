@@ -1,0 +1,6 @@
+pyart.io.CmaMusicSource.list\_files
+===================================
+
+.. currentmodule:: pyart.io
+
+.. automethod:: CmaMusicSource.list_files

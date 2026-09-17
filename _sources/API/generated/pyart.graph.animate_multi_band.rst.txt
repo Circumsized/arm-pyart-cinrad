@@ -1,0 +1,6 @@
+pyart.graph.animate\_multi\_band
+================================
+
+.. currentmodule:: pyart.graph
+
+.. autofunction:: animate_multi_band

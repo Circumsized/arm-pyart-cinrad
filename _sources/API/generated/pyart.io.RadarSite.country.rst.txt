@@ -1,0 +1,6 @@
+pyart.io.RadarSite.country
+==========================
+
+.. currentmodule:: pyart.io
+
+.. autoattribute:: RadarSite.country

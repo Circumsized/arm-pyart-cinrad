@@ -1,0 +1,6 @@
+pyart.io.read\_sband\_radar
+===========================
+
+.. currentmodule:: pyart.io
+
+.. autofunction:: read_sband_radar

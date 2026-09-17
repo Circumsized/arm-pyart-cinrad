@@ -1,0 +1,6 @@
+pyart.graph.plot\_dualpol\_diagnostic
+=====================================
+
+.. currentmodule:: pyart.graph
+
+.. autofunction:: plot_dualpol_diagnostic

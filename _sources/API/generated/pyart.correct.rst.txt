@@ -1,0 +1,95 @@
+﻿pyart.correct
+=============
+
+.. rubric:: Description
+
+.. automodule:: pyart.correct
+
+.. currentmodule:: pyart.correct
+
+
+.. rubric:: Classes
+
+.. autosummary::
+    :toctree: .
+    
+    GateFilter
+    
+
+
+
+
+.. rubric:: Functions
+
+.. autosummary::
+    :toctree: .
+    
+    apply_clutter_mask
+    
+    calc_cloud_mask
+    
+    calc_noise_floor
+    
+    calc_zdr_offset
+    
+    calculate_attenuation
+    
+    calculate_attenuation_philinear
+    
+    calculate_attenuation_zphi
+    
+    calibrate_dualpol
+    
+    cloud_threshold
+    
+    clutter_mask
+    
+    correct_bias
+    
+    correct_noise_rhohv
+    
+    correct_sys_phase
+    
+    dealias_fourdd
+    
+    dealias_region_based
+    
+    dealias_unwrap_phase
+    
+    despeckle_field
+    
+    det_sys_phase_ray
+    
+    dualpol_qc
+    
+    est_rhohv_rain
+    
+    est_zdr_precip
+    
+    est_zdr_snow
+    
+    find_objects
+    
+    moment_based_gate_filter
+    
+    phase_proc_lp
+    
+    phase_proc_lp_gf
+    
+    process_phi_kdp
+    
+    range_correction
+    
+    selfconsistency_bias
+    
+    selfconsistency_bias2
+    
+    selfconsistency_kdp_phidp
+    
+    selfconsistency_zdr_zh
+    
+    smooth_phidp_double_window
+    
+    smooth_phidp_single_window
+    
+

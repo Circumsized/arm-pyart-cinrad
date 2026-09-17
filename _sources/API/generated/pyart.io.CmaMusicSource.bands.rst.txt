@@ -1,0 +1,6 @@
+pyart.io.CmaMusicSource.bands
+=============================
+
+.. currentmodule:: pyart.io
+
+.. autoattribute:: CmaMusicSource.bands

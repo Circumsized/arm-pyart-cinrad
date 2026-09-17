@@ -1,0 +1,6 @@
+pyart.io.RadarSite.count
+========================
+
+.. currentmodule:: pyart.io
+
+.. automethod:: RadarSite.count

@@ -1,0 +1,6 @@
+pyart.io.read\_cinrad
+=====================
+
+.. currentmodule:: pyart.io
+
+.. autofunction:: read_cinrad

@@ -1,0 +1,1810 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" data-theme="light">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pyart.io.remote &#8212; Py-ART 0.0.post3294 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=cb8930eaaf36d9849b67" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=fd6457a4" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pyart-theme.css?v=40b48845" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../../_static/scripts/fontawesome.js?digest=cb8930eaaf36d9849b67"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67" />
+
+    <script src="../../../_static/documentation_options.js?v=0d1a0456"></script>
+    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('consent', 'default', {
+                    'ad_storage': 'denied',
+                    'ad_user_data': 'denied',
+                    'ad_personalization': 'denied',
+                    'analytics_storage': 'denied'
+                });
+            </script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-JJEG3CV376"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-JJEG3CV376');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/pyart/io/remote';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../../../_static/doc_shared.js?v=6c7402a7"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.0dev" />
+  
+    
+    <script src="../../../_static/searchtools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script src="../../../searchindex.js"></script>
+   
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../../../blog/atom.xml"
+  title="PyART Blog"
+/>
+  
+  </head>
+  <body data-default-mode="light">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Py-ART 0.0.post3294 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../userguide/index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../examples/index.html">
+    Example Gallery
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../API/index.html">
+    API Reference Manual
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../dev/index.html">
+    Developer’s Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../blog.html">
+    Blog
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../notebook-gallery.html">
+    Notebook Gallery
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://github.com/ARM-DOE/pyart/releases">
+    Release Notes
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ARM-DOE/pyart" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/Py_ART" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i><span class="visually-hidden">Twitter</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../userguide/index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../examples/index.html">
+    Example Gallery
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../API/index.html">
+    API Reference Manual
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../dev/index.html">
+    Developer’s Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../blog.html">
+    Blog
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../notebook-gallery.html">
+    Notebook Gallery
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://github.com/ARM-DOE/pyart/releases">
+    Release Notes
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ARM-DOE/pyart" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/Py_ART" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i><span class="visually-hidden">Twitter</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">pyart.io.remote</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                   <h1>Source code for pyart.io.remote</h1><div class="highlight"><pre>
+<span></span><span class="sd">"""</span>
+<span class="sd">pyart.io.remote</span>
+<span class="sd">===============</span>
+
+<span class="sd">A thin, source-agnostic data acquisition layer for radar data.</span>
+
+<span class="sd">The model mirrors the three-step pattern popularised by</span>
+<span class="sd">``zssherman/pyart_animation`` -- *list files in a time span* -&gt; *fetch each</span>
+<span class="sd">to a local cache* -&gt; *read into a* :class:`pyart.core.Radar` -- but is</span>
+<span class="sd">generalised so that NEXRAD (S3), the Chinese Meteorological Administration</span>
+<span class="sd">public endpoints and offline CINE files all share one interface.</span>
+
+<span class="sd">The public entry points are:</span>
+
+<span class="sd">* :class:`RadarSource` -- a :class:`typing.Protocol` describing the contract</span>
+<span class="sd">* :func:`list_sources` / :func:`get_source` -- registry access</span>
+<span class="sd">* :func:`read_time_span` -- convenience helper: pull every sweep in a time</span>
+<span class="sd">  range from a named source and return ``list[Radar]``</span>
+
+<span class="sd">Concrete sources (NEXRAD, NMC, CMA MOS, offline CINE) are registered via</span>
+<span class="sd">:func:`register_source` and are imported lazily so that a missing optional</span>
+<span class="sd">dependency (``s3fs``, ``requests``) never breaks ``import pyart``.</span>
+<span class="sd">"""</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">tempfile</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">NamedTuple</span><span class="p">,</span> <span class="n">Protocol</span><span class="p">,</span> <span class="n">runtime_checkable</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>  <span class="c1"># noqa: F401  (used by raster decode helpers)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_utcnow</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""Naive UTC ``datetime``.</span>
+
+<span class="sd">    ``datetime.utcnow()`` is deprecated on Python 3.12+; this helper keeps the</span>
+<span class="sd">    *naive* semantics required by the public API, where callers pass naive</span>
+<span class="sd">    ``datetime`` objects that are compared against ``start``/``end``. Using an</span>
+<span class="sd">    aware datetime here would raise ``TypeError`` on those comparisons.</span>
+<span class="sd">    """</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">timezone</span>
+
+    <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">tzinfo</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">RemoteDataError</span><span class="p">(</span><span class="ne">RuntimeError</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Raised when a remote source cannot be reached or returns bad data."""</span>
+
+
+<div class="viewcode-block" id="RadarSite">
+<a class="viewcode-back" href="../../../API/generated/pyart.io.RadarSite.html#pyart.io.RadarSite">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">RadarSite</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Minimal site descriptor returned by :meth:`RadarSource.list_sites`."""</span>
+
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">latitude</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">longitude</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">altitude</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">band</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">country</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span></div>
+
+
+
+<div class="viewcode-block" id="RadarSource">
+<a class="viewcode-back" href="../../../API/generated/pyart.io.RadarSource.html#pyart.io.RadarSource">[docs]</a>
+<span class="nd">@runtime_checkable</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">RadarSource</span><span class="p">(</span><span class="n">Protocol</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Contract for a pluggable radar data source.</span>
+
+<span class="sd">    Implementations may subclass :class:`_BaseSource` for shared caching and</span>
+<span class="sd">    retry helpers, but are not required to -- any object exposing these</span>
+<span class="sd">    attributes/methods is accepted by :func:`get_source`.</span>
+<span class="sd">    """</span>
+
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">bands</span><span class="p">:</span> <span class="nb">tuple</span>
+
+<div class="viewcode-block" id="RadarSource.list_sites">
+<a class="viewcode-back" href="../../../API/generated/pyart.io.RadarSource.list_sites.html#pyart.io.RadarSource.list_sites">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">list_sites</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>  <span class="c1"># pragma: no cover - protocol</span>
+        <span class="o">...</span></div>
+
+
+<div class="viewcode-block" id="RadarSource.list_files">
+<a class="viewcode-back" href="../../../API/generated/pyart.io.RadarSource.list_files.html#pyart.io.RadarSource.list_files">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">list_files</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">site</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">step</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
+        <span class="o">...</span></div>
+
+
+<div class="viewcode-block" id="RadarSource.fetch">
+<a class="viewcode-back" href="../../../API/generated/pyart.io.RadarSource.fetch.html#pyart.io.RadarSource.fetch">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">fetch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>  <span class="c1"># pragma: no cover - protocol</span>
+        <span class="o">...</span></div>
+
+
+<div class="viewcode-block" id="RadarSource.read">
+<a class="viewcode-back" href="../../../API/generated/pyart.io.RadarSource.read.html#pyart.io.RadarSource.read">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>  <span class="c1"># pragma: no cover - protocol</span>
+        <span class="o">...</span></div>
+
+
+<div class="viewcode-block" id="RadarSource.read_time_span">
+<a class="viewcode-back" href="../../../API/generated/pyart.io.RadarSource.read_time_span.html#pyart.io.RadarSource.read_time_span">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">read_time_span</span><span class="p">(</span></div>
+
+        <span class="bp">self</span><span class="p">,</span> <span class="n">site</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">step</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span> <span class="o">...</span>  <span class="c1"># pragma: no cover - protocol</span></div>
+
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">_BaseSource</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Optional mixin providing cache-directory and HTTP-retry helpers.</span>
+
+<span class="sd">    Concrete sources inherit this for DRY behaviour (cache path resolution,</span>
+<span class="sd">    bounded retries with exponential back-off) but the public contract is the</span>
+<span class="sd">    :class:`RadarSource` protocol, so third-party sources need not subclass</span>
+<span class="sd">    this class.</span>
+<span class="sd">    """</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">"base"</span>
+    <span class="n">bands</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">=</span> <span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">cache_dir</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">base</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="s2">"PYART_CACHE_DIR"</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s2">"~"</span><span class="p">),</span> <span class="s2">".pyart"</span><span class="p">,</span> <span class="s2">"cache"</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">path</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">cache_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="c1"># Sanitize both path separators so a caller-controlled key can never</span>
+        <span class="c1"># escape the cache directory (Windows accepts both '/' and '\\').</span>
+        <span class="n">safe</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"/"</span><span class="p">,</span> <span class="s2">"_"</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"</span><span class="se">\\</span><span class="s2">"</span><span class="p">,</span> <span class="s2">"_"</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">":"</span><span class="p">,</span> <span class="s2">"_"</span><span class="p">)</span>
+        <span class="n">local</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cache_dir</span><span class="p">(),</span> <span class="n">safe</span><span class="p">)</span>
+        <span class="c1"># Defend against any remaining traversal: resolve and verify the final</span>
+        <span class="c1"># path still lives inside the cache directory.</span>
+        <span class="n">real_local</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="n">local</span><span class="p">)</span>
+        <span class="n">real_base</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cache_dir</span><span class="p">())</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">real_local</span> <span class="o">==</span> <span class="n">real_base</span> <span class="ow">or</span> <span class="n">real_local</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">real_base</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="p">)):</span>
+            <span class="k">raise</span> <span class="n">RemoteDataError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"cache key escapes cache directory: </span><span class="si">{</span><span class="n">key</span><span class="si">!r}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">local</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_cache_hit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">local</span><span class="p">,</span> <span class="n">force_refresh</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Return True when ``local`` already holds a usable cached copy.</span>
+
+<span class="sd">        Only an existing, non-empty regular file counts. ``force_refresh``</span>
+<span class="sd">        gives callers a way out of a *poisoned* entry -- a truncated file</span>
+<span class="sd">        written by an older release or left behind by disk corruption is</span>
+<span class="sd">        otherwise served forever, because the size probe cannot tell it apart</span>
+<span class="sd">        from a complete download.</span>
+<span class="sd">        """</span>
+        <span class="k">if</span> <span class="n">force_refresh</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">local</span><span class="p">)</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getsize</span><span class="p">(</span><span class="n">local</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+        <span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">clear_cache</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Delete every cached file for this source; return the count removed.</span>
+
+<span class="sd">        Recovery path for a poisoned cache; safer than hand-editing</span>
+<span class="sd">        ``$PYART_CACHE_DIR`` because it is scoped to one source directory.</span>
+<span class="sd">        """</span>
+        <span class="n">removed</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">directory</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cache_dir</span><span class="p">()</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">names</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">directory</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+                    <span class="n">os</span><span class="o">.</span><span class="n">unlink</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+                    <span class="n">removed</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
+                <span class="k">continue</span>
+        <span class="k">return</span> <span class="n">removed</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_retry</span><span class="p">(</span>
+        <span class="n">callable_</span><span class="p">,</span>
+        <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+        <span class="n">retries</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="n">backoff</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.5</span><span class="p">,</span>
+        <span class="n">timeout</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">15.0</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Call ``callable_(*args, **kwargs)`` with bounded retries.</span>
+
+<span class="sd">        ``timeout`` is advisory: callers that issue HTTP/S3 requests should</span>
+<span class="sd">        pass it through to the underlying client. ``RemoteDataError`` is</span>
+<span class="sd">        raised after the final failed attempt.</span>
+<span class="sd">        """</span>
+        <span class="n">last_exc</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">for</span> <span class="n">attempt</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">retries</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">return</span> <span class="p">(</span>
+                    <span class="n">callable_</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">_accepts_timeout</span><span class="p">(</span><span class="n">callable_</span><span class="p">)</span>
+                    <span class="k">else</span> <span class="n">callable_</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+                <span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>  <span class="c1"># noqa: BLE001</span>
+                <span class="n">last_exc</span> <span class="o">=</span> <span class="n">exc</span>
+                <span class="k">if</span> <span class="n">attempt</span> <span class="o">&lt;</span> <span class="n">retries</span><span class="p">:</span>
+                    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">backoff</span><span class="o">**</span><span class="n">attempt</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">RemoteDataError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="nb">getattr</span><span class="p">(</span><span class="n">callable_</span><span class="p">,</span><span class="w"> </span><span class="s1">'__name__'</span><span class="p">,</span><span class="w"> </span><span class="n">callable_</span><span class="p">)</span><span class="si">}</span><span class="s2"> failed after "</span>
+            <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">retries</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2"> attempts: </span><span class="si">{</span><span class="n">last_exc</span><span class="si">}</span><span class="s2">"</span>
+        <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">last_exc</span>
+
+    <span class="c1"># The four protocol methods have sensible default implementations that</span>
+    <span class="c1"># raise NotImplementedError so subclasses only override what they need.</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">list_sites</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">list_files</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">site</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">step</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">fetch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">read_time_span</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">site</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">step</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+        <span class="n">keys</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_files</span><span class="p">(</span><span class="n">site</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">step</span><span class="p">)</span>
+        <span class="n">radars</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">failures</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">radars</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">))</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>  <span class="c1"># noqa: BLE001</span>
+                <span class="n">failures</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">key</span><span class="p">,</span> <span class="n">exc</span><span class="p">))</span>
+                <span class="k">continue</span>
+        <span class="k">if</span> <span class="n">failures</span><span class="p">:</span>
+            <span class="c1"># Skipping every failure silently made "all reads failed" look</span>
+            <span class="c1"># exactly like "no data in this window". Keep skipping (the</span>
+            <span class="c1"># documented behaviour) but make it observable.</span>
+            <span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">_w</span>
+
+            <span class="n">detail</span> <span class="o">=</span> <span class="s2">"; "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">k</span><span class="si">!r}</span><span class="s2">: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">failures</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
+            <span class="p">)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">failures</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
+                <span class="n">detail</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">"; ... (+</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">failures</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">3</span><span class="si">}</span><span class="s2"> more)"</span>
+            <span class="n">_w</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.read_time_span: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">failures</span><span class="p">)</span><span class="si">}</span><span class="s2"> of "</span>
+                <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">keys</span><span class="p">)</span><span class="si">}</span><span class="s2"> reads failed and were skipped (</span><span class="si">{</span><span class="n">detail</span><span class="si">}</span><span class="s2">)."</span><span class="p">,</span>
+                <span class="ne">RuntimeWarning</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="n">radars</span>
+
+    <span class="c1"># -- HTTP helpers -------------------------------------------------------</span>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_validate_url</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">allow_private</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Return True when ``url`` is safe to request.</span>
+
+<span class="sd">        Restricts the scheme to ``http``/``https`` and (unless</span>
+<span class="sd">        ``allow_private``) rejects loopback, link-local, private, and cloud</span>
+<span class="sd">        metadata hosts. This is an SSRF guard for caller-supplied URLs</span>
+<span class="sd">        (``key['url']``, ``station_config['template']``).</span>
+<span class="sd">        """</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="kn">from</span><span class="w"> </span><span class="nn">urllib.parse</span><span class="w"> </span><span class="kn">import</span> <span class="n">urlparse</span>
+
+            <span class="n">parsed</span> <span class="o">=</span> <span class="n">urlparse</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>  <span class="c1"># noqa: BLE001</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="n">parsed</span><span class="o">.</span><span class="n">scheme</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"http"</span><span class="p">,</span> <span class="s2">"https"</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">parsed</span><span class="o">.</span><span class="n">hostname</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="n">allow_private</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="n">host</span> <span class="o">=</span> <span class="n">parsed</span><span class="o">.</span><span class="n">hostname</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">host</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"localhost"</span><span class="p">,</span> <span class="s2">"127.0.0.1"</span><span class="p">,</span> <span class="s2">"::1"</span><span class="p">,</span> <span class="s2">"169.254.169.254"</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">ipaddress</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">ip</span> <span class="o">=</span> <span class="n">ipaddress</span><span class="o">.</span><span class="n">ip_address</span><span class="p">(</span><span class="n">host</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="c1"># Not a raw IP; could be a DNS name. Allow (we cannot resolve it</span>
+            <span class="c1"># here without a DNS call, which itself is out of scope).</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="ow">not</span> <span class="p">(</span>
+            <span class="n">ip</span><span class="o">.</span><span class="n">is_private</span>
+            <span class="ow">or</span> <span class="n">ip</span><span class="o">.</span><span class="n">is_loopback</span>
+            <span class="ow">or</span> <span class="n">ip</span><span class="o">.</span><span class="n">is_link_local</span>
+            <span class="ow">or</span> <span class="n">ip</span><span class="o">.</span><span class="n">is_reserved</span>
+            <span class="ow">or</span> <span class="n">ip</span><span class="o">.</span><span class="n">is_multicast</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_http_get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mf">15.0</span><span class="p">,</span> <span class="n">allow_private</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">max_redirects</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""GET ``url`` and return bytes, with bounded retries.</span>
+
+<span class="sd">        Redirects are followed **manually** and re-validated at every hop.</span>
+<span class="sd">        Letting ``requests`` follow them (its default) defeated the SSRF guard</span>
+<span class="sd">        completely: a validated public URL could answer 302 to</span>
+<span class="sd">        ``http://169.254.169.254/`` and the client fetched it anyway -- see the</span>
+<span class="sd">        ``_validate_url`` docstring for the residual hostname-resolution risk.</span>
+<span class="sd">        """</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+        <span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span>
+                <span class="s2">"requests is required for HTTP sources; install it with "</span>
+                <span class="s1">'"pip install arm_pyart[remote]"'</span>
+            <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">exc</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">urllib.parse</span><span class="w"> </span><span class="kn">import</span> <span class="n">urljoin</span>
+
+        <span class="k">for</span> <span class="n">_hop</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_redirects</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_validate_url</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">allow_private</span><span class="o">=</span><span class="n">allow_private</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="n">RemoteDataError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Refusing to request unsafe URL: </span><span class="si">{</span><span class="n">url</span><span class="si">!r}</span><span class="s2">"</span><span class="p">)</span>
+
+            <span class="k">def</span><span class="w"> </span><span class="nf">_do</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+                <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">,</span> <span class="n">allow_redirects</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+                <span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+                <span class="k">return</span> <span class="n">r</span>
+
+            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_retry</span><span class="p">(</span><span class="n">_do</span><span class="p">,</span> <span class="n">retries</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">is_redirect</span><span class="p">:</span>
+                <span class="n">location</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"Location"</span><span class="p">)</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">location</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">RemoteDataError</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s2">"Redirect without Location header from </span><span class="si">{</span><span class="n">url</span><span class="si">!r}</span><span class="s2">"</span>
+                    <span class="p">)</span>
+                <span class="n">url</span> <span class="o">=</span> <span class="n">urljoin</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">location</span><span class="p">)</span>
+                <span class="k">continue</span>
+            <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">content</span>
+        <span class="k">raise</span> <span class="n">RemoteDataError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"too many redirects (&gt;</span><span class="si">{</span><span class="n">max_redirects</span><span class="si">}</span><span class="s2">) while fetching </span><span class="si">{</span><span class="n">url</span><span class="si">!r}</span><span class="s2">"</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_http_get_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mf">15.0</span><span class="p">,</span> <span class="n">allow_private</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+        <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_http_get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">,</span> <span class="n">allow_private</span><span class="o">=</span><span class="n">allow_private</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span>
+                <span class="s2">"utf-8"</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_is_reachable</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mf">8.0</span><span class="p">,</span> <span class="n">allow_private</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""HEAD-probe ``url``; return True when it answers below 5xx.</span>
+
+<span class="sd">        The URL is run through :meth:`_validate_url` before any socket is</span>
+<span class="sd">        opened -- the probe previously requested arbitrary caller-supplied</span>
+<span class="sd">        hosts with no guard whatsoever. ``allow_private`` is opt-in for</span>
+<span class="sd">        operator-configured mirrors (see :class:`CmaMosSource`).</span>
+<span class="sd">        """</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">_BaseSource</span><span class="o">.</span><span class="n">_validate_url</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">allow_private</span><span class="o">=</span><span class="n">allow_private</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+        <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">,</span> <span class="n">allow_redirects</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">&lt;</span> <span class="mi">500</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>  <span class="c1"># noqa: BLE001</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_atomic_write</span><span class="p">(</span><span class="n">local</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Write ``data`` to ``local`` atomically.</span>
+
+<span class="sd">        Stages the payload in a **unique** sibling temp file and commits it with</span>
+<span class="sd">        ``os.replace``, so concurrent readers never observe a half-written cache</span>
+<span class="sd">        entry and concurrent writers never share a temp name. The temp file is</span>
+<span class="sd">        removed on both success and failure.</span>
+<span class="sd">        """</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="n">_unique_tmp</span><span class="p">(</span><span class="n">local</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="s2">"wb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">fh</span><span class="p">:</span>
+                <span class="n">fh</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+                <span class="n">fh</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">fsync</span><span class="p">(</span><span class="n">fh</span><span class="o">.</span><span class="n">fileno</span><span class="p">())</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="n">local</span><span class="p">)</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="c1"># ``os.replace`` on Windows can transiently hold the directory</span>
+            <span class="c1"># entry, so the best-effort unlink is now also re-issued once the</span>
+            <span class="c1"># replace is done. Concurrent writers still cannot collide on a</span>
+            <span class="c1"># shared name (each has its own ``_unique_tmp``), but this avoids</span>
+            <span class="c1"># spurious PermissionError when the OS is mid-unlink.</span>
+            <span class="n">_silent_unlink</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span>
+            <span class="c1"># On Windows, an immediately-prior unlink may race with the</span>
+            <span class="c1"># directory entry being committed; a second pass is harmless.</span>
+            <span class="n">_silent_unlink</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_accepts_timeout</span><span class="p">(</span><span class="n">func</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">inspect</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">sig</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">signature</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+    <span class="k">except</span> <span class="p">(</span><span class="ne">TypeError</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">return</span> <span class="s2">"timeout"</span> <span class="ow">in</span> <span class="n">sig</span><span class="o">.</span><span class="n">parameters</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_unique_tmp</span><span class="p">(</span><span class="n">local</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Return a unique sibling temp path for ``local``.</span>
+
+<span class="sd">    All writers previously shared ``&lt;local&gt;.tmp``; two concurrent writers then</span>
+<span class="sd">    truncated and wrote the *same* file, and ``os.replace`` committed the</span>
+<span class="sd">    interleaved result as if it were valid content (verified by a 4-thread</span>
+<span class="sd">    probe). Unique names make each writer independent.</span>
+<span class="sd">    """</span>
+    <span class="n">directory</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">local</span><span class="p">))</span> <span class="ow">or</span> <span class="s2">"."</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">directory</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">fd</span><span class="p">,</span> <span class="n">tmp</span> <span class="o">=</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">mkstemp</span><span class="p">(</span>
+        <span class="n">prefix</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">local</span><span class="p">)</span> <span class="o">+</span> <span class="s2">"."</span><span class="p">,</span> <span class="n">suffix</span><span class="o">=</span><span class="s2">".part"</span><span class="p">,</span> <span class="nb">dir</span><span class="o">=</span><span class="n">directory</span>
+    <span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fd</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">tmp</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_silent_unlink</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Remove ``path``, ignoring anything already gone."""</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">unlink</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
+        <span class="k">pass</span>
+
+
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="c1"># Registry</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+
+<span class="n">_SOURCES</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{}</span>
+
+
+<div class="viewcode-block" id="register_source">
+<a class="viewcode-back" href="../../../API/generated/pyart.io.register_source.html#pyart.io.register_source">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">register_source</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Class decorator: register a concrete source under ``cls.name``."""</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="s2">"name"</span><span class="p">,</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"source class must define a non-empty 'name'"</span><span class="p">)</span>
+    <span class="n">_SOURCES</span><span class="p">[</span><span class="bp">cls</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="bp">cls</span>
+    <span class="k">return</span> <span class="bp">cls</span></div>
+
+
+
+<div class="viewcode-block" id="list_sources">
+<a class="viewcode-back" href="../../../API/generated/pyart.io.list_sources.html#pyart.io.list_sources">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">list_sources</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Return the sorted names of all registered radar sources."""</span>
+    <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">_SOURCES</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="get_source">
+<a class="viewcode-back" href="../../../API/generated/pyart.io.get_source.html#pyart.io.get_source">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_source</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">RadarSource</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Instantiate a registered source by name.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    name : str</span>
+<span class="sd">        Registered source name, e.g. ``'nexrad'``.</span>
+<span class="sd">    **kwargs</span>
+<span class="sd">        Forwarded to the source constructor.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    KeyError</span>
+<span class="sd">        If ``name`` is not registered.</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_SOURCES</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Unknown radar source '</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">'. Available: </span><span class="si">{</span><span class="n">list_sources</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">_SOURCES</span><span class="p">[</span><span class="n">name</span><span class="p">](</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="read_time_span">
+<a class="viewcode-back" href="../../../API/generated/pyart.io.read_time_span.html#pyart.io.read_time_span">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">read_time_span</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">site</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">step</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Pull every sweep in ``[start, end)`` at ``step`` cadence.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    source : str or RadarSource</span>
+<span class="sd">        Source name or instance.</span>
+<span class="sd">    site : str</span>
+<span class="sd">        Site identifier (e.g. NEXRAD ICAO code or CMA station id).</span>
+<span class="sd">    start, end : datetime.datetime</span>
+<span class="sd">        Time range. ``end='now'`` (string) resolves to the current naive UTC</span>
+<span class="sd">        time (see :func:`_utcnow`), mirroring ``zssherman/pyart_animation``.</span>
+<span class="sd">    step : datetime.timedelta</span>
+<span class="sd">        Cadence between scans.</span>
+<span class="sd">    **kwargs</span>
+<span class="sd">        Forwarded to ``source.read`` (e.g. ``scans=(0, 1)`` for NEXRAD).</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    radars : list of Radar</span>
+<span class="sd">        One entry per successfully read file; failed reads are skipped (a</span>
+<span class="sd">        warning is emitted when any read fails, so a short result can be</span>
+<span class="sd">        distinguished from an empty time window).</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    TypeError, ValueError</span>
+<span class="sd">        If ``step`` is not a strictly positive :class:`~datetime.timedelta`.</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">source</span> <span class="o">=</span> <span class="n">get_source</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">step</span><span class="p">,</span> <span class="n">timedelta</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"step must be a datetime.timedelta, got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">step</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">step</span> <span class="o">&lt;=</span> <span class="n">timedelta</span><span class="p">(</span><span class="mi">0</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"step must be strictly positive, got </span><span class="si">{</span><span class="n">step</span><span class="si">!r}</span><span class="s2">: a non-positive "</span>
+            <span class="s2">"step never advances the time grid and never terminates."</span>
+        <span class="p">)</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">end</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="n">end</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">"now"</span><span class="p">:</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="n">_utcnow</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">source</span><span class="o">.</span><span class="n">read_time_span</span><span class="p">(</span><span class="n">site</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">step</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
+
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">"RemoteDataError"</span><span class="p">,</span>
+    <span class="s2">"RadarSite"</span><span class="p">,</span>
+    <span class="s2">"RadarSource"</span><span class="p">,</span>
+    <span class="s2">"register_source"</span><span class="p">,</span>
+    <span class="s2">"list_sources"</span><span class="p">,</span>
+    <span class="s2">"get_source"</span><span class="p">,</span>
+    <span class="s2">"read_time_span"</span><span class="p">,</span>
+    <span class="s2">"NexradSource"</span><span class="p">,</span>
+    <span class="s2">"NmcCnSource"</span><span class="p">,</span>
+    <span class="s2">"CmaMusicSource"</span><span class="p">,</span>
+    <span class="s2">"CmaMosSource"</span><span class="p">,</span>
+    <span class="s2">"CineSource"</span><span class="p">,</span>
+<span class="p">]</span>
+
+
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="c1"># NEXRAD Level II source (anonymous AWS S3)</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">_NEXRAD_BUCKET</span> <span class="o">=</span> <span class="s2">"noaa-nexrad-level2"</span>
+<span class="c1"># Real NEXRAD Level II keys look like ``KTLX20240601_000012_V06``:</span>
+<span class="c1"># &lt;SITE&gt;&lt;YYYYMMDD&gt;_&lt;HHMMSS&gt;_V&lt;version&gt;. The date follows the site code with</span>
+<span class="c1"># **no** separating underscore, so the pattern must not require one -- an</span>
+<span class="c1"># earlier revision anchored on ``_(\d{8})`` and therefore matched nothing,</span>
+<span class="c1"># silently degrading every listing to an empty result.</span>
+<span class="n">_NEXRAD_KEY_RE</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">"(\d</span><span class="si">{8}</span><span class="s2">)_(\d</span><span class="si">{6}</span><span class="s2">)_V"</span><span class="p">)</span>
+<span class="c1"># A small, non-exhaustive set of well-known WSR-88D ICAO sites. The full</span>
+<span class="c1"># network is ~160 sites; callers may pass any valid ICAO code to list_files.</span>
+<span class="n">_NEXRAD_SITES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"KLOT"</span><span class="p">:</span> <span class="n">RadarSite</span><span class="p">(</span><span class="s2">"KLOT"</span><span class="p">,</span> <span class="mf">41.604</span><span class="p">,</span> <span class="o">-</span><span class="mf">87.539</span><span class="p">,</span> <span class="mf">200.0</span><span class="p">,</span> <span class="s2">"S"</span><span class="p">,</span> <span class="s2">"US"</span><span class="p">),</span>
+    <span class="s2">"KTLX"</span><span class="p">:</span> <span class="n">RadarSite</span><span class="p">(</span><span class="s2">"KTLX"</span><span class="p">,</span> <span class="mf">35.333</span><span class="p">,</span> <span class="o">-</span><span class="mf">97.278</span><span class="p">,</span> <span class="mf">390.0</span><span class="p">,</span> <span class="s2">"S"</span><span class="p">,</span> <span class="s2">"US"</span><span class="p">),</span>
+    <span class="s2">"KMTX"</span><span class="p">:</span> <span class="n">RadarSite</span><span class="p">(</span><span class="s2">"KMTX"</span><span class="p">,</span> <span class="mf">41.033</span><span class="p">,</span> <span class="o">-</span><span class="mf">112.044</span><span class="p">,</span> <span class="mf">1700.0</span><span class="p">,</span> <span class="s2">"S"</span><span class="p">,</span> <span class="s2">"US"</span><span class="p">),</span>
+    <span class="s2">"KFWS"</span><span class="p">:</span> <span class="n">RadarSite</span><span class="p">(</span><span class="s2">"KFWS"</span><span class="p">,</span> <span class="mf">32.573</span><span class="p">,</span> <span class="o">-</span><span class="mf">97.303</span><span class="p">,</span> <span class="mf">232.0</span><span class="p">,</span> <span class="s2">"S"</span><span class="p">,</span> <span class="s2">"US"</span><span class="p">),</span>
+    <span class="s2">"KHGX"</span><span class="p">:</span> <span class="n">RadarSite</span><span class="p">(</span><span class="s2">"KHGX"</span><span class="p">,</span> <span class="mf">29.472</span><span class="p">,</span> <span class="o">-</span><span class="mf">95.079</span><span class="p">,</span> <span class="mf">16.0</span><span class="p">,</span> <span class="s2">"S"</span><span class="p">,</span> <span class="s2">"US"</span><span class="p">),</span>
+    <span class="s2">"KEWX"</span><span class="p">:</span> <span class="n">RadarSite</span><span class="p">(</span><span class="s2">"KEWX"</span><span class="p">,</span> <span class="mf">29.704</span><span class="p">,</span> <span class="o">-</span><span class="mf">98.029</span><span class="p">,</span> <span class="mf">198.0</span><span class="p">,</span> <span class="s2">"S"</span><span class="p">,</span> <span class="s2">"US"</span><span class="p">),</span>
+<span class="p">}</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_timespan</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">step</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Yield ``datetime`` grid points from ``start`` to ``end`` at ``step``.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        If ``step`` is not strictly positive. A zero or negative step never</span>
+<span class="sd">        advances the grid point, so the loop runs forever -- verified: both</span>
+<span class="sd">        ``timedelta(0)`` and a negative step hang the interpreter until the</span>
+<span class="sd">        process is killed.</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">step</span><span class="p">,</span> <span class="n">timedelta</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"step must be a datetime.timedelta, got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">step</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">step</span> <span class="o">&lt;=</span> <span class="n">timedelta</span><span class="p">(</span><span class="mi">0</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"step must be strictly positive, got </span><span class="si">{</span><span class="n">step</span><span class="si">!r}</span><span class="s2">: a non-positive "</span>
+            <span class="s2">"step never advances the time grid and never terminates."</span>
+        <span class="p">)</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">start</span>
+    <span class="k">while</span> <span class="n">t</span> <span class="o">&lt;</span> <span class="n">end</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">t</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">t</span> <span class="o">+</span> <span class="n">step</span>
+
+
+<span class="nd">@register_source</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">NexradSource</span><span class="p">(</span><span class="n">_BaseSource</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""NEXRAD Level II archive source on the public anonymous AWS S3 bucket.</span>
+
+<span class="sd">    Mirrors the access pattern of ``zssherman/pyart_animation``: list keys</span>
+<span class="sd">    under ``s3://noaa-nexrad-level2/{Y}/{m}/{d}/{SITE}/`` for each day in the</span>
+<span class="sd">    requested span, pick one file per ``step`` grid point, fetch to the local</span>
+<span class="sd">    pooch-style cache, and read with :func:`pyart.io.read_nexrad_archive`.</span>
+<span class="sd">    """</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">"nexrad"</span>
+    <span class="n">bands</span> <span class="o">=</span> <span class="p">(</span><span class="s2">"S"</span><span class="p">,)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">anon</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_anon</span> <span class="o">=</span> <span class="n">anon</span>
+
+    <span class="c1"># -- S3 plumbing --------------------------------------------------------</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_fs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="kn">import</span><span class="w"> </span><span class="nn">s3fs</span>
+        <span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span>
+                <span class="s2">"s3fs is required for NexradSource; install it with "</span>
+                <span class="s1">'"pip install s3fs"'</span>
+            <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">exc</span>
+        <span class="k">return</span> <span class="n">s3fs</span><span class="o">.</span><span class="n">S3FileSystem</span><span class="p">(</span><span class="n">anon</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_anon</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">list_sites</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">_NEXRAD_SITES</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_parse_time</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">_NEXRAD_KEY_RE</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">m</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="s2">"%Y%m</span><span class="si">%d</span><span class="s2">%H%M%S"</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_list_prefix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">prefix</span><span class="p">):</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">_NEXRAD_BUCKET</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2">"</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">entries</span> <span class="o">=</span> <span class="n">fs</span><span class="o">.</span><span class="n">ls</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[]</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">entries</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">entry</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">"/"</span><span class="p">):</span>
+                <span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">out</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">list_files</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">site</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">step</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+        <span class="n">site</span> <span class="o">=</span> <span class="n">site</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">end</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="n">end</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">"now"</span><span class="p">:</span>
+            <span class="n">end</span> <span class="o">=</span> <span class="n">_utcnow</span><span class="p">()</span>
+        <span class="n">fs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fs</span><span class="p">()</span>
+        <span class="n">keys</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">day</span> <span class="o">=</span> <span class="n">start</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
+        <span class="n">one_day</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">while</span> <span class="n">day</span> <span class="o">&lt;=</span> <span class="n">end</span><span class="o">.</span><span class="n">date</span><span class="p">():</span>
+            <span class="n">prefix</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">day</span><span class="si">:</span><span class="s2">%Y/%m/%d</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">site</span><span class="si">}</span><span class="s2">"</span>
+            <span class="n">keys</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_list_prefix</span><span class="p">(</span><span class="n">fs</span><span class="p">,</span> <span class="n">prefix</span><span class="p">))</span>
+            <span class="n">day</span> <span class="o">=</span> <span class="n">day</span> <span class="o">+</span> <span class="n">one_day</span>
+        <span class="n">parsed</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">:</span>
+            <span class="n">t</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse_time</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">t</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">start</span> <span class="o">&lt;=</span> <span class="n">t</span> <span class="o">&lt;</span> <span class="n">end</span><span class="p">:</span>
+                <span class="n">parsed</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">key</span><span class="p">,</span> <span class="n">t</span><span class="p">))</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">parsed</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[]</span>
+        <span class="n">parsed</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">kt</span><span class="p">:</span> <span class="n">kt</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="c1"># Pick the nearest key to each step grid point (zssherman approach).</span>
+        <span class="n">selected</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">grid_t</span> <span class="ow">in</span> <span class="n">_timespan</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">step</span><span class="p">):</span>
+            <span class="n">best</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span>
+                <span class="n">parsed</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">kt</span><span class="p">,</span> <span class="n">gt</span><span class="o">=</span><span class="n">grid_t</span><span class="p">:</span> <span class="nb">abs</span><span class="p">((</span><span class="n">kt</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">gt</span><span class="p">)</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">())</span>
+            <span class="p">)</span>
+            <span class="k">if</span> <span class="n">best</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">selected</span><span class="p">:</span>
+                <span class="n">selected</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">best</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">selected</span><span class="p">]</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_s3_path</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Return the canonical ``bucket/key`` path for ``key``.</span>
+
+<span class="sd">        ``fs.ls`` yields bucket-qualified paths (e.g.</span>
+<span class="sd">        ``noaa-nexrad-level2/2024/06/01/KTLX/...``) whereas callers may pass a</span>
+<span class="sd">        bare key (``2024/06/01/KTLX/...``). Both must normalise to *exactly*</span>
+<span class="sd">        one bucket prefix: the previous implementation unconditionally</span>
+<span class="sd">        prepended the bucket, so every key produced by :meth:`list_files`</span>
+<span class="sd">        became ``bucket/bucket/...`` and the download failed.</span>
+<span class="sd">        """</span>
+        <span class="n">norm</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">key</span><span class="p">)</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s2">"/"</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">norm</span> <span class="o">==</span> <span class="n">_NEXRAD_BUCKET</span> <span class="ow">or</span> <span class="n">norm</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">_NEXRAD_BUCKET</span> <span class="o">+</span> <span class="s2">"/"</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">norm</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">_NEXRAD_BUCKET</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">norm</span><span class="si">}</span><span class="s2">"</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">fetch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">force_refresh</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">fs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fs</span><span class="p">()</span>
+        <span class="n">local</span> <span class="o">=</span> <span class="n">dest</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">cache_path</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">key</span><span class="p">))</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache_hit</span><span class="p">(</span><span class="n">local</span><span class="p">,</span> <span class="n">force_refresh</span><span class="o">=</span><span class="n">force_refresh</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">local</span>
+        <span class="c1"># s3fs.get writes in place, so an interrupted transfer used to leave a</span>
+        <span class="c1"># truncated file that the size&gt;0 cache probe kept serving forever.</span>
+        <span class="c1"># Stage into a unique sibling temp file and commit atomically instead.</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="n">_unique_tmp</span><span class="p">(</span><span class="n">local</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">fs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_s3_path</span><span class="p">(</span><span class="n">key</span><span class="p">),</span> <span class="n">tmp</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">tmp</span><span class="p">):</span>
+                <span class="c1"># s3fs.get may create a directory named like the key.</span>
+                <span class="n">moved</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">key</span><span class="p">))</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">moved</span><span class="p">):</span>
+                    <span class="k">raise</span> <span class="n">RemoteDataError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"s3fs produced no file for </span><span class="si">{</span><span class="n">key</span><span class="si">!r}</span><span class="s2">"</span><span class="p">)</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">moved</span><span class="p">,</span> <span class="n">local</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getsize</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">RemoteDataError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"empty download for </span><span class="si">{</span><span class="n">key</span><span class="si">!r}</span><span class="s2">"</span><span class="p">)</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="n">local</span><span class="p">)</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="n">_silent_unlink</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">local</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">.nexrad_archive</span><span class="w"> </span><span class="kn">import</span> <span class="n">read_nexrad_archive</span>
+
+        <span class="n">local</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="n">dest</span><span class="p">)</span>
+        <span class="n">scans</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">"scans"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="n">reader_kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"storage_options"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"anon"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_anon</span><span class="p">}}</span>
+        <span class="n">reader_kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">scans</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">reader_kwargs</span><span class="p">[</span><span class="s2">"scans"</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">scans</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">read_nexrad_archive</span><span class="p">(</span><span class="n">local</span><span class="p">,</span> <span class="o">**</span><span class="n">reader_kwargs</span><span class="p">)</span>
+
+
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="c1"># Central Meteorological Observatory (nmc.cn) public anonymous source</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+
+<span class="n">_NMC_BASE</span> <span class="o">=</span> <span class="s2">"http://www.nmc.cn"</span>
+<span class="c1"># Best-effort URL templates for the public nmc.cn radar composite imagery.</span>
+<span class="c1"># nmc.cn serves national / regional radar mosaic PNGs refreshed every 6 min.</span>
+<span class="c1"># These templates are probed at list_sites time and may need adjustment as the</span>
+<span class="c1"># upstream site evolves; unreachable regions are silently dropped.</span>
+<span class="n">_NMC_REGIONS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"nationwide"</span><span class="p">:</span> <span class="p">(</span><span class="s2">"all"</span><span class="p">,</span> <span class="s2">"China-wide composite mosaic"</span><span class="p">),</span>
+    <span class="s2">"huabei"</span><span class="p">:</span> <span class="p">(</span><span class="s2">"huabei"</span><span class="p">,</span> <span class="s2">"North China regional mosaic"</span><span class="p">),</span>
+    <span class="s2">"huadong"</span><span class="p">:</span> <span class="p">(</span><span class="s2">"huadong"</span><span class="p">,</span> <span class="s2">"East China regional mosaic"</span><span class="p">),</span>
+    <span class="s2">"huanan"</span><span class="p">:</span> <span class="p">(</span><span class="s2">"huanan"</span><span class="p">,</span> <span class="s2">"South China regional mosaic"</span><span class="p">),</span>
+    <span class="s2">"xinan"</span><span class="p">:</span> <span class="p">(</span><span class="s2">"xinan"</span><span class="p">,</span> <span class="s2">"Southwest China regional mosaic"</span><span class="p">),</span>
+<span class="p">}</span>
+
+
+<span class="nd">@register_source</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">NmcCnSource</span><span class="p">(</span><span class="n">_BaseSource</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Public anonymous radar composite source from nmc.cn.</span>
+
+<span class="sd">    nmc.cn publishes radar *mosaic imagery* (PNG), not polar volumes, so</span>
+<span class="sd">    :meth:`read` returns the local cached path (a raster) rather than a</span>
+<span class="sd">    :class:`pyart.core.Radar`. This makes the source useful for the</span>
+<span class="sd">    discovery + caching half of the workflow; pair it with a polar source</span>
+<span class="sd">    (NEXRAD / CINRAD) when a ``Radar`` object is required.</span>
+
+<span class="sd">    ``list_sites`` probes each region URL for reachability and drops any that</span>
+<span class="sd">    are unreachable (assumption #6 of the plan).</span>
+<span class="sd">    """</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">"nmc_cn"</span>
+    <span class="n">bands</span> <span class="o">=</span> <span class="p">(</span><span class="s2">"C"</span><span class="p">,</span> <span class="s2">"X"</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_region_url</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">region</span><span class="p">,</span> <span class="n">when</span><span class="p">):</span>
+        <span class="n">code</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_NMC_REGIONS</span><span class="p">[</span><span class="n">region</span><span class="p">]</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">_NMC_BASE</span><span class="si">}</span><span class="s2">/publish/radar/</span><span class="si">{</span><span class="n">code</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">when</span><span class="si">:</span><span class="s2">%Y%m%d%H</span><span class="si">}</span><span class="s2">.png"</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">list_sites</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">region</span><span class="p">,</span> <span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">desc</span><span class="p">)</span> <span class="ow">in</span> <span class="n">_NMC_REGIONS</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">_NMC_BASE</span><span class="si">}</span><span class="s2">/publish/radar/</span><span class="si">{</span><span class="n">code</span><span class="si">}</span><span class="s2">.html"</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_reachable</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+                <span class="n">out</span><span class="p">[</span><span class="n">region</span><span class="p">]</span> <span class="o">=</span> <span class="n">RadarSite</span><span class="p">(</span><span class="n">region</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">"C"</span><span class="p">,</span> <span class="s2">"CN"</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">out</span><span class="p">:</span>
+            <span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                <span class="s2">"NmcCnSource: no nmc.cn region reachable; list_sites empty. "</span>
+                <span class="s2">"The upstream site may have changed; review _NMC_REGIONS."</span><span class="p">,</span>
+                <span class="ne">RuntimeWarning</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="n">out</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">list_files</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">site</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">step</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">site</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_NMC_REGIONS</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">end</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="n">end</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">"now"</span><span class="p">:</span>
+            <span class="n">end</span> <span class="o">=</span> <span class="n">_utcnow</span><span class="p">()</span>
+        <span class="n">keys</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">_timespan</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">step</span><span class="p">):</span>
+            <span class="n">keys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_region_url</span><span class="p">(</span><span class="n">site</span><span class="p">,</span> <span class="n">t</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">keys</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">fetch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">force_refresh</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">local</span> <span class="o">=</span> <span class="n">dest</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">cache_path</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache_hit</span><span class="p">(</span><span class="n">local</span><span class="p">,</span> <span class="n">force_refresh</span><span class="o">=</span><span class="n">force_refresh</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">local</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_http_get</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_atomic_write</span><span class="p">(</span><span class="n">local</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">local</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">local</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="n">dest</span><span class="p">)</span>
+        <span class="c1"># nmc.cn serves raster mosaics, not polar Radar objects.</span>
+        <span class="k">return</span> <span class="n">local</span>
+
+
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="c1"># 天擎 MUSIC (CMA data service) — the only public service that exposes real</span>
+<span class="c1"># CINRAD Level-2 base data (X / S / C-band dual-polarization) by station and</span>
+<span class="c1"># time range. Requires registration; credentials are read from environment</span>
+<span class="c1"># variables and never hard-coded.</span>
+<span class="c1">#</span>
+<span class="c1">#   CMA_MUSIC_USER_ID   userId for the MUSIC service</span>
+<span class="c1">#   CMA_MUSIC_API_KEY   apiKey for the MUSIC service</span>
+<span class="c1">#   CMA_MUSIC_SERVER_ID serverId, default "NMIC_MUSIC_CMADAAS"</span>
+<span class="c1">#</span>
+<span class="c1"># The ``cma_music_api`` client package is optional and imported lazily; when</span>
+<span class="c1"># it (or the credentials) is missing, calls raise :class:`RemoteDataError`</span>
+<span class="c1"># with an actionable message instead of failing at import time.</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+
+<span class="n">_MUSIC_DEFAULT_SERVER_ID</span> <span class="o">=</span> <span class="s2">"NMIC_MUSIC_CMADAAS"</span>
+<span class="n">_MUSIC_DATACODE</span> <span class="o">=</span> <span class="s2">"RADA_L2_FMT"</span>
+
+
+<div class="viewcode-block" id="CmaMusicSource">
+<a class="viewcode-back" href="../../../API/generated/pyart.io.CmaMusicSource.html#pyart.io.CmaMusicSource">[docs]</a>
+<span class="nd">@register_source</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">CmaMusicSource</span><span class="p">(</span><span class="n">_BaseSource</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""China Meteorological Administration MUSIC (天擎) radar source.</span>
+
+<span class="sd">    Pulls real CINRAD Level-2 base-data files (X / S / C-band) via the</span>
+<span class="sd">    ``cma_music_api`` client (interface ``getRadaFileByTimeRangeAndStaId``)</span>
+<span class="sd">    and reads them through :func:`pyart.io.read_cinrad`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    station_table : dict or None, optional</span>
+<span class="sd">        Optional mapping of station code -&gt; :class:`RadarSite`. When given it</span>
+<span class="sd">        is returned by :meth:`list_sites`; otherwise station discovery is</span>
+<span class="sd">        attempted via the MUSIC ``getStaInfoByDataCode`` interface, and an</span>
+<span class="sd">        empty dict with a warning is returned when that is unavailable.</span>
+<span class="sd">    user_id, api_key, server_id : str or None, optional</span>
+<span class="sd">        Credential overrides. When None, read from the ``CMA_MUSIC_USER_ID``,</span>
+<span class="sd">        ``CMA_MUSIC_API_KEY`` and ``CMA_MUSIC_SERVER_ID`` environment</span>
+<span class="sd">        variables (``server_id`` defaults to ``NMIC_MUSIC_CMADAAS``).</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    This source cannot be exercised in CI without credentials; tests mock the</span>
+<span class="sd">    client. Run ``python scripts/verify_remote_sources.py cma_music`` on an</span>
+<span class="sd">    authorized machine to validate the real endpoint.</span>
+<span class="sd">    """</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">"cma_music"</span>
+    <span class="n">bands</span> <span class="o">=</span> <span class="p">(</span><span class="s2">"X"</span><span class="p">,</span> <span class="s2">"S"</span><span class="p">,</span> <span class="s2">"C"</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">station_table</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">user_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">server_id</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">station_table</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">station_table</span> <span class="ow">or</span> <span class="p">{})</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">user_id</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"CMA_MUSIC_USER_ID"</span><span class="p">)</span> <span class="k">if</span> <span class="n">user_id</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">user_id</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"CMA_MUSIC_API_KEY"</span><span class="p">)</span> <span class="k">if</span> <span class="n">api_key</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">api_key</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">server_id</span> <span class="o">=</span> <span class="n">server_id</span> <span class="ow">or</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="s2">"CMA_MUSIC_SERVER_ID"</span><span class="p">,</span> <span class="n">_MUSIC_DEFAULT_SERVER_ID</span>
+        <span class="p">)</span>
+
+    <span class="c1"># -- lazy MUSIC client ------------------------------------------------</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_client</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mf">15.0</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_id</span> <span class="ow">or</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_key</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">RemoteDataError</span><span class="p">(</span>
+                <span class="s2">"CmaMusicSource requires MUSIC credentials. Set the "</span>
+                <span class="s2">"CMA_MUSIC_USER_ID and CMA_MUSIC_API_KEY environment "</span>
+                <span class="s2">"variables (and optionally CMA_MUSIC_SERVER_ID)."</span>
+            <span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="kn">from</span><span class="w"> </span><span class="nn">cma_music_api.client</span><span class="w"> </span><span class="kn">import</span> <span class="n">DataQueryClient</span>
+        <span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>  <span class="c1"># pragma: no cover - optional dep</span>
+            <span class="k">raise</span> <span class="n">RemoteDataError</span><span class="p">(</span>
+                <span class="s2">"cma_music_api is required for CmaMusicSource; install it "</span>
+                <span class="s2">"with 'pip install cma-music-api'"</span>
+            <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">exc</span>
+        <span class="k">return</span> <span class="n">DataQueryClient</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">user_id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_key</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">server_id</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span>
+        <span class="p">)</span>
+
+<div class="viewcode-block" id="CmaMusicSource.list_sites">
+<a class="viewcode-back" href="../../../API/generated/pyart.io.CmaMusicSource.list_sites.html#pyart.io.CmaMusicSource.list_sites">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">list_sites</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">station_table</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">station_table</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">client</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">()</span>
+            <span class="n">raw</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">getStaInfoByDataCode</span><span class="p">(</span><span class="n">_MUSIC_DATACODE</span><span class="p">)</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">raw</span> <span class="ow">or</span> <span class="p">[]:</span>
+                <span class="n">code</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"staId"</span><span class="p">)</span> <span class="ow">or</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"Station_Id_d"</span><span class="p">)</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">code</span><span class="p">:</span>
+                    <span class="k">continue</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">lat</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"staLat"</span><span class="p">)</span> <span class="ow">or</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"Lat"</span><span class="p">))</span>
+                    <span class="n">lon</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"staLon"</span><span class="p">)</span> <span class="ow">or</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"Lon"</span><span class="p">))</span>
+                    <span class="n">alt</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"staEle"</span><span class="p">)</span> <span class="ow">or</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"Height"</span><span class="p">)</span> <span class="ow">or</span> <span class="mf">0.0</span><span class="p">)</span>
+                    <span class="c1"># MUSIC stations carry no band info by default; the band</span>
+                    <span class="c1"># is resolved at read time from the file.</span>
+                <span class="k">except</span> <span class="p">(</span><span class="ne">TypeError</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">):</span>
+                    <span class="n">lat</span> <span class="o">=</span> <span class="n">lon</span> <span class="o">=</span> <span class="n">alt</span> <span class="o">=</span> <span class="mf">0.0</span>
+                <span class="n">out</span><span class="p">[</span><span class="n">code</span><span class="p">]</span> <span class="o">=</span> <span class="n">RadarSite</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">,</span> <span class="n">alt</span><span class="p">,</span> <span class="s2">"C"</span><span class="p">,</span> <span class="s2">"CN"</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">out</span><span class="p">:</span>
+                <span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">_w</span>
+
+                <span class="n">_w</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                    <span class="s2">"CmaMusicSource: station discovery returned no stations; "</span>
+                    <span class="s2">"pass station_table=... in the constructor."</span><span class="p">,</span>
+                    <span class="ne">RuntimeWarning</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="k">return</span> <span class="n">out</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>  <span class="c1"># noqa: BLE001 - fail soft without creds</span>
+            <span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">_w</span>
+
+            <span class="n">_w</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">"CmaMusicSource: station discovery unavailable (</span><span class="si">{</span><span class="n">exc</span><span class="si">}</span><span class="s2">); "</span>
+                <span class="s2">"pass station_table=... in the constructor."</span><span class="p">,</span>
+                <span class="ne">RuntimeWarning</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="k">return</span> <span class="p">{}</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_list_keys</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">site</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">step</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">end</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="n">end</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">"now"</span><span class="p">:</span>
+            <span class="n">end</span> <span class="o">=</span> <span class="n">_utcnow</span><span class="p">()</span>
+        <span class="n">keys</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">_timespan</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">step</span><span class="p">):</span>
+            <span class="n">keys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="p">{</span>
+                    <span class="s2">"dataCode"</span><span class="p">:</span> <span class="n">_MUSIC_DATACODE</span><span class="p">,</span>
+                    <span class="s2">"staId"</span><span class="p">:</span> <span class="n">site</span><span class="p">,</span>
+                    <span class="s2">"timeRange"</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"(</span><span class="si">{</span><span class="n">t</span><span class="si">:</span><span class="s2">%Y-%m-%d %H:%M:%S</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="n">t</span><span class="si">:</span><span class="s2">%Y-%m-%d %H:%M:%S</span><span class="si">}</span><span class="s2">]"</span><span class="p">,</span>
+                <span class="p">}</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="n">keys</span>
+
+<div class="viewcode-block" id="CmaMusicSource.list_files">
+<a class="viewcode-back" href="../../../API/generated/pyart.io.CmaMusicSource.list_files.html#pyart.io.CmaMusicSource.list_files">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">list_files</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">site</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">step</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_list_keys</span><span class="p">(</span><span class="n">site</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">step</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="CmaMusicSource.fetch">
+<a class="viewcode-back" href="../../../API/generated/pyart.io.CmaMusicSource.fetch.html#pyart.io.CmaMusicSource.fetch">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">fetch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">force_refresh</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">local</span> <span class="o">=</span> <span class="n">dest</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">cache_path</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"cma_music_</span><span class="si">{</span><span class="n">key</span><span class="p">[</span><span class="s1">'dataCode'</span><span class="p">]</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">key</span><span class="p">[</span><span class="s1">'staId'</span><span class="p">]</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">key</span><span class="p">[</span><span class="s1">'timeRange'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache_hit</span><span class="p">(</span><span class="n">local</span><span class="p">,</span> <span class="n">force_refresh</span><span class="o">=</span><span class="n">force_refresh</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">local</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">_w</span>
+
+        <span class="n">_w</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+            <span class="s2">"CmaMusicSource.fetch triggered a real MUSIC download; this "</span>
+            <span class="s2">"requires valid credentials and network access."</span><span class="p">,</span>
+            <span class="ne">UserWarning</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"url"</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">url</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># Documented MUSIC interface: returns file entries for a station</span>
+            <span class="c1"># and time range. The exact response shape is client-version</span>
+            <span class="c1"># dependent, so we defensively look up a download URL.</span>
+            <span class="n">client</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">()</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">entries</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">getRadaFileByTimeRangeAndStaId</span><span class="p">(</span>
+                    <span class="n">dataCode</span><span class="o">=</span><span class="n">key</span><span class="p">[</span><span class="s2">"dataCode"</span><span class="p">],</span>
+                    <span class="n">staId</span><span class="o">=</span><span class="n">key</span><span class="p">[</span><span class="s2">"staId"</span><span class="p">],</span>
+                    <span class="n">timeRange</span><span class="o">=</span><span class="n">key</span><span class="p">[</span><span class="s2">"timeRange"</span><span class="p">],</span>
+                <span class="p">)</span>
+            <span class="k">except</span> <span class="ne">AttributeError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">RemoteDataError</span><span class="p">(</span>
+                    <span class="s2">"The installed cma_music_api client does not expose "</span>
+                    <span class="s2">"getRadaFileByTimeRangeAndStaId; provide the download "</span>
+                    <span class="s2">"URL directly via key['url']."</span>
+                <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">exc</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">entries</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">RemoteDataError</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">"No MUSIC file returned for station </span><span class="si">{</span><span class="n">key</span><span class="p">[</span><span class="s1">'staId'</span><span class="p">]</span><span class="si">}</span><span class="s2"> at "</span>
+                    <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">key</span><span class="p">[</span><span class="s1">'timeRange'</span><span class="p">]</span><span class="si">}</span><span class="s2">."</span>
+                <span class="p">)</span>
+            <span class="n">entry</span> <span class="o">=</span> <span class="n">entries</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">url</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"url"</span><span class="p">,</span> <span class="s2">"downloadUrl"</span><span class="p">,</span> <span class="s2">"fileUrl"</span><span class="p">,</span> <span class="s2">"ftpUrl"</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">entry</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">field</span><span class="p">):</span>
+                    <span class="n">url</span> <span class="o">=</span> <span class="n">entry</span><span class="p">[</span><span class="n">field</span><span class="p">]</span>
+                    <span class="k">break</span>
+            <span class="k">if</span> <span class="n">url</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">RemoteDataError</span><span class="p">(</span>
+                    <span class="s2">"MUSIC file entry has no recognized download URL field: "</span>
+                    <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span>
+                <span class="p">)</span>
+        <span class="c1"># 天擎 download URLs may sit on private address space, so allow them</span>
+        <span class="c1"># through the SSRF guard explicitly.</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_http_get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">allow_private</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_atomic_write</span><span class="p">(</span><span class="n">local</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">local</span></div>
+
+
+<div class="viewcode-block" id="CmaMusicSource.read">
+<a class="viewcode-back" href="../../../API/generated/pyart.io.CmaMusicSource.read.html#pyart.io.CmaMusicSource.read">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">local</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="n">dest</span><span class="p">)</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">.cinrad_bridge</span><span class="w"> </span><span class="kn">import</span> <span class="n">is_xband_filename</span><span class="p">,</span> <span class="n">read_cinrad</span>
+
+        <span class="k">if</span> <span class="n">is_xband_filename</span><span class="p">(</span><span class="n">local</span><span class="p">):</span>
+            <span class="n">kwargs</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">"band"</span><span class="p">,</span> <span class="s2">"X"</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">kwargs</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">"band"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">read_cinrad</span><span class="p">(</span><span class="n">local</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="c1"># Not a base-data file the bridge can decode. Returning a path</span>
+            <span class="c1"># here breaks the documented ``list[Radar]`` contract, so the</span>
+            <span class="c1"># failure must be observable rather than silently swallowed.</span>
+            <span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">_w</span>
+
+            <span class="n">_w</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">"CmaMusicSource.read could not decode </span><span class="si">{</span><span class="n">local</span><span class="si">!r}</span><span class="s2"> as CINRAD "</span>
+                <span class="sa">f</span><span class="s2">"base data (</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">exc</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">exc</span><span class="si">}</span><span class="s2">); returning the local "</span>
+                <span class="s2">"path instead of a Radar object."</span><span class="p">,</span>
+                <span class="ne">RuntimeWarning</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="k">return</span> <span class="n">local</span></div>
+</div>
+
+
+
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="c1"># Per-province CMA public mirrors — honest implementation</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+
+
+<span class="nd">@register_source</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">CmaMosSource</span><span class="p">(</span><span class="n">_BaseSource</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Per-province CMA radar mirrors (public, anonymous).</span>
+
+<span class="sd">    Unlike the NEXRAD/天擎 sources, CMA does not publish a stable,</span>
+<span class="sd">    documented anonymous mirror layout. The URL templates are therefore</span>
+<span class="sd">    **not shipped by default**; supply them via ``station_config`` (mapping</span>
+<span class="sd">    station code -&gt; URL template with ``{date}`` / ``{time}`` placeholders,</span>
+<span class="sd">    plus an optional ``band`` key). ``list_sites`` probes each template for</span>
+<span class="sd">    reachability and drops unreachable entries.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    station_config : dict or None, optional</span>
+<span class="sd">        Mapping of station code -&gt; dict with a ``template`` key, an optional</span>
+<span class="sd">        ``band`` key, and an optional ``allow_private`` flag (default False).</span>
+<span class="sd">        Set ``allow_private=True`` only for a mirror that genuinely lives on</span>
+<span class="sd">        private address space -- it relaxes the SSRF guard for that one</span>
+<span class="sd">        station. When None, no sites are configured and :meth:`list_sites`</span>
+<span class="sd">        returns ``{}`` with a warning.</span>
+<span class="sd">    """</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">"cma_mos"</span>
+    <span class="n">bands</span> <span class="o">=</span> <span class="p">(</span><span class="s2">"S"</span><span class="p">,</span> <span class="s2">"C"</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">station_config</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">station_config</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">station_config</span> <span class="ow">or</span> <span class="p">{})</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_fill_url</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">template</span><span class="p">,</span> <span class="n">when</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">template</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">date</span><span class="o">=</span><span class="n">when</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">"%Y%m</span><span class="si">%d</span><span class="s2">"</span><span class="p">),</span> <span class="n">time</span><span class="o">=</span><span class="n">when</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">"%H%M"</span><span class="p">))</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">list_sites</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">station_config</span><span class="p">:</span>
+            <span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">_w</span>
+
+            <span class="n">_w</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                <span class="s2">"CmaMosSource: no station_config supplied; list_sites empty. "</span>
+                <span class="s2">"Pass station_config={'code': {'template': 'http://..."</span><span class="p">,</span>
+                <span class="ne">RuntimeWarning</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="k">return</span> <span class="p">{}</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">code</span><span class="p">,</span> <span class="n">cfg</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">station_config</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">template</span> <span class="o">=</span> <span class="n">cfg</span><span class="p">[</span><span class="s2">"template"</span><span class="p">]</span>
+                <span class="n">band</span> <span class="o">=</span> <span class="n">cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"band"</span><span class="p">,</span> <span class="s2">"S"</span><span class="p">)</span>
+                <span class="c1"># Internal mirrors are opt-in *per station*: an operator who</span>
+                <span class="c1"># really targets private address space must declare</span>
+                <span class="c1"># ``"allow_private": True``. Every other template keeps the</span>
+                <span class="c1"># SSRF guard on, so a copy-pasted config cannot silently turn</span>
+                <span class="c1"># the registry into an internal port scanner.</span>
+                <span class="n">allow_private</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"allow_private"</span><span class="p">,</span> <span class="kc">False</span><span class="p">))</span>
+                <span class="n">probe</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fill_url</span><span class="p">(</span><span class="n">template</span><span class="p">,</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+            <span class="k">except</span> <span class="p">(</span><span class="ne">KeyError</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">):</span>
+                <span class="k">continue</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_reachable</span><span class="p">(</span><span class="n">probe</span><span class="p">,</span> <span class="n">allow_private</span><span class="o">=</span><span class="n">allow_private</span><span class="p">):</span>
+                <span class="n">out</span><span class="p">[</span><span class="n">code</span><span class="p">]</span> <span class="o">=</span> <span class="n">RadarSite</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">band</span><span class="p">,</span> <span class="s2">"CN"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">out</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">list_files</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">site</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">step</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+        <span class="n">cfg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">station_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">site</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">cfg</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">end</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="n">end</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">"now"</span><span class="p">:</span>
+            <span class="n">end</span> <span class="o">=</span> <span class="n">_utcnow</span><span class="p">()</span>
+        <span class="n">template</span> <span class="o">=</span> <span class="n">cfg</span><span class="p">[</span><span class="s2">"template"</span><span class="p">]</span>
+        <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_fill_url</span><span class="p">(</span><span class="n">template</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">_timespan</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">step</span><span class="p">)]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">fetch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">force_refresh</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">local</span> <span class="o">=</span> <span class="n">dest</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">cache_path</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache_hit</span><span class="p">(</span><span class="n">local</span><span class="p">,</span> <span class="n">force_refresh</span><span class="o">=</span><span class="n">force_refresh</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">local</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_http_get</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_atomic_write</span><span class="p">(</span><span class="n">local</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">local</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">local</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="n">dest</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="kn">from</span><span class="w"> </span><span class="nn">.cinrad_bridge</span><span class="w"> </span><span class="kn">import</span> <span class="n">read_cinrad</span>
+
+            <span class="k">return</span> <span class="n">read_cinrad</span><span class="p">(</span><span class="n">local</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="c1"># See CmaMusicSource.read: the path fallback breaks the documented</span>
+            <span class="c1"># ``list[Radar]`` contract, so surface it as a warning.</span>
+            <span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">_w</span>
+
+            <span class="n">_w</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">"CmaMosSource.read could not decode </span><span class="si">{</span><span class="n">local</span><span class="si">!r}</span><span class="s2"> as CINRAD base "</span>
+                <span class="sa">f</span><span class="s2">"data (</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">exc</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">exc</span><span class="si">}</span><span class="s2">); returning the local path "</span>
+                <span class="s2">"instead of a Radar object."</span><span class="p">,</span>
+                <span class="ne">RuntimeWarning</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="k">return</span> <span class="n">local</span>
+
+
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="c1"># Offline CINE file index</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+
+<span class="n">_CINE_EXTS</span> <span class="o">=</span> <span class="p">(</span><span class="s2">".cine"</span><span class="p">,</span> <span class="s2">".CINE"</span><span class="p">,</span> <span class="s2">".bin"</span><span class="p">,</span> <span class="s2">".BIN"</span><span class="p">)</span>
+
+
+<span class="nd">@register_source</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">CineSource</span><span class="p">(</span><span class="n">_BaseSource</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Offline index over a tree of local CINRAD/CINE files.</span>
+
+<span class="sd">    This source never touches the network; it enumerates ``*.cine`` /</span>
+<span class="sd">    ``*.bin`` files beneath ``root`` (defaulting to the current working</span>
+<span class="sd">    directory), groups them into pseudo-sites by filename prefix, and filters</span>
+<span class="sd">    by each file's **modification time** (mtime), not by a timestamp parsed</span>
+<span class="sd">    out of the name -- CINE archives carry no dependable in-name timestamp, so</span>
+<span class="sd">    ``list_files`` and :meth:`scan_cache` both key off</span>
+<span class="sd">    :func:`os.path.getmtime`. ``fetch`` returns the path unchanged and</span>
+<span class="sd">    ``read`` delegates to :func:`pyart.io.read` (which routes to the CINRAD</span>
+<span class="sd">    bridge based on filename patterns).</span>
+<span class="sd">    """</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">"cine"</span>
+    <span class="n">bands</span> <span class="o">=</span> <span class="p">(</span><span class="s2">"C"</span><span class="p">,</span> <span class="s2">"S"</span><span class="p">,</span> <span class="s2">"X"</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">root</span> <span class="o">=</span> <span class="n">root</span> <span class="ow">or</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_scan</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">glob</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">_glob</span>
+
+        <span class="n">files</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">ext</span> <span class="ow">in</span> <span class="n">_CINE_EXTS</span><span class="p">:</span>
+            <span class="n">files</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
+                <span class="n">_glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="p">,</span> <span class="s2">"**"</span><span class="p">,</span> <span class="s2">"*"</span> <span class="o">+</span> <span class="n">ext</span><span class="p">),</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="p">)</span>
+        <span class="c1"># Deduplicate: on case-insensitive filesystems '.cine' and '.CINE'</span>
+        <span class="c1"># match the same files.</span>
+        <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">files</span><span class="p">))</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_site_of</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">path</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"_"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">list_sites</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_scan</span><span class="p">():</span>
+            <span class="n">site</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_site_of</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+            <span class="n">out</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">site</span><span class="p">,</span> <span class="n">RadarSite</span><span class="p">(</span><span class="n">site</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">"C"</span><span class="p">,</span> <span class="s2">"CN"</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">out</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">list_files</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">site</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">step</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">end</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="n">end</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">"now"</span><span class="p">:</span>
+            <span class="n">end</span> <span class="o">=</span> <span class="n">_utcnow</span><span class="p">()</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_scan</span><span class="p">():</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_site_of</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="o">!=</span> <span class="n">site</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="n">age</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getmtime</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+            <span class="n">ts</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">start</span> <span class="o">&lt;=</span> <span class="n">ts</span> <span class="o">&lt;</span> <span class="n">end</span><span class="p">:</span>
+                <span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">fetch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">RemoteDataError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"local file not found: </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">key</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">.auto_read</span><span class="w"> </span><span class="kn">import</span> <span class="n">read</span> <span class="k">as</span> <span class="n">_read</span>
+
+        <span class="n">local</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="n">dest</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">local</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">scan_cache</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">site</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Batch-convert cached local files into :class:`Radar` objects.</span>
+
+<span class="sd">        Loops over every cached file beneath ``root`` (optionally restrained</span>
+<span class="sd">        to ``site`` and the ``[start, end)`` mtime window) and reads each with</span>
+<span class="sd">        :meth:`read`; failed reads are skipped. Unlike ``read_time_span`` this</span>
+<span class="sd">        does **not** touch the network -- it is the fully offline path for</span>
+<span class="sd">        turning downloaded CINRAD/CINE files into Radar objects.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        radars : list of Radar</span>
+<span class="sd">        """</span>
+        <span class="n">keys</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_scan</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">site</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">keys</span> <span class="o">=</span> <span class="p">[</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">keys</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_site_of</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="o">==</span> <span class="n">site</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">start</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">end</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">start_ts</span> <span class="o">=</span> <span class="n">start</span><span class="o">.</span><span class="n">timestamp</span><span class="p">()</span> <span class="k">if</span> <span class="n">start</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="kc">None</span>
+            <span class="n">end_ts</span> <span class="o">=</span> <span class="n">end</span><span class="o">.</span><span class="n">timestamp</span><span class="p">()</span> <span class="k">if</span> <span class="n">end</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="kc">None</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">:</span>
+                <span class="n">m</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getmtime</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">start_ts</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">m</span> <span class="o">&lt;</span> <span class="n">start_ts</span><span class="p">:</span>
+                    <span class="k">continue</span>
+                <span class="k">if</span> <span class="n">end_ts</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">m</span> <span class="o">&gt;=</span> <span class="n">end_ts</span><span class="p">:</span>
+                    <span class="k">continue</span>
+                <span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+            <span class="n">keys</span> <span class="o">=</span> <span class="n">out</span>
+        <span class="n">radars</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">radars</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">))</span>
+            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>  <span class="c1"># noqa: BLE001</span>
+                <span class="k">continue</span>
+        <span class="k">return</span> <span class="n">radars</span>
+</pre></div>
+<div class="section ablog__blog_comments">
+   
+</div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2013-2026, Py-ART developers.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.21.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,6 @@
+pyart.io.RadarSource.fetch
+==========================
+
+.. currentmodule:: pyart.io
+
+.. automethod:: RadarSource.fetch

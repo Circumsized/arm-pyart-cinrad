@@ -1,0 +1,6 @@
+pyart.io.RadarSite.index
+========================
+
+.. currentmodule:: pyart.io
+
+.. automethod:: RadarSite.index

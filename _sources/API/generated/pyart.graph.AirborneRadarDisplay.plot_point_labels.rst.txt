@@ -1,0 +1,6 @@
+pyart.graph.AirborneRadarDisplay.plot\_point\_labels
+====================================================
+
+.. currentmodule:: pyart.graph
+
+.. automethod:: AirborneRadarDisplay.plot_point_labels

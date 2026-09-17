@@ -1,0 +1,6 @@
+pyart.io.CmaMusicSource.cache\_dir
+==================================
+
+.. currentmodule:: pyart.io
+
+.. automethod:: CmaMusicSource.cache_dir

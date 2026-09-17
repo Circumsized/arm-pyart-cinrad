@@ -1,0 +1,99 @@
+﻿pyart.io
+========
+
+.. rubric:: Description
+
+.. automodule:: pyart.io
+
+.. currentmodule:: pyart.io
+
+
+.. rubric:: Classes
+
+.. autosummary::
+    :toctree: .
+    
+    CmaMusicSource
+    
+    RadarSite
+    
+    RadarSource
+    
+
+
+
+
+.. rubric:: Functions
+
+.. autosummary::
+    :toctree: .
+    
+    c98dfile_archive
+    
+    get_source
+    
+    list_sources
+    
+    prepare_for_read
+    
+    read
+    
+    read_arm_sonde
+    
+    read_arm_sonde_vap
+    
+    read_c98d
+    
+    read_cfradial
+    
+    read_chl
+    
+    read_cinrad
+    
+    read_grid
+    
+    read_grid_mdv
+    
+    read_mdv
+    
+    read_mocmosaic
+    
+    read_nexrad_archive
+    
+    read_nexrad_cdm
+    
+    read_nexrad_level3
+    
+    read_pa
+    
+    read_rsl
+    
+    read_sband_archive
+    
+    read_sband_radar
+    
+    read_sigmet
+    
+    read_time_span
+    
+    read_uf
+    
+    read_xband
+    
+    read_xband_724xsp
+    
+    read_xband_scrxd01
+    
+    register_source
+    
+    write_cfradial
+    
+    write_grid
+    
+    write_grid_geotiff
+    
+    write_grid_mdv
+    
+    write_uf
+    
+

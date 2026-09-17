@@ -1,0 +1,6 @@
+pyart.io.RadarSource.list\_sites
+================================
+
+.. currentmodule:: pyart.io
+
+.. automethod:: RadarSource.list_sites

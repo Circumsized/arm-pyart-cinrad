@@ -1,0 +1,6 @@
+pyart.graph.animate\_ppi\_batch
+===============================
+
+.. currentmodule:: pyart.graph
+
+.. autofunction:: animate_ppi_batch

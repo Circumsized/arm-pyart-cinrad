@@ -1,0 +1,6 @@
+pyart.io.RadarSource.name
+=========================
+
+.. currentmodule:: pyart.io
+
+.. autoattribute:: RadarSource.name

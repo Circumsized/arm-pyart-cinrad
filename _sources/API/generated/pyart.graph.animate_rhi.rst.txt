@@ -1,0 +1,6 @@
+pyart.graph.animate\_rhi
+========================
+
+.. currentmodule:: pyart.graph
+
+.. autofunction:: animate_rhi

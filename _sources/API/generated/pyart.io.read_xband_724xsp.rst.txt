@@ -1,0 +1,6 @@
+pyart.io.read\_xband\_724xsp
+============================
+
+.. currentmodule:: pyart.io
+
+.. autofunction:: read_xband_724xsp

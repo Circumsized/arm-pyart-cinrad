@@ -1,0 +1,6 @@
+pyart.io.RadarSite.band
+=======================
+
+.. currentmodule:: pyart.io
+
+.. autoattribute:: RadarSite.band

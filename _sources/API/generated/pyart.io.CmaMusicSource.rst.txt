@@ -1,0 +1,38 @@
+pyart.io.CmaMusicSource
+=======================
+
+.. currentmodule:: pyart.io
+
+.. autoclass:: CmaMusicSource
+
+   
+
+.. HACK -- the point here is that we don't want this to appear in the output, but the autosummary should still generate the pages.
+
+.. autosummary::
+   :toctree:
+
+
+   ~CmaMusicSource.cache_dir
+   ~CmaMusicSource.cache_path
+   ~CmaMusicSource.clear_cache
+   ~CmaMusicSource.fetch
+   ~CmaMusicSource.list_files
+   ~CmaMusicSource.list_sites
+   ~CmaMusicSource.read
+   ~CmaMusicSource.read_time_span
+
+
+
+
+   
+
+.. HACK -- the point here is that we don't want this to appear in the output, but the autosummary should still generate the pages.
+
+.. autosummary::
+   :toctree:
+
+
+   ~CmaMusicSource.bands
+   ~CmaMusicSource.name
+

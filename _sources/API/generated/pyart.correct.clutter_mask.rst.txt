@@ -1,0 +1,6 @@
+pyart.correct.clutter\_mask
+===========================
+
+.. currentmodule:: pyart.correct
+
+.. autofunction:: clutter_mask

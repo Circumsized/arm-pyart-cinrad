@@ -1,0 +1,6 @@
+pyart.io.CmaMusicSource.read
+============================
+
+.. currentmodule:: pyart.io
+
+.. automethod:: CmaMusicSource.read

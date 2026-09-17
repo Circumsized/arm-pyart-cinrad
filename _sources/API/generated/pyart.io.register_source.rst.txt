@@ -1,0 +1,6 @@
+pyart.io.register\_source
+=========================
+
+.. currentmodule:: pyart.io
+
+.. autofunction:: register_source

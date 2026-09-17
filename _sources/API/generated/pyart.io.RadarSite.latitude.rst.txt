@@ -1,0 +1,6 @@
+pyart.io.RadarSite.latitude
+===========================
+
+.. currentmodule:: pyart.io
+
+.. autoattribute:: RadarSite.latitude

@@ -1,0 +1,6 @@
+pyart.io.read\_mocmosaic
+========================
+
+.. currentmodule:: pyart.io
+
+.. autofunction:: read_mocmosaic

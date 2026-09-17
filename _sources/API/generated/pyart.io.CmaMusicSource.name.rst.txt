@@ -1,0 +1,6 @@
+pyart.io.CmaMusicSource.name
+============================
+
+.. currentmodule:: pyart.io
+
+.. autoattribute:: CmaMusicSource.name

@@ -1,0 +1,6 @@
+pyart.io.CmaMusicSource.clear\_cache
+====================================
+
+.. currentmodule:: pyart.io
+
+.. automethod:: CmaMusicSource.clear_cache

@@ -1,0 +1,6 @@
+pyart.io.RadarSource.read\_time\_span
+=====================================
+
+.. currentmodule:: pyart.io
+
+.. automethod:: RadarSource.read_time_span

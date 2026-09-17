@@ -1,0 +1,6 @@
+pyart.correct.dualpol\_qc
+=========================
+
+.. currentmodule:: pyart.correct
+
+.. autofunction:: dualpol_qc

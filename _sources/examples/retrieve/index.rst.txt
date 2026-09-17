@@ -1,0 +1,70 @@
+
+
+.. _sphx_glr_examples_retrieve:
+
+.. _retrieve_examples:
+
+Retrieval Examples
+------------------
+
+Retrievals from various radars, such as additional fields or subsets of the data.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Given a radar and a point, extract the column of radar data values above a point">
+
+.. only:: html
+
+  .. image:: /examples/retrieve/images/thumb/sphx_glr_plot_column_subset_thumb.png
+    :alt:
+
+  :doc:`/examples/retrieve/plot_column_subset`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Extract a radar column above a point</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Calculates and plots the composite reflectivity, or the maximum reflectivity across all of the elevations.">
+
+.. only:: html
+
+  .. image:: /examples/retrieve/images/thumb/sphx_glr_plot_composite_reflectivity_thumb.png
+    :alt:
+
+  :doc:`/examples/retrieve/plot_composite_reflectivity`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Calculate and Plot Composite Reflectivity</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /examples/retrieve/plot_column_subset
+   /examples/retrieve/plot_composite_reflectivity
+

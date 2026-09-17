@@ -1,0 +1,6 @@
+pyart.graph.RadarMapDisplay.plot\_point\_labels
+===============================================
+
+.. currentmodule:: pyart.graph
+
+.. automethod:: RadarMapDisplay.plot_point_labels

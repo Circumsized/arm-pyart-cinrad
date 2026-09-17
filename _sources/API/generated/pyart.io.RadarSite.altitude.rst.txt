@@ -1,0 +1,6 @@
+pyart.io.RadarSite.altitude
+===========================
+
+.. currentmodule:: pyart.io
+
+.. autoattribute:: RadarSite.altitude

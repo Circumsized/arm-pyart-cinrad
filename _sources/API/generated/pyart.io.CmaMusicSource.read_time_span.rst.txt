@@ -1,0 +1,6 @@
+pyart.io.CmaMusicSource.read\_time\_span
+========================================
+
+.. currentmodule:: pyart.io
+
+.. automethod:: CmaMusicSource.read_time_span

@@ -1,0 +1,6 @@
+pyart.io.c98dfile\_archive
+==========================
+
+.. currentmodule:: pyart.io
+
+.. autofunction:: c98dfile_archive

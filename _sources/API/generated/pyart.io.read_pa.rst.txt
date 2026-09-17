@@ -1,0 +1,6 @@
+pyart.io.read\_pa
+=================
+
+.. currentmodule:: pyart.io
+
+.. autofunction:: read_pa

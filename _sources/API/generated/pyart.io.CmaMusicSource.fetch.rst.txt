@@ -1,0 +1,6 @@
+pyart.io.CmaMusicSource.fetch
+=============================
+
+.. currentmodule:: pyart.io
+
+.. automethod:: CmaMusicSource.fetch
