@@ -8,6 +8,9 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write
+
 # The docs build executes every ``examples/**/plot_*.py`` via Sphinx-Gallery.
 # Run it in offline mode (PYART_DOCS_OFFLINE=1) so the many remote-data
 # downloads cannot stretch the job past its timeout, and cache the two data
