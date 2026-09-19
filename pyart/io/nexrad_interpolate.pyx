@@ -28,7 +28,29 @@ def _fast_interpolate_scan_4(
     cdef int ray_num, i, interp_ngates
     cdef float gate_val, next_val, delta
 
+    # FU-10 (3b55ab+89582b, CWE-787/125): moment_ngates and the ray range
+    # come from the file's scan info, while the width of data/scratch_ray
+    # comes from a range derived from possibly another moment's gate
+    # count. Assert the contract explicitly so a mismatch is rejected here
+    # instead of relying on the global boundscheck setting to turn it into
+    # an IndexError (or into memory corruption where it is compiled out).
+    if moment_ngates < 1 or moment_ngates > data.shape[1]:
+        raise ValueError(
+            "moment_ngates must be in 1..%d, got %d"
+            % (data.shape[1], moment_ngates)
+        )
     interp_ngates = 4 * moment_ngates  # number of gates interpolated
+    if interp_ngates > scratch_ray.shape[0] or interp_ngates > data.shape[1]:
+        raise ValueError(
+            "interpolated scan needs %d gates but scratch_ray provides %d "
+            "and data provides %d"
+            % (interp_ngates, scratch_ray.shape[0], data.shape[1])
+        )
+    if start < 0 or end >= data.shape[0] or start > end + 1:
+        raise ValueError(
+            "invalid ray range [%d, %d] for %d rays"
+            % (start, end, data.shape[0])
+        )
 
     for ray_num in range(start, end+1):
 
@@ -82,7 +104,25 @@ def _fast_interpolate_scan_2(
     cdef int ray_num, i, interp_ngates
     cdef float gate_val, next_val, delta
 
+    # FU-10 (3b55ab+89582b, CWE-787/125): same contract as
+    # _fast_interpolate_scan_4; see the comment there.
+    if moment_ngates < 1 or moment_ngates > data.shape[1]:
+        raise ValueError(
+            "moment_ngates must be in 1..%d, got %d"
+            % (data.shape[1], moment_ngates)
+        )
     interp_ngates = 2 * moment_ngates - 1 # number of gates interpolated
+    if interp_ngates > scratch_ray.shape[0] or interp_ngates > data.shape[1]:
+        raise ValueError(
+            "interpolated scan needs %d gates but scratch_ray provides %d "
+            "and data provides %d"
+            % (interp_ngates, scratch_ray.shape[0], data.shape[1])
+        )
+    if start < 0 or end >= data.shape[0] or start > end + 1:
+        raise ValueError(
+            "invalid ray range [%d, %d] for %d rays"
+            % (start, end, data.shape[0])
+        )
 
     for ray_num in range(start, end+1):
 

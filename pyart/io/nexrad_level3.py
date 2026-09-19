@@ -65,13 +65,20 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 """
 
-import bz2
 import struct
 import warnings
 from collections import namedtuple
 from datetime import datetime, timedelta, timezone
 
 import numpy as np
+
+from ..exceptions import PyARTDataError
+from ._validate import (
+    MAX_NGATES,
+    MAX_NRAYS,
+    decompress_bzip2_bounded,
+    validate_dims,
+)
 
 
 class _XDRUnpacker:
@@ -131,6 +138,13 @@ class _XDRUnpacker:
 
     def unpack_array(self, unpack_item):
         n = self.unpack_uint()
+        # FU-17 (8227a7, CWE-789): a bogus length must not drive an
+        # unbounded decode loop. The arrays decoded here hold 4-byte
+        # integers, so an array longer than the remaining buffer cannot be
+        # completed; reject it up front instead of consuming the buffer
+        # one item at a time.
+        if n > len(self._buf) - self._pos:
+            raise EOFError
         return self.unpack_farray(n, unpack_item)
 
 
@@ -206,7 +220,10 @@ class NEXRADLevel3File:
 
         # Uncompress symbology block if necessary
         if buf[bpos : bpos + 2] == b"BZ":
-            buf2 = bz2.decompress(buf[bpos:])
+            # FU-18 (f56fc4, CWE-409/400): the block used to be expanded
+            # with an unbounded bz2.decompress call; a small file could
+            # request gigabytes of memory.
+            buf2 = decompress_bzip2_bounded(buf[bpos:])
         else:
             buf2 = buf[bpos:]
 
@@ -228,6 +245,14 @@ class NEXRADLevel3File:
         self._fh.close()
 
     def _read_symbology_block(self, buf2, pos, packet_code):
+        # FU-16 (18f97e, CWE-125/789): the block must be long enough to
+        # hold the radial packet header and the first radial header before
+        # either is unpacked; a short file used to die in struct.unpack.
+        if len(buf2) < 36:
+            raise PyARTDataError(
+                f"symbology block is {len(buf2)} bytes, too short for a "
+                f"radial packet header and first radial header"
+            )
         self.packet_header = _unpack_from_buf(buf2, 16, RADIAL_PACKET_HEADER)
         self.radial_headers = []
         nbins = self.packet_header["nbins"]
@@ -235,19 +260,59 @@ class NEXRADLevel3File:
         nbytes = _unpack_from_buf(buf2, 30, RADIAL_HEADER)["nbytes"]
         if packet_code == 16 and nbytes != nbins:
             nbins = nbytes  # sometimes these do not match, use nbytes
+        # FU-16 (18f97e, CWE-789): nradials and nbins are untrusted header
+        # values which used to size raw_data directly.
+        validate_dims(
+            nradials,
+            nbins,
+            limits=(MAX_NRAYS, MAX_NGATES),
+            name=f"Level 3 packet {packet_code}",
+        )
         self.raw_data = np.empty((nradials, nbins), dtype="uint8")
         pos = 30
 
-        for radial in self.raw_data:
+        for i, radial in enumerate(self.raw_data):
+            # Every radial must fit inside the block. A short slice used to
+            # surface as a NumPy broadcast ValueError part-way through the
+            # product, and a negative nbytes walked the cursor backwards
+            # into a silent mis-parse of the remaining radials.
+            if pos + 6 > len(buf2):
+                raise PyARTDataError(
+                    f"radial {i} header at byte {pos} exceeds the "
+                    f"{len(buf2)} byte symbology block"
+                )
             radial_header = _unpack_from_buf(buf2, pos, RADIAL_HEADER)
             pos += 6
+            nbytes = radial_header["nbytes"]
             if packet_code == 16:
+                if pos + nbins > len(buf2):
+                    raise PyARTDataError(
+                        f"radial {i} needs {nbins} bytes at byte {pos} but "
+                        f"only {len(buf2) - pos} bytes remain in the "
+                        f"symbology block"
+                    )
                 radial[:] = np.frombuffer(buf2[pos : pos + nbins], ">u1")
-                pos += radial_header["nbytes"]
+                if nbytes < 0 or pos + nbytes > len(buf2):
+                    raise PyARTDataError(
+                        f"radial {i} declares {nbytes} bytes at byte {pos} "
+                        f"but only {len(buf2) - pos} bytes remain in the "
+                        f"symbology block"
+                    )
+                pos += nbytes
             else:
                 assert packet_code == AF1F
+                if nbytes < 0:
+                    raise PyARTDataError(
+                        f"radial {i} declares a negative length {nbytes}"
+                    )
                 # decode run length encoding
-                rle_size = radial_header["nbytes"] * 2
+                rle_size = nbytes * 2
+                if pos + rle_size > len(buf2):
+                    raise PyARTDataError(
+                        f"radial {i} declares {rle_size} run length bytes "
+                        f"at byte {pos} but only {len(buf2) - pos} bytes "
+                        f"remain in the symbology block"
+                    )
                 rle = np.frombuffer(buf2[pos : pos + rle_size], dtype=">u1")
                 colors = np.bitwise_and(rle, 0b00001111)
                 runs = np.bitwise_and(rle, 0b11110000) // 16
@@ -262,30 +327,57 @@ class NEXRADLevel3File:
 
         # Read number of bytes (2 HW) and return
         num_bytes = self.packet_header["num_bytes"]
+        # FU-17 (8227a7, CWE-125/789): num_bytes is untrusted input used to
+        # slice the XDR payload; a bogus value silently truncated the hunk
+        # (or produced an empty one) and the parser then died with an
+        # opaque EOFError/ValueError.
+        if num_bytes <= 0 or bpos + num_bytes > len(buf2):
+            raise PyARTDataError(
+                f"packet 28 declares {num_bytes} bytes at byte {bpos} but "
+                f"only {len(buf2) - bpos} bytes remain in the symbology block"
+            )
         hunk = buf2[bpos : bpos + num_bytes]
         xdrparser = Level3XDRParser(hunk)
-        self.gen_data_pack = xdrparser(packet_code)
+        try:
+            self.gen_data_pack = xdrparser(packet_code)
+        except (EOFError, ValueError) as err:
+            raise PyARTDataError(f"packet 28 XDR data is malformed: {err}") from err
 
         # Rearrange some of the info so it matches the format of packet codes
         # 16 and AF1F so method calls can be done properly
-        self.packet_header["nradials"] = len(self.gen_data_pack["components"].radials)
-        nradials = self.packet_header["nradials"]
-        self.packet_header["nbins"] = (
-            self.gen_data_pack["components"].radials[0].num_bins
+        components = self.gen_data_pack["components"]
+        radials = getattr(components, "radials", None)
+        # FU-17 (8227a7): an empty component or radial list used to reach
+        # radials[0] and raise IndexError, or blow up with AttributeError
+        # on the components list itself.
+        if not radials:
+            raise PyARTDataError("packet 28 contains no radial data components")
+        nradials = len(radials)
+        nbins = radials[0].num_bins
+        validate_dims(
+            nradials,
+            nbins,
+            limits=(MAX_NRAYS, MAX_NGATES),
+            name="Level 3 packet 28",
         )
-        nbins = self.packet_header["nbins"]
-        self.packet_header["first_bin"] = self.gen_data_pack["components"].first_gate
+        self.packet_header["nradials"] = nradials
+        self.packet_header["nbins"] = nbins
+        self.packet_header["first_bin"] = components.first_gate
         self.packet_header["range_scale"] = 1000  # 1000m in 1 km
 
         # Read azimuths
-        self.azimuths = [
-            rad.azimuth for rad in self.gen_data_pack["components"].radials
-        ]
+        self.azimuths = [rad.azimuth for rad in radials]
 
         # Pull each radial's data into an array
         self.raw_data = np.empty((nradials, nbins), dtype="uint16")
         for i in range(0, nradials):
-            self.raw_data[i, :] = self.gen_data_pack["components"].radials[i].data
+            data = radials[i].data
+            if len(data) != nbins:
+                raise PyARTDataError(
+                    f"radial {i} has {len(data)} gates but the first radial "
+                    f"declared {nbins}"
+                )
+            self.raw_data[i, :] = data
 
     def get_location(self):
         """Return the latitude, longitude and height of the radar."""

@@ -403,8 +403,15 @@ class SbandRadarFile:
             msg = self.radial_records[msg_num]
             if moment not in msg.keys():
                 continue
-            ngates = msg[moment]["ngates"]
-            data[i, :ngates] = msg[moment]["data"]
+            # FU-25 (9b7666, CWE-129): the declared gate count and the stored
+            # payload both come from the file: a ray can declare more gates
+            # than the range axis holds or than the record actually stores
+            # (np.frombuffer clamps the slice to the buffer end). Assigning
+            # the raw values used to abort with a broadcast ValueError, so
+            # clamp to the intersection of all three limits, matching
+            # nexrad_level2.py:535.
+            ngates = min(msg[moment]["ngates"], max_ngates, len(msg[moment]["data"]))
+            data[i, :ngates] = msg[moment]["data"][:ngates]
 
         # return raw data if requested
         if raw_data:

@@ -55,12 +55,13 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 """
 
-import bz2
 import struct
 import warnings
 from datetime import datetime, timedelta
 
 import numpy as np
+
+from ._validate import decompress_bzip2_records_bounded
 
 
 class NEXRADLevel2File:
@@ -589,13 +590,12 @@ def _decompress_records(file_handler):
     """
     file_handler.seek(0)
     cbuf = file_handler.read()  # read all data from the file
-    decompressor = bz2.BZ2Decompressor()
+    # FU-18 (f56fc4, CWE-409/400): the record streams used to be expanded
+    # with unbounded decompress() calls, so a small file could request an
+    # unbounded amount of memory (bzip2 reaches ~10^6:1 on runs of zeros).
+    # Expand them in chunks with a per-stream and a cumulative ceiling.
     skip = _structure_size(VOLUME_HEADER) + CONTROL_WORD_SIZE
-    buf = bytearray(decompressor.decompress(cbuf[skip:]))
-    while len(decompressor.unused_data):
-        cbuf = decompressor.unused_data
-        decompressor = bz2.BZ2Decompressor()
-        buf += decompressor.decompress(cbuf[CONTROL_WORD_SIZE:])
+    buf = decompress_bzip2_records_bounded(cbuf, skip, CONTROL_WORD_SIZE)
 
     return buf[COMPRESSION_RECORD_SIZE:]
 

@@ -1,10 +1,12 @@
 """
 GAMICFile class and utility functions.
-
 """
 
 import h5py
 import numpy as np
+
+from ..exceptions import PyARTDataError
+from ..io._validate import MAX_NSWEEPS, validate_dims
 
 
 class GAMICFile:
@@ -36,12 +38,46 @@ class GAMICFile:
     def __init__(self, filename):
         """initialize object."""
         self._hfile = h5py.File(filename, "r")
-        self.nsweeps = self._hfile["what"].attrs["sets"]
+        # FU-23 (57a9dd, CWE-789): 'sets' is a file-controlled attribute that
+        # drives the scan-name list, every how/what attribute loop and the
+        # (total_rays, max_num_gates) volume allocation. Clamp it to the
+        # sweep limit, require the scan groups it promises to actually be
+        # present, and bound the ray/gate counts before they are multiplied
+        # into an allocation.
+        try:
+            sets = self._hfile["what"].attrs["sets"]
+        except KeyError as err:
+            raise PyARTDataError(
+                f"GAMIC file is missing the 'what' group or its 'sets' "
+                f"attribute ({err})"
+            ) from err
+        if isinstance(sets, bool) or not isinstance(sets, (int, np.integer)):
+            raise PyARTDataError(
+                f"GAMIC 'sets' attribute must be a positive integer, got {sets!r}"
+            )
+        if sets <= 0:
+            raise PyARTDataError(f"GAMIC 'sets' attribute must be positive, got {sets}")
+        if sets > MAX_NSWEEPS:
+            raise PyARTDataError(
+                f"GAMIC file declares {sets} sets, exceeding the limit of "
+                f"{MAX_NSWEEPS}"
+            )
+        self.nsweeps = int(sets)
+        for i in range(self.nsweeps):
+            if f"scan{i}" not in self._hfile:
+                raise PyARTDataError(
+                    f"GAMIC file declares {self.nsweeps} sets but the scan{i} "
+                    f"group is missing"
+                )
         self._scans = [f"scan{i}" for i in range(self.nsweeps)]
         self.rays_per_sweep = self.how_attrs("ray_count", "int32")
         self.total_rays = sum(self.rays_per_sweep)
         self.gates_per_sweep = self.how_attrs("bin_count", "int32")
         self.max_num_gates = max(self.gates_per_sweep)
+        # ray_count / bin_count are file attributes that size the masked
+        # volume built in moment_data(); reject bogus counts before any
+        # (total_rays, max_num_gates) array is requested.
+        validate_dims(self.total_rays, self.max_num_gates, name="GAMIC volume")
         # check uniformity of range_step, raise if not uniform
         range_samples = self.how_attrs("range_samples", "int32")
         range_step = self.how_attrs("range_step", "float") * range_samples

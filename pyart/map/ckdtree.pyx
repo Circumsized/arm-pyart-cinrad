@@ -137,6 +137,13 @@ cdef class heap(object):
 
     def __init__(heap self, np.intp_t initial_size):
         cdef void *tmp
+        # FU-12 (a8abf7, CWE-122/787): a zero-sized heap would make
+        # remove()/peek() touch heap[-1] of a zero-length allocation; refuse
+        # it at construction so a bad k cannot produce one.
+        if initial_size < 1:
+            raise ValueError(
+                "heap requires a positive initial size, got %d" % int(initial_size)
+            )
         self.space = initial_size
         self.heap = <heapitem*> NULL
         tmp = stdlib.malloc(sizeof(heapitem)*self.space)
@@ -189,6 +196,12 @@ cdef class heap(object):
         cdef heapitem t
         cdef np.intp_t i, j, k, l
 
+        # FU-12 (a8abf7, CWE-122/787): self.heap is a raw C pointer, so
+        # "self.heap[0] = self.heap[self.n-1]" on an empty heap would read
+        # and write heap[-1] of the allocation (heap underflow) and drive
+        # self.n negative, corrupting the heap on the next push.
+        if self.n == 0:
+            raise ValueError("cannot remove from an empty heap")
         self.heap[0] = self.heap[self.n-1]
         self.n -= 1
         # No point in freeing up space as the heap empties.
@@ -215,6 +228,10 @@ cdef class heap(object):
         return 0
 
     cdef int pop(heap self, heapitem *it) except -1:
+        # FU-12 (a8abf7): guard peek() as well; it reads heap[0] with no
+        # bounds checking, so popping an empty heap is undefined behaviour.
+        if self.n == 0:
+            raise ValueError("cannot pop from an empty heap")
         it[0] = self.peek()
         self.remove()
         return 0
@@ -1260,6 +1277,11 @@ cdef class cKDTree:
                              "shape %s" % (int(self.m), np.shape(x)))
         if p < 1:
             raise ValueError("Only p-norms with 1<=p<=infinity permitted")
+        # FU-12 (a8abf7, CWE-122/787): k<=0 would allocate a zero-length
+        # neighbor heap and drive it negative (see heap.remove); reject at
+        # the public boundary as the first of three defenses.
+        if k < 1:
+            raise ValueError("k must be at least 1, got %d" % int(k))
         if len(x.shape)==1:
             single = True
             x = x[np.newaxis,:]

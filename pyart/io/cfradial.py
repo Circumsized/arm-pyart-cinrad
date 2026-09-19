@@ -13,6 +13,7 @@ import numpy as np
 
 from ..config import FileMetadata
 from ..core.radar import Radar
+from ..exceptions import PyARTDataError
 from ..lazydict import LazyLoadDict
 from .common import _test_arguments, stringarray_to_chararray
 
@@ -500,9 +501,35 @@ class _NetCDFVariableDataExtractor:
 
 def _unpack_variable_gate_field_dic(dic, shape, ray_n_gates, ray_start_index):
     """Create a 2D array from a 1D field data, dic update in place."""
+    # FU-20 (7a67cb, CWE-789/CWE-400): ray_n_gates and ray_start_index come
+    # straight from the file and index the flattened n_points field data.
+    # Unvalidated, an entry could read past the flat array (silently
+    # truncated data), a negative start index read from the *end* of the
+    # array (silently wrong values), a gate count larger than the range
+    # dimension aborted with a raw broadcast ValueError, and a count list
+    # longer than the time dimension crashed with an IndexError. Bound every
+    # entry before it is used as an index.
     fdata = dic["data"]
+    nrays, ngates = shape
+    if len(ray_n_gates) > nrays or len(ray_start_index) > nrays:
+        raise PyARTDataError(
+            f"CF/Radial file declares {len(ray_n_gates)} ray gate counts and "
+            f"{len(ray_start_index)} ray start indices but only {nrays} rays "
+            f"are present"
+        )
+    flat_len = len(fdata)
     data = np.ma.masked_all(shape, dtype=fdata.dtype)
     for i, (gates, idx) in enumerate(zip(ray_n_gates, ray_start_index)):
+        if gates < 0 or gates > ngates:
+            raise PyARTDataError(
+                f"CF/Radial ray {i} declares {gates} gates but the range "
+                f"dimension only holds {ngates}"
+            )
+        if idx < 0 or idx + gates > flat_len:
+            raise PyARTDataError(
+                f"CF/Radial ray {i} reads {gates} gates starting at index "
+                f"{idx} but the flattened field only holds {flat_len} points"
+            )
         data[i, :gates] = fdata[idx : idx + gates]
     dic["data"] = data
     return

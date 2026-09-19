@@ -8,6 +8,8 @@ import warnings
 
 import numpy as np
 
+from ._validate import MAX_NGATES, MAX_NRAYS, MAX_NSWEEPS, validate_dims
+
 cimport cython
 cimport numpy as np
 
@@ -127,6 +129,17 @@ cdef class SigmetFile:
         nbins = self.product_hdr['product_end']['number_bins']
         nrays = self.ingest_header['ingest_configuration'][
             'number_rays_sweep']
+
+        # FU-14 (d2238d, CWE-789): all three dimensions come straight from
+        # the file headers, so a 12 KB file could request a multi-exabyte
+        # allocation (and surface as a bare MemoryError/ValueError from
+        # NumPy). Validate them against the shared limits before anything
+        # is allocated; the sweep buffer in _get_sweep is validated the
+        # same way against its own (independently declared) ray count.
+        validate_dims(
+            nsweeps, nrays, nbins,
+            limits=(MAX_NSWEEPS, MAX_NRAYS, MAX_NGATES),
+            name="Sigmet volume")
 
         # create empty outputs
         shape = (nsweeps, nrays, nbins)
@@ -272,6 +285,16 @@ cdef class SigmetFile:
         nrays = sum(nray_data_types)    # total rays
         nbins = self.product_hdr['product_end']['number_bins']
 
+        # FU-14 (d2238d, CWE-789): the sweep buffer is sized from the
+        # per-data-type ingest headers, which declare their ray counts
+        # independently of the volume-level counts. Validate before
+        # allocating so an inconsistent file is rejected instead of
+        # requesting a huge (or shape-conflicting) buffer.
+        validate_dims(
+            nrays, nbins,
+            limits=(MAX_NRAYS, MAX_NGATES),
+            name="Sigmet sweep buffer")
+
         # prepare to read rays
         self._rbuf = np.frombuffer(lead_record, dtype='int16')
         self._rbuf_p = <np.int16_t*>self._rbuf.data
@@ -342,7 +365,16 @@ cdef class SigmetFile:
             if self._incr_rbuf_pos():
                 return -1   # failed read
             if compression_code < 0:
-                words = compression_code + 32768    # last 7 bits give size
+                # FU-09 (7b4e3f, CWE-125/787): a negative word means the
+                # next `words` words are copied verbatim, and `words` can
+                # be as large as 32767. The zero-fill branch below checks
+                # the destination bound; this branch never did, so a run
+                # longer than the remaining room in the ray row
+                # (nbins + 6 words) wrote past the row. Bound the
+                # destination before copying anything.
+                words = compression_code + 32768    # last 15 bits give size
+                if out_pos + words > nbins + 6:
+                    return -1   # ray longer than the declared bins
                 if self._rbuf_pos + words <= 3072:
                     # all compressed data is in the current record
                     for i in range(words):
@@ -354,12 +386,20 @@ cdef class SigmetFile:
                     # data is split between current and next record
                     # store data from current record
                     remain = words - (3072 - self._rbuf_pos)
+                    # A freshly loaded record only offers 3072 - 6 words
+                    # after its 6-word header. `remain` is read through
+                    # the raw _rbuf_p pointer, which Cython does not
+                    # bounds-check, so a larger remainder reads past the
+                    # 6144-byte record allocation.
+                    if remain > 3072 - 6:
+                        return -1   # file is corrupt
                     first_end = out_pos + words - remain
                     for i in range(first_end - out_pos):
                         out[out_pos + i] = self._rbuf_p[self._rbuf_pos + i]
 
                     # read data from next record and store
-                    self._load_record()
+                    if self._load_record():
+                        return -1   # failed read
                     for i in range(out_pos + words - first_end):
                         out[first_end + i] = self._rbuf_p[self._rbuf_pos + i]
 

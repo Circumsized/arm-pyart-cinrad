@@ -5,7 +5,6 @@ Functions and classes common between MDV grid and radar files.
 
 # Code is adapted from Nitin Bharadwaj's Matlab code
 
-import bz2
 import datetime
 import gzip
 import struct
@@ -15,6 +14,8 @@ from io import BytesIO
 import numpy as np
 
 from ..core.transforms import antenna_to_cartesian
+from ..exceptions import PyARTDataError
+from ._validate import decompress_bzip2_bounded, validate_mdv_dims
 
 # mapping from MDV name space to CF-Radial name space
 MDV_METADATA_MAP = {"instrument_name": "data_set_source", "source": "data_set_info"}
@@ -76,6 +77,14 @@ DATA_TRANSFORM_LOG = 1  # Natural log
 ENCODING_INT8 = 1  # unsigned 8 bit integer
 ENCODING_INT16 = 2  # unsigned 16 bit integer
 ENCODING_FLOAT32 = 5  # 32 bit IEEE floating point
+
+# Bytes per data element for each encoding, used to bound an uncompressed
+# MDV field volume against the size of the file (FU-15).
+_ENCODING_ITEM_NBYTES = {
+    ENCODING_INT8: 1,
+    ENCODING_INT16: 2,
+    ENCODING_FLOAT32: 4,
+}
 
 #  ***************** CHUNK HEADER and DATA *******************
 CHUNK_DSRADAR_PARAMS = 3
@@ -529,6 +538,36 @@ class MdvFile:
         ny = field_header["ny"]
         nx = field_header["nx"]
 
+        # FU-15 (b94672, CWE-789): the field header is untrusted input and
+        # used to size the output allocation directly. Validate the
+        # dimensions, cross-check them against the master header and make
+        # sure an uncompressed volume fits in the file *before* allocating
+        # anything.
+        validate_mdv_dims(nx, ny, nz, name=f"MDV field {fnum}")
+
+        master = self.master_header
+        if nx > master["max_nx"] or ny > master["max_ny"] or nz > master["max_nz"]:
+            raise PyARTDataError(
+                f"MDV field {fnum} declares {nx}x{ny}x{nz} but the master "
+                f"header only allows {master['max_nx']}x{master['max_ny']}x"
+                f"{master['max_nz']}"
+            )
+
+        # An uncompressed field must physically fit in the bytes that follow
+        # its data offset. Compressed fields expand from a much smaller
+        # on-disk payload, so the check does not apply to them (the sample
+        # gzip files hold 79 KB of volume in 65 KB of file).
+        if field_header["compression_type"] == COMPRESSION_NONE:
+            element_nbytes = _ENCODING_ITEM_NBYTES.get(field_header["encoding_type"])
+            if element_nbytes is not None:
+                needed = nx * ny * nz * element_nbytes
+                remaining = self._file_size() - field_header["field_data_offset"]
+                if needed > remaining:
+                    raise PyARTDataError(
+                        f"MDV field {fnum} needs {needed} bytes of uncompressed "
+                        f"data but only {remaining} bytes remain in the file"
+                    )
+
         # read the header
         field_data = np.zeros([nz, ny, nx], dtype="float32")
         self.fileptr.seek(field_header["field_data_offset"])
@@ -570,7 +609,10 @@ class MdvFile:
             elif compr_info["magic_cookie"] == ZLIB_COMPRESSED:
                 decompr_data = zlib.decompress(compr_data)
             elif compr_info["magic_cookie"] == BZIP_COMPRESSED:
-                decompr_data = bz2.decompress(compr_data)
+                # FU-18 (f56fc4, CWE-409/400): bz2.decompress expanded the
+                # level without a ceiling; a small file could request
+                # gigabytes of memory.
+                decompr_data = decompress_bzip2_bounded(compr_data)
             elif compr_info["magic_cookie"] == TA_NOT_COMPRESSED:
                 decompr_data = compr_data
             elif compr_info["magic_cookie"] == GZIP_NOT_COMPRESSED:
@@ -1011,13 +1053,36 @@ class MdvFile:
         # the file pointer must be set at the correct location prior to call
         fmt = f">{nlevels}I {nlevels}I"
         if self.fileptr:
-            packet = struct.unpack(fmt, self.fileptr.read(struct.calcsize(fmt)))
+            # FU-15 (b94672, CWE-789): struct.unpack raises an opaque
+            # struct.error when the file ends inside the level block; check
+            # the buffer length first and fail with PyARTDataError.
+            nbytes = struct.calcsize(fmt)
+            buf = self.fileptr.read(nbytes)
+            if len(buf) < nbytes:
+                raise PyARTDataError(
+                    f"MDV file is truncated: {len(buf)} of {nbytes} level-info "
+                    f"bytes available"
+                )
+            packet = struct.unpack(fmt, buf)
         else:
             packet = [0] * 2 * nlevels
         d = {}
         d["vlevel_offsets"] = packet[:nlevels]
         d["vlevel_nbytes"] = packet[nlevels : 2 * nlevels]
         return d
+
+    def _file_size(self):
+        """Return the size of the file in bytes, 0 when there is no file."""
+        # FU-15 (b94672, CWE-789): used to bound allocations against the
+        # bytes actually present in the file. The cursor is restored so the
+        # helper may be called at any point.
+        if self.fileptr is None:
+            return 0
+        pos = self.fileptr.tell()
+        self.fileptr.seek(0, 2)  # seek to the end of the file
+        size = self.fileptr.tell()
+        self.fileptr.seek(pos)
+        return size
 
     def _write_levels_info(self, nlevels, d):
         """write levels information, return a dict."""
@@ -1085,9 +1150,15 @@ class MdvFile:
     # XXX move some where else, there are not general mdv operations
     def _calc_geometry(self):
         """Calculate geometry, return az_deg, range_km, el_deg."""
+        # FU-15 (b94672, CWE-789): nsweeps/nrays/ngates come straight from
+        # the master header and size the geometry arrays (and, through
+        # _make_carts_dict, three more volumes); validate them before any
+        # allocation, a header claiming 2**31-1 gates used to request 16 GiB
+        # from np.arange alone.
         nsweeps = self.master_header["max_nz"]
         nrays = self.master_header["max_ny"]
         ngates = self.master_header["max_nx"]
+        validate_mdv_dims(ngates, nrays, nsweeps, name="MDV master header")
         grid_minx = self.field_headers[0]["grid_minx"]
         grid_miny = self.field_headers[0]["grid_miny"]
         grid_dx = self.field_headers[0]["grid_dx"]
@@ -1157,23 +1228,41 @@ def _decode_rle8(compr_data, key, decompr_size):
     # Encoding is described in section 7 of:
     # http://rap.ucar.edu/projects/IHL/RalHtml/protocols/mdv_file/
     # This function would benefit greate by being rewritten in Cython
+
+    # FU-13 (d7c300, CWE-125/131): the previous implementation read
+    # data[data_ptr + 1] and data[data_ptr + 2] whenever it encountered
+    # the escape key, so a stream whose final byte(s) are the key indexed
+    # past the buffer (IndexError leaking out of the reader). It also
+    # pre-allocated the output from the header value and silently clipped
+    # or overflowed it. Every index is now bounds-checked and every
+    # malformed stream raises PyARTDataError with the offending position.
     data = np.frombuffer(compr_data, dtype=">B")
-    out = np.empty((decompr_size,), dtype="uint8")
+    n = len(data)
+    out = bytearray()
     data_ptr = 0
-    out_ptr = 0
-    while data_ptr != len(data):
-        v = data[data_ptr]
-        if v != key:  # not encoded
-            out[out_ptr] = v
+    while data_ptr < n:
+        if data[data_ptr] != key:  # not encoded
+            start = data_ptr
             data_ptr += 1
-            out_ptr += 1
+            while data_ptr < n and data[data_ptr] != key:
+                data_ptr += 1
+            out += compr_data[start:data_ptr]
         else:  # run length encoded
+            if data_ptr + 3 > n:
+                raise PyARTDataError(
+                    "MDV RLE8 stream ends inside a run header at byte "
+                    f"{data_ptr} of {n}"
+                )
             count = data[data_ptr + 1]
             value = data[data_ptr + 2]
-            out[out_ptr : out_ptr + count] = value
+            out += bytes([value]) * count
             data_ptr += 3
-            out_ptr += count
-    return out.tobytes()
+    if len(out) != decompr_size:
+        raise PyARTDataError(
+            f"MDV RLE8 stream decoded to {len(out)} bytes, header declares "
+            f"{decompr_size}"
+        )
+    return bytes(out)
 
 
 class _MdvVolumeDataExtractor:
