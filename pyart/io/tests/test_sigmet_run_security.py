@@ -69,9 +69,7 @@ def _probe_layout():
     assert nbins == EXPECTED_NUMBER_BINS
     assert len(raw) % RECORD_SIZE == 0
     first_code = int(
-        np.frombuffer(
-            raw[FIRST_RAY_CODE_OFFSET : FIRST_RAY_CODE_OFFSET + 2], "<i2"
-        )[0]
+        np.frombuffer(raw[FIRST_RAY_CODE_OFFSET : FIRST_RAY_CODE_OFFSET + 2], "<i2")[0]
     )
     # the sample's first ray is a run that exactly fills its row
     assert first_code < 0

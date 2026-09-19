@@ -61,8 +61,7 @@ def _call_unwrap3D(width, height, depth, ulimit_kb=None):
         "lib = ctypes.CDLL(sys.argv[1])\n"
         "lib.unwrap3D.restype = ctypes.c_int\n"
         "lib.unwrap3D.argtypes = [ctypes.c_void_p] * 3 + [ctypes.c_int] * 6\n"
-        "print(lib.unwrap3D(None, None, None, %d, %d, %d, 0, 0, 0))\n"
-        % (width, height, depth)
+        f"print(lib.unwrap3D(None, None, None, {width}, {height}, {depth}, 0, 0, 0))\n"
     )
     if ulimit_kb is None:
         cmd = [sys.executable, "-c", script, _library_path()]
@@ -70,8 +69,8 @@ def _call_unwrap3D(width, height, depth, ulimit_kb=None):
         cmd = [
             "bash",
             "-c",
-            "ulimit -v %d; exec %s -c '%s' %s"
-            % (ulimit_kb, sys.executable, script, _library_path()),
+            f"ulimit -v {ulimit_kb}; exec {sys.executable} -c '{script}' "
+            f"{_library_path()}",
         ]
     return subprocess.run(cmd, capture_output=True, text=True, timeout=120)
 
@@ -109,17 +108,13 @@ def test_unwrap_3d_rejects_mismatched_mask():
 def test_unwrap_3d_normal_operation_unchanged():
     """Regression: the unwrapping result itself must not change."""
     # a ramp that wraps once, replicated across rays
-    image = np.tile(
-        np.array([[[0.0, 1.0, 2.0, 3.0, -3.1, -2.2]]]), (1, 3, 1)
-    )
+    image = np.tile(np.array([[[0.0, 1.0, 2.0, 3.0, -3.1, -2.2]]]), (1, 3, 1))
     mask = np.full(image.shape, 255, dtype="uint8")
     unwrapped = np.empty_like(image)
     unwrap_3d(image, mask, unwrapped, [False, False, False])
     np.testing.assert_allclose(
         unwrapped,
-        np.tile(
-            np.array([[[0.0, 1.0, 2.0, 3.0, -3.1, -2.2]]]), (1, 3, 1)
-        ),
+        np.tile(np.array([[[0.0, 1.0, 2.0, 3.0, -3.1, -2.2]]]), (1, 3, 1)),
     )
     assert float(unwrapped.sum()) == pytest.approx(2.1, abs=1e-9)
 

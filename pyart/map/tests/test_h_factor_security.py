@@ -36,9 +36,7 @@ def _setup():
 def test_map_gates_to_grid_rejects_h_factor_not_length_3(h_factor):
     radar, shape, limits = _setup()
     with pytest.raises(ValueError, match="h_factor"):
-        map_gates_to_grid(
-            radar, shape, limits, roi_func="dist_beam", h_factor=h_factor
-        )
+        map_gates_to_grid(radar, shape, limits, roi_func="dist_beam", h_factor=h_factor)
 
 
 def test_map_gates_to_grid_dist_beam_explicit_3_matches_default():
@@ -49,6 +47,4 @@ def test_map_gates_to_grid_dist_beam_explicit_3_matches_default():
     g_explicit = map_gates_to_grid(
         radar2, shape2, limits2, roi_func="dist_beam", h_factor=(1.0, 1.0, 1.0)
     )
-    np.testing.assert_allclose(
-        g_default["reflectivity"], g_explicit["reflectivity"]
-    )
+    np.testing.assert_allclose(g_default["reflectivity"], g_explicit["reflectivity"])

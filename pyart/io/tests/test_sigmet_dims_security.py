@@ -85,9 +85,26 @@ def _read_rejected(path):
 
 def test_sample_file_dimensions_are_understood():
     raw = _read_file_bytes()
-    assert int(np.frombuffer(raw[NUMBER_BINS_OFFSET : NUMBER_BINS_OFFSET + 4], "<i4")[0]) == 25
-    assert int(np.frombuffer(raw[NUMBER_RAYS_SWEEP_OFFSET : NUMBER_RAYS_SWEEP_OFFSET + 2], "<u2")[0]) == 20
-    assert int(np.frombuffer(raw[NUMBER_SWEEPS_OFFSET : NUMBER_SWEEPS_OFFSET + 2], "<i2")[0]) == 1
+    assert (
+        int(np.frombuffer(raw[NUMBER_BINS_OFFSET : NUMBER_BINS_OFFSET + 4], "<i4")[0])
+        == 25
+    )
+    assert (
+        int(
+            np.frombuffer(
+                raw[NUMBER_RAYS_SWEEP_OFFSET : NUMBER_RAYS_SWEEP_OFFSET + 2], "<u2"
+            )[0]
+        )
+        == 20
+    )
+    assert (
+        int(
+            np.frombuffer(raw[NUMBER_SWEEPS_OFFSET : NUMBER_SWEEPS_OFFSET + 2], "<i2")[
+                0
+            ]
+        )
+        == 1
+    )
 
 
 def test_unmodified_sample_file_still_reads():
@@ -153,9 +170,7 @@ def test_single_dimension_above_limit_rejected(tmp_path, nsweeps, nrays, nbins):
 def test_dimension_product_above_limit_rejected(tmp_path):
     # Each axis is individually legal but the product is not.
     assert MAX_NSWEEPS * MAX_NRAYS * MAX_NGATES > MAX_NVOLUME_ELEMS
-    path = _craft(
-        tmp_path, nsweeps=MAX_NSWEEPS, nrays=MAX_NRAYS, nbins=MAX_NGATES
-    )
+    path = _craft(tmp_path, nsweeps=MAX_NSWEEPS, nrays=MAX_NRAYS, nbins=MAX_NGATES)
     _read_rejected(path)
 
 

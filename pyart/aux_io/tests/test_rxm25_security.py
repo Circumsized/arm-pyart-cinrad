@@ -63,9 +63,7 @@ def _write_rxm25(
     allocations.
     """
     attack = (
-        gate_size is not None
-        or radial_size is not None
-        or velocity_shape is not None
+        gate_size is not None or radial_size is not None or velocity_shape is not None
     )
     dataset = netCDF4.Dataset(str(path), "w", format="NETCDF4")
     try:

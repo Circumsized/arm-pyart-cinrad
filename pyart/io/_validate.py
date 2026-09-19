@@ -84,6 +84,10 @@ def validate_dims(*dims, limits=None, max_elements=MAX_NVOLUME_ELEMS, name="arra
             raise PyARTDataError(
                 f"{name}: dimension {i} must be an integer, got {type(dim).__name__}"
             )
+        # Promote to a Python int: numpy integer scalars wrap on overflow
+        # (int32(8) * int32(1e9) silently overflows), which would defeat the
+        # product check below.
+        dim = int(dim)
         if dim <= 0:
             raise PyARTDataError(f"{name}: dimensions must be positive, got {dims}")
         cap = MAX_DIM_PRODUCT if limits is None else limits[i]

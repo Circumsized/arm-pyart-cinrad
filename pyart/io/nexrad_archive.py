@@ -139,7 +139,9 @@ def read_nexrad_archive(
     first_gate, gate_spacing, last_gate = _find_range_params(scan_info, filemetadata)
     # determine which moments need interpolation before building the range,
     # so the range can leave room for the interpolated gates (FU-10)
-    interpolate = _find_scans_to_interp(scan_info, first_gate, gate_spacing, filemetadata)
+    interpolate = _find_scans_to_interp(
+        scan_info, first_gate, gate_spacing, filemetadata
+    )
     last_gate = _interp_headroom_last_gate(
         scan_info, interpolate, first_gate, gate_spacing, last_gate
     )
@@ -411,14 +413,12 @@ def _interpolate_scan(mdata, start, end, moment_ngates, multiplier, linear_inter
         needed_gates = 2 * moment_ngates - 1
     if moment_ngates < 1 or needed_gates > data.shape[1]:
         raise PyARTDataError(
-            "moment with %d gates needs %d interpolated gates but the data "
-            "array only provides %d gates per ray"
-            % (moment_ngates, needed_gates, data.shape[1])
+            f"moment with {moment_ngates} gates needs {needed_gates} interpolated "
+            f"gates but the data array only provides {data.shape[1]} gates per ray"
         )
     if start < 0 or end >= data.shape[0] or start > end + 1:
         raise PyARTDataError(
-            "invalid ray range [%d, %d] for %d rays"
-            % (start, end, data.shape[0])
+            f"invalid ray range [{start}, {end}] for {data.shape[0]} rays"
         )
 
     scratch_ray = np.empty((data.shape[1],), dtype=data.dtype)

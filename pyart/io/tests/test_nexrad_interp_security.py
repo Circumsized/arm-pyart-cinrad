@@ -29,15 +29,16 @@ import pytest
 
 pytest.importorskip("pyart")
 
+from pyart.io.nexrad_interpolate import (  # noqa: E402
+    _fast_interpolate_scan_2,
+    _fast_interpolate_scan_4,
+)
+
 from pyart.exceptions import PyARTDataError  # noqa: E402
 from pyart.io.nexrad_archive import (  # noqa: E402
     _find_range_params,
     _interp_headroom_last_gate,
     _interpolate_scan,
-)
-from pyart.io.nexrad_interpolate import (  # noqa: E402
-    _fast_interpolate_scan_2,
-    _fast_interpolate_scan_4,
 )
 
 DATA_FILE = "pyart/testing/data/example_nexrad_archive_msg31_compressed.ar2v"
@@ -195,9 +196,7 @@ def test_interp_headroom_widens_range_for_interpolated_moments():
         }
     ]
     interpolate = {"VEL": [0], "multiplier": "4"}
-    widened = _interp_headroom_last_gate(
-        scan_info, interpolate, 0.0, 250.0, 459500.0
-    )
+    widened = _interp_headroom_last_gate(scan_info, interpolate, 0.0, 250.0, 459500.0)
     assert widened == pytest.approx(1840 * 250.0)
     # a range that is already wide enough is left untouched
     assert _interp_headroom_last_gate(

@@ -127,8 +127,8 @@ def map_gates_to_grid(
         h_factor = np.asarray(h_factor, dtype="float32")
         if h_factor.ndim != 1 or h_factor.shape[0] != 3:
             raise ValueError(
-                "h_factor must have exactly 3 components, got shape %s"
-                % (tuple(h_factor.shape),)
+                f"h_factor must have exactly 3 components, got shape "
+                f"{tuple(h_factor.shape)}"
             )
     elif isinstance(h_factor, float):
         h_factor = np.full(3, h_factor, dtype="float32")
@@ -136,8 +136,8 @@ def map_gates_to_grid(
         dist_factor = np.asarray(dist_factor, dtype="float32")
         if dist_factor.ndim != 1 or dist_factor.shape[0] != 3:
             raise ValueError(
-                "dist_factor must have exactly 3 components, got shape %s"
-                % (tuple(dist_factor.shape),)
+                f"dist_factor must have exactly 3 components, got shape "
+                f"{tuple(dist_factor.shape)}"
             )
     elif isinstance(dist_factor, float):
         dist_factor = np.full(3, dist_factor, dtype="float32")

@@ -112,6 +112,14 @@ def test_validate_dims_product_guard_before_multiplication():
         validate_dims(big, big, 1, max_elements=MAX_NVOLUME_ELEMS)
 
 
+def test_validate_dims_promotes_numpy_scalars_before_multiplying():
+    # FU-23: netCDF/HDF5 attributes arrive as numpy integer scalars. The
+    # product must be accumulated in Python integers, because int32(8) *
+    # int32(1e9) silently wraps and would let a bomb volume through.
+    with pytest.raises(PyARTDataError, match="elements"):
+        validate_dims(np.int32(8), np.int32(10**9))
+
+
 def test_validate_dims_honors_explicit_limits():
     # Callers may pass tighter limits for a specific field/ray count.
     validate_dims(4, 10, max_elements=100)

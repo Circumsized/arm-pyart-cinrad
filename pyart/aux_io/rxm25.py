@@ -17,11 +17,19 @@ from ..testing import make_empty_ppi_radar
 # (Py-ART field name, RXM-25 variable name, metadata configuration key).
 RXM25_MOMENT_VARIABLES = (
     ("reflectivity", "Reflectivity", "reflectivity"),
-    ("normalized_coherent_power", "NormalizedCoherentPower", "normalized_coherent_power"),
+    (
+        "normalized_coherent_power",
+        "NormalizedCoherentPower",
+        "normalized_coherent_power",
+    ),
     ("spectral_width", "SpectralWidth", "spectral_width"),
     ("velocity", "Velocity", "velocity"),
     ("corrected_reflectivity", "CorrectedReflectivity", "correct_reflectivity"),
-    ("differential_reflectivity", "DifferentialReflectivity", "differential_reflectivity"),
+    (
+        "differential_reflectivity",
+        "DifferentialReflectivity",
+        "differential_reflectivity",
+    ),
     ("differential_phase", "DifferentialPhase", "differential_phase"),
     (
         "specific_differential_phase",
@@ -110,9 +118,12 @@ def read_rxm25(filename, cfradial_outfile=None, heading=None):
             if variable not in data.variables:
                 raise PyARTDataError(f"RXM-25 file is missing the {variable} variable")
             values = data[variable][:]
-            if len(values) != rays_per_sweep:
+            # A partially written variable keeps its declared length but
+            # masks the unwritten tail, so count the real entries.
+            n_entries = int(np.ma.count(values))
+            if n_entries != rays_per_sweep:
                 raise PyARTDataError(
-                    f"RXM-25 variable {variable} has {len(values)} entries but "
+                    f"RXM-25 variable {variable} has {n_entries} entries but "
                     f"the Radial dimension declares {rays_per_sweep}"
                 )
             ray_values[variable] = values
@@ -136,9 +147,7 @@ def read_rxm25(filename, cfradial_outfile=None, heading=None):
 
         if heading is not None:
             radar.heading = heading
-            radar.azimuth["data"] = np.mod(
-                ray_values["Azimuth"] - radar.heading, 360.0
-            )
+            radar.azimuth["data"] = np.mod(ray_values["Azimuth"] - radar.heading, 360.0)
         else:
             radar.azimuth["data"] = ray_values["Azimuth"]
 

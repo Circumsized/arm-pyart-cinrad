@@ -16,9 +16,11 @@ import numpy as np
 
 from pyart.config import FileMetadata, get_fillvalue
 from pyart.core.radar import Radar
+from pyart.exceptions import PyARTDataError
 from pyart.io.common import _test_arguments, make_time_unit_str, prepare_for_read
 from pyart.lazydict import LazyLoadDict
 
+from ._validate import MAX_NGATES, validate_dims
 from .sband_radar import SbandRadarFile
 
 try:
@@ -118,6 +120,18 @@ def read_sband_archive(
     # range
     _range = filemetadata("range")
     first_gate, gate_spacing, last_gate = _find_range_params(scan_info, filemetadata)
+    # FU-25 (9b7666, CWE-789): first_gate / gate_spacing / last_gate are
+    # unbounded unsigned header fields, so the range axis length (which
+    # sizes every field allocation) must be bounded before np.arange
+    # materializes it. A volume with no readable moment keeps its existing
+    # empty range axis.
+    if gate_spacing <= 0:
+        raise PyARTDataError(
+            f"S band file declares a non-positive gate spacing of {gate_spacing}"
+        )
+    if last_gate > first_gate:
+        range_len = int(-(-(last_gate - first_gate) // gate_spacing))  # ceil
+        validate_dims(range_len, limits=(MAX_NGATES,), name="S band range axis")
     _range["data"] = np.arange(first_gate, last_gate, gate_spacing, "float32")
     _range["meters_to_center_of_first_gate"] = float(first_gate)
     _range["meters_between_gates"] = float(gate_spacing)
@@ -177,6 +191,19 @@ def read_sband_archive(
     # fields
     max_ngates = len(_range["data"])
     available_moments = {m for scan in scan_info for m in scan["moments"]}
+    # FU-25 (9b7666, CWE-400): scan_info only samples the first ray of each
+    # scan, so a later ray could declare a gate count the range axis never
+    # saw. Check every ray against the shared gate limit so an absurd
+    # declaration is rejected cleanly instead of being silently clamped
+    # away (or, before FU-25, raising a broadcast ValueError).
+    for record in nfile.radial_records:
+        for moment in available_moments:
+            if moment in record:
+                validate_dims(
+                    int(record[moment]["ngates"]),
+                    limits=(MAX_NGATES,),
+                    name=f"S band ray {moment} gate count",
+                )
     interpolate = _find_scans_to_interp(
         scan_info, first_gate, gate_spacing, filemetadata
     )
