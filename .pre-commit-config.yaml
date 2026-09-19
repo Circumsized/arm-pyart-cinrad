@@ -2,13 +2,21 @@ repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.4.0
     hooks:
+      # Generated Cython C sources are build artifacts: cython re-emits
+      # trailing whitespace on regeneration, and a Windows regeneration
+      # would produce CRLF. Exclude the generated .c files (the ones named
+      # after a sibling .pyx: basename starting with "_", plus ckdtree and
+      # nexrad_interpolate). Hand-written C (src/*, *_ljmu.c, tests/*)
+      # deliberately stays under these hooks.
       - id: trailing-whitespace
+        exclude: (^|/)(_|ckdtree|nexrad_interpolate)[^/]*\.c$
       - id: end-of-file-fixer
       - id: check-docstring-first
       - id: check-json
       - id: check-yaml
       - id: debug-statements
       - id: mixed-line-ending
+        exclude: (^|/)(_|ckdtree|nexrad_interpolate)[^/]*\.c$
 
   - repo: https://github.com/asottile/pyupgrade
     rev: v3.21.2
