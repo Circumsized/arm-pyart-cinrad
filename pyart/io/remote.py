@@ -236,14 +236,41 @@ class _BaseSource:
         return radars
 
     # -- HTTP helpers -------------------------------------------------------
+    # FU-02 (d9214c, CWE-918): networks that ipaddress does not classify as
+    # private/loopback/link-local on every Python version but that must never
+    # be reachable through a caller-supplied URL.
+    _EXTRA_BLOCKED_NETWORKS = (
+        "0.0.0.0/8",  # "this host on this network"
+        "100.64.0.0/10",  # carrier-grade NAT
+        "192.0.0.0/24",  # IETF protocol assignments
+        "198.18.0.0/15",  # benchmarking
+        "64:ff9b::/96",  # NAT64 (embeds IPv4)
+    )
+
     @staticmethod
-    def _validate_url(url, allow_private=False):
+    def _validate_url(url, allow_private=False, allowlist=()):
         """Return True when ``url`` is safe to request.
 
-        Restricts the scheme to ``http``/``https`` and (unless
-        ``allow_private``) rejects loopback, link-local, private, and cloud
-        metadata hosts. This is an SSRF guard for caller-supplied URLs
-        (``key['url']``, ``station_config['template']``).
+        FU-02 (e690e4/d9214c, CWE-918). The guard now:
+
+        1. restricts the scheme to ``http``/``https``;
+        2. matches the hostname against an explicit operator allowlist;
+        3. resolves the hostname and classifies **every** resolved address
+           against loopback / private / link-local / reserved / multicast /
+           unspecified ranges, including IPv4-mapped IPv6 and 6to4 forms;
+        4. rejects hostnames that do not resolve at all.
+
+        Hostnames are not trusted by string shape: any DNS name (localtest.me,
+        an attacker-controlled A record, ...) is resolved first, and
+        alternative IP literal encodings (decimal, octal, hex, short form)
+        are normalized by the resolver, so none of them bypass
+        classification. Redirect targets are re-validated per hop by
+        :meth:`_http_get`.
+
+        ``allow_private`` remains available for callers that *explicitly*
+        opt in (for example an internal mirror configured through
+        ``station_config``); it can no longer be enabled implicitly for a
+        caller-supplied URL.
         """
         try:
             from urllib.parse import urlparse
@@ -253,26 +280,55 @@ class _BaseSource:
             return False
         if parsed.scheme not in ("http", "https") or not parsed.hostname:
             return False
-        if allow_private:
-            return True
-        host = parsed.hostname.lower()
-        if host in ("localhost", "127.0.0.1", "::1", "169.254.169.254"):
-            return False
-        import ipaddress
+        host = parsed.hostname.lower().strip("[]")
 
-        try:
-            ip = ipaddress.ip_address(host)
-        except ValueError:
-            # Not a raw IP; could be a DNS name. Allow (we cannot resolve it
-            # here without a DNS call, which itself is out of scope).
+        if host in {str(h).lower() for h in allowlist}:
             return True
-        return not (
-            ip.is_private
-            or ip.is_loopback
-            or ip.is_link_local
-            or ip.is_reserved
-            or ip.is_multicast
-        )
+
+        import ipaddress
+        import socket
+
+        # Resolve every address the host maps to. A name that cannot be
+        # resolved cannot be validated, so it is refused.
+        try:
+            infos = socket.getaddrinfo(host, None)
+        except (socket.gaierror, UnicodeError, ValueError, OSError):
+            return False
+        if not infos:
+            return False
+
+        extra_blocked = [
+            ipaddress.ip_network(net)
+            for net in _BaseSource._EXTRA_BLOCKED_NETWORKS
+        ]
+        for info in infos:
+            addr = info[4][0]
+            try:
+                ip = ipaddress.ip_address(addr)
+            except ValueError:
+                return False
+            # Unwrap IPv4-mapped IPv6 (::ffff:a.b.c.d) and 6to4 (2002::/16).
+            mapped = getattr(ip, "ipv4_mapped", None)
+            if mapped is not None:
+                ip = mapped
+            else:
+                sixtofour = getattr(ip, "sixtofour", None)
+                if sixtofour is not None:
+                    ip = sixtofour
+            if allow_private:
+                continue
+            if (
+                ip.is_private
+                or ip.is_loopback
+                or ip.is_link_local
+                or ip.is_reserved
+                or ip.is_multicast
+                or ip.is_unspecified
+            ):
+                return False
+            if any(ip in net for net in extra_blocked):
+                return False
+        return True
 
     def _http_get(self, url, timeout=15.0, allow_private=False, max_redirects=3):
         """GET ``url`` and return bytes, with bounded retries.
@@ -953,9 +1009,13 @@ class CmaMusicSource(_BaseSource):
                     "MUSIC file entry has no recognized download URL field: "
                     f"{list(entry)}"
                 )
-        # 天擎 download URLs may sit on private address space, so allow them
-        # through the SSRF guard explicitly.
-        data = self._http_get(url, allow_private=True)
+        # FU-02 (e690e4, CWE-918): MUSIC download URLs reach this point from
+        # a caller-supplied key or an upstream service response, so they must
+        # run through the same SSRF guard as every other fetch. If a trusted
+        # deployment legitimately needs private address space, pass an
+        # explicit ``allowlist`` to ``_validate_url`` instead of disabling
+        # the guard.
+        data = self._http_get(url)
         self._atomic_write(local, data)
         return local
 

@@ -10,14 +10,17 @@
             ]
         ],
         "depends": [
-            "C:\\Users\\Administrator\\AppData\\Local\\Temp\\pip-build-env-brpey7dc\\overlay\\Lib\\site-packages\\numpy\\_core\\include\\numpy\\arrayobject.h",
-            "C:\\Users\\Administrator\\AppData\\Local\\Temp\\pip-build-env-brpey7dc\\overlay\\Lib\\site-packages\\numpy\\_core\\include\\numpy\\arrayscalars.h",
-            "C:\\Users\\Administrator\\AppData\\Local\\Temp\\pip-build-env-brpey7dc\\overlay\\Lib\\site-packages\\numpy\\_core\\include\\numpy\\ndarrayobject.h",
-            "C:\\Users\\Administrator\\AppData\\Local\\Temp\\pip-build-env-brpey7dc\\overlay\\Lib\\site-packages\\numpy\\_core\\include\\numpy\\ndarraytypes.h",
-            "C:\\Users\\Administrator\\AppData\\Local\\Temp\\pip-build-env-brpey7dc\\overlay\\Lib\\site-packages\\numpy\\_core\\include\\numpy\\ufuncobject.h"
+            "/root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/_core/include/numpy/arrayobject.h",
+            "/root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/_core/include/numpy/arrayscalars.h",
+            "/root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/_core/include/numpy/ndarrayobject.h",
+            "/root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/_core/include/numpy/ndarraytypes.h",
+            "/root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/_core/include/numpy/ufuncobject.h"
         ],
         "include_dirs": [
-            "C:\\Users\\Administrator\\AppData\\Local\\Temp\\pip-build-env-brpey7dc\\overlay\\Lib\\site-packages\\numpy\\_core\\include"
+            "/root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/_core/include"
+        ],
+        "libraries": [
+            "m"
         ],
         "name": "pyart.map.ckdtree",
         "sources": [
@@ -1279,7 +1282,7 @@ static int __Pyx_init_tpflags_variables(void) {
 #include <stdio.h>
 
     /* Using NumPy API declarations from "numpy/__init__.cython-30.pxd" */
-
+    
 #include "numpy/arrayobject.h"
 #include "numpy/ndarrayobject.h"
 #include "numpy/ndarraytypes.h"
@@ -1543,7 +1546,7 @@ static const char * const __pyx_cfilenm = __FILE__;
 
 static const char* const __pyx_f[] = {
   "pyart/map/ckdtree.pyx",
-  "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd",
+  "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd",
   "(tree fragment)",
   "cpython/type.pxd",
 };
@@ -1754,17 +1757,17 @@ typedef struct {
 
 /* #### Code section: numeric_typedefs ### */
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":761
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":761
  * # in Cython to enable them only on the right systems.
- *
+ * 
  * ctypedef npy_int8       int8_t             # <<<<<<<<<<<<<<
  * ctypedef npy_int16      int16_t
  * ctypedef npy_int32      int32_t
 */
 typedef npy_int8 __pyx_t_5numpy_int8_t;
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":762
- *
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":762
+ * 
  * ctypedef npy_int8       int8_t
  * ctypedef npy_int16      int16_t             # <<<<<<<<<<<<<<
  * ctypedef npy_int32      int32_t
@@ -1772,35 +1775,35 @@ typedef npy_int8 __pyx_t_5numpy_int8_t;
 */
 typedef npy_int16 __pyx_t_5numpy_int16_t;
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":763
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":763
  * ctypedef npy_int8       int8_t
  * ctypedef npy_int16      int16_t
  * ctypedef npy_int32      int32_t             # <<<<<<<<<<<<<<
  * ctypedef npy_int64      int64_t
- *
+ * 
 */
 typedef npy_int32 __pyx_t_5numpy_int32_t;
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":764
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":764
  * ctypedef npy_int16      int16_t
  * ctypedef npy_int32      int32_t
  * ctypedef npy_int64      int64_t             # <<<<<<<<<<<<<<
- *
+ * 
  * ctypedef npy_uint8      uint8_t
 */
 typedef npy_int64 __pyx_t_5numpy_int64_t;
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":766
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":766
  * ctypedef npy_int64      int64_t
- *
+ * 
  * ctypedef npy_uint8      uint8_t             # <<<<<<<<<<<<<<
  * ctypedef npy_uint16     uint16_t
  * ctypedef npy_uint32     uint32_t
 */
 typedef npy_uint8 __pyx_t_5numpy_uint8_t;
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":767
- *
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":767
+ * 
  * ctypedef npy_uint8      uint8_t
  * ctypedef npy_uint16     uint16_t             # <<<<<<<<<<<<<<
  * ctypedef npy_uint32     uint32_t
@@ -1808,35 +1811,35 @@ typedef npy_uint8 __pyx_t_5numpy_uint8_t;
 */
 typedef npy_uint16 __pyx_t_5numpy_uint16_t;
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":768
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":768
  * ctypedef npy_uint8      uint8_t
  * ctypedef npy_uint16     uint16_t
  * ctypedef npy_uint32     uint32_t             # <<<<<<<<<<<<<<
  * ctypedef npy_uint64     uint64_t
- *
+ * 
 */
 typedef npy_uint32 __pyx_t_5numpy_uint32_t;
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":769
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":769
  * ctypedef npy_uint16     uint16_t
  * ctypedef npy_uint32     uint32_t
  * ctypedef npy_uint64     uint64_t             # <<<<<<<<<<<<<<
- *
+ * 
  * ctypedef npy_float32    float32_t
 */
 typedef npy_uint64 __pyx_t_5numpy_uint64_t;
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":771
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":771
  * ctypedef npy_uint64     uint64_t
- *
+ * 
  * ctypedef npy_float32    float32_t             # <<<<<<<<<<<<<<
  * ctypedef npy_float64    float64_t
  * #ctypedef npy_float80    float80_t
 */
 typedef npy_float32 __pyx_t_5numpy_float32_t;
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":772
- *
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":772
+ * 
  * ctypedef npy_float32    float32_t
  * ctypedef npy_float64    float64_t             # <<<<<<<<<<<<<<
  * #ctypedef npy_float80    float80_t
@@ -1844,65 +1847,65 @@ typedef npy_float32 __pyx_t_5numpy_float32_t;
 */
 typedef npy_float64 __pyx_t_5numpy_float64_t;
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":779
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":779
  * ctypedef double complex complex128_t
- *
+ * 
  * ctypedef npy_longlong   longlong_t             # <<<<<<<<<<<<<<
  * ctypedef npy_ulonglong  ulonglong_t
- *
+ * 
 */
 typedef npy_longlong __pyx_t_5numpy_longlong_t;
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":780
- *
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":780
+ * 
  * ctypedef npy_longlong   longlong_t
  * ctypedef npy_ulonglong  ulonglong_t             # <<<<<<<<<<<<<<
- *
+ * 
  * ctypedef npy_intp       intp_t
 */
 typedef npy_ulonglong __pyx_t_5numpy_ulonglong_t;
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":782
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":782
  * ctypedef npy_ulonglong  ulonglong_t
- *
+ * 
  * ctypedef npy_intp       intp_t             # <<<<<<<<<<<<<<
  * ctypedef npy_uintp      uintp_t
- *
+ * 
 */
 typedef npy_intp __pyx_t_5numpy_intp_t;
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":783
- *
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":783
+ * 
  * ctypedef npy_intp       intp_t
  * ctypedef npy_uintp      uintp_t             # <<<<<<<<<<<<<<
- *
+ * 
  * ctypedef npy_double     float_t
 */
 typedef npy_uintp __pyx_t_5numpy_uintp_t;
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":785
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":785
  * ctypedef npy_uintp      uintp_t
- *
+ * 
  * ctypedef npy_double     float_t             # <<<<<<<<<<<<<<
  * ctypedef npy_double     double_t
  * ctypedef npy_longdouble longdouble_t
 */
 typedef npy_double __pyx_t_5numpy_float_t;
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":786
- *
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":786
+ * 
  * ctypedef npy_double     float_t
  * ctypedef npy_double     double_t             # <<<<<<<<<<<<<<
  * ctypedef npy_longdouble longdouble_t
- *
+ * 
 */
 typedef npy_double __pyx_t_5numpy_double_t;
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":787
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":787
  * ctypedef npy_double     float_t
  * ctypedef npy_double     double_t
  * ctypedef npy_longdouble longdouble_t             # <<<<<<<<<<<<<<
- *
+ * 
  * ctypedef float complex       cfloat_t
 */
 typedef npy_longdouble __pyx_t_5numpy_longdouble_t;
@@ -1974,7 +1977,7 @@ union __pyx_t_5pyart_3map_7ckdtree_heapcontents {
 
 /* "pyart/map/ckdtree.pyx":129
  *     char* ptrdata
- *
+ * 
  * cdef struct heapitem:             # <<<<<<<<<<<<<<
  *     np.float64_t priority
  *     heapcontents contents
@@ -1986,7 +1989,7 @@ struct __pyx_t_5pyart_3map_7ckdtree_heapitem {
 
 /* "pyart/map/ckdtree.pyx":449
  * # dist_tracker.pop()
- *
+ * 
  * cdef struct RR_stack_item:             # <<<<<<<<<<<<<<
  *     np.intp_t which
  *     np.intp_t split_dim
@@ -2002,7 +2005,7 @@ struct __pyx_t_5pyart_3map_7ckdtree_RR_stack_item {
 
 /* "pyart/map/ckdtree.pyx":632
  * # dist_tracker.pop()
- *
+ * 
  * cdef struct RP_stack_item:             # <<<<<<<<<<<<<<
  *     np.intp_t split_dim
  *     double min_along_dim, max_along_dim
@@ -2032,7 +2035,7 @@ struct __pyx_t_5pyart_3map_7ckdtree_innernode {
 
 /* "pyart/map/ckdtree.pyx":775
  *     innernode* greater
- *
+ * 
  * cdef struct leafnode:             # <<<<<<<<<<<<<<
  *     np.intp_t split_dim
  *     np.intp_t children
@@ -2046,7 +2049,7 @@ struct __pyx_t_5pyart_3map_7ckdtree_leafnode {
 
 /* "pyart/map/ckdtree.pyx":785
  * # malloc sizeof(nodeinfo)+self.m*sizeof(np.float64_t) bytes.
- *
+ * 
  * cdef struct nodeinfo:             # <<<<<<<<<<<<<<
  *     innernode* node
  *     np.float64_t side_distances[0]  # FIXME: Only valid in C99, invalid C++ and C89
@@ -2058,7 +2061,7 @@ struct __pyx_t_5pyart_3map_7ckdtree_nodeinfo {
 
 /* "pyart/map/ckdtree.pyx":133
  *     heapcontents contents
- *
+ * 
  * cdef class heap(object):             # <<<<<<<<<<<<<<
  *     cdef np.intp_t n
  *     cdef heapitem* heap
@@ -2073,7 +2076,7 @@ struct __pyx_obj_5pyart_3map_7ckdtree_heap {
 
 
 /* "pyart/map/ckdtree.pyx":238
- *
+ * 
  * # Utility for building a coo matrix incrementally
  * cdef class coo_entries:             # <<<<<<<<<<<<<<
  *     cdef:
@@ -2095,7 +2098,7 @@ struct __pyx_obj_5pyart_3map_7ckdtree_coo_entries {
 
 /* "pyart/map/ckdtree.pyx":327
  * # ===================
- *
+ * 
  * cdef class Rectangle:             # <<<<<<<<<<<<<<
  *     cdef np.intp_t m
  *     cdef np.float64_t *mins
@@ -2112,7 +2115,7 @@ struct __pyx_obj_5pyart_3map_7ckdtree_Rectangle {
 
 /* "pyart/map/ckdtree.pyx":458
  * cdef np.intp_t GREATER = 2
- *
+ * 
  * cdef class RectRectDistanceTracker(object):             # <<<<<<<<<<<<<<
  *     cdef Rectangle rect1, rect2
  *     cdef np.float64_t p, epsfac, upper_bound
@@ -2135,7 +2138,7 @@ struct __pyx_obj_5pyart_3map_7ckdtree_RectRectDistanceTracker {
 
 /* "pyart/map/ckdtree.pyx":637
  *     np.float64_t min_distance, max_distance
- *
+ * 
  * cdef class PointRectDistanceTracker(object):             # <<<<<<<<<<<<<<
  *     cdef Rectangle rect
  *     cdef np.float64_t *pt
@@ -2184,7 +2187,7 @@ struct __pyx_obj_5pyart_3map_7ckdtree_cKDTree {
 
 /* "pyart/map/ckdtree.pyx":133
  *     heapcontents contents
- *
+ * 
  * cdef class heap(object):             # <<<<<<<<<<<<<<
  *     cdef np.intp_t n
  *     cdef heapitem* heap
@@ -2203,7 +2206,7 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_4heap_push(struct __pyx_ob
 
 
 /* "pyart/map/ckdtree.pyx":238
- *
+ * 
  * # Utility for building a coo matrix incrementally
  * cdef class coo_entries:             # <<<<<<<<<<<<<<
  *     cdef:
@@ -2218,7 +2221,7 @@ static struct __pyx_vtabstruct_5pyart_3map_7ckdtree_coo_entries *__pyx_vtabptr_5
 
 /* "pyart/map/ckdtree.pyx":458
  * cdef np.intp_t GREATER = 2
- *
+ * 
  * cdef class RectRectDistanceTracker(object):             # <<<<<<<<<<<<<<
  *     cdef Rectangle rect1, rect2
  *     cdef np.float64_t p, epsfac, upper_bound
@@ -2241,7 +2244,7 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_
 
 /* "pyart/map/ckdtree.pyx":637
  *     np.float64_t min_distance, max_distance
- *
+ * 
  * cdef class PointRectDistanceTracker(object):             # <<<<<<<<<<<<<<
  *     cdef Rectangle rect
  *     cdef np.float64_t *pt
@@ -3751,14 +3754,14 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_5maxes___get__(struct __
 static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4mins___get__(struct __pyx_obj_5pyart_3map_7ckdtree_cKDTree *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_16__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_5pyart_3map_7ckdtree_cKDTree *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_18__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_5pyart_3map_7ckdtree_cKDTree *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
-static PyObject *__pyx_tp_new__initialisation_5pyart_3map_7ckdtree_heap(PyObject *o,
+static PyObject *__pyx_tp_new__initialisation_5pyart_3map_7ckdtree_heap(PyObject *o, 
 #if CYTHON_VECTORCALL_TPNEW
     PyObject *const *args, Py_ssize_t nargs, PyObject *kwnames
 #else
     PyObject *a, PyObject *k
 #endif
 ); /*proto*/
-static PyObject *__pyx_tp_new_vectorcall_5pyart_3map_7ckdtree_heap(PyTypeObject *t,
+static PyObject *__pyx_tp_new_vectorcall_5pyart_3map_7ckdtree_heap(PyTypeObject *t, 
 #if CYTHON_VECTORCALL_TPNEW
     PyObject *const *args, Py_ssize_t nargs, PyObject *kwnames
 #else
@@ -3780,14 +3783,14 @@ static int __pyx_tp_init_5pyart_3map_7ckdtree_heap(PyObject *o, PyObject *args, 
 #if !CYTHON_VECTORCALL_TPNEW
 #define __pyx_tp_init_5pyart_3map_7ckdtree_heap __pyx_pw_5pyart_3map_7ckdtree_4heap_1__init__
 #endif
-static PyObject *__pyx_tp_new__initialisation_5pyart_3map_7ckdtree_coo_entries(PyObject *o,
+static PyObject *__pyx_tp_new__initialisation_5pyart_3map_7ckdtree_coo_entries(PyObject *o, 
 #if CYTHON_VECTORCALL_TPNEW
     PyObject *const *args, Py_ssize_t nargs, PyObject *kwnames
 #else
     PyObject *a, PyObject *k
 #endif
 ); /*proto*/
-static PyObject *__pyx_tp_new_vectorcall_5pyart_3map_7ckdtree_coo_entries(PyTypeObject *t,
+static PyObject *__pyx_tp_new_vectorcall_5pyart_3map_7ckdtree_coo_entries(PyTypeObject *t, 
 #if CYTHON_VECTORCALL_TPNEW
     PyObject *const *args, Py_ssize_t nargs, PyObject *kwnames
 #else
@@ -3809,14 +3812,14 @@ static int __pyx_tp_init_5pyart_3map_7ckdtree_coo_entries(PyObject *o, PyObject 
 #if !CYTHON_VECTORCALL_TPNEW
 #define __pyx_tp_init_5pyart_3map_7ckdtree_coo_entries __pyx_pw_5pyart_3map_7ckdtree_11coo_entries_1__init__
 #endif
-static PyObject *__pyx_tp_new__initialisation_5pyart_3map_7ckdtree_Rectangle(PyObject *o,
+static PyObject *__pyx_tp_new__initialisation_5pyart_3map_7ckdtree_Rectangle(PyObject *o, 
 #if CYTHON_VECTORCALL_TPNEW
     PyObject *const *args, Py_ssize_t nargs, PyObject *kwnames
 #else
     PyObject *a, PyObject *k
 #endif
 ); /*proto*/
-static PyObject *__pyx_tp_new_vectorcall_5pyart_3map_7ckdtree_Rectangle(PyTypeObject *t,
+static PyObject *__pyx_tp_new_vectorcall_5pyart_3map_7ckdtree_Rectangle(PyTypeObject *t, 
 #if CYTHON_VECTORCALL_TPNEW
     PyObject *const *args, Py_ssize_t nargs, PyObject *kwnames
 #else
@@ -3838,14 +3841,14 @@ static int __pyx_tp_init_5pyart_3map_7ckdtree_Rectangle(PyObject *o, PyObject *a
 #if !CYTHON_VECTORCALL_TPNEW
 #define __pyx_tp_init_5pyart_3map_7ckdtree_Rectangle __pyx_pw_5pyart_3map_7ckdtree_9Rectangle_1__init__
 #endif
-static PyObject *__pyx_tp_new__initialisation_5pyart_3map_7ckdtree_RectRectDistanceTracker(PyObject *o,
+static PyObject *__pyx_tp_new__initialisation_5pyart_3map_7ckdtree_RectRectDistanceTracker(PyObject *o, 
 #if CYTHON_VECTORCALL_TPNEW
     PyObject *const *args, Py_ssize_t nargs, PyObject *kwnames
 #else
     PyObject *a, PyObject *k
 #endif
 ); /*proto*/
-static PyObject *__pyx_tp_new_vectorcall_5pyart_3map_7ckdtree_RectRectDistanceTracker(PyTypeObject *t,
+static PyObject *__pyx_tp_new_vectorcall_5pyart_3map_7ckdtree_RectRectDistanceTracker(PyTypeObject *t, 
 #if CYTHON_VECTORCALL_TPNEW
     PyObject *const *args, Py_ssize_t nargs, PyObject *kwnames
 #else
@@ -3867,14 +3870,14 @@ static int __pyx_tp_init_5pyart_3map_7ckdtree_RectRectDistanceTracker(PyObject *
 #if !CYTHON_VECTORCALL_TPNEW
 #define __pyx_tp_init_5pyart_3map_7ckdtree_RectRectDistanceTracker __pyx_pw_5pyart_3map_7ckdtree_23RectRectDistanceTracker_1__init__
 #endif
-static PyObject *__pyx_tp_new__initialisation_5pyart_3map_7ckdtree_PointRectDistanceTracker(PyObject *o,
+static PyObject *__pyx_tp_new__initialisation_5pyart_3map_7ckdtree_PointRectDistanceTracker(PyObject *o, 
 #if CYTHON_VECTORCALL_TPNEW
     PyObject *const *args, Py_ssize_t nargs, PyObject *kwnames
 #else
     PyObject *a, PyObject *k
 #endif
 ); /*proto*/
-static PyObject *__pyx_tp_new_vectorcall_5pyart_3map_7ckdtree_PointRectDistanceTracker(PyTypeObject *t,
+static PyObject *__pyx_tp_new_vectorcall_5pyart_3map_7ckdtree_PointRectDistanceTracker(PyTypeObject *t, 
 #if CYTHON_VECTORCALL_TPNEW
     PyObject *const *args, Py_ssize_t nargs, PyObject *kwnames
 #else
@@ -3890,14 +3893,14 @@ static PyObject *__pyx_tp_new_5pyart_3map_7ckdtree_PointRectDistanceTracker(PyTy
 #if CYTHON_VECTORCALL_TPNEW
 static PyObject *__pyx_tp_vectorcall_5pyart_3map_7ckdtree_PointRectDistanceTracker(PyObject *t, PyObject *const *args, size_t nargsf, PyObject *kwnames); /*proto*/
 #endif
-static PyObject *__pyx_tp_new__initialisation_5pyart_3map_7ckdtree_cKDTree(PyObject *o,
+static PyObject *__pyx_tp_new__initialisation_5pyart_3map_7ckdtree_cKDTree(PyObject *o, 
 #if CYTHON_VECTORCALL_TPNEW
     PyObject *const *args, Py_ssize_t nargs, PyObject *kwnames
 #else
     PyObject *a, PyObject *k
 #endif
 ); /*proto*/
-static PyObject *__pyx_tp_new_vectorcall_5pyart_3map_7ckdtree_cKDTree(PyTypeObject *t,
+static PyObject *__pyx_tp_new_vectorcall_5pyart_3map_7ckdtree_cKDTree(PyTypeObject *t, 
 #if CYTHON_VECTORCALL_TPNEW
     PyObject *const *args, Py_ssize_t nargs, PyObject *kwnames
 #else
@@ -4318,8 +4321,8 @@ return 0;
 #endif
 /* #### Code section: module_code ### */
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":230
- *
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":230
+ * 
  *     ctypedef class numpy.dtype [object PyArray_Descr, check_size ignore]:
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline PyTypeObject* typeobj(self) noexcept nogil:
@@ -4329,11 +4332,11 @@ return 0;
 static CYTHON_INLINE PyTypeObject *__pyx_f_5numpy_5dtype_7typeobj___get__(PyArray_Descr *__pyx_v_self) {
   PyTypeObject *__pyx_r;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":232
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":232
  *         @property
  *         cdef inline PyTypeObject* typeobj(self) noexcept nogil:
  *             return PyDataType_TYPEOBJ(self)             # <<<<<<<<<<<<<<
- *
+ * 
  *         @property
 */
   {
@@ -4342,8 +4345,8 @@ static CYTHON_INLINE PyTypeObject *__pyx_f_5numpy_5dtype_7typeobj___get__(PyArra
   }
   goto __pyx_L0;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":230
- *
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":230
+ * 
  *     ctypedef class numpy.dtype [object PyArray_Descr, check_size ignore]:
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline PyTypeObject* typeobj(self) noexcept nogil:
@@ -4355,9 +4358,9 @@ static CYTHON_INLINE PyTypeObject *__pyx_f_5numpy_5dtype_7typeobj___get__(PyArra
   return __pyx_r;
 }
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":234
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":234
  *             return PyDataType_TYPEOBJ(self)
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline char kind(self) noexcept nogil:
  *             return PyDataType_KIND(self)
@@ -4366,11 +4369,11 @@ static CYTHON_INLINE PyTypeObject *__pyx_f_5numpy_5dtype_7typeobj___get__(PyArra
 static CYTHON_INLINE char __pyx_f_5numpy_5dtype_4kind___get__(PyArray_Descr *__pyx_v_self) {
   char __pyx_r;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":236
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":236
  *         @property
  *         cdef inline char kind(self) noexcept nogil:
  *             return PyDataType_KIND(self)             # <<<<<<<<<<<<<<
- *
+ * 
  *         @property
 */
   {
@@ -4379,9 +4382,9 @@ static CYTHON_INLINE char __pyx_f_5numpy_5dtype_4kind___get__(PyArray_Descr *__p
   }
   goto __pyx_L0;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":234
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":234
  *             return PyDataType_TYPEOBJ(self)
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline char kind(self) noexcept nogil:
  *             return PyDataType_KIND(self)
@@ -4392,9 +4395,9 @@ static CYTHON_INLINE char __pyx_f_5numpy_5dtype_4kind___get__(PyArray_Descr *__p
   return __pyx_r;
 }
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":238
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":238
  *             return PyDataType_KIND(self)
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline char type(self) noexcept nogil:
  *             return PyDataType_TYPE(self)
@@ -4403,11 +4406,11 @@ static CYTHON_INLINE char __pyx_f_5numpy_5dtype_4kind___get__(PyArray_Descr *__p
 static CYTHON_INLINE char __pyx_f_5numpy_5dtype_4type___get__(PyArray_Descr *__pyx_v_self) {
   char __pyx_r;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":240
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":240
  *         @property
  *         cdef inline char type(self) noexcept nogil:
  *             return PyDataType_TYPE(self)             # <<<<<<<<<<<<<<
- *
+ * 
  *         # Numpy sometimes mutates this without warning (e.g. it'll
 */
   {
@@ -4416,9 +4419,9 @@ static CYTHON_INLINE char __pyx_f_5numpy_5dtype_4type___get__(PyArray_Descr *__p
   }
   goto __pyx_L0;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":238
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":238
  *             return PyDataType_KIND(self)
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline char type(self) noexcept nogil:
  *             return PyDataType_TYPE(self)
@@ -4429,7 +4432,7 @@ static CYTHON_INLINE char __pyx_f_5numpy_5dtype_4type___get__(PyArray_Descr *__p
   return __pyx_r;
 }
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":247
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":247
  *         # PyArray_IsNativeByteOrder(dtype.byteorder) instead of
  *         # directly accessing this field.
  *         @property             # <<<<<<<<<<<<<<
@@ -4440,11 +4443,11 @@ static CYTHON_INLINE char __pyx_f_5numpy_5dtype_4type___get__(PyArray_Descr *__p
 static CYTHON_INLINE char __pyx_f_5numpy_5dtype_9byteorder___get__(PyArray_Descr *__pyx_v_self) {
   char __pyx_r;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":249
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":249
  *         @property
  *         cdef inline char byteorder(self) noexcept nogil:
  *             return PyDataType_BYTEORDER(self)             # <<<<<<<<<<<<<<
- *
+ * 
  *         @property
 */
   {
@@ -4453,7 +4456,7 @@ static CYTHON_INLINE char __pyx_f_5numpy_5dtype_9byteorder___get__(PyArray_Descr
   }
   goto __pyx_L0;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":247
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":247
  *         # PyArray_IsNativeByteOrder(dtype.byteorder) instead of
  *         # directly accessing this field.
  *         @property             # <<<<<<<<<<<<<<
@@ -4466,9 +4469,9 @@ static CYTHON_INLINE char __pyx_f_5numpy_5dtype_9byteorder___get__(PyArray_Descr
   return __pyx_r;
 }
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":251
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":251
  *             return PyDataType_BYTEORDER(self)
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline int type_num(self) noexcept nogil:
  *             return PyDataType_TYPENUM(self)
@@ -4477,11 +4480,11 @@ static CYTHON_INLINE char __pyx_f_5numpy_5dtype_9byteorder___get__(PyArray_Descr
 static CYTHON_INLINE int __pyx_f_5numpy_5dtype_8type_num___get__(PyArray_Descr *__pyx_v_self) {
   int __pyx_r;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":253
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":253
  *         @property
  *         cdef inline int type_num(self) noexcept nogil:
  *             return PyDataType_TYPENUM(self)             # <<<<<<<<<<<<<<
- *
+ * 
  *         @property
 */
   {
@@ -4490,9 +4493,9 @@ static CYTHON_INLINE int __pyx_f_5numpy_5dtype_8type_num___get__(PyArray_Descr *
   }
   goto __pyx_L0;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":251
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":251
  *             return PyDataType_BYTEORDER(self)
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline int type_num(self) noexcept nogil:
  *             return PyDataType_TYPENUM(self)
@@ -4503,9 +4506,9 @@ static CYTHON_INLINE int __pyx_f_5numpy_5dtype_8type_num___get__(PyArray_Descr *
   return __pyx_r;
 }
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":255
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":255
  *             return PyDataType_TYPENUM(self)
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline npy_intp itemsize(self) noexcept nogil:
  *             return PyDataType_ELSIZE(self)
@@ -4514,11 +4517,11 @@ static CYTHON_INLINE int __pyx_f_5numpy_5dtype_8type_num___get__(PyArray_Descr *
 static CYTHON_INLINE npy_intp __pyx_f_5numpy_5dtype_8itemsize___get__(PyArray_Descr *__pyx_v_self) {
   npy_intp __pyx_r;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":257
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":257
  *         @property
  *         cdef inline npy_intp itemsize(self) noexcept nogil:
  *             return PyDataType_ELSIZE(self)             # <<<<<<<<<<<<<<
- *
+ * 
  *         @property
 */
   {
@@ -4527,9 +4530,9 @@ static CYTHON_INLINE npy_intp __pyx_f_5numpy_5dtype_8itemsize___get__(PyArray_De
   }
   goto __pyx_L0;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":255
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":255
  *             return PyDataType_TYPENUM(self)
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline npy_intp itemsize(self) noexcept nogil:
  *             return PyDataType_ELSIZE(self)
@@ -4540,9 +4543,9 @@ static CYTHON_INLINE npy_intp __pyx_f_5numpy_5dtype_8itemsize___get__(PyArray_De
   return __pyx_r;
 }
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":259
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":259
  *             return PyDataType_ELSIZE(self)
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline npy_intp alignment(self) noexcept nogil:
  *             return PyDataType_ALIGNMENT(self)
@@ -4551,11 +4554,11 @@ static CYTHON_INLINE npy_intp __pyx_f_5numpy_5dtype_8itemsize___get__(PyArray_De
 static CYTHON_INLINE npy_intp __pyx_f_5numpy_5dtype_9alignment___get__(PyArray_Descr *__pyx_v_self) {
   npy_intp __pyx_r;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":261
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":261
  *         @property
  *         cdef inline npy_intp alignment(self) noexcept nogil:
  *             return PyDataType_ALIGNMENT(self)             # <<<<<<<<<<<<<<
- *
+ * 
  *         # Use fields/names with care as they may be NULL.  You must check
 */
   {
@@ -4564,9 +4567,9 @@ static CYTHON_INLINE npy_intp __pyx_f_5numpy_5dtype_9alignment___get__(PyArray_D
   }
   goto __pyx_L0;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":259
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":259
  *             return PyDataType_ELSIZE(self)
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline npy_intp alignment(self) noexcept nogil:
  *             return PyDataType_ALIGNMENT(self)
@@ -4577,7 +4580,7 @@ static CYTHON_INLINE npy_intp __pyx_f_5numpy_5dtype_9alignment___get__(PyArray_D
   return __pyx_r;
 }
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":265
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":265
  *         # Use fields/names with care as they may be NULL.  You must check
  *         # for this using PyDataType_HASFIELDS.
  *         @property             # <<<<<<<<<<<<<<
@@ -4591,11 +4594,11 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_5dtype_6fields___get__(PyArray_Des
   PyObject *__pyx_t_1;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":267
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":267
  *         @property
  *         cdef inline object fields(self):
  *             return <object>PyDataType_FIELDS(self)             # <<<<<<<<<<<<<<
- *
+ * 
  *         @property
 */
   __pyx_t_1 = PyDataType_FIELDS(__pyx_v_self);
@@ -4612,7 +4615,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_5dtype_6fields___get__(PyArray_Des
 
   goto __pyx_L0;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":265
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":265
  *         # Use fields/names with care as they may be NULL.  You must check
  *         # for this using PyDataType_HASFIELDS.
  *         @property             # <<<<<<<<<<<<<<
@@ -4627,9 +4630,9 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_5dtype_6fields___get__(PyArray_Des
   return __pyx_r;
 }
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":269
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":269
  *             return <object>PyDataType_FIELDS(self)
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline tuple names(self):
  *             return <tuple>PyDataType_NAMES(self)
@@ -4641,11 +4644,11 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_5dtype_5names___get__(PyArray_Desc
   PyObject *__pyx_t_1;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":271
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":271
  *         @property
  *         cdef inline tuple names(self):
  *             return <tuple>PyDataType_NAMES(self)             # <<<<<<<<<<<<<<
- *
+ * 
  *         # Use PyDataType_HASSUBARRAY to test whether this field is
 */
   __pyx_t_1 = PyDataType_NAMES(__pyx_v_self);
@@ -4662,9 +4665,9 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_5dtype_5names___get__(PyArray_Desc
 
   goto __pyx_L0;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":269
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":269
  *             return <object>PyDataType_FIELDS(self)
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline tuple names(self):
  *             return <tuple>PyDataType_NAMES(self)
@@ -4677,7 +4680,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_5dtype_5names___get__(PyArray_Desc
   return __pyx_r;
 }
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":276
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":276
  *         # valid (the pointer can be NULL). Most users should access
  *         # this field via the inline helper method PyDataType_SHAPE.
  *         @property             # <<<<<<<<<<<<<<
@@ -4688,11 +4691,11 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_5dtype_5names___get__(PyArray_Desc
 static CYTHON_INLINE PyArray_ArrayDescr *__pyx_f_5numpy_5dtype_8subarray___get__(PyArray_Descr *__pyx_v_self) {
   PyArray_ArrayDescr *__pyx_r;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":278
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":278
  *         @property
  *         cdef inline PyArray_ArrayDescr* subarray(self) noexcept nogil:
  *             return PyDataType_SUBARRAY(self)             # <<<<<<<<<<<<<<
- *
+ * 
  *         @property
 */
   {
@@ -4701,7 +4704,7 @@ static CYTHON_INLINE PyArray_ArrayDescr *__pyx_f_5numpy_5dtype_8subarray___get__
   }
   goto __pyx_L0;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":276
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":276
  *         # valid (the pointer can be NULL). Most users should access
  *         # this field via the inline helper method PyDataType_SHAPE.
  *         @property             # <<<<<<<<<<<<<<
@@ -4714,9 +4717,9 @@ static CYTHON_INLINE PyArray_ArrayDescr *__pyx_f_5numpy_5dtype_8subarray___get__
   return __pyx_r;
 }
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":280
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":280
  *             return PyDataType_SUBARRAY(self)
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline npy_uint64 flags(self) noexcept nogil:
  *             """The data types flags."""
@@ -4725,12 +4728,12 @@ static CYTHON_INLINE PyArray_ArrayDescr *__pyx_f_5numpy_5dtype_8subarray___get__
 static CYTHON_INLINE npy_uint64 __pyx_f_5numpy_5dtype_5flags___get__(PyArray_Descr *__pyx_v_self) {
   npy_uint64 __pyx_r;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":283
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":283
  *         cdef inline npy_uint64 flags(self) noexcept nogil:
  *             """The data types flags."""
  *             return PyDataType_FLAGS(self)             # <<<<<<<<<<<<<<
- *
- *
+ * 
+ * 
 */
   {
 
@@ -4738,9 +4741,9 @@ static CYTHON_INLINE npy_uint64 __pyx_f_5numpy_5dtype_5flags___get__(PyArray_Des
   }
   goto __pyx_L0;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":280
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":280
  *             return PyDataType_SUBARRAY(self)
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline npy_uint64 flags(self) noexcept nogil:
  *             """The data types flags."""
@@ -4751,9 +4754,9 @@ static CYTHON_INLINE npy_uint64 __pyx_f_5numpy_5dtype_5flags___get__(PyArray_Des
   return __pyx_r;
 }
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":292
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":292
  *     ctypedef class numpy.broadcast [object PyArrayMultiIterObject, check_size ignore]:
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline int numiter(self) noexcept nogil:
  *             """The number of arrays that need to be broadcast to the same shape."""
@@ -4762,11 +4765,11 @@ static CYTHON_INLINE npy_uint64 __pyx_f_5numpy_5dtype_5flags___get__(PyArray_Des
 static CYTHON_INLINE int __pyx_f_5numpy_9broadcast_7numiter___get__(PyArrayMultiIterObject *__pyx_v_self) {
   int __pyx_r;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":295
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":295
  *         cdef inline int numiter(self) noexcept nogil:
  *             """The number of arrays that need to be broadcast to the same shape."""
  *             return PyArray_MultiIter_NUMITER(self)             # <<<<<<<<<<<<<<
- *
+ * 
  *         @property
 */
   {
@@ -4775,9 +4778,9 @@ static CYTHON_INLINE int __pyx_f_5numpy_9broadcast_7numiter___get__(PyArrayMulti
   }
   goto __pyx_L0;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":292
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":292
  *     ctypedef class numpy.broadcast [object PyArrayMultiIterObject, check_size ignore]:
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline int numiter(self) noexcept nogil:
  *             """The number of arrays that need to be broadcast to the same shape."""
@@ -4788,9 +4791,9 @@ static CYTHON_INLINE int __pyx_f_5numpy_9broadcast_7numiter___get__(PyArrayMulti
   return __pyx_r;
 }
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":297
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":297
  *             return PyArray_MultiIter_NUMITER(self)
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline npy_intp size(self) noexcept nogil:
  *             """The total broadcasted size."""
@@ -4799,11 +4802,11 @@ static CYTHON_INLINE int __pyx_f_5numpy_9broadcast_7numiter___get__(PyArrayMulti
 static CYTHON_INLINE npy_intp __pyx_f_5numpy_9broadcast_4size___get__(PyArrayMultiIterObject *__pyx_v_self) {
   npy_intp __pyx_r;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":300
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":300
  *         cdef inline npy_intp size(self) noexcept nogil:
  *             """The total broadcasted size."""
  *             return PyArray_MultiIter_SIZE(self)             # <<<<<<<<<<<<<<
- *
+ * 
  *         @property
 */
   {
@@ -4812,9 +4815,9 @@ static CYTHON_INLINE npy_intp __pyx_f_5numpy_9broadcast_4size___get__(PyArrayMul
   }
   goto __pyx_L0;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":297
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":297
  *             return PyArray_MultiIter_NUMITER(self)
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline npy_intp size(self) noexcept nogil:
  *             """The total broadcasted size."""
@@ -4825,9 +4828,9 @@ static CYTHON_INLINE npy_intp __pyx_f_5numpy_9broadcast_4size___get__(PyArrayMul
   return __pyx_r;
 }
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":302
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":302
  *             return PyArray_MultiIter_SIZE(self)
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline npy_intp index(self) noexcept nogil:
  *             """The current (1-d) index into the broadcasted result."""
@@ -4836,11 +4839,11 @@ static CYTHON_INLINE npy_intp __pyx_f_5numpy_9broadcast_4size___get__(PyArrayMul
 static CYTHON_INLINE npy_intp __pyx_f_5numpy_9broadcast_5index___get__(PyArrayMultiIterObject *__pyx_v_self) {
   npy_intp __pyx_r;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":305
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":305
  *         cdef inline npy_intp index(self) noexcept nogil:
  *             """The current (1-d) index into the broadcasted result."""
  *             return PyArray_MultiIter_INDEX(self)             # <<<<<<<<<<<<<<
- *
+ * 
  *         @property
 */
   {
@@ -4849,9 +4852,9 @@ static CYTHON_INLINE npy_intp __pyx_f_5numpy_9broadcast_5index___get__(PyArrayMu
   }
   goto __pyx_L0;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":302
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":302
  *             return PyArray_MultiIter_SIZE(self)
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline npy_intp index(self) noexcept nogil:
  *             """The current (1-d) index into the broadcasted result."""
@@ -4862,9 +4865,9 @@ static CYTHON_INLINE npy_intp __pyx_f_5numpy_9broadcast_5index___get__(PyArrayMu
   return __pyx_r;
 }
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":307
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":307
  *             return PyArray_MultiIter_INDEX(self)
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline int nd(self) noexcept nogil:
  *             """The number of dimensions in the broadcasted result."""
@@ -4873,11 +4876,11 @@ static CYTHON_INLINE npy_intp __pyx_f_5numpy_9broadcast_5index___get__(PyArrayMu
 static CYTHON_INLINE int __pyx_f_5numpy_9broadcast_2nd___get__(PyArrayMultiIterObject *__pyx_v_self) {
   int __pyx_r;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":310
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":310
  *         cdef inline int nd(self) noexcept nogil:
  *             """The number of dimensions in the broadcasted result."""
  *             return PyArray_MultiIter_NDIM(self)             # <<<<<<<<<<<<<<
- *
+ * 
  *         @property
 */
   {
@@ -4886,9 +4889,9 @@ static CYTHON_INLINE int __pyx_f_5numpy_9broadcast_2nd___get__(PyArrayMultiIterO
   }
   goto __pyx_L0;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":307
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":307
  *             return PyArray_MultiIter_INDEX(self)
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline int nd(self) noexcept nogil:
  *             """The number of dimensions in the broadcasted result."""
@@ -4899,9 +4902,9 @@ static CYTHON_INLINE int __pyx_f_5numpy_9broadcast_2nd___get__(PyArrayMultiIterO
   return __pyx_r;
 }
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":312
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":312
  *             return PyArray_MultiIter_NDIM(self)
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline npy_intp* dimensions(self) noexcept nogil:
  *             """The shape of the broadcasted result."""
@@ -4910,11 +4913,11 @@ static CYTHON_INLINE int __pyx_f_5numpy_9broadcast_2nd___get__(PyArrayMultiIterO
 static CYTHON_INLINE npy_intp *__pyx_f_5numpy_9broadcast_10dimensions___get__(PyArrayMultiIterObject *__pyx_v_self) {
   npy_intp *__pyx_r;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":315
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":315
  *         cdef inline npy_intp* dimensions(self) noexcept nogil:
  *             """The shape of the broadcasted result."""
  *             return PyArray_MultiIter_DIMS(self)             # <<<<<<<<<<<<<<
- *
+ * 
  *         @property
 */
   {
@@ -4923,9 +4926,9 @@ static CYTHON_INLINE npy_intp *__pyx_f_5numpy_9broadcast_10dimensions___get__(Py
   }
   goto __pyx_L0;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":312
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":312
  *             return PyArray_MultiIter_NDIM(self)
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline npy_intp* dimensions(self) noexcept nogil:
  *             """The shape of the broadcasted result."""
@@ -4936,9 +4939,9 @@ static CYTHON_INLINE npy_intp *__pyx_f_5numpy_9broadcast_10dimensions___get__(Py
   return __pyx_r;
 }
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":317
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":317
  *             return PyArray_MultiIter_DIMS(self)
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline void** iters(self) noexcept nogil:
  *             """An array of iterator objects that holds the iterators for the arrays to be broadcast together.
@@ -4947,12 +4950,12 @@ static CYTHON_INLINE npy_intp *__pyx_f_5numpy_9broadcast_10dimensions___get__(Py
 static CYTHON_INLINE void **__pyx_f_5numpy_9broadcast_5iters___get__(PyArrayMultiIterObject *__pyx_v_self) {
   void **__pyx_r;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":321
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":321
  *             """An array of iterator objects that holds the iterators for the arrays to be broadcast together.
  *             On return, the iterators are adjusted for broadcasting."""
  *             return PyArray_MultiIter_ITERS(self)             # <<<<<<<<<<<<<<
- *
- *
+ * 
+ * 
 */
   {
 
@@ -4960,9 +4963,9 @@ static CYTHON_INLINE void **__pyx_f_5numpy_9broadcast_5iters___get__(PyArrayMult
   }
   goto __pyx_L0;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":317
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":317
  *             return PyArray_MultiIter_DIMS(self)
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline void** iters(self) noexcept nogil:
  *             """An array of iterator objects that holds the iterators for the arrays to be broadcast together.
@@ -4973,9 +4976,9 @@ static CYTHON_INLINE void **__pyx_f_5numpy_9broadcast_5iters___get__(PyArrayMult
   return __pyx_r;
 }
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":335
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":335
  *         # Instead, we use properties that map to the corresponding C-API functions.
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline PyObject* base(self) noexcept nogil:
  *             """Returns a borrowed reference to the object owning the data/memory.
@@ -4984,11 +4987,11 @@ static CYTHON_INLINE void **__pyx_f_5numpy_9broadcast_5iters___get__(PyArrayMult
 static CYTHON_INLINE PyObject *__pyx_f_5numpy_7ndarray_4base___get__(PyArrayObject *__pyx_v_self) {
   PyObject *__pyx_r;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":339
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":339
  *             """Returns a borrowed reference to the object owning the data/memory.
  *             """
  *             return PyArray_BASE(self)             # <<<<<<<<<<<<<<
- *
+ * 
  *         @property
 */
   {
@@ -4997,9 +5000,9 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_7ndarray_4base___get__(PyArrayObje
   }
   goto __pyx_L0;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":335
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":335
  *         # Instead, we use properties that map to the corresponding C-API functions.
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline PyObject* base(self) noexcept nogil:
  *             """Returns a borrowed reference to the object owning the data/memory.
@@ -5010,9 +5013,9 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_7ndarray_4base___get__(PyArrayObje
   return __pyx_r;
 }
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":341
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":341
  *             return PyArray_BASE(self)
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline dtype descr(self):
  *             """Returns an owned reference to the dtype of the array.
@@ -5024,11 +5027,11 @@ static CYTHON_INLINE PyArray_Descr *__pyx_f_5numpy_7ndarray_5descr___get__(PyArr
   PyArray_Descr *__pyx_t_1;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":345
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":345
  *             """Returns an owned reference to the dtype of the array.
  *             """
  *             return <dtype>PyArray_DESCR(self)             # <<<<<<<<<<<<<<
- *
+ * 
  *         @property
 */
   __pyx_t_1 = PyArray_DESCR(__pyx_v_self);
@@ -5045,9 +5048,9 @@ static CYTHON_INLINE PyArray_Descr *__pyx_f_5numpy_7ndarray_5descr___get__(PyArr
 
   goto __pyx_L0;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":341
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":341
  *             return PyArray_BASE(self)
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline dtype descr(self):
  *             """Returns an owned reference to the dtype of the array.
@@ -5060,9 +5063,9 @@ static CYTHON_INLINE PyArray_Descr *__pyx_f_5numpy_7ndarray_5descr___get__(PyArr
   return __pyx_r;
 }
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":347
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":347
  *             return <dtype>PyArray_DESCR(self)
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline int ndim(self) noexcept nogil:
  *             """Returns the number of dimensions in the array.
@@ -5071,11 +5074,11 @@ static CYTHON_INLINE PyArray_Descr *__pyx_f_5numpy_7ndarray_5descr___get__(PyArr
 static CYTHON_INLINE int __pyx_f_5numpy_7ndarray_4ndim___get__(PyArrayObject *__pyx_v_self) {
   int __pyx_r;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":351
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":351
  *             """Returns the number of dimensions in the array.
  *             """
  *             return PyArray_NDIM(self)             # <<<<<<<<<<<<<<
- *
+ * 
  *         @property
 */
   {
@@ -5084,9 +5087,9 @@ static CYTHON_INLINE int __pyx_f_5numpy_7ndarray_4ndim___get__(PyArrayObject *__
   }
   goto __pyx_L0;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":347
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":347
  *             return <dtype>PyArray_DESCR(self)
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline int ndim(self) noexcept nogil:
  *             """Returns the number of dimensions in the array.
@@ -5097,9 +5100,9 @@ static CYTHON_INLINE int __pyx_f_5numpy_7ndarray_4ndim___get__(PyArrayObject *__
   return __pyx_r;
 }
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":353
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":353
  *             return PyArray_NDIM(self)
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline npy_intp *shape(self) noexcept nogil:
  *             """Returns a pointer to the dimensions/shape of the array.
@@ -5108,11 +5111,11 @@ static CYTHON_INLINE int __pyx_f_5numpy_7ndarray_4ndim___get__(PyArrayObject *__
 static CYTHON_INLINE npy_intp *__pyx_f_5numpy_7ndarray_5shape___get__(PyArrayObject *__pyx_v_self) {
   npy_intp *__pyx_r;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":359
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":359
  *             Can return NULL for 0-dimensional arrays.
  *             """
  *             return PyArray_DIMS(self)             # <<<<<<<<<<<<<<
- *
+ * 
  *         @property
 */
   {
@@ -5121,9 +5124,9 @@ static CYTHON_INLINE npy_intp *__pyx_f_5numpy_7ndarray_5shape___get__(PyArrayObj
   }
   goto __pyx_L0;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":353
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":353
  *             return PyArray_NDIM(self)
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline npy_intp *shape(self) noexcept nogil:
  *             """Returns a pointer to the dimensions/shape of the array.
@@ -5134,9 +5137,9 @@ static CYTHON_INLINE npy_intp *__pyx_f_5numpy_7ndarray_5shape___get__(PyArrayObj
   return __pyx_r;
 }
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":361
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":361
  *             return PyArray_DIMS(self)
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline npy_intp *strides(self) noexcept nogil:
  *             """Returns a pointer to the strides of the array.
@@ -5145,11 +5148,11 @@ static CYTHON_INLINE npy_intp *__pyx_f_5numpy_7ndarray_5shape___get__(PyArrayObj
 static CYTHON_INLINE npy_intp *__pyx_f_5numpy_7ndarray_7strides___get__(PyArrayObject *__pyx_v_self) {
   npy_intp *__pyx_r;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":366
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":366
  *             The number of elements matches the number of dimensions of the array (ndim).
  *             """
  *             return PyArray_STRIDES(self)             # <<<<<<<<<<<<<<
- *
+ * 
  *         @property
 */
   {
@@ -5158,9 +5161,9 @@ static CYTHON_INLINE npy_intp *__pyx_f_5numpy_7ndarray_7strides___get__(PyArrayO
   }
   goto __pyx_L0;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":361
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":361
  *             return PyArray_DIMS(self)
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline npy_intp *strides(self) noexcept nogil:
  *             """Returns a pointer to the strides of the array.
@@ -5171,9 +5174,9 @@ static CYTHON_INLINE npy_intp *__pyx_f_5numpy_7ndarray_7strides___get__(PyArrayO
   return __pyx_r;
 }
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":368
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":368
  *             return PyArray_STRIDES(self)
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline npy_intp size(self) noexcept nogil:
  *             """Returns the total size (in number of elements) of the array.
@@ -5182,11 +5185,11 @@ static CYTHON_INLINE npy_intp *__pyx_f_5numpy_7ndarray_7strides___get__(PyArrayO
 static CYTHON_INLINE npy_intp __pyx_f_5numpy_7ndarray_4size___get__(PyArrayObject *__pyx_v_self) {
   npy_intp __pyx_r;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":372
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":372
  *             """Returns the total size (in number of elements) of the array.
  *             """
  *             return PyArray_SIZE(self)             # <<<<<<<<<<<<<<
- *
+ * 
  *         @property
 */
   {
@@ -5195,9 +5198,9 @@ static CYTHON_INLINE npy_intp __pyx_f_5numpy_7ndarray_4size___get__(PyArrayObjec
   }
   goto __pyx_L0;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":368
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":368
  *             return PyArray_STRIDES(self)
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline npy_intp size(self) noexcept nogil:
  *             """Returns the total size (in number of elements) of the array.
@@ -5208,9 +5211,9 @@ static CYTHON_INLINE npy_intp __pyx_f_5numpy_7ndarray_4size___get__(PyArrayObjec
   return __pyx_r;
 }
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":374
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":374
  *             return PyArray_SIZE(self)
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline char* data(self) noexcept nogil:
  *             """The pointer to the data buffer as a char*.
@@ -5219,12 +5222,12 @@ static CYTHON_INLINE npy_intp __pyx_f_5numpy_7ndarray_4size___get__(PyArrayObjec
 static CYTHON_INLINE char *__pyx_f_5numpy_7ndarray_4data___get__(PyArrayObject *__pyx_v_self) {
   char *__pyx_r;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":381
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":381
  *             of `PyArray_DATA()` instead, which returns a 'void*'.
  *             """
  *             return PyArray_BYTES(self)             # <<<<<<<<<<<<<<
- *
- *
+ * 
+ * 
 */
   {
 
@@ -5232,9 +5235,9 @@ static CYTHON_INLINE char *__pyx_f_5numpy_7ndarray_4data___get__(PyArrayObject *
   }
   goto __pyx_L0;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":374
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":374
  *             return PyArray_SIZE(self)
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline char* data(self) noexcept nogil:
  *             """The pointer to the data buffer as a char*.
@@ -5245,12 +5248,12 @@ static CYTHON_INLINE char *__pyx_f_5numpy_7ndarray_4data___get__(PyArrayObject *
   return __pyx_r;
 }
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":794
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":794
  * ctypedef long double complex clongdouble_t
- *
+ * 
  * cdef inline object PyArray_MultiIterNew1(a):             # <<<<<<<<<<<<<<
  *     return PyArray_MultiIterNew(1, <void*>a)
- *
+ * 
 */
 
 static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew1(PyObject *__pyx_v_a) {
@@ -5262,11 +5265,11 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew1(PyObject *__
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("PyArray_MultiIterNew1", 0);
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":795
- *
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":795
+ * 
  * cdef inline object PyArray_MultiIterNew1(a):
  *     return PyArray_MultiIterNew(1, <void*>a)             # <<<<<<<<<<<<<<
- *
+ * 
  * cdef inline object PyArray_MultiIterNew2(a, b):
 */
   __pyx_t_1 = PyArray_MultiIterNew(1, ((void *)__pyx_v_a)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 795, __pyx_L1_error)
@@ -5282,12 +5285,12 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew1(PyObject *__
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":794
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":794
  * ctypedef long double complex clongdouble_t
- *
+ * 
  * cdef inline object PyArray_MultiIterNew1(a):             # <<<<<<<<<<<<<<
  *     return PyArray_MultiIterNew(1, <void*>a)
- *
+ * 
 */
 
   /* function exit code */
@@ -5301,12 +5304,12 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew1(PyObject *__
   return __pyx_r;
 }
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":797
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":797
  *     return PyArray_MultiIterNew(1, <void*>a)
- *
+ * 
  * cdef inline object PyArray_MultiIterNew2(a, b):             # <<<<<<<<<<<<<<
  *     return PyArray_MultiIterNew(2, <void*>a, <void*>b)
- *
+ * 
 */
 
 static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew2(PyObject *__pyx_v_a, PyObject *__pyx_v_b) {
@@ -5318,11 +5321,11 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew2(PyObject *__
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("PyArray_MultiIterNew2", 0);
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":798
- *
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":798
+ * 
  * cdef inline object PyArray_MultiIterNew2(a, b):
  *     return PyArray_MultiIterNew(2, <void*>a, <void*>b)             # <<<<<<<<<<<<<<
- *
+ * 
  * cdef inline object PyArray_MultiIterNew3(a, b, c):
 */
   __pyx_t_1 = PyArray_MultiIterNew(2, ((void *)__pyx_v_a), ((void *)__pyx_v_b)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 798, __pyx_L1_error)
@@ -5338,12 +5341,12 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew2(PyObject *__
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":797
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":797
  *     return PyArray_MultiIterNew(1, <void*>a)
- *
+ * 
  * cdef inline object PyArray_MultiIterNew2(a, b):             # <<<<<<<<<<<<<<
  *     return PyArray_MultiIterNew(2, <void*>a, <void*>b)
- *
+ * 
 */
 
   /* function exit code */
@@ -5357,12 +5360,12 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew2(PyObject *__
   return __pyx_r;
 }
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":800
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":800
  *     return PyArray_MultiIterNew(2, <void*>a, <void*>b)
- *
+ * 
  * cdef inline object PyArray_MultiIterNew3(a, b, c):             # <<<<<<<<<<<<<<
  *     return PyArray_MultiIterNew(3, <void*>a, <void*>b, <void*> c)
- *
+ * 
 */
 
 static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew3(PyObject *__pyx_v_a, PyObject *__pyx_v_b, PyObject *__pyx_v_c) {
@@ -5374,11 +5377,11 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew3(PyObject *__
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("PyArray_MultiIterNew3", 0);
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":801
- *
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":801
+ * 
  * cdef inline object PyArray_MultiIterNew3(a, b, c):
  *     return PyArray_MultiIterNew(3, <void*>a, <void*>b, <void*> c)             # <<<<<<<<<<<<<<
- *
+ * 
  * cdef inline object PyArray_MultiIterNew4(a, b, c, d):
 */
   __pyx_t_1 = PyArray_MultiIterNew(3, ((void *)__pyx_v_a), ((void *)__pyx_v_b), ((void *)__pyx_v_c)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 801, __pyx_L1_error)
@@ -5394,12 +5397,12 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew3(PyObject *__
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":800
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":800
  *     return PyArray_MultiIterNew(2, <void*>a, <void*>b)
- *
+ * 
  * cdef inline object PyArray_MultiIterNew3(a, b, c):             # <<<<<<<<<<<<<<
  *     return PyArray_MultiIterNew(3, <void*>a, <void*>b, <void*> c)
- *
+ * 
 */
 
   /* function exit code */
@@ -5413,12 +5416,12 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew3(PyObject *__
   return __pyx_r;
 }
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":803
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":803
  *     return PyArray_MultiIterNew(3, <void*>a, <void*>b, <void*> c)
- *
+ * 
  * cdef inline object PyArray_MultiIterNew4(a, b, c, d):             # <<<<<<<<<<<<<<
  *     return PyArray_MultiIterNew(4, <void*>a, <void*>b, <void*>c, <void*> d)
- *
+ * 
 */
 
 static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew4(PyObject *__pyx_v_a, PyObject *__pyx_v_b, PyObject *__pyx_v_c, PyObject *__pyx_v_d) {
@@ -5430,11 +5433,11 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew4(PyObject *__
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("PyArray_MultiIterNew4", 0);
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":804
- *
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":804
+ * 
  * cdef inline object PyArray_MultiIterNew4(a, b, c, d):
  *     return PyArray_MultiIterNew(4, <void*>a, <void*>b, <void*>c, <void*> d)             # <<<<<<<<<<<<<<
- *
+ * 
  * cdef inline object PyArray_MultiIterNew5(a, b, c, d, e):
 */
   __pyx_t_1 = PyArray_MultiIterNew(4, ((void *)__pyx_v_a), ((void *)__pyx_v_b), ((void *)__pyx_v_c), ((void *)__pyx_v_d)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 804, __pyx_L1_error)
@@ -5450,12 +5453,12 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew4(PyObject *__
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":803
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":803
  *     return PyArray_MultiIterNew(3, <void*>a, <void*>b, <void*> c)
- *
+ * 
  * cdef inline object PyArray_MultiIterNew4(a, b, c, d):             # <<<<<<<<<<<<<<
  *     return PyArray_MultiIterNew(4, <void*>a, <void*>b, <void*>c, <void*> d)
- *
+ * 
 */
 
   /* function exit code */
@@ -5469,12 +5472,12 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew4(PyObject *__
   return __pyx_r;
 }
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":806
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":806
  *     return PyArray_MultiIterNew(4, <void*>a, <void*>b, <void*>c, <void*> d)
- *
+ * 
  * cdef inline object PyArray_MultiIterNew5(a, b, c, d, e):             # <<<<<<<<<<<<<<
  *     return PyArray_MultiIterNew(5, <void*>a, <void*>b, <void*>c, <void*> d, <void*> e)
- *
+ * 
 */
 
 static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew5(PyObject *__pyx_v_a, PyObject *__pyx_v_b, PyObject *__pyx_v_c, PyObject *__pyx_v_d, PyObject *__pyx_v_e) {
@@ -5486,11 +5489,11 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew5(PyObject *__
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("PyArray_MultiIterNew5", 0);
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":807
- *
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":807
+ * 
  * cdef inline object PyArray_MultiIterNew5(a, b, c, d, e):
  *     return PyArray_MultiIterNew(5, <void*>a, <void*>b, <void*>c, <void*> d, <void*> e)             # <<<<<<<<<<<<<<
- *
+ * 
  * cdef inline tuple PyDataType_SHAPE(dtype d):
 */
   __pyx_t_1 = PyArray_MultiIterNew(5, ((void *)__pyx_v_a), ((void *)__pyx_v_b), ((void *)__pyx_v_c), ((void *)__pyx_v_d), ((void *)__pyx_v_e)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 807, __pyx_L1_error)
@@ -5506,12 +5509,12 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew5(PyObject *__
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":806
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":806
  *     return PyArray_MultiIterNew(4, <void*>a, <void*>b, <void*>c, <void*> d)
- *
+ * 
  * cdef inline object PyArray_MultiIterNew5(a, b, c, d, e):             # <<<<<<<<<<<<<<
  *     return PyArray_MultiIterNew(5, <void*>a, <void*>b, <void*>c, <void*> d, <void*> e)
- *
+ * 
 */
 
   /* function exit code */
@@ -5525,9 +5528,9 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyArray_MultiIterNew5(PyObject *__
   return __pyx_r;
 }
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":809
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":809
  *     return PyArray_MultiIterNew(5, <void*>a, <void*>b, <void*>c, <void*> d, <void*> e)
- *
+ * 
  * cdef inline tuple PyDataType_SHAPE(dtype d):             # <<<<<<<<<<<<<<
  *     if PyDataType_HASSUBARRAY(d):
  *         return <tuple>d.subarray.shape
@@ -5540,8 +5543,8 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyDataType_SHAPE(PyArray_Descr *__
   PyObject *__pyx_t_2;
   __Pyx_RefNannySetupContext("PyDataType_SHAPE", 0);
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":810
- *
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":810
+ * 
  * cdef inline tuple PyDataType_SHAPE(dtype d):
  *     if PyDataType_HASSUBARRAY(d):             # <<<<<<<<<<<<<<
  *         return <tuple>d.subarray.shape
@@ -5552,7 +5555,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyDataType_SHAPE(PyArray_Descr *__
   if (__pyx_t_1) {
 
 
-    /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":811
+    /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":811
  * cdef inline tuple PyDataType_SHAPE(dtype d):
  *     if PyDataType_HASSUBARRAY(d):
  *         return <tuple>d.subarray.shape             # <<<<<<<<<<<<<<
@@ -5573,8 +5576,8 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyDataType_SHAPE(PyArray_Descr *__
 
     goto __pyx_L0;
 
-    /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":810
- *
+    /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":810
+ * 
  * cdef inline tuple PyDataType_SHAPE(dtype d):
  *     if PyDataType_HASSUBARRAY(d):             # <<<<<<<<<<<<<<
  *         return <tuple>d.subarray.shape
@@ -5582,12 +5585,12 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyDataType_SHAPE(PyArray_Descr *__
 */
   }
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":813
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":813
  *         return <tuple>d.subarray.shape
  *     else:
  *         return ()             # <<<<<<<<<<<<<<
- *
- *
+ * 
+ * 
 */
   /*else*/ {
     {
@@ -5602,9 +5605,9 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyDataType_SHAPE(PyArray_Descr *__
     goto __pyx_L0;
   }
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":809
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":809
  *     return PyArray_MultiIterNew(5, <void*>a, <void*>b, <void*>c, <void*> d, <void*> e)
- *
+ * 
  * cdef inline tuple PyDataType_SHAPE(dtype d):             # <<<<<<<<<<<<<<
  *     if PyDataType_HASSUBARRAY(d):
  *         return <tuple>d.subarray.shape
@@ -5617,8 +5620,8 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyDataType_SHAPE(PyArray_Descr *__
   return __pyx_r;
 }
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":947
- *
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":947
+ * 
  *     ctypedef class numpy.ufunc [object PyUFuncObject, check_size ignore]:
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline int nin(self) noexcept nogil:
@@ -5628,11 +5631,11 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_PyDataType_SHAPE(PyArray_Descr *__
 static CYTHON_INLINE int __pyx_f_5numpy_5ufunc_3nin___get__(PyUFuncObject *__pyx_v_self) {
   int __pyx_r;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":949
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":949
  *         @property
  *         cdef inline int nin(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).nin             # <<<<<<<<<<<<<<
- *
+ * 
  *         @property
 */
   {
@@ -5641,8 +5644,8 @@ static CYTHON_INLINE int __pyx_f_5numpy_5ufunc_3nin___get__(PyUFuncObject *__pyx
   }
   goto __pyx_L0;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":947
- *
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":947
+ * 
  *     ctypedef class numpy.ufunc [object PyUFuncObject, check_size ignore]:
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline int nin(self) noexcept nogil:
@@ -5654,9 +5657,9 @@ static CYTHON_INLINE int __pyx_f_5numpy_5ufunc_3nin___get__(PyUFuncObject *__pyx
   return __pyx_r;
 }
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":951
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":951
  *             return _PyUFuncObject_GET_ITEM_DATA(self).nin
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline int nout(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).nout
@@ -5665,11 +5668,11 @@ static CYTHON_INLINE int __pyx_f_5numpy_5ufunc_3nin___get__(PyUFuncObject *__pyx
 static CYTHON_INLINE int __pyx_f_5numpy_5ufunc_4nout___get__(PyUFuncObject *__pyx_v_self) {
   int __pyx_r;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":953
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":953
  *         @property
  *         cdef inline int nout(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).nout             # <<<<<<<<<<<<<<
- *
+ * 
  *         @property
 */
   {
@@ -5678,9 +5681,9 @@ static CYTHON_INLINE int __pyx_f_5numpy_5ufunc_4nout___get__(PyUFuncObject *__py
   }
   goto __pyx_L0;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":951
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":951
  *             return _PyUFuncObject_GET_ITEM_DATA(self).nin
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline int nout(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).nout
@@ -5691,9 +5694,9 @@ static CYTHON_INLINE int __pyx_f_5numpy_5ufunc_4nout___get__(PyUFuncObject *__py
   return __pyx_r;
 }
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":955
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":955
  *             return _PyUFuncObject_GET_ITEM_DATA(self).nout
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline int nargs(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).nargs
@@ -5702,11 +5705,11 @@ static CYTHON_INLINE int __pyx_f_5numpy_5ufunc_4nout___get__(PyUFuncObject *__py
 static CYTHON_INLINE int __pyx_f_5numpy_5ufunc_5nargs___get__(PyUFuncObject *__pyx_v_self) {
   int __pyx_r;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":957
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":957
  *         @property
  *         cdef inline int nargs(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).nargs             # <<<<<<<<<<<<<<
- *
+ * 
  *         @property
 */
   {
@@ -5715,9 +5718,9 @@ static CYTHON_INLINE int __pyx_f_5numpy_5ufunc_5nargs___get__(PyUFuncObject *__p
   }
   goto __pyx_L0;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":955
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":955
  *             return _PyUFuncObject_GET_ITEM_DATA(self).nout
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline int nargs(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).nargs
@@ -5728,9 +5731,9 @@ static CYTHON_INLINE int __pyx_f_5numpy_5ufunc_5nargs___get__(PyUFuncObject *__p
   return __pyx_r;
 }
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":959
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":959
  *             return _PyUFuncObject_GET_ITEM_DATA(self).nargs
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline PyUFuncGenericFunction* functions(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).functions
@@ -5739,11 +5742,11 @@ static CYTHON_INLINE int __pyx_f_5numpy_5ufunc_5nargs___get__(PyUFuncObject *__p
 static CYTHON_INLINE PyUFuncGenericFunction *__pyx_f_5numpy_5ufunc_9functions___get__(PyUFuncObject *__pyx_v_self) {
   PyUFuncGenericFunction *__pyx_r;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":961
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":961
  *         @property
  *         cdef inline PyUFuncGenericFunction* functions(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).functions             # <<<<<<<<<<<<<<
- *
+ * 
  *         @property
 */
   {
@@ -5752,9 +5755,9 @@ static CYTHON_INLINE PyUFuncGenericFunction *__pyx_f_5numpy_5ufunc_9functions___
   }
   goto __pyx_L0;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":959
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":959
  *             return _PyUFuncObject_GET_ITEM_DATA(self).nargs
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline PyUFuncGenericFunction* functions(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).functions
@@ -5765,9 +5768,9 @@ static CYTHON_INLINE PyUFuncGenericFunction *__pyx_f_5numpy_5ufunc_9functions___
   return __pyx_r;
 }
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":963
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":963
  *             return _PyUFuncObject_GET_ITEM_DATA(self).functions
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline void ** data(self) noexcept nogil:
  *             return <void **>_PyUFuncObject_GET_ITEM_DATA(self).data
@@ -5776,11 +5779,11 @@ static CYTHON_INLINE PyUFuncGenericFunction *__pyx_f_5numpy_5ufunc_9functions___
 static CYTHON_INLINE void **__pyx_f_5numpy_5ufunc_4data___get__(PyUFuncObject *__pyx_v_self) {
   void **__pyx_r;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":965
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":965
  *         @property
  *         cdef inline void ** data(self) noexcept nogil:
  *             return <void **>_PyUFuncObject_GET_ITEM_DATA(self).data             # <<<<<<<<<<<<<<
- *
+ * 
  *         @property
 */
   {
@@ -5789,9 +5792,9 @@ static CYTHON_INLINE void **__pyx_f_5numpy_5ufunc_4data___get__(PyUFuncObject *_
   }
   goto __pyx_L0;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":963
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":963
  *             return _PyUFuncObject_GET_ITEM_DATA(self).functions
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline void ** data(self) noexcept nogil:
  *             return <void **>_PyUFuncObject_GET_ITEM_DATA(self).data
@@ -5802,9 +5805,9 @@ static CYTHON_INLINE void **__pyx_f_5numpy_5ufunc_4data___get__(PyUFuncObject *_
   return __pyx_r;
 }
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":967
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":967
  *             return <void **>_PyUFuncObject_GET_ITEM_DATA(self).data
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline int ntypes(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).ntypes
@@ -5813,11 +5816,11 @@ static CYTHON_INLINE void **__pyx_f_5numpy_5ufunc_4data___get__(PyUFuncObject *_
 static CYTHON_INLINE int __pyx_f_5numpy_5ufunc_6ntypes___get__(PyUFuncObject *__pyx_v_self) {
   int __pyx_r;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":969
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":969
  *         @property
  *         cdef inline int ntypes(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).ntypes             # <<<<<<<<<<<<<<
- *
+ * 
  *         @property
 */
   {
@@ -5826,9 +5829,9 @@ static CYTHON_INLINE int __pyx_f_5numpy_5ufunc_6ntypes___get__(PyUFuncObject *__
   }
   goto __pyx_L0;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":967
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":967
  *             return <void **>_PyUFuncObject_GET_ITEM_DATA(self).data
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline int ntypes(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).ntypes
@@ -5839,9 +5842,9 @@ static CYTHON_INLINE int __pyx_f_5numpy_5ufunc_6ntypes___get__(PyUFuncObject *__
   return __pyx_r;
 }
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":971
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":971
  *             return _PyUFuncObject_GET_ITEM_DATA(self).ntypes
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline const char* name(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).name
@@ -5850,11 +5853,11 @@ static CYTHON_INLINE int __pyx_f_5numpy_5ufunc_6ntypes___get__(PyUFuncObject *__
 static CYTHON_INLINE char const *__pyx_f_5numpy_5ufunc_4name___get__(PyUFuncObject *__pyx_v_self) {
   char const *__pyx_r;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":973
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":973
  *         @property
  *         cdef inline const char* name(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).name             # <<<<<<<<<<<<<<
- *
+ * 
  *         @property
 */
   {
@@ -5863,9 +5866,9 @@ static CYTHON_INLINE char const *__pyx_f_5numpy_5ufunc_4name___get__(PyUFuncObje
   }
   goto __pyx_L0;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":971
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":971
  *             return _PyUFuncObject_GET_ITEM_DATA(self).ntypes
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline const char* name(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).name
@@ -5876,9 +5879,9 @@ static CYTHON_INLINE char const *__pyx_f_5numpy_5ufunc_4name___get__(PyUFuncObje
   return __pyx_r;
 }
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":975
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":975
  *             return _PyUFuncObject_GET_ITEM_DATA(self).name
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline const char* doc(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).doc
@@ -5887,11 +5890,11 @@ static CYTHON_INLINE char const *__pyx_f_5numpy_5ufunc_4name___get__(PyUFuncObje
 static CYTHON_INLINE char const *__pyx_f_5numpy_5ufunc_3doc___get__(PyUFuncObject *__pyx_v_self) {
   char const *__pyx_r;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":977
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":977
  *         @property
  *         cdef inline const char* doc(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).doc             # <<<<<<<<<<<<<<
- *
+ * 
  *         @property
 */
   {
@@ -5900,9 +5903,9 @@ static CYTHON_INLINE char const *__pyx_f_5numpy_5ufunc_3doc___get__(PyUFuncObjec
   }
   goto __pyx_L0;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":975
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":975
  *             return _PyUFuncObject_GET_ITEM_DATA(self).name
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline const char* doc(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).doc
@@ -5913,9 +5916,9 @@ static CYTHON_INLINE char const *__pyx_f_5numpy_5ufunc_3doc___get__(PyUFuncObjec
   return __pyx_r;
 }
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":979
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":979
  *             return _PyUFuncObject_GET_ITEM_DATA(self).doc
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline void* ptr(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).ptr
@@ -5924,11 +5927,11 @@ static CYTHON_INLINE char const *__pyx_f_5numpy_5ufunc_3doc___get__(PyUFuncObjec
 static CYTHON_INLINE void *__pyx_f_5numpy_5ufunc_3ptr___get__(PyUFuncObject *__pyx_v_self) {
   void *__pyx_r;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":981
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":981
  *         @property
  *         cdef inline void* ptr(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).ptr             # <<<<<<<<<<<<<<
- *
+ * 
  *         @property
 */
   {
@@ -5937,9 +5940,9 @@ static CYTHON_INLINE void *__pyx_f_5numpy_5ufunc_3ptr___get__(PyUFuncObject *__p
   }
   goto __pyx_L0;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":979
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":979
  *             return _PyUFuncObject_GET_ITEM_DATA(self).doc
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline void* ptr(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).ptr
@@ -5950,9 +5953,9 @@ static CYTHON_INLINE void *__pyx_f_5numpy_5ufunc_3ptr___get__(PyUFuncObject *__p
   return __pyx_r;
 }
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":983
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":983
  *             return _PyUFuncObject_GET_ITEM_DATA(self).ptr
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline PyObject* obj(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).obj
@@ -5961,11 +5964,11 @@ static CYTHON_INLINE void *__pyx_f_5numpy_5ufunc_3ptr___get__(PyUFuncObject *__p
 static CYTHON_INLINE PyObject *__pyx_f_5numpy_5ufunc_3obj___get__(PyUFuncObject *__pyx_v_self) {
   PyObject *__pyx_r;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":985
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":985
  *         @property
  *         cdef inline PyObject* obj(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).obj             # <<<<<<<<<<<<<<
- *
+ * 
  *         @property
 */
   {
@@ -5974,9 +5977,9 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_5ufunc_3obj___get__(PyUFuncObject 
   }
   goto __pyx_L0;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":983
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":983
  *             return _PyUFuncObject_GET_ITEM_DATA(self).ptr
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline PyObject* obj(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).obj
@@ -5987,9 +5990,9 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_5ufunc_3obj___get__(PyUFuncObject 
   return __pyx_r;
 }
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":987
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":987
  *             return _PyUFuncObject_GET_ITEM_DATA(self).obj
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline PyObject* userloops(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).userloops
@@ -5998,11 +6001,11 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_5ufunc_3obj___get__(PyUFuncObject 
 static CYTHON_INLINE PyObject *__pyx_f_5numpy_5ufunc_9userloops___get__(PyUFuncObject *__pyx_v_self) {
   PyObject *__pyx_r;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":989
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":989
  *         @property
  *         cdef inline PyObject* userloops(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).userloops             # <<<<<<<<<<<<<<
- *
+ * 
  *     PyUFuncObject_fields *_PyUFuncObject_GET_ITEM_DATA(ufunc) nogil
 */
   {
@@ -6011,9 +6014,9 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_5ufunc_9userloops___get__(PyUFuncO
   }
   goto __pyx_L0;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":987
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":987
  *             return _PyUFuncObject_GET_ITEM_DATA(self).obj
- *
+ * 
  *         @property             # <<<<<<<<<<<<<<
  *         cdef inline PyObject* userloops(self) noexcept nogil:
  *             return _PyUFuncObject_GET_ITEM_DATA(self).userloops
@@ -6024,9 +6027,9 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_5ufunc_9userloops___get__(PyUFuncO
   return __pyx_r;
 }
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1065
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":1065
  *     int _import_umath() except -1
- *
+ * 
  * cdef inline void set_array_base(ndarray arr, object base) except *:             # <<<<<<<<<<<<<<
  *     Py_INCREF(base) # important to do this before stealing the reference below!
  *     PyArray_SetBaseObject(arr, base)
@@ -6038,28 +6041,28 @@ static CYTHON_INLINE void __pyx_f_5numpy_set_array_base(PyArrayObject *__pyx_v_a
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1066
- *
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":1066
+ * 
  * cdef inline void set_array_base(ndarray arr, object base) except *:
  *     Py_INCREF(base) # important to do this before stealing the reference below!             # <<<<<<<<<<<<<<
  *     PyArray_SetBaseObject(arr, base)
- *
+ * 
 */
   Py_INCREF(__pyx_v_base);
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1067
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":1067
  * cdef inline void set_array_base(ndarray arr, object base) except *:
  *     Py_INCREF(base) # important to do this before stealing the reference below!
  *     PyArray_SetBaseObject(arr, base)             # <<<<<<<<<<<<<<
- *
+ * 
  * cdef inline object get_array_base(ndarray arr):
 */
   __pyx_t_1 = PyArray_SetBaseObject(__pyx_v_arr, __pyx_v_base); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(1, 1067, __pyx_L1_error)
 
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1065
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":1065
  *     int _import_umath() except -1
- *
+ * 
  * cdef inline void set_array_base(ndarray arr, object base) except *:             # <<<<<<<<<<<<<<
  *     Py_INCREF(base) # important to do this before stealing the reference below!
  *     PyArray_SetBaseObject(arr, base)
@@ -6073,9 +6076,9 @@ static CYTHON_INLINE void __pyx_f_5numpy_set_array_base(PyArrayObject *__pyx_v_a
 
 }
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1069
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":1069
  *     PyArray_SetBaseObject(arr, base)
- *
+ * 
  * cdef inline object get_array_base(ndarray arr):             # <<<<<<<<<<<<<<
  *     base = PyArray_BASE(arr)
  *     if base is NULL:
@@ -6088,8 +6091,8 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_get_array_base(PyArrayObject *__py
   int __pyx_t_1;
   __Pyx_RefNannySetupContext("get_array_base", 0);
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1070
- *
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":1070
+ * 
  * cdef inline object get_array_base(ndarray arr):
  *     base = PyArray_BASE(arr)             # <<<<<<<<<<<<<<
  *     if base is NULL:
@@ -6097,7 +6100,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_get_array_base(PyArrayObject *__py
 */
   __pyx_v_base = PyArray_BASE(__pyx_v_arr);
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1071
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":1071
  * cdef inline object get_array_base(ndarray arr):
  *     base = PyArray_BASE(arr)
  *     if base is NULL:             # <<<<<<<<<<<<<<
@@ -6109,12 +6112,12 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_get_array_base(PyArrayObject *__py
   if (__pyx_t_1) {
 
 
-    /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1072
+    /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":1072
  *     base = PyArray_BASE(arr)
  *     if base is NULL:
  *         return None             # <<<<<<<<<<<<<<
  *     return <object>base
- *
+ * 
 */
     {
       PyObject *__pyx_temp;
@@ -6126,7 +6129,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_get_array_base(PyArrayObject *__py
     }
     goto __pyx_L0;
 
-    /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1071
+    /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":1071
  * cdef inline object get_array_base(ndarray arr):
  *     base = PyArray_BASE(arr)
  *     if base is NULL:             # <<<<<<<<<<<<<<
@@ -6135,11 +6138,11 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_get_array_base(PyArrayObject *__py
 */
   }
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1073
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":1073
  *     if base is NULL:
  *         return None
  *     return <object>base             # <<<<<<<<<<<<<<
- *
+ * 
  * # Versions of the import_* functions which are more suitable for
 */
   {
@@ -6153,9 +6156,9 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_get_array_base(PyArrayObject *__py
   }
   goto __pyx_L0;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1069
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":1069
  *     PyArray_SetBaseObject(arr, base)
- *
+ * 
  * cdef inline object get_array_base(ndarray arr):             # <<<<<<<<<<<<<<
  *     base = PyArray_BASE(arr)
  *     if base is NULL:
@@ -6169,7 +6172,7 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_get_array_base(PyArrayObject *__py
   return __pyx_r;
 }
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1077
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":1077
  * # Versions of the import_* functions which are more suitable for
  * # Cython code.
  * cdef inline int import_array() except -1:             # <<<<<<<<<<<<<<
@@ -6195,7 +6198,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_array(void) {
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("import_array", 0);
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1078
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":1078
  * # Cython code.
  * cdef inline int import_array() except -1:
  *     try:             # <<<<<<<<<<<<<<
@@ -6211,7 +6214,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_array(void) {
     __Pyx_XGOTREF(__pyx_t_3);
     /*try:*/ {
 
-      /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1079
+      /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":1079
  * cdef inline int import_array() except -1:
  *     try:
  *         __pyx_import_array()             # <<<<<<<<<<<<<<
@@ -6221,7 +6224,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_array(void) {
       __pyx_t_4 = _import_array(); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(1, 1079, __pyx_L3_error)
 
 
-      /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1078
+      /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":1078
  * # Cython code.
  * cdef inline int import_array() except -1:
  *     try:             # <<<<<<<<<<<<<<
@@ -6235,12 +6238,12 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_array(void) {
     goto __pyx_L8_try_end;
     __pyx_L3_error:;
 
-    /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1080
+    /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":1080
  *     try:
  *         __pyx_import_array()
  *     except Exception:             # <<<<<<<<<<<<<<
  *         raise ImportError("numpy._core.multiarray failed to import")
- *
+ * 
 */
     __pyx_t_4 = __Pyx_PyErr_ExceptionMatches(((PyObject *)(((PyTypeObject*)PyExc_Exception))));
     if (__pyx_t_4) {
@@ -6250,11 +6253,11 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_array(void) {
       __Pyx_XGOTREF(__pyx_t_6);
       __Pyx_XGOTREF(__pyx_t_7);
 
-      /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1081
+      /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":1081
  *         __pyx_import_array()
  *     except Exception:
  *         raise ImportError("numpy._core.multiarray failed to import")             # <<<<<<<<<<<<<<
- *
+ * 
  * cdef inline int import_umath() except -1:
 */
       __pyx_t_9 = NULL;
@@ -6272,7 +6275,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_array(void) {
     }
     goto __pyx_L5_except_error;
 
-    /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1078
+    /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":1078
  * # Cython code.
  * cdef inline int import_array() except -1:
  *     try:             # <<<<<<<<<<<<<<
@@ -6288,7 +6291,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_array(void) {
     __pyx_L8_try_end:;
   }
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1077
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":1077
  * # Versions of the import_* functions which are more suitable for
  * # Cython code.
  * cdef inline int import_array() except -1:             # <<<<<<<<<<<<<<
@@ -6313,9 +6316,9 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_array(void) {
   return __pyx_r;
 }
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1083
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":1083
  *         raise ImportError("numpy._core.multiarray failed to import")
- *
+ * 
  * cdef inline int import_umath() except -1:             # <<<<<<<<<<<<<<
  *     try:
  *         _import_umath()
@@ -6339,8 +6342,8 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_umath(void) {
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("import_umath", 0);
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1084
- *
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":1084
+ * 
  * cdef inline int import_umath() except -1:
  *     try:             # <<<<<<<<<<<<<<
  *         _import_umath()
@@ -6355,7 +6358,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_umath(void) {
     __Pyx_XGOTREF(__pyx_t_3);
     /*try:*/ {
 
-      /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1085
+      /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":1085
  * cdef inline int import_umath() except -1:
  *     try:
  *         _import_umath()             # <<<<<<<<<<<<<<
@@ -6365,8 +6368,8 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_umath(void) {
       __pyx_t_4 = _import_umath(); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(1, 1085, __pyx_L3_error)
 
 
-      /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1084
- *
+      /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":1084
+ * 
  * cdef inline int import_umath() except -1:
  *     try:             # <<<<<<<<<<<<<<
  *         _import_umath()
@@ -6379,12 +6382,12 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_umath(void) {
     goto __pyx_L8_try_end;
     __pyx_L3_error:;
 
-    /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1086
+    /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":1086
  *     try:
  *         _import_umath()
  *     except Exception:             # <<<<<<<<<<<<<<
  *         raise ImportError("numpy._core.umath failed to import")
- *
+ * 
 */
     __pyx_t_4 = __Pyx_PyErr_ExceptionMatches(((PyObject *)(((PyTypeObject*)PyExc_Exception))));
     if (__pyx_t_4) {
@@ -6394,11 +6397,11 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_umath(void) {
       __Pyx_XGOTREF(__pyx_t_6);
       __Pyx_XGOTREF(__pyx_t_7);
 
-      /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1087
+      /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":1087
  *         _import_umath()
  *     except Exception:
  *         raise ImportError("numpy._core.umath failed to import")             # <<<<<<<<<<<<<<
- *
+ * 
  * cdef inline int import_ufunc() except -1:
 */
       __pyx_t_9 = NULL;
@@ -6416,8 +6419,8 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_umath(void) {
     }
     goto __pyx_L5_except_error;
 
-    /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1084
- *
+    /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":1084
+ * 
  * cdef inline int import_umath() except -1:
  *     try:             # <<<<<<<<<<<<<<
  *         _import_umath()
@@ -6432,9 +6435,9 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_umath(void) {
     __pyx_L8_try_end:;
   }
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1083
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":1083
  *         raise ImportError("numpy._core.multiarray failed to import")
- *
+ * 
  * cdef inline int import_umath() except -1:             # <<<<<<<<<<<<<<
  *     try:
  *         _import_umath()
@@ -6457,9 +6460,9 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_umath(void) {
   return __pyx_r;
 }
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1089
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":1089
  *         raise ImportError("numpy._core.umath failed to import")
- *
+ * 
  * cdef inline int import_ufunc() except -1:             # <<<<<<<<<<<<<<
  *     try:
  *         _import_umath()
@@ -6483,8 +6486,8 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("import_ufunc", 0);
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1090
- *
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":1090
+ * 
  * cdef inline int import_ufunc() except -1:
  *     try:             # <<<<<<<<<<<<<<
  *         _import_umath()
@@ -6499,7 +6502,7 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
     __Pyx_XGOTREF(__pyx_t_3);
     /*try:*/ {
 
-      /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1091
+      /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":1091
  * cdef inline int import_ufunc() except -1:
  *     try:
  *         _import_umath()             # <<<<<<<<<<<<<<
@@ -6509,8 +6512,8 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
       __pyx_t_4 = _import_umath(); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(1, 1091, __pyx_L3_error)
 
 
-      /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1090
- *
+      /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":1090
+ * 
  * cdef inline int import_ufunc() except -1:
  *     try:             # <<<<<<<<<<<<<<
  *         _import_umath()
@@ -6523,12 +6526,12 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
     goto __pyx_L8_try_end;
     __pyx_L3_error:;
 
-    /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1092
+    /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":1092
  *     try:
  *         _import_umath()
  *     except Exception:             # <<<<<<<<<<<<<<
  *         raise ImportError("numpy._core.umath failed to import")
- *
+ * 
 */
     __pyx_t_4 = __Pyx_PyErr_ExceptionMatches(((PyObject *)(((PyTypeObject*)PyExc_Exception))));
     if (__pyx_t_4) {
@@ -6538,12 +6541,12 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
       __Pyx_XGOTREF(__pyx_t_6);
       __Pyx_XGOTREF(__pyx_t_7);
 
-      /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1093
+      /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":1093
  *         _import_umath()
  *     except Exception:
  *         raise ImportError("numpy._core.umath failed to import")             # <<<<<<<<<<<<<<
- *
- *
+ * 
+ * 
 */
       __pyx_t_9 = NULL;
       __pyx_t_10 = 1;
@@ -6560,8 +6563,8 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
     }
     goto __pyx_L5_except_error;
 
-    /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1090
- *
+    /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":1090
+ * 
  * cdef inline int import_ufunc() except -1:
  *     try:             # <<<<<<<<<<<<<<
  *         _import_umath()
@@ -6576,9 +6579,9 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
     __pyx_L8_try_end:;
   }
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1089
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":1089
  *         raise ImportError("numpy._core.umath failed to import")
- *
+ * 
  * cdef inline int import_ufunc() except -1:             # <<<<<<<<<<<<<<
  *     try:
  *         _import_umath()
@@ -6601,9 +6604,9 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
   return __pyx_r;
 }
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1096
- *
- *
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":1096
+ * 
+ * 
  * cdef inline bint is_timedelta64_object(object obj) noexcept:             # <<<<<<<<<<<<<<
  *     """
  *     Cython equivalent of `isinstance(obj, np.timedelta64)`
@@ -6612,12 +6615,12 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
 static CYTHON_INLINE int __pyx_f_5numpy_is_timedelta64_object(PyObject *__pyx_v_obj) {
   int __pyx_r;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1108
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":1108
  *     bool
  *     """
  *     return PyObject_TypeCheck(obj, &PyTimedeltaArrType_Type)             # <<<<<<<<<<<<<<
- *
- *
+ * 
+ * 
 */
   {
 
@@ -6625,9 +6628,9 @@ static CYTHON_INLINE int __pyx_f_5numpy_is_timedelta64_object(PyObject *__pyx_v_
   }
   goto __pyx_L0;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1096
- *
- *
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":1096
+ * 
+ * 
  * cdef inline bint is_timedelta64_object(object obj) noexcept:             # <<<<<<<<<<<<<<
  *     """
  *     Cython equivalent of `isinstance(obj, np.timedelta64)`
@@ -6639,9 +6642,9 @@ static CYTHON_INLINE int __pyx_f_5numpy_is_timedelta64_object(PyObject *__pyx_v_
   return __pyx_r;
 }
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1111
- *
- *
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":1111
+ * 
+ * 
  * cdef inline bint is_datetime64_object(object obj) noexcept:             # <<<<<<<<<<<<<<
  *     """
  *     Cython equivalent of `isinstance(obj, np.datetime64)`
@@ -6650,12 +6653,12 @@ static CYTHON_INLINE int __pyx_f_5numpy_is_timedelta64_object(PyObject *__pyx_v_
 static CYTHON_INLINE int __pyx_f_5numpy_is_datetime64_object(PyObject *__pyx_v_obj) {
   int __pyx_r;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1123
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":1123
  *     bool
  *     """
  *     return PyObject_TypeCheck(obj, &PyDatetimeArrType_Type)             # <<<<<<<<<<<<<<
- *
- *
+ * 
+ * 
 */
   {
 
@@ -6663,9 +6666,9 @@ static CYTHON_INLINE int __pyx_f_5numpy_is_datetime64_object(PyObject *__pyx_v_o
   }
   goto __pyx_L0;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1111
- *
- *
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":1111
+ * 
+ * 
  * cdef inline bint is_datetime64_object(object obj) noexcept:             # <<<<<<<<<<<<<<
  *     """
  *     Cython equivalent of `isinstance(obj, np.datetime64)`
@@ -6677,9 +6680,9 @@ static CYTHON_INLINE int __pyx_f_5numpy_is_datetime64_object(PyObject *__pyx_v_o
   return __pyx_r;
 }
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1126
- *
- *
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":1126
+ * 
+ * 
  * cdef inline npy_datetime get_datetime64_value(object obj) noexcept nogil:             # <<<<<<<<<<<<<<
  *     """
  *     returns the int64 value underlying scalar numpy datetime64 object
@@ -6688,12 +6691,12 @@ static CYTHON_INLINE int __pyx_f_5numpy_is_datetime64_object(PyObject *__pyx_v_o
 static CYTHON_INLINE npy_datetime __pyx_f_5numpy_get_datetime64_value(PyObject *__pyx_v_obj) {
   npy_datetime __pyx_r;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1133
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":1133
  *     also needed.  That can be found using `get_datetime64_unit`.
  *     """
  *     return _PyDatetimeScalarObject_GetValue(obj)             # <<<<<<<<<<<<<<
- *
- *
+ * 
+ * 
 */
   {
 
@@ -6701,9 +6704,9 @@ static CYTHON_INLINE npy_datetime __pyx_f_5numpy_get_datetime64_value(PyObject *
   }
   goto __pyx_L0;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1126
- *
- *
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":1126
+ * 
+ * 
  * cdef inline npy_datetime get_datetime64_value(object obj) noexcept nogil:             # <<<<<<<<<<<<<<
  *     """
  *     returns the int64 value underlying scalar numpy datetime64 object
@@ -6714,9 +6717,9 @@ static CYTHON_INLINE npy_datetime __pyx_f_5numpy_get_datetime64_value(PyObject *
   return __pyx_r;
 }
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1136
- *
- *
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":1136
+ * 
+ * 
  * cdef inline npy_timedelta get_timedelta64_value(object obj) noexcept nogil:             # <<<<<<<<<<<<<<
  *     """
  *     returns the int64 value underlying scalar numpy timedelta64 object
@@ -6725,12 +6728,12 @@ static CYTHON_INLINE npy_datetime __pyx_f_5numpy_get_datetime64_value(PyObject *
 static CYTHON_INLINE npy_timedelta __pyx_f_5numpy_get_timedelta64_value(PyObject *__pyx_v_obj) {
   npy_timedelta __pyx_r;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1140
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":1140
  *     returns the int64 value underlying scalar numpy timedelta64 object
  *     """
  *     return _PyTimedeltaScalarObject_GetValue(obj)             # <<<<<<<<<<<<<<
- *
- *
+ * 
+ * 
 */
   {
 
@@ -6738,9 +6741,9 @@ static CYTHON_INLINE npy_timedelta __pyx_f_5numpy_get_timedelta64_value(PyObject
   }
   goto __pyx_L0;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1136
- *
- *
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":1136
+ * 
+ * 
  * cdef inline npy_timedelta get_timedelta64_value(object obj) noexcept nogil:             # <<<<<<<<<<<<<<
  *     """
  *     returns the int64 value underlying scalar numpy timedelta64 object
@@ -6751,9 +6754,9 @@ static CYTHON_INLINE npy_timedelta __pyx_f_5numpy_get_timedelta64_value(PyObject
   return __pyx_r;
 }
 
-/* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1143
- *
- *
+/* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":1143
+ * 
+ * 
  * cdef inline NPY_DATETIMEUNIT get_datetime64_unit(object obj) noexcept nogil:             # <<<<<<<<<<<<<<
  *     """
  *     returns the unit part of the dtype for a numpy datetime64 object.
@@ -6762,12 +6765,12 @@ static CYTHON_INLINE npy_timedelta __pyx_f_5numpy_get_timedelta64_value(PyObject
 static CYTHON_INLINE NPY_DATETIMEUNIT __pyx_f_5numpy_get_datetime64_unit(PyObject *__pyx_v_obj) {
   NPY_DATETIMEUNIT __pyx_r;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1147
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":1147
  *     returns the unit part of the dtype for a numpy datetime64 object.
  *     """
  *     return _PyDatetimeScalarObject_GetMetadata(obj).base             # <<<<<<<<<<<<<<
- *
- *
+ * 
+ * 
 */
   {
 
@@ -6775,9 +6778,9 @@ static CYTHON_INLINE NPY_DATETIMEUNIT __pyx_f_5numpy_get_datetime64_unit(PyObjec
   }
   goto __pyx_L0;
 
-  /* "C:/Users/Administrator/AppData/Local/Temp/pip-build-env-brpey7dc/overlay/Lib/site-packages/numpy/__init__.cython-30.pxd":1143
- *
- *
+  /* "../root/.pyenv/versions/3.14.7/lib/python3.14/site-packages/numpy/__init__.cython-30.pxd":1143
+ * 
+ * 
  * cdef inline NPY_DATETIMEUNIT get_datetime64_unit(object obj) noexcept nogil:             # <<<<<<<<<<<<<<
  *     """
  *     returns the unit part of the dtype for a numpy datetime64 object.
@@ -6790,7 +6793,7 @@ static CYTHON_INLINE NPY_DATETIMEUNIT __pyx_f_5numpy_get_datetime64_unit(PyObjec
 
 /* "pyart/map/ckdtree.pyx":78
  * # test is optimized away.
- *
+ * 
  * cdef inline int set_add_pair(set results,             # <<<<<<<<<<<<<<
  *                              np.intp_t i,
  *                              np.intp_t j) except -1:
@@ -6813,7 +6816,7 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_set_add_pair(PyObject *__p
 
   /* "pyart/map/ckdtree.pyx":82
  *                              np.intp_t j) except -1:
- *
+ * 
  *     if sizeof(long) < sizeof(np.intp_t):             # <<<<<<<<<<<<<<
  *         # Win 64
  *         results.add((int(i), int(j)))
@@ -6872,7 +6875,7 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_set_add_pair(PyObject *__p
 
     /* "pyart/map/ckdtree.pyx":82
  *                              np.intp_t j) except -1:
- *
+ * 
  *     if sizeof(long) < sizeof(np.intp_t):             # <<<<<<<<<<<<<<
  *         # Win 64
  *         results.add((int(i), int(j)))
@@ -6885,7 +6888,7 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_set_add_pair(PyObject *__p
  *         # Other platforms
  *         results.add((i, j))             # <<<<<<<<<<<<<<
  *     return 0
- *
+ * 
 */
   /*else*/ {
     if (unlikely(__pyx_v_results == Py_None)) {
@@ -6914,8 +6917,8 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_set_add_pair(PyObject *__p
  *         # Other platforms
  *         results.add((i, j))
  *     return 0             # <<<<<<<<<<<<<<
- *
- *
+ * 
+ * 
 */
   {
 
@@ -6925,7 +6928,7 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_set_add_pair(PyObject *__p
 
   /* "pyart/map/ckdtree.pyx":78
  * # test is optimized away.
- *
+ * 
  * cdef inline int set_add_pair(set results,             # <<<<<<<<<<<<<<
  *                              np.intp_t i,
  *                              np.intp_t j) except -1:
@@ -6946,8 +6949,8 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_set_add_pair(PyObject *__p
 }
 
 /* "pyart/map/ckdtree.pyx":91
- *
- *
+ * 
+ * 
  * cdef inline int set_add_ordered_pair(set results,             # <<<<<<<<<<<<<<
  *                                      np.intp_t i,
  *                                      np.intp_t j) except -1:
@@ -6970,7 +6973,7 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_set_add_ordered_pair(PyObj
 
   /* "pyart/map/ckdtree.pyx":95
  *                                      np.intp_t j) except -1:
- *
+ * 
  *     if sizeof(long) < sizeof(np.intp_t):             # <<<<<<<<<<<<<<
  *         # Win 64
  *         if i < j:
@@ -7101,7 +7104,7 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_set_add_ordered_pair(PyObj
 
     /* "pyart/map/ckdtree.pyx":95
  *                                      np.intp_t j) except -1:
- *
+ * 
  *     if sizeof(long) < sizeof(np.intp_t):             # <<<<<<<<<<<<<<
  *         # Win 64
  *         if i < j:
@@ -7164,7 +7167,7 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_set_add_ordered_pair(PyObj
  *         else:
  *             results.add((j, i))             # <<<<<<<<<<<<<<
  *     return 0
- *
+ * 
 */
     /*else*/ {
       if (unlikely(__pyx_v_results == Py_None)) {
@@ -7195,7 +7198,7 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_set_add_ordered_pair(PyObj
  *         else:
  *             results.add((j, i))
  *     return 0             # <<<<<<<<<<<<<<
- *
+ * 
  * cdef inline int list_append(list results, np.intp_t i) except -1:
 */
   {
@@ -7205,8 +7208,8 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_set_add_ordered_pair(PyObj
   goto __pyx_L0;
 
   /* "pyart/map/ckdtree.pyx":91
- *
- *
+ * 
+ * 
  * cdef inline int set_add_ordered_pair(set results,             # <<<<<<<<<<<<<<
  *                                      np.intp_t i,
  *                                      np.intp_t j) except -1:
@@ -7228,7 +7231,7 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_set_add_ordered_pair(PyObj
 
 /* "pyart/map/ckdtree.pyx":109
  *     return 0
- *
+ * 
  * cdef inline int list_append(list results, np.intp_t i) except -1:             # <<<<<<<<<<<<<<
  *     if sizeof(long) < sizeof(np.intp_t):
  *         # Win 64
@@ -7249,7 +7252,7 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_list_append(PyObject *__py
   __Pyx_RefNannySetupContext("list_append", 0);
 
   /* "pyart/map/ckdtree.pyx":110
- *
+ * 
  * cdef inline int list_append(list results, np.intp_t i) except -1:
  *     if sizeof(long) < sizeof(np.intp_t):             # <<<<<<<<<<<<<<
  *         # Win 64
@@ -7330,7 +7333,7 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_list_append(PyObject *__py
     __pyx_L4:;
 
     /* "pyart/map/ckdtree.pyx":110
- *
+ * 
  * cdef inline int list_append(list results, np.intp_t i) except -1:
  *     if sizeof(long) < sizeof(np.intp_t):             # <<<<<<<<<<<<<<
  *         # Win 64
@@ -7344,7 +7347,7 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_list_append(PyObject *__py
  *         # Other platforms
  *         results.append(i)             # <<<<<<<<<<<<<<
  *     return 0
- *
+ * 
 */
   /*else*/ {
     if (unlikely(__pyx_v_results == Py_None)) {
@@ -7363,8 +7366,8 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_list_append(PyObject *__py
  *         # Other platforms
  *         results.append(i)
  *     return 0             # <<<<<<<<<<<<<<
- *
- *
+ * 
+ * 
 */
   {
 
@@ -7374,7 +7377,7 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_list_append(PyObject *__py
 
   /* "pyart/map/ckdtree.pyx":109
  *     return 0
- *
+ * 
  * cdef inline int list_append(list results, np.intp_t i) except -1:             # <<<<<<<<<<<<<<
  *     if sizeof(long) < sizeof(np.intp_t):
  *         # Win 64
@@ -7395,21 +7398,21 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_list_append(PyObject *__py
 
 /* "pyart/map/ckdtree.pyx":138
  *     cdef np.intp_t space
- *
+ * 
  *     def __init__(heap self, np.intp_t initial_size):             # <<<<<<<<<<<<<<
  *         cdef void *tmp
  *         self.space = initial_size
 */
 
 /* Python wrapper */
-static int __pyx_pw_5pyart_3map_7ckdtree_4heap_1__init__(PyObject *__pyx_v_self,
+static int __pyx_pw_5pyart_3map_7ckdtree_4heap_1__init__(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL_TPNEW
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static int __pyx_pw_5pyart_3map_7ckdtree_4heap_1__init__(PyObject *__pyx_v_self,
+static int __pyx_pw_5pyart_3map_7ckdtree_4heap_1__init__(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL_TPNEW
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -7556,7 +7559,7 @@ static int __pyx_pf_5pyart_3map_7ckdtree_4heap___init__(struct __pyx_obj_5pyart_
  *             raise MemoryError
  *         self.heap = <heapitem*> tmp             # <<<<<<<<<<<<<<
  *         self.n = 0
- *
+ * 
 */
   __pyx_v_self->heap = ((struct __pyx_t_5pyart_3map_7ckdtree_heapitem *)__pyx_v_tmp);
 
@@ -7564,14 +7567,14 @@ static int __pyx_pf_5pyart_3map_7ckdtree_4heap___init__(struct __pyx_obj_5pyart_
  *             raise MemoryError
  *         self.heap = <heapitem*> tmp
  *         self.n = 0             # <<<<<<<<<<<<<<
- *
+ * 
  *     def __dealloc__(heap self):
 */
   __pyx_v_self->n = 0;
 
   /* "pyart/map/ckdtree.pyx":138
  *     cdef np.intp_t space
- *
+ * 
  *     def __init__(heap self, np.intp_t initial_size):             # <<<<<<<<<<<<<<
  *         cdef void *tmp
  *         self.space = initial_size
@@ -7591,7 +7594,7 @@ static int __pyx_pf_5pyart_3map_7ckdtree_4heap___init__(struct __pyx_obj_5pyart_
 
 /* "pyart/map/ckdtree.pyx":148
  *         self.n = 0
- *
+ * 
  *     def __dealloc__(heap self):             # <<<<<<<<<<<<<<
  *         if self.heap != <heapitem*> NULL:
  *             stdlib.free(self.heap)
@@ -7614,11 +7617,11 @@ static void __pyx_pf_5pyart_3map_7ckdtree_4heap_2__dealloc__(struct __pyx_obj_5p
   int __pyx_t_1;
 
   /* "pyart/map/ckdtree.pyx":149
- *
+ * 
  *     def __dealloc__(heap self):
  *         if self.heap != <heapitem*> NULL:             # <<<<<<<<<<<<<<
  *             stdlib.free(self.heap)
- *
+ * 
 */
   __pyx_t_1 = (__pyx_v_self->heap != ((struct __pyx_t_5pyart_3map_7ckdtree_heapitem *)NULL));
 
@@ -7629,23 +7632,23 @@ static void __pyx_pf_5pyart_3map_7ckdtree_4heap_2__dealloc__(struct __pyx_obj_5p
  *     def __dealloc__(heap self):
  *         if self.heap != <heapitem*> NULL:
  *             stdlib.free(self.heap)             # <<<<<<<<<<<<<<
- *
+ * 
  *     cdef inline int _resize(heap self, np.intp_t new_space) except -1:
 */
     free(__pyx_v_self->heap);
 
     /* "pyart/map/ckdtree.pyx":149
- *
+ * 
  *     def __dealloc__(heap self):
  *         if self.heap != <heapitem*> NULL:             # <<<<<<<<<<<<<<
  *             stdlib.free(self.heap)
- *
+ * 
 */
   }
 
   /* "pyart/map/ckdtree.pyx":148
  *         self.n = 0
- *
+ * 
  *     def __dealloc__(heap self):             # <<<<<<<<<<<<<<
  *         if self.heap != <heapitem*> NULL:
  *             stdlib.free(self.heap)
@@ -7657,7 +7660,7 @@ static void __pyx_pf_5pyart_3map_7ckdtree_4heap_2__dealloc__(struct __pyx_obj_5p
 
 /* "pyart/map/ckdtree.pyx":152
  *             stdlib.free(self.heap)
- *
+ * 
  *     cdef inline int _resize(heap self, np.intp_t new_space) except -1:             # <<<<<<<<<<<<<<
  *         cdef void *tmp
  *         if new_space < self.n:
@@ -7810,7 +7813,7 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_4heap__resize(struct __pyx
  *             raise MemoryError
  *         self.heap = <heapitem*> tmp             # <<<<<<<<<<<<<<
  *         return 0
- *
+ * 
 */
   __pyx_v_self->heap = ((struct __pyx_t_5pyart_3map_7ckdtree_heapitem *)__pyx_v_tmp);
 
@@ -7818,7 +7821,7 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_4heap__resize(struct __pyx
  *             raise MemoryError
  *         self.heap = <heapitem*> tmp
  *         return 0             # <<<<<<<<<<<<<<
- *
+ * 
  *     @cython.cdivision(True)
 */
   {
@@ -7829,7 +7832,7 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_4heap__resize(struct __pyx
 
   /* "pyart/map/ckdtree.pyx":152
  *             stdlib.free(self.heap)
- *
+ * 
  *     cdef inline int _resize(heap self, np.intp_t new_space) except -1:             # <<<<<<<<<<<<<<
  *         cdef void *tmp
  *         if new_space < self.n:
@@ -7853,7 +7856,7 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_4heap__resize(struct __pyx
 
 /* "pyart/map/ckdtree.pyx":163
  *         return 0
- *
+ * 
  *     @cython.cdivision(True)             # <<<<<<<<<<<<<<
  *     cdef inline int push(heap self, heapitem item) except -1:
  *         cdef np.intp_t i
@@ -7872,7 +7875,7 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_4heap_push(struct __pyx_ob
 
   /* "pyart/map/ckdtree.pyx":168
  *         cdef heapitem t
- *
+ * 
  *         self.n += 1             # <<<<<<<<<<<<<<
  *         if self.n > self.space:
  *             self._resize(2 * self.space + 1)
@@ -7880,11 +7883,11 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_4heap_push(struct __pyx_ob
   __pyx_v_self->n = (__pyx_v_self->n + 1);
 
   /* "pyart/map/ckdtree.pyx":169
- *
+ * 
  *         self.n += 1
  *         if self.n > self.space:             # <<<<<<<<<<<<<<
  *             self._resize(2 * self.space + 1)
- *
+ * 
 */
   __pyx_t_1 = (__pyx_v_self->n > __pyx_v_self->space);
 
@@ -7895,42 +7898,42 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_4heap_push(struct __pyx_ob
  *         self.n += 1
  *         if self.n > self.space:
  *             self._resize(2 * self.space + 1)             # <<<<<<<<<<<<<<
- *
+ * 
  *         i = self.n - 1
 */
     __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_4heap__resize(__pyx_v_self, ((2 * __pyx_v_self->space) + 1)); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 170, __pyx_L1_error)
 
 
     /* "pyart/map/ckdtree.pyx":169
- *
+ * 
  *         self.n += 1
  *         if self.n > self.space:             # <<<<<<<<<<<<<<
  *             self._resize(2 * self.space + 1)
- *
+ * 
 */
   }
 
   /* "pyart/map/ckdtree.pyx":172
  *             self._resize(2 * self.space + 1)
- *
+ * 
  *         i = self.n - 1             # <<<<<<<<<<<<<<
  *         self.heap[i] = item
- *
+ * 
 */
   __pyx_v_i = (__pyx_v_self->n - 1);
 
   /* "pyart/map/ckdtree.pyx":173
- *
+ * 
  *         i = self.n - 1
  *         self.heap[i] = item             # <<<<<<<<<<<<<<
- *
+ * 
  *         while i > 0 and self.heap[i].priority < self.heap[(i - 1) // 2].priority:
 */
   (__pyx_v_self->heap[__pyx_v_i]) = __pyx_v_item;
 
   /* "pyart/map/ckdtree.pyx":175
  *         self.heap[i] = item
- *
+ * 
  *         while i > 0 and self.heap[i].priority < self.heap[(i - 1) // 2].priority:             # <<<<<<<<<<<<<<
  *             t = self.heap[(i - 1) // 2]
  *             self.heap[(i - 1) // 2] = self.heap[i]
@@ -7956,7 +7959,7 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_4heap_push(struct __pyx_ob
     if (!__pyx_t_1) break;
 
     /* "pyart/map/ckdtree.pyx":176
- *
+ * 
  *         while i > 0 and self.heap[i].priority < self.heap[(i - 1) // 2].priority:
  *             t = self.heap[(i - 1) // 2]             # <<<<<<<<<<<<<<
  *             self.heap[(i - 1) // 2] = self.heap[i]
@@ -7987,7 +7990,7 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_4heap_push(struct __pyx_ob
  *             self.heap[i] = t
  *             i = (i - 1) // 2             # <<<<<<<<<<<<<<
  *         return 0
- *
+ * 
 */
     __pyx_v_i = ((__pyx_v_i - 1) / 2);
   }
@@ -7996,8 +7999,8 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_4heap_push(struct __pyx_ob
  *             self.heap[i] = t
  *             i = (i - 1) // 2
  *         return 0             # <<<<<<<<<<<<<<
- *
- *
+ * 
+ * 
 */
   {
 
@@ -8007,7 +8010,7 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_4heap_push(struct __pyx_ob
 
   /* "pyart/map/ckdtree.pyx":163
  *         return 0
- *
+ * 
  *     @cython.cdivision(True)             # <<<<<<<<<<<<<<
  *     cdef inline int push(heap self, heapitem item) except -1:
  *         cdef np.intp_t i
@@ -8025,22 +8028,22 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_4heap_push(struct __pyx_ob
 }
 
 /* "pyart/map/ckdtree.pyx":183
- *
- *
+ * 
+ * 
  *     cdef heapitem peek(heap self):             # <<<<<<<<<<<<<<
  *         return self.heap[0]
- *
+ * 
 */
 
 static struct __pyx_t_5pyart_3map_7ckdtree_heapitem __pyx_f_5pyart_3map_7ckdtree_4heap_peek(struct __pyx_obj_5pyart_3map_7ckdtree_heap *__pyx_v_self) {
   struct __pyx_t_5pyart_3map_7ckdtree_heapitem __pyx_r;
 
   /* "pyart/map/ckdtree.pyx":184
- *
+ * 
  *     cdef heapitem peek(heap self):
  *         return self.heap[0]             # <<<<<<<<<<<<<<
- *
- *
+ * 
+ * 
 */
   {
 
@@ -8049,11 +8052,11 @@ static struct __pyx_t_5pyart_3map_7ckdtree_heapitem __pyx_f_5pyart_3map_7ckdtree
   goto __pyx_L0;
 
   /* "pyart/map/ckdtree.pyx":183
- *
- *
+ * 
+ * 
  *     cdef heapitem peek(heap self):             # <<<<<<<<<<<<<<
  *         return self.heap[0]
- *
+ * 
 */
 
   /* function exit code */
@@ -8063,8 +8066,8 @@ static struct __pyx_t_5pyart_3map_7ckdtree_heapitem __pyx_f_5pyart_3map_7ckdtree
 }
 
 /* "pyart/map/ckdtree.pyx":187
- *
- *
+ * 
+ * 
  *     @cython.cdivision(True)             # <<<<<<<<<<<<<<
  *     cdef int remove(heap self) except -1:
  *         cdef heapitem t
@@ -8082,7 +8085,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_4heap_remove(struct __pyx_obj_5pyart_3ma
 
   /* "pyart/map/ckdtree.pyx":192
  *         cdef np.intp_t i, j, k, l
- *
+ * 
  *         self.heap[0] = self.heap[self.n-1]             # <<<<<<<<<<<<<<
  *         self.n -= 1
  *         # No point in freeing up space as the heap empties.
@@ -8090,7 +8093,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_4heap_remove(struct __pyx_obj_5pyart_3ma
   (__pyx_v_self->heap[0]) = (__pyx_v_self->heap[(__pyx_v_self->n - 1)]);
 
   /* "pyart/map/ckdtree.pyx":193
- *
+ * 
  *         self.heap[0] = self.heap[self.n-1]
  *         self.n -= 1             # <<<<<<<<<<<<<<
  *         # No point in freeing up space as the heap empties.
@@ -8302,7 +8305,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_4heap_remove(struct __pyx_obj_5pyart_3ma
  *             j = 2*i+1
  *             k = 2*i+2             # <<<<<<<<<<<<<<
  *         return 0
- *
+ * 
 */
     __pyx_v_k = ((2 * __pyx_v_i) + 2);
   }
@@ -8311,7 +8314,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_4heap_remove(struct __pyx_obj_5pyart_3ma
  *             j = 2*i+1
  *             k = 2*i+2
  *         return 0             # <<<<<<<<<<<<<<
- *
+ * 
  *     cdef int pop(heap self, heapitem *it) except -1:
 */
   {
@@ -8321,8 +8324,8 @@ static int __pyx_f_5pyart_3map_7ckdtree_4heap_remove(struct __pyx_obj_5pyart_3ma
   goto __pyx_L0;
 
   /* "pyart/map/ckdtree.pyx":187
- *
- *
+ * 
+ * 
  *     @cython.cdivision(True)             # <<<<<<<<<<<<<<
  *     cdef int remove(heap self) except -1:
  *         cdef heapitem t
@@ -8341,7 +8344,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_4heap_remove(struct __pyx_obj_5pyart_3ma
 
 /* "pyart/map/ckdtree.pyx":217
  *         return 0
- *
+ * 
  *     cdef int pop(heap self, heapitem *it) except -1:             # <<<<<<<<<<<<<<
  *         it[0] = self.peek()
  *         self.remove()
@@ -8356,7 +8359,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_4heap_pop(struct __pyx_obj_5pyart_3map_7
   int __pyx_clineno = 0;
 
   /* "pyart/map/ckdtree.pyx":218
- *
+ * 
  *     cdef int pop(heap self, heapitem *it) except -1:
  *         it[0] = self.peek()             # <<<<<<<<<<<<<<
  *         self.remove()
@@ -8371,7 +8374,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_4heap_pop(struct __pyx_obj_5pyart_3map_7
  *         it[0] = self.peek()
  *         self.remove()             # <<<<<<<<<<<<<<
  *         return 0
- *
+ * 
 */
   __pyx_t_2 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_heap *)__pyx_v_self->__pyx_vtab)->remove(__pyx_v_self); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 219, __pyx_L1_error)
 
@@ -8380,8 +8383,8 @@ static int __pyx_f_5pyart_3map_7ckdtree_4heap_pop(struct __pyx_obj_5pyart_3map_7
  *         it[0] = self.peek()
  *         self.remove()
  *         return 0             # <<<<<<<<<<<<<<
- *
- *
+ * 
+ * 
 */
   {
 
@@ -8391,7 +8394,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_4heap_pop(struct __pyx_obj_5pyart_3map_7
 
   /* "pyart/map/ckdtree.pyx":217
  *         return 0
- *
+ * 
  *     cdef int pop(heap self, heapitem *it) except -1:             # <<<<<<<<<<<<<<
  *         it[0] = self.peek()
  *         self.remove()
@@ -8413,7 +8416,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_4heap_pop(struct __pyx_obj_5pyart_3map_7
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5pyart_3map_7ckdtree_4heap_5__reduce_cython__(PyObject *__pyx_v_self,
+static PyObject *__pyx_pw_5pyart_3map_7ckdtree_4heap_5__reduce_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -8421,7 +8424,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
 static PyMethodDef __pyx_mdef_5pyart_3map_7ckdtree_4heap_5__reduce_cython__ = {"__reduce_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5pyart_3map_7ckdtree_4heap_5__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_5pyart_3map_7ckdtree_4heap_5__reduce_cython__(PyObject *__pyx_v_self,
+static PyObject *__pyx_pw_5pyart_3map_7ckdtree_4heap_5__reduce_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -8494,7 +8497,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_4heap_4__reduce_cython__(CYTHON_U
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5pyart_3map_7ckdtree_4heap_7__setstate_cython__(PyObject *__pyx_v_self,
+static PyObject *__pyx_pw_5pyart_3map_7ckdtree_4heap_7__setstate_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -8502,7 +8505,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
 static PyMethodDef __pyx_mdef_5pyart_3map_7ckdtree_4heap_7__setstate_cython__ = {"__setstate_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5pyart_3map_7ckdtree_4heap_7__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_5pyart_3map_7ckdtree_4heap_7__setstate_cython__(PyObject *__pyx_v_self,
+static PyObject *__pyx_pw_5pyart_3map_7ckdtree_4heap_7__setstate_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -8660,7 +8663,7 @@ static CYTHON_INLINE __pyx_t_5numpy_float64_t __pyx_f_5pyart_3map_7ckdtree_dmax(
  *         return x
  *     else:
  *         return y             # <<<<<<<<<<<<<<
- *
+ * 
  * cdef inline np.float64_t dabs(np.float64_t x):
 */
   /*else*/ {
@@ -8687,7 +8690,7 @@ static CYTHON_INLINE __pyx_t_5numpy_float64_t __pyx_f_5pyart_3map_7ckdtree_dmax(
 
 /* "pyart/map/ckdtree.pyx":231
  *         return y
- *
+ * 
  * cdef inline np.float64_t dabs(np.float64_t x):             # <<<<<<<<<<<<<<
  *     if x>0:
  *         return x
@@ -8698,7 +8701,7 @@ static CYTHON_INLINE __pyx_t_5numpy_float64_t __pyx_f_5pyart_3map_7ckdtree_dabs(
   int __pyx_t_1;
 
   /* "pyart/map/ckdtree.pyx":232
- *
+ * 
  * cdef inline np.float64_t dabs(np.float64_t x):
  *     if x>0:             # <<<<<<<<<<<<<<
  *         return x
@@ -8723,7 +8726,7 @@ static CYTHON_INLINE __pyx_t_5numpy_float64_t __pyx_f_5pyart_3map_7ckdtree_dabs(
     goto __pyx_L0;
 
     /* "pyart/map/ckdtree.pyx":232
- *
+ * 
  * cdef inline np.float64_t dabs(np.float64_t x):
  *     if x>0:             # <<<<<<<<<<<<<<
  *         return x
@@ -8735,7 +8738,7 @@ static CYTHON_INLINE __pyx_t_5numpy_float64_t __pyx_f_5pyart_3map_7ckdtree_dabs(
  *         return x
  *     else:
  *         return -x             # <<<<<<<<<<<<<<
- *
+ * 
  * # Utility for building a coo matrix incrementally
 */
   /*else*/ {
@@ -8748,7 +8751,7 @@ static CYTHON_INLINE __pyx_t_5numpy_float64_t __pyx_f_5pyart_3map_7ckdtree_dabs(
 
   /* "pyart/map/ckdtree.pyx":231
  *         return y
- *
+ * 
  * cdef inline np.float64_t dabs(np.float64_t x):             # <<<<<<<<<<<<<<
  *     if x>0:
  *         return x
@@ -8762,21 +8765,21 @@ static CYTHON_INLINE __pyx_t_5numpy_float64_t __pyx_f_5pyart_3map_7ckdtree_dabs(
 
 /* "pyart/map/ckdtree.pyx":247
  *         np.float64_t *v_data
- *
+ * 
  *     def __init__(self):             # <<<<<<<<<<<<<<
  *         self.n = 0
  *         self.n_max = 10
 */
 
 /* Python wrapper */
-static int __pyx_pw_5pyart_3map_7ckdtree_11coo_entries_1__init__(PyObject *__pyx_v_self,
+static int __pyx_pw_5pyart_3map_7ckdtree_11coo_entries_1__init__(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL_TPNEW
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static int __pyx_pw_5pyart_3map_7ckdtree_11coo_entries_1__init__(PyObject *__pyx_v_self,
+static int __pyx_pw_5pyart_3map_7ckdtree_11coo_entries_1__init__(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL_TPNEW
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -8825,7 +8828,7 @@ static int __pyx_pf_5pyart_3map_7ckdtree_11coo_entries___init__(struct __pyx_obj
   __Pyx_RefNannySetupContext("__init__", 0);
 
   /* "pyart/map/ckdtree.pyx":248
- *
+ * 
  *     def __init__(self):
  *         self.n = 0             # <<<<<<<<<<<<<<
  *         self.n_max = 10
@@ -9045,7 +9048,7 @@ static int __pyx_pf_5pyart_3map_7ckdtree_11coo_entries___init__(struct __pyx_obj
  *         self.i_data = <np.intp_t *>np.PyArray_DATA(self.i)
  *         self.j_data = <np.intp_t *>np.PyArray_DATA(self.j)             # <<<<<<<<<<<<<<
  *         self.v_data = <np.float64_t*>np.PyArray_DATA(self.v)
- *
+ * 
 */
   __pyx_t_1 = ((PyObject *)__pyx_v_self->j);
   __Pyx_INCREF(__pyx_t_1);
@@ -9056,7 +9059,7 @@ static int __pyx_pf_5pyart_3map_7ckdtree_11coo_entries___init__(struct __pyx_obj
  *         self.i_data = <np.intp_t *>np.PyArray_DATA(self.i)
  *         self.j_data = <np.intp_t *>np.PyArray_DATA(self.j)
  *         self.v_data = <np.float64_t*>np.PyArray_DATA(self.v)             # <<<<<<<<<<<<<<
- *
+ * 
  *     cdef void add(coo_entries self, np.intp_t i, np.intp_t j, np.float64_t v):
 */
   __pyx_t_1 = ((PyObject *)__pyx_v_self->v);
@@ -9066,7 +9069,7 @@ static int __pyx_pf_5pyart_3map_7ckdtree_11coo_entries___init__(struct __pyx_obj
 
   /* "pyart/map/ckdtree.pyx":247
  *         np.float64_t *v_data
- *
+ * 
  *     def __init__(self):             # <<<<<<<<<<<<<<
  *         self.n = 0
  *         self.n_max = 10
@@ -9092,7 +9095,7 @@ static int __pyx_pf_5pyart_3map_7ckdtree_11coo_entries___init__(struct __pyx_obj
 
 /* "pyart/map/ckdtree.pyx":257
  *         self.v_data = <np.float64_t*>np.PyArray_DATA(self.v)
- *
+ * 
  *     cdef void add(coo_entries self, np.intp_t i, np.intp_t j, np.float64_t v):             # <<<<<<<<<<<<<<
  *         cdef np.intp_t k
  *         if self.n == self.n_max:
@@ -9278,7 +9281,7 @@ static void __pyx_f_5pyart_3map_7ckdtree_11coo_entries_add(struct __pyx_obj_5pya
  *         self.j_data[k] = j
  *         self.v_data[k] = v             # <<<<<<<<<<<<<<
  *         self.n += 1
- *
+ * 
 */
   (__pyx_v_self->v_data[__pyx_v_k]) = __pyx_v_v;
 
@@ -9286,14 +9289,14 @@ static void __pyx_f_5pyart_3map_7ckdtree_11coo_entries_add(struct __pyx_obj_5pya
  *         self.j_data[k] = j
  *         self.v_data[k] = v
  *         self.n += 1             # <<<<<<<<<<<<<<
- *
+ * 
  *     def to_matrix(coo_entries self, shape=None):
 */
   __pyx_v_self->n = (__pyx_v_self->n + 1);
 
   /* "pyart/map/ckdtree.pyx":257
  *         self.v_data = <np.float64_t*>np.PyArray_DATA(self.v)
- *
+ * 
  *     cdef void add(coo_entries self, np.intp_t i, np.intp_t j, np.float64_t v):             # <<<<<<<<<<<<<<
  *         cdef np.intp_t k
  *         if self.n == self.n_max:
@@ -9314,14 +9317,14 @@ static void __pyx_f_5pyart_3map_7ckdtree_11coo_entries_add(struct __pyx_obj_5pya
 
 /* "pyart/map/ckdtree.pyx":273
  *         self.n += 1
- *
+ * 
  *     def to_matrix(coo_entries self, shape=None):             # <<<<<<<<<<<<<<
  *         # Shrink arrays to size
  *         self.i.resize(self.n)
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5pyart_3map_7ckdtree_11coo_entries_3to_matrix(PyObject *__pyx_v_self,
+static PyObject *__pyx_pw_5pyart_3map_7ckdtree_11coo_entries_3to_matrix(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -9329,7 +9332,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
 static PyMethodDef __pyx_mdef_5pyart_3map_7ckdtree_11coo_entries_3to_matrix = {"to_matrix", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5pyart_3map_7ckdtree_11coo_entries_3to_matrix, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_5pyart_3map_7ckdtree_11coo_entries_3to_matrix(PyObject *__pyx_v_self,
+static PyObject *__pyx_pw_5pyart_3map_7ckdtree_11coo_entries_3to_matrix(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -9541,7 +9544,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_11coo_entries_2to_matrix(struct _
  *         self.n_max = self.n
  *         return scipy.sparse.coo_matrix((self.v, (self.i, self.j)),             # <<<<<<<<<<<<<<
  *                                        shape=shape)
- *
+ * 
 */
   __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_scipy); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 282, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -9571,8 +9574,8 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_11coo_entries_2to_matrix(struct _
  *         self.n_max = self.n
  *         return scipy.sparse.coo_matrix((self.v, (self.i, self.j)),
  *                                        shape=shape)             # <<<<<<<<<<<<<<
- *
- *
+ * 
+ * 
 */
   __pyx_t_4 = 0;
   {
@@ -9610,7 +9613,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_11coo_entries_2to_matrix(struct _
 
   /* "pyart/map/ckdtree.pyx":273
  *         self.n += 1
- *
+ * 
  *     def to_matrix(coo_entries self, shape=None):             # <<<<<<<<<<<<<<
  *         # Shrink arrays to size
  *         self.i.resize(self.n)
@@ -9638,7 +9641,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_11coo_entries_2to_matrix(struct _
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5pyart_3map_7ckdtree_11coo_entries_5__reduce_cython__(PyObject *__pyx_v_self,
+static PyObject *__pyx_pw_5pyart_3map_7ckdtree_11coo_entries_5__reduce_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -9646,7 +9649,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
 static PyMethodDef __pyx_mdef_5pyart_3map_7ckdtree_11coo_entries_5__reduce_cython__ = {"__reduce_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5pyart_3map_7ckdtree_11coo_entries_5__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_5pyart_3map_7ckdtree_11coo_entries_5__reduce_cython__(PyObject *__pyx_v_self,
+static PyObject *__pyx_pw_5pyart_3map_7ckdtree_11coo_entries_5__reduce_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -9719,7 +9722,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_11coo_entries_4__reduce_cython__(
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5pyart_3map_7ckdtree_11coo_entries_7__setstate_cython__(PyObject *__pyx_v_self,
+static PyObject *__pyx_pw_5pyart_3map_7ckdtree_11coo_entries_7__setstate_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -9727,7 +9730,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
 static PyMethodDef __pyx_mdef_5pyart_3map_7ckdtree_11coo_entries_7__setstate_cython__ = {"__setstate_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5pyart_3map_7ckdtree_11coo_entries_7__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_5pyart_3map_7ckdtree_11coo_entries_7__setstate_cython__(PyObject *__pyx_v_self,
+static PyObject *__pyx_pw_5pyart_3map_7ckdtree_11coo_entries_7__setstate_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -10167,7 +10170,7 @@ static CYTHON_INLINE __pyx_t_5numpy_float64_t __pyx_f_5pyart_3map_7ckdtree__dist
  *             if r>upperbound:
  *                 return r             # <<<<<<<<<<<<<<
  *     return r
- *
+ * 
 */
         {
 
@@ -10192,8 +10195,8 @@ static CYTHON_INLINE __pyx_t_5numpy_float64_t __pyx_f_5pyart_3map_7ckdtree__dist
  *             if r>upperbound:
  *                 return r
  *     return r             # <<<<<<<<<<<<<<
- *
- *
+ * 
+ * 
 */
   {
 
@@ -10223,21 +10226,21 @@ static CYTHON_INLINE __pyx_t_5numpy_float64_t __pyx_f_5pyart_3map_7ckdtree__dist
 
 /* "pyart/map/ckdtree.pyx":333
  *     cdef np.ndarray mins_arr, maxes_arr
- *
+ * 
  *     def __init__(self, mins_arr, maxes_arr):             # <<<<<<<<<<<<<<
  *         # Copy array data
  *         self.mins_arr = np.array(mins_arr, dtype=np.float64, order='C')
 */
 
 /* Python wrapper */
-static int __pyx_pw_5pyart_3map_7ckdtree_9Rectangle_1__init__(PyObject *__pyx_v_self,
+static int __pyx_pw_5pyart_3map_7ckdtree_9Rectangle_1__init__(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL_TPNEW
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static int __pyx_pw_5pyart_3map_7ckdtree_9Rectangle_1__init__(PyObject *__pyx_v_self,
+static int __pyx_pw_5pyart_3map_7ckdtree_9Rectangle_1__init__(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL_TPNEW
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -10470,7 +10473,7 @@ static int __pyx_pf_5pyart_3map_7ckdtree_9Rectangle___init__(struct __pyx_obj_5p
  *         self.mins = <np.float64_t*>np.PyArray_DATA(self.mins_arr)
  *         self.maxes = <np.float64_t*>np.PyArray_DATA(self.maxes_arr)             # <<<<<<<<<<<<<<
  *         self.m = self.mins_arr.shape[0]
- *
+ * 
 */
   __pyx_t_1 = ((PyObject *)__pyx_v_self->maxes_arr);
   __Pyx_INCREF(__pyx_t_1);
@@ -10481,7 +10484,7 @@ static int __pyx_pf_5pyart_3map_7ckdtree_9Rectangle___init__(struct __pyx_obj_5p
  *         self.mins = <np.float64_t*>np.PyArray_DATA(self.mins_arr)
  *         self.maxes = <np.float64_t*>np.PyArray_DATA(self.maxes_arr)
  *         self.m = self.mins_arr.shape[0]             # <<<<<<<<<<<<<<
- *
+ * 
  * # 1-d pieces
 */
   __pyx_t_1 = ((PyObject *)__pyx_v_self->mins_arr);
@@ -10491,7 +10494,7 @@ static int __pyx_pf_5pyart_3map_7ckdtree_9Rectangle___init__(struct __pyx_obj_5p
 
   /* "pyart/map/ckdtree.pyx":333
  *     cdef np.ndarray mins_arr, maxes_arr
- *
+ * 
  *     def __init__(self, mins_arr, maxes_arr):             # <<<<<<<<<<<<<<
  *         # Copy array data
  *         self.mins_arr = np.array(mins_arr, dtype=np.float64, order='C')
@@ -10521,7 +10524,7 @@ static int __pyx_pf_5pyart_3map_7ckdtree_9Rectangle___init__(struct __pyx_obj_5p
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5pyart_3map_7ckdtree_9Rectangle_3__reduce_cython__(PyObject *__pyx_v_self,
+static PyObject *__pyx_pw_5pyart_3map_7ckdtree_9Rectangle_3__reduce_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -10529,7 +10532,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
 static PyMethodDef __pyx_mdef_5pyart_3map_7ckdtree_9Rectangle_3__reduce_cython__ = {"__reduce_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5pyart_3map_7ckdtree_9Rectangle_3__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_5pyart_3map_7ckdtree_9Rectangle_3__reduce_cython__(PyObject *__pyx_v_self,
+static PyObject *__pyx_pw_5pyart_3map_7ckdtree_9Rectangle_3__reduce_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -10602,7 +10605,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_9Rectangle_2__reduce_cython__(CYT
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5pyart_3map_7ckdtree_9Rectangle_5__setstate_cython__(PyObject *__pyx_v_self,
+static PyObject *__pyx_pw_5pyart_3map_7ckdtree_9Rectangle_5__setstate_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -10610,7 +10613,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
 static PyMethodDef __pyx_mdef_5pyart_3map_7ckdtree_9Rectangle_5__setstate_cython__ = {"__setstate_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5pyart_3map_7ckdtree_9Rectangle_5__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_5pyart_3map_7ckdtree_9Rectangle_5__setstate_cython__(PyObject *__pyx_v_self,
+static PyObject *__pyx_pw_5pyart_3map_7ckdtree_9Rectangle_5__setstate_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -10738,7 +10741,7 @@ static CYTHON_INLINE __pyx_t_5numpy_float64_t __pyx_f_5pyart_3map_7ckdtree_min_d
  *     a point in the hyperrectangle.
  *     """
  *     return dmax(0, dmax(rect.mins[k] - x[k], x[k] - rect.maxes[k])) ** p             # <<<<<<<<<<<<<<
- *
+ * 
  * cdef inline np.float64_t max_dist_point_interval_p(np.float64_t* x,
 */
   __pyx_t_1 = __pyx_f_5pyart_3map_7ckdtree_dmax(((__pyx_v_rect->mins[__pyx_v_k]) - (__pyx_v_x[__pyx_v_k])), ((__pyx_v_x[__pyx_v_k]) - (__pyx_v_rect->maxes[__pyx_v_k]))); if (unlikely(__pyx_t_1 == ((__pyx_t_5numpy_float64_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 350, __pyx_L1_error)
@@ -10770,7 +10773,7 @@ static CYTHON_INLINE __pyx_t_5numpy_float64_t __pyx_f_5pyart_3map_7ckdtree_min_d
 
 /* "pyart/map/ckdtree.pyx":352
  *     return dmax(0, dmax(rect.mins[k] - x[k], x[k] - rect.maxes[k])) ** p
- *
+ * 
  * cdef inline np.float64_t max_dist_point_interval_p(np.float64_t* x,             # <<<<<<<<<<<<<<
  *                                                    Rectangle rect,
  *                                                    np.intp_t k,
@@ -10787,7 +10790,7 @@ static CYTHON_INLINE __pyx_t_5numpy_float64_t __pyx_f_5pyart_3map_7ckdtree_max_d
  *     a point in the hyperrectangle.
  *     """
  *     return dmax(rect.maxes[k] - x[k], x[k] - rect.mins[k]) ** p             # <<<<<<<<<<<<<<
- *
+ * 
  * cdef inline np.float64_t min_dist_interval_interval_p(Rectangle rect1,
 */
   __pyx_t_1 = __pyx_f_5pyart_3map_7ckdtree_dmax(((__pyx_v_rect->maxes[__pyx_v_k]) - (__pyx_v_x[__pyx_v_k])), ((__pyx_v_x[__pyx_v_k]) - (__pyx_v_rect->mins[__pyx_v_k]))); if (unlikely(__pyx_t_1 == ((__pyx_t_5numpy_float64_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 359, __pyx_L1_error)
@@ -10800,7 +10803,7 @@ static CYTHON_INLINE __pyx_t_5numpy_float64_t __pyx_f_5pyart_3map_7ckdtree_max_d
 
   /* "pyart/map/ckdtree.pyx":352
  *     return dmax(0, dmax(rect.mins[k] - x[k], x[k] - rect.maxes[k])) ** p
- *
+ * 
  * cdef inline np.float64_t max_dist_point_interval_p(np.float64_t* x,             # <<<<<<<<<<<<<<
  *                                                    Rectangle rect,
  *                                                    np.intp_t k,
@@ -10817,7 +10820,7 @@ static CYTHON_INLINE __pyx_t_5numpy_float64_t __pyx_f_5pyart_3map_7ckdtree_max_d
 
 /* "pyart/map/ckdtree.pyx":361
  *     return dmax(rect.maxes[k] - x[k], x[k] - rect.mins[k]) ** p
- *
+ * 
  * cdef inline np.float64_t min_dist_interval_interval_p(Rectangle rect1,             # <<<<<<<<<<<<<<
  *                                                       Rectangle rect2,
  *                                                       np.intp_t k,
@@ -10836,7 +10839,7 @@ static CYTHON_INLINE __pyx_t_5numpy_float64_t __pyx_f_5pyart_3map_7ckdtree_min_d
  *     """
  *     return dmax(0, dmax(rect1.mins[k] - rect2.maxes[k],             # <<<<<<<<<<<<<<
  *                         rect2.mins[k] - rect1.maxes[k])) ** p
- *
+ * 
 */
   __pyx_t_1 = __pyx_f_5pyart_3map_7ckdtree_dmax(((__pyx_v_rect1->mins[__pyx_v_k]) - (__pyx_v_rect2->maxes[__pyx_v_k])), ((__pyx_v_rect2->mins[__pyx_v_k]) - (__pyx_v_rect1->maxes[__pyx_v_k]))); if (unlikely(__pyx_t_1 == ((__pyx_t_5numpy_float64_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 368, __pyx_L1_error)
   __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_dmax(0.0, __pyx_t_1); if (unlikely(__pyx_t_2 == ((__pyx_t_5numpy_float64_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 368, __pyx_L1_error)
@@ -10846,7 +10849,7 @@ static CYTHON_INLINE __pyx_t_5numpy_float64_t __pyx_f_5pyart_3map_7ckdtree_min_d
  *     """
  *     return dmax(0, dmax(rect1.mins[k] - rect2.maxes[k],
  *                         rect2.mins[k] - rect1.maxes[k])) ** p             # <<<<<<<<<<<<<<
- *
+ * 
  * cdef inline np.float64_t max_dist_interval_interval_p(Rectangle rect1,
 */
   {
@@ -10858,7 +10861,7 @@ static CYTHON_INLINE __pyx_t_5numpy_float64_t __pyx_f_5pyart_3map_7ckdtree_min_d
 
   /* "pyart/map/ckdtree.pyx":361
  *     return dmax(rect.maxes[k] - x[k], x[k] - rect.mins[k]) ** p
- *
+ * 
  * cdef inline np.float64_t min_dist_interval_interval_p(Rectangle rect1,             # <<<<<<<<<<<<<<
  *                                                       Rectangle rect2,
  *                                                       np.intp_t k,
@@ -10875,7 +10878,7 @@ static CYTHON_INLINE __pyx_t_5numpy_float64_t __pyx_f_5pyart_3map_7ckdtree_min_d
 
 /* "pyart/map/ckdtree.pyx":371
  *                         rect2.mins[k] - rect1.maxes[k])) ** p
- *
+ * 
  * cdef inline np.float64_t max_dist_interval_interval_p(Rectangle rect1,             # <<<<<<<<<<<<<<
  *                                                       Rectangle rect2,
  *                                                       np.intp_t k,
@@ -10892,7 +10895,7 @@ static CYTHON_INLINE __pyx_t_5numpy_float64_t __pyx_f_5pyart_3map_7ckdtree_max_d
  *     two hyperrectangles.
  *     """
  *     return dmax(rect1.maxes[k] - rect2.mins[k], rect2.maxes[k] - rect1.mins[k]) ** p             # <<<<<<<<<<<<<<
- *
+ * 
  * # Interval arithmetic in m-D
 */
   __pyx_t_1 = __pyx_f_5pyart_3map_7ckdtree_dmax(((__pyx_v_rect1->maxes[__pyx_v_k]) - (__pyx_v_rect2->mins[__pyx_v_k])), ((__pyx_v_rect2->maxes[__pyx_v_k]) - (__pyx_v_rect1->mins[__pyx_v_k]))); if (unlikely(__pyx_t_1 == ((__pyx_t_5numpy_float64_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 378, __pyx_L1_error)
@@ -10905,7 +10908,7 @@ static CYTHON_INLINE __pyx_t_5numpy_float64_t __pyx_f_5pyart_3map_7ckdtree_max_d
 
   /* "pyart/map/ckdtree.pyx":371
  *                         rect2.mins[k] - rect1.maxes[k])) ** p
- *
+ * 
  * cdef inline np.float64_t max_dist_interval_interval_p(Rectangle rect1,             # <<<<<<<<<<<<<<
  *                                                       Rectangle rect2,
  *                                                       np.intp_t k,
@@ -10921,7 +10924,7 @@ static CYTHON_INLINE __pyx_t_5numpy_float64_t __pyx_f_5pyart_3map_7ckdtree_max_d
 }
 
 /* "pyart/map/ckdtree.pyx":384
- *
+ * 
  * # These should be used only for p == infinity
  * cdef inline np.float64_t min_dist_point_rect_p_inf(np.float64_t* x,             # <<<<<<<<<<<<<<
  *                                                    Rectangle rect):
@@ -10969,7 +10972,7 @@ static CYTHON_INLINE __pyx_t_5numpy_float64_t __pyx_f_5pyart_3map_7ckdtree_min_d
  *     for i in range(rect.m):
  *         min_dist = dmax(min_dist, dmax(rect.mins[i]-x[i], x[i]-rect.maxes[i]))             # <<<<<<<<<<<<<<
  *     return min_dist
- *
+ * 
 */
     __pyx_t_4 = __pyx_f_5pyart_3map_7ckdtree_dmax(((__pyx_v_rect->mins[__pyx_v_i]) - (__pyx_v_x[__pyx_v_i])), ((__pyx_v_x[__pyx_v_i]) - (__pyx_v_rect->maxes[__pyx_v_i]))); if (unlikely(__pyx_t_4 == ((__pyx_t_5numpy_float64_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 390, __pyx_L1_error)
     __pyx_t_5 = __pyx_f_5pyart_3map_7ckdtree_dmax(__pyx_v_min_dist, __pyx_t_4); if (unlikely(__pyx_t_5 == ((__pyx_t_5numpy_float64_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 390, __pyx_L1_error)
@@ -10982,7 +10985,7 @@ static CYTHON_INLINE __pyx_t_5numpy_float64_t __pyx_f_5pyart_3map_7ckdtree_min_d
  *     for i in range(rect.m):
  *         min_dist = dmax(min_dist, dmax(rect.mins[i]-x[i], x[i]-rect.maxes[i]))
  *     return min_dist             # <<<<<<<<<<<<<<
- *
+ * 
  * cdef inline np.float64_t max_dist_point_rect_p_inf(np.float64_t* x,
 */
   {
@@ -10992,7 +10995,7 @@ static CYTHON_INLINE __pyx_t_5numpy_float64_t __pyx_f_5pyart_3map_7ckdtree_min_d
   goto __pyx_L0;
 
   /* "pyart/map/ckdtree.pyx":384
- *
+ * 
  * # These should be used only for p == infinity
  * cdef inline np.float64_t min_dist_point_rect_p_inf(np.float64_t* x,             # <<<<<<<<<<<<<<
  *                                                    Rectangle rect):
@@ -11012,7 +11015,7 @@ static CYTHON_INLINE __pyx_t_5numpy_float64_t __pyx_f_5pyart_3map_7ckdtree_min_d
 
 /* "pyart/map/ckdtree.pyx":393
  *     return min_dist
- *
+ * 
  * cdef inline np.float64_t max_dist_point_rect_p_inf(np.float64_t* x,             # <<<<<<<<<<<<<<
  *                                                    Rectangle rect):
  *     """Compute the maximum distance between x and the given hyperrectangle."""
@@ -11059,7 +11062,7 @@ static CYTHON_INLINE __pyx_t_5numpy_float64_t __pyx_f_5pyart_3map_7ckdtree_max_d
  *     for i in range(rect.m):
  *         max_dist = dmax(max_dist, dmax(rect.maxes[i]-x[i], x[i]-rect.mins[i]))             # <<<<<<<<<<<<<<
  *     return max_dist
- *
+ * 
 */
     __pyx_t_4 = __pyx_f_5pyart_3map_7ckdtree_dmax(((__pyx_v_rect->maxes[__pyx_v_i]) - (__pyx_v_x[__pyx_v_i])), ((__pyx_v_x[__pyx_v_i]) - (__pyx_v_rect->mins[__pyx_v_i]))); if (unlikely(__pyx_t_4 == ((__pyx_t_5numpy_float64_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 399, __pyx_L1_error)
     __pyx_t_5 = __pyx_f_5pyart_3map_7ckdtree_dmax(__pyx_v_max_dist, __pyx_t_4); if (unlikely(__pyx_t_5 == ((__pyx_t_5numpy_float64_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 399, __pyx_L1_error)
@@ -11072,7 +11075,7 @@ static CYTHON_INLINE __pyx_t_5numpy_float64_t __pyx_f_5pyart_3map_7ckdtree_max_d
  *     for i in range(rect.m):
  *         max_dist = dmax(max_dist, dmax(rect.maxes[i]-x[i], x[i]-rect.mins[i]))
  *     return max_dist             # <<<<<<<<<<<<<<
- *
+ * 
  * cdef inline np.float64_t min_dist_rect_rect_p_inf(Rectangle rect1,
 */
   {
@@ -11083,7 +11086,7 @@ static CYTHON_INLINE __pyx_t_5numpy_float64_t __pyx_f_5pyart_3map_7ckdtree_max_d
 
   /* "pyart/map/ckdtree.pyx":393
  *     return min_dist
- *
+ * 
  * cdef inline np.float64_t max_dist_point_rect_p_inf(np.float64_t* x,             # <<<<<<<<<<<<<<
  *                                                    Rectangle rect):
  *     """Compute the maximum distance between x and the given hyperrectangle."""
@@ -11102,7 +11105,7 @@ static CYTHON_INLINE __pyx_t_5numpy_float64_t __pyx_f_5pyart_3map_7ckdtree_max_d
 
 /* "pyart/map/ckdtree.pyx":402
  *     return max_dist
- *
+ * 
  * cdef inline np.float64_t min_dist_rect_rect_p_inf(Rectangle rect1,             # <<<<<<<<<<<<<<
  *                                                   Rectangle rect2):
  *     """Compute the minimum distance between points in two hyperrectangles."""
@@ -11162,7 +11165,7 @@ static CYTHON_INLINE __pyx_t_5numpy_float64_t __pyx_f_5pyart_3map_7ckdtree_min_d
  *         min_dist = dmax(min_dist, dmax(rect1.mins[i] - rect2.maxes[i],
  *                                        rect2.mins[i] - rect1.maxes[i]))
  *     return min_dist             # <<<<<<<<<<<<<<
- *
+ * 
  * cdef inline np.float64_t max_dist_rect_rect_p_inf(Rectangle rect1,
 */
   {
@@ -11173,7 +11176,7 @@ static CYTHON_INLINE __pyx_t_5numpy_float64_t __pyx_f_5pyart_3map_7ckdtree_min_d
 
   /* "pyart/map/ckdtree.pyx":402
  *     return max_dist
- *
+ * 
  * cdef inline np.float64_t min_dist_rect_rect_p_inf(Rectangle rect1,             # <<<<<<<<<<<<<<
  *                                                   Rectangle rect2):
  *     """Compute the minimum distance between points in two hyperrectangles."""
@@ -11192,7 +11195,7 @@ static CYTHON_INLINE __pyx_t_5numpy_float64_t __pyx_f_5pyart_3map_7ckdtree_min_d
 
 /* "pyart/map/ckdtree.pyx":412
  *     return min_dist
- *
+ * 
  * cdef inline np.float64_t max_dist_rect_rect_p_inf(Rectangle rect1,             # <<<<<<<<<<<<<<
  *                                                   Rectangle rect2):
  *     """Compute the maximum distance between points in two hyperrectangles."""
@@ -11252,7 +11255,7 @@ static CYTHON_INLINE __pyx_t_5numpy_float64_t __pyx_f_5pyart_3map_7ckdtree_max_d
  *         max_dist = dmax(max_dist, dmax(rect1.maxes[i] - rect2.mins[i],
  *                                        rect2.maxes[i] - rect1.mins[i]))
  *     return max_dist             # <<<<<<<<<<<<<<
- *
+ * 
  * # Rectangle-to-rectangle distance tracker
 */
   {
@@ -11263,7 +11266,7 @@ static CYTHON_INLINE __pyx_t_5numpy_float64_t __pyx_f_5pyart_3map_7ckdtree_max_d
 
   /* "pyart/map/ckdtree.pyx":412
  *     return min_dist
- *
+ * 
  * cdef inline np.float64_t max_dist_rect_rect_p_inf(Rectangle rect1,             # <<<<<<<<<<<<<<
  *                                                   Rectangle rect2):
  *     """Compute the maximum distance between points in two hyperrectangles."""
@@ -11281,7 +11284,7 @@ static CYTHON_INLINE __pyx_t_5numpy_float64_t __pyx_f_5pyart_3map_7ckdtree_max_d
 }
 
 /* "pyart/map/ckdtree.pyx":467
- *
+ * 
  *     # Stack handling
  *     cdef int _init_stack(self) except -1:             # <<<<<<<<<<<<<<
  *         cdef void *tmp
@@ -11358,7 +11361,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker__init_stack(st
  *         self.stack = <RR_stack_item*> tmp
  *         self.stack_size = 0             # <<<<<<<<<<<<<<
  *         return 0
- *
+ * 
 */
   __pyx_v_self->stack_size = 0;
 
@@ -11366,7 +11369,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker__init_stack(st
  *         self.stack = <RR_stack_item*> tmp
  *         self.stack_size = 0
  *         return 0             # <<<<<<<<<<<<<<
- *
+ * 
  *     cdef int _resize_stack(self, np.intp_t new_max_size) except -1:
 */
   {
@@ -11376,7 +11379,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker__init_stack(st
   goto __pyx_L0;
 
   /* "pyart/map/ckdtree.pyx":467
- *
+ * 
  *     # Stack handling
  *     cdef int _init_stack(self) except -1:             # <<<<<<<<<<<<<<
  *         cdef void *tmp
@@ -11395,7 +11398,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker__init_stack(st
 
 /* "pyart/map/ckdtree.pyx":478
  *         return 0
- *
+ * 
  *     cdef int _resize_stack(self, np.intp_t new_max_size) except -1:             # <<<<<<<<<<<<<<
  *         cdef void *tmp
  *         self.stack_max_size = new_max_size
@@ -11462,7 +11465,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker__resize_stack(
  *             raise MemoryError
  *         self.stack = <RR_stack_item*> tmp             # <<<<<<<<<<<<<<
  *         return 0
- *
+ * 
 */
   __pyx_v_self->stack = ((struct __pyx_t_5pyart_3map_7ckdtree_RR_stack_item *)__pyx_v_tmp);
 
@@ -11470,7 +11473,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker__resize_stack(
  *             raise MemoryError
  *         self.stack = <RR_stack_item*> tmp
  *         return 0             # <<<<<<<<<<<<<<
- *
+ * 
  *     cdef int _free_stack(self) except -1:
 */
   {
@@ -11481,7 +11484,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker__resize_stack(
 
   /* "pyart/map/ckdtree.pyx":478
  *         return 0
- *
+ * 
  *     cdef int _resize_stack(self, np.intp_t new_max_size) except -1:             # <<<<<<<<<<<<<<
  *         cdef void *tmp
  *         self.stack_max_size = new_max_size
@@ -11499,7 +11502,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker__resize_stack(
 
 /* "pyart/map/ckdtree.pyx":488
  *         return 0
- *
+ * 
  *     cdef int _free_stack(self) except -1:             # <<<<<<<<<<<<<<
  *         if self.stack != <RR_stack_item*> NULL:
  *             stdlib.free(self.stack)
@@ -11510,7 +11513,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker__free_stack(st
   int __pyx_t_1;
 
   /* "pyart/map/ckdtree.pyx":489
- *
+ * 
  *     cdef int _free_stack(self) except -1:
  *         if self.stack != <RR_stack_item*> NULL:             # <<<<<<<<<<<<<<
  *             stdlib.free(self.stack)
@@ -11526,12 +11529,12 @@ static int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker__free_stack(st
  *         if self.stack != <RR_stack_item*> NULL:
  *             stdlib.free(self.stack)             # <<<<<<<<<<<<<<
  *         return 0
- *
+ * 
 */
     free(__pyx_v_self->stack);
 
     /* "pyart/map/ckdtree.pyx":489
- *
+ * 
  *     cdef int _free_stack(self) except -1:
  *         if self.stack != <RR_stack_item*> NULL:             # <<<<<<<<<<<<<<
  *             stdlib.free(self.stack)
@@ -11543,8 +11546,8 @@ static int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker__free_stack(st
  *         if self.stack != <RR_stack_item*> NULL:
  *             stdlib.free(self.stack)
  *         return 0             # <<<<<<<<<<<<<<
- *
- *
+ * 
+ * 
 */
   {
 
@@ -11554,7 +11557,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker__free_stack(st
 
   /* "pyart/map/ckdtree.pyx":488
  *         return 0
- *
+ * 
  *     cdef int _free_stack(self) except -1:             # <<<<<<<<<<<<<<
  *         if self.stack != <RR_stack_item*> NULL:
  *             stdlib.free(self.stack)
@@ -11567,22 +11570,22 @@ static int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker__free_stack(st
 }
 
 /* "pyart/map/ckdtree.pyx":494
- *
- *
+ * 
+ * 
  *     def __init__(self, Rectangle rect1, Rectangle rect2,             # <<<<<<<<<<<<<<
  *                  np.float64_t p, np.float64_t eps, np.float64_t upper_bound):
- *
+ * 
 */
 
 /* Python wrapper */
-static int __pyx_pw_5pyart_3map_7ckdtree_23RectRectDistanceTracker_1__init__(PyObject *__pyx_v_self,
+static int __pyx_pw_5pyart_3map_7ckdtree_23RectRectDistanceTracker_1__init__(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL_TPNEW
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static int __pyx_pw_5pyart_3map_7ckdtree_23RectRectDistanceTracker_1__init__(PyObject *__pyx_v_self,
+static int __pyx_pw_5pyart_3map_7ckdtree_23RectRectDistanceTracker_1__init__(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL_TPNEW
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -11725,10 +11728,10 @@ static int __pyx_pf_5pyart_3map_7ckdtree_23RectRectDistanceTracker___init__(stru
 
   /* "pyart/map/ckdtree.pyx":497
  *                  np.float64_t p, np.float64_t eps, np.float64_t upper_bound):
- *
+ * 
  *         if rect1.m != rect2.m:             # <<<<<<<<<<<<<<
  *             raise ValueError("rect1 and rect2 have different dimensions")
- *
+ * 
 */
   __pyx_t_1 = (__pyx_v_rect1->m != __pyx_v_rect2->m);
 
@@ -11736,10 +11739,10 @@ static int __pyx_pf_5pyart_3map_7ckdtree_23RectRectDistanceTracker___init__(stru
 
 
     /* "pyart/map/ckdtree.pyx":498
- *
+ * 
  *         if rect1.m != rect2.m:
  *             raise ValueError("rect1 and rect2 have different dimensions")             # <<<<<<<<<<<<<<
- *
+ * 
  *         self.rect1 = rect1
 */
     __pyx_t_3 = NULL;
@@ -11757,16 +11760,16 @@ static int __pyx_pf_5pyart_3map_7ckdtree_23RectRectDistanceTracker___init__(stru
 
     /* "pyart/map/ckdtree.pyx":497
  *                  np.float64_t p, np.float64_t eps, np.float64_t upper_bound):
- *
+ * 
  *         if rect1.m != rect2.m:             # <<<<<<<<<<<<<<
  *             raise ValueError("rect1 and rect2 have different dimensions")
- *
+ * 
 */
   }
 
   /* "pyart/map/ckdtree.pyx":500
  *             raise ValueError("rect1 and rect2 have different dimensions")
- *
+ * 
  *         self.rect1 = rect1             # <<<<<<<<<<<<<<
  *         self.rect2 = rect2
  *         self.p = p
@@ -11778,11 +11781,11 @@ static int __pyx_pf_5pyart_3map_7ckdtree_23RectRectDistanceTracker___init__(stru
   __pyx_v_self->rect1 = __pyx_v_rect1;
 
   /* "pyart/map/ckdtree.pyx":501
- *
+ * 
  *         self.rect1 = rect1
  *         self.rect2 = rect2             # <<<<<<<<<<<<<<
  *         self.p = p
- *
+ * 
 */
   __Pyx_INCREF((PyObject *)__pyx_v_rect2);
   __Pyx_GIVEREF((PyObject *)__pyx_v_rect2);
@@ -11794,13 +11797,13 @@ static int __pyx_pf_5pyart_3map_7ckdtree_23RectRectDistanceTracker___init__(stru
  *         self.rect1 = rect1
  *         self.rect2 = rect2
  *         self.p = p             # <<<<<<<<<<<<<<
- *
+ * 
  *         # internally we represent all distances as distance ** p
 */
   __pyx_v_self->p = __pyx_v_p;
 
   /* "pyart/map/ckdtree.pyx":505
- *
+ * 
  *         # internally we represent all distances as distance ** p
  *         if p != infinity and upper_bound != infinity:             # <<<<<<<<<<<<<<
  *             self.upper_bound = upper_bound ** p
@@ -11835,7 +11838,7 @@ static int __pyx_pf_5pyart_3map_7ckdtree_23RectRectDistanceTracker___init__(stru
     __pyx_v_self->upper_bound = pow(__pyx_v_upper_bound, __pyx_v_p);
 
     /* "pyart/map/ckdtree.pyx":505
- *
+ * 
  *         # internally we represent all distances as distance ** p
  *         if p != infinity and upper_bound != infinity:             # <<<<<<<<<<<<<<
  *             self.upper_bound = upper_bound ** p
@@ -11848,7 +11851,7 @@ static int __pyx_pf_5pyart_3map_7ckdtree_23RectRectDistanceTracker___init__(stru
  *             self.upper_bound = upper_bound ** p
  *         else:
  *             self.upper_bound = upper_bound             # <<<<<<<<<<<<<<
- *
+ * 
  *         # fiddle approximation factor
 */
   /*else*/ {
@@ -11857,7 +11860,7 @@ static int __pyx_pf_5pyart_3map_7ckdtree_23RectRectDistanceTracker___init__(stru
   __pyx_L4:;
 
   /* "pyart/map/ckdtree.pyx":511
- *
+ * 
  *         # fiddle approximation factor
  *         if eps == 0:             # <<<<<<<<<<<<<<
  *             self.epsfac = 1
@@ -11878,7 +11881,7 @@ static int __pyx_pf_5pyart_3map_7ckdtree_23RectRectDistanceTracker___init__(stru
     __pyx_v_self->epsfac = 1.0;
 
     /* "pyart/map/ckdtree.pyx":511
- *
+ * 
  *         # fiddle approximation factor
  *         if eps == 0:             # <<<<<<<<<<<<<<
  *             self.epsfac = 1
@@ -11929,7 +11932,7 @@ static int __pyx_pf_5pyart_3map_7ckdtree_23RectRectDistanceTracker___init__(stru
  *             self.epsfac = 1 / (1 + eps)
  *         else:
  *             self.epsfac = 1 / (1 + eps) ** p             # <<<<<<<<<<<<<<
- *
+ * 
  *         self._init_stack()
 */
   /*else*/ {
@@ -11946,16 +11949,16 @@ static int __pyx_pf_5pyart_3map_7ckdtree_23RectRectDistanceTracker___init__(stru
 
   /* "pyart/map/ckdtree.pyx":518
  *             self.epsfac = 1 / (1 + eps) ** p
- *
+ * 
  *         self._init_stack()             # <<<<<<<<<<<<<<
- *
+ * 
  *         # Compute initial min and max distances
 */
   __pyx_t_7 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_RectRectDistanceTracker *)__pyx_v_self->__pyx_vtab)->_init_stack(__pyx_v_self); if (unlikely(__pyx_t_7 == ((int)-1))) __PYX_ERR(0, 518, __pyx_L1_error)
 
 
   /* "pyart/map/ckdtree.pyx":521
- *
+ * 
  *         # Compute initial min and max distances
  *         if self.p == infinity:             # <<<<<<<<<<<<<<
  *             self.min_distance = min_dist_rect_rect_p_inf(rect1, rect2)
@@ -11987,7 +11990,7 @@ static int __pyx_pf_5pyart_3map_7ckdtree_23RectRectDistanceTracker___init__(stru
     __pyx_v_self->max_distance = __pyx_t_6;
 
     /* "pyart/map/ckdtree.pyx":521
- *
+ * 
  *         # Compute initial min and max distances
  *         if self.p == infinity:             # <<<<<<<<<<<<<<
  *             self.min_distance = min_dist_rect_rect_p_inf(rect1, rect2)
@@ -12060,7 +12063,7 @@ static int __pyx_pf_5pyart_3map_7ckdtree_23RectRectDistanceTracker___init__(stru
  *             for i in range(rect1.m):
  *                 self.min_distance += min_dist_interval_interval_p(rect1, rect2, i, p)             # <<<<<<<<<<<<<<
  *                 self.max_distance += max_dist_interval_interval_p(rect1, rect2, i, p)
- *
+ * 
 */
       __pyx_t_10 = __Pyx_PyLong_As_npy_intp(__pyx_v_i); if (unlikely((__pyx_t_10 == ((npy_intp)-1)) && PyErr_Occurred())) __PYX_ERR(0, 528, __pyx_L1_error)
       __pyx_t_6 = __pyx_f_5pyart_3map_7ckdtree_min_dist_interval_interval_p(__pyx_v_rect1, __pyx_v_rect2, __pyx_t_10, __pyx_v_p); if (unlikely(__pyx_t_6 == ((__pyx_t_5numpy_float64_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 528, __pyx_L1_error)
@@ -12072,7 +12075,7 @@ static int __pyx_pf_5pyart_3map_7ckdtree_23RectRectDistanceTracker___init__(stru
  *             for i in range(rect1.m):
  *                 self.min_distance += min_dist_interval_interval_p(rect1, rect2, i, p)
  *                 self.max_distance += max_dist_interval_interval_p(rect1, rect2, i, p)             # <<<<<<<<<<<<<<
- *
+ * 
  *     def __dealloc__(self):
 */
       __pyx_t_10 = __Pyx_PyLong_As_npy_intp(__pyx_v_i); if (unlikely((__pyx_t_10 == ((npy_intp)-1)) && PyErr_Occurred())) __PYX_ERR(0, 529, __pyx_L1_error)
@@ -12094,11 +12097,11 @@ static int __pyx_pf_5pyart_3map_7ckdtree_23RectRectDistanceTracker___init__(stru
   __pyx_L8:;
 
   /* "pyart/map/ckdtree.pyx":494
- *
- *
+ * 
+ * 
  *     def __init__(self, Rectangle rect1, Rectangle rect2,             # <<<<<<<<<<<<<<
  *                  np.float64_t p, np.float64_t eps, np.float64_t upper_bound):
- *
+ * 
 */
 
   /* function exit code */
@@ -12119,10 +12122,10 @@ static int __pyx_pf_5pyart_3map_7ckdtree_23RectRectDistanceTracker___init__(stru
 
 /* "pyart/map/ckdtree.pyx":531
  *                 self.max_distance += max_dist_interval_interval_p(rect1, rect2, i, p)
- *
+ * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
  *         self._free_stack()
- *
+ * 
 */
 
 /* Python wrapper */
@@ -12145,10 +12148,10 @@ static void __pyx_pf_5pyart_3map_7ckdtree_23RectRectDistanceTracker_2__dealloc__
   int __pyx_clineno = 0;
 
   /* "pyart/map/ckdtree.pyx":532
- *
+ * 
  *     def __dealloc__(self):
  *         self._free_stack()             # <<<<<<<<<<<<<<
- *
+ * 
  *     cdef int push(self, np.intp_t which, np.intp_t direction,
 */
   __pyx_t_1 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_RectRectDistanceTracker *)__pyx_v_self->__pyx_vtab)->_free_stack(__pyx_v_self); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 532, __pyx_L1_error)
@@ -12156,10 +12159,10 @@ static void __pyx_pf_5pyart_3map_7ckdtree_23RectRectDistanceTracker_2__dealloc__
 
   /* "pyart/map/ckdtree.pyx":531
  *                 self.max_distance += max_dist_interval_interval_p(rect1, rect2, i, p)
- *
+ * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
  *         self._free_stack()
- *
+ * 
 */
 
   /* function exit code */
@@ -12172,7 +12175,7 @@ static void __pyx_pf_5pyart_3map_7ckdtree_23RectRectDistanceTracker_2__dealloc__
 
 /* "pyart/map/ckdtree.pyx":534
  *         self._free_stack()
- *
+ * 
  *     cdef int push(self, np.intp_t which, np.intp_t direction,             # <<<<<<<<<<<<<<
  *                   np.intp_t split_dim,
  *                   np.float64_t split_val) except -1:
@@ -12194,7 +12197,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push(struct __
   __Pyx_RefNannySetupContext("push", 0);
 
   /* "pyart/map/ckdtree.pyx":539
- *
+ * 
  *         cdef Rectangle rect
  *         if which == 1:             # <<<<<<<<<<<<<<
  *             rect = self.rect1
@@ -12218,7 +12221,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push(struct __
     __pyx_t_2 = 0;
 
     /* "pyart/map/ckdtree.pyx":539
- *
+ * 
  *         cdef Rectangle rect
  *         if which == 1:             # <<<<<<<<<<<<<<
  *             rect = self.rect1
@@ -12231,7 +12234,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push(struct __
  *             rect = self.rect1
  *         else:
  *             rect = self.rect2             # <<<<<<<<<<<<<<
- *
+ * 
  *         # Push onto stack
 */
   /*else*/ {
@@ -12243,11 +12246,11 @@ static int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push(struct __
   __pyx_L3:;
 
   /* "pyart/map/ckdtree.pyx":545
- *
+ * 
  *         # Push onto stack
  *         if self.stack_size == self.stack_max_size:             # <<<<<<<<<<<<<<
  *             self._resize_stack(self.stack_max_size * 2)
- *
+ * 
 */
   __pyx_t_1 = (__pyx_v_self->stack_size == __pyx_v_self->stack_max_size);
 
@@ -12258,24 +12261,24 @@ static int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push(struct __
  *         # Push onto stack
  *         if self.stack_size == self.stack_max_size:
  *             self._resize_stack(self.stack_max_size * 2)             # <<<<<<<<<<<<<<
- *
+ * 
  *         cdef RR_stack_item *item = &self.stack[self.stack_size]
 */
     __pyx_t_3 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_RectRectDistanceTracker *)__pyx_v_self->__pyx_vtab)->_resize_stack(__pyx_v_self, (__pyx_v_self->stack_max_size * 2)); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 546, __pyx_L1_error)
 
 
     /* "pyart/map/ckdtree.pyx":545
- *
+ * 
  *         # Push onto stack
  *         if self.stack_size == self.stack_max_size:             # <<<<<<<<<<<<<<
  *             self._resize_stack(self.stack_max_size * 2)
- *
+ * 
 */
   }
 
   /* "pyart/map/ckdtree.pyx":548
  *             self._resize_stack(self.stack_max_size * 2)
- *
+ * 
  *         cdef RR_stack_item *item = &self.stack[self.stack_size]             # <<<<<<<<<<<<<<
  *         self.stack_size += 1
  *         item.which = which
@@ -12283,7 +12286,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push(struct __
   __pyx_v_item = (&(__pyx_v_self->stack[__pyx_v_self->stack_size]));
 
   /* "pyart/map/ckdtree.pyx":549
- *
+ * 
  *         cdef RR_stack_item *item = &self.stack[self.stack_size]
  *         self.stack_size += 1             # <<<<<<<<<<<<<<
  *         item.which = which
@@ -12336,7 +12339,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push(struct __
  *         item.max_distance = self.max_distance
  *         item.min_along_dim = rect.mins[split_dim]             # <<<<<<<<<<<<<<
  *         item.max_along_dim = rect.maxes[split_dim]
- *
+ * 
 */
   __pyx_v_item->min_along_dim = (__pyx_v_rect->mins[__pyx_v_split_dim]);
 
@@ -12344,13 +12347,13 @@ static int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push(struct __
  *         item.max_distance = self.max_distance
  *         item.min_along_dim = rect.mins[split_dim]
  *         item.max_along_dim = rect.maxes[split_dim]             # <<<<<<<<<<<<<<
- *
+ * 
  *         # Update min/max distances
 */
   __pyx_v_item->max_along_dim = (__pyx_v_rect->maxes[__pyx_v_split_dim]);
 
   /* "pyart/map/ckdtree.pyx":558
- *
+ * 
  *         # Update min/max distances
  *         if self.p != infinity:             # <<<<<<<<<<<<<<
  *             self.min_distance -= min_dist_interval_interval_p(self.rect1, self.rect2, split_dim, self.p)
@@ -12366,7 +12369,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push(struct __
  *         if self.p != infinity:
  *             self.min_distance -= min_dist_interval_interval_p(self.rect1, self.rect2, split_dim, self.p)             # <<<<<<<<<<<<<<
  *             self.max_distance -= max_dist_interval_interval_p(self.rect1, self.rect2, split_dim, self.p)
- *
+ * 
 */
     __pyx_t_2 = ((PyObject *)__pyx_v_self->rect1);
     __Pyx_INCREF(__pyx_t_2);
@@ -12382,7 +12385,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push(struct __
  *         if self.p != infinity:
  *             self.min_distance -= min_dist_interval_interval_p(self.rect1, self.rect2, split_dim, self.p)
  *             self.max_distance -= max_dist_interval_interval_p(self.rect1, self.rect2, split_dim, self.p)             # <<<<<<<<<<<<<<
- *
+ * 
  *         if direction == LESS:
 */
     __pyx_t_5 = ((PyObject *)__pyx_v_self->rect1);
@@ -12396,7 +12399,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push(struct __
 
 
     /* "pyart/map/ckdtree.pyx":558
- *
+ * 
  *         # Update min/max distances
  *         if self.p != infinity:             # <<<<<<<<<<<<<<
  *             self.min_distance -= min_dist_interval_interval_p(self.rect1, self.rect2, split_dim, self.p)
@@ -12406,7 +12409,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push(struct __
 
   /* "pyart/map/ckdtree.pyx":562
  *             self.max_distance -= max_dist_interval_interval_p(self.rect1, self.rect2, split_dim, self.p)
- *
+ * 
  *         if direction == LESS:             # <<<<<<<<<<<<<<
  *             rect.maxes[split_dim] = split_val
  *         else:
@@ -12417,7 +12420,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push(struct __
 
 
     /* "pyart/map/ckdtree.pyx":563
- *
+ * 
  *         if direction == LESS:
  *             rect.maxes[split_dim] = split_val             # <<<<<<<<<<<<<<
  *         else:
@@ -12427,7 +12430,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push(struct __
 
     /* "pyart/map/ckdtree.pyx":562
  *             self.max_distance -= max_dist_interval_interval_p(self.rect1, self.rect2, split_dim, self.p)
- *
+ * 
  *         if direction == LESS:             # <<<<<<<<<<<<<<
  *             rect.maxes[split_dim] = split_val
  *         else:
@@ -12439,7 +12442,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push(struct __
  *             rect.maxes[split_dim] = split_val
  *         else:
  *             rect.mins[split_dim] = split_val             # <<<<<<<<<<<<<<
- *
+ * 
  *         if self.p != infinity:
 */
   /*else*/ {
@@ -12449,7 +12452,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push(struct __
 
   /* "pyart/map/ckdtree.pyx":567
  *             rect.mins[split_dim] = split_val
- *
+ * 
  *         if self.p != infinity:             # <<<<<<<<<<<<<<
  *             self.min_distance += min_dist_interval_interval_p(self.rect1, self.rect2, split_dim, self.p)
  *             self.max_distance += max_dist_interval_interval_p(self.rect1, self.rect2, split_dim, self.p)
@@ -12460,7 +12463,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push(struct __
 
 
     /* "pyart/map/ckdtree.pyx":568
- *
+ * 
  *         if self.p != infinity:
  *             self.min_distance += min_dist_interval_interval_p(self.rect1, self.rect2, split_dim, self.p)             # <<<<<<<<<<<<<<
  *             self.max_distance += max_dist_interval_interval_p(self.rect1, self.rect2, split_dim, self.p)
@@ -12495,7 +12498,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push(struct __
 
     /* "pyart/map/ckdtree.pyx":567
  *             rect.mins[split_dim] = split_val
- *
+ * 
  *         if self.p != infinity:             # <<<<<<<<<<<<<<
  *             self.min_distance += min_dist_interval_interval_p(self.rect1, self.rect2, split_dim, self.p)
  *             self.max_distance += max_dist_interval_interval_p(self.rect1, self.rect2, split_dim, self.p)
@@ -12508,7 +12511,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push(struct __
  *         else:
  *             self.min_distance = min_dist_rect_rect_p_inf(self.rect1, self.rect2)             # <<<<<<<<<<<<<<
  *             self.max_distance = max_dist_rect_rect_p_inf(self.rect1, self.rect2)
- *
+ * 
 */
   /*else*/ {
     __pyx_t_2 = ((PyObject *)__pyx_v_self->rect1);
@@ -12524,7 +12527,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push(struct __
  *         else:
  *             self.min_distance = min_dist_rect_rect_p_inf(self.rect1, self.rect2)
  *             self.max_distance = max_dist_rect_rect_p_inf(self.rect1, self.rect2)             # <<<<<<<<<<<<<<
- *
+ * 
  *         return 0
 */
     __pyx_t_5 = ((PyObject *)__pyx_v_self->rect1);
@@ -12540,10 +12543,10 @@ static int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push(struct __
 
   /* "pyart/map/ckdtree.pyx":574
  *             self.max_distance = max_dist_rect_rect_p_inf(self.rect1, self.rect2)
- *
+ * 
  *         return 0             # <<<<<<<<<<<<<<
- *
- *
+ * 
+ * 
 */
   {
 
@@ -12553,7 +12556,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push(struct __
 
   /* "pyart/map/ckdtree.pyx":534
  *         self._free_stack()
- *
+ * 
  *     cdef int push(self, np.intp_t which, np.intp_t direction,             # <<<<<<<<<<<<<<
  *                   np.intp_t split_dim,
  *                   np.float64_t split_val) except -1:
@@ -12574,8 +12577,8 @@ static int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push(struct __
 }
 
 /* "pyart/map/ckdtree.pyx":577
- *
- *
+ * 
+ * 
  *     cdef inline int push_less_of(self, np.intp_t which,             # <<<<<<<<<<<<<<
  *                                  innernode *node) except -1:
  *         return self.push(which, LESS, node.split_dim, node.split)
@@ -12592,8 +12595,8 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_
  *     cdef inline int push_less_of(self, np.intp_t which,
  *                                  innernode *node) except -1:
  *         return self.push(which, LESS, node.split_dim, node.split)             # <<<<<<<<<<<<<<
- *
- *
+ * 
+ * 
 */
   __pyx_t_1 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_RectRectDistanceTracker *)__pyx_v_self->__pyx_vtab)->push(__pyx_v_self, __pyx_v_which, __pyx_v_5pyart_3map_7ckdtree_LESS, __pyx_v_node->split_dim, __pyx_v_node->split); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 579, __pyx_L1_error)
   {
@@ -12602,8 +12605,8 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_
   goto __pyx_L0;
 
   /* "pyart/map/ckdtree.pyx":577
- *
- *
+ * 
+ * 
  *     cdef inline int push_less_of(self, np.intp_t which,             # <<<<<<<<<<<<<<
  *                                  innernode *node) except -1:
  *         return self.push(which, LESS, node.split_dim, node.split)
@@ -12619,8 +12622,8 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_
 }
 
 /* "pyart/map/ckdtree.pyx":582
- *
- *
+ * 
+ * 
  *     cdef inline int push_greater_of(self, np.intp_t which,             # <<<<<<<<<<<<<<
  *                                     innernode *node) except -1:
  *         return self.push(which, GREATER, node.split_dim, node.split)
@@ -12637,8 +12640,8 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_
  *     cdef inline int push_greater_of(self, np.intp_t which,
  *                                     innernode *node) except -1:
  *         return self.push(which, GREATER, node.split_dim, node.split)             # <<<<<<<<<<<<<<
- *
- *
+ * 
+ * 
 */
   __pyx_t_1 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_RectRectDistanceTracker *)__pyx_v_self->__pyx_vtab)->push(__pyx_v_self, __pyx_v_which, __pyx_v_5pyart_3map_7ckdtree_GREATER, __pyx_v_node->split_dim, __pyx_v_node->split); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 584, __pyx_L1_error)
   {
@@ -12647,8 +12650,8 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_
   goto __pyx_L0;
 
   /* "pyart/map/ckdtree.pyx":582
- *
- *
+ * 
+ * 
  *     cdef inline int push_greater_of(self, np.intp_t which,             # <<<<<<<<<<<<<<
  *                                     innernode *node) except -1:
  *         return self.push(which, GREATER, node.split_dim, node.split)
@@ -12664,8 +12667,8 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_
 }
 
 /* "pyart/map/ckdtree.pyx":587
- *
- *
+ * 
+ * 
  *     cdef inline int pop(self) except -1:             # <<<<<<<<<<<<<<
  *         # Pop from stack
  *         self.stack_size -= 1
@@ -12686,7 +12689,7 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_
  *         # Pop from stack
  *         self.stack_size -= 1             # <<<<<<<<<<<<<<
  *         assert self.stack_size >= 0
- *
+ * 
 */
   __pyx_v_self->stack_size = (__pyx_v_self->stack_size - 1);
 
@@ -12694,7 +12697,7 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_
  *         # Pop from stack
  *         self.stack_size -= 1
  *         assert self.stack_size >= 0             # <<<<<<<<<<<<<<
- *
+ * 
  *         cdef RR_stack_item* item = &self.stack[self.stack_size]
 */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
@@ -12713,7 +12716,7 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_
 
   /* "pyart/map/ckdtree.pyx":592
  *         assert self.stack_size >= 0
- *
+ * 
  *         cdef RR_stack_item* item = &self.stack[self.stack_size]             # <<<<<<<<<<<<<<
  *         self.min_distance = item.min_distance
  *         self.max_distance = item.max_distance
@@ -12721,11 +12724,11 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_
   __pyx_v_item = (&(__pyx_v_self->stack[__pyx_v_self->stack_size]));
 
   /* "pyart/map/ckdtree.pyx":593
- *
+ * 
  *         cdef RR_stack_item* item = &self.stack[self.stack_size]
  *         self.min_distance = item.min_distance             # <<<<<<<<<<<<<<
  *         self.max_distance = item.max_distance
- *
+ * 
 */
   __pyx_t_2 = __pyx_v_item->min_distance;
 
@@ -12735,7 +12738,7 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_
  *         cdef RR_stack_item* item = &self.stack[self.stack_size]
  *         self.min_distance = item.min_distance
  *         self.max_distance = item.max_distance             # <<<<<<<<<<<<<<
- *
+ * 
  *         if item.which == 1:
 */
   __pyx_t_2 = __pyx_v_item->max_distance;
@@ -12744,7 +12747,7 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_
 
   /* "pyart/map/ckdtree.pyx":596
  *         self.max_distance = item.max_distance
- *
+ * 
  *         if item.which == 1:             # <<<<<<<<<<<<<<
  *             self.rect1.mins[item.split_dim] = item.min_along_dim
  *             self.rect1.maxes[item.split_dim] = item.max_along_dim
@@ -12755,7 +12758,7 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_
 
 
     /* "pyart/map/ckdtree.pyx":597
- *
+ * 
  *         if item.which == 1:
  *             self.rect1.mins[item.split_dim] = item.min_along_dim             # <<<<<<<<<<<<<<
  *             self.rect1.maxes[item.split_dim] = item.max_along_dim
@@ -12780,7 +12783,7 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_
 
     /* "pyart/map/ckdtree.pyx":596
  *         self.max_distance = item.max_distance
- *
+ * 
  *         if item.which == 1:             # <<<<<<<<<<<<<<
  *             self.rect1.mins[item.split_dim] = item.min_along_dim
  *             self.rect1.maxes[item.split_dim] = item.max_along_dim
@@ -12793,7 +12796,7 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_
  *         else:
  *             self.rect2.mins[item.split_dim] = item.min_along_dim             # <<<<<<<<<<<<<<
  *             self.rect2.maxes[item.split_dim] = item.max_along_dim
- *
+ * 
 */
   /*else*/ {
     __pyx_t_3 = __pyx_v_item->min_along_dim;
@@ -12805,7 +12808,7 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_
  *         else:
  *             self.rect2.mins[item.split_dim] = item.min_along_dim
  *             self.rect2.maxes[item.split_dim] = item.max_along_dim             # <<<<<<<<<<<<<<
- *
+ * 
  *         return 0
 */
     __pyx_t_3 = __pyx_v_item->max_along_dim;
@@ -12817,9 +12820,9 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_
 
   /* "pyart/map/ckdtree.pyx":603
  *             self.rect2.maxes[item.split_dim] = item.max_along_dim
- *
+ * 
  *         return 0             # <<<<<<<<<<<<<<
- *
+ * 
  * # Point-to-rectangle distance tracker
 */
   {
@@ -12829,8 +12832,8 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_
   goto __pyx_L0;
 
   /* "pyart/map/ckdtree.pyx":587
- *
- *
+ * 
+ * 
  *     cdef inline int pop(self) except -1:             # <<<<<<<<<<<<<<
  *         # Pop from stack
  *         self.stack_size -= 1
@@ -12853,7 +12856,7 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5pyart_3map_7ckdtree_23RectRectDistanceTracker_5__reduce_cython__(PyObject *__pyx_v_self,
+static PyObject *__pyx_pw_5pyart_3map_7ckdtree_23RectRectDistanceTracker_5__reduce_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -12861,7 +12864,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
 static PyMethodDef __pyx_mdef_5pyart_3map_7ckdtree_23RectRectDistanceTracker_5__reduce_cython__ = {"__reduce_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5pyart_3map_7ckdtree_23RectRectDistanceTracker_5__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_5pyart_3map_7ckdtree_23RectRectDistanceTracker_5__reduce_cython__(PyObject *__pyx_v_self,
+static PyObject *__pyx_pw_5pyart_3map_7ckdtree_23RectRectDistanceTracker_5__reduce_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -12934,7 +12937,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_23RectRectDistanceTracker_4__redu
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5pyart_3map_7ckdtree_23RectRectDistanceTracker_7__setstate_cython__(PyObject *__pyx_v_self,
+static PyObject *__pyx_pw_5pyart_3map_7ckdtree_23RectRectDistanceTracker_7__setstate_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -12942,7 +12945,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
 static PyMethodDef __pyx_mdef_5pyart_3map_7ckdtree_23RectRectDistanceTracker_7__setstate_cython__ = {"__setstate_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5pyart_3map_7ckdtree_23RectRectDistanceTracker_7__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_5pyart_3map_7ckdtree_23RectRectDistanceTracker_7__setstate_cython__(PyObject *__pyx_v_self,
+static PyObject *__pyx_pw_5pyart_3map_7ckdtree_23RectRectDistanceTracker_7__setstate_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -13051,7 +13054,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_23RectRectDistanceTracker_6__sets
 }
 
 /* "pyart/map/ckdtree.pyx":647
- *
+ * 
  *     # Stack handling
  *     cdef int _init_stack(self) except -1:             # <<<<<<<<<<<<<<
  *         cdef void *tmp
@@ -13128,7 +13131,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker__init_stack(s
  *         self.stack = <RP_stack_item*> tmp
  *         self.stack_size = 0             # <<<<<<<<<<<<<<
  *         return 0
- *
+ * 
 */
   __pyx_v_self->stack_size = 0;
 
@@ -13136,7 +13139,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker__init_stack(s
  *         self.stack = <RP_stack_item*> tmp
  *         self.stack_size = 0
  *         return 0             # <<<<<<<<<<<<<<
- *
+ * 
  *     cdef int _resize_stack(self, np.intp_t new_max_size) except -1:
 */
   {
@@ -13146,7 +13149,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker__init_stack(s
   goto __pyx_L0;
 
   /* "pyart/map/ckdtree.pyx":647
- *
+ * 
  *     # Stack handling
  *     cdef int _init_stack(self) except -1:             # <<<<<<<<<<<<<<
  *         cdef void *tmp
@@ -13165,7 +13168,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker__init_stack(s
 
 /* "pyart/map/ckdtree.pyx":658
  *         return 0
- *
+ * 
  *     cdef int _resize_stack(self, np.intp_t new_max_size) except -1:             # <<<<<<<<<<<<<<
  *         cdef void *tmp
  *         self.stack_max_size = new_max_size
@@ -13232,7 +13235,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker__resize_stack
  *             raise MemoryError
  *         self.stack = <RP_stack_item*> tmp             # <<<<<<<<<<<<<<
  *         return 0
- *
+ * 
 */
   __pyx_v_self->stack = ((struct __pyx_t_5pyart_3map_7ckdtree_RP_stack_item *)__pyx_v_tmp);
 
@@ -13240,7 +13243,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker__resize_stack
  *             raise MemoryError
  *         self.stack = <RP_stack_item*> tmp
  *         return 0             # <<<<<<<<<<<<<<
- *
+ * 
  *     cdef int _free_stack(self) except -1:
 */
   {
@@ -13251,7 +13254,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker__resize_stack
 
   /* "pyart/map/ckdtree.pyx":658
  *         return 0
- *
+ * 
  *     cdef int _resize_stack(self, np.intp_t new_max_size) except -1:             # <<<<<<<<<<<<<<
  *         cdef void *tmp
  *         self.stack_max_size = new_max_size
@@ -13269,7 +13272,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker__resize_stack
 
 /* "pyart/map/ckdtree.pyx":668
  *         return 0
- *
+ * 
  *     cdef int _free_stack(self) except -1:             # <<<<<<<<<<<<<<
  *         if self.stack != <RP_stack_item*> NULL:
  *             stdlib.free(self.stack)
@@ -13280,7 +13283,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker__free_stack(s
   int __pyx_t_1;
 
   /* "pyart/map/ckdtree.pyx":669
- *
+ * 
  *     cdef int _free_stack(self) except -1:
  *         if self.stack != <RP_stack_item*> NULL:             # <<<<<<<<<<<<<<
  *             stdlib.free(self.stack)
@@ -13296,12 +13299,12 @@ static int __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker__free_stack(s
  *         if self.stack != <RP_stack_item*> NULL:
  *             stdlib.free(self.stack)             # <<<<<<<<<<<<<<
  *         return 0
- *
+ * 
 */
     free(__pyx_v_self->stack);
 
     /* "pyart/map/ckdtree.pyx":669
- *
+ * 
  *     cdef int _free_stack(self) except -1:
  *         if self.stack != <RP_stack_item*> NULL:             # <<<<<<<<<<<<<<
  *             stdlib.free(self.stack)
@@ -13313,7 +13316,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker__free_stack(s
  *         if self.stack != <RP_stack_item*> NULL:
  *             stdlib.free(self.stack)
  *         return 0             # <<<<<<<<<<<<<<
- *
+ * 
  *     cdef init(self, np.float64_t *pt, Rectangle rect,
 */
   {
@@ -13324,7 +13327,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker__free_stack(s
 
   /* "pyart/map/ckdtree.pyx":668
  *         return 0
- *
+ * 
  *     cdef int _free_stack(self) except -1:             # <<<<<<<<<<<<<<
  *         if self.stack != <RP_stack_item*> NULL:
  *             stdlib.free(self.stack)
@@ -13338,10 +13341,10 @@ static int __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker__free_stack(s
 
 /* "pyart/map/ckdtree.pyx":673
  *         return 0
- *
+ * 
  *     cdef init(self, np.float64_t *pt, Rectangle rect,             # <<<<<<<<<<<<<<
  *               np.float64_t p, np.float64_t eps, np.float64_t upper_bound):
- *
+ * 
 */
 
 static PyObject *__pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker_init(struct __pyx_obj_5pyart_3map_7ckdtree_PointRectDistanceTracker *__pyx_v_self, __pyx_t_5numpy_float64_t *__pyx_v_pt, struct __pyx_obj_5pyart_3map_7ckdtree_Rectangle *__pyx_v_rect, __pyx_t_5numpy_float64_t __pyx_v_p, __pyx_t_5numpy_float64_t __pyx_v_eps, __pyx_t_5numpy_float64_t __pyx_v_upper_bound) {
@@ -13365,7 +13368,7 @@ static PyObject *__pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker_init(st
 
   /* "pyart/map/ckdtree.pyx":676
  *               np.float64_t p, np.float64_t eps, np.float64_t upper_bound):
- *
+ * 
  *         self.pt = pt             # <<<<<<<<<<<<<<
  *         self.rect = rect
  *         self.p = p
@@ -13373,11 +13376,11 @@ static PyObject *__pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker_init(st
   __pyx_v_self->pt = __pyx_v_pt;
 
   /* "pyart/map/ckdtree.pyx":677
- *
+ * 
  *         self.pt = pt
  *         self.rect = rect             # <<<<<<<<<<<<<<
  *         self.p = p
- *
+ * 
 */
   __Pyx_INCREF((PyObject *)__pyx_v_rect);
   __Pyx_GIVEREF((PyObject *)__pyx_v_rect);
@@ -13389,13 +13392,13 @@ static PyObject *__pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker_init(st
  *         self.pt = pt
  *         self.rect = rect
  *         self.p = p             # <<<<<<<<<<<<<<
- *
+ * 
  *         # internally we represent all distances as distance ** p
 */
   __pyx_v_self->p = __pyx_v_p;
 
   /* "pyart/map/ckdtree.pyx":681
- *
+ * 
  *         # internally we represent all distances as distance ** p
  *         if p != infinity and upper_bound != infinity:             # <<<<<<<<<<<<<<
  *             self.upper_bound = upper_bound ** p
@@ -13430,7 +13433,7 @@ static PyObject *__pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker_init(st
     __pyx_v_self->upper_bound = pow(__pyx_v_upper_bound, __pyx_v_p);
 
     /* "pyart/map/ckdtree.pyx":681
- *
+ * 
  *         # internally we represent all distances as distance ** p
  *         if p != infinity and upper_bound != infinity:             # <<<<<<<<<<<<<<
  *             self.upper_bound = upper_bound ** p
@@ -13443,7 +13446,7 @@ static PyObject *__pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker_init(st
  *             self.upper_bound = upper_bound ** p
  *         else:
  *             self.upper_bound = upper_bound             # <<<<<<<<<<<<<<
- *
+ * 
  *         # fiddle approximation factor
 */
   /*else*/ {
@@ -13452,7 +13455,7 @@ static PyObject *__pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker_init(st
   __pyx_L3:;
 
   /* "pyart/map/ckdtree.pyx":687
- *
+ * 
  *         # fiddle approximation factor
  *         if eps == 0:             # <<<<<<<<<<<<<<
  *             self.epsfac = 1
@@ -13473,7 +13476,7 @@ static PyObject *__pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker_init(st
     __pyx_v_self->epsfac = 1.0;
 
     /* "pyart/map/ckdtree.pyx":687
- *
+ * 
  *         # fiddle approximation factor
  *         if eps == 0:             # <<<<<<<<<<<<<<
  *             self.epsfac = 1
@@ -13524,7 +13527,7 @@ static PyObject *__pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker_init(st
  *             self.epsfac = 1 / (1 + eps)
  *         else:
  *             self.epsfac = 1 / (1 + eps) ** p             # <<<<<<<<<<<<<<
- *
+ * 
  *         self._init_stack()
 */
   /*else*/ {
@@ -13541,16 +13544,16 @@ static PyObject *__pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker_init(st
 
   /* "pyart/map/ckdtree.pyx":694
  *             self.epsfac = 1 / (1 + eps) ** p
- *
+ * 
  *         self._init_stack()             # <<<<<<<<<<<<<<
- *
+ * 
  *         # Compute initial min and max distances
 */
   __pyx_t_4 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_PointRectDistanceTracker *)__pyx_v_self->__pyx_vtab)->_init_stack(__pyx_v_self); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(0, 694, __pyx_L1_error)
 
 
   /* "pyart/map/ckdtree.pyx":697
- *
+ * 
  *         # Compute initial min and max distances
  *         if self.p == infinity:             # <<<<<<<<<<<<<<
  *             self.min_distance = min_dist_point_rect_p_inf(pt, rect)
@@ -13582,7 +13585,7 @@ static PyObject *__pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker_init(st
     __pyx_v_self->max_distance = __pyx_t_3;
 
     /* "pyart/map/ckdtree.pyx":697
- *
+ * 
  *         # Compute initial min and max distances
  *         if self.p == infinity:             # <<<<<<<<<<<<<<
  *             self.min_distance = min_dist_point_rect_p_inf(pt, rect)
@@ -13655,7 +13658,7 @@ static PyObject *__pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker_init(st
  *             for i in range(rect.m):
  *                 self.min_distance += min_dist_point_interval_p(pt, rect, i, p)             # <<<<<<<<<<<<<<
  *                 self.max_distance += max_dist_point_interval_p(pt, rect, i, p)
- *
+ * 
 */
       __pyx_t_10 = __Pyx_PyLong_As_npy_intp(__pyx_v_i); if (unlikely((__pyx_t_10 == ((npy_intp)-1)) && PyErr_Occurred())) __PYX_ERR(0, 704, __pyx_L1_error)
       __pyx_t_3 = __pyx_f_5pyart_3map_7ckdtree_min_dist_point_interval_p(__pyx_v_pt, __pyx_v_rect, __pyx_t_10, __pyx_v_p); if (unlikely(__pyx_t_3 == ((__pyx_t_5numpy_float64_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 704, __pyx_L1_error)
@@ -13667,7 +13670,7 @@ static PyObject *__pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker_init(st
  *             for i in range(rect.m):
  *                 self.min_distance += min_dist_point_interval_p(pt, rect, i, p)
  *                 self.max_distance += max_dist_point_interval_p(pt, rect, i, p)             # <<<<<<<<<<<<<<
- *
+ * 
  *     def __dealloc__(self):
 */
       __pyx_t_10 = __Pyx_PyLong_As_npy_intp(__pyx_v_i); if (unlikely((__pyx_t_10 == ((npy_intp)-1)) && PyErr_Occurred())) __PYX_ERR(0, 705, __pyx_L1_error)
@@ -13690,10 +13693,10 @@ static PyObject *__pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker_init(st
 
   /* "pyart/map/ckdtree.pyx":673
  *         return 0
- *
+ * 
  *     cdef init(self, np.float64_t *pt, Rectangle rect,             # <<<<<<<<<<<<<<
  *               np.float64_t p, np.float64_t eps, np.float64_t upper_bound):
- *
+ * 
 */
 
   /* function exit code */
@@ -13714,10 +13717,10 @@ static PyObject *__pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker_init(st
 
 /* "pyart/map/ckdtree.pyx":707
  *                 self.max_distance += max_dist_point_interval_p(pt, rect, i, p)
- *
+ * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
  *         self._free_stack()
- *
+ * 
 */
 
 /* Python wrapper */
@@ -13740,10 +13743,10 @@ static void __pyx_pf_5pyart_3map_7ckdtree_24PointRectDistanceTracker___dealloc__
   int __pyx_clineno = 0;
 
   /* "pyart/map/ckdtree.pyx":708
- *
+ * 
  *     def __dealloc__(self):
  *         self._free_stack()             # <<<<<<<<<<<<<<
- *
+ * 
  *     cdef int push(self, np.intp_t direction,
 */
   __pyx_t_1 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_PointRectDistanceTracker *)__pyx_v_self->__pyx_vtab)->_free_stack(__pyx_v_self); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 708, __pyx_L1_error)
@@ -13751,10 +13754,10 @@ static void __pyx_pf_5pyart_3map_7ckdtree_24PointRectDistanceTracker___dealloc__
 
   /* "pyart/map/ckdtree.pyx":707
  *                 self.max_distance += max_dist_point_interval_p(pt, rect, i, p)
- *
+ * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
  *         self._free_stack()
- *
+ * 
 */
 
   /* function exit code */
@@ -13767,7 +13770,7 @@ static void __pyx_pf_5pyart_3map_7ckdtree_24PointRectDistanceTracker___dealloc__
 
 /* "pyart/map/ckdtree.pyx":710
  *         self._free_stack()
- *
+ * 
  *     cdef int push(self, np.intp_t direction,             # <<<<<<<<<<<<<<
  *                   np.intp_t split_dim,
  *                   np.float64_t split_val) except -1:
@@ -13787,11 +13790,11 @@ static int __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker_push(struct _
   __Pyx_RefNannySetupContext("push", 0);
 
   /* "pyart/map/ckdtree.pyx":715
- *
+ * 
  *         # Push onto stack
  *         if self.stack_size == self.stack_max_size:             # <<<<<<<<<<<<<<
  *             self._resize_stack(self.stack_max_size * 2)
- *
+ * 
 */
   __pyx_t_1 = (__pyx_v_self->stack_size == __pyx_v_self->stack_max_size);
 
@@ -13802,42 +13805,42 @@ static int __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker_push(struct _
  *         # Push onto stack
  *         if self.stack_size == self.stack_max_size:
  *             self._resize_stack(self.stack_max_size * 2)             # <<<<<<<<<<<<<<
- *
+ * 
  *         cdef RP_stack_item *item = &self.stack[self.stack_size]
 */
     __pyx_t_2 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_PointRectDistanceTracker *)__pyx_v_self->__pyx_vtab)->_resize_stack(__pyx_v_self, (__pyx_v_self->stack_max_size * 2)); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 716, __pyx_L1_error)
 
 
     /* "pyart/map/ckdtree.pyx":715
- *
+ * 
  *         # Push onto stack
  *         if self.stack_size == self.stack_max_size:             # <<<<<<<<<<<<<<
  *             self._resize_stack(self.stack_max_size * 2)
- *
+ * 
 */
   }
 
   /* "pyart/map/ckdtree.pyx":718
  *             self._resize_stack(self.stack_max_size * 2)
- *
+ * 
  *         cdef RP_stack_item *item = &self.stack[self.stack_size]             # <<<<<<<<<<<<<<
  *         self.stack_size += 1
- *
+ * 
 */
   __pyx_v_item = (&(__pyx_v_self->stack[__pyx_v_self->stack_size]));
 
   /* "pyart/map/ckdtree.pyx":719
- *
+ * 
  *         cdef RP_stack_item *item = &self.stack[self.stack_size]
  *         self.stack_size += 1             # <<<<<<<<<<<<<<
- *
+ * 
  *         item.split_dim = split_dim
 */
   __pyx_v_self->stack_size = (__pyx_v_self->stack_size + 1);
 
   /* "pyart/map/ckdtree.pyx":721
  *         self.stack_size += 1
- *
+ * 
  *         item.split_dim = split_dim             # <<<<<<<<<<<<<<
  *         item.min_distance = self.min_distance
  *         item.max_distance = self.max_distance
@@ -13845,7 +13848,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker_push(struct _
   __pyx_v_item->split_dim = __pyx_v_split_dim;
 
   /* "pyart/map/ckdtree.pyx":722
- *
+ * 
  *         item.split_dim = split_dim
  *         item.min_distance = self.min_distance             # <<<<<<<<<<<<<<
  *         item.max_distance = self.max_distance
@@ -13871,7 +13874,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker_push(struct _
  *         item.max_distance = self.max_distance
  *         item.min_along_dim = self.rect.mins[split_dim]             # <<<<<<<<<<<<<<
  *         item.max_along_dim = self.rect.maxes[split_dim]
- *
+ * 
 */
   __pyx_v_item->min_along_dim = (__pyx_v_self->rect->mins[__pyx_v_split_dim]);
 
@@ -13879,14 +13882,14 @@ static int __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker_push(struct _
  *         item.max_distance = self.max_distance
  *         item.min_along_dim = self.rect.mins[split_dim]
  *         item.max_along_dim = self.rect.maxes[split_dim]             # <<<<<<<<<<<<<<
- *
+ * 
  *         if self.p != infinity:
 */
   __pyx_v_item->max_along_dim = (__pyx_v_self->rect->maxes[__pyx_v_split_dim]);
 
   /* "pyart/map/ckdtree.pyx":727
  *         item.max_along_dim = self.rect.maxes[split_dim]
- *
+ * 
  *         if self.p != infinity:             # <<<<<<<<<<<<<<
  *             self.min_distance -= min_dist_point_interval_p(self.pt, self.rect, split_dim, self.p)
  *             self.max_distance -= max_dist_point_interval_p(self.pt, self.rect, split_dim, self.p)
@@ -13897,11 +13900,11 @@ static int __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker_push(struct _
 
 
     /* "pyart/map/ckdtree.pyx":728
- *
+ * 
  *         if self.p != infinity:
  *             self.min_distance -= min_dist_point_interval_p(self.pt, self.rect, split_dim, self.p)             # <<<<<<<<<<<<<<
  *             self.max_distance -= max_dist_point_interval_p(self.pt, self.rect, split_dim, self.p)
- *
+ * 
 */
     __pyx_t_4 = ((PyObject *)__pyx_v_self->rect);
     __Pyx_INCREF(__pyx_t_4);
@@ -13914,7 +13917,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker_push(struct _
  *         if self.p != infinity:
  *             self.min_distance -= min_dist_point_interval_p(self.pt, self.rect, split_dim, self.p)
  *             self.max_distance -= max_dist_point_interval_p(self.pt, self.rect, split_dim, self.p)             # <<<<<<<<<<<<<<
- *
+ * 
  *         if direction == LESS:
 */
     __pyx_t_4 = ((PyObject *)__pyx_v_self->rect);
@@ -13926,7 +13929,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker_push(struct _
 
     /* "pyart/map/ckdtree.pyx":727
  *         item.max_along_dim = self.rect.maxes[split_dim]
- *
+ * 
  *         if self.p != infinity:             # <<<<<<<<<<<<<<
  *             self.min_distance -= min_dist_point_interval_p(self.pt, self.rect, split_dim, self.p)
  *             self.max_distance -= max_dist_point_interval_p(self.pt, self.rect, split_dim, self.p)
@@ -13935,7 +13938,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker_push(struct _
 
   /* "pyart/map/ckdtree.pyx":731
  *             self.max_distance -= max_dist_point_interval_p(self.pt, self.rect, split_dim, self.p)
- *
+ * 
  *         if direction == LESS:             # <<<<<<<<<<<<<<
  *             self.rect.maxes[split_dim] = split_val
  *         else:
@@ -13946,7 +13949,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker_push(struct _
 
 
     /* "pyart/map/ckdtree.pyx":732
- *
+ * 
  *         if direction == LESS:
  *             self.rect.maxes[split_dim] = split_val             # <<<<<<<<<<<<<<
  *         else:
@@ -13956,7 +13959,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker_push(struct _
 
     /* "pyart/map/ckdtree.pyx":731
  *             self.max_distance -= max_dist_point_interval_p(self.pt, self.rect, split_dim, self.p)
- *
+ * 
  *         if direction == LESS:             # <<<<<<<<<<<<<<
  *             self.rect.maxes[split_dim] = split_val
  *         else:
@@ -13968,7 +13971,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker_push(struct _
  *             self.rect.maxes[split_dim] = split_val
  *         else:
  *             self.rect.mins[split_dim] = split_val             # <<<<<<<<<<<<<<
- *
+ * 
  *         if self.p != infinity:
 */
   /*else*/ {
@@ -13978,7 +13981,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker_push(struct _
 
   /* "pyart/map/ckdtree.pyx":736
  *             self.rect.mins[split_dim] = split_val
- *
+ * 
  *         if self.p != infinity:             # <<<<<<<<<<<<<<
  *             self.min_distance += min_dist_point_interval_p(self.pt, self.rect, split_dim, self.p)
  *             self.max_distance += max_dist_point_interval_p(self.pt, self.rect, split_dim, self.p)
@@ -13989,7 +13992,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker_push(struct _
 
 
     /* "pyart/map/ckdtree.pyx":737
- *
+ * 
  *         if self.p != infinity:
  *             self.min_distance += min_dist_point_interval_p(self.pt, self.rect, split_dim, self.p)             # <<<<<<<<<<<<<<
  *             self.max_distance += max_dist_point_interval_p(self.pt, self.rect, split_dim, self.p)
@@ -14018,7 +14021,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker_push(struct _
 
     /* "pyart/map/ckdtree.pyx":736
  *             self.rect.mins[split_dim] = split_val
- *
+ * 
  *         if self.p != infinity:             # <<<<<<<<<<<<<<
  *             self.min_distance += min_dist_point_interval_p(self.pt, self.rect, split_dim, self.p)
  *             self.max_distance += max_dist_point_interval_p(self.pt, self.rect, split_dim, self.p)
@@ -14031,7 +14034,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker_push(struct _
  *         else:
  *             self.min_distance = min_dist_point_rect_p_inf(self.pt, self.rect)             # <<<<<<<<<<<<<<
  *             self.max_distance = max_dist_point_rect_p_inf(self.pt, self.rect)
- *
+ * 
 */
   /*else*/ {
     __pyx_t_4 = ((PyObject *)__pyx_v_self->rect);
@@ -14044,7 +14047,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker_push(struct _
  *         else:
  *             self.min_distance = min_dist_point_rect_p_inf(self.pt, self.rect)
  *             self.max_distance = max_dist_point_rect_p_inf(self.pt, self.rect)             # <<<<<<<<<<<<<<
- *
+ * 
  *         return 0
 */
     __pyx_t_4 = ((PyObject *)__pyx_v_self->rect);
@@ -14057,10 +14060,10 @@ static int __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker_push(struct _
 
   /* "pyart/map/ckdtree.pyx":743
  *             self.max_distance = max_dist_point_rect_p_inf(self.pt, self.rect)
- *
+ * 
  *         return 0             # <<<<<<<<<<<<<<
- *
- *
+ * 
+ * 
 */
   {
 
@@ -14070,7 +14073,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker_push(struct _
 
   /* "pyart/map/ckdtree.pyx":710
  *         self._free_stack()
- *
+ * 
  *     cdef int push(self, np.intp_t direction,             # <<<<<<<<<<<<<<
  *                   np.intp_t split_dim,
  *                   np.float64_t split_val) except -1:
@@ -14089,11 +14092,11 @@ static int __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker_push(struct _
 }
 
 /* "pyart/map/ckdtree.pyx":746
- *
- *
+ * 
+ * 
  *     cdef inline int push_less_of(self, innernode* node) except -1:             # <<<<<<<<<<<<<<
  *         return self.push(LESS, node.split_dim, node.split)
- *
+ * 
 */
 
 static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker_push_less_of(struct __pyx_obj_5pyart_3map_7ckdtree_PointRectDistanceTracker *__pyx_v_self, struct __pyx_t_5pyart_3map_7ckdtree_innernode *__pyx_v_node) {
@@ -14104,11 +14107,11 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker
   int __pyx_clineno = 0;
 
   /* "pyart/map/ckdtree.pyx":747
- *
+ * 
  *     cdef inline int push_less_of(self, innernode* node) except -1:
  *         return self.push(LESS, node.split_dim, node.split)             # <<<<<<<<<<<<<<
- *
- *
+ * 
+ * 
 */
   __pyx_t_1 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_PointRectDistanceTracker *)__pyx_v_self->__pyx_vtab)->push(__pyx_v_self, __pyx_v_5pyart_3map_7ckdtree_LESS, __pyx_v_node->split_dim, __pyx_v_node->split); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 747, __pyx_L1_error)
   {
@@ -14117,11 +14120,11 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker
   goto __pyx_L0;
 
   /* "pyart/map/ckdtree.pyx":746
- *
- *
+ * 
+ * 
  *     cdef inline int push_less_of(self, innernode* node) except -1:             # <<<<<<<<<<<<<<
  *         return self.push(LESS, node.split_dim, node.split)
- *
+ * 
 */
 
   /* function exit code */
@@ -14134,11 +14137,11 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker
 }
 
 /* "pyart/map/ckdtree.pyx":750
- *
- *
+ * 
+ * 
  *     cdef inline int push_greater_of(self, innernode* node) except -1:             # <<<<<<<<<<<<<<
  *         return self.push(GREATER, node.split_dim, node.split)
- *
+ * 
 */
 
 static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker_push_greater_of(struct __pyx_obj_5pyart_3map_7ckdtree_PointRectDistanceTracker *__pyx_v_self, struct __pyx_t_5pyart_3map_7ckdtree_innernode *__pyx_v_node) {
@@ -14149,11 +14152,11 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker
   int __pyx_clineno = 0;
 
   /* "pyart/map/ckdtree.pyx":751
- *
+ * 
  *     cdef inline int push_greater_of(self, innernode* node) except -1:
  *         return self.push(GREATER, node.split_dim, node.split)             # <<<<<<<<<<<<<<
- *
- *
+ * 
+ * 
 */
   __pyx_t_1 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_PointRectDistanceTracker *)__pyx_v_self->__pyx_vtab)->push(__pyx_v_self, __pyx_v_5pyart_3map_7ckdtree_GREATER, __pyx_v_node->split_dim, __pyx_v_node->split); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 751, __pyx_L1_error)
   {
@@ -14162,11 +14165,11 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker
   goto __pyx_L0;
 
   /* "pyart/map/ckdtree.pyx":750
- *
- *
+ * 
+ * 
  *     cdef inline int push_greater_of(self, innernode* node) except -1:             # <<<<<<<<<<<<<<
  *         return self.push(GREATER, node.split_dim, node.split)
- *
+ * 
 */
 
   /* function exit code */
@@ -14179,8 +14182,8 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker
 }
 
 /* "pyart/map/ckdtree.pyx":754
- *
- *
+ * 
+ * 
  *     cdef inline int pop(self) except -1:             # <<<<<<<<<<<<<<
  *         self.stack_size -= 1
  *         assert self.stack_size >= 0
@@ -14197,11 +14200,11 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker
   int __pyx_clineno = 0;
 
   /* "pyart/map/ckdtree.pyx":755
- *
+ * 
  *     cdef inline int pop(self) except -1:
  *         self.stack_size -= 1             # <<<<<<<<<<<<<<
  *         assert self.stack_size >= 0
- *
+ * 
 */
   __pyx_v_self->stack_size = (__pyx_v_self->stack_size - 1);
 
@@ -14209,7 +14212,7 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker
  *     cdef inline int pop(self) except -1:
  *         self.stack_size -= 1
  *         assert self.stack_size >= 0             # <<<<<<<<<<<<<<
- *
+ * 
  *         cdef RP_stack_item* item = &self.stack[self.stack_size]
 */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
@@ -14228,7 +14231,7 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker
 
   /* "pyart/map/ckdtree.pyx":758
  *         assert self.stack_size >= 0
- *
+ * 
  *         cdef RP_stack_item* item = &self.stack[self.stack_size]             # <<<<<<<<<<<<<<
  *         self.min_distance = item.min_distance
  *         self.max_distance = item.max_distance
@@ -14236,7 +14239,7 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker
   __pyx_v_item = (&(__pyx_v_self->stack[__pyx_v_self->stack_size]));
 
   /* "pyart/map/ckdtree.pyx":759
- *
+ * 
  *         cdef RP_stack_item* item = &self.stack[self.stack_size]
  *         self.min_distance = item.min_distance             # <<<<<<<<<<<<<<
  *         self.max_distance = item.max_distance
@@ -14262,7 +14265,7 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker
  *         self.max_distance = item.max_distance
  *         self.rect.mins[item.split_dim] = item.min_along_dim             # <<<<<<<<<<<<<<
  *         self.rect.maxes[item.split_dim] = item.max_along_dim
- *
+ * 
 */
   __pyx_t_3 = __pyx_v_item->min_along_dim;
 
@@ -14273,7 +14276,7 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker
  *         self.max_distance = item.max_distance
  *         self.rect.mins[item.split_dim] = item.min_along_dim
  *         self.rect.maxes[item.split_dim] = item.max_along_dim             # <<<<<<<<<<<<<<
- *
+ * 
  *         return 0
 */
   __pyx_t_3 = __pyx_v_item->max_along_dim;
@@ -14283,9 +14286,9 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker
 
   /* "pyart/map/ckdtree.pyx":764
  *         self.rect.maxes[item.split_dim] = item.max_along_dim
- *
+ * 
  *         return 0             # <<<<<<<<<<<<<<
- *
+ * 
  * # Tree structure
 */
   {
@@ -14295,8 +14298,8 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker
   goto __pyx_L0;
 
   /* "pyart/map/ckdtree.pyx":754
- *
- *
+ * 
+ * 
  *     cdef inline int pop(self) except -1:             # <<<<<<<<<<<<<<
  *         self.stack_size -= 1
  *         assert self.stack_size >= 0
@@ -14319,7 +14322,7 @@ static CYTHON_INLINE int __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5pyart_3map_7ckdtree_24PointRectDistanceTracker_3__reduce_cython__(PyObject *__pyx_v_self,
+static PyObject *__pyx_pw_5pyart_3map_7ckdtree_24PointRectDistanceTracker_3__reduce_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -14327,7 +14330,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
 static PyMethodDef __pyx_mdef_5pyart_3map_7ckdtree_24PointRectDistanceTracker_3__reduce_cython__ = {"__reduce_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5pyart_3map_7ckdtree_24PointRectDistanceTracker_3__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_5pyart_3map_7ckdtree_24PointRectDistanceTracker_3__reduce_cython__(PyObject *__pyx_v_self,
+static PyObject *__pyx_pw_5pyart_3map_7ckdtree_24PointRectDistanceTracker_3__reduce_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -14400,7 +14403,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_24PointRectDistanceTracker_2__red
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5pyart_3map_7ckdtree_24PointRectDistanceTracker_5__setstate_cython__(PyObject *__pyx_v_self,
+static PyObject *__pyx_pw_5pyart_3map_7ckdtree_24PointRectDistanceTracker_5__setstate_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -14408,7 +14411,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
 static PyMethodDef __pyx_mdef_5pyart_3map_7ckdtree_24PointRectDistanceTracker_5__setstate_cython__ = {"__setstate_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5pyart_3map_7ckdtree_24PointRectDistanceTracker_5__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_5pyart_3map_7ckdtree_24PointRectDistanceTracker_5__setstate_cython__(PyObject *__pyx_v_self,
+static PyObject *__pyx_pw_5pyart_3map_7ckdtree_24PointRectDistanceTracker_5__setstate_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -14518,21 +14521,21 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_24PointRectDistanceTracker_4__set
 
 /* "pyart/map/ckdtree.pyx":846
  *     cdef np.intp_t* raw_indices
- *
+ * 
  *     def __init__(cKDTree self, data, np.intp_t leafsize=10):             # <<<<<<<<<<<<<<
  *         self.data = np.ascontiguousarray(data,dtype=np.float64)
  *         self.n, self.m = np.shape(self.data)
 */
 
 /* Python wrapper */
-static int __pyx_pw_5pyart_3map_7ckdtree_7cKDTree_1__init__(PyObject *__pyx_v_self,
+static int __pyx_pw_5pyart_3map_7ckdtree_7cKDTree_1__init__(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL_TPNEW
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static int __pyx_pw_5pyart_3map_7ckdtree_7cKDTree_1__init__(PyObject *__pyx_v_self,
+static int __pyx_pw_5pyart_3map_7ckdtree_7cKDTree_1__init__(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL_TPNEW
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -14650,7 +14653,7 @@ static int __pyx_pf_5pyart_3map_7ckdtree_7cKDTree___init__(struct __pyx_obj_5pya
   __Pyx_RefNannySetupContext("__init__", 0);
 
   /* "pyart/map/ckdtree.pyx":847
- *
+ * 
  *     def __init__(cKDTree self, data, np.intp_t leafsize=10):
  *         self.data = np.ascontiguousarray(data,dtype=np.float64)             # <<<<<<<<<<<<<<
  *         self.n, self.m = np.shape(self.data)
@@ -14952,7 +14955,7 @@ static int __pyx_pf_5pyart_3map_7ckdtree_7cKDTree___init__(struct __pyx_obj_5pya
  *         self.maxes = np.ascontiguousarray(np.amax(self.data,axis=0), dtype=np.float64)
  *         self.mins = np.ascontiguousarray(np.amin(self.data,axis=0), dtype=np.float64)             # <<<<<<<<<<<<<<
  *         self.indices = np.ascontiguousarray(np.arange(self.n,dtype=np.intp))
- *
+ * 
 */
   __pyx_t_3 = NULL;
   __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 853, __pyx_L1_error)
@@ -15050,7 +15053,7 @@ static int __pyx_pf_5pyart_3map_7ckdtree_7cKDTree___init__(struct __pyx_obj_5pya
  *         self.maxes = np.ascontiguousarray(np.amax(self.data,axis=0), dtype=np.float64)
  *         self.mins = np.ascontiguousarray(np.amin(self.data,axis=0), dtype=np.float64)
  *         self.indices = np.ascontiguousarray(np.arange(self.n,dtype=np.intp))             # <<<<<<<<<<<<<<
- *
+ * 
  *         self.raw_data = <np.float64_t*>np.PyArray_DATA(self.data)
 */
   __pyx_t_11 = NULL;
@@ -15137,7 +15140,7 @@ static int __pyx_pf_5pyart_3map_7ckdtree_7cKDTree___init__(struct __pyx_obj_5pya
 
   /* "pyart/map/ckdtree.pyx":856
  *         self.indices = np.ascontiguousarray(np.arange(self.n,dtype=np.intp))
- *
+ * 
  *         self.raw_data = <np.float64_t*>np.PyArray_DATA(self.data)             # <<<<<<<<<<<<<<
  *         self.raw_maxes = <np.float64_t*>np.PyArray_DATA(self.maxes)
  *         self.raw_mins = <np.float64_t*>np.PyArray_DATA(self.mins)
@@ -15148,7 +15151,7 @@ static int __pyx_pf_5pyart_3map_7ckdtree_7cKDTree___init__(struct __pyx_obj_5pya
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "pyart/map/ckdtree.pyx":857
- *
+ * 
  *         self.raw_data = <np.float64_t*>np.PyArray_DATA(self.data)
  *         self.raw_maxes = <np.float64_t*>np.PyArray_DATA(self.maxes)             # <<<<<<<<<<<<<<
  *         self.raw_mins = <np.float64_t*>np.PyArray_DATA(self.mins)
@@ -15164,7 +15167,7 @@ static int __pyx_pf_5pyart_3map_7ckdtree_7cKDTree___init__(struct __pyx_obj_5pya
  *         self.raw_maxes = <np.float64_t*>np.PyArray_DATA(self.maxes)
  *         self.raw_mins = <np.float64_t*>np.PyArray_DATA(self.mins)             # <<<<<<<<<<<<<<
  *         self.raw_indices = <np.intp_t*>np.PyArray_DATA(self.indices)
- *
+ * 
 */
   __pyx_t_1 = ((PyObject *)__pyx_v_self->mins);
   __Pyx_INCREF(__pyx_t_1);
@@ -15175,7 +15178,7 @@ static int __pyx_pf_5pyart_3map_7ckdtree_7cKDTree___init__(struct __pyx_obj_5pya
  *         self.raw_maxes = <np.float64_t*>np.PyArray_DATA(self.maxes)
  *         self.raw_mins = <np.float64_t*>np.PyArray_DATA(self.mins)
  *         self.raw_indices = <np.intp_t*>np.PyArray_DATA(self.indices)             # <<<<<<<<<<<<<<
- *
+ * 
  *         self.tree = self.__build(0, self.n, self.raw_maxes, self.raw_mins)
 */
   __pyx_t_1 = ((PyObject *)__pyx_v_self->indices);
@@ -15185,9 +15188,9 @@ static int __pyx_pf_5pyart_3map_7ckdtree_7cKDTree___init__(struct __pyx_obj_5pya
 
   /* "pyart/map/ckdtree.pyx":861
  *         self.raw_indices = <np.intp_t*>np.PyArray_DATA(self.indices)
- *
+ * 
  *         self.tree = self.__build(0, self.n, self.raw_maxes, self.raw_mins)             # <<<<<<<<<<<<<<
- *
+ * 
  *     cdef innernode* __build(cKDTree self, np.intp_t start_idx, np.intp_t end_idx,
 */
   __pyx_t_15 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__build(__pyx_v_self, 0, __pyx_v_self->n, __pyx_v_self->raw_maxes, __pyx_v_self->raw_mins); if (unlikely(__pyx_t_15 == ((struct __pyx_t_5pyart_3map_7ckdtree_innernode *)((struct __pyx_t_5pyart_3map_7ckdtree_innernode *)NULL)) && PyErr_Occurred())) __PYX_ERR(0, 861, __pyx_L1_error)
@@ -15195,7 +15198,7 @@ static int __pyx_pf_5pyart_3map_7ckdtree_7cKDTree___init__(struct __pyx_obj_5pya
 
   /* "pyart/map/ckdtree.pyx":846
  *     cdef np.intp_t* raw_indices
- *
+ * 
  *     def __init__(cKDTree self, data, np.intp_t leafsize=10):             # <<<<<<<<<<<<<<
  *         self.data = np.ascontiguousarray(data,dtype=np.float64)
  *         self.n, self.m = np.shape(self.data)
@@ -15224,7 +15227,7 @@ static int __pyx_pf_5pyart_3map_7ckdtree_7cKDTree___init__(struct __pyx_obj_5pya
 
 /* "pyart/map/ckdtree.pyx":863
  *         self.tree = self.__build(0, self.n, self.raw_maxes, self.raw_mins)
- *
+ * 
  *     cdef innernode* __build(cKDTree self, np.intp_t start_idx, np.intp_t end_idx,             # <<<<<<<<<<<<<<
  *                             np.float64_t* maxes, np.float64_t* mins) except? <innernode*> NULL:
  *         cdef leafnode* n
@@ -15546,7 +15549,7 @@ static struct __pyx_t_5pyart_3map_7ckdtree_innernode *__pyx_f_5pyart_3map_7ckdtr
  *                 n.start_idx = start_idx
  *                 n.end_idx = end_idx             # <<<<<<<<<<<<<<
  *                 return <innernode*>n
- *
+ * 
 */
       __pyx_v_n->end_idx = __pyx_v_end_idx;
 
@@ -15554,7 +15557,7 @@ static struct __pyx_t_5pyart_3map_7ckdtree_innernode *__pyx_f_5pyart_3map_7ckdtr
  *                 n.start_idx = start_idx
  *                 n.end_idx = end_idx
  *                 return <innernode*>n             # <<<<<<<<<<<<<<
- *
+ * 
  *             split = (maxval+minval)/2
 */
       {
@@ -15574,16 +15577,16 @@ static struct __pyx_t_5pyart_3map_7ckdtree_innernode *__pyx_f_5pyart_3map_7ckdtr
 
     /* "pyart/map/ckdtree.pyx":899
  *                 return <innernode*>n
- *
+ * 
  *             split = (maxval+minval)/2             # <<<<<<<<<<<<<<
- *
+ * 
  *             p = start_idx
 */
     __pyx_v_split = ((__pyx_v_maxval + __pyx_v_minval) / 2.0);
 
     /* "pyart/map/ckdtree.pyx":901
  *             split = (maxval+minval)/2
- *
+ * 
  *             p = start_idx             # <<<<<<<<<<<<<<
  *             q = end_idx-1
  *             while p<=q:
@@ -15591,7 +15594,7 @@ static struct __pyx_t_5pyart_3map_7ckdtree_innernode *__pyx_f_5pyart_3map_7ckdtr
     __pyx_v_p = __pyx_v_start_idx;
 
     /* "pyart/map/ckdtree.pyx":902
- *
+ * 
  *             p = start_idx
  *             q = end_idx-1             # <<<<<<<<<<<<<<
  *             while p<=q:
@@ -15707,7 +15710,7 @@ static struct __pyx_t_5pyart_3map_7ckdtree_innernode *__pyx_f_5pyart_3map_7ckdtr
  *                     self.raw_indices[q] = t
  *                     p+=1             # <<<<<<<<<<<<<<
  *                     q-=1
- *
+ * 
 */
         __pyx_v_p = (__pyx_v_p + 1);
 
@@ -15715,7 +15718,7 @@ static struct __pyx_t_5pyart_3map_7ckdtree_innernode *__pyx_f_5pyart_3map_7ckdtr
  *                     self.raw_indices[q] = t
  *                     p+=1
  *                     q-=1             # <<<<<<<<<<<<<<
- *
+ * 
  *             # slide midpoint if necessary
 */
         __pyx_v_q = (__pyx_v_q - 1);
@@ -15724,7 +15727,7 @@ static struct __pyx_t_5pyart_3map_7ckdtree_innernode *__pyx_f_5pyart_3map_7ckdtr
     }
 
     /* "pyart/map/ckdtree.pyx":916
- *
+ * 
  *             # slide midpoint if necessary
  *             if p==start_idx:             # <<<<<<<<<<<<<<
  *                 # no points less than split
@@ -15854,7 +15857,7 @@ static struct __pyx_t_5pyart_3map_7ckdtree_innernode *__pyx_f_5pyart_3map_7ckdtr
       __pyx_v_q = __pyx_v_start_idx;
 
       /* "pyart/map/ckdtree.pyx":916
- *
+ * 
  *             # slide midpoint if necessary
  *             if p==start_idx:             # <<<<<<<<<<<<<<
  *                 # no points less than split
@@ -15980,7 +15983,7 @@ static struct __pyx_t_5pyart_3map_7ckdtree_innernode *__pyx_f_5pyart_3map_7ckdtr
  *                 self.raw_indices[j] = t
  *                 p = end_idx-1             # <<<<<<<<<<<<<<
  *                 q = end_idx-2
- *
+ * 
 */
       __pyx_v_p = (__pyx_v_end_idx - 1);
 
@@ -15988,7 +15991,7 @@ static struct __pyx_t_5pyart_3map_7ckdtree_innernode *__pyx_f_5pyart_3map_7ckdtr
  *                 self.raw_indices[j] = t
  *                 p = end_idx-1
  *                 q = end_idx-2             # <<<<<<<<<<<<<<
- *
+ * 
  *             # construct new node representation
 */
       __pyx_v_q = (__pyx_v_end_idx - 2);
@@ -16004,7 +16007,7 @@ static struct __pyx_t_5pyart_3map_7ckdtree_innernode *__pyx_f_5pyart_3map_7ckdtr
     __pyx_L13:;
 
     /* "pyart/map/ckdtree.pyx":944
- *
+ * 
  *             # construct new node representation
  *             ni = <innernode*>stdlib.malloc(sizeof(innernode))             # <<<<<<<<<<<<<<
  *             if ni ==  <innernode*> NULL:
@@ -16017,7 +16020,7 @@ static struct __pyx_t_5pyart_3map_7ckdtree_innernode *__pyx_f_5pyart_3map_7ckdtr
  *             ni = <innernode*>stdlib.malloc(sizeof(innernode))
  *             if ni ==  <innernode*> NULL:             # <<<<<<<<<<<<<<
  *                 raise MemoryError
- *
+ * 
 */
     __pyx_t_1 = (__pyx_v_ni == ((struct __pyx_t_5pyart_3map_7ckdtree_innernode *)NULL));
 
@@ -16028,7 +16031,7 @@ static struct __pyx_t_5pyart_3map_7ckdtree_innernode *__pyx_f_5pyart_3map_7ckdtr
  *             ni = <innernode*>stdlib.malloc(sizeof(innernode))
  *             if ni ==  <innernode*> NULL:
  *                 raise MemoryError             # <<<<<<<<<<<<<<
- *
+ * 
  *             try:
 */
       PyErr_NoMemory(); __PYX_ERR(0, 946, __pyx_L1_error)
@@ -16038,13 +16041,13 @@ static struct __pyx_t_5pyart_3map_7ckdtree_innernode *__pyx_f_5pyart_3map_7ckdtr
  *             ni = <innernode*>stdlib.malloc(sizeof(innernode))
  *             if ni ==  <innernode*> NULL:             # <<<<<<<<<<<<<<
  *                 raise MemoryError
- *
+ * 
 */
     }
 
     /* "pyart/map/ckdtree.pyx":948
  *                 raise MemoryError
- *
+ * 
  *             try:             # <<<<<<<<<<<<<<
  *                 mids = <np.float64_t*>stdlib.malloc(sizeof(np.float64_t)*self.m)
  *                 if mids == <np.float64_t*> NULL:
@@ -16059,7 +16062,7 @@ static struct __pyx_t_5pyart_3map_7ckdtree_innernode *__pyx_f_5pyart_3map_7ckdtr
       /*try:*/ {
 
         /* "pyart/map/ckdtree.pyx":949
- *
+ * 
  *             try:
  *                 mids = <np.float64_t*>stdlib.malloc(sizeof(np.float64_t)*self.m)             # <<<<<<<<<<<<<<
  *                 if mids == <np.float64_t*> NULL:
@@ -16072,7 +16075,7 @@ static struct __pyx_t_5pyart_3map_7ckdtree_innernode *__pyx_f_5pyart_3map_7ckdtr
  *                 mids = <np.float64_t*>stdlib.malloc(sizeof(np.float64_t)*self.m)
  *                 if mids == <np.float64_t*> NULL:             # <<<<<<<<<<<<<<
  *                     raise MemoryError
- *
+ * 
 */
         __pyx_t_1 = (__pyx_v_mids == ((__pyx_t_5numpy_float64_t *)NULL));
 
@@ -16083,7 +16086,7 @@ static struct __pyx_t_5pyart_3map_7ckdtree_innernode *__pyx_f_5pyart_3map_7ckdtr
  *                 mids = <np.float64_t*>stdlib.malloc(sizeof(np.float64_t)*self.m)
  *                 if mids == <np.float64_t*> NULL:
  *                     raise MemoryError             # <<<<<<<<<<<<<<
- *
+ * 
  *                 for i in range(self.m):
 */
           PyErr_NoMemory(); __PYX_ERR(0, 951, __pyx_L21_error)
@@ -16093,13 +16096,13 @@ static struct __pyx_t_5pyart_3map_7ckdtree_innernode *__pyx_f_5pyart_3map_7ckdtr
  *                 mids = <np.float64_t*>stdlib.malloc(sizeof(np.float64_t)*self.m)
  *                 if mids == <np.float64_t*> NULL:             # <<<<<<<<<<<<<<
  *                     raise MemoryError
- *
+ * 
 */
         }
 
         /* "pyart/map/ckdtree.pyx":953
  *                     raise MemoryError
- *
+ * 
  *                 for i in range(self.m):             # <<<<<<<<<<<<<<
  *                     mids[i] = maxes[i]
  *                 mids[d] = split
@@ -16112,7 +16115,7 @@ static struct __pyx_t_5pyart_3map_7ckdtree_innernode *__pyx_f_5pyart_3map_7ckdtr
           __pyx_v_i = __pyx_t_4;
 
           /* "pyart/map/ckdtree.pyx":954
- *
+ * 
  *                 for i in range(self.m):
  *                     mids[i] = maxes[i]             # <<<<<<<<<<<<<<
  *                 mids[d] = split
@@ -16127,7 +16130,7 @@ static struct __pyx_t_5pyart_3map_7ckdtree_innernode *__pyx_f_5pyart_3map_7ckdtr
  *                     mids[i] = maxes[i]
  *                 mids[d] = split             # <<<<<<<<<<<<<<
  *                 ni.less = self.__build(start_idx,p,mids,mins)
- *
+ * 
 */
         (__pyx_v_mids[__pyx_v_d]) = __pyx_v_split;
 
@@ -16135,7 +16138,7 @@ static struct __pyx_t_5pyart_3map_7ckdtree_innernode *__pyx_f_5pyart_3map_7ckdtr
  *                     mids[i] = maxes[i]
  *                 mids[d] = split
  *                 ni.less = self.__build(start_idx,p,mids,mins)             # <<<<<<<<<<<<<<
- *
+ * 
  *                 for i in range(self.m):
 */
         __pyx_t_8 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__build(__pyx_v_self, __pyx_v_start_idx, __pyx_v_p, __pyx_v_mids, __pyx_v_mins); if (unlikely(__pyx_t_8 == ((struct __pyx_t_5pyart_3map_7ckdtree_innernode *)((struct __pyx_t_5pyart_3map_7ckdtree_innernode *)NULL)) && PyErr_Occurred())) __PYX_ERR(0, 956, __pyx_L21_error)
@@ -16143,7 +16146,7 @@ static struct __pyx_t_5pyart_3map_7ckdtree_innernode *__pyx_f_5pyart_3map_7ckdtr
 
         /* "pyart/map/ckdtree.pyx":958
  *                 ni.less = self.__build(start_idx,p,mids,mins)
- *
+ * 
  *                 for i in range(self.m):             # <<<<<<<<<<<<<<
  *                     mids[i] = mins[i]
  *                 mids[d] = split
@@ -16156,7 +16159,7 @@ static struct __pyx_t_5pyart_3map_7ckdtree_innernode *__pyx_f_5pyart_3map_7ckdtr
           __pyx_v_i = __pyx_t_4;
 
           /* "pyart/map/ckdtree.pyx":959
- *
+ * 
  *                 for i in range(self.m):
  *                     mids[i] = mins[i]             # <<<<<<<<<<<<<<
  *                 mids[d] = split
@@ -16171,7 +16174,7 @@ static struct __pyx_t_5pyart_3map_7ckdtree_innernode *__pyx_f_5pyart_3map_7ckdtr
  *                     mids[i] = mins[i]
  *                 mids[d] = split             # <<<<<<<<<<<<<<
  *                 ni.greater = self.__build(p,end_idx,maxes,mids)
- *
+ * 
 */
         (__pyx_v_mids[__pyx_v_d]) = __pyx_v_split;
 
@@ -16179,7 +16182,7 @@ static struct __pyx_t_5pyart_3map_7ckdtree_innernode *__pyx_f_5pyart_3map_7ckdtr
  *                     mids[i] = mins[i]
  *                 mids[d] = split
  *                 ni.greater = self.__build(p,end_idx,maxes,mids)             # <<<<<<<<<<<<<<
- *
+ * 
  *                 ni.children = ni.less.children + ni.greater.children
 */
         __pyx_t_8 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__build(__pyx_v_self, __pyx_v_p, __pyx_v_end_idx, __pyx_v_maxes, __pyx_v_mids); if (unlikely(__pyx_t_8 == ((struct __pyx_t_5pyart_3map_7ckdtree_innernode *)((struct __pyx_t_5pyart_3map_7ckdtree_innernode *)NULL)) && PyErr_Occurred())) __PYX_ERR(0, 961, __pyx_L21_error)
@@ -16187,28 +16190,28 @@ static struct __pyx_t_5pyart_3map_7ckdtree_innernode *__pyx_f_5pyart_3map_7ckdtr
 
         /* "pyart/map/ckdtree.pyx":963
  *                 ni.greater = self.__build(p,end_idx,maxes,mids)
- *
+ * 
  *                 ni.children = ni.less.children + ni.greater.children             # <<<<<<<<<<<<<<
- *
+ * 
  *             except:
 */
         __pyx_v_ni->children = (__pyx_v_ni->less->children + __pyx_v_ni->greater->children);
 
         /* "pyart/map/ckdtree.pyx":948
  *                 raise MemoryError
- *
+ * 
  *             try:             # <<<<<<<<<<<<<<
  *                 mids = <np.float64_t*>stdlib.malloc(sizeof(np.float64_t)*self.m)
  *                 if mids == <np.float64_t*> NULL:
 */
       }
 
-      /* "pyart/map/ckdtree.pyx":973
+      /* "pyart/map/ckdtree.pyx":980
  *                 raise
  *             else:
  *                 if mids != <np.float64_t*> NULL:             # <<<<<<<<<<<<<<
  *                     stdlib.free(mids)
- *
+ * 
 */
       /*else:*/ {
         __pyx_t_1 = (__pyx_v_mids != ((__pyx_t_5numpy_float64_t *)NULL));
@@ -16216,21 +16219,21 @@ static struct __pyx_t_5pyart_3map_7ckdtree_innernode *__pyx_f_5pyart_3map_7ckdtr
         if (__pyx_t_1) {
 
 
-          /* "pyart/map/ckdtree.pyx":974
+          /* "pyart/map/ckdtree.pyx":981
  *             else:
  *                 if mids != <np.float64_t*> NULL:
  *                     stdlib.free(mids)             # <<<<<<<<<<<<<<
- *
+ * 
  *             ni.split_dim = d
 */
           free(__pyx_v_mids);
 
-          /* "pyart/map/ckdtree.pyx":973
+          /* "pyart/map/ckdtree.pyx":980
  *                 raise
  *             else:
  *                 if mids != <np.float64_t*> NULL:             # <<<<<<<<<<<<<<
  *                     stdlib.free(mids)
- *
+ * 
 */
         }
       }
@@ -16242,10 +16245,10 @@ static struct __pyx_t_5pyart_3map_7ckdtree_innernode *__pyx_f_5pyart_3map_7ckdtr
 
       /* "pyart/map/ckdtree.pyx":965
  *                 ni.children = ni.less.children + ni.greater.children
- *
+ * 
  *             except:             # <<<<<<<<<<<<<<
- *                 # free ni if it cannot be returned
- *                 if ni !=  <innernode*> NULL:
+ *                 # FU-05 (CWE-415, SEI CERT C MEM31-C): free each allocation
+ *                 # exactly once, and never dereference a pointer after freeing
 */
       /*except:*/ {
         __Pyx_AddTraceback("pyart.map.ckdtree.cKDTree._cKDTree__build", __pyx_clineno, __pyx_lineno, __pyx_filename);
@@ -16254,69 +16257,87 @@ static struct __pyx_t_5pyart_3map_7ckdtree_innernode *__pyx_f_5pyart_3map_7ckdtr
         __Pyx_XGOTREF(__pyx_t_10);
         __Pyx_XGOTREF(__pyx_t_11);
 
-        /* "pyart/map/ckdtree.pyx":967
- *             except:
- *                 # free ni if it cannot be returned
+        /* "pyart/map/ckdtree.pyx":972
+ *                 # free reachable from any allocation failure inside the
+ *                 # recursive build.
  *                 if ni !=  <innernode*> NULL:             # <<<<<<<<<<<<<<
- *                     stdlib.free(mids)
- *                 if mids != <np.float64_t*> NULL:
+ *                     stdlib.free(ni)
+ *                     ni = <innernode*> NULL
 */
         __pyx_t_1 = (__pyx_v_ni != ((struct __pyx_t_5pyart_3map_7ckdtree_innernode *)NULL));
 
         if (__pyx_t_1) {
 
 
-          /* "pyart/map/ckdtree.pyx":968
- *                 # free ni if it cannot be returned
+          /* "pyart/map/ckdtree.pyx":973
+ *                 # recursive build.
  *                 if ni !=  <innernode*> NULL:
- *                     stdlib.free(mids)             # <<<<<<<<<<<<<<
+ *                     stdlib.free(ni)             # <<<<<<<<<<<<<<
+ *                     ni = <innernode*> NULL
+ *                 if mids != <np.float64_t*> NULL:
+*/
+          free(__pyx_v_ni);
+
+          /* "pyart/map/ckdtree.pyx":974
+ *                 if ni !=  <innernode*> NULL:
+ *                     stdlib.free(ni)
+ *                     ni = <innernode*> NULL             # <<<<<<<<<<<<<<
  *                 if mids != <np.float64_t*> NULL:
  *                     stdlib.free(mids)
 */
-          free(__pyx_v_mids);
+          __pyx_v_ni = ((struct __pyx_t_5pyart_3map_7ckdtree_innernode *)NULL);
 
-          /* "pyart/map/ckdtree.pyx":967
- *             except:
- *                 # free ni if it cannot be returned
+          /* "pyart/map/ckdtree.pyx":972
+ *                 # free reachable from any allocation failure inside the
+ *                 # recursive build.
  *                 if ni !=  <innernode*> NULL:             # <<<<<<<<<<<<<<
- *                     stdlib.free(mids)
- *                 if mids != <np.float64_t*> NULL:
+ *                     stdlib.free(ni)
+ *                     ni = <innernode*> NULL
 */
         }
 
-        /* "pyart/map/ckdtree.pyx":969
- *                 if ni !=  <innernode*> NULL:
- *                     stdlib.free(mids)
+        /* "pyart/map/ckdtree.pyx":975
+ *                     stdlib.free(ni)
+ *                     ni = <innernode*> NULL
  *                 if mids != <np.float64_t*> NULL:             # <<<<<<<<<<<<<<
  *                     stdlib.free(mids)
- *                 raise
+ *                     mids = <np.float64_t*> NULL
 */
         __pyx_t_1 = (__pyx_v_mids != ((__pyx_t_5numpy_float64_t *)NULL));
 
         if (__pyx_t_1) {
 
 
-          /* "pyart/map/ckdtree.pyx":970
- *                     stdlib.free(mids)
+          /* "pyart/map/ckdtree.pyx":976
+ *                     ni = <innernode*> NULL
  *                 if mids != <np.float64_t*> NULL:
  *                     stdlib.free(mids)             # <<<<<<<<<<<<<<
+ *                     mids = <np.float64_t*> NULL
  *                 raise
- *             else:
 */
           free(__pyx_v_mids);
 
-          /* "pyart/map/ckdtree.pyx":969
- *                 if ni !=  <innernode*> NULL:
+          /* "pyart/map/ckdtree.pyx":977
+ *                 if mids != <np.float64_t*> NULL:
  *                     stdlib.free(mids)
+ *                     mids = <np.float64_t*> NULL             # <<<<<<<<<<<<<<
+ *                 raise
+ *             else:
+*/
+          __pyx_v_mids = ((__pyx_t_5numpy_float64_t *)NULL);
+
+          /* "pyart/map/ckdtree.pyx":975
+ *                     stdlib.free(ni)
+ *                     ni = <innernode*> NULL
  *                 if mids != <np.float64_t*> NULL:             # <<<<<<<<<<<<<<
  *                     stdlib.free(mids)
- *                 raise
+ *                     mids = <np.float64_t*> NULL
 */
         }
 
-        /* "pyart/map/ckdtree.pyx":971
- *                 if mids != <np.float64_t*> NULL:
+        /* "pyart/map/ckdtree.pyx":978
  *                     stdlib.free(mids)
+ *                     mids = <np.float64_t*> NULL
  *                 raise             # <<<<<<<<<<<<<<
  *             else:
  *                 if mids != <np.float64_t*> NULL:
@@ -16325,13 +16346,13 @@ static struct __pyx_t_5pyart_3map_7ckdtree_innernode *__pyx_f_5pyart_3map_7ckdtr
         __Pyx_GIVEREF(__pyx_t_10);
         __Pyx_XGIVEREF(__pyx_t_11);
         __Pyx_ErrRestoreWithState(__pyx_t_9, __pyx_t_10, __pyx_t_11);
-        __pyx_t_9 = 0;  __pyx_t_10 = 0;  __pyx_t_11 = 0;
-        __PYX_ERR(0, 971, __pyx_L23_except_error)
+        __pyx_t_9 = 0;  __pyx_t_10 = 0;  __pyx_t_11 = 0; 
+        __PYX_ERR(0, 978, __pyx_L23_except_error)
       }
 
       /* "pyart/map/ckdtree.pyx":948
  *                 raise MemoryError
- *
+ * 
  *             try:             # <<<<<<<<<<<<<<
  *                 mids = <np.float64_t*>stdlib.malloc(sizeof(np.float64_t)*self.m)
  *                 if mids == <np.float64_t*> NULL:
@@ -16345,29 +16366,29 @@ static struct __pyx_t_5pyart_3map_7ckdtree_innernode *__pyx_f_5pyart_3map_7ckdtr
       __pyx_L26_try_end:;
     }
 
-    /* "pyart/map/ckdtree.pyx":976
+    /* "pyart/map/ckdtree.pyx":983
  *                     stdlib.free(mids)
- *
+ * 
  *             ni.split_dim = d             # <<<<<<<<<<<<<<
  *             ni.split = split
  *             return ni
 */
     __pyx_v_ni->split_dim = __pyx_v_d;
 
-    /* "pyart/map/ckdtree.pyx":977
- *
+    /* "pyart/map/ckdtree.pyx":984
+ * 
  *             ni.split_dim = d
  *             ni.split = split             # <<<<<<<<<<<<<<
  *             return ni
- *
+ * 
 */
     __pyx_v_ni->split = __pyx_v_split;
 
-    /* "pyart/map/ckdtree.pyx":978
+    /* "pyart/map/ckdtree.pyx":985
  *             ni.split_dim = d
  *             ni.split = split
  *             return ni             # <<<<<<<<<<<<<<
- *
+ * 
  *     cdef __free_tree(cKDTree self, innernode* node):
 */
     {
@@ -16379,7 +16400,7 @@ static struct __pyx_t_5pyart_3map_7ckdtree_innernode *__pyx_f_5pyart_3map_7ckdtr
 
   /* "pyart/map/ckdtree.pyx":863
  *         self.tree = self.__build(0, self.n, self.raw_maxes, self.raw_mins)
- *
+ * 
  *     cdef innernode* __build(cKDTree self, np.intp_t start_idx, np.intp_t end_idx,             # <<<<<<<<<<<<<<
  *                             np.float64_t* maxes, np.float64_t* mins) except? <innernode*> NULL:
  *         cdef leafnode* n
@@ -16411,9 +16432,9 @@ static struct __pyx_t_5pyart_3map_7ckdtree_innernode *__pyx_f_5pyart_3map_7ckdtr
   return __pyx_r;
 }
 
-/* "pyart/map/ckdtree.pyx":980
+/* "pyart/map/ckdtree.pyx":987
  *             return ni
- *
+ * 
  *     cdef __free_tree(cKDTree self, innernode* node):             # <<<<<<<<<<<<<<
  *         if node.split_dim!=-1:
  *             self.__free_tree(node.less)
@@ -16429,8 +16450,8 @@ static PyObject *__pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__free_tree(struc
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_cKDTree__free_tree", 0);
 
-  /* "pyart/map/ckdtree.pyx":981
- *
+  /* "pyart/map/ckdtree.pyx":988
+ * 
  *     cdef __free_tree(cKDTree self, innernode* node):
  *         if node.split_dim!=-1:             # <<<<<<<<<<<<<<
  *             self.__free_tree(node.less)
@@ -16441,30 +16462,30 @@ static PyObject *__pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__free_tree(struc
   if (__pyx_t_1) {
 
 
-    /* "pyart/map/ckdtree.pyx":982
+    /* "pyart/map/ckdtree.pyx":989
  *     cdef __free_tree(cKDTree self, innernode* node):
  *         if node.split_dim!=-1:
  *             self.__free_tree(node.less)             # <<<<<<<<<<<<<<
  *             self.__free_tree(node.greater)
  *         stdlib.free(node)
 */
-    __pyx_t_2 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__free_tree(__pyx_v_self, __pyx_v_node->less); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 982, __pyx_L1_error)
+    __pyx_t_2 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__free_tree(__pyx_v_self, __pyx_v_node->less); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 989, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "pyart/map/ckdtree.pyx":983
+    /* "pyart/map/ckdtree.pyx":990
  *         if node.split_dim!=-1:
  *             self.__free_tree(node.less)
  *             self.__free_tree(node.greater)             # <<<<<<<<<<<<<<
  *         stdlib.free(node)
- *
+ * 
 */
-    __pyx_t_2 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__free_tree(__pyx_v_self, __pyx_v_node->greater); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 983, __pyx_L1_error)
+    __pyx_t_2 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__free_tree(__pyx_v_self, __pyx_v_node->greater); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 990, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "pyart/map/ckdtree.pyx":981
- *
+    /* "pyart/map/ckdtree.pyx":988
+ * 
  *     cdef __free_tree(cKDTree self, innernode* node):
  *         if node.split_dim!=-1:             # <<<<<<<<<<<<<<
  *             self.__free_tree(node.less)
@@ -16472,18 +16493,18 @@ static PyObject *__pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__free_tree(struc
 */
   }
 
-  /* "pyart/map/ckdtree.pyx":984
+  /* "pyart/map/ckdtree.pyx":991
  *             self.__free_tree(node.less)
  *             self.__free_tree(node.greater)
  *         stdlib.free(node)             # <<<<<<<<<<<<<<
- *
+ * 
  *     def __dealloc__(cKDTree self):
 */
   free(__pyx_v_node);
 
-  /* "pyart/map/ckdtree.pyx":980
+  /* "pyart/map/ckdtree.pyx":987
  *             return ni
- *
+ * 
  *     cdef __free_tree(cKDTree self, innernode* node):             # <<<<<<<<<<<<<<
  *         if node.split_dim!=-1:
  *             self.__free_tree(node.less)
@@ -16502,9 +16523,9 @@ static PyObject *__pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__free_tree(struc
   return __pyx_r;
 }
 
-/* "pyart/map/ckdtree.pyx":986
+/* "pyart/map/ckdtree.pyx":993
  *         stdlib.free(node)
- *
+ * 
  *     def __dealloc__(cKDTree self):             # <<<<<<<<<<<<<<
  *         if <np.intp_t>(self.tree) == 0:
  *             # should happen only if __init__ was never called
@@ -16532,8 +16553,8 @@ static void __pyx_pf_5pyart_3map_7ckdtree_7cKDTree_2__dealloc__(struct __pyx_obj
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__dealloc__", 0);
 
-  /* "pyart/map/ckdtree.pyx":987
- *
+  /* "pyart/map/ckdtree.pyx":994
+ * 
  *     def __dealloc__(cKDTree self):
  *         if <np.intp_t>(self.tree) == 0:             # <<<<<<<<<<<<<<
  *             # should happen only if __init__ was never called
@@ -16544,19 +16565,19 @@ static void __pyx_pf_5pyart_3map_7ckdtree_7cKDTree_2__dealloc__(struct __pyx_obj
   if (__pyx_t_1) {
 
 
-    /* "pyart/map/ckdtree.pyx":989
+    /* "pyart/map/ckdtree.pyx":996
  *         if <np.intp_t>(self.tree) == 0:
  *             # should happen only if __init__ was never called
  *             return             # <<<<<<<<<<<<<<
  *         self.__free_tree(self.tree)
- *
+ * 
 */
     {
     }
     goto __pyx_L0;
 
-    /* "pyart/map/ckdtree.pyx":987
- *
+    /* "pyart/map/ckdtree.pyx":994
+ * 
  *     def __dealloc__(cKDTree self):
  *         if <np.intp_t>(self.tree) == 0:             # <<<<<<<<<<<<<<
  *             # should happen only if __init__ was never called
@@ -16564,20 +16585,20 @@ static void __pyx_pf_5pyart_3map_7ckdtree_7cKDTree_2__dealloc__(struct __pyx_obj
 */
   }
 
-  /* "pyart/map/ckdtree.pyx":990
+  /* "pyart/map/ckdtree.pyx":997
  *             # should happen only if __init__ was never called
  *             return
  *         self.__free_tree(self.tree)             # <<<<<<<<<<<<<<
- *
+ * 
  *     # -----
 */
-  __pyx_t_2 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__free_tree(__pyx_v_self, __pyx_v_self->tree); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 990, __pyx_L1_error)
+  __pyx_t_2 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__free_tree(__pyx_v_self, __pyx_v_self->tree); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 997, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pyart/map/ckdtree.pyx":986
+  /* "pyart/map/ckdtree.pyx":993
  *         stdlib.free(node)
- *
+ * 
  *     def __dealloc__(cKDTree self):             # <<<<<<<<<<<<<<
  *         if <np.intp_t>(self.tree) == 0:
  *             # should happen only if __init__ was never called
@@ -16593,9 +16614,9 @@ static void __pyx_pf_5pyart_3map_7ckdtree_7cKDTree_2__dealloc__(struct __pyx_obj
   __Pyx_RefNannyFinishContext();
 }
 
-/* "pyart/map/ckdtree.pyx":996
+/* "pyart/map/ckdtree.pyx":1003
  *     # -----
- *
+ * 
  *     cdef int __query(cKDTree self,             # <<<<<<<<<<<<<<
  *             np.float64_t*result_distances,
  *             np.intp_t*result_indices,
@@ -16649,11 +16670,11 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
   __Pyx_RefNannySetupContext("_cKDTree__query", 0);
 
 
-  /* "pyart/map/ckdtree.pyx":1029
+  /* "pyart/map/ckdtree.pyx":1036
  *         #  distances between the nearest side of the cell and the target
  *         #  the head node of the cell
  *         q = heap(12)             # <<<<<<<<<<<<<<
- *
+ * 
  *         # priority queue for the nearest neighbors
 */
   __pyx_t_2 = NULL;
@@ -16662,21 +16683,21 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
     PyObject *__pyx_callargs[2] = {__pyx_t_2, __pyx_mstate_global->__pyx_int_12};
     __pyx_t_1 = __Pyx_PyObject_FastCall((PyObject*)__pyx_mstate_global->__pyx_ptype_5pyart_3map_7ckdtree_heap, __pyx_callargs+__pyx_t_3, (2-__pyx_t_3) | (__pyx_t_3*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1029, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1036, __pyx_L1_error)
     __Pyx_GOTREF((PyObject *)__pyx_t_1);
   }
   __pyx_v_q = ((struct __pyx_obj_5pyart_3map_7ckdtree_heap *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "pyart/map/ckdtree.pyx":1034
+  /* "pyart/map/ckdtree.pyx":1041
  *         # furthest known neighbor first
  *         # entries are (-distance**p, i)
  *         neighbors = heap(k)             # <<<<<<<<<<<<<<
- *
+ * 
  *         inf = inf2 = <nodeinfo*> NULL
 */
   __pyx_t_2 = NULL;
-  __pyx_t_4 = __Pyx_PyLong_From_npy_intp(__pyx_v_k); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1034, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_npy_intp(__pyx_v_k); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1041, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_3 = 1;
   {
@@ -16684,32 +16705,32 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
     __pyx_t_1 = __Pyx_PyObject_FastCall((PyObject*)__pyx_mstate_global->__pyx_ptype_5pyart_3map_7ckdtree_heap, __pyx_callargs+__pyx_t_3, (2-__pyx_t_3) | (__pyx_t_3*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1034, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1041, __pyx_L1_error)
     __Pyx_GOTREF((PyObject *)__pyx_t_1);
   }
   __pyx_v_neighbors = ((struct __pyx_obj_5pyart_3map_7ckdtree_heap *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "pyart/map/ckdtree.pyx":1036
+  /* "pyart/map/ckdtree.pyx":1043
  *         neighbors = heap(k)
- *
+ * 
  *         inf = inf2 = <nodeinfo*> NULL             # <<<<<<<<<<<<<<
- *
+ * 
  *         try:
 */
   __pyx_v_inf = ((struct __pyx_t_5pyart_3map_7ckdtree_nodeinfo *)NULL);
   __pyx_v_inf2 = ((struct __pyx_t_5pyart_3map_7ckdtree_nodeinfo *)NULL);
 
-  /* "pyart/map/ckdtree.pyx":1038
+  /* "pyart/map/ckdtree.pyx":1045
  *         inf = inf2 = <nodeinfo*> NULL
- *
+ * 
  *         try:             # <<<<<<<<<<<<<<
  *             # set up first nodeinfo
  *             inf = <nodeinfo*>stdlib.malloc(sizeof(nodeinfo)+self.m*sizeof(np.float64_t))
 */
   /*try:*/ {
 
-    /* "pyart/map/ckdtree.pyx":1040
+    /* "pyart/map/ckdtree.pyx":1047
  *         try:
  *             # set up first nodeinfo
  *             inf = <nodeinfo*>stdlib.malloc(sizeof(nodeinfo)+self.m*sizeof(np.float64_t))             # <<<<<<<<<<<<<<
@@ -16718,7 +16739,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
 */
     __pyx_v_inf = ((struct __pyx_t_5pyart_3map_7ckdtree_nodeinfo *)malloc(((sizeof(struct __pyx_t_5pyart_3map_7ckdtree_nodeinfo)) + (__pyx_v_self->m * (sizeof(__pyx_t_5numpy_float64_t))))));
 
-    /* "pyart/map/ckdtree.pyx":1041
+    /* "pyart/map/ckdtree.pyx":1048
  *             # set up first nodeinfo
  *             inf = <nodeinfo*>stdlib.malloc(sizeof(nodeinfo)+self.m*sizeof(np.float64_t))
  *             if inf == <nodeinfo*> NULL:             # <<<<<<<<<<<<<<
@@ -16730,16 +16751,16 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
     if (unlikely(__pyx_t_5)) {
 
 
-      /* "pyart/map/ckdtree.pyx":1042
+      /* "pyart/map/ckdtree.pyx":1049
  *             inf = <nodeinfo*>stdlib.malloc(sizeof(nodeinfo)+self.m*sizeof(np.float64_t))
  *             if inf == <nodeinfo*> NULL:
  *                 raise MemoryError             # <<<<<<<<<<<<<<
  *             inf.node = self.tree
  *             for i in range(self.m):
 */
-      PyErr_NoMemory(); __PYX_ERR(0, 1042, __pyx_L4_error)
+      PyErr_NoMemory(); __PYX_ERR(0, 1049, __pyx_L4_error)
 
-      /* "pyart/map/ckdtree.pyx":1041
+      /* "pyart/map/ckdtree.pyx":1048
  *             # set up first nodeinfo
  *             inf = <nodeinfo*>stdlib.malloc(sizeof(nodeinfo)+self.m*sizeof(np.float64_t))
  *             if inf == <nodeinfo*> NULL:             # <<<<<<<<<<<<<<
@@ -16748,7 +16769,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
 */
     }
 
-    /* "pyart/map/ckdtree.pyx":1043
+    /* "pyart/map/ckdtree.pyx":1050
  *             if inf == <nodeinfo*> NULL:
  *                 raise MemoryError
  *             inf.node = self.tree             # <<<<<<<<<<<<<<
@@ -16759,7 +16780,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
 
     __pyx_v_inf->node = __pyx_t_6;
 
-    /* "pyart/map/ckdtree.pyx":1044
+    /* "pyart/map/ckdtree.pyx":1051
  *                 raise MemoryError
  *             inf.node = self.tree
  *             for i in range(self.m):             # <<<<<<<<<<<<<<
@@ -16773,7 +16794,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
     for (__pyx_t_9 = 0; __pyx_t_9 < __pyx_t_8; __pyx_t_9+=1) {
       __pyx_v_i = __pyx_t_9;
 
-      /* "pyart/map/ckdtree.pyx":1045
+      /* "pyart/map/ckdtree.pyx":1052
  *             inf.node = self.tree
  *             for i in range(self.m):
  *                 inf.side_distances[i] = 0             # <<<<<<<<<<<<<<
@@ -16782,7 +16803,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
 */
       (__pyx_v_inf->side_distances[__pyx_v_i]) = 0.0;
 
-      /* "pyart/map/ckdtree.pyx":1046
+      /* "pyart/map/ckdtree.pyx":1053
  *             for i in range(self.m):
  *                 inf.side_distances[i] = 0
  *                 t = x[i]-self.raw_maxes[i]             # <<<<<<<<<<<<<<
@@ -16791,7 +16812,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
 */
       __pyx_v_t = ((__pyx_v_x[__pyx_v_i]) - (__pyx_v_self->raw_maxes[__pyx_v_i]));
 
-      /* "pyart/map/ckdtree.pyx":1047
+      /* "pyart/map/ckdtree.pyx":1054
  *                 inf.side_distances[i] = 0
  *                 t = x[i]-self.raw_maxes[i]
  *                 if t>inf.side_distances[i]:             # <<<<<<<<<<<<<<
@@ -16803,7 +16824,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
       if (__pyx_t_5) {
 
 
-        /* "pyart/map/ckdtree.pyx":1048
+        /* "pyart/map/ckdtree.pyx":1055
  *                 t = x[i]-self.raw_maxes[i]
  *                 if t>inf.side_distances[i]:
  *                     inf.side_distances[i] = t             # <<<<<<<<<<<<<<
@@ -16812,7 +16833,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
 */
         (__pyx_v_inf->side_distances[__pyx_v_i]) = __pyx_v_t;
 
-        /* "pyart/map/ckdtree.pyx":1047
+        /* "pyart/map/ckdtree.pyx":1054
  *                 inf.side_distances[i] = 0
  *                 t = x[i]-self.raw_maxes[i]
  *                 if t>inf.side_distances[i]:             # <<<<<<<<<<<<<<
@@ -16822,7 +16843,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
         goto __pyx_L9;
       }
 
-      /* "pyart/map/ckdtree.pyx":1050
+      /* "pyart/map/ckdtree.pyx":1057
  *                     inf.side_distances[i] = t
  *                 else:
  *                     t = self.raw_mins[i]-x[i]             # <<<<<<<<<<<<<<
@@ -16832,7 +16853,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
       /*else*/ {
         __pyx_v_t = ((__pyx_v_self->raw_mins[__pyx_v_i]) - (__pyx_v_x[__pyx_v_i]));
 
-        /* "pyart/map/ckdtree.pyx":1051
+        /* "pyart/map/ckdtree.pyx":1058
  *                 else:
  *                     t = self.raw_mins[i]-x[i]
  *                     if t>inf.side_distances[i]:             # <<<<<<<<<<<<<<
@@ -16844,7 +16865,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
         if (__pyx_t_5) {
 
 
-          /* "pyart/map/ckdtree.pyx":1052
+          /* "pyart/map/ckdtree.pyx":1059
  *                     t = self.raw_mins[i]-x[i]
  *                     if t>inf.side_distances[i]:
  *                         inf.side_distances[i] = t             # <<<<<<<<<<<<<<
@@ -16853,7 +16874,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
 */
           (__pyx_v_inf->side_distances[__pyx_v_i]) = __pyx_v_t;
 
-          /* "pyart/map/ckdtree.pyx":1051
+          /* "pyart/map/ckdtree.pyx":1058
  *                 else:
  *                     t = self.raw_mins[i]-x[i]
  *                     if t>inf.side_distances[i]:             # <<<<<<<<<<<<<<
@@ -16864,12 +16885,12 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
       }
       __pyx_L9:;
 
-      /* "pyart/map/ckdtree.pyx":1053
+      /* "pyart/map/ckdtree.pyx":1060
  *                     if t>inf.side_distances[i]:
  *                         inf.side_distances[i] = t
  *                 if p!=1 and p!=infinity:             # <<<<<<<<<<<<<<
  *                     inf.side_distances[i]=inf.side_distances[i]**p
- *
+ * 
 */
       __pyx_t_10 = (__pyx_v_p != 1.0);
 
@@ -16890,28 +16911,28 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
       if (__pyx_t_5) {
 
 
-        /* "pyart/map/ckdtree.pyx":1054
+        /* "pyart/map/ckdtree.pyx":1061
  *                         inf.side_distances[i] = t
  *                 if p!=1 and p!=infinity:
  *                     inf.side_distances[i]=inf.side_distances[i]**p             # <<<<<<<<<<<<<<
- *
+ * 
  *             # compute first distance
 */
         (__pyx_v_inf->side_distances[__pyx_v_i]) = pow((__pyx_v_inf->side_distances[__pyx_v_i]), __pyx_v_p);
 
-        /* "pyart/map/ckdtree.pyx":1053
+        /* "pyart/map/ckdtree.pyx":1060
  *                     if t>inf.side_distances[i]:
  *                         inf.side_distances[i] = t
  *                 if p!=1 and p!=infinity:             # <<<<<<<<<<<<<<
  *                     inf.side_distances[i]=inf.side_distances[i]**p
- *
+ * 
 */
       }
     }
 
 
-    /* "pyart/map/ckdtree.pyx":1057
- *
+    /* "pyart/map/ckdtree.pyx":1064
+ * 
  *             # compute first distance
  *             min_distance = 0.             # <<<<<<<<<<<<<<
  *             for i in range(self.m):
@@ -16919,7 +16940,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
 */
     __pyx_v_min_distance = 0.;
 
-    /* "pyart/map/ckdtree.pyx":1058
+    /* "pyart/map/ckdtree.pyx":1065
  *             # compute first distance
  *             min_distance = 0.
  *             for i in range(self.m):             # <<<<<<<<<<<<<<
@@ -16933,7 +16954,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
     for (__pyx_t_9 = 0; __pyx_t_9 < __pyx_t_8; __pyx_t_9+=1) {
       __pyx_v_i = __pyx_t_9;
 
-      /* "pyart/map/ckdtree.pyx":1059
+      /* "pyart/map/ckdtree.pyx":1066
  *             min_distance = 0.
  *             for i in range(self.m):
  *                 if p==infinity:             # <<<<<<<<<<<<<<
@@ -16945,17 +16966,17 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
       if (__pyx_t_5) {
 
 
-        /* "pyart/map/ckdtree.pyx":1060
+        /* "pyart/map/ckdtree.pyx":1067
  *             for i in range(self.m):
  *                 if p==infinity:
  *                     min_distance = dmax(min_distance,inf.side_distances[i])             # <<<<<<<<<<<<<<
  *                 else:
  *                     min_distance += inf.side_distances[i]
 */
-        __pyx_t_11 = __pyx_f_5pyart_3map_7ckdtree_dmax(__pyx_v_min_distance, (__pyx_v_inf->side_distances[__pyx_v_i])); if (unlikely(__pyx_t_11 == ((__pyx_t_5numpy_float64_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 1060, __pyx_L4_error)
+        __pyx_t_11 = __pyx_f_5pyart_3map_7ckdtree_dmax(__pyx_v_min_distance, (__pyx_v_inf->side_distances[__pyx_v_i])); if (unlikely(__pyx_t_11 == ((__pyx_t_5numpy_float64_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 1067, __pyx_L4_error)
         __pyx_v_min_distance = __pyx_t_11;
 
-        /* "pyart/map/ckdtree.pyx":1059
+        /* "pyart/map/ckdtree.pyx":1066
  *             min_distance = 0.
  *             for i in range(self.m):
  *                 if p==infinity:             # <<<<<<<<<<<<<<
@@ -16965,11 +16986,11 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
         goto __pyx_L16;
       }
 
-      /* "pyart/map/ckdtree.pyx":1062
+      /* "pyart/map/ckdtree.pyx":1069
  *                     min_distance = dmax(min_distance,inf.side_distances[i])
  *                 else:
  *                     min_distance += inf.side_distances[i]             # <<<<<<<<<<<<<<
- *
+ * 
  *             # fiddle approximation factor
 */
       /*else*/ {
@@ -16979,8 +17000,8 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
     }
 
 
-    /* "pyart/map/ckdtree.pyx":1065
- *
+    /* "pyart/map/ckdtree.pyx":1072
+ * 
  *             # fiddle approximation factor
  *             if eps==0:             # <<<<<<<<<<<<<<
  *                 epsfac=1
@@ -16991,7 +17012,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
     if (__pyx_t_5) {
 
 
-      /* "pyart/map/ckdtree.pyx":1066
+      /* "pyart/map/ckdtree.pyx":1073
  *             # fiddle approximation factor
  *             if eps==0:
  *                 epsfac=1             # <<<<<<<<<<<<<<
@@ -17000,8 +17021,8 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
 */
       __pyx_v_epsfac = 1.0;
 
-      /* "pyart/map/ckdtree.pyx":1065
- *
+      /* "pyart/map/ckdtree.pyx":1072
+ * 
  *             # fiddle approximation factor
  *             if eps==0:             # <<<<<<<<<<<<<<
  *                 epsfac=1
@@ -17010,7 +17031,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
       goto __pyx_L17;
     }
 
-    /* "pyart/map/ckdtree.pyx":1067
+    /* "pyart/map/ckdtree.pyx":1074
  *             if eps==0:
  *                 epsfac=1
  *             elif p==infinity:             # <<<<<<<<<<<<<<
@@ -17022,7 +17043,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
     if (__pyx_t_5) {
 
 
-      /* "pyart/map/ckdtree.pyx":1068
+      /* "pyart/map/ckdtree.pyx":1075
  *                 epsfac=1
  *             elif p==infinity:
  *                 epsfac = 1/(1+eps)             # <<<<<<<<<<<<<<
@@ -17033,12 +17054,12 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
 
       if (unlikely(__pyx_t_11 == 0)) {
         PyErr_SetString(PyExc_ZeroDivisionError, "float division");
-        __PYX_ERR(0, 1068, __pyx_L4_error)
+        __PYX_ERR(0, 1075, __pyx_L4_error)
       }
       __pyx_v_epsfac = (1.0 / __pyx_t_11);
 
 
-      /* "pyart/map/ckdtree.pyx":1067
+      /* "pyart/map/ckdtree.pyx":1074
  *             if eps==0:
  *                 epsfac=1
  *             elif p==infinity:             # <<<<<<<<<<<<<<
@@ -17048,11 +17069,11 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
       goto __pyx_L17;
     }
 
-    /* "pyart/map/ckdtree.pyx":1070
+    /* "pyart/map/ckdtree.pyx":1077
  *                 epsfac = 1/(1+eps)
  *             else:
  *                 epsfac = 1/(1+eps)**p             # <<<<<<<<<<<<<<
- *
+ * 
  *             # internally we represent all distances as distance**p
 */
     /*else*/ {
@@ -17060,19 +17081,19 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
 
       if (unlikely(__pyx_t_11 == 0)) {
         PyErr_SetString(PyExc_ZeroDivisionError, "float division");
-        __PYX_ERR(0, 1070, __pyx_L4_error)
+        __PYX_ERR(0, 1077, __pyx_L4_error)
       }
       __pyx_v_epsfac = (1.0 / __pyx_t_11);
 
     }
     __pyx_L17:;
 
-    /* "pyart/map/ckdtree.pyx":1073
- *
+    /* "pyart/map/ckdtree.pyx":1080
+ * 
  *             # internally we represent all distances as distance**p
  *             if p!=infinity and distance_upper_bound!=infinity:             # <<<<<<<<<<<<<<
  *                 distance_upper_bound = distance_upper_bound**p
- *
+ * 
 */
     __pyx_t_10 = (__pyx_v_p != __pyx_v_5pyart_3map_7ckdtree_infinity);
 
@@ -17093,56 +17114,56 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
     if (__pyx_t_5) {
 
 
-      /* "pyart/map/ckdtree.pyx":1074
+      /* "pyart/map/ckdtree.pyx":1081
  *             # internally we represent all distances as distance**p
  *             if p!=infinity and distance_upper_bound!=infinity:
  *                 distance_upper_bound = distance_upper_bound**p             # <<<<<<<<<<<<<<
- *
+ * 
  *             while True:
 */
       __pyx_v_distance_upper_bound = pow(__pyx_v_distance_upper_bound, __pyx_v_p);
 
-      /* "pyart/map/ckdtree.pyx":1073
- *
+      /* "pyart/map/ckdtree.pyx":1080
+ * 
  *             # internally we represent all distances as distance**p
  *             if p!=infinity and distance_upper_bound!=infinity:             # <<<<<<<<<<<<<<
  *                 distance_upper_bound = distance_upper_bound**p
- *
+ * 
 */
     }
 
-    /* "pyart/map/ckdtree.pyx":1076
+    /* "pyart/map/ckdtree.pyx":1083
  *                 distance_upper_bound = distance_upper_bound**p
- *
+ * 
  *             while True:             # <<<<<<<<<<<<<<
  *                 if inf.node.split_dim==-1:
  *                     node = <leafnode*>inf.node
 */
     while (1) {
 
-      /* "pyart/map/ckdtree.pyx":1077
- *
+      /* "pyart/map/ckdtree.pyx":1084
+ * 
  *             while True:
  *                 if inf.node.split_dim==-1:             # <<<<<<<<<<<<<<
  *                     node = <leafnode*>inf.node
- *
+ * 
 */
       __pyx_t_5 = (__pyx_v_inf->node->split_dim == -1L);
 
       if (__pyx_t_5) {
 
 
-        /* "pyart/map/ckdtree.pyx":1078
+        /* "pyart/map/ckdtree.pyx":1085
  *             while True:
  *                 if inf.node.split_dim==-1:
  *                     node = <leafnode*>inf.node             # <<<<<<<<<<<<<<
- *
+ * 
  *                     # brute-force
 */
         __pyx_v_node = ((struct __pyx_t_5pyart_3map_7ckdtree_leafnode *)__pyx_v_inf->node);
 
-        /* "pyart/map/ckdtree.pyx":1081
- *
+        /* "pyart/map/ckdtree.pyx":1088
+ * 
  *                     # brute-force
  *                     for i in range(node.start_idx,node.end_idx):             # <<<<<<<<<<<<<<
  *                         d = _distance_p(
@@ -17155,19 +17176,19 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
         for (__pyx_t_9 = __pyx_v_node->start_idx; __pyx_t_9 < __pyx_t_8; __pyx_t_9+=1) {
           __pyx_v_i = __pyx_t_9;
 
-          /* "pyart/map/ckdtree.pyx":1082
+          /* "pyart/map/ckdtree.pyx":1089
  *                     # brute-force
  *                     for i in range(node.start_idx,node.end_idx):
  *                         d = _distance_p(             # <<<<<<<<<<<<<<
  *                                 self.raw_data+self.raw_indices[i]*self.m,
  *                                 x,p,self.m,distance_upper_bound)
 */
-          __pyx_t_11 = __pyx_f_5pyart_3map_7ckdtree__distance_p((__pyx_v_self->raw_data + ((__pyx_v_self->raw_indices[__pyx_v_i]) * __pyx_v_self->m)), __pyx_v_x, __pyx_v_p, __pyx_v_self->m, __pyx_v_distance_upper_bound); if (unlikely(__pyx_t_11 == ((__pyx_t_5numpy_float64_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 1082, __pyx_L4_error)
+          __pyx_t_11 = __pyx_f_5pyart_3map_7ckdtree__distance_p((__pyx_v_self->raw_data + ((__pyx_v_self->raw_indices[__pyx_v_i]) * __pyx_v_self->m)), __pyx_v_x, __pyx_v_p, __pyx_v_self->m, __pyx_v_distance_upper_bound); if (unlikely(__pyx_t_11 == ((__pyx_t_5numpy_float64_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 1089, __pyx_L4_error)
           __pyx_v_d = __pyx_t_11;
 
-          /* "pyart/map/ckdtree.pyx":1086
+          /* "pyart/map/ckdtree.pyx":1093
  *                                 x,p,self.m,distance_upper_bound)
- *
+ * 
  *                         if d<distance_upper_bound:             # <<<<<<<<<<<<<<
  *                             # replace furthest neighbor
  *                             if neighbors.n==k:
@@ -17177,7 +17198,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
           if (__pyx_t_5) {
 
 
-            /* "pyart/map/ckdtree.pyx":1088
+            /* "pyart/map/ckdtree.pyx":1095
  *                         if d<distance_upper_bound:
  *                             # replace furthest neighbor
  *                             if neighbors.n==k:             # <<<<<<<<<<<<<<
@@ -17189,17 +17210,17 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
             if (__pyx_t_5) {
 
 
-              /* "pyart/map/ckdtree.pyx":1089
+              /* "pyart/map/ckdtree.pyx":1096
  *                             # replace furthest neighbor
  *                             if neighbors.n==k:
  *                                 neighbors.remove()             # <<<<<<<<<<<<<<
  *                             neighbor.priority = -d
  *                             neighbor.contents.intdata = self.raw_indices[i]
 */
-              __pyx_t_12 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_heap *)__pyx_v_neighbors->__pyx_vtab)->remove(__pyx_v_neighbors); if (unlikely(__pyx_t_12 == ((int)-1))) __PYX_ERR(0, 1089, __pyx_L4_error)
+              __pyx_t_12 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_heap *)__pyx_v_neighbors->__pyx_vtab)->remove(__pyx_v_neighbors); if (unlikely(__pyx_t_12 == ((int)-1))) __PYX_ERR(0, 1096, __pyx_L4_error)
 
 
-              /* "pyart/map/ckdtree.pyx":1088
+              /* "pyart/map/ckdtree.pyx":1095
  *                         if d<distance_upper_bound:
  *                             # replace furthest neighbor
  *                             if neighbors.n==k:             # <<<<<<<<<<<<<<
@@ -17208,7 +17229,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
 */
             }
 
-            /* "pyart/map/ckdtree.pyx":1090
+            /* "pyart/map/ckdtree.pyx":1097
  *                             if neighbors.n==k:
  *                                 neighbors.remove()
  *                             neighbor.priority = -d             # <<<<<<<<<<<<<<
@@ -17217,60 +17238,60 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
 */
             __pyx_v_neighbor.priority = (-__pyx_v_d);
 
-            /* "pyart/map/ckdtree.pyx":1091
+            /* "pyart/map/ckdtree.pyx":1098
  *                                 neighbors.remove()
  *                             neighbor.priority = -d
  *                             neighbor.contents.intdata = self.raw_indices[i]             # <<<<<<<<<<<<<<
  *                             neighbors.push(neighbor)
- *
+ * 
 */
             __pyx_v_neighbor.contents.intdata = (__pyx_v_self->raw_indices[__pyx_v_i]);
 
-            /* "pyart/map/ckdtree.pyx":1092
+            /* "pyart/map/ckdtree.pyx":1099
  *                             neighbor.priority = -d
  *                             neighbor.contents.intdata = self.raw_indices[i]
  *                             neighbors.push(neighbor)             # <<<<<<<<<<<<<<
- *
+ * 
  *                             # adjust upper bound for efficiency
 */
-            __pyx_t_12 = __pyx_f_5pyart_3map_7ckdtree_4heap_push(__pyx_v_neighbors, __pyx_v_neighbor); if (unlikely(__pyx_t_12 == ((int)-1))) __PYX_ERR(0, 1092, __pyx_L4_error)
+            __pyx_t_12 = __pyx_f_5pyart_3map_7ckdtree_4heap_push(__pyx_v_neighbors, __pyx_v_neighbor); if (unlikely(__pyx_t_12 == ((int)-1))) __PYX_ERR(0, 1099, __pyx_L4_error)
 
 
-            /* "pyart/map/ckdtree.pyx":1095
- *
+            /* "pyart/map/ckdtree.pyx":1102
+ * 
  *                             # adjust upper bound for efficiency
  *                             if neighbors.n==k:             # <<<<<<<<<<<<<<
  *                                 distance_upper_bound = -neighbors.peek().priority
- *
+ * 
 */
             __pyx_t_5 = (__pyx_v_neighbors->n == __pyx_v_k);
 
             if (__pyx_t_5) {
 
 
-              /* "pyart/map/ckdtree.pyx":1096
+              /* "pyart/map/ckdtree.pyx":1103
  *                             # adjust upper bound for efficiency
  *                             if neighbors.n==k:
  *                                 distance_upper_bound = -neighbors.peek().priority             # <<<<<<<<<<<<<<
- *
+ * 
  *                     # done with this node, get another
 */
-              __pyx_t_13 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_heap *)__pyx_v_neighbors->__pyx_vtab)->peek(__pyx_v_neighbors); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 1096, __pyx_L4_error)
+              __pyx_t_13 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_heap *)__pyx_v_neighbors->__pyx_vtab)->peek(__pyx_v_neighbors); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 1103, __pyx_L4_error)
               __pyx_v_distance_upper_bound = (-__pyx_t_13.priority);
 
 
-              /* "pyart/map/ckdtree.pyx":1095
- *
+              /* "pyart/map/ckdtree.pyx":1102
+ * 
  *                             # adjust upper bound for efficiency
  *                             if neighbors.n==k:             # <<<<<<<<<<<<<<
  *                                 distance_upper_bound = -neighbors.peek().priority
- *
+ * 
 */
             }
 
-            /* "pyart/map/ckdtree.pyx":1086
+            /* "pyart/map/ckdtree.pyx":1093
  *                                 x,p,self.m,distance_upper_bound)
- *
+ * 
  *                         if d<distance_upper_bound:             # <<<<<<<<<<<<<<
  *                             # replace furthest neighbor
  *                             if neighbors.n==k:
@@ -17279,27 +17300,27 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
         }
 
 
-        /* "pyart/map/ckdtree.pyx":1099
- *
+        /* "pyart/map/ckdtree.pyx":1106
+ * 
  *                     # done with this node, get another
  *                     stdlib.free(inf)             # <<<<<<<<<<<<<<
  *                     inf = <nodeinfo*> NULL
- *
+ * 
 */
         free(__pyx_v_inf);
 
-        /* "pyart/map/ckdtree.pyx":1100
+        /* "pyart/map/ckdtree.pyx":1107
  *                     # done with this node, get another
  *                     stdlib.free(inf)
  *                     inf = <nodeinfo*> NULL             # <<<<<<<<<<<<<<
- *
+ * 
  *                     if q.n==0:
 */
         __pyx_v_inf = ((struct __pyx_t_5pyart_3map_7ckdtree_nodeinfo *)NULL);
 
-        /* "pyart/map/ckdtree.pyx":1102
+        /* "pyart/map/ckdtree.pyx":1109
  *                     inf = <nodeinfo*> NULL
- *
+ * 
  *                     if q.n==0:             # <<<<<<<<<<<<<<
  *                         # no more nodes to visit
  *                         break
@@ -17309,7 +17330,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
         if (__pyx_t_5) {
 
 
-          /* "pyart/map/ckdtree.pyx":1104
+          /* "pyart/map/ckdtree.pyx":1111
  *                     if q.n==0:
  *                         # no more nodes to visit
  *                         break             # <<<<<<<<<<<<<<
@@ -17318,16 +17339,16 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
 */
           goto __pyx_L22_break;
 
-          /* "pyart/map/ckdtree.pyx":1102
+          /* "pyart/map/ckdtree.pyx":1109
  *                     inf = <nodeinfo*> NULL
- *
+ * 
  *                     if q.n==0:             # <<<<<<<<<<<<<<
  *                         # no more nodes to visit
  *                         break
 */
         }
 
-        /* "pyart/map/ckdtree.pyx":1106
+        /* "pyart/map/ckdtree.pyx":1113
  *                         break
  *                     else:
  *                         q.pop(&it)             # <<<<<<<<<<<<<<
@@ -17335,10 +17356,10 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
  *                         min_distance = it.priority
 */
         /*else*/ {
-          __pyx_t_12 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_heap *)__pyx_v_q->__pyx_vtab)->pop(__pyx_v_q, (&__pyx_v_it)); if (unlikely(__pyx_t_12 == ((int)-1))) __PYX_ERR(0, 1106, __pyx_L4_error)
+          __pyx_t_12 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_heap *)__pyx_v_q->__pyx_vtab)->pop(__pyx_v_q, (&__pyx_v_it)); if (unlikely(__pyx_t_12 == ((int)-1))) __PYX_ERR(0, 1113, __pyx_L4_error)
 
 
-          /* "pyart/map/ckdtree.pyx":1107
+          /* "pyart/map/ckdtree.pyx":1114
  *                     else:
  *                         q.pop(&it)
  *                         inf = <nodeinfo*>it.contents.ptrdata             # <<<<<<<<<<<<<<
@@ -17347,7 +17368,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
 */
           __pyx_v_inf = ((struct __pyx_t_5pyart_3map_7ckdtree_nodeinfo *)__pyx_v_it.contents.ptrdata);
 
-          /* "pyart/map/ckdtree.pyx":1108
+          /* "pyart/map/ckdtree.pyx":1115
  *                         q.pop(&it)
  *                         inf = <nodeinfo*>it.contents.ptrdata
  *                         min_distance = it.priority             # <<<<<<<<<<<<<<
@@ -17359,31 +17380,31 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
           __pyx_v_min_distance = __pyx_t_11;
         }
 
-        /* "pyart/map/ckdtree.pyx":1077
- *
+        /* "pyart/map/ckdtree.pyx":1084
+ * 
  *             while True:
  *                 if inf.node.split_dim==-1:             # <<<<<<<<<<<<<<
  *                     node = <leafnode*>inf.node
- *
+ * 
 */
         goto __pyx_L23;
       }
 
-      /* "pyart/map/ckdtree.pyx":1110
+      /* "pyart/map/ckdtree.pyx":1117
  *                         min_distance = it.priority
  *                 else:
  *                     inode = <innernode*>inf.node             # <<<<<<<<<<<<<<
- *
+ * 
  *                     # we don't push cells that are too far onto the queue at all,
 */
       /*else*/ {
         __pyx_v_inode = ((struct __pyx_t_5pyart_3map_7ckdtree_innernode *)__pyx_v_inf->node);
 
-        /* "pyart/map/ckdtree.pyx":1115
+        /* "pyart/map/ckdtree.pyx":1122
  *                     # but since the distance_upper_bound decreases, we might get
  *                     # here even if the cell's too far
  *                     if min_distance>distance_upper_bound*epsfac:             # <<<<<<<<<<<<<<
- *
+ * 
  *                         # since this is the nearest cell, we're done, bail out
 */
         __pyx_t_5 = (__pyx_v_min_distance > (__pyx_v_distance_upper_bound * __pyx_v_epsfac));
@@ -17391,26 +17412,26 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
         if (__pyx_t_5) {
 
 
-          /* "pyart/map/ckdtree.pyx":1118
- *
+          /* "pyart/map/ckdtree.pyx":1125
+ * 
  *                         # since this is the nearest cell, we're done, bail out
  *                         stdlib.free(inf)             # <<<<<<<<<<<<<<
  *                         inf = <nodeinfo*> NULL
- *
+ * 
 */
           free(__pyx_v_inf);
 
-          /* "pyart/map/ckdtree.pyx":1119
+          /* "pyart/map/ckdtree.pyx":1126
  *                         # since this is the nearest cell, we're done, bail out
  *                         stdlib.free(inf)
  *                         inf = <nodeinfo*> NULL             # <<<<<<<<<<<<<<
- *
+ * 
  *                         # free all the nodes still on the heap
 */
           __pyx_v_inf = ((struct __pyx_t_5pyart_3map_7ckdtree_nodeinfo *)NULL);
 
-          /* "pyart/map/ckdtree.pyx":1122
- *
+          /* "pyart/map/ckdtree.pyx":1129
+ * 
  *                         # free all the nodes still on the heap
  *                         for i in range(q.n):             # <<<<<<<<<<<<<<
  *                             stdlib.free(q.heap[i].contents.ptrdata)
@@ -17423,7 +17444,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
           for (__pyx_t_9 = 0; __pyx_t_9 < __pyx_t_8; __pyx_t_9+=1) {
             __pyx_v_i = __pyx_t_9;
 
-            /* "pyart/map/ckdtree.pyx":1123
+            /* "pyart/map/ckdtree.pyx":1130
  *                         # free all the nodes still on the heap
  *                         for i in range(q.n):
  *                             stdlib.free(q.heap[i].contents.ptrdata)             # <<<<<<<<<<<<<<
@@ -17432,37 +17453,37 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
 */
             free((__pyx_v_q->heap[__pyx_v_i]).contents.ptrdata);
 
-            /* "pyart/map/ckdtree.pyx":1124
+            /* "pyart/map/ckdtree.pyx":1131
  *                         for i in range(q.n):
  *                             stdlib.free(q.heap[i].contents.ptrdata)
  *                             q.heap[i].contents.ptrdata = <char*> NULL             # <<<<<<<<<<<<<<
  *                         break
- *
+ * 
 */
             (__pyx_v_q->heap[__pyx_v_i]).contents.ptrdata = ((char *)NULL);
           }
 
 
-          /* "pyart/map/ckdtree.pyx":1125
+          /* "pyart/map/ckdtree.pyx":1132
  *                             stdlib.free(q.heap[i].contents.ptrdata)
  *                             q.heap[i].contents.ptrdata = <char*> NULL
  *                         break             # <<<<<<<<<<<<<<
- *
+ * 
  *                     # set up children for searching
 */
           goto __pyx_L22_break;
 
-          /* "pyart/map/ckdtree.pyx":1115
+          /* "pyart/map/ckdtree.pyx":1122
  *                     # but since the distance_upper_bound decreases, we might get
  *                     # here even if the cell's too far
  *                     if min_distance>distance_upper_bound*epsfac:             # <<<<<<<<<<<<<<
- *
+ * 
  *                         # since this is the nearest cell, we're done, bail out
 */
         }
 
-        /* "pyart/map/ckdtree.pyx":1128
- *
+        /* "pyart/map/ckdtree.pyx":1135
+ * 
  *                     # set up children for searching
  *                     if x[inode.split_dim]<inode.split:             # <<<<<<<<<<<<<<
  *                         near = inode.less
@@ -17473,7 +17494,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
         if (__pyx_t_5) {
 
 
-          /* "pyart/map/ckdtree.pyx":1129
+          /* "pyart/map/ckdtree.pyx":1136
  *                     # set up children for searching
  *                     if x[inode.split_dim]<inode.split:
  *                         near = inode.less             # <<<<<<<<<<<<<<
@@ -17484,7 +17505,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
 
           __pyx_v_near = __pyx_t_6;
 
-          /* "pyart/map/ckdtree.pyx":1130
+          /* "pyart/map/ckdtree.pyx":1137
  *                     if x[inode.split_dim]<inode.split:
  *                         near = inode.less
  *                         far = inode.greater             # <<<<<<<<<<<<<<
@@ -17495,8 +17516,8 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
 
           __pyx_v_far = __pyx_t_6;
 
-          /* "pyart/map/ckdtree.pyx":1128
- *
+          /* "pyart/map/ckdtree.pyx":1135
+ * 
  *                     # set up children for searching
  *                     if x[inode.split_dim]<inode.split:             # <<<<<<<<<<<<<<
  *                         near = inode.less
@@ -17505,23 +17526,23 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
           goto __pyx_L33;
         }
 
-        /* "pyart/map/ckdtree.pyx":1132
+        /* "pyart/map/ckdtree.pyx":1139
  *                         far = inode.greater
  *                     else:
  *                         near = inode.greater             # <<<<<<<<<<<<<<
  *                         far = inode.less
- *
+ * 
 */
         /*else*/ {
           __pyx_t_6 = __pyx_v_inode->greater;
 
           __pyx_v_near = __pyx_t_6;
 
-          /* "pyart/map/ckdtree.pyx":1133
+          /* "pyart/map/ckdtree.pyx":1140
  *                     else:
  *                         near = inode.greater
  *                         far = inode.less             # <<<<<<<<<<<<<<
- *
+ * 
  *                     # near child is at the same distance as the current node
 */
           __pyx_t_6 = __pyx_v_inode->less;
@@ -17530,16 +17551,16 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
         }
         __pyx_L33:;
 
-        /* "pyart/map/ckdtree.pyx":1138
+        /* "pyart/map/ckdtree.pyx":1145
  *                     # we're going here next, so no point pushing it on the queue
  *                     # no need to recompute the distance or the side_distances
  *                     inf.node = near             # <<<<<<<<<<<<<<
- *
+ * 
  *                     # far child is further by an amount depending only
 */
         __pyx_v_inf->node = __pyx_v_near;
 
-        /* "pyart/map/ckdtree.pyx":1143
+        /* "pyart/map/ckdtree.pyx":1150
  *                     # on the split value; compute its distance and side_distances
  *                     # and push it on the queue if it's near enough
  *                     inf2 = <nodeinfo*>stdlib.malloc(sizeof(nodeinfo)+self.m*sizeof(np.float64_t))             # <<<<<<<<<<<<<<
@@ -17548,47 +17569,47 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
 */
         __pyx_v_inf2 = ((struct __pyx_t_5pyart_3map_7ckdtree_nodeinfo *)malloc(((sizeof(struct __pyx_t_5pyart_3map_7ckdtree_nodeinfo)) + (__pyx_v_self->m * (sizeof(__pyx_t_5numpy_float64_t))))));
 
-        /* "pyart/map/ckdtree.pyx":1144
+        /* "pyart/map/ckdtree.pyx":1151
  *                     # and push it on the queue if it's near enough
  *                     inf2 = <nodeinfo*>stdlib.malloc(sizeof(nodeinfo)+self.m*sizeof(np.float64_t))
  *                     if inf2 == <nodeinfo*> NULL:             # <<<<<<<<<<<<<<
  *                         raise MemoryError
- *
+ * 
 */
         __pyx_t_5 = (__pyx_v_inf2 == ((struct __pyx_t_5pyart_3map_7ckdtree_nodeinfo *)NULL));
 
         if (unlikely(__pyx_t_5)) {
 
 
-          /* "pyart/map/ckdtree.pyx":1145
+          /* "pyart/map/ckdtree.pyx":1152
  *                     inf2 = <nodeinfo*>stdlib.malloc(sizeof(nodeinfo)+self.m*sizeof(np.float64_t))
  *                     if inf2 == <nodeinfo*> NULL:
  *                         raise MemoryError             # <<<<<<<<<<<<<<
- *
+ * 
  *                     it2.contents.ptrdata = <char*> inf2
 */
-          PyErr_NoMemory(); __PYX_ERR(0, 1145, __pyx_L4_error)
+          PyErr_NoMemory(); __PYX_ERR(0, 1152, __pyx_L4_error)
 
-          /* "pyart/map/ckdtree.pyx":1144
+          /* "pyart/map/ckdtree.pyx":1151
  *                     # and push it on the queue if it's near enough
  *                     inf2 = <nodeinfo*>stdlib.malloc(sizeof(nodeinfo)+self.m*sizeof(np.float64_t))
  *                     if inf2 == <nodeinfo*> NULL:             # <<<<<<<<<<<<<<
  *                         raise MemoryError
- *
+ * 
 */
         }
 
-        /* "pyart/map/ckdtree.pyx":1147
+        /* "pyart/map/ckdtree.pyx":1154
  *                         raise MemoryError
- *
+ * 
  *                     it2.contents.ptrdata = <char*> inf2             # <<<<<<<<<<<<<<
  *                     inf2.node = far
  *                     # most side distances unchanged
 */
         __pyx_v_it2.contents.ptrdata = ((char *)__pyx_v_inf2);
 
-        /* "pyart/map/ckdtree.pyx":1148
- *
+        /* "pyart/map/ckdtree.pyx":1155
+ * 
  *                     it2.contents.ptrdata = <char*> inf2
  *                     inf2.node = far             # <<<<<<<<<<<<<<
  *                     # most side distances unchanged
@@ -17596,12 +17617,12 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
 */
         __pyx_v_inf2->node = __pyx_v_far;
 
-        /* "pyart/map/ckdtree.pyx":1150
+        /* "pyart/map/ckdtree.pyx":1157
  *                     inf2.node = far
  *                     # most side distances unchanged
  *                     for i in range(self.m):             # <<<<<<<<<<<<<<
  *                         inf2.side_distances[i] = inf.side_distances[i]
- *
+ * 
 */
 
         __pyx_t_7 = __pyx_v_self->m;
@@ -17610,18 +17631,18 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
         for (__pyx_t_9 = 0; __pyx_t_9 < __pyx_t_8; __pyx_t_9+=1) {
           __pyx_v_i = __pyx_t_9;
 
-          /* "pyart/map/ckdtree.pyx":1151
+          /* "pyart/map/ckdtree.pyx":1158
  *                     # most side distances unchanged
  *                     for i in range(self.m):
  *                         inf2.side_distances[i] = inf.side_distances[i]             # <<<<<<<<<<<<<<
- *
+ * 
  *                     # one side distance changes
 */
           (__pyx_v_inf2->side_distances[__pyx_v_i]) = (__pyx_v_inf->side_distances[__pyx_v_i]);
         }
 
 
-        /* "pyart/map/ckdtree.pyx":1155
+        /* "pyart/map/ckdtree.pyx":1162
  *                     # one side distance changes
  *                     # we can adjust the minimum distance without recomputing
  *                     if p == infinity:             # <<<<<<<<<<<<<<
@@ -17633,19 +17654,19 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
         if (__pyx_t_5) {
 
 
-          /* "pyart/map/ckdtree.pyx":1158
+          /* "pyart/map/ckdtree.pyx":1165
  *                         # we never use side_distances in the l_infinity case
  *                         # inf2.side_distances[inode.split_dim] = dabs(inode.split-x[inode.split_dim])
  *                         far_min_distance = dmax(min_distance, dabs(inode.split-x[inode.split_dim]))             # <<<<<<<<<<<<<<
  *                     elif p == 1:
  *                         inf2.side_distances[inode.split_dim] = dabs(inode.split-x[inode.split_dim])
 */
-          __pyx_t_11 = __pyx_f_5pyart_3map_7ckdtree_dabs((__pyx_v_inode->split - (__pyx_v_x[__pyx_v_inode->split_dim]))); if (unlikely(__pyx_t_11 == ((__pyx_t_5numpy_float64_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 1158, __pyx_L4_error)
-          __pyx_t_14 = __pyx_f_5pyart_3map_7ckdtree_dmax(__pyx_v_min_distance, __pyx_t_11); if (unlikely(__pyx_t_14 == ((__pyx_t_5numpy_float64_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 1158, __pyx_L4_error)
+          __pyx_t_11 = __pyx_f_5pyart_3map_7ckdtree_dabs((__pyx_v_inode->split - (__pyx_v_x[__pyx_v_inode->split_dim]))); if (unlikely(__pyx_t_11 == ((__pyx_t_5numpy_float64_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 1165, __pyx_L4_error)
+          __pyx_t_14 = __pyx_f_5pyart_3map_7ckdtree_dmax(__pyx_v_min_distance, __pyx_t_11); if (unlikely(__pyx_t_14 == ((__pyx_t_5numpy_float64_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 1165, __pyx_L4_error)
 
           __pyx_v_far_min_distance = __pyx_t_14;
 
-          /* "pyart/map/ckdtree.pyx":1155
+          /* "pyart/map/ckdtree.pyx":1162
  *                     # one side distance changes
  *                     # we can adjust the minimum distance without recomputing
  *                     if p == infinity:             # <<<<<<<<<<<<<<
@@ -17655,7 +17676,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
           goto __pyx_L37;
         }
 
-        /* "pyart/map/ckdtree.pyx":1159
+        /* "pyart/map/ckdtree.pyx":1166
  *                         # inf2.side_distances[inode.split_dim] = dabs(inode.split-x[inode.split_dim])
  *                         far_min_distance = dmax(min_distance, dabs(inode.split-x[inode.split_dim]))
  *                     elif p == 1:             # <<<<<<<<<<<<<<
@@ -17667,18 +17688,18 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
         if (__pyx_t_5) {
 
 
-          /* "pyart/map/ckdtree.pyx":1160
+          /* "pyart/map/ckdtree.pyx":1167
  *                         far_min_distance = dmax(min_distance, dabs(inode.split-x[inode.split_dim]))
  *                     elif p == 1:
  *                         inf2.side_distances[inode.split_dim] = dabs(inode.split-x[inode.split_dim])             # <<<<<<<<<<<<<<
  *                         far_min_distance = min_distance - \
  *                             inf.side_distances[inode.split_dim] + \
 */
-          __pyx_t_14 = __pyx_f_5pyart_3map_7ckdtree_dabs((__pyx_v_inode->split - (__pyx_v_x[__pyx_v_inode->split_dim]))); if (unlikely(__pyx_t_14 == ((__pyx_t_5numpy_float64_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 1160, __pyx_L4_error)
+          __pyx_t_14 = __pyx_f_5pyart_3map_7ckdtree_dabs((__pyx_v_inode->split - (__pyx_v_x[__pyx_v_inode->split_dim]))); if (unlikely(__pyx_t_14 == ((__pyx_t_5numpy_float64_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 1167, __pyx_L4_error)
           (__pyx_v_inf2->side_distances[__pyx_v_inode->split_dim]) = __pyx_t_14;
 
 
-          /* "pyart/map/ckdtree.pyx":1162
+          /* "pyart/map/ckdtree.pyx":1169
  *                         inf2.side_distances[inode.split_dim] = dabs(inode.split-x[inode.split_dim])
  *                         far_min_distance = min_distance - \
  *                             inf.side_distances[inode.split_dim] + \             # <<<<<<<<<<<<<<
@@ -17687,7 +17708,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
 */
           __pyx_v_far_min_distance = ((__pyx_v_min_distance - (__pyx_v_inf->side_distances[__pyx_v_inode->split_dim])) + (__pyx_v_inf2->side_distances[__pyx_v_inode->split_dim]));
 
-          /* "pyart/map/ckdtree.pyx":1159
+          /* "pyart/map/ckdtree.pyx":1166
  *                         # inf2.side_distances[inode.split_dim] = dabs(inode.split-x[inode.split_dim])
  *                         far_min_distance = dmax(min_distance, dabs(inode.split-x[inode.split_dim]))
  *                     elif p == 1:             # <<<<<<<<<<<<<<
@@ -17697,7 +17718,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
           goto __pyx_L37;
         }
 
-        /* "pyart/map/ckdtree.pyx":1165
+        /* "pyart/map/ckdtree.pyx":1172
  *                             inf2.side_distances[inode.split_dim]
  *                     else:
  *                         inf2.side_distances[inode.split_dim] = dabs(inode.split -             # <<<<<<<<<<<<<<
@@ -17706,16 +17727,16 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
 */
         /*else*/ {
 
-          /* "pyart/map/ckdtree.pyx":1166
+          /* "pyart/map/ckdtree.pyx":1173
  *                     else:
  *                         inf2.side_distances[inode.split_dim] = dabs(inode.split -
  *                                                                     x[inode.split_dim])**p             # <<<<<<<<<<<<<<
  *                         far_min_distance = min_distance - \
  *                             inf.side_distances[inode.split_dim] + \
 */
-          __pyx_t_14 = __pyx_f_5pyart_3map_7ckdtree_dabs((__pyx_v_inode->split - (__pyx_v_x[__pyx_v_inode->split_dim]))); if (unlikely(__pyx_t_14 == ((__pyx_t_5numpy_float64_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 1165, __pyx_L4_error)
+          __pyx_t_14 = __pyx_f_5pyart_3map_7ckdtree_dabs((__pyx_v_inode->split - (__pyx_v_x[__pyx_v_inode->split_dim]))); if (unlikely(__pyx_t_14 == ((__pyx_t_5numpy_float64_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 1172, __pyx_L4_error)
 
-          /* "pyart/map/ckdtree.pyx":1165
+          /* "pyart/map/ckdtree.pyx":1172
  *                             inf2.side_distances[inode.split_dim]
  *                     else:
  *                         inf2.side_distances[inode.split_dim] = dabs(inode.split -             # <<<<<<<<<<<<<<
@@ -17725,28 +17746,28 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
           (__pyx_v_inf2->side_distances[__pyx_v_inode->split_dim]) = pow(__pyx_t_14, __pyx_v_p);
 
 
-          /* "pyart/map/ckdtree.pyx":1168
+          /* "pyart/map/ckdtree.pyx":1175
  *                                                                     x[inode.split_dim])**p
  *                         far_min_distance = min_distance - \
  *                             inf.side_distances[inode.split_dim] + \             # <<<<<<<<<<<<<<
  *                             inf2.side_distances[inode.split_dim]
- *
+ * 
 */
           __pyx_v_far_min_distance = ((__pyx_v_min_distance - (__pyx_v_inf->side_distances[__pyx_v_inode->split_dim])) + (__pyx_v_inf2->side_distances[__pyx_v_inode->split_dim]));
         }
         __pyx_L37:;
 
-        /* "pyart/map/ckdtree.pyx":1171
+        /* "pyart/map/ckdtree.pyx":1178
  *                             inf2.side_distances[inode.split_dim]
- *
+ * 
  *                     it2.priority = far_min_distance             # <<<<<<<<<<<<<<
- *
- *
+ * 
+ * 
 */
         __pyx_v_it2.priority = __pyx_v_far_min_distance;
 
-        /* "pyart/map/ckdtree.pyx":1175
- *
+        /* "pyart/map/ckdtree.pyx":1182
+ * 
  *                     # far child might be too far, if so, don't bother pushing it
  *                     if far_min_distance<=distance_upper_bound*epsfac:             # <<<<<<<<<<<<<<
  *                         q.push(it2)
@@ -17757,18 +17778,18 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
         if (__pyx_t_5) {
 
 
-          /* "pyart/map/ckdtree.pyx":1176
+          /* "pyart/map/ckdtree.pyx":1183
  *                     # far child might be too far, if so, don't bother pushing it
  *                     if far_min_distance<=distance_upper_bound*epsfac:
  *                         q.push(it2)             # <<<<<<<<<<<<<<
  *                     else:
  *                         stdlib.free(inf2)
 */
-          __pyx_t_12 = __pyx_f_5pyart_3map_7ckdtree_4heap_push(__pyx_v_q, __pyx_v_it2); if (unlikely(__pyx_t_12 == ((int)-1))) __PYX_ERR(0, 1176, __pyx_L4_error)
+          __pyx_t_12 = __pyx_f_5pyart_3map_7ckdtree_4heap_push(__pyx_v_q, __pyx_v_it2); if (unlikely(__pyx_t_12 == ((int)-1))) __PYX_ERR(0, 1183, __pyx_L4_error)
 
 
-          /* "pyart/map/ckdtree.pyx":1175
- *
+          /* "pyart/map/ckdtree.pyx":1182
+ * 
  *                     # far child might be too far, if so, don't bother pushing it
  *                     if far_min_distance<=distance_upper_bound*epsfac:             # <<<<<<<<<<<<<<
  *                         q.push(it2)
@@ -17777,7 +17798,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
           goto __pyx_L38;
         }
 
-        /* "pyart/map/ckdtree.pyx":1178
+        /* "pyart/map/ckdtree.pyx":1185
  *                         q.push(it2)
  *                     else:
  *                         stdlib.free(inf2)             # <<<<<<<<<<<<<<
@@ -17787,7 +17808,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
         /*else*/ {
           free(__pyx_v_inf2);
 
-          /* "pyart/map/ckdtree.pyx":1179
+          /* "pyart/map/ckdtree.pyx":1186
  *                     else:
  *                         stdlib.free(inf2)
  *                         inf2 = <nodeinfo*> NULL             # <<<<<<<<<<<<<<
@@ -17796,11 +17817,11 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
 */
           __pyx_v_inf2 = ((struct __pyx_t_5pyart_3map_7ckdtree_nodeinfo *)NULL);
 
-          /* "pyart/map/ckdtree.pyx":1181
+          /* "pyart/map/ckdtree.pyx":1188
  *                         inf2 = <nodeinfo*> NULL
  *                         # just in case
  *                         it2.contents.ptrdata = <char*> NULL             # <<<<<<<<<<<<<<
- *
+ * 
  *             # fill output arrays with sorted neighbors
 */
           __pyx_v_it2.contents.ptrdata = ((char *)NULL);
@@ -17811,8 +17832,8 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
     }
     __pyx_L22_break:;
 
-    /* "pyart/map/ckdtree.pyx":1184
- *
+    /* "pyart/map/ckdtree.pyx":1191
+ * 
  *             # fill output arrays with sorted neighbors
  *             for i in range(neighbors.n-1,-1,-1):             # <<<<<<<<<<<<<<
  *                 neighbors.pop(&neighbor)
@@ -17821,17 +17842,17 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
     for (__pyx_t_7 = (__pyx_v_neighbors->n - 1); __pyx_t_7 > -1L; __pyx_t_7-=1) {
       __pyx_v_i = __pyx_t_7;
 
-      /* "pyart/map/ckdtree.pyx":1185
+      /* "pyart/map/ckdtree.pyx":1192
  *             # fill output arrays with sorted neighbors
  *             for i in range(neighbors.n-1,-1,-1):
  *                 neighbors.pop(&neighbor)             # <<<<<<<<<<<<<<
  *                 result_indices[i] = neighbor.contents.intdata
  *                 if p==1 or p==infinity:
 */
-      __pyx_t_12 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_heap *)__pyx_v_neighbors->__pyx_vtab)->pop(__pyx_v_neighbors, (&__pyx_v_neighbor)); if (unlikely(__pyx_t_12 == ((int)-1))) __PYX_ERR(0, 1185, __pyx_L4_error)
+      __pyx_t_12 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_heap *)__pyx_v_neighbors->__pyx_vtab)->pop(__pyx_v_neighbors, (&__pyx_v_neighbor)); if (unlikely(__pyx_t_12 == ((int)-1))) __PYX_ERR(0, 1192, __pyx_L4_error)
 
 
-      /* "pyart/map/ckdtree.pyx":1186
+      /* "pyart/map/ckdtree.pyx":1193
  *             for i in range(neighbors.n-1,-1,-1):
  *                 neighbors.pop(&neighbor)
  *                 result_indices[i] = neighbor.contents.intdata             # <<<<<<<<<<<<<<
@@ -17843,7 +17864,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
       (__pyx_v_result_indices[__pyx_v_i]) = __pyx_t_8;
 
 
-      /* "pyart/map/ckdtree.pyx":1187
+      /* "pyart/map/ckdtree.pyx":1194
  *                 neighbors.pop(&neighbor)
  *                 result_indices[i] = neighbor.contents.intdata
  *                 if p==1 or p==infinity:             # <<<<<<<<<<<<<<
@@ -17869,7 +17890,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
       if (__pyx_t_5) {
 
 
-        /* "pyart/map/ckdtree.pyx":1188
+        /* "pyart/map/ckdtree.pyx":1195
  *                 result_indices[i] = neighbor.contents.intdata
  *                 if p==1 or p==infinity:
  *                     result_distances[i] = -neighbor.priority             # <<<<<<<<<<<<<<
@@ -17878,7 +17899,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
 */
         (__pyx_v_result_distances[__pyx_v_i]) = (-__pyx_v_neighbor.priority);
 
-        /* "pyart/map/ckdtree.pyx":1187
+        /* "pyart/map/ckdtree.pyx":1194
  *                 neighbors.pop(&neighbor)
  *                 result_indices[i] = neighbor.contents.intdata
  *                 if p==1 or p==infinity:             # <<<<<<<<<<<<<<
@@ -17888,40 +17909,40 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
         goto __pyx_L41;
       }
 
-      /* "pyart/map/ckdtree.pyx":1190
+      /* "pyart/map/ckdtree.pyx":1197
  *                     result_distances[i] = -neighbor.priority
  *                 else:
  *                     result_distances[i] = (-neighbor.priority)**(1./p)             # <<<<<<<<<<<<<<
- *
+ * 
  *             inf = inf2 = <nodeinfo*> NULL
 */
       /*else*/ {
         if (unlikely(__pyx_v_p == 0)) {
           PyErr_SetString(PyExc_ZeroDivisionError, "float division");
-          __PYX_ERR(0, 1190, __pyx_L4_error)
+          __PYX_ERR(0, 1197, __pyx_L4_error)
         }
         (__pyx_v_result_distances[__pyx_v_i]) = pow((-__pyx_v_neighbor.priority), (((__pyx_t_5numpy_float64_t)1.) / __pyx_v_p));
       }
       __pyx_L41:;
     }
 
-    /* "pyart/map/ckdtree.pyx":1192
+    /* "pyart/map/ckdtree.pyx":1199
  *                     result_distances[i] = (-neighbor.priority)**(1./p)
- *
+ * 
  *             inf = inf2 = <nodeinfo*> NULL             # <<<<<<<<<<<<<<
- *
+ * 
  *         finally:
 */
     __pyx_v_inf = ((struct __pyx_t_5pyart_3map_7ckdtree_nodeinfo *)NULL);
     __pyx_v_inf2 = ((struct __pyx_t_5pyart_3map_7ckdtree_nodeinfo *)NULL);
   }
 
-  /* "pyart/map/ckdtree.pyx":1195
- *
+  /* "pyart/map/ckdtree.pyx":1202
+ * 
  *         finally:
  *             if inf2 != <nodeinfo*> NULL:             # <<<<<<<<<<<<<<
  *                 stdlib.free(inf2)
- *
+ * 
 */
   /*finally:*/ {
     /*normal exit:*/{
@@ -17930,51 +17951,51 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
       if (__pyx_t_5) {
 
 
-        /* "pyart/map/ckdtree.pyx":1196
+        /* "pyart/map/ckdtree.pyx":1203
  *         finally:
  *             if inf2 != <nodeinfo*> NULL:
  *                 stdlib.free(inf2)             # <<<<<<<<<<<<<<
- *
+ * 
  *             if inf != <nodeinfo*> NULL:
 */
         free(__pyx_v_inf2);
 
-        /* "pyart/map/ckdtree.pyx":1195
- *
+        /* "pyart/map/ckdtree.pyx":1202
+ * 
  *         finally:
  *             if inf2 != <nodeinfo*> NULL:             # <<<<<<<<<<<<<<
  *                 stdlib.free(inf2)
- *
+ * 
 */
       }
 
-      /* "pyart/map/ckdtree.pyx":1198
+      /* "pyart/map/ckdtree.pyx":1205
  *                 stdlib.free(inf2)
- *
+ * 
  *             if inf != <nodeinfo*> NULL:             # <<<<<<<<<<<<<<
  *                 stdlib.free(inf)
- *
+ * 
 */
       __pyx_t_5 = (__pyx_v_inf != ((struct __pyx_t_5pyart_3map_7ckdtree_nodeinfo *)NULL));
 
       if (__pyx_t_5) {
 
 
-        /* "pyart/map/ckdtree.pyx":1199
- *
+        /* "pyart/map/ckdtree.pyx":1206
+ * 
  *             if inf != <nodeinfo*> NULL:
  *                 stdlib.free(inf)             # <<<<<<<<<<<<<<
- *
+ * 
  *         return 0
 */
         free(__pyx_v_inf);
 
-        /* "pyart/map/ckdtree.pyx":1198
+        /* "pyart/map/ckdtree.pyx":1205
  *                 stdlib.free(inf2)
- *
+ * 
  *             if inf != <nodeinfo*> NULL:             # <<<<<<<<<<<<<<
  *                 stdlib.free(inf)
- *
+ * 
 */
       }
       goto __pyx_L5;
@@ -17998,63 +18019,63 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
       __pyx_t_12 = __pyx_lineno; __pyx_t_15 = __pyx_clineno; __pyx_t_16 = __pyx_filename;
       {
 
-        /* "pyart/map/ckdtree.pyx":1195
- *
+        /* "pyart/map/ckdtree.pyx":1202
+ * 
  *         finally:
  *             if inf2 != <nodeinfo*> NULL:             # <<<<<<<<<<<<<<
  *                 stdlib.free(inf2)
- *
+ * 
 */
         __pyx_t_5 = (__pyx_v_inf2 != ((struct __pyx_t_5pyart_3map_7ckdtree_nodeinfo *)NULL));
 
         if (__pyx_t_5) {
 
 
-          /* "pyart/map/ckdtree.pyx":1196
+          /* "pyart/map/ckdtree.pyx":1203
  *         finally:
  *             if inf2 != <nodeinfo*> NULL:
  *                 stdlib.free(inf2)             # <<<<<<<<<<<<<<
- *
+ * 
  *             if inf != <nodeinfo*> NULL:
 */
           free(__pyx_v_inf2);
 
-          /* "pyart/map/ckdtree.pyx":1195
- *
+          /* "pyart/map/ckdtree.pyx":1202
+ * 
  *         finally:
  *             if inf2 != <nodeinfo*> NULL:             # <<<<<<<<<<<<<<
  *                 stdlib.free(inf2)
- *
+ * 
 */
         }
 
-        /* "pyart/map/ckdtree.pyx":1198
+        /* "pyart/map/ckdtree.pyx":1205
  *                 stdlib.free(inf2)
- *
+ * 
  *             if inf != <nodeinfo*> NULL:             # <<<<<<<<<<<<<<
  *                 stdlib.free(inf)
- *
+ * 
 */
         __pyx_t_5 = (__pyx_v_inf != ((struct __pyx_t_5pyart_3map_7ckdtree_nodeinfo *)NULL));
 
         if (__pyx_t_5) {
 
 
-          /* "pyart/map/ckdtree.pyx":1199
- *
+          /* "pyart/map/ckdtree.pyx":1206
+ * 
  *             if inf != <nodeinfo*> NULL:
  *                 stdlib.free(inf)             # <<<<<<<<<<<<<<
- *
+ * 
  *         return 0
 */
           free(__pyx_v_inf);
 
-          /* "pyart/map/ckdtree.pyx":1198
+          /* "pyart/map/ckdtree.pyx":1205
  *                 stdlib.free(inf2)
- *
+ * 
  *             if inf != <nodeinfo*> NULL:             # <<<<<<<<<<<<<<
  *                 stdlib.free(inf)
- *
+ * 
 */
         }
       }
@@ -18073,12 +18094,12 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
     __pyx_L5:;
   }
 
-  /* "pyart/map/ckdtree.pyx":1201
+  /* "pyart/map/ckdtree.pyx":1208
  *                 stdlib.free(inf)
- *
+ * 
  *         return 0             # <<<<<<<<<<<<<<
- *
- *
+ * 
+ * 
 */
   {
 
@@ -18086,9 +18107,9 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
   }
   goto __pyx_L0;
 
-  /* "pyart/map/ckdtree.pyx":996
+  /* "pyart/map/ckdtree.pyx":1003
  *     # -----
- *
+ * 
  *     cdef int __query(cKDTree self,             # <<<<<<<<<<<<<<
  *             np.float64_t*result_distances,
  *             np.intp_t*result_indices,
@@ -18125,16 +18146,16 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query(struct __pyx_ob
   return __pyx_r;
 }
 
-/* "pyart/map/ckdtree.pyx":1204
- *
- *
+/* "pyart/map/ckdtree.pyx":1211
+ * 
+ * 
  *     @cython.boundscheck(False)             # <<<<<<<<<<<<<<
  *     @cython.wraparound(False)
  *     def query(cKDTree self, object x, np.intp_t k=1, np.float64_t eps=0,
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5pyart_3map_7ckdtree_7cKDTree_5query(PyObject *__pyx_v_self,
+static PyObject *__pyx_pw_5pyart_3map_7ckdtree_7cKDTree_5query(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -18143,7 +18164,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 ); /*proto*/
 PyDoc_STRVAR(__pyx_doc_5pyart_3map_7ckdtree_7cKDTree_4query, "query(self, x, k=1, eps=0, p=2, distance_upper_bound=np.inf)\n\n        Query the kd-tree for nearest neighbors\n\n        Parameters\n        ----------\n        x : array_like, last dimension self.m\n            An array of points to query.\n        k : integer\n            The number of nearest neighbors to return.\n        eps : non-negative float\n            Return approximate nearest neighbors; the kth returned value\n            is guaranteed to be no further than (1+eps) times the\n            distance to the real k-th nearest neighbor.\n        p : float, 1<=p<=infinity\n            Which Minkowski p-norm to use.\n            1 is the sum-of-absolute-values \"Manhattan\" distance\n            2 is the usual Euclidean distance\n            infinity is the maximum-coordinate-difference distance\n        distance_upper_bound : nonnegative float\n            Return only neighbors within this distance.  This is used to prune\n            tree searches, so if you are doing a series of nearest-neighbor\n            queries, it may help to supply the distance to the nearest neighbor\n            of the most recent point.\n\n        Returns\n        -------\n        d : array of floats\n            The distances to the nearest neighbors.\n            If x has shape tuple+(self.m,), then d has shape tuple+(k,).\n            Missing neighbors are indicated with infinite distances.\n        i : ndarray of ints\n            The locations of the neighbors in self.data.\n            If `x` has shape tuple+(self.m,), then `i` has shape tuple+(k,).\n            Missing neighbors are indicated with self.n.\n\n        ");
 static PyMethodDef __pyx_mdef_5pyart_3map_7ckdtree_7cKDTree_5query = {"query", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5pyart_3map_7ckdtree_7cKDTree_5query, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5pyart_3map_7ckdtree_7cKDTree_4query};
-static PyObject *__pyx_pw_5pyart_3map_7ckdtree_7cKDTree_5query(PyObject *__pyx_v_self,
+static PyObject *__pyx_pw_5pyart_3map_7ckdtree_7cKDTree_5query(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -18177,87 +18198,87 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_x,&__pyx_mstate_global->__pyx_n_u_k,&__pyx_mstate_global->__pyx_n_u_eps,&__pyx_mstate_global->__pyx_n_u_p,&__pyx_mstate_global->__pyx_n_u_distance_upper_bound,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len < 0)) __PYX_ERR(0, 1204, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len < 0)) __PYX_ERR(0, 1211, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  5:
         values[4] = __Pyx_ArgRef_FASTCALL(__pyx_args, 4);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[4])) __PYX_ERR(0, 1204, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[4])) __PYX_ERR(0, 1211, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  4:
         values[3] = __Pyx_ArgRef_FASTCALL(__pyx_args, 3);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 1204, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 1211, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  3:
         values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 1204, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 1211, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 1204, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 1211, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1204, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1211, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "query", 0) < (0)) __PYX_ERR(0, 1204, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "query", 0) < (0)) __PYX_ERR(0, 1211, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("query", 0, 1, 5, i); __PYX_ERR(0, 1204, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("query", 0, 1, 5, i); __PYX_ERR(0, 1211, __pyx_L3_error) }
       }
     } else {
       switch (__pyx_nargs) {
         case  5:
         values[4] = __Pyx_ArgRef_FASTCALL(__pyx_args, 4);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[4])) __PYX_ERR(0, 1204, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[4])) __PYX_ERR(0, 1211, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  4:
         values[3] = __Pyx_ArgRef_FASTCALL(__pyx_args, 3);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 1204, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 1211, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  3:
         values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 1204, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 1211, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 1204, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 1211, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1204, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1211, __pyx_L3_error)
         break;
         default: goto __pyx_L5_argtuple_error;
       }
     }
     __pyx_v_x = values[0];
     if (values[1]) {
-      __pyx_v_k = __Pyx_PyLong_As_npy_intp(values[1]); if (unlikely((__pyx_v_k == ((npy_intp)-1)) && PyErr_Occurred())) __PYX_ERR(0, 1206, __pyx_L3_error)
+      __pyx_v_k = __Pyx_PyLong_As_npy_intp(values[1]); if (unlikely((__pyx_v_k == ((npy_intp)-1)) && PyErr_Occurred())) __PYX_ERR(0, 1213, __pyx_L3_error)
     } else {
       __pyx_v_k = ((__pyx_t_5numpy_intp_t)1);
     }
     if (values[2]) {
-      __pyx_v_eps = __Pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_eps == ((npy_float64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 1206, __pyx_L3_error)
+      __pyx_v_eps = __Pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_eps == ((npy_float64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 1213, __pyx_L3_error)
     } else {
       __pyx_v_eps = ((__pyx_t_5numpy_float64_t)0.0);
     }
     if (values[3]) {
-      __pyx_v_p = __Pyx_PyFloat_AsDouble(values[3]); if (unlikely((__pyx_v_p == ((npy_float64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 1207, __pyx_L3_error)
+      __pyx_v_p = __Pyx_PyFloat_AsDouble(values[3]); if (unlikely((__pyx_v_p == ((npy_float64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 1214, __pyx_L3_error)
     } else {
       __pyx_v_p = ((__pyx_t_5numpy_float64_t)2.0);
     }
     if (values[4]) {
-      __pyx_v_distance_upper_bound = __Pyx_PyFloat_AsDouble(values[4]); if (unlikely((__pyx_v_distance_upper_bound == ((npy_float64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 1207, __pyx_L3_error)
+      __pyx_v_distance_upper_bound = __Pyx_PyFloat_AsDouble(values[4]); if (unlikely((__pyx_v_distance_upper_bound == ((npy_float64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 1214, __pyx_L3_error)
     } else {
       __pyx_v_distance_upper_bound = __pyx_mstate_global->__pyx_k__2;
     }
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("query", 0, 1, 5, __pyx_nargs); __PYX_ERR(0, 1204, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("query", 0, 1, 5, __pyx_nargs); __PYX_ERR(0, 1211, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -18348,7 +18369,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
   __pyx_pybuffernd_xx.data = NULL;
   __pyx_pybuffernd_xx.rcbuffer = &__pyx_pybuffer_xx;
 
-  /* "pyart/map/ckdtree.pyx":1249
+  /* "pyart/map/ckdtree.pyx":1256
  *         cdef np.ndarray[np.float64_t, ndim=2] xx
  *         cdef np.intp_t c, n, i, j
  *         x = np.asarray(x).astype(np.float64)             # <<<<<<<<<<<<<<
@@ -18356,9 +18377,9 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
  *         if sh[len(sh)-1] != self.m:
 */
   __pyx_t_4 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1249, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1256, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_asarray); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1249, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_asarray); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1256, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __pyx_t_7 = 1;
@@ -18378,14 +18399,14 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
     __pyx_t_3 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_6, __pyx_callargs+__pyx_t_7, (2-__pyx_t_7) | (__pyx_t_7*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1249, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1256, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
   }
   __pyx_t_2 = __pyx_t_3;
   __Pyx_INCREF(__pyx_t_2);
-  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1249, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1256, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_float64); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1249, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_float64); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1256, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __pyx_t_7 = 0;
@@ -18395,13 +18416,13 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1249, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1256, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __Pyx_DECREF_SET(__pyx_v_x, __pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "pyart/map/ckdtree.pyx":1250
+  /* "pyart/map/ckdtree.pyx":1257
  *         cdef np.intp_t c, n, i, j
  *         x = np.asarray(x).astype(np.float64)
  *         sh = np.shape(x)             # <<<<<<<<<<<<<<
@@ -18409,9 +18430,9 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
  *             raise ValueError("x must consist of vectors of length %d but has"
 */
   __pyx_t_3 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1250, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1257, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_shape); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1250, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_shape); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1257, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_t_7 = 1;
@@ -18431,35 +18452,35 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
     __pyx_t_1 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_2, __pyx_callargs+__pyx_t_7, (2-__pyx_t_7) | (__pyx_t_7*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1250, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1257, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __pyx_v_sh = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "pyart/map/ckdtree.pyx":1251
+  /* "pyart/map/ckdtree.pyx":1258
  *         x = np.asarray(x).astype(np.float64)
  *         sh = np.shape(x)
  *         if sh[len(sh)-1] != self.m:             # <<<<<<<<<<<<<<
  *             raise ValueError("x must consist of vectors of length %d but has"
  *                              "shape %s" % (int(self.m), np.shape(x)))
 */
-  __pyx_t_8 = PyObject_Length(__pyx_v_sh); if (unlikely(__pyx_t_8 == ((Py_ssize_t)-1))) __PYX_ERR(0, 1251, __pyx_L1_error)
+  __pyx_t_8 = PyObject_Length(__pyx_v_sh); if (unlikely(__pyx_t_8 == ((Py_ssize_t)-1))) __PYX_ERR(0, 1258, __pyx_L1_error)
   __pyx_t_9 = (__pyx_t_8 - 1);
 
 
-  __pyx_t_1 = __Pyx_GetItemInt(__pyx_v_sh, __pyx_t_9, Py_ssize_t, 1, PyLong_FromSsize_t, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1251, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetItemInt(__pyx_v_sh, __pyx_t_9, Py_ssize_t, 1, PyLong_FromSsize_t, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1258, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
 
-  __pyx_t_2 = __Pyx_PyLong_From_npy_intp(__pyx_v_self->m); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1251, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyLong_From_npy_intp(__pyx_v_self->m); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1258, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_10 = __Pyx_PyObject_CompareBoolNe_object_int(__pyx_t_1, __pyx_t_2, Py_NE); if (unlikely((__pyx_t_10 < 0))) __PYX_ERR(0, 1251, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_PyObject_CompareBoolNe_object_int(__pyx_t_1, __pyx_t_2, Py_NE); if (unlikely((__pyx_t_10 < 0))) __PYX_ERR(0, 1258, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (unlikely(__pyx_t_10)) {
 
 
-    /* "pyart/map/ckdtree.pyx":1252
+    /* "pyart/map/ckdtree.pyx":1259
  *         sh = np.shape(x)
  *         if sh[len(sh)-1] != self.m:
  *             raise ValueError("x must consist of vectors of length %d but has"             # <<<<<<<<<<<<<<
@@ -18468,30 +18489,30 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
 */
     __pyx_t_1 = NULL;
 
-    /* "pyart/map/ckdtree.pyx":1253
+    /* "pyart/map/ckdtree.pyx":1260
  *         if sh[len(sh)-1] != self.m:
  *             raise ValueError("x must consist of vectors of length %d but has"
  *                              "shape %s" % (int(self.m), np.shape(x)))             # <<<<<<<<<<<<<<
  *         if p < 1:
  *             raise ValueError("Only p-norms with 1<=p<=infinity permitted")
 */
-    __pyx_t_3 = __Pyx_PyLong_From_npy_intp(__pyx_v_self->m); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1253, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyLong_From_npy_intp(__pyx_v_self->m); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1260, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyLong_Type)), __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1253, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyLong_Type)), __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1260, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = __Pyx_PyObject_FormatAndDecref(__Pyx_PyNumber_Long(__pyx_t_4), __pyx_mstate_global->__pyx_n_u_d); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1253, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_FormatAndDecref(__Pyx_PyNumber_Long(__pyx_t_4), __pyx_mstate_global->__pyx_n_u_d); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1260, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1253, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1260, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_shape); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1253, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_shape); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1260, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_v_x); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1253, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_v_x); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1260, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __pyx_t_6 = __Pyx_PyObject_FormatSimpleAndDecref(PyObject_Str(__pyx_t_4), __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1253, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_FormatSimpleAndDecref(PyObject_Str(__pyx_t_4), __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1260, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_t_11[0] = __pyx_mstate_global->__pyx_kp_u_x_must_consist_of_vectors_of_len;
@@ -18499,7 +18520,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
     __pyx_t_11[2] = __pyx_mstate_global->__pyx_kp_u_but_hasshape;
     __pyx_t_11[3] = __pyx_t_6;
 
-    /* "pyart/map/ckdtree.pyx":1252
+    /* "pyart/map/ckdtree.pyx":1259
  *         sh = np.shape(x)
  *         if sh[len(sh)-1] != self.m:
  *             raise ValueError("x must consist of vectors of length %d but has"             # <<<<<<<<<<<<<<
@@ -18515,7 +18536,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
     __pyx_t_12 |= __Pyx_PyUnicode_KIND_04(__pyx_t_11[1]) | __Pyx_PyUnicode_KIND_04(__pyx_t_11[3]);
     #endif
     __pyx_t_4 = __Pyx_PyUnicode_Join(__pyx_t_11, 4, __pyx_t_9, __pyx_t_12);
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1252, __pyx_L1_error)
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1259, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
@@ -18525,14 +18546,14 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
       __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)(((PyTypeObject*)PyExc_ValueError)), __pyx_callargs+__pyx_t_7, (2-__pyx_t_7) | (__pyx_t_7*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1252, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1259, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
     __Pyx_Raise(__pyx_t_2, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __PYX_ERR(0, 1252, __pyx_L1_error)
+    __PYX_ERR(0, 1259, __pyx_L1_error)
 
-    /* "pyart/map/ckdtree.pyx":1251
+    /* "pyart/map/ckdtree.pyx":1258
  *         x = np.asarray(x).astype(np.float64)
  *         sh = np.shape(x)
  *         if sh[len(sh)-1] != self.m:             # <<<<<<<<<<<<<<
@@ -18541,7 +18562,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
 */
   }
 
-  /* "pyart/map/ckdtree.pyx":1254
+  /* "pyart/map/ckdtree.pyx":1261
  *             raise ValueError("x must consist of vectors of length %d but has"
  *                              "shape %s" % (int(self.m), np.shape(x)))
  *         if p < 1:             # <<<<<<<<<<<<<<
@@ -18553,7 +18574,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
   if (unlikely(__pyx_t_10)) {
 
 
-    /* "pyart/map/ckdtree.pyx":1255
+    /* "pyart/map/ckdtree.pyx":1262
  *                              "shape %s" % (int(self.m), np.shape(x)))
  *         if p < 1:
  *             raise ValueError("Only p-norms with 1<=p<=infinity permitted")             # <<<<<<<<<<<<<<
@@ -18566,14 +18587,14 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
       PyObject *__pyx_callargs[2] = {__pyx_t_4, __pyx_mstate_global->__pyx_kp_u_Only_p_norms_with_1_p_infinity_p};
       __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)(((PyTypeObject*)PyExc_ValueError)), __pyx_callargs+__pyx_t_7, (2-__pyx_t_7) | (__pyx_t_7*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1255, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1262, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
     __Pyx_Raise(__pyx_t_2, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __PYX_ERR(0, 1255, __pyx_L1_error)
+    __PYX_ERR(0, 1262, __pyx_L1_error)
 
-    /* "pyart/map/ckdtree.pyx":1254
+    /* "pyart/map/ckdtree.pyx":1261
  *             raise ValueError("x must consist of vectors of length %d but has"
  *                              "shape %s" % (int(self.m), np.shape(x)))
  *         if p < 1:             # <<<<<<<<<<<<<<
@@ -18582,16 +18603,16 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
 */
   }
 
-  /* "pyart/map/ckdtree.pyx":1256
+  /* "pyart/map/ckdtree.pyx":1263
  *         if p < 1:
  *             raise ValueError("Only p-norms with 1<=p<=infinity permitted")
  *         if len(x.shape)==1:             # <<<<<<<<<<<<<<
  *             single = True
  *             x = x[np.newaxis,:]
 */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_x, __pyx_mstate_global->__pyx_n_u_shape); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1256, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_x, __pyx_mstate_global->__pyx_n_u_shape); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1263, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_9 = PyObject_Length(__pyx_t_2); if (unlikely(__pyx_t_9 == ((Py_ssize_t)-1))) __PYX_ERR(0, 1256, __pyx_L1_error)
+  __pyx_t_9 = PyObject_Length(__pyx_t_2); if (unlikely(__pyx_t_9 == ((Py_ssize_t)-1))) __PYX_ERR(0, 1263, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_10 = (__pyx_t_9 == 1);
 
@@ -18599,7 +18620,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
   if (__pyx_t_10) {
 
 
-    /* "pyart/map/ckdtree.pyx":1257
+    /* "pyart/map/ckdtree.pyx":1264
  *             raise ValueError("Only p-norms with 1<=p<=infinity permitted")
  *         if len(x.shape)==1:
  *             single = True             # <<<<<<<<<<<<<<
@@ -18608,33 +18629,33 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
 */
     __pyx_v_single = 1;
 
-    /* "pyart/map/ckdtree.pyx":1258
+    /* "pyart/map/ckdtree.pyx":1265
  *         if len(x.shape)==1:
  *             single = True
  *             x = x[np.newaxis,:]             # <<<<<<<<<<<<<<
  *         else:
  *             single = False
 */
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1258, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1265, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_newaxis); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1258, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_newaxis); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1265, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1258, __pyx_L1_error)
+    __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1265, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_GIVEREF(__pyx_t_4);
-    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_4) != (0)) __PYX_ERR(0, 1258, __pyx_L1_error);
+    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_4) != (0)) __PYX_ERR(0, 1265, __pyx_L1_error);
     __Pyx_INCREF(__pyx_mstate_global->__pyx_slice[0]);
     __Pyx_GIVEREF(__pyx_mstate_global->__pyx_slice[0]);
-    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_mstate_global->__pyx_slice[0]) != (0)) __PYX_ERR(0, 1258, __pyx_L1_error);
+    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_mstate_global->__pyx_slice[0]) != (0)) __PYX_ERR(0, 1265, __pyx_L1_error);
     __pyx_t_4 = 0;
-    __pyx_t_4 = __Pyx_PyObject_GetItem(__pyx_v_x, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1258, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetItem(__pyx_v_x, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1265, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF_SET(__pyx_v_x, __pyx_t_4);
     __pyx_t_4 = 0;
 
-    /* "pyart/map/ckdtree.pyx":1256
+    /* "pyart/map/ckdtree.pyx":1263
  *         if p < 1:
  *             raise ValueError("Only p-norms with 1<=p<=infinity permitted")
  *         if len(x.shape)==1:             # <<<<<<<<<<<<<<
@@ -18644,7 +18665,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
     goto __pyx_L5;
   }
 
-  /* "pyart/map/ckdtree.pyx":1260
+  /* "pyart/map/ckdtree.pyx":1267
  *             x = x[np.newaxis,:]
  *         else:
  *             single = False             # <<<<<<<<<<<<<<
@@ -18656,7 +18677,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
   }
   __pyx_L5:;
 
-  /* "pyart/map/ckdtree.pyx":1261
+  /* "pyart/map/ckdtree.pyx":1268
  *         else:
  *             single = False
  *         sh = np.shape(x)             # <<<<<<<<<<<<<<
@@ -18664,9 +18685,9 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
  *         n = <np.intp_t> np.prod(retshape)
 */
   __pyx_t_2 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1261, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1268, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_shape); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1261, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_shape); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1268, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_7 = 1;
@@ -18686,30 +18707,30 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
     __pyx_t_4 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_6, __pyx_callargs+__pyx_t_7, (2-__pyx_t_7) | (__pyx_t_7*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1261, __pyx_L1_error)
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1268, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
   }
   __Pyx_DECREF_SET(__pyx_v_sh, __pyx_t_4);
   __pyx_t_4 = 0;
 
-  /* "pyart/map/ckdtree.pyx":1262
+  /* "pyart/map/ckdtree.pyx":1269
  *             single = False
  *         sh = np.shape(x)
  *         retshape = sh[len(sh) - 1]             # <<<<<<<<<<<<<<
  *         n = <np.intp_t> np.prod(retshape)
  *         xx = np.reshape(x,(n,self.m))
 */
-  __pyx_t_9 = PyObject_Length(__pyx_v_sh); if (unlikely(__pyx_t_9 == ((Py_ssize_t)-1))) __PYX_ERR(0, 1262, __pyx_L1_error)
+  __pyx_t_9 = PyObject_Length(__pyx_v_sh); if (unlikely(__pyx_t_9 == ((Py_ssize_t)-1))) __PYX_ERR(0, 1269, __pyx_L1_error)
   __pyx_t_8 = (__pyx_t_9 - 1);
 
 
-  __pyx_t_4 = __Pyx_GetItemInt(__pyx_v_sh, __pyx_t_8, Py_ssize_t, 1, PyLong_FromSsize_t, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1262, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_GetItemInt(__pyx_v_sh, __pyx_t_8, Py_ssize_t, 1, PyLong_FromSsize_t, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1269, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
 
   __pyx_v_retshape = __pyx_t_4;
   __pyx_t_4 = 0;
 
-  /* "pyart/map/ckdtree.pyx":1263
+  /* "pyart/map/ckdtree.pyx":1270
  *         sh = np.shape(x)
  *         retshape = sh[len(sh) - 1]
  *         n = <np.intp_t> np.prod(retshape)             # <<<<<<<<<<<<<<
@@ -18717,9 +18738,9 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
  *         xx = np.ascontiguousarray(xx,dtype=np.float64)
 */
   __pyx_t_6 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1263, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1270, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_prod); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1263, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_prod); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1270, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_7 = 1;
@@ -18739,15 +18760,15 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
     __pyx_t_4 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_1, __pyx_callargs+__pyx_t_7, (2-__pyx_t_7) | (__pyx_t_7*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1263, __pyx_L1_error)
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1270, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
   }
-  __pyx_t_13 = __Pyx_PyLong_As_npy_intp(__pyx_t_4); if (unlikely((__pyx_t_13 == ((npy_intp)-1)) && PyErr_Occurred())) __PYX_ERR(0, 1263, __pyx_L1_error)
+  __pyx_t_13 = __Pyx_PyLong_As_npy_intp(__pyx_t_4); if (unlikely((__pyx_t_13 == ((npy_intp)-1)) && PyErr_Occurred())) __PYX_ERR(0, 1270, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_v_n = ((__pyx_t_5numpy_intp_t)__pyx_t_13);
 
 
-  /* "pyart/map/ckdtree.pyx":1264
+  /* "pyart/map/ckdtree.pyx":1271
  *         retshape = sh[len(sh) - 1]
  *         n = <np.intp_t> np.prod(retshape)
  *         xx = np.reshape(x,(n,self.m))             # <<<<<<<<<<<<<<
@@ -18755,21 +18776,21 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
  *         dd = np.empty((n,k),dtype=np.float64)
 */
   __pyx_t_1 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1264, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1271, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_reshape); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1264, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_reshape); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1271, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_6 = __Pyx_PyLong_From_npy_intp(__pyx_v_n); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1264, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyLong_From_npy_intp(__pyx_v_n); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1271, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_3 = __Pyx_PyLong_From_npy_intp(__pyx_v_self->m); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1264, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyLong_From_npy_intp(__pyx_v_self->m); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1271, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_5 = PyTuple_New(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1264, __pyx_L1_error)
+  __pyx_t_5 = PyTuple_New(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1271, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_GIVEREF(__pyx_t_6);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_6) != (0)) __PYX_ERR(0, 1264, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_6) != (0)) __PYX_ERR(0, 1271, __pyx_L1_error);
   __Pyx_GIVEREF(__pyx_t_3);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_5, 1, __pyx_t_3) != (0)) __PYX_ERR(0, 1264, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_5, 1, __pyx_t_3) != (0)) __PYX_ERR(0, 1271, __pyx_L1_error);
   __pyx_t_6 = 0;
   __pyx_t_3 = 0;
   __pyx_t_7 = 1;
@@ -18790,10 +18811,10 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1264, __pyx_L1_error)
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1271, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
   }
-  if (!(likely(((__pyx_t_4) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_4, __pyx_mstate_global->__pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 1264, __pyx_L1_error)
+  if (!(likely(((__pyx_t_4) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_4, __pyx_mstate_global->__pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 1271, __pyx_L1_error)
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_xx.rcbuffer->pybuffer);
@@ -18809,12 +18830,12 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
       __pyx_t_14 = __pyx_t_15 = __pyx_t_16 = 0;
     }
     __pyx_pybuffernd_xx.diminfo[0].strides = __pyx_pybuffernd_xx.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_xx.diminfo[0].shape = __pyx_pybuffernd_xx.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_xx.diminfo[1].strides = __pyx_pybuffernd_xx.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_xx.diminfo[1].shape = __pyx_pybuffernd_xx.rcbuffer->pybuffer.shape[1];
-    if (unlikely((__pyx_t_12 < 0))) __PYX_ERR(0, 1264, __pyx_L1_error)
+    if (unlikely((__pyx_t_12 < 0))) __PYX_ERR(0, 1271, __pyx_L1_error)
   }
   __pyx_v_xx = ((PyArrayObject *)__pyx_t_4);
   __pyx_t_4 = 0;
 
-  /* "pyart/map/ckdtree.pyx":1265
+  /* "pyart/map/ckdtree.pyx":1272
  *         n = <np.intp_t> np.prod(retshape)
  *         xx = np.reshape(x,(n,self.m))
  *         xx = np.ascontiguousarray(xx,dtype=np.float64)             # <<<<<<<<<<<<<<
@@ -18822,14 +18843,14 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
  *         dd.fill(infinity)
 */
   __pyx_t_2 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1265, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1272, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_ascontiguousarray); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1265, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_ascontiguousarray); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1272, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1265, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1272, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_float64); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1265, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_float64); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1272, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __pyx_t_7 = 1;
@@ -18848,13 +18869,13 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
     PyObject *__pyx_callargs[3] = {__pyx_t_2, ((PyObject *)__pyx_v_xx), __pyx_t_3};
     #if CYTHON_VECTORCALL
     __pyx_t_5 = __pyx_mstate_global->__pyx_tuple[0];
-    if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1265, __pyx_L1_error)
+    if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1272, __pyx_L1_error)
     __Pyx_INCREF(__pyx_t_5);
     #else
     {
       PyObject *__pyx_temp[1] = {__pyx_mstate_global->__pyx_n_u_dtype};
       __pyx_t_5 = __Pyx_MakeKwargDict(__pyx_temp, __pyx_callargs+2, 1);
-      if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1265, __pyx_L1_error)
+      if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1272, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
     }
     #endif
@@ -18863,10 +18884,10 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1265, __pyx_L1_error)
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1272, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
   }
-  if (!(likely(((__pyx_t_4) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_4, __pyx_mstate_global->__pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 1265, __pyx_L1_error)
+  if (!(likely(((__pyx_t_4) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_4, __pyx_mstate_global->__pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 1272, __pyx_L1_error)
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_xx.rcbuffer->pybuffer);
@@ -18882,12 +18903,12 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
       __pyx_t_16 = __pyx_t_15 = __pyx_t_14 = 0;
     }
     __pyx_pybuffernd_xx.diminfo[0].strides = __pyx_pybuffernd_xx.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_xx.diminfo[0].shape = __pyx_pybuffernd_xx.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_xx.diminfo[1].strides = __pyx_pybuffernd_xx.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_xx.diminfo[1].shape = __pyx_pybuffernd_xx.rcbuffer->pybuffer.shape[1];
-    if (unlikely((__pyx_t_12 < 0))) __PYX_ERR(0, 1265, __pyx_L1_error)
+    if (unlikely((__pyx_t_12 < 0))) __PYX_ERR(0, 1272, __pyx_L1_error)
   }
   __Pyx_DECREF_SET(__pyx_v_xx, ((PyArrayObject *)__pyx_t_4));
   __pyx_t_4 = 0;
 
-  /* "pyart/map/ckdtree.pyx":1266
+  /* "pyart/map/ckdtree.pyx":1273
  *         xx = np.reshape(x,(n,self.m))
  *         xx = np.ascontiguousarray(xx,dtype=np.float64)
  *         dd = np.empty((n,k),dtype=np.float64)             # <<<<<<<<<<<<<<
@@ -18895,26 +18916,26 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
  *         ii = np.empty((n,k),dtype=np.intp)
 */
   __pyx_t_1 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1266, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1273, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_empty); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1266, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_empty); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1273, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyLong_From_npy_intp(__pyx_v_n); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1266, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_npy_intp(__pyx_v_n); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1273, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_2 = __Pyx_PyLong_From_npy_intp(__pyx_v_k); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1266, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyLong_From_npy_intp(__pyx_v_k); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1273, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1266, __pyx_L1_error)
+  __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1273, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_GIVEREF(__pyx_t_5);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_5) != (0)) __PYX_ERR(0, 1266, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_5) != (0)) __PYX_ERR(0, 1273, __pyx_L1_error);
   __Pyx_GIVEREF(__pyx_t_2);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_6, 1, __pyx_t_2) != (0)) __PYX_ERR(0, 1266, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_6, 1, __pyx_t_2) != (0)) __PYX_ERR(0, 1273, __pyx_L1_error);
   __pyx_t_5 = 0;
   __pyx_t_2 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1266, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1273, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_float64); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1266, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_float64); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1273, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_7 = 1;
@@ -18933,13 +18954,13 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
     PyObject *__pyx_callargs[3] = {__pyx_t_1, __pyx_t_6, __pyx_t_5};
     #if CYTHON_VECTORCALL
     __pyx_t_2 = __pyx_mstate_global->__pyx_tuple[0];
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1266, __pyx_L1_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1273, __pyx_L1_error)
     __Pyx_INCREF(__pyx_t_2);
     #else
     {
       PyObject *__pyx_temp[1] = {__pyx_mstate_global->__pyx_n_u_dtype};
       __pyx_t_2 = __Pyx_MakeKwargDict(__pyx_temp, __pyx_callargs+2, 1);
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1266, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1273, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
     #endif
@@ -18949,10 +18970,10 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1266, __pyx_L1_error)
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1273, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
   }
-  if (!(likely(((__pyx_t_4) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_4, __pyx_mstate_global->__pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 1266, __pyx_L1_error)
+  if (!(likely(((__pyx_t_4) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_4, __pyx_mstate_global->__pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 1273, __pyx_L1_error)
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_dd.rcbuffer->pybuffer);
@@ -18968,12 +18989,12 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
       __pyx_t_14 = __pyx_t_15 = __pyx_t_16 = 0;
     }
     __pyx_pybuffernd_dd.diminfo[0].strides = __pyx_pybuffernd_dd.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_dd.diminfo[0].shape = __pyx_pybuffernd_dd.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_dd.diminfo[1].strides = __pyx_pybuffernd_dd.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_dd.diminfo[1].shape = __pyx_pybuffernd_dd.rcbuffer->pybuffer.shape[1];
-    if (unlikely((__pyx_t_12 < 0))) __PYX_ERR(0, 1266, __pyx_L1_error)
+    if (unlikely((__pyx_t_12 < 0))) __PYX_ERR(0, 1273, __pyx_L1_error)
   }
   __pyx_v_dd = ((PyArrayObject *)__pyx_t_4);
   __pyx_t_4 = 0;
 
-  /* "pyart/map/ckdtree.pyx":1267
+  /* "pyart/map/ckdtree.pyx":1274
  *         xx = np.ascontiguousarray(xx,dtype=np.float64)
  *         dd = np.empty((n,k),dtype=np.float64)
  *         dd.fill(infinity)             # <<<<<<<<<<<<<<
@@ -18982,7 +19003,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
 */
   __pyx_t_3 = ((PyObject *)__pyx_v_dd);
   __Pyx_INCREF(__pyx_t_3);
-  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_5pyart_3map_7ckdtree_infinity); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1267, __pyx_L1_error)
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_5pyart_3map_7ckdtree_infinity); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1274, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_7 = 0;
   {
@@ -18990,12 +19011,12 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
     __pyx_t_4 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_fill, __pyx_callargs+__pyx_t_7, (2-__pyx_t_7) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1267, __pyx_L1_error)
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1274, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
   }
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pyart/map/ckdtree.pyx":1268
+  /* "pyart/map/ckdtree.pyx":1275
  *         dd = np.empty((n,k),dtype=np.float64)
  *         dd.fill(infinity)
  *         ii = np.empty((n,k),dtype=np.intp)             # <<<<<<<<<<<<<<
@@ -19003,26 +19024,26 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
  *         for c in range(n):
 */
   __pyx_t_2 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1268, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1275, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_empty); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1268, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_empty); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1275, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyLong_From_npy_intp(__pyx_v_n); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1268, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyLong_From_npy_intp(__pyx_v_n); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1275, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_6 = __Pyx_PyLong_From_npy_intp(__pyx_v_k); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1268, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyLong_From_npy_intp(__pyx_v_k); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1275, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1268, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1275, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_3);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_3) != (0)) __PYX_ERR(0, 1268, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_3) != (0)) __PYX_ERR(0, 1275, __pyx_L1_error);
   __Pyx_GIVEREF(__pyx_t_6);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_t_6) != (0)) __PYX_ERR(0, 1268, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_t_6) != (0)) __PYX_ERR(0, 1275, __pyx_L1_error);
   __pyx_t_3 = 0;
   __pyx_t_6 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1268, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1275, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_intp); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1268, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_intp); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1275, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __pyx_t_7 = 1;
@@ -19041,13 +19062,13 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
     PyObject *__pyx_callargs[3] = {__pyx_t_2, __pyx_t_1, __pyx_t_3};
     #if CYTHON_VECTORCALL
     __pyx_t_6 = __pyx_mstate_global->__pyx_tuple[0];
-    if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1268, __pyx_L1_error)
+    if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1275, __pyx_L1_error)
     __Pyx_INCREF(__pyx_t_6);
     #else
     {
       PyObject *__pyx_temp[1] = {__pyx_mstate_global->__pyx_n_u_dtype};
       __pyx_t_6 = __Pyx_MakeKwargDict(__pyx_temp, __pyx_callargs+2, 1);
-      if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1268, __pyx_L1_error)
+      if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1275, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
     }
     #endif
@@ -19057,10 +19078,10 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1268, __pyx_L1_error)
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1275, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
   }
-  if (!(likely(((__pyx_t_4) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_4, __pyx_mstate_global->__pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 1268, __pyx_L1_error)
+  if (!(likely(((__pyx_t_4) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_4, __pyx_mstate_global->__pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 1275, __pyx_L1_error)
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_ii.rcbuffer->pybuffer);
@@ -19076,12 +19097,12 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
       __pyx_t_16 = __pyx_t_15 = __pyx_t_14 = 0;
     }
     __pyx_pybuffernd_ii.diminfo[0].strides = __pyx_pybuffernd_ii.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_ii.diminfo[0].shape = __pyx_pybuffernd_ii.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_ii.diminfo[1].strides = __pyx_pybuffernd_ii.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_ii.diminfo[1].shape = __pyx_pybuffernd_ii.rcbuffer->pybuffer.shape[1];
-    if (unlikely((__pyx_t_12 < 0))) __PYX_ERR(0, 1268, __pyx_L1_error)
+    if (unlikely((__pyx_t_12 < 0))) __PYX_ERR(0, 1275, __pyx_L1_error)
   }
   __pyx_v_ii = ((PyArrayObject *)__pyx_t_4);
   __pyx_t_4 = 0;
 
-  /* "pyart/map/ckdtree.pyx":1269
+  /* "pyart/map/ckdtree.pyx":1276
  *         dd.fill(infinity)
  *         ii = np.empty((n,k),dtype=np.intp)
  *         ii.fill(self.n)             # <<<<<<<<<<<<<<
@@ -19090,7 +19111,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
 */
   __pyx_t_5 = ((PyObject *)__pyx_v_ii);
   __Pyx_INCREF(__pyx_t_5);
-  __pyx_t_6 = __Pyx_PyLong_From_npy_intp(__pyx_v_self->n); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1269, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyLong_From_npy_intp(__pyx_v_self->n); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1276, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __pyx_t_7 = 0;
   {
@@ -19098,12 +19119,12 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
     __pyx_t_4 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_fill, __pyx_callargs+__pyx_t_7, (2-__pyx_t_7) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1269, __pyx_L1_error)
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1276, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
   }
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pyart/map/ckdtree.pyx":1270
+  /* "pyart/map/ckdtree.pyx":1277
  *         ii = np.empty((n,k),dtype=np.intp)
  *         ii.fill(self.n)
  *         for c in range(n):             # <<<<<<<<<<<<<<
@@ -19117,12 +19138,12 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
   for (__pyx_t_18 = 0; __pyx_t_18 < __pyx_t_17; __pyx_t_18+=1) {
     __pyx_v_c = __pyx_t_18;
 
-    /* "pyart/map/ckdtree.pyx":1271
+    /* "pyart/map/ckdtree.pyx":1278
  *         ii.fill(self.n)
  *         for c in range(n):
  *             self.__query(&dd[c, 0], &ii[c, 0], &xx[c, 0],             # <<<<<<<<<<<<<<
  *                          k, eps, p, distance_upper_bound)
- *
+ * 
 */
     __pyx_t_19 = __pyx_v_c;
     __pyx_t_20 = 0;
@@ -19131,29 +19152,29 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
     __pyx_t_23 = __pyx_v_c;
     __pyx_t_24 = 0;
 
-    /* "pyart/map/ckdtree.pyx":1272
+    /* "pyart/map/ckdtree.pyx":1279
  *         for c in range(n):
  *             self.__query(&dd[c, 0], &ii[c, 0], &xx[c, 0],
  *                          k, eps, p, distance_upper_bound)             # <<<<<<<<<<<<<<
- *
+ * 
  *         if single:
 */
-    __pyx_t_12 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query(__pyx_v_self, (&(*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_dd.rcbuffer->pybuffer.buf, __pyx_t_19, __pyx_pybuffernd_dd.diminfo[0].strides, __pyx_t_20, __pyx_pybuffernd_dd.diminfo[1].strides))), (&(*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_intp_t *, __pyx_pybuffernd_ii.rcbuffer->pybuffer.buf, __pyx_t_21, __pyx_pybuffernd_ii.diminfo[0].strides, __pyx_t_22, __pyx_pybuffernd_ii.diminfo[1].strides))), (&(*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_xx.rcbuffer->pybuffer.buf, __pyx_t_23, __pyx_pybuffernd_xx.diminfo[0].strides, __pyx_t_24, __pyx_pybuffernd_xx.diminfo[1].strides))), __pyx_v_k, __pyx_v_eps, __pyx_v_p, __pyx_v_distance_upper_bound); if (unlikely(__pyx_t_12 == ((int)-1))) __PYX_ERR(0, 1271, __pyx_L1_error)
+    __pyx_t_12 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query(__pyx_v_self, (&(*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_dd.rcbuffer->pybuffer.buf, __pyx_t_19, __pyx_pybuffernd_dd.diminfo[0].strides, __pyx_t_20, __pyx_pybuffernd_dd.diminfo[1].strides))), (&(*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_intp_t *, __pyx_pybuffernd_ii.rcbuffer->pybuffer.buf, __pyx_t_21, __pyx_pybuffernd_ii.diminfo[0].strides, __pyx_t_22, __pyx_pybuffernd_ii.diminfo[1].strides))), (&(*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_xx.rcbuffer->pybuffer.buf, __pyx_t_23, __pyx_pybuffernd_xx.diminfo[0].strides, __pyx_t_24, __pyx_pybuffernd_xx.diminfo[1].strides))), __pyx_v_k, __pyx_v_eps, __pyx_v_p, __pyx_v_distance_upper_bound); if (unlikely(__pyx_t_12 == ((int)-1))) __PYX_ERR(0, 1278, __pyx_L1_error)
 
   }
 
 
-  /* "pyart/map/ckdtree.pyx":1274
+  /* "pyart/map/ckdtree.pyx":1281
  *                          k, eps, p, distance_upper_bound)
- *
+ * 
  *         if single:             # <<<<<<<<<<<<<<
  *             if k==1:
  *                 if sizeof(long) < sizeof(np.intp_t):
 */
   if (__pyx_v_single) {
 
-    /* "pyart/map/ckdtree.pyx":1275
- *
+    /* "pyart/map/ckdtree.pyx":1282
+ * 
  *         if single:
  *             if k==1:             # <<<<<<<<<<<<<<
  *                 if sizeof(long) < sizeof(np.intp_t):
@@ -19164,7 +19185,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
     if (__pyx_t_10) {
 
 
-      /* "pyart/map/ckdtree.pyx":1276
+      /* "pyart/map/ckdtree.pyx":1283
  *         if single:
  *             if k==1:
  *                 if sizeof(long) < sizeof(np.intp_t):             # <<<<<<<<<<<<<<
@@ -19176,7 +19197,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
       if (__pyx_t_10) {
 
 
-        /* "pyart/map/ckdtree.pyx":1278
+        /* "pyart/map/ckdtree.pyx":1285
  *                 if sizeof(long) < sizeof(np.intp_t):
  *                     # ... e.g. Windows 64
  *                     if ii[0,0] <= <np.intp_t>LONG_MAX:             # <<<<<<<<<<<<<<
@@ -19190,7 +19211,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
         if (__pyx_t_10) {
 
 
-          /* "pyart/map/ckdtree.pyx":1279
+          /* "pyart/map/ckdtree.pyx":1286
  *                     # ... e.g. Windows 64
  *                     if ii[0,0] <= <np.intp_t>LONG_MAX:
  *                         return dd[0,0], int(ii[0,0])             # <<<<<<<<<<<<<<
@@ -19199,12 +19220,12 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
 */
           __pyx_t_23 = 0;
           __pyx_t_24 = 0;
-          __pyx_t_4 = PyFloat_FromDouble((*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_dd.rcbuffer->pybuffer.buf, __pyx_t_23, __pyx_pybuffernd_dd.diminfo[0].strides, __pyx_t_24, __pyx_pybuffernd_dd.diminfo[1].strides))); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1279, __pyx_L1_error)
+          __pyx_t_4 = PyFloat_FromDouble((*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_dd.rcbuffer->pybuffer.buf, __pyx_t_23, __pyx_pybuffernd_dd.diminfo[0].strides, __pyx_t_24, __pyx_pybuffernd_dd.diminfo[1].strides))); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1286, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_4);
           __pyx_t_5 = NULL;
           __pyx_t_24 = 0;
           __pyx_t_23 = 0;
-          __pyx_t_3 = __Pyx_PyLong_From_npy_intp((*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_intp_t *, __pyx_pybuffernd_ii.rcbuffer->pybuffer.buf, __pyx_t_24, __pyx_pybuffernd_ii.diminfo[0].strides, __pyx_t_23, __pyx_pybuffernd_ii.diminfo[1].strides))); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1279, __pyx_L1_error)
+          __pyx_t_3 = __Pyx_PyLong_From_npy_intp((*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_intp_t *, __pyx_pybuffernd_ii.rcbuffer->pybuffer.buf, __pyx_t_24, __pyx_pybuffernd_ii.diminfo[0].strides, __pyx_t_23, __pyx_pybuffernd_ii.diminfo[1].strides))); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1286, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_3);
           __pyx_t_7 = 1;
           {
@@ -19212,15 +19233,15 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
             __pyx_t_6 = __Pyx_PyObject_FastCall((PyObject*)(&PyLong_Type), __pyx_callargs+__pyx_t_7, (2-__pyx_t_7) | (__pyx_t_7*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
             __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
             __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-            if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1279, __pyx_L1_error)
+            if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1286, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_6);
           }
-          __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1279, __pyx_L1_error)
+          __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1286, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_3);
           __Pyx_GIVEREF(__pyx_t_4);
-          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_4) != (0)) __PYX_ERR(0, 1279, __pyx_L1_error);
+          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_4) != (0)) __PYX_ERR(0, 1286, __pyx_L1_error);
           __Pyx_GIVEREF(__pyx_t_6);
-          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_t_6) != (0)) __PYX_ERR(0, 1279, __pyx_L1_error);
+          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_t_6) != (0)) __PYX_ERR(0, 1286, __pyx_L1_error);
           __pyx_t_4 = 0;
           __pyx_t_6 = 0;
           {
@@ -19234,7 +19255,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
           __pyx_t_3 = 0;
           goto __pyx_L0;
 
-          /* "pyart/map/ckdtree.pyx":1278
+          /* "pyart/map/ckdtree.pyx":1285
  *                 if sizeof(long) < sizeof(np.intp_t):
  *                     # ... e.g. Windows 64
  *                     if ii[0,0] <= <np.intp_t>LONG_MAX:             # <<<<<<<<<<<<<<
@@ -19243,7 +19264,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
 */
         }
 
-        /* "pyart/map/ckdtree.pyx":1281
+        /* "pyart/map/ckdtree.pyx":1288
  *                         return dd[0,0], int(ii[0,0])
  *                     else:
  *                         return dd[0,0], ii[0,0]             # <<<<<<<<<<<<<<
@@ -19253,18 +19274,18 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
         /*else*/ {
           __pyx_t_23 = 0;
           __pyx_t_24 = 0;
-          __pyx_t_3 = PyFloat_FromDouble((*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_dd.rcbuffer->pybuffer.buf, __pyx_t_23, __pyx_pybuffernd_dd.diminfo[0].strides, __pyx_t_24, __pyx_pybuffernd_dd.diminfo[1].strides))); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1281, __pyx_L1_error)
+          __pyx_t_3 = PyFloat_FromDouble((*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_dd.rcbuffer->pybuffer.buf, __pyx_t_23, __pyx_pybuffernd_dd.diminfo[0].strides, __pyx_t_24, __pyx_pybuffernd_dd.diminfo[1].strides))); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1288, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_3);
           __pyx_t_24 = 0;
           __pyx_t_23 = 0;
-          __pyx_t_6 = __Pyx_PyLong_From_npy_intp((*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_intp_t *, __pyx_pybuffernd_ii.rcbuffer->pybuffer.buf, __pyx_t_24, __pyx_pybuffernd_ii.diminfo[0].strides, __pyx_t_23, __pyx_pybuffernd_ii.diminfo[1].strides))); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1281, __pyx_L1_error)
+          __pyx_t_6 = __Pyx_PyLong_From_npy_intp((*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_intp_t *, __pyx_pybuffernd_ii.rcbuffer->pybuffer.buf, __pyx_t_24, __pyx_pybuffernd_ii.diminfo[0].strides, __pyx_t_23, __pyx_pybuffernd_ii.diminfo[1].strides))); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1288, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_6);
-          __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1281, __pyx_L1_error)
+          __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1288, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_4);
           __Pyx_GIVEREF(__pyx_t_3);
-          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_3) != (0)) __PYX_ERR(0, 1281, __pyx_L1_error);
+          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_3) != (0)) __PYX_ERR(0, 1288, __pyx_L1_error);
           __Pyx_GIVEREF(__pyx_t_6);
-          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_6) != (0)) __PYX_ERR(0, 1281, __pyx_L1_error);
+          if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_6) != (0)) __PYX_ERR(0, 1288, __pyx_L1_error);
           __pyx_t_3 = 0;
           __pyx_t_6 = 0;
           {
@@ -19279,7 +19300,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
           goto __pyx_L0;
         }
 
-        /* "pyart/map/ckdtree.pyx":1276
+        /* "pyart/map/ckdtree.pyx":1283
  *         if single:
  *             if k==1:
  *                 if sizeof(long) < sizeof(np.intp_t):             # <<<<<<<<<<<<<<
@@ -19288,7 +19309,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
 */
       }
 
-      /* "pyart/map/ckdtree.pyx":1284
+      /* "pyart/map/ckdtree.pyx":1291
  *                 else:
  *                     # ... most other platforms
  *                     return dd[0,0], ii[0,0]             # <<<<<<<<<<<<<<
@@ -19298,18 +19319,18 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
       /*else*/ {
         __pyx_t_23 = 0;
         __pyx_t_24 = 0;
-        __pyx_t_4 = PyFloat_FromDouble((*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_dd.rcbuffer->pybuffer.buf, __pyx_t_23, __pyx_pybuffernd_dd.diminfo[0].strides, __pyx_t_24, __pyx_pybuffernd_dd.diminfo[1].strides))); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1284, __pyx_L1_error)
+        __pyx_t_4 = PyFloat_FromDouble((*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_dd.rcbuffer->pybuffer.buf, __pyx_t_23, __pyx_pybuffernd_dd.diminfo[0].strides, __pyx_t_24, __pyx_pybuffernd_dd.diminfo[1].strides))); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1291, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __pyx_t_24 = 0;
         __pyx_t_23 = 0;
-        __pyx_t_6 = __Pyx_PyLong_From_npy_intp((*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_intp_t *, __pyx_pybuffernd_ii.rcbuffer->pybuffer.buf, __pyx_t_24, __pyx_pybuffernd_ii.diminfo[0].strides, __pyx_t_23, __pyx_pybuffernd_ii.diminfo[1].strides))); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1284, __pyx_L1_error)
+        __pyx_t_6 = __Pyx_PyLong_From_npy_intp((*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_intp_t *, __pyx_pybuffernd_ii.rcbuffer->pybuffer.buf, __pyx_t_24, __pyx_pybuffernd_ii.diminfo[0].strides, __pyx_t_23, __pyx_pybuffernd_ii.diminfo[1].strides))); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1291, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_6);
-        __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1284, __pyx_L1_error)
+        __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1291, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         __Pyx_GIVEREF(__pyx_t_4);
-        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_4) != (0)) __PYX_ERR(0, 1284, __pyx_L1_error);
+        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_4) != (0)) __PYX_ERR(0, 1291, __pyx_L1_error);
         __Pyx_GIVEREF(__pyx_t_6);
-        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_t_6) != (0)) __PYX_ERR(0, 1284, __pyx_L1_error);
+        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_t_6) != (0)) __PYX_ERR(0, 1291, __pyx_L1_error);
         __pyx_t_4 = 0;
         __pyx_t_6 = 0;
         {
@@ -19324,8 +19345,8 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
         goto __pyx_L0;
       }
 
-      /* "pyart/map/ckdtree.pyx":1275
- *
+      /* "pyart/map/ckdtree.pyx":1282
+ * 
  *         if single:
  *             if k==1:             # <<<<<<<<<<<<<<
  *                 if sizeof(long) < sizeof(np.intp_t):
@@ -19333,7 +19354,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
 */
     }
 
-    /* "pyart/map/ckdtree.pyx":1286
+    /* "pyart/map/ckdtree.pyx":1293
  *                     return dd[0,0], ii[0,0]
  *             else:
  *                 return dd[0], ii[0]             # <<<<<<<<<<<<<<
@@ -19341,16 +19362,16 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
  *             if sizeof(long) < sizeof(np.intp_t):
 */
     /*else*/ {
-      __pyx_t_3 = __Pyx_GetItemInt(((PyObject *)__pyx_v_dd), 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1286, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_GetItemInt(((PyObject *)__pyx_v_dd), 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1293, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_6 = __Pyx_GetItemInt(((PyObject *)__pyx_v_ii), 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1286, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_GetItemInt(((PyObject *)__pyx_v_ii), 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1293, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
-      __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1286, __pyx_L1_error)
+      __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1293, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_GIVEREF(__pyx_t_3);
-      if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_3) != (0)) __PYX_ERR(0, 1286, __pyx_L1_error);
+      if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_3) != (0)) __PYX_ERR(0, 1293, __pyx_L1_error);
       __Pyx_GIVEREF(__pyx_t_6);
-      if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_6) != (0)) __PYX_ERR(0, 1286, __pyx_L1_error);
+      if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_6) != (0)) __PYX_ERR(0, 1293, __pyx_L1_error);
       __pyx_t_3 = 0;
       __pyx_t_6 = 0;
       {
@@ -19365,16 +19386,16 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
       goto __pyx_L0;
     }
 
-    /* "pyart/map/ckdtree.pyx":1274
+    /* "pyart/map/ckdtree.pyx":1281
  *                          k, eps, p, distance_upper_bound)
- *
+ * 
  *         if single:             # <<<<<<<<<<<<<<
  *             if k==1:
  *                 if sizeof(long) < sizeof(np.intp_t):
 */
   }
 
-  /* "pyart/map/ckdtree.pyx":1288
+  /* "pyart/map/ckdtree.pyx":1295
  *                 return dd[0], ii[0]
  *         else:
  *             if sizeof(long) < sizeof(np.intp_t):             # <<<<<<<<<<<<<<
@@ -19387,7 +19408,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
     if (__pyx_t_10) {
 
 
-      /* "pyart/map/ckdtree.pyx":1290
+      /* "pyart/map/ckdtree.pyx":1297
  *             if sizeof(long) < sizeof(np.intp_t):
  *                 # ... e.g. Windows 64
  *                 for i in range(n):             # <<<<<<<<<<<<<<
@@ -19401,7 +19422,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
       for (__pyx_t_18 = 0; __pyx_t_18 < __pyx_t_17; __pyx_t_18+=1) {
         __pyx_v_i = __pyx_t_18;
 
-        /* "pyart/map/ckdtree.pyx":1291
+        /* "pyart/map/ckdtree.pyx":1298
  *                 # ... e.g. Windows 64
  *                 for i in range(n):
  *                     for j in range(k):             # <<<<<<<<<<<<<<
@@ -19415,7 +19436,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
         for (__pyx_t_27 = 0; __pyx_t_27 < __pyx_t_26; __pyx_t_27+=1) {
           __pyx_v_j = __pyx_t_27;
 
-          /* "pyart/map/ckdtree.pyx":1292
+          /* "pyart/map/ckdtree.pyx":1299
  *                 for i in range(n):
  *                     for j in range(k):
  *                         if ii[i,j] > <np.intp_t>LONG_MAX:             # <<<<<<<<<<<<<<
@@ -19429,7 +19450,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
           if (__pyx_t_10) {
 
 
-            /* "pyart/map/ckdtree.pyx":1294
+            /* "pyart/map/ckdtree.pyx":1301
  *                         if ii[i,j] > <np.intp_t>LONG_MAX:
  *                             # C long overlow, return array of dtype=np.int_p
  *                             if k==1:             # <<<<<<<<<<<<<<
@@ -19441,7 +19462,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
             if (__pyx_t_10) {
 
 
-              /* "pyart/map/ckdtree.pyx":1295
+              /* "pyart/map/ckdtree.pyx":1302
  *                             # C long overlow, return array of dtype=np.int_p
  *                             if k==1:
  *                                 return np.reshape(dd[...,0],retshape), np.reshape(ii[...,0],retshape)             # <<<<<<<<<<<<<<
@@ -19449,12 +19470,12 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
  *                                 return np.reshape(dd,retshape+(k,)), np.reshape(ii,retshape+(k,))
 */
               __pyx_t_6 = NULL;
-              __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1295, __pyx_L1_error)
+              __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1302, __pyx_L1_error)
               __Pyx_GOTREF(__pyx_t_3);
-              __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_reshape); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1295, __pyx_L1_error)
+              __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_reshape); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1302, __pyx_L1_error)
               __Pyx_GOTREF(__pyx_t_5);
               __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-              __pyx_t_3 = __Pyx_PyObject_GetItem(((PyObject *)__pyx_v_dd), __pyx_mstate_global->__pyx_tuple[4]); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1295, __pyx_L1_error)
+              __pyx_t_3 = __Pyx_PyObject_GetItem(((PyObject *)__pyx_v_dd), __pyx_mstate_global->__pyx_tuple[4]); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1302, __pyx_L1_error)
               __Pyx_GOTREF(__pyx_t_3);
               __pyx_t_7 = 1;
               #if CYTHON_UNPACK_METHODS
@@ -19474,16 +19495,16 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
                 __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
                 __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
                 __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-                if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1295, __pyx_L1_error)
+                if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1302, __pyx_L1_error)
                 __Pyx_GOTREF(__pyx_t_4);
               }
               __pyx_t_3 = NULL;
-              __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1295, __pyx_L1_error)
+              __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1302, __pyx_L1_error)
               __Pyx_GOTREF(__pyx_t_6);
-              __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_reshape); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1295, __pyx_L1_error)
+              __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_reshape); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1302, __pyx_L1_error)
               __Pyx_GOTREF(__pyx_t_1);
               __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-              __pyx_t_6 = __Pyx_PyObject_GetItem(((PyObject *)__pyx_v_ii), __pyx_mstate_global->__pyx_tuple[4]); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1295, __pyx_L1_error)
+              __pyx_t_6 = __Pyx_PyObject_GetItem(((PyObject *)__pyx_v_ii), __pyx_mstate_global->__pyx_tuple[4]); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1302, __pyx_L1_error)
               __Pyx_GOTREF(__pyx_t_6);
               __pyx_t_7 = 1;
               #if CYTHON_UNPACK_METHODS
@@ -19503,15 +19524,15 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
                 __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
                 __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
                 __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-                if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1295, __pyx_L1_error)
+                if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1302, __pyx_L1_error)
                 __Pyx_GOTREF(__pyx_t_5);
               }
-              __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1295, __pyx_L1_error)
+              __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1302, __pyx_L1_error)
               __Pyx_GOTREF(__pyx_t_1);
               __Pyx_GIVEREF(__pyx_t_4);
-              if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_4) != (0)) __PYX_ERR(0, 1295, __pyx_L1_error);
+              if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_4) != (0)) __PYX_ERR(0, 1302, __pyx_L1_error);
               __Pyx_GIVEREF(__pyx_t_5);
-              if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_t_5) != (0)) __PYX_ERR(0, 1295, __pyx_L1_error);
+              if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_t_5) != (0)) __PYX_ERR(0, 1302, __pyx_L1_error);
               __pyx_t_4 = 0;
               __pyx_t_5 = 0;
               {
@@ -19525,7 +19546,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
               __pyx_t_1 = 0;
               goto __pyx_L0;
 
-              /* "pyart/map/ckdtree.pyx":1294
+              /* "pyart/map/ckdtree.pyx":1301
  *                         if ii[i,j] > <np.intp_t>LONG_MAX:
  *                             # C long overlow, return array of dtype=np.int_p
  *                             if k==1:             # <<<<<<<<<<<<<<
@@ -19534,28 +19555,28 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
 */
             }
 
-            /* "pyart/map/ckdtree.pyx":1297
+            /* "pyart/map/ckdtree.pyx":1304
  *                                 return np.reshape(dd[...,0],retshape), np.reshape(ii[...,0],retshape)
  *                             else:
  *                                 return np.reshape(dd,retshape+(k,)), np.reshape(ii,retshape+(k,))             # <<<<<<<<<<<<<<
- *
+ * 
  *                 # no C long overlow, return array of dtype=int
 */
             /*else*/ {
               __pyx_t_5 = NULL;
-              __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1297, __pyx_L1_error)
+              __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1304, __pyx_L1_error)
               __Pyx_GOTREF(__pyx_t_4);
-              __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_reshape); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1297, __pyx_L1_error)
+              __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_reshape); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1304, __pyx_L1_error)
               __Pyx_GOTREF(__pyx_t_6);
               __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-              __pyx_t_4 = __Pyx_PyLong_From_npy_intp(__pyx_v_k); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1297, __pyx_L1_error)
+              __pyx_t_4 = __Pyx_PyLong_From_npy_intp(__pyx_v_k); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1304, __pyx_L1_error)
               __Pyx_GOTREF(__pyx_t_4);
-              __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1297, __pyx_L1_error)
+              __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1304, __pyx_L1_error)
               __Pyx_GOTREF(__pyx_t_3);
               __Pyx_GIVEREF(__pyx_t_4);
-              if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_4) != (0)) __PYX_ERR(0, 1297, __pyx_L1_error);
+              if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_4) != (0)) __PYX_ERR(0, 1304, __pyx_L1_error);
               __pyx_t_4 = 0;
-              __pyx_t_4 = PyNumber_Add(__pyx_v_retshape, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1297, __pyx_L1_error)
+              __pyx_t_4 = PyNumber_Add(__pyx_v_retshape, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1304, __pyx_L1_error)
               __Pyx_GOTREF(__pyx_t_4);
               __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
               __pyx_t_7 = 1;
@@ -19576,23 +19597,23 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
                 __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
                 __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
                 __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-                if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1297, __pyx_L1_error)
+                if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1304, __pyx_L1_error)
                 __Pyx_GOTREF(__pyx_t_1);
               }
               __pyx_t_4 = NULL;
-              __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1297, __pyx_L1_error)
+              __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1304, __pyx_L1_error)
               __Pyx_GOTREF(__pyx_t_5);
-              __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_reshape); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1297, __pyx_L1_error)
+              __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_reshape); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1304, __pyx_L1_error)
               __Pyx_GOTREF(__pyx_t_3);
               __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-              __pyx_t_5 = __Pyx_PyLong_From_npy_intp(__pyx_v_k); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1297, __pyx_L1_error)
+              __pyx_t_5 = __Pyx_PyLong_From_npy_intp(__pyx_v_k); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1304, __pyx_L1_error)
               __Pyx_GOTREF(__pyx_t_5);
-              __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1297, __pyx_L1_error)
+              __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1304, __pyx_L1_error)
               __Pyx_GOTREF(__pyx_t_2);
               __Pyx_GIVEREF(__pyx_t_5);
-              if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_5) != (0)) __PYX_ERR(0, 1297, __pyx_L1_error);
+              if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_5) != (0)) __PYX_ERR(0, 1304, __pyx_L1_error);
               __pyx_t_5 = 0;
-              __pyx_t_5 = PyNumber_Add(__pyx_v_retshape, __pyx_t_2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1297, __pyx_L1_error)
+              __pyx_t_5 = PyNumber_Add(__pyx_v_retshape, __pyx_t_2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1304, __pyx_L1_error)
               __Pyx_GOTREF(__pyx_t_5);
               __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
               __pyx_t_7 = 1;
@@ -19613,15 +19634,15 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
                 __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
                 __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
                 __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-                if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1297, __pyx_L1_error)
+                if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1304, __pyx_L1_error)
                 __Pyx_GOTREF(__pyx_t_6);
               }
-              __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1297, __pyx_L1_error)
+              __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1304, __pyx_L1_error)
               __Pyx_GOTREF(__pyx_t_3);
               __Pyx_GIVEREF(__pyx_t_1);
-              if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_1) != (0)) __PYX_ERR(0, 1297, __pyx_L1_error);
+              if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_1) != (0)) __PYX_ERR(0, 1304, __pyx_L1_error);
               __Pyx_GIVEREF(__pyx_t_6);
-              if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_t_6) != (0)) __PYX_ERR(0, 1297, __pyx_L1_error);
+              if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_t_6) != (0)) __PYX_ERR(0, 1304, __pyx_L1_error);
               __pyx_t_1 = 0;
               __pyx_t_6 = 0;
               {
@@ -19636,7 +19657,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
               goto __pyx_L0;
             }
 
-            /* "pyart/map/ckdtree.pyx":1292
+            /* "pyart/map/ckdtree.pyx":1299
  *                 for i in range(n):
  *                     for j in range(k):
  *                         if ii[i,j] > <np.intp_t>LONG_MAX:             # <<<<<<<<<<<<<<
@@ -19649,8 +19670,8 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
       }
 
 
-      /* "pyart/map/ckdtree.pyx":1300
- *
+      /* "pyart/map/ckdtree.pyx":1307
+ * 
  *                 # no C long overlow, return array of dtype=int
  *                 if k==1:             # <<<<<<<<<<<<<<
  *                     return np.reshape(dd[...,0],retshape), np.reshape(ii[...,0],retshape).astype(int)
@@ -19661,7 +19682,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
       if (__pyx_t_10) {
 
 
-        /* "pyart/map/ckdtree.pyx":1301
+        /* "pyart/map/ckdtree.pyx":1308
  *                 # no C long overlow, return array of dtype=int
  *                 if k==1:
  *                     return np.reshape(dd[...,0],retshape), np.reshape(ii[...,0],retshape).astype(int)             # <<<<<<<<<<<<<<
@@ -19669,12 +19690,12 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
  *                     return np.reshape(dd,retshape+(k,)), np.reshape(ii,retshape+(k,)).astype(int)
 */
         __pyx_t_6 = NULL;
-        __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1301, __pyx_L1_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1308, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
-        __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_reshape); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1301, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_reshape); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1308, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-        __pyx_t_1 = __Pyx_PyObject_GetItem(((PyObject *)__pyx_v_dd), __pyx_mstate_global->__pyx_tuple[4]); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1301, __pyx_L1_error)
+        __pyx_t_1 = __Pyx_PyObject_GetItem(((PyObject *)__pyx_v_dd), __pyx_mstate_global->__pyx_tuple[4]); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1308, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         __pyx_t_7 = 1;
         #if CYTHON_UNPACK_METHODS
@@ -19694,16 +19715,16 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
           __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-          if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1301, __pyx_L1_error)
+          if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1308, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_3);
         }
         __pyx_t_4 = NULL;
-        __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1301, __pyx_L1_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1308, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
-        __pyx_t_28 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_reshape); if (unlikely(!__pyx_t_28)) __PYX_ERR(0, 1301, __pyx_L1_error)
+        __pyx_t_28 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_reshape); if (unlikely(!__pyx_t_28)) __PYX_ERR(0, 1308, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_28);
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-        __pyx_t_2 = __Pyx_PyObject_GetItem(((PyObject *)__pyx_v_ii), __pyx_mstate_global->__pyx_tuple[4]); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1301, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PyObject_GetItem(((PyObject *)__pyx_v_ii), __pyx_mstate_global->__pyx_tuple[4]); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1308, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __pyx_t_7 = 1;
         #if CYTHON_UNPACK_METHODS
@@ -19723,7 +19744,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
           __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
           __Pyx_DECREF(__pyx_t_28); __pyx_t_28 = 0;
-          if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1301, __pyx_L1_error)
+          if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1308, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_6);
         }
         __pyx_t_1 = __pyx_t_6;
@@ -19734,15 +19755,15 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
           __pyx_t_5 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_astype, __pyx_callargs+__pyx_t_7, (2-__pyx_t_7) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
           __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
           __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-          if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1301, __pyx_L1_error)
+          if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1308, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_5);
         }
-        __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1301, __pyx_L1_error)
+        __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1308, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_6);
         __Pyx_GIVEREF(__pyx_t_3);
-        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_3) != (0)) __PYX_ERR(0, 1301, __pyx_L1_error);
+        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_3) != (0)) __PYX_ERR(0, 1308, __pyx_L1_error);
         __Pyx_GIVEREF(__pyx_t_5);
-        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_6, 1, __pyx_t_5) != (0)) __PYX_ERR(0, 1301, __pyx_L1_error);
+        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_6, 1, __pyx_t_5) != (0)) __PYX_ERR(0, 1308, __pyx_L1_error);
         __pyx_t_3 = 0;
         __pyx_t_5 = 0;
         {
@@ -19756,8 +19777,8 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
         __pyx_t_6 = 0;
         goto __pyx_L0;
 
-        /* "pyart/map/ckdtree.pyx":1300
- *
+        /* "pyart/map/ckdtree.pyx":1307
+ * 
  *                 # no C long overlow, return array of dtype=int
  *                 if k==1:             # <<<<<<<<<<<<<<
  *                     return np.reshape(dd[...,0],retshape), np.reshape(ii[...,0],retshape).astype(int)
@@ -19765,28 +19786,28 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
 */
       }
 
-      /* "pyart/map/ckdtree.pyx":1303
+      /* "pyart/map/ckdtree.pyx":1310
  *                     return np.reshape(dd[...,0],retshape), np.reshape(ii[...,0],retshape).astype(int)
  *                 else:
  *                     return np.reshape(dd,retshape+(k,)), np.reshape(ii,retshape+(k,)).astype(int)             # <<<<<<<<<<<<<<
- *
+ * 
  *             else:
 */
       /*else*/ {
         __pyx_t_5 = NULL;
-        __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1303, __pyx_L1_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1310, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_reshape); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1303, __pyx_L1_error)
+        __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_reshape); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1310, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        __pyx_t_3 = __Pyx_PyLong_From_npy_intp(__pyx_v_k); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1303, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyLong_From_npy_intp(__pyx_v_k); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1310, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_28 = PyTuple_New(1); if (unlikely(!__pyx_t_28)) __PYX_ERR(0, 1303, __pyx_L1_error)
+        __pyx_t_28 = PyTuple_New(1); if (unlikely(!__pyx_t_28)) __PYX_ERR(0, 1310, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_28);
         __Pyx_GIVEREF(__pyx_t_3);
-        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_28, 0, __pyx_t_3) != (0)) __PYX_ERR(0, 1303, __pyx_L1_error);
+        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_28, 0, __pyx_t_3) != (0)) __PYX_ERR(0, 1310, __pyx_L1_error);
         __pyx_t_3 = 0;
-        __pyx_t_3 = PyNumber_Add(__pyx_v_retshape, __pyx_t_28); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1303, __pyx_L1_error)
+        __pyx_t_3 = PyNumber_Add(__pyx_v_retshape, __pyx_t_28); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1310, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         __Pyx_DECREF(__pyx_t_28); __pyx_t_28 = 0;
         __pyx_t_7 = 1;
@@ -19807,23 +19828,23 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
           __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-          if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1303, __pyx_L1_error)
+          if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1310, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_6);
         }
         __pyx_t_28 = NULL;
-        __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1303, __pyx_L1_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1310, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
-        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_reshape); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1303, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_reshape); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1310, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-        __pyx_t_2 = __Pyx_PyLong_From_npy_intp(__pyx_v_k); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1303, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PyLong_From_npy_intp(__pyx_v_k); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1310, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
-        __pyx_t_29 = PyTuple_New(1); if (unlikely(!__pyx_t_29)) __PYX_ERR(0, 1303, __pyx_L1_error)
+        __pyx_t_29 = PyTuple_New(1); if (unlikely(!__pyx_t_29)) __PYX_ERR(0, 1310, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_29);
         __Pyx_GIVEREF(__pyx_t_2);
-        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_29, 0, __pyx_t_2) != (0)) __PYX_ERR(0, 1303, __pyx_L1_error);
+        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_29, 0, __pyx_t_2) != (0)) __PYX_ERR(0, 1310, __pyx_L1_error);
         __pyx_t_2 = 0;
-        __pyx_t_2 = PyNumber_Add(__pyx_v_retshape, __pyx_t_29); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1303, __pyx_L1_error)
+        __pyx_t_2 = PyNumber_Add(__pyx_v_retshape, __pyx_t_29); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1310, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_29); __pyx_t_29 = 0;
         __pyx_t_7 = 1;
@@ -19844,7 +19865,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
           __Pyx_XDECREF(__pyx_t_28); __pyx_t_28 = 0;
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
           __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-          if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1303, __pyx_L1_error)
+          if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1310, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_5);
         }
         __pyx_t_3 = __pyx_t_5;
@@ -19855,15 +19876,15 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
           __pyx_t_1 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_astype, __pyx_callargs+__pyx_t_7, (2-__pyx_t_7) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
           __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-          if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1303, __pyx_L1_error)
+          if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1310, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_1);
         }
-        __pyx_t_5 = PyTuple_New(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1303, __pyx_L1_error)
+        __pyx_t_5 = PyTuple_New(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1310, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_GIVEREF(__pyx_t_6);
-        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_6) != (0)) __PYX_ERR(0, 1303, __pyx_L1_error);
+        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_6) != (0)) __PYX_ERR(0, 1310, __pyx_L1_error);
         __Pyx_GIVEREF(__pyx_t_1);
-        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_5, 1, __pyx_t_1) != (0)) __PYX_ERR(0, 1303, __pyx_L1_error);
+        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_5, 1, __pyx_t_1) != (0)) __PYX_ERR(0, 1310, __pyx_L1_error);
         __pyx_t_6 = 0;
         __pyx_t_1 = 0;
         {
@@ -19878,7 +19899,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
         goto __pyx_L0;
       }
 
-      /* "pyart/map/ckdtree.pyx":1288
+      /* "pyart/map/ckdtree.pyx":1295
  *                 return dd[0], ii[0]
  *         else:
  *             if sizeof(long) < sizeof(np.intp_t):             # <<<<<<<<<<<<<<
@@ -19887,7 +19908,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
 */
     }
 
-    /* "pyart/map/ckdtree.pyx":1307
+    /* "pyart/map/ckdtree.pyx":1314
  *             else:
  *                 # ... most other platforms
  *                 if k==1:             # <<<<<<<<<<<<<<
@@ -19900,7 +19921,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
       if (__pyx_t_10) {
 
 
-        /* "pyart/map/ckdtree.pyx":1308
+        /* "pyart/map/ckdtree.pyx":1315
  *                 # ... most other platforms
  *                 if k==1:
  *                     return np.reshape(dd[...,0],retshape), np.reshape(ii[...,0],retshape)             # <<<<<<<<<<<<<<
@@ -19908,12 +19929,12 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
  *                     return np.reshape(dd,retshape+(k,)), np.reshape(ii,retshape+(k,))
 */
         __pyx_t_1 = NULL;
-        __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1308, __pyx_L1_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1315, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_6);
-        __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_reshape); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1308, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_reshape); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1315, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-        __pyx_t_6 = __Pyx_PyObject_GetItem(((PyObject *)__pyx_v_dd), __pyx_mstate_global->__pyx_tuple[4]); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1308, __pyx_L1_error)
+        __pyx_t_6 = __Pyx_PyObject_GetItem(((PyObject *)__pyx_v_dd), __pyx_mstate_global->__pyx_tuple[4]); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1315, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_6);
         __pyx_t_7 = 1;
         #if CYTHON_UNPACK_METHODS
@@ -19933,16 +19954,16 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
           __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
           __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-          if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1308, __pyx_L1_error)
+          if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1315, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_5);
         }
         __pyx_t_6 = NULL;
-        __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1308, __pyx_L1_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1315, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
-        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_reshape); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1308, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_reshape); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1315, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-        __pyx_t_1 = __Pyx_PyObject_GetItem(((PyObject *)__pyx_v_ii), __pyx_mstate_global->__pyx_tuple[4]); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1308, __pyx_L1_error)
+        __pyx_t_1 = __Pyx_PyObject_GetItem(((PyObject *)__pyx_v_ii), __pyx_mstate_global->__pyx_tuple[4]); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1315, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         __pyx_t_7 = 1;
         #if CYTHON_UNPACK_METHODS
@@ -19962,15 +19983,15 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
           __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
           __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-          if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1308, __pyx_L1_error)
+          if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1315, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_3);
         }
-        __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1308, __pyx_L1_error)
+        __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1315, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_GIVEREF(__pyx_t_5);
-        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_5) != (0)) __PYX_ERR(0, 1308, __pyx_L1_error);
+        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_5) != (0)) __PYX_ERR(0, 1315, __pyx_L1_error);
         __Pyx_GIVEREF(__pyx_t_3);
-        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_3) != (0)) __PYX_ERR(0, 1308, __pyx_L1_error);
+        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_3) != (0)) __PYX_ERR(0, 1315, __pyx_L1_error);
         __pyx_t_5 = 0;
         __pyx_t_3 = 0;
         {
@@ -19984,7 +20005,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
         __pyx_t_4 = 0;
         goto __pyx_L0;
 
-        /* "pyart/map/ckdtree.pyx":1307
+        /* "pyart/map/ckdtree.pyx":1314
  *             else:
  *                 # ... most other platforms
  *                 if k==1:             # <<<<<<<<<<<<<<
@@ -19993,28 +20014,28 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
 */
       }
 
-      /* "pyart/map/ckdtree.pyx":1310
+      /* "pyart/map/ckdtree.pyx":1317
  *                     return np.reshape(dd[...,0],retshape), np.reshape(ii[...,0],retshape)
  *                 else:
  *                     return np.reshape(dd,retshape+(k,)), np.reshape(ii,retshape+(k,))             # <<<<<<<<<<<<<<
- *
+ * 
  *     # ----------------
 */
       /*else*/ {
         __pyx_t_3 = NULL;
-        __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1310, __pyx_L1_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1317, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
-        __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_reshape); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1310, __pyx_L1_error)
+        __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_reshape); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1317, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        __pyx_t_5 = __Pyx_PyLong_From_npy_intp(__pyx_v_k); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1310, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyLong_From_npy_intp(__pyx_v_k); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1317, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
-        __pyx_t_6 = PyTuple_New(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1310, __pyx_L1_error)
+        __pyx_t_6 = PyTuple_New(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1317, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_6);
         __Pyx_GIVEREF(__pyx_t_5);
-        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_5) != (0)) __PYX_ERR(0, 1310, __pyx_L1_error);
+        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_5) != (0)) __PYX_ERR(0, 1317, __pyx_L1_error);
         __pyx_t_5 = 0;
-        __pyx_t_5 = PyNumber_Add(__pyx_v_retshape, __pyx_t_6); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1310, __pyx_L1_error)
+        __pyx_t_5 = PyNumber_Add(__pyx_v_retshape, __pyx_t_6); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1317, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
         __pyx_t_7 = 1;
@@ -20035,23 +20056,23 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
           __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-          if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1310, __pyx_L1_error)
+          if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1317, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_4);
         }
         __pyx_t_5 = NULL;
-        __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1310, __pyx_L1_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1317, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_reshape); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1310, __pyx_L1_error)
+        __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_reshape); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1317, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_6);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        __pyx_t_3 = __Pyx_PyLong_From_npy_intp(__pyx_v_k); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1310, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyLong_From_npy_intp(__pyx_v_k); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1317, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1310, __pyx_L1_error)
+        __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1317, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_GIVEREF(__pyx_t_3);
-        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_3) != (0)) __PYX_ERR(0, 1310, __pyx_L1_error);
+        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_3) != (0)) __PYX_ERR(0, 1317, __pyx_L1_error);
         __pyx_t_3 = 0;
-        __pyx_t_3 = PyNumber_Add(__pyx_v_retshape, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1310, __pyx_L1_error)
+        __pyx_t_3 = PyNumber_Add(__pyx_v_retshape, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1317, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_t_7 = 1;
@@ -20072,15 +20093,15 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
           __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
           __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-          if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1310, __pyx_L1_error)
+          if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1317, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_1);
         }
-        __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1310, __pyx_L1_error)
+        __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1317, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_6);
         __Pyx_GIVEREF(__pyx_t_4);
-        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_4) != (0)) __PYX_ERR(0, 1310, __pyx_L1_error);
+        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_4) != (0)) __PYX_ERR(0, 1317, __pyx_L1_error);
         __Pyx_GIVEREF(__pyx_t_1);
-        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_6, 1, __pyx_t_1) != (0)) __PYX_ERR(0, 1310, __pyx_L1_error);
+        if (__Pyx_PyTuple_SET_ITEM(__pyx_t_6, 1, __pyx_t_1) != (0)) __PYX_ERR(0, 1317, __pyx_L1_error);
         __pyx_t_4 = 0;
         __pyx_t_1 = 0;
         {
@@ -20097,9 +20118,9 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
     }
   }
 
-  /* "pyart/map/ckdtree.pyx":1204
- *
- *
+  /* "pyart/map/ckdtree.pyx":1211
+ * 
+ * 
  *     @cython.boundscheck(False)             # <<<<<<<<<<<<<<
  *     @cython.wraparound(False)
  *     def query(cKDTree self, object x, np.intp_t k=1, np.float64_t eps=0,
@@ -20153,7 +20174,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4query(struct __pyx_obj_
   return __pyx_r;
 }
 
-/* "pyart/map/ckdtree.pyx":1315
+/* "pyart/map/ckdtree.pyx":1322
  *     # query_ball_point
  *     # ----------------
  *     cdef int __query_ball_point_traverse_no_checking(cKDTree self,             # <<<<<<<<<<<<<<
@@ -20174,9 +20195,9 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_ball_point_trav
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
 
-  /* "pyart/map/ckdtree.pyx":1321
+  /* "pyart/map/ckdtree.pyx":1328
  *         cdef np.intp_t i
- *
+ * 
  *         if node.split_dim == -1:  # leaf node             # <<<<<<<<<<<<<<
  *             lnode = <leafnode*> node
  *             for i in range(lnode.start_idx, lnode.end_idx):
@@ -20186,8 +20207,8 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_ball_point_trav
   if (__pyx_t_1) {
 
 
-    /* "pyart/map/ckdtree.pyx":1322
- *
+    /* "pyart/map/ckdtree.pyx":1329
+ * 
  *         if node.split_dim == -1:  # leaf node
  *             lnode = <leafnode*> node             # <<<<<<<<<<<<<<
  *             for i in range(lnode.start_idx, lnode.end_idx):
@@ -20195,7 +20216,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_ball_point_trav
 */
     __pyx_v_lnode = ((struct __pyx_t_5pyart_3map_7ckdtree_leafnode *)__pyx_v_node);
 
-    /* "pyart/map/ckdtree.pyx":1323
+    /* "pyart/map/ckdtree.pyx":1330
  *         if node.split_dim == -1:  # leaf node
  *             lnode = <leafnode*> node
  *             for i in range(lnode.start_idx, lnode.end_idx):             # <<<<<<<<<<<<<<
@@ -20209,21 +20230,21 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_ball_point_trav
     for (__pyx_t_4 = __pyx_v_lnode->start_idx; __pyx_t_4 < __pyx_t_3; __pyx_t_4+=1) {
       __pyx_v_i = __pyx_t_4;
 
-      /* "pyart/map/ckdtree.pyx":1324
+      /* "pyart/map/ckdtree.pyx":1331
  *             lnode = <leafnode*> node
  *             for i in range(lnode.start_idx, lnode.end_idx):
  *                 list_append(results, self.raw_indices[i])             # <<<<<<<<<<<<<<
  *         else:
  *             self.__query_ball_point_traverse_no_checking(results, node.less)
 */
-      __pyx_t_5 = __pyx_f_5pyart_3map_7ckdtree_list_append(__pyx_v_results, (__pyx_v_self->raw_indices[__pyx_v_i])); if (unlikely(__pyx_t_5 == ((int)-1))) __PYX_ERR(0, 1324, __pyx_L1_error)
+      __pyx_t_5 = __pyx_f_5pyart_3map_7ckdtree_list_append(__pyx_v_results, (__pyx_v_self->raw_indices[__pyx_v_i])); if (unlikely(__pyx_t_5 == ((int)-1))) __PYX_ERR(0, 1331, __pyx_L1_error)
 
     }
 
 
-    /* "pyart/map/ckdtree.pyx":1321
+    /* "pyart/map/ckdtree.pyx":1328
  *         cdef np.intp_t i
- *
+ * 
  *         if node.split_dim == -1:  # leaf node             # <<<<<<<<<<<<<<
  *             lnode = <leafnode*> node
  *             for i in range(lnode.start_idx, lnode.end_idx):
@@ -20231,35 +20252,35 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_ball_point_trav
     goto __pyx_L3;
   }
 
-  /* "pyart/map/ckdtree.pyx":1326
+  /* "pyart/map/ckdtree.pyx":1333
  *                 list_append(results, self.raw_indices[i])
  *         else:
  *             self.__query_ball_point_traverse_no_checking(results, node.less)             # <<<<<<<<<<<<<<
  *             self.__query_ball_point_traverse_no_checking(results, node.greater)
- *
+ * 
 */
   /*else*/ {
-    __pyx_t_5 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_ball_point_traverse_no_checking(__pyx_v_self, __pyx_v_results, __pyx_v_node->less); if (unlikely(__pyx_t_5 == ((int)-1))) __PYX_ERR(0, 1326, __pyx_L1_error)
+    __pyx_t_5 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_ball_point_traverse_no_checking(__pyx_v_self, __pyx_v_results, __pyx_v_node->less); if (unlikely(__pyx_t_5 == ((int)-1))) __PYX_ERR(0, 1333, __pyx_L1_error)
 
 
-    /* "pyart/map/ckdtree.pyx":1327
+    /* "pyart/map/ckdtree.pyx":1334
  *         else:
  *             self.__query_ball_point_traverse_no_checking(results, node.less)
  *             self.__query_ball_point_traverse_no_checking(results, node.greater)             # <<<<<<<<<<<<<<
- *
+ * 
  *         return 0
 */
-    __pyx_t_5 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_ball_point_traverse_no_checking(__pyx_v_self, __pyx_v_results, __pyx_v_node->greater); if (unlikely(__pyx_t_5 == ((int)-1))) __PYX_ERR(0, 1327, __pyx_L1_error)
+    __pyx_t_5 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_ball_point_traverse_no_checking(__pyx_v_self, __pyx_v_results, __pyx_v_node->greater); if (unlikely(__pyx_t_5 == ((int)-1))) __PYX_ERR(0, 1334, __pyx_L1_error)
 
   }
   __pyx_L3:;
 
-  /* "pyart/map/ckdtree.pyx":1329
+  /* "pyart/map/ckdtree.pyx":1336
  *             self.__query_ball_point_traverse_no_checking(results, node.greater)
- *
+ * 
  *         return 0             # <<<<<<<<<<<<<<
- *
- *
+ * 
+ * 
 */
   {
 
@@ -20267,7 +20288,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_ball_point_trav
   }
   goto __pyx_L0;
 
-  /* "pyart/map/ckdtree.pyx":1315
+  /* "pyart/map/ckdtree.pyx":1322
  *     # query_ball_point
  *     # ----------------
  *     cdef int __query_ball_point_traverse_no_checking(cKDTree self,             # <<<<<<<<<<<<<<
@@ -20286,9 +20307,9 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_ball_point_trav
   return __pyx_r;
 }
 
-/* "pyart/map/ckdtree.pyx":1332
- *
- *
+/* "pyart/map/ckdtree.pyx":1339
+ * 
+ * 
  *     @cython.cdivision(True)             # <<<<<<<<<<<<<<
  *     cdef int __query_ball_point_traverse_checking(cKDTree self,
  *                                                   list results,
@@ -20309,9 +20330,9 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_ball_point_trav
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
 
-  /* "pyart/map/ckdtree.pyx":1341
+  /* "pyart/map/ckdtree.pyx":1348
  *         cdef np.intp_t i
- *
+ * 
  *         if tracker.min_distance > tracker.upper_bound * tracker.epsfac:             # <<<<<<<<<<<<<<
  *             return 0
  *         elif tracker.max_distance < tracker.upper_bound / tracker.epsfac:
@@ -20321,8 +20342,8 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_ball_point_trav
   if (__pyx_t_1) {
 
 
-    /* "pyart/map/ckdtree.pyx":1342
- *
+    /* "pyart/map/ckdtree.pyx":1349
+ * 
  *         if tracker.min_distance > tracker.upper_bound * tracker.epsfac:
  *             return 0             # <<<<<<<<<<<<<<
  *         elif tracker.max_distance < tracker.upper_bound / tracker.epsfac:
@@ -20334,16 +20355,16 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_ball_point_trav
     }
     goto __pyx_L0;
 
-    /* "pyart/map/ckdtree.pyx":1341
+    /* "pyart/map/ckdtree.pyx":1348
  *         cdef np.intp_t i
- *
+ * 
  *         if tracker.min_distance > tracker.upper_bound * tracker.epsfac:             # <<<<<<<<<<<<<<
  *             return 0
  *         elif tracker.max_distance < tracker.upper_bound / tracker.epsfac:
 */
   }
 
-  /* "pyart/map/ckdtree.pyx":1343
+  /* "pyart/map/ckdtree.pyx":1350
  *         if tracker.min_distance > tracker.upper_bound * tracker.epsfac:
  *             return 0
  *         elif tracker.max_distance < tracker.upper_bound / tracker.epsfac:             # <<<<<<<<<<<<<<
@@ -20355,17 +20376,17 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_ball_point_trav
   if (__pyx_t_1) {
 
 
-    /* "pyart/map/ckdtree.pyx":1344
+    /* "pyart/map/ckdtree.pyx":1351
  *             return 0
  *         elif tracker.max_distance < tracker.upper_bound / tracker.epsfac:
  *             self.__query_ball_point_traverse_no_checking(results, node)             # <<<<<<<<<<<<<<
  *         elif node.split_dim == -1:  # leaf node
  *             lnode = <leafnode*>node
 */
-    __pyx_t_2 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_ball_point_traverse_no_checking(__pyx_v_self, __pyx_v_results, __pyx_v_node); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1344, __pyx_L1_error)
+    __pyx_t_2 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_ball_point_traverse_no_checking(__pyx_v_self, __pyx_v_results, __pyx_v_node); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1351, __pyx_L1_error)
 
 
-    /* "pyart/map/ckdtree.pyx":1343
+    /* "pyart/map/ckdtree.pyx":1350
  *         if tracker.min_distance > tracker.upper_bound * tracker.epsfac:
  *             return 0
  *         elif tracker.max_distance < tracker.upper_bound / tracker.epsfac:             # <<<<<<<<<<<<<<
@@ -20375,7 +20396,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_ball_point_trav
     goto __pyx_L3;
   }
 
-  /* "pyart/map/ckdtree.pyx":1345
+  /* "pyart/map/ckdtree.pyx":1352
  *         elif tracker.max_distance < tracker.upper_bound / tracker.epsfac:
  *             self.__query_ball_point_traverse_no_checking(results, node)
  *         elif node.split_dim == -1:  # leaf node             # <<<<<<<<<<<<<<
@@ -20387,7 +20408,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_ball_point_trav
   if (__pyx_t_1) {
 
 
-    /* "pyart/map/ckdtree.pyx":1346
+    /* "pyart/map/ckdtree.pyx":1353
  *             self.__query_ball_point_traverse_no_checking(results, node)
  *         elif node.split_dim == -1:  # leaf node
  *             lnode = <leafnode*>node             # <<<<<<<<<<<<<<
@@ -20396,7 +20417,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_ball_point_trav
 */
     __pyx_v_lnode = ((struct __pyx_t_5pyart_3map_7ckdtree_leafnode *)__pyx_v_node);
 
-    /* "pyart/map/ckdtree.pyx":1348
+    /* "pyart/map/ckdtree.pyx":1355
  *             lnode = <leafnode*>node
  *             # brute-force
  *             for i in range(lnode.start_idx, lnode.end_idx):             # <<<<<<<<<<<<<<
@@ -20410,17 +20431,17 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_ball_point_trav
     for (__pyx_t_5 = __pyx_v_lnode->start_idx; __pyx_t_5 < __pyx_t_4; __pyx_t_5+=1) {
       __pyx_v_i = __pyx_t_5;
 
-      /* "pyart/map/ckdtree.pyx":1349
+      /* "pyart/map/ckdtree.pyx":1356
  *             # brute-force
  *             for i in range(lnode.start_idx, lnode.end_idx):
  *                 d = _distance_p(             # <<<<<<<<<<<<<<
  *                     self.raw_data + self.raw_indices[i] * self.m,
  *                     tracker.pt, tracker.p, self.m, tracker.upper_bound)
 */
-      __pyx_t_6 = __pyx_f_5pyart_3map_7ckdtree__distance_p((__pyx_v_self->raw_data + ((__pyx_v_self->raw_indices[__pyx_v_i]) * __pyx_v_self->m)), __pyx_v_tracker->pt, __pyx_v_tracker->p, __pyx_v_self->m, __pyx_v_tracker->upper_bound); if (unlikely(__pyx_t_6 == ((__pyx_t_5numpy_float64_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 1349, __pyx_L1_error)
+      __pyx_t_6 = __pyx_f_5pyart_3map_7ckdtree__distance_p((__pyx_v_self->raw_data + ((__pyx_v_self->raw_indices[__pyx_v_i]) * __pyx_v_self->m)), __pyx_v_tracker->pt, __pyx_v_tracker->p, __pyx_v_self->m, __pyx_v_tracker->upper_bound); if (unlikely(__pyx_t_6 == ((__pyx_t_5numpy_float64_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 1356, __pyx_L1_error)
       __pyx_v_d = __pyx_t_6;
 
-      /* "pyart/map/ckdtree.pyx":1352
+      /* "pyart/map/ckdtree.pyx":1359
  *                     self.raw_data + self.raw_indices[i] * self.m,
  *                     tracker.pt, tracker.p, self.m, tracker.upper_bound)
  *                 if d <= tracker.upper_bound:             # <<<<<<<<<<<<<<
@@ -20432,17 +20453,17 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_ball_point_trav
       if (__pyx_t_1) {
 
 
-        /* "pyart/map/ckdtree.pyx":1353
+        /* "pyart/map/ckdtree.pyx":1360
  *                     tracker.pt, tracker.p, self.m, tracker.upper_bound)
  *                 if d <= tracker.upper_bound:
  *                     list_append(results, self.raw_indices[i])             # <<<<<<<<<<<<<<
  *         else:
  *             tracker.push_less_of(node)
 */
-        __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_list_append(__pyx_v_results, (__pyx_v_self->raw_indices[__pyx_v_i])); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1353, __pyx_L1_error)
+        __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_list_append(__pyx_v_results, (__pyx_v_self->raw_indices[__pyx_v_i])); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1360, __pyx_L1_error)
 
 
-        /* "pyart/map/ckdtree.pyx":1352
+        /* "pyart/map/ckdtree.pyx":1359
  *                     self.raw_data + self.raw_indices[i] * self.m,
  *                     tracker.pt, tracker.p, self.m, tracker.upper_bound)
  *                 if d <= tracker.upper_bound:             # <<<<<<<<<<<<<<
@@ -20453,7 +20474,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_ball_point_trav
     }
 
 
-    /* "pyart/map/ckdtree.pyx":1345
+    /* "pyart/map/ckdtree.pyx":1352
  *         elif tracker.max_distance < tracker.upper_bound / tracker.epsfac:
  *             self.__query_ball_point_traverse_no_checking(results, node)
  *         elif node.split_dim == -1:  # leaf node             # <<<<<<<<<<<<<<
@@ -20463,7 +20484,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_ball_point_trav
     goto __pyx_L3;
   }
 
-  /* "pyart/map/ckdtree.pyx":1355
+  /* "pyart/map/ckdtree.pyx":1362
  *                     list_append(results, self.raw_indices[i])
  *         else:
  *             tracker.push_less_of(node)             # <<<<<<<<<<<<<<
@@ -20471,67 +20492,67 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_ball_point_trav
  *                 results, node.less, tracker)
 */
   /*else*/ {
-    __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker_push_less_of(__pyx_v_tracker, __pyx_v_node); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1355, __pyx_L1_error)
+    __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker_push_less_of(__pyx_v_tracker, __pyx_v_node); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1362, __pyx_L1_error)
 
 
-    /* "pyart/map/ckdtree.pyx":1356
+    /* "pyart/map/ckdtree.pyx":1363
  *         else:
  *             tracker.push_less_of(node)
  *             self.__query_ball_point_traverse_checking(             # <<<<<<<<<<<<<<
  *                 results, node.less, tracker)
  *             tracker.pop()
 */
-    __pyx_t_2 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_ball_point_traverse_checking(__pyx_v_self, __pyx_v_results, __pyx_v_node->less, __pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1356, __pyx_L1_error)
+    __pyx_t_2 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_ball_point_traverse_checking(__pyx_v_self, __pyx_v_results, __pyx_v_node->less, __pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1363, __pyx_L1_error)
 
 
-    /* "pyart/map/ckdtree.pyx":1358
+    /* "pyart/map/ckdtree.pyx":1365
  *             self.__query_ball_point_traverse_checking(
  *                 results, node.less, tracker)
  *             tracker.pop()             # <<<<<<<<<<<<<<
- *
+ * 
  *             tracker.push_greater_of(node)
 */
-    __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1358, __pyx_L1_error)
+    __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1365, __pyx_L1_error)
 
 
-    /* "pyart/map/ckdtree.pyx":1360
+    /* "pyart/map/ckdtree.pyx":1367
  *             tracker.pop()
- *
+ * 
  *             tracker.push_greater_of(node)             # <<<<<<<<<<<<<<
  *             self.__query_ball_point_traverse_checking(
  *                 results, node.greater, tracker)
 */
-    __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker_push_greater_of(__pyx_v_tracker, __pyx_v_node); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1360, __pyx_L1_error)
+    __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker_push_greater_of(__pyx_v_tracker, __pyx_v_node); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1367, __pyx_L1_error)
 
 
-    /* "pyart/map/ckdtree.pyx":1361
- *
+    /* "pyart/map/ckdtree.pyx":1368
+ * 
  *             tracker.push_greater_of(node)
  *             self.__query_ball_point_traverse_checking(             # <<<<<<<<<<<<<<
  *                 results, node.greater, tracker)
  *             tracker.pop()
 */
-    __pyx_t_2 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_ball_point_traverse_checking(__pyx_v_self, __pyx_v_results, __pyx_v_node->greater, __pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1361, __pyx_L1_error)
+    __pyx_t_2 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_ball_point_traverse_checking(__pyx_v_self, __pyx_v_results, __pyx_v_node->greater, __pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1368, __pyx_L1_error)
 
 
-    /* "pyart/map/ckdtree.pyx":1363
+    /* "pyart/map/ckdtree.pyx":1370
  *             self.__query_ball_point_traverse_checking(
  *                 results, node.greater, tracker)
  *             tracker.pop()             # <<<<<<<<<<<<<<
- *
+ * 
  *         return 0
 */
-    __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1363, __pyx_L1_error)
+    __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_24PointRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1370, __pyx_L1_error)
 
   }
   __pyx_L3:;
 
-  /* "pyart/map/ckdtree.pyx":1365
+  /* "pyart/map/ckdtree.pyx":1372
  *             tracker.pop()
- *
+ * 
  *         return 0             # <<<<<<<<<<<<<<
- *
- *
+ * 
+ * 
 */
   {
 
@@ -20539,9 +20560,9 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_ball_point_trav
   }
   goto __pyx_L0;
 
-  /* "pyart/map/ckdtree.pyx":1332
- *
- *
+  /* "pyart/map/ckdtree.pyx":1339
+ * 
+ * 
  *     @cython.cdivision(True)             # <<<<<<<<<<<<<<
  *     cdef int __query_ball_point_traverse_checking(cKDTree self,
  *                                                   list results,
@@ -20559,9 +20580,9 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_ball_point_trav
   return __pyx_r;
 }
 
-/* "pyart/map/ckdtree.pyx":1368
- *
- *
+/* "pyart/map/ckdtree.pyx":1375
+ * 
+ * 
  *     cdef list __query_ball_point(cKDTree self,             # <<<<<<<<<<<<<<
  *                                  np.float64_t* x,
  *                                  np.float64_t r,
@@ -20581,9 +20602,9 @@ static PyObject *__pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_ball_poin
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_cKDTree__query_ball_point", 0);
 
-  /* "pyart/map/ckdtree.pyx":1374
+  /* "pyart/map/ckdtree.pyx":1381
  *                                  np.float64_t eps):
- *
+ * 
  *         tracker = PointRectDistanceTracker()             # <<<<<<<<<<<<<<
  *         tracker.init(x, Rectangle(self.mins, self.maxes),
  *                      p, eps, r)
@@ -20594,18 +20615,18 @@ static PyObject *__pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_ball_poin
     PyObject *__pyx_callargs[2] = {__pyx_t_2, NULL};
     __pyx_t_1 = __Pyx_PyObject_FastCall((PyObject*)__pyx_mstate_global->__pyx_ptype_5pyart_3map_7ckdtree_PointRectDistanceTracker, __pyx_callargs+__pyx_t_3, (1-__pyx_t_3) | (__pyx_t_3*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1374, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1381, __pyx_L1_error)
     __Pyx_GOTREF((PyObject *)__pyx_t_1);
   }
   __pyx_v_tracker = ((struct __pyx_obj_5pyart_3map_7ckdtree_PointRectDistanceTracker *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "pyart/map/ckdtree.pyx":1375
- *
+  /* "pyart/map/ckdtree.pyx":1382
+ * 
  *         tracker = PointRectDistanceTracker()
  *         tracker.init(x, Rectangle(self.mins, self.maxes),             # <<<<<<<<<<<<<<
  *                      p, eps, r)
- *
+ * 
 */
   __pyx_t_2 = NULL;
   __pyx_t_3 = 1;
@@ -20613,50 +20634,50 @@ static PyObject *__pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_ball_poin
     PyObject *__pyx_callargs[3] = {__pyx_t_2, ((PyObject *)__pyx_v_self->mins), ((PyObject *)__pyx_v_self->maxes)};
     __pyx_t_1 = __Pyx_PyObject_FastCall((PyObject*)__pyx_mstate_global->__pyx_ptype_5pyart_3map_7ckdtree_Rectangle, __pyx_callargs+__pyx_t_3, (3-__pyx_t_3) | (__pyx_t_3*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1375, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1382, __pyx_L1_error)
     __Pyx_GOTREF((PyObject *)__pyx_t_1);
   }
 
-  /* "pyart/map/ckdtree.pyx":1376
+  /* "pyart/map/ckdtree.pyx":1383
  *         tracker = PointRectDistanceTracker()
  *         tracker.init(x, Rectangle(self.mins, self.maxes),
  *                      p, eps, r)             # <<<<<<<<<<<<<<
- *
+ * 
  *         results = []
 */
-  __pyx_t_2 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_PointRectDistanceTracker *)__pyx_v_tracker->__pyx_vtab)->init(__pyx_v_tracker, __pyx_v_x, ((struct __pyx_obj_5pyart_3map_7ckdtree_Rectangle *)__pyx_t_1), __pyx_v_p, __pyx_v_eps, __pyx_v_r); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1375, __pyx_L1_error)
+  __pyx_t_2 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_PointRectDistanceTracker *)__pyx_v_tracker->__pyx_vtab)->init(__pyx_v_tracker, __pyx_v_x, ((struct __pyx_obj_5pyart_3map_7ckdtree_Rectangle *)__pyx_t_1), __pyx_v_p, __pyx_v_eps, __pyx_v_r); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1382, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF((PyObject *)__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pyart/map/ckdtree.pyx":1378
+  /* "pyart/map/ckdtree.pyx":1385
  *                      p, eps, r)
- *
+ * 
  *         results = []             # <<<<<<<<<<<<<<
  *         self.__query_ball_point_traverse_checking(
  *             results, self.tree, tracker)
 */
-  __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1378, __pyx_L1_error)
+  __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1385, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_v_results = ((PyObject*)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "pyart/map/ckdtree.pyx":1379
- *
+  /* "pyart/map/ckdtree.pyx":1386
+ * 
  *         results = []
  *         self.__query_ball_point_traverse_checking(             # <<<<<<<<<<<<<<
  *             results, self.tree, tracker)
  *         return results
 */
-  __pyx_t_4 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_ball_point_traverse_checking(__pyx_v_self, __pyx_v_results, __pyx_v_self->tree, __pyx_v_tracker); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(0, 1379, __pyx_L1_error)
+  __pyx_t_4 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_ball_point_traverse_checking(__pyx_v_self, __pyx_v_results, __pyx_v_self->tree, __pyx_v_tracker); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(0, 1386, __pyx_L1_error)
 
 
-  /* "pyart/map/ckdtree.pyx":1381
+  /* "pyart/map/ckdtree.pyx":1388
  *         self.__query_ball_point_traverse_checking(
  *             results, self.tree, tracker)
  *         return results             # <<<<<<<<<<<<<<
- *
- *
+ * 
+ * 
 */
   {
     PyObject *__pyx_temp;
@@ -20669,9 +20690,9 @@ static PyObject *__pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_ball_poin
   }
   goto __pyx_L0;
 
-  /* "pyart/map/ckdtree.pyx":1368
- *
- *
+  /* "pyart/map/ckdtree.pyx":1375
+ * 
+ * 
  *     cdef list __query_ball_point(cKDTree self,             # <<<<<<<<<<<<<<
  *                                  np.float64_t* x,
  *                                  np.float64_t r,
@@ -20691,16 +20712,16 @@ static PyObject *__pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_ball_poin
   return __pyx_r;
 }
 
-/* "pyart/map/ckdtree.pyx":1384
- *
- *
+/* "pyart/map/ckdtree.pyx":1391
+ * 
+ * 
  *     def query_ball_point(cKDTree self, object x, np.float64_t r,             # <<<<<<<<<<<<<<
  *                          np.float64_t p=2., np.float64_t eps=0):
  *         """query_ball_point(self, x, r, p, eps)
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5pyart_3map_7ckdtree_7cKDTree_7query_ball_point(PyObject *__pyx_v_self,
+static PyObject *__pyx_pw_5pyart_3map_7ckdtree_7cKDTree_7query_ball_point(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -20709,7 +20730,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 ); /*proto*/
 PyDoc_STRVAR(__pyx_doc_5pyart_3map_7ckdtree_7cKDTree_6query_ball_point, "query_ball_point(self, x, r, p, eps)\n\n        Find all points within distance r of point(s) x.\n\n        Parameters\n        ----------\n        x : array_like, shape tuple + (self.m,)\n            The point or points to search for neighbors of.\n        r : positive float\n            The radius of points to return.\n        p : float, optional\n            Which Minkowski p-norm to use.  Should be in the range [1, inf].\n        eps : nonnegative float, optional\n            Approximate search. Branches of the tree are not explored if their\n            nearest points are further than ``r / (1 + eps)``, and branches are\n            added in bulk if their furthest points are nearer than\n            ``r * (1 + eps)``.\n\n        Returns\n        -------\n        results : list or array of lists\n            If `x` is a single point, returns a list of the indices of the\n            neighbors of `x`. If `x` is an array of points, returns an object\n            array of shape tuple containing lists of neighbors.\n\n        Notes\n        -----\n        If you have many points whose neighbors you want to find, you may save\n        substantial amounts of time by putting them in a cKDTree and using\n        query_ball_tree.\n\n        Examples\n        --------\n        >>> from scipy import spatial\n        >>> x, y = np.mgrid[0:4, 0:4]\n        >>> points = zip(x.ravel(), y.ravel())\n        >>> tree = spatial.cKDTree(points)\n        >>> tree.query_ball_point([2, 0], 1)\n        [4, 8, 9, 12]\n\n        ");
 static PyMethodDef __pyx_mdef_5pyart_3map_7ckdtree_7cKDTree_7query_ball_point = {"query_ball_point", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5pyart_3map_7ckdtree_7cKDTree_7query_ball_point, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5pyart_3map_7ckdtree_7cKDTree_6query_ball_point};
-static PyObject *__pyx_pw_5pyart_3map_7ckdtree_7cKDTree_7query_ball_point(PyObject *__pyx_v_self,
+static PyObject *__pyx_pw_5pyart_3map_7ckdtree_7cKDTree_7query_ball_point(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -20742,68 +20763,68 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_x,&__pyx_mstate_global->__pyx_n_u_r,&__pyx_mstate_global->__pyx_n_u_p,&__pyx_mstate_global->__pyx_n_u_eps,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len < 0)) __PYX_ERR(0, 1384, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len < 0)) __PYX_ERR(0, 1391, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  4:
         values[3] = __Pyx_ArgRef_FASTCALL(__pyx_args, 3);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 1384, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 1391, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  3:
         values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 1384, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 1391, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 1384, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 1391, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1384, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1391, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "query_ball_point", 0) < (0)) __PYX_ERR(0, 1384, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "query_ball_point", 0) < (0)) __PYX_ERR(0, 1391, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 2; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("query_ball_point", 0, 2, 4, i); __PYX_ERR(0, 1384, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("query_ball_point", 0, 2, 4, i); __PYX_ERR(0, 1391, __pyx_L3_error) }
       }
     } else {
       switch (__pyx_nargs) {
         case  4:
         values[3] = __Pyx_ArgRef_FASTCALL(__pyx_args, 3);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 1384, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 1391, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  3:
         values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 1384, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 1391, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 1384, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 1391, __pyx_L3_error)
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1384, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1391, __pyx_L3_error)
         break;
         default: goto __pyx_L5_argtuple_error;
       }
     }
     __pyx_v_x = values[0];
-    __pyx_v_r = __Pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_r == ((npy_float64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 1384, __pyx_L3_error)
+    __pyx_v_r = __Pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_r == ((npy_float64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 1391, __pyx_L3_error)
     if (values[2]) {
-      __pyx_v_p = __Pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_p == ((npy_float64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 1385, __pyx_L3_error)
+      __pyx_v_p = __Pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_p == ((npy_float64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 1392, __pyx_L3_error)
     } else {
       __pyx_v_p = ((__pyx_t_5numpy_float64_t)2.);
     }
     if (values[3]) {
-      __pyx_v_eps = __Pyx_PyFloat_AsDouble(values[3]); if (unlikely((__pyx_v_eps == ((npy_float64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 1385, __pyx_L3_error)
+      __pyx_v_eps = __Pyx_PyFloat_AsDouble(values[3]); if (unlikely((__pyx_v_eps == ((npy_float64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 1392, __pyx_L3_error)
     } else {
       __pyx_v_eps = ((__pyx_t_5numpy_float64_t)0.0);
     }
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("query_ball_point", 0, 2, 4, __pyx_nargs); __PYX_ERR(0, 1384, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("query_ball_point", 0, 2, 4, __pyx_nargs); __PYX_ERR(0, 1391, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -20863,17 +20884,17 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_6query_ball_point(struct
   __pyx_pybuffernd_xx.data = NULL;
   __pyx_pybuffernd_xx.rcbuffer = &__pyx_pybuffer_xx;
 
-  /* "pyart/map/ckdtree.pyx":1429
+  /* "pyart/map/ckdtree.pyx":1436
  *         cdef np.ndarray[np.float64_t, ndim=1, mode="c"] xx
- *
+ * 
  *         x = np.asarray(x).astype(np.float64)             # <<<<<<<<<<<<<<
  *         if x.shape[-1] != self.m:
  *             raise ValueError("Searching for a %d-dimensional point in a " \
 */
   __pyx_t_4 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1429, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1436, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_asarray); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1429, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_asarray); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1436, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __pyx_t_7 = 1;
@@ -20893,14 +20914,14 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_6query_ball_point(struct
     __pyx_t_3 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_6, __pyx_callargs+__pyx_t_7, (2-__pyx_t_7) | (__pyx_t_7*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1429, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1436, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
   }
   __pyx_t_2 = __pyx_t_3;
   __Pyx_INCREF(__pyx_t_2);
-  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1429, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1436, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_float64); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1429, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_float64); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1436, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __pyx_t_7 = 0;
@@ -20910,33 +20931,33 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_6query_ball_point(struct
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1429, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1436, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __Pyx_DECREF_SET(__pyx_v_x, __pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "pyart/map/ckdtree.pyx":1430
- *
+  /* "pyart/map/ckdtree.pyx":1437
+ * 
  *         x = np.asarray(x).astype(np.float64)
  *         if x.shape[-1] != self.m:             # <<<<<<<<<<<<<<
  *             raise ValueError("Searching for a %d-dimensional point in a " \
  *                              "%d-dimensional KDTree" % (int(x.shape[-1]), int(self.m)))
 */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_x, __pyx_mstate_global->__pyx_n_u_shape); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1430, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_x, __pyx_mstate_global->__pyx_n_u_shape); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1437, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_GetItemInt(__pyx_t_1, -1L, long, 1, __Pyx_PyLong_From_long, 1, 1, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1430, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_GetItemInt(__pyx_t_1, -1L, long, 1, __Pyx_PyLong_From_long, 1, 1, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1437, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyLong_From_npy_intp(__pyx_v_self->m); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1430, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyLong_From_npy_intp(__pyx_v_self->m); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1437, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_8 = __Pyx_PyObject_CompareBoolNe_object_int(__pyx_t_3, __pyx_t_1, Py_NE); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 1430, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_CompareBoolNe_object_int(__pyx_t_3, __pyx_t_1, Py_NE); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 1437, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (unlikely(__pyx_t_8)) {
 
 
-    /* "pyart/map/ckdtree.pyx":1431
+    /* "pyart/map/ckdtree.pyx":1438
  *         x = np.asarray(x).astype(np.float64)
  *         if x.shape[-1] != self.m:
  *             raise ValueError("Searching for a %d-dimensional point in a " \             # <<<<<<<<<<<<<<
@@ -20945,30 +20966,30 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_6query_ball_point(struct
 */
     __pyx_t_3 = NULL;
 
-    /* "pyart/map/ckdtree.pyx":1432
+    /* "pyart/map/ckdtree.pyx":1439
  *         if x.shape[-1] != self.m:
  *             raise ValueError("Searching for a %d-dimensional point in a " \
  *                              "%d-dimensional KDTree" % (int(x.shape[-1]), int(self.m)))             # <<<<<<<<<<<<<<
  *         if len(x.shape) == 1:
  *             xx = np.ascontiguousarray(x, dtype=np.float64)
 */
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_x, __pyx_mstate_global->__pyx_n_u_shape); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1432, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_x, __pyx_mstate_global->__pyx_n_u_shape); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1439, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_4, -1L, long, 1, __Pyx_PyLong_From_long, 1, 1, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1432, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_4, -1L, long, 1, __Pyx_PyLong_From_long, 1, 1, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1439, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_4 = __Pyx_PyNumber_Int(__pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1432, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyNumber_Int(__pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1439, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_PyObject_FormatAndDecref(__Pyx_PyNumber_Long(__pyx_t_4), __pyx_mstate_global->__pyx_n_u_d); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1432, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_FormatAndDecref(__Pyx_PyNumber_Long(__pyx_t_4), __pyx_mstate_global->__pyx_n_u_d); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1439, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_4 = __Pyx_PyLong_From_npy_intp(__pyx_v_self->m); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1432, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyLong_From_npy_intp(__pyx_v_self->m); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1439, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_6 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyLong_Type)), __pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1432, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyLong_Type)), __pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1439, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_4 = __Pyx_PyObject_FormatAndDecref(__Pyx_PyNumber_Long(__pyx_t_6), __pyx_mstate_global->__pyx_n_u_d); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1432, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_FormatAndDecref(__Pyx_PyNumber_Long(__pyx_t_6), __pyx_mstate_global->__pyx_n_u_d); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1439, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __pyx_t_9[0] = __pyx_mstate_global->__pyx_kp_u_Searching_for_a;
@@ -20977,7 +20998,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_6query_ball_point(struct
     __pyx_t_9[3] = __pyx_t_4;
     __pyx_t_9[4] = __pyx_mstate_global->__pyx_kp_u_dimensional_KDTree;
 
-    /* "pyart/map/ckdtree.pyx":1431
+    /* "pyart/map/ckdtree.pyx":1438
  *         x = np.asarray(x).astype(np.float64)
  *         if x.shape[-1] != self.m:
  *             raise ValueError("Searching for a %d-dimensional point in a " \             # <<<<<<<<<<<<<<
@@ -20993,7 +21014,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_6query_ball_point(struct
     __pyx_t_11 |= __Pyx_PyUnicode_KIND_04(__pyx_t_9[1]) | __Pyx_PyUnicode_KIND_04(__pyx_t_9[3]);
     #endif
     __pyx_t_6 = __Pyx_PyUnicode_Join(__pyx_t_9, 5, __pyx_t_10, __pyx_t_11);
-    if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1431, __pyx_L1_error)
+    if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1438, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -21003,15 +21024,15 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_6query_ball_point(struct
       __pyx_t_1 = __Pyx_PyObject_FastCall((PyObject*)(((PyTypeObject*)PyExc_ValueError)), __pyx_callargs+__pyx_t_7, (2-__pyx_t_7) | (__pyx_t_7*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1431, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1438, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
     }
     __Pyx_Raise(__pyx_t_1, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __PYX_ERR(0, 1431, __pyx_L1_error)
+    __PYX_ERR(0, 1438, __pyx_L1_error)
 
-    /* "pyart/map/ckdtree.pyx":1430
- *
+    /* "pyart/map/ckdtree.pyx":1437
+ * 
  *         x = np.asarray(x).astype(np.float64)
  *         if x.shape[-1] != self.m:             # <<<<<<<<<<<<<<
  *             raise ValueError("Searching for a %d-dimensional point in a " \
@@ -21019,16 +21040,16 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_6query_ball_point(struct
 */
   }
 
-  /* "pyart/map/ckdtree.pyx":1433
+  /* "pyart/map/ckdtree.pyx":1440
  *             raise ValueError("Searching for a %d-dimensional point in a " \
  *                              "%d-dimensional KDTree" % (int(x.shape[-1]), int(self.m)))
  *         if len(x.shape) == 1:             # <<<<<<<<<<<<<<
  *             xx = np.ascontiguousarray(x, dtype=np.float64)
  *             return self.__query_ball_point(&xx[0], r, p, eps)
 */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_x, __pyx_mstate_global->__pyx_n_u_shape); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1433, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_x, __pyx_mstate_global->__pyx_n_u_shape); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1440, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_10 = PyObject_Length(__pyx_t_1); if (unlikely(__pyx_t_10 == ((Py_ssize_t)-1))) __PYX_ERR(0, 1433, __pyx_L1_error)
+  __pyx_t_10 = PyObject_Length(__pyx_t_1); if (unlikely(__pyx_t_10 == ((Py_ssize_t)-1))) __PYX_ERR(0, 1440, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_8 = (__pyx_t_10 == 1);
 
@@ -21036,7 +21057,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_6query_ball_point(struct
   if (__pyx_t_8) {
 
 
-    /* "pyart/map/ckdtree.pyx":1434
+    /* "pyart/map/ckdtree.pyx":1441
  *                              "%d-dimensional KDTree" % (int(x.shape[-1]), int(self.m)))
  *         if len(x.shape) == 1:
  *             xx = np.ascontiguousarray(x, dtype=np.float64)             # <<<<<<<<<<<<<<
@@ -21044,14 +21065,14 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_6query_ball_point(struct
  *         else:
 */
     __pyx_t_6 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1434, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1441, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_ascontiguousarray); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1434, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_ascontiguousarray); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1441, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1434, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1441, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_float64); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1434, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_float64); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1441, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_7 = 1;
@@ -21070,13 +21091,13 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_6query_ball_point(struct
       PyObject *__pyx_callargs[3] = {__pyx_t_6, __pyx_v_x, __pyx_t_2};
       #if CYTHON_VECTORCALL
       __pyx_t_3 = __pyx_mstate_global->__pyx_tuple[0];
-      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1434, __pyx_L1_error)
+      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1441, __pyx_L1_error)
       __Pyx_INCREF(__pyx_t_3);
       #else
       {
         PyObject *__pyx_temp[1] = {__pyx_mstate_global->__pyx_n_u_dtype};
         __pyx_t_3 = __Pyx_MakeKwargDict(__pyx_temp, __pyx_callargs+2, 1);
-        if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1434, __pyx_L1_error)
+        if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1441, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
       }
       #endif
@@ -21085,10 +21106,10 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_6query_ball_point(struct
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1434, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1441, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
     }
-    if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_mstate_global->__pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 1434, __pyx_L1_error)
+    if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_mstate_global->__pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 1441, __pyx_L1_error)
     {
       __Pyx_BufFmt_StackElem __pyx_stack[1];
       __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_xx.rcbuffer->pybuffer);
@@ -21104,12 +21125,12 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_6query_ball_point(struct
         __pyx_t_12 = __pyx_t_13 = __pyx_t_14 = 0;
       }
       __pyx_pybuffernd_xx.diminfo[0].strides = __pyx_pybuffernd_xx.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_xx.diminfo[0].shape = __pyx_pybuffernd_xx.rcbuffer->pybuffer.shape[0];
-      if (unlikely((__pyx_t_11 < 0))) __PYX_ERR(0, 1434, __pyx_L1_error)
+      if (unlikely((__pyx_t_11 < 0))) __PYX_ERR(0, 1441, __pyx_L1_error)
     }
     __pyx_v_xx = ((PyArrayObject *)__pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "pyart/map/ckdtree.pyx":1435
+    /* "pyart/map/ckdtree.pyx":1442
  *         if len(x.shape) == 1:
  *             xx = np.ascontiguousarray(x, dtype=np.float64)
  *             return self.__query_ball_point(&xx[0], r, p, eps)             # <<<<<<<<<<<<<<
@@ -21124,9 +21145,9 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_6query_ball_point(struct
     } else if (unlikely(__pyx_t_15 >= __pyx_pybuffernd_xx.diminfo[0].shape)) __pyx_t_11 = 0;
     if (unlikely(__pyx_t_11 != -1)) {
       __Pyx_RaiseBufferIndexError(__pyx_t_11);
-      __PYX_ERR(0, 1435, __pyx_L1_error)
+      __PYX_ERR(0, 1442, __pyx_L1_error)
     }
-    __pyx_t_1 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_ball_point(__pyx_v_self, (&(*__Pyx_BufPtrCContig1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_xx.rcbuffer->pybuffer.buf, __pyx_t_15, __pyx_pybuffernd_xx.diminfo[0].strides))), __pyx_v_r, __pyx_v_p, __pyx_v_eps); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1435, __pyx_L1_error)
+    __pyx_t_1 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_ball_point(__pyx_v_self, (&(*__Pyx_BufPtrCContig1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_xx.rcbuffer->pybuffer.buf, __pyx_t_15, __pyx_pybuffernd_xx.diminfo[0].strides))), __pyx_v_r, __pyx_v_p, __pyx_v_eps); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1442, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     {
       PyObject *__pyx_temp;
@@ -21139,7 +21160,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_6query_ball_point(struct
     __pyx_t_1 = 0;
     goto __pyx_L0;
 
-    /* "pyart/map/ckdtree.pyx":1433
+    /* "pyart/map/ckdtree.pyx":1440
  *             raise ValueError("Searching for a %d-dimensional point in a " \
  *                              "%d-dimensional KDTree" % (int(x.shape[-1]), int(self.m)))
  *         if len(x.shape) == 1:             # <<<<<<<<<<<<<<
@@ -21148,7 +21169,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_6query_ball_point(struct
 */
   }
 
-  /* "pyart/map/ckdtree.pyx":1437
+  /* "pyart/map/ckdtree.pyx":1444
  *             return self.__query_ball_point(&xx[0], r, p, eps)
  *         else:
  *             retshape = x.shape[:-1]             # <<<<<<<<<<<<<<
@@ -21156,15 +21177,15 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_6query_ball_point(struct
  *             for c in np.ndindex(retshape):
 */
   /*else*/ {
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_x, __pyx_mstate_global->__pyx_n_u_shape); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1437, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_x, __pyx_mstate_global->__pyx_n_u_shape); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1444, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_4 = __Pyx_PyObject_GetSlice(__pyx_t_1, 0, -1L, NULL, NULL, &__pyx_mstate_global->__pyx_slice[1], 0, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1437, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetSlice(__pyx_t_1, 0, -1L, NULL, NULL, &__pyx_mstate_global->__pyx_slice[1], 0, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1444, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_v_retshape = __pyx_t_4;
     __pyx_t_4 = 0;
 
-    /* "pyart/map/ckdtree.pyx":1438
+    /* "pyart/map/ckdtree.pyx":1445
  *         else:
  *             retshape = x.shape[:-1]
  *             result = np.empty(retshape, dtype=np.object)             # <<<<<<<<<<<<<<
@@ -21172,14 +21193,14 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_6query_ball_point(struct
  *                 xx = np.ascontiguousarray(x[c], dtype=np.float64)
 */
     __pyx_t_1 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1438, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1445, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_empty); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1438, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_empty); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1445, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1438, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1445, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_object); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1438, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_object); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1445, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_7 = 1;
@@ -21198,13 +21219,13 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_6query_ball_point(struct
       PyObject *__pyx_callargs[3] = {__pyx_t_1, __pyx_v_retshape, __pyx_t_6};
       #if CYTHON_VECTORCALL
       __pyx_t_3 = __pyx_mstate_global->__pyx_tuple[0];
-      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1438, __pyx_L1_error)
+      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1445, __pyx_L1_error)
       __Pyx_INCREF(__pyx_t_3);
       #else
       {
         PyObject *__pyx_temp[1] = {__pyx_mstate_global->__pyx_n_u_dtype};
         __pyx_t_3 = __Pyx_MakeKwargDict(__pyx_temp, __pyx_callargs+2, 1);
-        if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1438, __pyx_L1_error)
+        if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1445, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
       }
       #endif
@@ -21213,13 +21234,13 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_6query_ball_point(struct
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1438, __pyx_L1_error)
+      if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1445, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
     }
     __pyx_v_result = __pyx_t_4;
     __pyx_t_4 = 0;
 
-    /* "pyart/map/ckdtree.pyx":1439
+    /* "pyart/map/ckdtree.pyx":1446
  *             retshape = x.shape[:-1]
  *             result = np.empty(retshape, dtype=np.object)
  *             for c in np.ndindex(retshape):             # <<<<<<<<<<<<<<
@@ -21227,9 +21248,9 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_6query_ball_point(struct
  *                 result[c] = self.__query_ball_point(&xx[0], r, p, eps)
 */
     __pyx_t_2 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1439, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1446, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_ndindex); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1439, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_ndindex); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1446, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_7 = 1;
@@ -21249,7 +21270,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_6query_ball_point(struct
       __pyx_t_4 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_6, __pyx_callargs+__pyx_t_7, (2-__pyx_t_7) | (__pyx_t_7*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1439, __pyx_L1_error)
+      if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1446, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
     }
     if (likely(PyList_CheckExact(__pyx_t_4)) || PyTuple_CheckExact(__pyx_t_4)) {
@@ -21257,9 +21278,9 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_6query_ball_point(struct
       __pyx_t_10 = 0;
       __pyx_t_16 = NULL;
     } else {
-      __pyx_t_10 = -1; __pyx_t_6 = PyObject_GetIter(__pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1439, __pyx_L1_error)
+      __pyx_t_10 = -1; __pyx_t_6 = PyObject_GetIter(__pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1446, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
-      __pyx_t_16 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_6); if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 1439, __pyx_L1_error)
+      __pyx_t_16 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_6); if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 1446, __pyx_L1_error)
     }
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     for (;;) {
@@ -21268,7 +21289,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_6query_ball_point(struct
           {
             Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_6);
             #if !CYTHON_ASSUME_SAFE_SIZE
-            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 1439, __pyx_L1_error)
+            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 1446, __pyx_L1_error)
             #endif
             if (__pyx_t_10 >= __pyx_temp) break;
           }
@@ -21278,7 +21299,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_6query_ball_point(struct
           {
             Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_6);
             #if !CYTHON_ASSUME_SAFE_SIZE
-            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 1439, __pyx_L1_error)
+            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 1446, __pyx_L1_error)
             #endif
             if (__pyx_t_10 >= __pyx_temp) break;
           }
@@ -21289,13 +21310,13 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_6query_ball_point(struct
           #endif
           ++__pyx_t_10;
         }
-        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1439, __pyx_L1_error)
+        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1446, __pyx_L1_error)
       } else {
         __pyx_t_4 = __pyx_t_16(__pyx_t_6);
         if (unlikely(!__pyx_t_4)) {
           PyObject* exc_type = PyErr_Occurred();
           if (exc_type) {
-            if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 1439, __pyx_L1_error)
+            if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 1446, __pyx_L1_error)
             PyErr_Clear();
           }
           break;
@@ -21305,7 +21326,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_6query_ball_point(struct
       __Pyx_XDECREF_SET(__pyx_v_c, __pyx_t_4);
       __pyx_t_4 = 0;
 
-      /* "pyart/map/ckdtree.pyx":1440
+      /* "pyart/map/ckdtree.pyx":1447
  *             result = np.empty(retshape, dtype=np.object)
  *             for c in np.ndindex(retshape):
  *                 xx = np.ascontiguousarray(x[c], dtype=np.float64)             # <<<<<<<<<<<<<<
@@ -21313,16 +21334,16 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_6query_ball_point(struct
  *             return result
 */
       __pyx_t_2 = NULL;
-      __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1440, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1447, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_ascontiguousarray); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1440, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_ascontiguousarray); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1447, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      __pyx_t_3 = __Pyx_PyObject_GetItem(__pyx_v_x, __pyx_v_c); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1440, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_GetItem(__pyx_v_x, __pyx_v_c); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1447, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1440, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1447, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_17 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_float64); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 1440, __pyx_L1_error)
+      __pyx_t_17 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_float64); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 1447, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_17);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       __pyx_t_7 = 1;
@@ -21341,13 +21362,13 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_6query_ball_point(struct
         PyObject *__pyx_callargs[3] = {__pyx_t_2, __pyx_t_3, __pyx_t_17};
         #if CYTHON_VECTORCALL
         __pyx_t_5 = __pyx_mstate_global->__pyx_tuple[0];
-        if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1440, __pyx_L1_error)
+        if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1447, __pyx_L1_error)
         __Pyx_INCREF(__pyx_t_5);
         #else
         {
           PyObject *__pyx_temp[1] = {__pyx_mstate_global->__pyx_n_u_dtype};
           __pyx_t_5 = __Pyx_MakeKwargDict(__pyx_temp, __pyx_callargs+2, 1);
-          if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1440, __pyx_L1_error)
+          if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1447, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_5);
         }
         #endif
@@ -21357,10 +21378,10 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_6query_ball_point(struct
         __Pyx_DECREF(__pyx_t_17); __pyx_t_17 = 0;
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1440, __pyx_L1_error)
+        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1447, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
       }
-      if (!(likely(((__pyx_t_4) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_4, __pyx_mstate_global->__pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 1440, __pyx_L1_error)
+      if (!(likely(((__pyx_t_4) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_4, __pyx_mstate_global->__pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 1447, __pyx_L1_error)
       {
         __Pyx_BufFmt_StackElem __pyx_stack[1];
         __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_xx.rcbuffer->pybuffer);
@@ -21376,17 +21397,17 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_6query_ball_point(struct
           __pyx_t_14 = __pyx_t_13 = __pyx_t_12 = 0;
         }
         __pyx_pybuffernd_xx.diminfo[0].strides = __pyx_pybuffernd_xx.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_xx.diminfo[0].shape = __pyx_pybuffernd_xx.rcbuffer->pybuffer.shape[0];
-        if (unlikely((__pyx_t_11 < 0))) __PYX_ERR(0, 1440, __pyx_L1_error)
+        if (unlikely((__pyx_t_11 < 0))) __PYX_ERR(0, 1447, __pyx_L1_error)
       }
       __Pyx_XDECREF_SET(__pyx_v_xx, ((PyArrayObject *)__pyx_t_4));
       __pyx_t_4 = 0;
 
-      /* "pyart/map/ckdtree.pyx":1441
+      /* "pyart/map/ckdtree.pyx":1448
  *             for c in np.ndindex(retshape):
  *                 xx = np.ascontiguousarray(x[c], dtype=np.float64)
  *                 result[c] = self.__query_ball_point(&xx[0], r, p, eps)             # <<<<<<<<<<<<<<
  *             return result
- *
+ * 
 */
       __pyx_t_15 = 0;
       __pyx_t_11 = -1;
@@ -21396,14 +21417,14 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_6query_ball_point(struct
       } else if (unlikely(__pyx_t_15 >= __pyx_pybuffernd_xx.diminfo[0].shape)) __pyx_t_11 = 0;
       if (unlikely(__pyx_t_11 != -1)) {
         __Pyx_RaiseBufferIndexError(__pyx_t_11);
-        __PYX_ERR(0, 1441, __pyx_L1_error)
+        __PYX_ERR(0, 1448, __pyx_L1_error)
       }
-      __pyx_t_4 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_ball_point(__pyx_v_self, (&(*__Pyx_BufPtrCContig1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_xx.rcbuffer->pybuffer.buf, __pyx_t_15, __pyx_pybuffernd_xx.diminfo[0].strides))), __pyx_v_r, __pyx_v_p, __pyx_v_eps); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1441, __pyx_L1_error)
+      __pyx_t_4 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_ball_point(__pyx_v_self, (&(*__Pyx_BufPtrCContig1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_xx.rcbuffer->pybuffer.buf, __pyx_t_15, __pyx_pybuffernd_xx.diminfo[0].strides))), __pyx_v_r, __pyx_v_p, __pyx_v_eps); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1448, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
-      if (unlikely((PyObject_SetItem(__pyx_v_result, __pyx_v_c, __pyx_t_4) < 0))) __PYX_ERR(0, 1441, __pyx_L1_error)
+      if (unlikely((PyObject_SetItem(__pyx_v_result, __pyx_v_c, __pyx_t_4) < 0))) __PYX_ERR(0, 1448, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "pyart/map/ckdtree.pyx":1439
+      /* "pyart/map/ckdtree.pyx":1446
  *             retshape = x.shape[:-1]
  *             result = np.empty(retshape, dtype=np.object)
  *             for c in np.ndindex(retshape):             # <<<<<<<<<<<<<<
@@ -21413,11 +21434,11 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_6query_ball_point(struct
     }
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-    /* "pyart/map/ckdtree.pyx":1442
+    /* "pyart/map/ckdtree.pyx":1449
  *                 xx = np.ascontiguousarray(x[c], dtype=np.float64)
  *                 result[c] = self.__query_ball_point(&xx[0], r, p, eps)
  *             return result             # <<<<<<<<<<<<<<
- *
+ * 
  *     # ---------------
 */
     {
@@ -21432,9 +21453,9 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_6query_ball_point(struct
     goto __pyx_L0;
   }
 
-  /* "pyart/map/ckdtree.pyx":1384
- *
- *
+  /* "pyart/map/ckdtree.pyx":1391
+ * 
+ * 
  *     def query_ball_point(cKDTree self, object x, np.float64_t r,             # <<<<<<<<<<<<<<
  *                          np.float64_t p=2., np.float64_t eps=0):
  *         """query_ball_point(self, x, r, p, eps)
@@ -21473,7 +21494,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_6query_ball_point(struct
   return __pyx_r;
 }
 
-/* "pyart/map/ckdtree.pyx":1447
+/* "pyart/map/ckdtree.pyx":1454
  *     # query_ball_tree
  *     # ---------------
  *     cdef int __query_ball_tree_traverse_no_checking(cKDTree self,             # <<<<<<<<<<<<<<
@@ -21503,51 +21524,51 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_ball_tree_trave
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_cKDTree__query_ball_tree_traverse_no_checking", 0);
 
-  /* "pyart/map/ckdtree.pyx":1457
+  /* "pyart/map/ckdtree.pyx":1464
  *         cdef np.intp_t i, j
- *
+ * 
  *         if node1.split_dim == -1:  # leaf node             # <<<<<<<<<<<<<<
  *             lnode1 = <leafnode*>node1
- *
+ * 
 */
   __pyx_t_1 = (__pyx_v_node1->split_dim == -1L);
 
   if (__pyx_t_1) {
 
 
-    /* "pyart/map/ckdtree.pyx":1458
- *
+    /* "pyart/map/ckdtree.pyx":1465
+ * 
  *         if node1.split_dim == -1:  # leaf node
  *             lnode1 = <leafnode*>node1             # <<<<<<<<<<<<<<
- *
+ * 
  *             if node2.split_dim == -1:  # leaf node
 */
     __pyx_v_lnode1 = ((struct __pyx_t_5pyart_3map_7ckdtree_leafnode *)__pyx_v_node1);
 
-    /* "pyart/map/ckdtree.pyx":1460
+    /* "pyart/map/ckdtree.pyx":1467
  *             lnode1 = <leafnode*>node1
- *
+ * 
  *             if node2.split_dim == -1:  # leaf node             # <<<<<<<<<<<<<<
  *                 lnode2 = <leafnode*>node2
- *
+ * 
 */
     __pyx_t_1 = (__pyx_v_node2->split_dim == -1L);
 
     if (__pyx_t_1) {
 
 
-      /* "pyart/map/ckdtree.pyx":1461
- *
+      /* "pyart/map/ckdtree.pyx":1468
+ * 
  *             if node2.split_dim == -1:  # leaf node
  *                 lnode2 = <leafnode*>node2             # <<<<<<<<<<<<<<
- *
+ * 
  *                 for i in range(lnode1.start_idx, lnode1.end_idx):
 */
       __pyx_v_lnode2 = ((struct __pyx_t_5pyart_3map_7ckdtree_leafnode *)__pyx_v_node2);
 
-      /* "pyart/map/ckdtree.pyx":1463
+      /* "pyart/map/ckdtree.pyx":1470
  *                 lnode2 = <leafnode*>node2
- *
+ * 
  *                 for i in range(lnode1.start_idx, lnode1.end_idx):             # <<<<<<<<<<<<<<
  *                     results_i = results[self.raw_indices[i]]
  *                     for j in range(lnode2.start_idx, lnode2.end_idx):
@@ -21559,8 +21580,8 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_ball_tree_trave
       for (__pyx_t_4 = __pyx_v_lnode1->start_idx; __pyx_t_4 < __pyx_t_3; __pyx_t_4+=1) {
         __pyx_v_i = __pyx_t_4;
 
-        /* "pyart/map/ckdtree.pyx":1464
- *
+        /* "pyart/map/ckdtree.pyx":1471
+ * 
  *                 for i in range(lnode1.start_idx, lnode1.end_idx):
  *                     results_i = results[self.raw_indices[i]]             # <<<<<<<<<<<<<<
  *                     for j in range(lnode2.start_idx, lnode2.end_idx):
@@ -21568,15 +21589,15 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_ball_tree_trave
 */
         if (unlikely(__pyx_v_results == Py_None)) {
           PyErr_SetString(PyExc_TypeError, "\047NoneType\047 object is not subscriptable");
-          __PYX_ERR(0, 1464, __pyx_L1_error)
+          __PYX_ERR(0, 1471, __pyx_L1_error)
         }
-        __pyx_t_5 = __Pyx_GetItemInt_List(__pyx_v_results, (__pyx_v_self->raw_indices[__pyx_v_i]), __pyx_t_5numpy_intp_t, 1, __Pyx_PyLong_From_npy_intp, 1, 1, 1, __Pyx_ReferenceSharing_FunctionArgument); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1464, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_GetItemInt_List(__pyx_v_results, (__pyx_v_self->raw_indices[__pyx_v_i]), __pyx_t_5numpy_intp_t, 1, __Pyx_PyLong_From_npy_intp, 1, 1, 1, __Pyx_ReferenceSharing_FunctionArgument); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1471, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
-        if (!(likely(PyList_CheckExact(__pyx_t_5))||((__pyx_t_5) == Py_None) || __Pyx_RaiseUnexpectedTypeError("list", __pyx_t_5))) __PYX_ERR(0, 1464, __pyx_L1_error)
+        if (!(likely(PyList_CheckExact(__pyx_t_5))||((__pyx_t_5) == Py_None) || __Pyx_RaiseUnexpectedTypeError("list", __pyx_t_5))) __PYX_ERR(0, 1471, __pyx_L1_error)
         __Pyx_XDECREF_SET(__pyx_v_results_i, ((PyObject*)__pyx_t_5));
         __pyx_t_5 = 0;
 
-        /* "pyart/map/ckdtree.pyx":1465
+        /* "pyart/map/ckdtree.pyx":1472
  *                 for i in range(lnode1.start_idx, lnode1.end_idx):
  *                     results_i = results[self.raw_indices[i]]
  *                     for j in range(lnode2.start_idx, lnode2.end_idx):             # <<<<<<<<<<<<<<
@@ -21590,92 +21611,92 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_ball_tree_trave
         for (__pyx_t_8 = __pyx_v_lnode2->start_idx; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
           __pyx_v_j = __pyx_t_8;
 
-          /* "pyart/map/ckdtree.pyx":1466
+          /* "pyart/map/ckdtree.pyx":1473
  *                     results_i = results[self.raw_indices[i]]
  *                     for j in range(lnode2.start_idx, lnode2.end_idx):
  *                         list_append(results_i, other.raw_indices[j])             # <<<<<<<<<<<<<<
  *             else:
- *
+ * 
 */
-          __pyx_t_9 = __pyx_f_5pyart_3map_7ckdtree_list_append(__pyx_v_results_i, (__pyx_v_other->raw_indices[__pyx_v_j])); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 1466, __pyx_L1_error)
+          __pyx_t_9 = __pyx_f_5pyart_3map_7ckdtree_list_append(__pyx_v_results_i, (__pyx_v_other->raw_indices[__pyx_v_j])); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 1473, __pyx_L1_error)
 
         }
 
       }
 
 
-      /* "pyart/map/ckdtree.pyx":1460
+      /* "pyart/map/ckdtree.pyx":1467
  *             lnode1 = <leafnode*>node1
- *
+ * 
  *             if node2.split_dim == -1:  # leaf node             # <<<<<<<<<<<<<<
  *                 lnode2 = <leafnode*>node2
- *
+ * 
 */
       goto __pyx_L4;
     }
 
-    /* "pyart/map/ckdtree.pyx":1469
+    /* "pyart/map/ckdtree.pyx":1476
  *             else:
- *
+ * 
  *                 self.__query_ball_tree_traverse_no_checking(other, results, node1, node2.less)             # <<<<<<<<<<<<<<
  *                 self.__query_ball_tree_traverse_no_checking(other, results, node1, node2.greater)
  *         else:
 */
     /*else*/ {
-      __pyx_t_9 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_ball_tree_traverse_no_checking(__pyx_v_self, __pyx_v_other, __pyx_v_results, __pyx_v_node1, __pyx_v_node2->less); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 1469, __pyx_L1_error)
+      __pyx_t_9 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_ball_tree_traverse_no_checking(__pyx_v_self, __pyx_v_other, __pyx_v_results, __pyx_v_node1, __pyx_v_node2->less); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 1476, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":1470
- *
+      /* "pyart/map/ckdtree.pyx":1477
+ * 
  *                 self.__query_ball_tree_traverse_no_checking(other, results, node1, node2.less)
  *                 self.__query_ball_tree_traverse_no_checking(other, results, node1, node2.greater)             # <<<<<<<<<<<<<<
  *         else:
- *
+ * 
 */
-      __pyx_t_9 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_ball_tree_traverse_no_checking(__pyx_v_self, __pyx_v_other, __pyx_v_results, __pyx_v_node1, __pyx_v_node2->greater); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 1470, __pyx_L1_error)
+      __pyx_t_9 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_ball_tree_traverse_no_checking(__pyx_v_self, __pyx_v_other, __pyx_v_results, __pyx_v_node1, __pyx_v_node2->greater); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 1477, __pyx_L1_error)
 
     }
     __pyx_L4:;
 
-    /* "pyart/map/ckdtree.pyx":1457
+    /* "pyart/map/ckdtree.pyx":1464
  *         cdef np.intp_t i, j
- *
+ * 
  *         if node1.split_dim == -1:  # leaf node             # <<<<<<<<<<<<<<
  *             lnode1 = <leafnode*>node1
- *
+ * 
 */
     goto __pyx_L3;
   }
 
-  /* "pyart/map/ckdtree.pyx":1473
+  /* "pyart/map/ckdtree.pyx":1480
  *         else:
- *
+ * 
  *             self.__query_ball_tree_traverse_no_checking(other, results, node1.less, node2)             # <<<<<<<<<<<<<<
  *             self.__query_ball_tree_traverse_no_checking(other, results, node1.greater, node2)
- *
+ * 
 */
   /*else*/ {
-    __pyx_t_9 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_ball_tree_traverse_no_checking(__pyx_v_self, __pyx_v_other, __pyx_v_results, __pyx_v_node1->less, __pyx_v_node2); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 1473, __pyx_L1_error)
+    __pyx_t_9 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_ball_tree_traverse_no_checking(__pyx_v_self, __pyx_v_other, __pyx_v_results, __pyx_v_node1->less, __pyx_v_node2); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 1480, __pyx_L1_error)
 
 
-    /* "pyart/map/ckdtree.pyx":1474
- *
+    /* "pyart/map/ckdtree.pyx":1481
+ * 
  *             self.__query_ball_tree_traverse_no_checking(other, results, node1.less, node2)
  *             self.__query_ball_tree_traverse_no_checking(other, results, node1.greater, node2)             # <<<<<<<<<<<<<<
- *
+ * 
  *         return 0
 */
-    __pyx_t_9 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_ball_tree_traverse_no_checking(__pyx_v_self, __pyx_v_other, __pyx_v_results, __pyx_v_node1->greater, __pyx_v_node2); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 1474, __pyx_L1_error)
+    __pyx_t_9 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_ball_tree_traverse_no_checking(__pyx_v_self, __pyx_v_other, __pyx_v_results, __pyx_v_node1->greater, __pyx_v_node2); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 1481, __pyx_L1_error)
 
   }
   __pyx_L3:;
 
-  /* "pyart/map/ckdtree.pyx":1476
+  /* "pyart/map/ckdtree.pyx":1483
  *             self.__query_ball_tree_traverse_no_checking(other, results, node1.greater, node2)
- *
+ * 
  *         return 0             # <<<<<<<<<<<<<<
- *
- *
+ * 
+ * 
 */
   {
 
@@ -21683,7 +21704,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_ball_tree_trave
   }
   goto __pyx_L0;
 
-  /* "pyart/map/ckdtree.pyx":1447
+  /* "pyart/map/ckdtree.pyx":1454
  *     # query_ball_tree
  *     # ---------------
  *     cdef int __query_ball_tree_traverse_no_checking(cKDTree self,             # <<<<<<<<<<<<<<
@@ -21707,9 +21728,9 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_ball_tree_trave
   return __pyx_r;
 }
 
-/* "pyart/map/ckdtree.pyx":1479
- *
- *
+/* "pyart/map/ckdtree.pyx":1486
+ * 
+ * 
  *     @cython.cdivision(True)             # <<<<<<<<<<<<<<
  *     cdef int __query_ball_tree_traverse_checking(cKDTree self,
  *                                                  cKDTree other,
@@ -21739,9 +21760,9 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_ball_tree_trave
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_cKDTree__query_ball_tree_traverse_checking", 0);
 
-  /* "pyart/map/ckdtree.pyx":1492
+  /* "pyart/map/ckdtree.pyx":1499
  *         cdef np.intp_t i, j
- *
+ * 
  *         if tracker.min_distance > tracker.upper_bound * tracker.epsfac:             # <<<<<<<<<<<<<<
  *             return 0
  *         elif tracker.max_distance < tracker.upper_bound / tracker.epsfac:
@@ -21751,8 +21772,8 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_ball_tree_trave
   if (__pyx_t_1) {
 
 
-    /* "pyart/map/ckdtree.pyx":1493
- *
+    /* "pyart/map/ckdtree.pyx":1500
+ * 
  *         if tracker.min_distance > tracker.upper_bound * tracker.epsfac:
  *             return 0             # <<<<<<<<<<<<<<
  *         elif tracker.max_distance < tracker.upper_bound / tracker.epsfac:
@@ -21764,16 +21785,16 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_ball_tree_trave
     }
     goto __pyx_L0;
 
-    /* "pyart/map/ckdtree.pyx":1492
+    /* "pyart/map/ckdtree.pyx":1499
  *         cdef np.intp_t i, j
- *
+ * 
  *         if tracker.min_distance > tracker.upper_bound * tracker.epsfac:             # <<<<<<<<<<<<<<
  *             return 0
  *         elif tracker.max_distance < tracker.upper_bound / tracker.epsfac:
 */
   }
 
-  /* "pyart/map/ckdtree.pyx":1494
+  /* "pyart/map/ckdtree.pyx":1501
  *         if tracker.min_distance > tracker.upper_bound * tracker.epsfac:
  *             return 0
  *         elif tracker.max_distance < tracker.upper_bound / tracker.epsfac:             # <<<<<<<<<<<<<<
@@ -21785,17 +21806,17 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_ball_tree_trave
   if (__pyx_t_1) {
 
 
-    /* "pyart/map/ckdtree.pyx":1495
+    /* "pyart/map/ckdtree.pyx":1502
  *             return 0
  *         elif tracker.max_distance < tracker.upper_bound / tracker.epsfac:
  *             self.__query_ball_tree_traverse_no_checking(other, results, node1, node2)             # <<<<<<<<<<<<<<
  *         elif node1.split_dim == -1:  # 1 is leaf node
  *             lnode1 = <leafnode*>node1
 */
-    __pyx_t_2 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_ball_tree_traverse_no_checking(__pyx_v_self, __pyx_v_other, __pyx_v_results, __pyx_v_node1, __pyx_v_node2); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1495, __pyx_L1_error)
+    __pyx_t_2 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_ball_tree_traverse_no_checking(__pyx_v_self, __pyx_v_other, __pyx_v_results, __pyx_v_node1, __pyx_v_node2); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1502, __pyx_L1_error)
 
 
-    /* "pyart/map/ckdtree.pyx":1494
+    /* "pyart/map/ckdtree.pyx":1501
  *         if tracker.min_distance > tracker.upper_bound * tracker.epsfac:
  *             return 0
  *         elif tracker.max_distance < tracker.upper_bound / tracker.epsfac:             # <<<<<<<<<<<<<<
@@ -21805,50 +21826,50 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_ball_tree_trave
     goto __pyx_L3;
   }
 
-  /* "pyart/map/ckdtree.pyx":1496
+  /* "pyart/map/ckdtree.pyx":1503
  *         elif tracker.max_distance < tracker.upper_bound / tracker.epsfac:
  *             self.__query_ball_tree_traverse_no_checking(other, results, node1, node2)
  *         elif node1.split_dim == -1:  # 1 is leaf node             # <<<<<<<<<<<<<<
  *             lnode1 = <leafnode*>node1
- *
+ * 
 */
   __pyx_t_1 = (__pyx_v_node1->split_dim == -1L);
 
   if (__pyx_t_1) {
 
 
-    /* "pyart/map/ckdtree.pyx":1497
+    /* "pyart/map/ckdtree.pyx":1504
  *             self.__query_ball_tree_traverse_no_checking(other, results, node1, node2)
  *         elif node1.split_dim == -1:  # 1 is leaf node
  *             lnode1 = <leafnode*>node1             # <<<<<<<<<<<<<<
- *
+ * 
  *             if node2.split_dim == -1:  # 1 & 2 are leaves
 */
     __pyx_v_lnode1 = ((struct __pyx_t_5pyart_3map_7ckdtree_leafnode *)__pyx_v_node1);
 
-    /* "pyart/map/ckdtree.pyx":1499
+    /* "pyart/map/ckdtree.pyx":1506
  *             lnode1 = <leafnode*>node1
- *
+ * 
  *             if node2.split_dim == -1:  # 1 & 2 are leaves             # <<<<<<<<<<<<<<
  *                 lnode2 = <leafnode*>node2
- *
+ * 
 */
     __pyx_t_1 = (__pyx_v_node2->split_dim == -1L);
 
     if (__pyx_t_1) {
 
 
-      /* "pyart/map/ckdtree.pyx":1500
- *
+      /* "pyart/map/ckdtree.pyx":1507
+ * 
  *             if node2.split_dim == -1:  # 1 & 2 are leaves
  *                 lnode2 = <leafnode*>node2             # <<<<<<<<<<<<<<
- *
+ * 
  *                 # brute-force
 */
       __pyx_v_lnode2 = ((struct __pyx_t_5pyart_3map_7ckdtree_leafnode *)__pyx_v_node2);
 
-      /* "pyart/map/ckdtree.pyx":1503
- *
+      /* "pyart/map/ckdtree.pyx":1510
+ * 
  *                 # brute-force
  *                 for i in range(lnode1.start_idx, lnode1.end_idx):             # <<<<<<<<<<<<<<
  *                     results_i = results[self.raw_indices[i]]
@@ -21861,7 +21882,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_ball_tree_trave
       for (__pyx_t_5 = __pyx_v_lnode1->start_idx; __pyx_t_5 < __pyx_t_4; __pyx_t_5+=1) {
         __pyx_v_i = __pyx_t_5;
 
-        /* "pyart/map/ckdtree.pyx":1504
+        /* "pyart/map/ckdtree.pyx":1511
  *                 # brute-force
  *                 for i in range(lnode1.start_idx, lnode1.end_idx):
  *                     results_i = results[self.raw_indices[i]]             # <<<<<<<<<<<<<<
@@ -21870,15 +21891,15 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_ball_tree_trave
 */
         if (unlikely(__pyx_v_results == Py_None)) {
           PyErr_SetString(PyExc_TypeError, "\047NoneType\047 object is not subscriptable");
-          __PYX_ERR(0, 1504, __pyx_L1_error)
+          __PYX_ERR(0, 1511, __pyx_L1_error)
         }
-        __pyx_t_6 = __Pyx_GetItemInt_List(__pyx_v_results, (__pyx_v_self->raw_indices[__pyx_v_i]), __pyx_t_5numpy_intp_t, 1, __Pyx_PyLong_From_npy_intp, 1, 1, 1, __Pyx_ReferenceSharing_FunctionArgument); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1504, __pyx_L1_error)
+        __pyx_t_6 = __Pyx_GetItemInt_List(__pyx_v_results, (__pyx_v_self->raw_indices[__pyx_v_i]), __pyx_t_5numpy_intp_t, 1, __Pyx_PyLong_From_npy_intp, 1, 1, 1, __Pyx_ReferenceSharing_FunctionArgument); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1511, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_6);
-        if (!(likely(PyList_CheckExact(__pyx_t_6))||((__pyx_t_6) == Py_None) || __Pyx_RaiseUnexpectedTypeError("list", __pyx_t_6))) __PYX_ERR(0, 1504, __pyx_L1_error)
+        if (!(likely(PyList_CheckExact(__pyx_t_6))||((__pyx_t_6) == Py_None) || __Pyx_RaiseUnexpectedTypeError("list", __pyx_t_6))) __PYX_ERR(0, 1511, __pyx_L1_error)
         __Pyx_XDECREF_SET(__pyx_v_results_i, ((PyObject*)__pyx_t_6));
         __pyx_t_6 = 0;
 
-        /* "pyart/map/ckdtree.pyx":1505
+        /* "pyart/map/ckdtree.pyx":1512
  *                 for i in range(lnode1.start_idx, lnode1.end_idx):
  *                     results_i = results[self.raw_indices[i]]
  *                     for j in range(lnode2.start_idx, lnode2.end_idx):             # <<<<<<<<<<<<<<
@@ -21892,44 +21913,44 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_ball_tree_trave
         for (__pyx_t_9 = __pyx_v_lnode2->start_idx; __pyx_t_9 < __pyx_t_8; __pyx_t_9+=1) {
           __pyx_v_j = __pyx_t_9;
 
-          /* "pyart/map/ckdtree.pyx":1506
+          /* "pyart/map/ckdtree.pyx":1513
  *                     results_i = results[self.raw_indices[i]]
  *                     for j in range(lnode2.start_idx, lnode2.end_idx):
  *                         d = _distance_p(             # <<<<<<<<<<<<<<
  *                             self.raw_data + self.raw_indices[i] * self.m,
  *                             other.raw_data + other.raw_indices[j] * other.m,
 */
-          __pyx_t_10 = __pyx_f_5pyart_3map_7ckdtree__distance_p((__pyx_v_self->raw_data + ((__pyx_v_self->raw_indices[__pyx_v_i]) * __pyx_v_self->m)), (__pyx_v_other->raw_data + ((__pyx_v_other->raw_indices[__pyx_v_j]) * __pyx_v_other->m)), __pyx_v_tracker->p, __pyx_v_self->m, __pyx_v_tracker->upper_bound); if (unlikely(__pyx_t_10 == ((__pyx_t_5numpy_float64_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 1506, __pyx_L1_error)
+          __pyx_t_10 = __pyx_f_5pyart_3map_7ckdtree__distance_p((__pyx_v_self->raw_data + ((__pyx_v_self->raw_indices[__pyx_v_i]) * __pyx_v_self->m)), (__pyx_v_other->raw_data + ((__pyx_v_other->raw_indices[__pyx_v_j]) * __pyx_v_other->m)), __pyx_v_tracker->p, __pyx_v_self->m, __pyx_v_tracker->upper_bound); if (unlikely(__pyx_t_10 == ((__pyx_t_5numpy_float64_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 1513, __pyx_L1_error)
           __pyx_v_d = __pyx_t_10;
 
-          /* "pyart/map/ckdtree.pyx":1510
+          /* "pyart/map/ckdtree.pyx":1517
  *                             other.raw_data + other.raw_indices[j] * other.m,
  *                             tracker.p, self.m, tracker.upper_bound)
  *                         if d <= tracker.upper_bound:             # <<<<<<<<<<<<<<
  *                             list_append(results_i, other.raw_indices[j])
- *
+ * 
 */
           __pyx_t_1 = (__pyx_v_d <= __pyx_v_tracker->upper_bound);
 
           if (__pyx_t_1) {
 
 
-            /* "pyart/map/ckdtree.pyx":1511
+            /* "pyart/map/ckdtree.pyx":1518
  *                             tracker.p, self.m, tracker.upper_bound)
  *                         if d <= tracker.upper_bound:
  *                             list_append(results_i, other.raw_indices[j])             # <<<<<<<<<<<<<<
- *
+ * 
  *             else:  # 1 is a leaf node, 2 is inner node
 */
-            __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_list_append(__pyx_v_results_i, (__pyx_v_other->raw_indices[__pyx_v_j])); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1511, __pyx_L1_error)
+            __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_list_append(__pyx_v_results_i, (__pyx_v_other->raw_indices[__pyx_v_j])); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1518, __pyx_L1_error)
 
 
-            /* "pyart/map/ckdtree.pyx":1510
+            /* "pyart/map/ckdtree.pyx":1517
  *                             other.raw_data + other.raw_indices[j] * other.m,
  *                             tracker.p, self.m, tracker.upper_bound)
  *                         if d <= tracker.upper_bound:             # <<<<<<<<<<<<<<
  *                             list_append(results_i, other.raw_indices[j])
- *
+ * 
 */
           }
         }
@@ -21937,91 +21958,91 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_ball_tree_trave
       }
 
 
-      /* "pyart/map/ckdtree.pyx":1499
+      /* "pyart/map/ckdtree.pyx":1506
  *             lnode1 = <leafnode*>node1
- *
+ * 
  *             if node2.split_dim == -1:  # 1 & 2 are leaves             # <<<<<<<<<<<<<<
  *                 lnode2 = <leafnode*>node2
- *
+ * 
 */
       goto __pyx_L4;
     }
 
-    /* "pyart/map/ckdtree.pyx":1515
+    /* "pyart/map/ckdtree.pyx":1522
  *             else:  # 1 is a leaf node, 2 is inner node
- *
+ * 
  *                 tracker.push_less_of(2, node2)             # <<<<<<<<<<<<<<
  *                 self.__query_ball_tree_traverse_checking(
  *                     other, results, node1, node2.less, tracker)
 */
     /*else*/ {
-      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_less_of(__pyx_v_tracker, 2, __pyx_v_node2); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1515, __pyx_L1_error)
+      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_less_of(__pyx_v_tracker, 2, __pyx_v_node2); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1522, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":1516
- *
+      /* "pyart/map/ckdtree.pyx":1523
+ * 
  *                 tracker.push_less_of(2, node2)
  *                 self.__query_ball_tree_traverse_checking(             # <<<<<<<<<<<<<<
  *                     other, results, node1, node2.less, tracker)
  *                 tracker.pop()
 */
-      __pyx_t_2 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_ball_tree_traverse_checking(__pyx_v_self, __pyx_v_other, __pyx_v_results, __pyx_v_node1, __pyx_v_node2->less, __pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1516, __pyx_L1_error)
+      __pyx_t_2 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_ball_tree_traverse_checking(__pyx_v_self, __pyx_v_other, __pyx_v_results, __pyx_v_node1, __pyx_v_node2->less, __pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1523, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":1518
+      /* "pyart/map/ckdtree.pyx":1525
  *                 self.__query_ball_tree_traverse_checking(
  *                     other, results, node1, node2.less, tracker)
  *                 tracker.pop()             # <<<<<<<<<<<<<<
- *
+ * 
  *                 tracker.push_greater_of(2, node2)
 */
-      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1518, __pyx_L1_error)
+      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1525, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":1520
+      /* "pyart/map/ckdtree.pyx":1527
  *                 tracker.pop()
- *
+ * 
  *                 tracker.push_greater_of(2, node2)             # <<<<<<<<<<<<<<
  *                 self.__query_ball_tree_traverse_checking(
  *                     other, results, node1, node2.greater, tracker)
 */
-      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_greater_of(__pyx_v_tracker, 2, __pyx_v_node2); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1520, __pyx_L1_error)
+      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_greater_of(__pyx_v_tracker, 2, __pyx_v_node2); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1527, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":1521
- *
+      /* "pyart/map/ckdtree.pyx":1528
+ * 
  *                 tracker.push_greater_of(2, node2)
  *                 self.__query_ball_tree_traverse_checking(             # <<<<<<<<<<<<<<
  *                     other, results, node1, node2.greater, tracker)
  *                 tracker.pop()
 */
-      __pyx_t_2 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_ball_tree_traverse_checking(__pyx_v_self, __pyx_v_other, __pyx_v_results, __pyx_v_node1, __pyx_v_node2->greater, __pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1521, __pyx_L1_error)
+      __pyx_t_2 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_ball_tree_traverse_checking(__pyx_v_self, __pyx_v_other, __pyx_v_results, __pyx_v_node1, __pyx_v_node2->greater, __pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1528, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":1523
+      /* "pyart/map/ckdtree.pyx":1530
  *                 self.__query_ball_tree_traverse_checking(
  *                     other, results, node1, node2.greater, tracker)
  *                 tracker.pop()             # <<<<<<<<<<<<<<
- *
- *
+ * 
+ * 
 */
-      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1523, __pyx_L1_error)
+      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1530, __pyx_L1_error)
 
     }
     __pyx_L4:;
 
-    /* "pyart/map/ckdtree.pyx":1496
+    /* "pyart/map/ckdtree.pyx":1503
  *         elif tracker.max_distance < tracker.upper_bound / tracker.epsfac:
  *             self.__query_ball_tree_traverse_no_checking(other, results, node1, node2)
  *         elif node1.split_dim == -1:  # 1 is leaf node             # <<<<<<<<<<<<<<
  *             lnode1 = <leafnode*>node1
- *
+ * 
 */
     goto __pyx_L3;
   }
 
-  /* "pyart/map/ckdtree.pyx":1527
- *
+  /* "pyart/map/ckdtree.pyx":1534
+ * 
  *         else:  # 1 is an inner node
  *             if node2.split_dim == -1:  # 1 is an inner node, 2 is a leaf node             # <<<<<<<<<<<<<<
  *                 tracker.push_less_of(1, node1)
@@ -22033,68 +22054,68 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_ball_tree_trave
     if (__pyx_t_1) {
 
 
-      /* "pyart/map/ckdtree.pyx":1528
+      /* "pyart/map/ckdtree.pyx":1535
  *         else:  # 1 is an inner node
  *             if node2.split_dim == -1:  # 1 is an inner node, 2 is a leaf node
  *                 tracker.push_less_of(1, node1)             # <<<<<<<<<<<<<<
  *                 self.__query_ball_tree_traverse_checking(
  *                     other, results, node1.less, node2, tracker)
 */
-      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_less_of(__pyx_v_tracker, 1, __pyx_v_node1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1528, __pyx_L1_error)
+      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_less_of(__pyx_v_tracker, 1, __pyx_v_node1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1535, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":1529
+      /* "pyart/map/ckdtree.pyx":1536
  *             if node2.split_dim == -1:  # 1 is an inner node, 2 is a leaf node
  *                 tracker.push_less_of(1, node1)
  *                 self.__query_ball_tree_traverse_checking(             # <<<<<<<<<<<<<<
  *                     other, results, node1.less, node2, tracker)
  *                 tracker.pop()
 */
-      __pyx_t_2 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_ball_tree_traverse_checking(__pyx_v_self, __pyx_v_other, __pyx_v_results, __pyx_v_node1->less, __pyx_v_node2, __pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1529, __pyx_L1_error)
+      __pyx_t_2 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_ball_tree_traverse_checking(__pyx_v_self, __pyx_v_other, __pyx_v_results, __pyx_v_node1->less, __pyx_v_node2, __pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1536, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":1531
+      /* "pyart/map/ckdtree.pyx":1538
  *                 self.__query_ball_tree_traverse_checking(
  *                     other, results, node1.less, node2, tracker)
  *                 tracker.pop()             # <<<<<<<<<<<<<<
- *
+ * 
  *                 tracker.push_greater_of(1, node1)
 */
-      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1531, __pyx_L1_error)
+      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1538, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":1533
+      /* "pyart/map/ckdtree.pyx":1540
  *                 tracker.pop()
- *
+ * 
  *                 tracker.push_greater_of(1, node1)             # <<<<<<<<<<<<<<
  *                 self.__query_ball_tree_traverse_checking(
  *                     other, results, node1.greater, node2, tracker)
 */
-      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_greater_of(__pyx_v_tracker, 1, __pyx_v_node1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1533, __pyx_L1_error)
+      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_greater_of(__pyx_v_tracker, 1, __pyx_v_node1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1540, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":1534
- *
+      /* "pyart/map/ckdtree.pyx":1541
+ * 
  *                 tracker.push_greater_of(1, node1)
  *                 self.__query_ball_tree_traverse_checking(             # <<<<<<<<<<<<<<
  *                     other, results, node1.greater, node2, tracker)
  *                 tracker.pop()
 */
-      __pyx_t_2 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_ball_tree_traverse_checking(__pyx_v_self, __pyx_v_other, __pyx_v_results, __pyx_v_node1->greater, __pyx_v_node2, __pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1534, __pyx_L1_error)
+      __pyx_t_2 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_ball_tree_traverse_checking(__pyx_v_self, __pyx_v_other, __pyx_v_results, __pyx_v_node1->greater, __pyx_v_node2, __pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1541, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":1536
+      /* "pyart/map/ckdtree.pyx":1543
  *                 self.__query_ball_tree_traverse_checking(
  *                     other, results, node1.greater, node2, tracker)
  *                 tracker.pop()             # <<<<<<<<<<<<<<
- *
+ * 
  *             else: # 1 & 2 are inner nodes
 */
-      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1536, __pyx_L1_error)
+      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1543, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":1527
- *
+      /* "pyart/map/ckdtree.pyx":1534
+ * 
  *         else:  # 1 is an inner node
  *             if node2.split_dim == -1:  # 1 is an inner node, 2 is a leaf node             # <<<<<<<<<<<<<<
  *                 tracker.push_less_of(1, node1)
@@ -22103,177 +22124,177 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_ball_tree_trave
       goto __pyx_L10;
     }
 
-    /* "pyart/map/ckdtree.pyx":1540
+    /* "pyart/map/ckdtree.pyx":1547
  *             else: # 1 & 2 are inner nodes
- *
+ * 
  *                 tracker.push_less_of(1, node1)             # <<<<<<<<<<<<<<
  *                 tracker.push_less_of(2, node2)
  *                 self.__query_ball_tree_traverse_checking(
 */
     /*else*/ {
-      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_less_of(__pyx_v_tracker, 1, __pyx_v_node1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1540, __pyx_L1_error)
+      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_less_of(__pyx_v_tracker, 1, __pyx_v_node1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1547, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":1541
- *
+      /* "pyart/map/ckdtree.pyx":1548
+ * 
  *                 tracker.push_less_of(1, node1)
  *                 tracker.push_less_of(2, node2)             # <<<<<<<<<<<<<<
  *                 self.__query_ball_tree_traverse_checking(
  *                     other, results, node1.less, node2.less, tracker)
 */
-      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_less_of(__pyx_v_tracker, 2, __pyx_v_node2); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1541, __pyx_L1_error)
+      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_less_of(__pyx_v_tracker, 2, __pyx_v_node2); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1548, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":1542
+      /* "pyart/map/ckdtree.pyx":1549
  *                 tracker.push_less_of(1, node1)
  *                 tracker.push_less_of(2, node2)
  *                 self.__query_ball_tree_traverse_checking(             # <<<<<<<<<<<<<<
  *                     other, results, node1.less, node2.less, tracker)
  *                 tracker.pop()
 */
-      __pyx_t_2 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_ball_tree_traverse_checking(__pyx_v_self, __pyx_v_other, __pyx_v_results, __pyx_v_node1->less, __pyx_v_node2->less, __pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1542, __pyx_L1_error)
+      __pyx_t_2 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_ball_tree_traverse_checking(__pyx_v_self, __pyx_v_other, __pyx_v_results, __pyx_v_node1->less, __pyx_v_node2->less, __pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1549, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":1544
+      /* "pyart/map/ckdtree.pyx":1551
  *                 self.__query_ball_tree_traverse_checking(
  *                     other, results, node1.less, node2.less, tracker)
  *                 tracker.pop()             # <<<<<<<<<<<<<<
- *
+ * 
  *                 tracker.push_greater_of(2, node2)
 */
-      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1544, __pyx_L1_error)
+      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1551, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":1546
+      /* "pyart/map/ckdtree.pyx":1553
  *                 tracker.pop()
- *
+ * 
  *                 tracker.push_greater_of(2, node2)             # <<<<<<<<<<<<<<
  *                 self.__query_ball_tree_traverse_checking(
  *                     other, results, node1.less, node2.greater, tracker)
 */
-      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_greater_of(__pyx_v_tracker, 2, __pyx_v_node2); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1546, __pyx_L1_error)
-
-
-      /* "pyart/map/ckdtree.pyx":1547
- *
- *                 tracker.push_greater_of(2, node2)
- *                 self.__query_ball_tree_traverse_checking(             # <<<<<<<<<<<<<<
- *                     other, results, node1.less, node2.greater, tracker)
- *                 tracker.pop()
-*/
-      __pyx_t_2 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_ball_tree_traverse_checking(__pyx_v_self, __pyx_v_other, __pyx_v_results, __pyx_v_node1->less, __pyx_v_node2->greater, __pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1547, __pyx_L1_error)
-
-
-      /* "pyart/map/ckdtree.pyx":1549
- *                 self.__query_ball_tree_traverse_checking(
- *                     other, results, node1.less, node2.greater, tracker)
- *                 tracker.pop()             # <<<<<<<<<<<<<<
- *                 tracker.pop()
- *
-*/
-      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1549, __pyx_L1_error)
-
-
-      /* "pyart/map/ckdtree.pyx":1550
- *                     other, results, node1.less, node2.greater, tracker)
- *                 tracker.pop()
- *                 tracker.pop()             # <<<<<<<<<<<<<<
- *
- *
-*/
-      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1550, __pyx_L1_error)
-
-
-      /* "pyart/map/ckdtree.pyx":1553
- *
- *
- *                 tracker.push_greater_of(1, node1)             # <<<<<<<<<<<<<<
- *                 tracker.push_less_of(2, node2)
- *                 self.__query_ball_tree_traverse_checking(
-*/
-      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_greater_of(__pyx_v_tracker, 1, __pyx_v_node1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1553, __pyx_L1_error)
+      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_greater_of(__pyx_v_tracker, 2, __pyx_v_node2); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1553, __pyx_L1_error)
 
 
       /* "pyart/map/ckdtree.pyx":1554
- *
- *                 tracker.push_greater_of(1, node1)
- *                 tracker.push_less_of(2, node2)             # <<<<<<<<<<<<<<
- *                 self.__query_ball_tree_traverse_checking(
- *                     other, results, node1.greater, node2.less, tracker)
-*/
-      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_less_of(__pyx_v_tracker, 2, __pyx_v_node2); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1554, __pyx_L1_error)
-
-
-      /* "pyart/map/ckdtree.pyx":1555
- *                 tracker.push_greater_of(1, node1)
- *                 tracker.push_less_of(2, node2)
+ * 
+ *                 tracker.push_greater_of(2, node2)
  *                 self.__query_ball_tree_traverse_checking(             # <<<<<<<<<<<<<<
- *                     other, results, node1.greater, node2.less, tracker)
+ *                     other, results, node1.less, node2.greater, tracker)
  *                 tracker.pop()
 */
-      __pyx_t_2 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_ball_tree_traverse_checking(__pyx_v_self, __pyx_v_other, __pyx_v_results, __pyx_v_node1->greater, __pyx_v_node2->less, __pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1555, __pyx_L1_error)
+      __pyx_t_2 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_ball_tree_traverse_checking(__pyx_v_self, __pyx_v_other, __pyx_v_results, __pyx_v_node1->less, __pyx_v_node2->greater, __pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1554, __pyx_L1_error)
+
+
+      /* "pyart/map/ckdtree.pyx":1556
+ *                 self.__query_ball_tree_traverse_checking(
+ *                     other, results, node1.less, node2.greater, tracker)
+ *                 tracker.pop()             # <<<<<<<<<<<<<<
+ *                 tracker.pop()
+ * 
+*/
+      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1556, __pyx_L1_error)
 
 
       /* "pyart/map/ckdtree.pyx":1557
- *                 self.__query_ball_tree_traverse_checking(
- *                     other, results, node1.greater, node2.less, tracker)
+ *                     other, results, node1.less, node2.greater, tracker)
+ *                 tracker.pop()
  *                 tracker.pop()             # <<<<<<<<<<<<<<
- *
- *                 tracker.push_greater_of(2, node2)
+ * 
+ * 
 */
       __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1557, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":1559
+      /* "pyart/map/ckdtree.pyx":1560
+ * 
+ * 
+ *                 tracker.push_greater_of(1, node1)             # <<<<<<<<<<<<<<
+ *                 tracker.push_less_of(2, node2)
+ *                 self.__query_ball_tree_traverse_checking(
+*/
+      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_greater_of(__pyx_v_tracker, 1, __pyx_v_node1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1560, __pyx_L1_error)
+
+
+      /* "pyart/map/ckdtree.pyx":1561
+ * 
+ *                 tracker.push_greater_of(1, node1)
+ *                 tracker.push_less_of(2, node2)             # <<<<<<<<<<<<<<
+ *                 self.__query_ball_tree_traverse_checking(
+ *                     other, results, node1.greater, node2.less, tracker)
+*/
+      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_less_of(__pyx_v_tracker, 2, __pyx_v_node2); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1561, __pyx_L1_error)
+
+
+      /* "pyart/map/ckdtree.pyx":1562
+ *                 tracker.push_greater_of(1, node1)
+ *                 tracker.push_less_of(2, node2)
+ *                 self.__query_ball_tree_traverse_checking(             # <<<<<<<<<<<<<<
+ *                     other, results, node1.greater, node2.less, tracker)
  *                 tracker.pop()
- *
+*/
+      __pyx_t_2 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_ball_tree_traverse_checking(__pyx_v_self, __pyx_v_other, __pyx_v_results, __pyx_v_node1->greater, __pyx_v_node2->less, __pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1562, __pyx_L1_error)
+
+
+      /* "pyart/map/ckdtree.pyx":1564
+ *                 self.__query_ball_tree_traverse_checking(
+ *                     other, results, node1.greater, node2.less, tracker)
+ *                 tracker.pop()             # <<<<<<<<<<<<<<
+ * 
+ *                 tracker.push_greater_of(2, node2)
+*/
+      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1564, __pyx_L1_error)
+
+
+      /* "pyart/map/ckdtree.pyx":1566
+ *                 tracker.pop()
+ * 
  *                 tracker.push_greater_of(2, node2)             # <<<<<<<<<<<<<<
  *                 self.__query_ball_tree_traverse_checking(
  *                     other, results, node1.greater, node2.greater, tracker)
 */
-      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_greater_of(__pyx_v_tracker, 2, __pyx_v_node2); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1559, __pyx_L1_error)
+      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_greater_of(__pyx_v_tracker, 2, __pyx_v_node2); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1566, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":1560
- *
+      /* "pyart/map/ckdtree.pyx":1567
+ * 
  *                 tracker.push_greater_of(2, node2)
  *                 self.__query_ball_tree_traverse_checking(             # <<<<<<<<<<<<<<
  *                     other, results, node1.greater, node2.greater, tracker)
  *                 tracker.pop()
 */
-      __pyx_t_2 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_ball_tree_traverse_checking(__pyx_v_self, __pyx_v_other, __pyx_v_results, __pyx_v_node1->greater, __pyx_v_node2->greater, __pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1560, __pyx_L1_error)
+      __pyx_t_2 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_ball_tree_traverse_checking(__pyx_v_self, __pyx_v_other, __pyx_v_results, __pyx_v_node1->greater, __pyx_v_node2->greater, __pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1567, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":1562
+      /* "pyart/map/ckdtree.pyx":1569
  *                 self.__query_ball_tree_traverse_checking(
  *                     other, results, node1.greater, node2.greater, tracker)
  *                 tracker.pop()             # <<<<<<<<<<<<<<
  *                 tracker.pop()
- *
+ * 
 */
-      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1562, __pyx_L1_error)
+      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1569, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":1563
+      /* "pyart/map/ckdtree.pyx":1570
  *                     other, results, node1.greater, node2.greater, tracker)
  *                 tracker.pop()
  *                 tracker.pop()             # <<<<<<<<<<<<<<
- *
+ * 
  *         return 0
 */
-      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1563, __pyx_L1_error)
+      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1570, __pyx_L1_error)
 
     }
     __pyx_L10:;
   }
   __pyx_L3:;
 
-  /* "pyart/map/ckdtree.pyx":1565
+  /* "pyart/map/ckdtree.pyx":1572
  *                 tracker.pop()
- *
+ * 
  *         return 0             # <<<<<<<<<<<<<<
- *
- *
+ * 
+ * 
 */
   {
 
@@ -22281,9 +22302,9 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_ball_tree_trave
   }
   goto __pyx_L0;
 
-  /* "pyart/map/ckdtree.pyx":1479
- *
- *
+  /* "pyart/map/ckdtree.pyx":1486
+ * 
+ * 
  *     @cython.cdivision(True)             # <<<<<<<<<<<<<<
  *     cdef int __query_ball_tree_traverse_checking(cKDTree self,
  *                                                  cKDTree other,
@@ -22306,16 +22327,16 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_ball_tree_trave
   return __pyx_r;
 }
 
-/* "pyart/map/ckdtree.pyx":1568
- *
- *
+/* "pyart/map/ckdtree.pyx":1575
+ * 
+ * 
  *     def query_ball_tree(cKDTree self, cKDTree other,             # <<<<<<<<<<<<<<
  *                         np.float64_t r, np.float64_t p=2., np.float64_t eps=0):
  *         """query_ball_tree(self, other, r, p, eps)
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5pyart_3map_7ckdtree_7cKDTree_9query_ball_tree(PyObject *__pyx_v_self,
+static PyObject *__pyx_pw_5pyart_3map_7ckdtree_7cKDTree_9query_ball_tree(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -22324,7 +22345,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 ); /*proto*/
 PyDoc_STRVAR(__pyx_doc_5pyart_3map_7ckdtree_7cKDTree_8query_ball_tree, "query_ball_tree(self, other, r, p, eps)\n\n        Find all pairs of points whose distance is at most r\n\n        Parameters\n        ----------\n        other : KDTree instance\n            The tree containing points to search against.\n        r : float\n            The maximum distance, has to be positive.\n        p : float, optional\n            Which Minkowski norm to use.  `p` has to meet the condition\n            ``1 <= p <= infinity``.\n        eps : float, optional\n            Approximate search.  Branches of the tree are not explored\n            if their nearest points are further than ``r/(1+eps)``, and\n            branches are added in bulk if their furthest points are nearer\n            than ``r * (1+eps)``.  `eps` has to be non-negative.\n\n        Returns\n        -------\n        results : list of lists\n            For each element ``self.data[i]`` of this tree, ``results[i]`` is a\n            list of the indices of its neighbors in ``other.data``.\n\n        ");
 static PyMethodDef __pyx_mdef_5pyart_3map_7ckdtree_7cKDTree_9query_ball_tree = {"query_ball_tree", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5pyart_3map_7ckdtree_7cKDTree_9query_ball_tree, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5pyart_3map_7ckdtree_7cKDTree_8query_ball_tree};
-static PyObject *__pyx_pw_5pyart_3map_7ckdtree_7cKDTree_9query_ball_tree(PyObject *__pyx_v_self,
+static PyObject *__pyx_pw_5pyart_3map_7ckdtree_7cKDTree_9query_ball_tree(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -22357,68 +22378,68 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_other,&__pyx_mstate_global->__pyx_n_u_r,&__pyx_mstate_global->__pyx_n_u_p,&__pyx_mstate_global->__pyx_n_u_eps,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len < 0)) __PYX_ERR(0, 1568, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len < 0)) __PYX_ERR(0, 1575, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  4:
         values[3] = __Pyx_ArgRef_FASTCALL(__pyx_args, 3);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 1568, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 1575, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  3:
         values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 1568, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 1575, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 1568, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 1575, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1568, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1575, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "query_ball_tree", 0) < (0)) __PYX_ERR(0, 1568, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "query_ball_tree", 0) < (0)) __PYX_ERR(0, 1575, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 2; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("query_ball_tree", 0, 2, 4, i); __PYX_ERR(0, 1568, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("query_ball_tree", 0, 2, 4, i); __PYX_ERR(0, 1575, __pyx_L3_error) }
       }
     } else {
       switch (__pyx_nargs) {
         case  4:
         values[3] = __Pyx_ArgRef_FASTCALL(__pyx_args, 3);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 1568, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 1575, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  3:
         values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 1568, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 1575, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 1568, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 1575, __pyx_L3_error)
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1568, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1575, __pyx_L3_error)
         break;
         default: goto __pyx_L5_argtuple_error;
       }
     }
     __pyx_v_other = ((struct __pyx_obj_5pyart_3map_7ckdtree_cKDTree *)values[0]);
-    __pyx_v_r = __Pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_r == ((npy_float64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 1569, __pyx_L3_error)
+    __pyx_v_r = __Pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_r == ((npy_float64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 1576, __pyx_L3_error)
     if (values[2]) {
-      __pyx_v_p = __Pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_p == ((npy_float64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 1569, __pyx_L3_error)
+      __pyx_v_p = __Pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_p == ((npy_float64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 1576, __pyx_L3_error)
     } else {
       __pyx_v_p = ((__pyx_t_5numpy_float64_t)2.);
     }
     if (values[3]) {
-      __pyx_v_eps = __Pyx_PyFloat_AsDouble(values[3]); if (unlikely((__pyx_v_eps == ((npy_float64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 1569, __pyx_L3_error)
+      __pyx_v_eps = __Pyx_PyFloat_AsDouble(values[3]); if (unlikely((__pyx_v_eps == ((npy_float64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 1576, __pyx_L3_error)
     } else {
       __pyx_v_eps = ((__pyx_t_5numpy_float64_t)0.0);
     }
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("query_ball_tree", 0, 2, 4, __pyx_nargs); __PYX_ERR(0, 1568, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("query_ball_tree", 0, 2, 4, __pyx_nargs); __PYX_ERR(0, 1575, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -22429,7 +22450,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_mstate_global->__pyx_ptype_5pyart_3map_7ckdtree_cKDTree, 1, "other", 0))) __PYX_ERR(0, 1568, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_mstate_global->__pyx_ptype_5pyart_3map_7ckdtree_cKDTree, 1, "other", 0))) __PYX_ERR(0, 1575, __pyx_L1_error)
   __pyx_r = __pyx_pf_5pyart_3map_7ckdtree_7cKDTree_8query_ball_tree(((struct __pyx_obj_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self), __pyx_v_other, __pyx_v_r, __pyx_v_p, __pyx_v_eps);
 
   /* function exit code */
@@ -22476,23 +22497,23 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_8query_ball_tree(struct 
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("query_ball_tree", 0);
 
-  /* "pyart/map/ckdtree.pyx":1598
- *
+  /* "pyart/map/ckdtree.pyx":1605
+ * 
  *         # Make sure trees are compatible
  *         if self.m != other.m:             # <<<<<<<<<<<<<<
  *             raise ValueError("Trees passed to query_ball_trees have different dimensionality")
- *
+ * 
 */
   __pyx_t_1 = (__pyx_v_self->m != __pyx_v_other->m);
 
   if (unlikely(__pyx_t_1)) {
 
 
-    /* "pyart/map/ckdtree.pyx":1599
+    /* "pyart/map/ckdtree.pyx":1606
  *         # Make sure trees are compatible
  *         if self.m != other.m:
  *             raise ValueError("Trees passed to query_ball_trees have different dimensionality")             # <<<<<<<<<<<<<<
- *
+ * 
  *         # Track node-to-node min/max distances
 */
     __pyx_t_3 = NULL;
@@ -22501,24 +22522,24 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_8query_ball_tree(struct 
       PyObject *__pyx_callargs[2] = {__pyx_t_3, __pyx_mstate_global->__pyx_kp_u_Trees_passed_to_query_ball_trees};
       __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)(((PyTypeObject*)PyExc_ValueError)), __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (__pyx_t_4*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1599, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1606, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
     __Pyx_Raise(__pyx_t_2, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __PYX_ERR(0, 1599, __pyx_L1_error)
+    __PYX_ERR(0, 1606, __pyx_L1_error)
 
-    /* "pyart/map/ckdtree.pyx":1598
- *
+    /* "pyart/map/ckdtree.pyx":1605
+ * 
  *         # Make sure trees are compatible
  *         if self.m != other.m:             # <<<<<<<<<<<<<<
  *             raise ValueError("Trees passed to query_ball_trees have different dimensionality")
- *
+ * 
 */
   }
 
-  /* "pyart/map/ckdtree.pyx":1602
- *
+  /* "pyart/map/ckdtree.pyx":1609
+ * 
  *         # Track node-to-node min/max distances
  *         tracker = RectRectDistanceTracker(             # <<<<<<<<<<<<<<
  *             Rectangle(self.mins, self.maxes),
@@ -22526,7 +22547,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_8query_ball_tree(struct 
 */
   __pyx_t_3 = NULL;
 
-  /* "pyart/map/ckdtree.pyx":1603
+  /* "pyart/map/ckdtree.pyx":1610
  *         # Track node-to-node min/max distances
  *         tracker = RectRectDistanceTracker(
  *             Rectangle(self.mins, self.maxes),             # <<<<<<<<<<<<<<
@@ -22539,16 +22560,16 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_8query_ball_tree(struct 
     PyObject *__pyx_callargs[3] = {__pyx_t_6, ((PyObject *)__pyx_v_self->mins), ((PyObject *)__pyx_v_self->maxes)};
     __pyx_t_5 = __Pyx_PyObject_FastCall((PyObject*)__pyx_mstate_global->__pyx_ptype_5pyart_3map_7ckdtree_Rectangle, __pyx_callargs+__pyx_t_4, (3-__pyx_t_4) | (__pyx_t_4*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-    if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1603, __pyx_L1_error)
+    if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1610, __pyx_L1_error)
     __Pyx_GOTREF((PyObject *)__pyx_t_5);
   }
 
-  /* "pyart/map/ckdtree.pyx":1604
+  /* "pyart/map/ckdtree.pyx":1611
  *         tracker = RectRectDistanceTracker(
  *             Rectangle(self.mins, self.maxes),
  *             Rectangle(other.mins, other.maxes),             # <<<<<<<<<<<<<<
  *             p, eps, r)
- *
+ * 
 */
   __pyx_t_7 = NULL;
   __pyx_t_4 = 1;
@@ -22556,22 +22577,22 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_8query_ball_tree(struct 
     PyObject *__pyx_callargs[3] = {__pyx_t_7, ((PyObject *)__pyx_v_other->mins), ((PyObject *)__pyx_v_other->maxes)};
     __pyx_t_6 = __Pyx_PyObject_FastCall((PyObject*)__pyx_mstate_global->__pyx_ptype_5pyart_3map_7ckdtree_Rectangle, __pyx_callargs+__pyx_t_4, (3-__pyx_t_4) | (__pyx_t_4*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-    if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1604, __pyx_L1_error)
+    if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1611, __pyx_L1_error)
     __Pyx_GOTREF((PyObject *)__pyx_t_6);
   }
 
-  /* "pyart/map/ckdtree.pyx":1605
+  /* "pyart/map/ckdtree.pyx":1612
  *             Rectangle(self.mins, self.maxes),
  *             Rectangle(other.mins, other.maxes),
  *             p, eps, r)             # <<<<<<<<<<<<<<
- *
+ * 
  *         results = [[] for i in range(self.n)]
 */
-  __pyx_t_7 = PyFloat_FromDouble(__pyx_v_p); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1605, __pyx_L1_error)
+  __pyx_t_7 = PyFloat_FromDouble(__pyx_v_p); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1612, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_8 = PyFloat_FromDouble(__pyx_v_eps); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1605, __pyx_L1_error)
+  __pyx_t_8 = PyFloat_FromDouble(__pyx_v_eps); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1612, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
-  __pyx_t_9 = PyFloat_FromDouble(__pyx_v_r); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1605, __pyx_L1_error)
+  __pyx_t_9 = PyFloat_FromDouble(__pyx_v_r); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1612, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __pyx_t_4 = 1;
   {
@@ -22583,21 +22604,21 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_8query_ball_tree(struct 
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1602, __pyx_L1_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1609, __pyx_L1_error)
     __Pyx_GOTREF((PyObject *)__pyx_t_2);
   }
   __pyx_v_tracker = ((struct __pyx_obj_5pyart_3map_7ckdtree_RectRectDistanceTracker *)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "pyart/map/ckdtree.pyx":1607
+  /* "pyart/map/ckdtree.pyx":1614
  *             p, eps, r)
- *
+ * 
  *         results = [[] for i in range(self.n)]             # <<<<<<<<<<<<<<
  *         self.__query_ball_tree_traverse_checking(
  *             other, results, self.tree, other.tree, tracker)
 */
   { /* enter inner scope */
-    __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1607, __pyx_L1_error)
+    __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1614, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
 
     __pyx_t_10 = __pyx_v_self->n;
@@ -22605,10 +22626,10 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_8query_ball_tree(struct 
 
     for (__pyx_t_12 = 0; __pyx_t_12 < __pyx_t_11; __pyx_t_12+=1) {
       __pyx_7genexpr__pyx_v_i = __pyx_t_12;
-      __pyx_t_9 = PyList_New(0); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1607, __pyx_L1_error)
+      __pyx_t_9 = PyList_New(0); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1614, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
       __Pyx_GIVEREF(__pyx_t_9);
-      if (unlikely(__Pyx_ListComp_AppendAndDecref(__pyx_t_2, __pyx_t_9))) __PYX_ERR(0, 1607, __pyx_L1_error)
+      if (unlikely(__Pyx_ListComp_AppendAndDecref(__pyx_t_2, __pyx_t_9))) __PYX_ERR(0, 1614, __pyx_L1_error)
       __pyx_t_9 = 0;
     }
 
@@ -22616,22 +22637,22 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_8query_ball_tree(struct 
   __pyx_v_results = ((PyObject*)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "pyart/map/ckdtree.pyx":1608
- *
+  /* "pyart/map/ckdtree.pyx":1615
+ * 
  *         results = [[] for i in range(self.n)]
  *         self.__query_ball_tree_traverse_checking(             # <<<<<<<<<<<<<<
  *             other, results, self.tree, other.tree, tracker)
- *
+ * 
 */
-  __pyx_t_13 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_ball_tree_traverse_checking(__pyx_v_self, __pyx_v_other, __pyx_v_results, __pyx_v_self->tree, __pyx_v_other->tree, __pyx_v_tracker); if (unlikely(__pyx_t_13 == ((int)-1))) __PYX_ERR(0, 1608, __pyx_L1_error)
+  __pyx_t_13 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_ball_tree_traverse_checking(__pyx_v_self, __pyx_v_other, __pyx_v_results, __pyx_v_self->tree, __pyx_v_other->tree, __pyx_v_tracker); if (unlikely(__pyx_t_13 == ((int)-1))) __PYX_ERR(0, 1615, __pyx_L1_error)
 
 
-  /* "pyart/map/ckdtree.pyx":1611
+  /* "pyart/map/ckdtree.pyx":1618
  *             other, results, self.tree, other.tree, tracker)
- *
+ * 
  *         return results             # <<<<<<<<<<<<<<
- *
- *
+ * 
+ * 
 */
   {
     PyObject *__pyx_temp;
@@ -22644,9 +22665,9 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_8query_ball_tree(struct 
   }
   goto __pyx_L0;
 
-  /* "pyart/map/ckdtree.pyx":1568
- *
- *
+  /* "pyart/map/ckdtree.pyx":1575
+ * 
+ * 
  *     def query_ball_tree(cKDTree self, cKDTree other,             # <<<<<<<<<<<<<<
  *                         np.float64_t r, np.float64_t p=2., np.float64_t eps=0):
  *         """query_ball_tree(self, other, r, p, eps)
@@ -22672,7 +22693,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_8query_ball_tree(struct 
   return __pyx_r;
 }
 
-/* "pyart/map/ckdtree.pyx":1617
+/* "pyart/map/ckdtree.pyx":1624
  *     # query_pairs
  *     # -----------
  *     cdef int __query_pairs_traverse_no_checking(cKDTree self,             # <<<<<<<<<<<<<<
@@ -22699,51 +22720,51 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_pairs_traverse_
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
 
-  /* "pyart/map/ckdtree.pyx":1626
+  /* "pyart/map/ckdtree.pyx":1633
  *         cdef np.intp_t i, j, min_j
- *
+ * 
  *         if node1.split_dim == -1:  # leaf node             # <<<<<<<<<<<<<<
  *             lnode1 = <leafnode*>node1
- *
+ * 
 */
   __pyx_t_1 = (__pyx_v_node1->split_dim == -1L);
 
   if (__pyx_t_1) {
 
 
-    /* "pyart/map/ckdtree.pyx":1627
- *
+    /* "pyart/map/ckdtree.pyx":1634
+ * 
  *         if node1.split_dim == -1:  # leaf node
  *             lnode1 = <leafnode*>node1             # <<<<<<<<<<<<<<
- *
+ * 
  *             if node2.split_dim == -1:  # leaf node
 */
     __pyx_v_lnode1 = ((struct __pyx_t_5pyart_3map_7ckdtree_leafnode *)__pyx_v_node1);
 
-    /* "pyart/map/ckdtree.pyx":1629
+    /* "pyart/map/ckdtree.pyx":1636
  *             lnode1 = <leafnode*>node1
- *
+ * 
  *             if node2.split_dim == -1:  # leaf node             # <<<<<<<<<<<<<<
  *                 lnode2 = <leafnode*>node2
- *
+ * 
 */
     __pyx_t_1 = (__pyx_v_node2->split_dim == -1L);
 
     if (__pyx_t_1) {
 
 
-      /* "pyart/map/ckdtree.pyx":1630
- *
+      /* "pyart/map/ckdtree.pyx":1637
+ * 
  *             if node2.split_dim == -1:  # leaf node
  *                 lnode2 = <leafnode*>node2             # <<<<<<<<<<<<<<
- *
+ * 
  *                 for i in range(lnode1.start_idx, lnode1.end_idx):
 */
       __pyx_v_lnode2 = ((struct __pyx_t_5pyart_3map_7ckdtree_leafnode *)__pyx_v_node2);
 
-      /* "pyart/map/ckdtree.pyx":1632
+      /* "pyart/map/ckdtree.pyx":1639
  *                 lnode2 = <leafnode*>node2
- *
+ * 
  *                 for i in range(lnode1.start_idx, lnode1.end_idx):             # <<<<<<<<<<<<<<
  *                     # Special care here to avoid duplicate pairs
  *                     if node1 == node2:
@@ -22755,7 +22776,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_pairs_traverse_
       for (__pyx_t_4 = __pyx_v_lnode1->start_idx; __pyx_t_4 < __pyx_t_3; __pyx_t_4+=1) {
         __pyx_v_i = __pyx_t_4;
 
-        /* "pyart/map/ckdtree.pyx":1634
+        /* "pyart/map/ckdtree.pyx":1641
  *                 for i in range(lnode1.start_idx, lnode1.end_idx):
  *                     # Special care here to avoid duplicate pairs
  *                     if node1 == node2:             # <<<<<<<<<<<<<<
@@ -22767,7 +22788,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_pairs_traverse_
         if (__pyx_t_1) {
 
 
-          /* "pyart/map/ckdtree.pyx":1635
+          /* "pyart/map/ckdtree.pyx":1642
  *                     # Special care here to avoid duplicate pairs
  *                     if node1 == node2:
  *                         min_j = i + 1             # <<<<<<<<<<<<<<
@@ -22776,7 +22797,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_pairs_traverse_
 */
           __pyx_v_min_j = (__pyx_v_i + 1);
 
-          /* "pyart/map/ckdtree.pyx":1634
+          /* "pyart/map/ckdtree.pyx":1641
  *                 for i in range(lnode1.start_idx, lnode1.end_idx):
  *                     # Special care here to avoid duplicate pairs
  *                     if node1 == node2:             # <<<<<<<<<<<<<<
@@ -22786,11 +22807,11 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_pairs_traverse_
           goto __pyx_L7;
         }
 
-        /* "pyart/map/ckdtree.pyx":1637
+        /* "pyart/map/ckdtree.pyx":1644
  *                         min_j = i + 1
  *                     else:
  *                         min_j = lnode2.start_idx             # <<<<<<<<<<<<<<
- *
+ * 
  *                     for j in range(min_j, lnode2.end_idx):
 */
         /*else*/ {
@@ -22800,9 +22821,9 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_pairs_traverse_
         }
         __pyx_L7:;
 
-        /* "pyart/map/ckdtree.pyx":1639
+        /* "pyart/map/ckdtree.pyx":1646
  *                         min_j = lnode2.start_idx
- *
+ * 
  *                     for j in range(min_j, lnode2.end_idx):             # <<<<<<<<<<<<<<
  *                         set_add_ordered_pair(results,
  *                                              self.raw_indices[i],
@@ -22814,64 +22835,64 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_pairs_traverse_
         for (__pyx_t_7 = __pyx_v_min_j; __pyx_t_7 < __pyx_t_6; __pyx_t_7+=1) {
           __pyx_v_j = __pyx_t_7;
 
-          /* "pyart/map/ckdtree.pyx":1640
- *
+          /* "pyart/map/ckdtree.pyx":1647
+ * 
  *                     for j in range(min_j, lnode2.end_idx):
  *                         set_add_ordered_pair(results,             # <<<<<<<<<<<<<<
  *                                              self.raw_indices[i],
  *                                              self.raw_indices[j])
 */
-          __pyx_t_8 = __pyx_f_5pyart_3map_7ckdtree_set_add_ordered_pair(__pyx_v_results, (__pyx_v_self->raw_indices[__pyx_v_i]), (__pyx_v_self->raw_indices[__pyx_v_j])); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1640, __pyx_L1_error)
+          __pyx_t_8 = __pyx_f_5pyart_3map_7ckdtree_set_add_ordered_pair(__pyx_v_results, (__pyx_v_self->raw_indices[__pyx_v_i]), (__pyx_v_self->raw_indices[__pyx_v_j])); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1647, __pyx_L1_error)
 
         }
 
       }
 
 
-      /* "pyart/map/ckdtree.pyx":1629
+      /* "pyart/map/ckdtree.pyx":1636
  *             lnode1 = <leafnode*>node1
- *
+ * 
  *             if node2.split_dim == -1:  # leaf node             # <<<<<<<<<<<<<<
  *                 lnode2 = <leafnode*>node2
- *
+ * 
 */
       goto __pyx_L4;
     }
 
-    /* "pyart/map/ckdtree.pyx":1645
- *
+    /* "pyart/map/ckdtree.pyx":1652
+ * 
  *             else:
  *                 self.__query_pairs_traverse_no_checking(results, node1, node2.less)             # <<<<<<<<<<<<<<
  *                 self.__query_pairs_traverse_no_checking(results, node1, node2.greater)
  *         else:
 */
     /*else*/ {
-      __pyx_t_8 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_pairs_traverse_no_checking(__pyx_v_self, __pyx_v_results, __pyx_v_node1, __pyx_v_node2->less); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1645, __pyx_L1_error)
+      __pyx_t_8 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_pairs_traverse_no_checking(__pyx_v_self, __pyx_v_results, __pyx_v_node1, __pyx_v_node2->less); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1652, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":1646
+      /* "pyart/map/ckdtree.pyx":1653
  *             else:
  *                 self.__query_pairs_traverse_no_checking(results, node1, node2.less)
  *                 self.__query_pairs_traverse_no_checking(results, node1, node2.greater)             # <<<<<<<<<<<<<<
  *         else:
  *             if node1 == node2:
 */
-      __pyx_t_8 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_pairs_traverse_no_checking(__pyx_v_self, __pyx_v_results, __pyx_v_node1, __pyx_v_node2->greater); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1646, __pyx_L1_error)
+      __pyx_t_8 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_pairs_traverse_no_checking(__pyx_v_self, __pyx_v_results, __pyx_v_node1, __pyx_v_node2->greater); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1653, __pyx_L1_error)
 
     }
     __pyx_L4:;
 
-    /* "pyart/map/ckdtree.pyx":1626
+    /* "pyart/map/ckdtree.pyx":1633
  *         cdef np.intp_t i, j, min_j
- *
+ * 
  *         if node1.split_dim == -1:  # leaf node             # <<<<<<<<<<<<<<
  *             lnode1 = <leafnode*>node1
- *
+ * 
 */
     goto __pyx_L3;
   }
 
-  /* "pyart/map/ckdtree.pyx":1648
+  /* "pyart/map/ckdtree.pyx":1655
  *                 self.__query_pairs_traverse_no_checking(results, node1, node2.greater)
  *         else:
  *             if node1 == node2:             # <<<<<<<<<<<<<<
@@ -22884,37 +22905,37 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_pairs_traverse_
     if (__pyx_t_1) {
 
 
-      /* "pyart/map/ckdtree.pyx":1653
+      /* "pyart/map/ckdtree.pyx":1660
  *                 # over, which is the source of the complication in the
  *                 # original KDTree.query_pairs)
  *                 self.__query_pairs_traverse_no_checking(results, node1.less, node2.less)             # <<<<<<<<<<<<<<
  *                 self.__query_pairs_traverse_no_checking(results, node1.less, node2.greater)
  *                 self.__query_pairs_traverse_no_checking(results, node1.greater, node2.greater)
 */
-      __pyx_t_8 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_pairs_traverse_no_checking(__pyx_v_self, __pyx_v_results, __pyx_v_node1->less, __pyx_v_node2->less); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1653, __pyx_L1_error)
+      __pyx_t_8 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_pairs_traverse_no_checking(__pyx_v_self, __pyx_v_results, __pyx_v_node1->less, __pyx_v_node2->less); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1660, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":1654
+      /* "pyart/map/ckdtree.pyx":1661
  *                 # original KDTree.query_pairs)
  *                 self.__query_pairs_traverse_no_checking(results, node1.less, node2.less)
  *                 self.__query_pairs_traverse_no_checking(results, node1.less, node2.greater)             # <<<<<<<<<<<<<<
  *                 self.__query_pairs_traverse_no_checking(results, node1.greater, node2.greater)
  *             else:
 */
-      __pyx_t_8 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_pairs_traverse_no_checking(__pyx_v_self, __pyx_v_results, __pyx_v_node1->less, __pyx_v_node2->greater); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1654, __pyx_L1_error)
+      __pyx_t_8 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_pairs_traverse_no_checking(__pyx_v_self, __pyx_v_results, __pyx_v_node1->less, __pyx_v_node2->greater); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1661, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":1655
+      /* "pyart/map/ckdtree.pyx":1662
  *                 self.__query_pairs_traverse_no_checking(results, node1.less, node2.less)
  *                 self.__query_pairs_traverse_no_checking(results, node1.less, node2.greater)
  *                 self.__query_pairs_traverse_no_checking(results, node1.greater, node2.greater)             # <<<<<<<<<<<<<<
  *             else:
  *                 self.__query_pairs_traverse_no_checking(results, node1.less, node2)
 */
-      __pyx_t_8 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_pairs_traverse_no_checking(__pyx_v_self, __pyx_v_results, __pyx_v_node1->greater, __pyx_v_node2->greater); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1655, __pyx_L1_error)
+      __pyx_t_8 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_pairs_traverse_no_checking(__pyx_v_self, __pyx_v_results, __pyx_v_node1->greater, __pyx_v_node2->greater); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1662, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":1648
+      /* "pyart/map/ckdtree.pyx":1655
  *                 self.__query_pairs_traverse_no_checking(results, node1, node2.greater)
  *         else:
  *             if node1 == node2:             # <<<<<<<<<<<<<<
@@ -22924,36 +22945,36 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_pairs_traverse_
       goto __pyx_L10;
     }
 
-    /* "pyart/map/ckdtree.pyx":1657
+    /* "pyart/map/ckdtree.pyx":1664
  *                 self.__query_pairs_traverse_no_checking(results, node1.greater, node2.greater)
  *             else:
  *                 self.__query_pairs_traverse_no_checking(results, node1.less, node2)             # <<<<<<<<<<<<<<
  *                 self.__query_pairs_traverse_no_checking(results, node1.greater, node2)
- *
+ * 
 */
     /*else*/ {
-      __pyx_t_8 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_pairs_traverse_no_checking(__pyx_v_self, __pyx_v_results, __pyx_v_node1->less, __pyx_v_node2); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1657, __pyx_L1_error)
+      __pyx_t_8 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_pairs_traverse_no_checking(__pyx_v_self, __pyx_v_results, __pyx_v_node1->less, __pyx_v_node2); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1664, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":1658
+      /* "pyart/map/ckdtree.pyx":1665
  *             else:
  *                 self.__query_pairs_traverse_no_checking(results, node1.less, node2)
  *                 self.__query_pairs_traverse_no_checking(results, node1.greater, node2)             # <<<<<<<<<<<<<<
- *
+ * 
  *         return 0
 */
-      __pyx_t_8 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_pairs_traverse_no_checking(__pyx_v_self, __pyx_v_results, __pyx_v_node1->greater, __pyx_v_node2); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1658, __pyx_L1_error)
+      __pyx_t_8 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_pairs_traverse_no_checking(__pyx_v_self, __pyx_v_results, __pyx_v_node1->greater, __pyx_v_node2); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1665, __pyx_L1_error)
 
     }
     __pyx_L10:;
   }
   __pyx_L3:;
 
-  /* "pyart/map/ckdtree.pyx":1660
+  /* "pyart/map/ckdtree.pyx":1667
  *                 self.__query_pairs_traverse_no_checking(results, node1.greater, node2)
- *
+ * 
  *         return 0             # <<<<<<<<<<<<<<
- *
+ * 
  *     @cython.cdivision(True)
 */
   {
@@ -22962,7 +22983,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_pairs_traverse_
   }
   goto __pyx_L0;
 
-  /* "pyart/map/ckdtree.pyx":1617
+  /* "pyart/map/ckdtree.pyx":1624
  *     # query_pairs
  *     # -----------
  *     cdef int __query_pairs_traverse_no_checking(cKDTree self,             # <<<<<<<<<<<<<<
@@ -22984,9 +23005,9 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_pairs_traverse_
   return __pyx_r;
 }
 
-/* "pyart/map/ckdtree.pyx":1662
+/* "pyart/map/ckdtree.pyx":1669
  *         return 0
- *
+ * 
  *     @cython.cdivision(True)             # <<<<<<<<<<<<<<
  *     cdef int __query_pairs_traverse_checking(cKDTree self,
  *                                              set results,
@@ -23013,9 +23034,9 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_pairs_traverse_
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
 
-  /* "pyart/map/ckdtree.pyx":1674
+  /* "pyart/map/ckdtree.pyx":1681
  *         cdef np.intp_t i, j, min_j
- *
+ * 
  *         if tracker.min_distance > tracker.upper_bound * tracker.epsfac:             # <<<<<<<<<<<<<<
  *             return 0
  *         elif tracker.max_distance < tracker.upper_bound / tracker.epsfac:
@@ -23025,8 +23046,8 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_pairs_traverse_
   if (__pyx_t_1) {
 
 
-    /* "pyart/map/ckdtree.pyx":1675
- *
+    /* "pyart/map/ckdtree.pyx":1682
+ * 
  *         if tracker.min_distance > tracker.upper_bound * tracker.epsfac:
  *             return 0             # <<<<<<<<<<<<<<
  *         elif tracker.max_distance < tracker.upper_bound / tracker.epsfac:
@@ -23038,16 +23059,16 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_pairs_traverse_
     }
     goto __pyx_L0;
 
-    /* "pyart/map/ckdtree.pyx":1674
+    /* "pyart/map/ckdtree.pyx":1681
  *         cdef np.intp_t i, j, min_j
- *
+ * 
  *         if tracker.min_distance > tracker.upper_bound * tracker.epsfac:             # <<<<<<<<<<<<<<
  *             return 0
  *         elif tracker.max_distance < tracker.upper_bound / tracker.epsfac:
 */
   }
 
-  /* "pyart/map/ckdtree.pyx":1676
+  /* "pyart/map/ckdtree.pyx":1683
  *         if tracker.min_distance > tracker.upper_bound * tracker.epsfac:
  *             return 0
  *         elif tracker.max_distance < tracker.upper_bound / tracker.epsfac:             # <<<<<<<<<<<<<<
@@ -23059,17 +23080,17 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_pairs_traverse_
   if (__pyx_t_1) {
 
 
-    /* "pyart/map/ckdtree.pyx":1677
+    /* "pyart/map/ckdtree.pyx":1684
  *             return 0
  *         elif tracker.max_distance < tracker.upper_bound / tracker.epsfac:
  *             self.__query_pairs_traverse_no_checking(results, node1, node2)             # <<<<<<<<<<<<<<
  *         elif node1.split_dim == -1:  # 1 is leaf node
  *             lnode1 = <leafnode*>node1
 */
-    __pyx_t_2 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_pairs_traverse_no_checking(__pyx_v_self, __pyx_v_results, __pyx_v_node1, __pyx_v_node2); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1677, __pyx_L1_error)
+    __pyx_t_2 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_pairs_traverse_no_checking(__pyx_v_self, __pyx_v_results, __pyx_v_node1, __pyx_v_node2); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1684, __pyx_L1_error)
 
 
-    /* "pyart/map/ckdtree.pyx":1676
+    /* "pyart/map/ckdtree.pyx":1683
  *         if tracker.min_distance > tracker.upper_bound * tracker.epsfac:
  *             return 0
  *         elif tracker.max_distance < tracker.upper_bound / tracker.epsfac:             # <<<<<<<<<<<<<<
@@ -23079,53 +23100,53 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_pairs_traverse_
     goto __pyx_L3;
   }
 
-  /* "pyart/map/ckdtree.pyx":1678
+  /* "pyart/map/ckdtree.pyx":1685
  *         elif tracker.max_distance < tracker.upper_bound / tracker.epsfac:
  *             self.__query_pairs_traverse_no_checking(results, node1, node2)
  *         elif node1.split_dim == -1:  # 1 is leaf node             # <<<<<<<<<<<<<<
  *             lnode1 = <leafnode*>node1
- *
+ * 
 */
   __pyx_t_1 = (__pyx_v_node1->split_dim == -1L);
 
   if (__pyx_t_1) {
 
 
-    /* "pyart/map/ckdtree.pyx":1679
+    /* "pyart/map/ckdtree.pyx":1686
  *             self.__query_pairs_traverse_no_checking(results, node1, node2)
  *         elif node1.split_dim == -1:  # 1 is leaf node
  *             lnode1 = <leafnode*>node1             # <<<<<<<<<<<<<<
- *
+ * 
  *             if node2.split_dim == -1:  # 1 & 2 are leaves
 */
     __pyx_v_lnode1 = ((struct __pyx_t_5pyart_3map_7ckdtree_leafnode *)__pyx_v_node1);
 
-    /* "pyart/map/ckdtree.pyx":1681
+    /* "pyart/map/ckdtree.pyx":1688
  *             lnode1 = <leafnode*>node1
- *
+ * 
  *             if node2.split_dim == -1:  # 1 & 2 are leaves             # <<<<<<<<<<<<<<
  *                 lnode2 = <leafnode*>node2
- *
+ * 
 */
     __pyx_t_1 = (__pyx_v_node2->split_dim == -1L);
 
     if (__pyx_t_1) {
 
 
-      /* "pyart/map/ckdtree.pyx":1682
- *
+      /* "pyart/map/ckdtree.pyx":1689
+ * 
  *             if node2.split_dim == -1:  # 1 & 2 are leaves
  *                 lnode2 = <leafnode*>node2             # <<<<<<<<<<<<<<
- *
+ * 
  *                 # brute-force
 */
       __pyx_v_lnode2 = ((struct __pyx_t_5pyart_3map_7ckdtree_leafnode *)__pyx_v_node2);
 
-      /* "pyart/map/ckdtree.pyx":1685
- *
+      /* "pyart/map/ckdtree.pyx":1692
+ * 
  *                 # brute-force
  *                 for i in range(lnode1.start_idx, lnode1.end_idx):             # <<<<<<<<<<<<<<
- *
+ * 
  *                     # Special care here to avoid duplicate pairs
 */
 
@@ -23135,8 +23156,8 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_pairs_traverse_
       for (__pyx_t_5 = __pyx_v_lnode1->start_idx; __pyx_t_5 < __pyx_t_4; __pyx_t_5+=1) {
         __pyx_v_i = __pyx_t_5;
 
-        /* "pyart/map/ckdtree.pyx":1688
- *
+        /* "pyart/map/ckdtree.pyx":1695
+ * 
  *                     # Special care here to avoid duplicate pairs
  *                     if node1 == node2:             # <<<<<<<<<<<<<<
  *                         min_j = i + 1
@@ -23147,7 +23168,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_pairs_traverse_
         if (__pyx_t_1) {
 
 
-          /* "pyart/map/ckdtree.pyx":1689
+          /* "pyart/map/ckdtree.pyx":1696
  *                     # Special care here to avoid duplicate pairs
  *                     if node1 == node2:
  *                         min_j = i + 1             # <<<<<<<<<<<<<<
@@ -23156,8 +23177,8 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_pairs_traverse_
 */
           __pyx_v_min_j = (__pyx_v_i + 1);
 
-          /* "pyart/map/ckdtree.pyx":1688
- *
+          /* "pyart/map/ckdtree.pyx":1695
+ * 
  *                     # Special care here to avoid duplicate pairs
  *                     if node1 == node2:             # <<<<<<<<<<<<<<
  *                         min_j = i + 1
@@ -23166,11 +23187,11 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_pairs_traverse_
           goto __pyx_L7;
         }
 
-        /* "pyart/map/ckdtree.pyx":1691
+        /* "pyart/map/ckdtree.pyx":1698
  *                         min_j = i + 1
  *                     else:
  *                         min_j = lnode2.start_idx             # <<<<<<<<<<<<<<
- *
+ * 
  *                     for j in range(min_j, lnode2.end_idx):
 */
         /*else*/ {
@@ -23180,9 +23201,9 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_pairs_traverse_
         }
         __pyx_L7:;
 
-        /* "pyart/map/ckdtree.pyx":1693
+        /* "pyart/map/ckdtree.pyx":1700
  *                         min_j = lnode2.start_idx
- *
+ * 
  *                     for j in range(min_j, lnode2.end_idx):             # <<<<<<<<<<<<<<
  *                         d = _distance_p(
  *                             self.raw_data + self.raw_indices[i] * self.m,
@@ -23194,17 +23215,17 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_pairs_traverse_
         for (__pyx_t_8 = __pyx_v_min_j; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
           __pyx_v_j = __pyx_t_8;
 
-          /* "pyart/map/ckdtree.pyx":1694
- *
+          /* "pyart/map/ckdtree.pyx":1701
+ * 
  *                     for j in range(min_j, lnode2.end_idx):
  *                         d = _distance_p(             # <<<<<<<<<<<<<<
  *                             self.raw_data + self.raw_indices[i] * self.m,
  *                             self.raw_data + self.raw_indices[j] * self.m,
 */
-          __pyx_t_9 = __pyx_f_5pyart_3map_7ckdtree__distance_p((__pyx_v_self->raw_data + ((__pyx_v_self->raw_indices[__pyx_v_i]) * __pyx_v_self->m)), (__pyx_v_self->raw_data + ((__pyx_v_self->raw_indices[__pyx_v_j]) * __pyx_v_self->m)), __pyx_v_tracker->p, __pyx_v_self->m, __pyx_v_tracker->upper_bound); if (unlikely(__pyx_t_9 == ((__pyx_t_5numpy_float64_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 1694, __pyx_L1_error)
+          __pyx_t_9 = __pyx_f_5pyart_3map_7ckdtree__distance_p((__pyx_v_self->raw_data + ((__pyx_v_self->raw_indices[__pyx_v_i]) * __pyx_v_self->m)), (__pyx_v_self->raw_data + ((__pyx_v_self->raw_indices[__pyx_v_j]) * __pyx_v_self->m)), __pyx_v_tracker->p, __pyx_v_self->m, __pyx_v_tracker->upper_bound); if (unlikely(__pyx_t_9 == ((__pyx_t_5numpy_float64_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 1701, __pyx_L1_error)
           __pyx_v_d = __pyx_t_9;
 
-          /* "pyart/map/ckdtree.pyx":1698
+          /* "pyart/map/ckdtree.pyx":1705
  *                             self.raw_data + self.raw_indices[j] * self.m,
  *                             tracker.p, self.m, tracker.upper_bound)
  *                         if d <= tracker.upper_bound:             # <<<<<<<<<<<<<<
@@ -23216,17 +23237,17 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_pairs_traverse_
           if (__pyx_t_1) {
 
 
-            /* "pyart/map/ckdtree.pyx":1699
+            /* "pyart/map/ckdtree.pyx":1706
  *                             tracker.p, self.m, tracker.upper_bound)
  *                         if d <= tracker.upper_bound:
  *                             set_add_ordered_pair(results,             # <<<<<<<<<<<<<<
  *                                                  self.raw_indices[i],
  *                                                  self.raw_indices[j])
 */
-            __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_set_add_ordered_pair(__pyx_v_results, (__pyx_v_self->raw_indices[__pyx_v_i]), (__pyx_v_self->raw_indices[__pyx_v_j])); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1699, __pyx_L1_error)
+            __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_set_add_ordered_pair(__pyx_v_results, (__pyx_v_self->raw_indices[__pyx_v_i]), (__pyx_v_self->raw_indices[__pyx_v_j])); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1706, __pyx_L1_error)
 
 
-            /* "pyart/map/ckdtree.pyx":1698
+            /* "pyart/map/ckdtree.pyx":1705
  *                             self.raw_data + self.raw_indices[j] * self.m,
  *                             tracker.p, self.m, tracker.upper_bound)
  *                         if d <= tracker.upper_bound:             # <<<<<<<<<<<<<<
@@ -23239,91 +23260,91 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_pairs_traverse_
       }
 
 
-      /* "pyart/map/ckdtree.pyx":1681
+      /* "pyart/map/ckdtree.pyx":1688
  *             lnode1 = <leafnode*>node1
- *
+ * 
  *             if node2.split_dim == -1:  # 1 & 2 are leaves             # <<<<<<<<<<<<<<
  *                 lnode2 = <leafnode*>node2
- *
+ * 
 */
       goto __pyx_L4;
     }
 
-    /* "pyart/map/ckdtree.pyx":1704
- *
+    /* "pyart/map/ckdtree.pyx":1711
+ * 
  *             else:  # 1 is a leaf node, 2 is inner node
  *                 tracker.push_less_of(2, node2)             # <<<<<<<<<<<<<<
  *                 self.__query_pairs_traverse_checking(
  *                     results, node1, node2.less, tracker)
 */
     /*else*/ {
-      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_less_of(__pyx_v_tracker, 2, __pyx_v_node2); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1704, __pyx_L1_error)
+      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_less_of(__pyx_v_tracker, 2, __pyx_v_node2); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1711, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":1705
+      /* "pyart/map/ckdtree.pyx":1712
  *             else:  # 1 is a leaf node, 2 is inner node
  *                 tracker.push_less_of(2, node2)
  *                 self.__query_pairs_traverse_checking(             # <<<<<<<<<<<<<<
  *                     results, node1, node2.less, tracker)
  *                 tracker.pop()
 */
-      __pyx_t_2 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_pairs_traverse_checking(__pyx_v_self, __pyx_v_results, __pyx_v_node1, __pyx_v_node2->less, __pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1705, __pyx_L1_error)
+      __pyx_t_2 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_pairs_traverse_checking(__pyx_v_self, __pyx_v_results, __pyx_v_node1, __pyx_v_node2->less, __pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1712, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":1707
+      /* "pyart/map/ckdtree.pyx":1714
  *                 self.__query_pairs_traverse_checking(
  *                     results, node1, node2.less, tracker)
  *                 tracker.pop()             # <<<<<<<<<<<<<<
- *
+ * 
  *                 tracker.push_greater_of(2, node2)
 */
-      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1707, __pyx_L1_error)
+      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1714, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":1709
+      /* "pyart/map/ckdtree.pyx":1716
  *                 tracker.pop()
- *
+ * 
  *                 tracker.push_greater_of(2, node2)             # <<<<<<<<<<<<<<
  *                 self.__query_pairs_traverse_checking(
  *                     results, node1, node2.greater, tracker)
 */
-      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_greater_of(__pyx_v_tracker, 2, __pyx_v_node2); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1709, __pyx_L1_error)
+      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_greater_of(__pyx_v_tracker, 2, __pyx_v_node2); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1716, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":1710
- *
+      /* "pyart/map/ckdtree.pyx":1717
+ * 
  *                 tracker.push_greater_of(2, node2)
  *                 self.__query_pairs_traverse_checking(             # <<<<<<<<<<<<<<
  *                     results, node1, node2.greater, tracker)
  *                 tracker.pop()
 */
-      __pyx_t_2 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_pairs_traverse_checking(__pyx_v_self, __pyx_v_results, __pyx_v_node1, __pyx_v_node2->greater, __pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1710, __pyx_L1_error)
+      __pyx_t_2 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_pairs_traverse_checking(__pyx_v_self, __pyx_v_results, __pyx_v_node1, __pyx_v_node2->greater, __pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1717, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":1712
+      /* "pyart/map/ckdtree.pyx":1719
  *                 self.__query_pairs_traverse_checking(
  *                     results, node1, node2.greater, tracker)
  *                 tracker.pop()             # <<<<<<<<<<<<<<
- *
+ * 
  *         else:  # 1 is an inner node
 */
-      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1712, __pyx_L1_error)
+      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1719, __pyx_L1_error)
 
     }
     __pyx_L4:;
 
-    /* "pyart/map/ckdtree.pyx":1678
+    /* "pyart/map/ckdtree.pyx":1685
  *         elif tracker.max_distance < tracker.upper_bound / tracker.epsfac:
  *             self.__query_pairs_traverse_no_checking(results, node1, node2)
  *         elif node1.split_dim == -1:  # 1 is leaf node             # <<<<<<<<<<<<<<
  *             lnode1 = <leafnode*>node1
- *
+ * 
 */
     goto __pyx_L3;
   }
 
-  /* "pyart/map/ckdtree.pyx":1715
- *
+  /* "pyart/map/ckdtree.pyx":1722
+ * 
  *         else:  # 1 is an inner node
  *             if node2.split_dim == -1:  # 1 is an inner node, 2 is a leaf node             # <<<<<<<<<<<<<<
  *                 tracker.push_less_of(1, node1)
@@ -23335,68 +23356,68 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_pairs_traverse_
     if (__pyx_t_1) {
 
 
-      /* "pyart/map/ckdtree.pyx":1716
+      /* "pyart/map/ckdtree.pyx":1723
  *         else:  # 1 is an inner node
  *             if node2.split_dim == -1:  # 1 is an inner node, 2 is a leaf node
  *                 tracker.push_less_of(1, node1)             # <<<<<<<<<<<<<<
  *                 self.__query_pairs_traverse_checking(
  *                     results, node1.less, node2, tracker)
 */
-      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_less_of(__pyx_v_tracker, 1, __pyx_v_node1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1716, __pyx_L1_error)
+      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_less_of(__pyx_v_tracker, 1, __pyx_v_node1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1723, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":1717
+      /* "pyart/map/ckdtree.pyx":1724
  *             if node2.split_dim == -1:  # 1 is an inner node, 2 is a leaf node
  *                 tracker.push_less_of(1, node1)
  *                 self.__query_pairs_traverse_checking(             # <<<<<<<<<<<<<<
  *                     results, node1.less, node2, tracker)
  *                 tracker.pop()
 */
-      __pyx_t_2 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_pairs_traverse_checking(__pyx_v_self, __pyx_v_results, __pyx_v_node1->less, __pyx_v_node2, __pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1717, __pyx_L1_error)
+      __pyx_t_2 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_pairs_traverse_checking(__pyx_v_self, __pyx_v_results, __pyx_v_node1->less, __pyx_v_node2, __pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1724, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":1719
+      /* "pyart/map/ckdtree.pyx":1726
  *                 self.__query_pairs_traverse_checking(
  *                     results, node1.less, node2, tracker)
  *                 tracker.pop()             # <<<<<<<<<<<<<<
- *
+ * 
  *                 tracker.push_greater_of(1, node1)
 */
-      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1719, __pyx_L1_error)
+      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1726, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":1721
+      /* "pyart/map/ckdtree.pyx":1728
  *                 tracker.pop()
- *
+ * 
  *                 tracker.push_greater_of(1, node1)             # <<<<<<<<<<<<<<
  *                 self.__query_pairs_traverse_checking(
  *                     results, node1.greater, node2, tracker)
 */
-      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_greater_of(__pyx_v_tracker, 1, __pyx_v_node1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1721, __pyx_L1_error)
+      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_greater_of(__pyx_v_tracker, 1, __pyx_v_node1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1728, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":1722
- *
+      /* "pyart/map/ckdtree.pyx":1729
+ * 
  *                 tracker.push_greater_of(1, node1)
  *                 self.__query_pairs_traverse_checking(             # <<<<<<<<<<<<<<
  *                     results, node1.greater, node2, tracker)
  *                 tracker.pop()
 */
-      __pyx_t_2 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_pairs_traverse_checking(__pyx_v_self, __pyx_v_results, __pyx_v_node1->greater, __pyx_v_node2, __pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1722, __pyx_L1_error)
+      __pyx_t_2 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_pairs_traverse_checking(__pyx_v_self, __pyx_v_results, __pyx_v_node1->greater, __pyx_v_node2, __pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1729, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":1724
+      /* "pyart/map/ckdtree.pyx":1731
  *                 self.__query_pairs_traverse_checking(
  *                     results, node1.greater, node2, tracker)
  *                 tracker.pop()             # <<<<<<<<<<<<<<
- *
+ * 
  *             else: # 1 and 2 are inner nodes
 */
-      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1724, __pyx_L1_error)
+      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1731, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":1715
- *
+      /* "pyart/map/ckdtree.pyx":1722
+ * 
  *         else:  # 1 is an inner node
  *             if node2.split_dim == -1:  # 1 is an inner node, 2 is a leaf node             # <<<<<<<<<<<<<<
  *                 tracker.push_less_of(1, node1)
@@ -23405,99 +23426,99 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_pairs_traverse_
       goto __pyx_L11;
     }
 
-    /* "pyart/map/ckdtree.pyx":1727
- *
+    /* "pyart/map/ckdtree.pyx":1734
+ * 
  *             else: # 1 and 2 are inner nodes
  *                 tracker.push_less_of(1, node1)             # <<<<<<<<<<<<<<
  *                 tracker.push_less_of(2, node2)
  *                 self.__query_pairs_traverse_checking(
 */
     /*else*/ {
-      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_less_of(__pyx_v_tracker, 1, __pyx_v_node1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1727, __pyx_L1_error)
+      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_less_of(__pyx_v_tracker, 1, __pyx_v_node1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1734, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":1728
+      /* "pyart/map/ckdtree.pyx":1735
  *             else: # 1 and 2 are inner nodes
  *                 tracker.push_less_of(1, node1)
  *                 tracker.push_less_of(2, node2)             # <<<<<<<<<<<<<<
  *                 self.__query_pairs_traverse_checking(
  *                     results, node1.less, node2.less, tracker)
 */
-      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_less_of(__pyx_v_tracker, 2, __pyx_v_node2); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1728, __pyx_L1_error)
+      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_less_of(__pyx_v_tracker, 2, __pyx_v_node2); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1735, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":1729
+      /* "pyart/map/ckdtree.pyx":1736
  *                 tracker.push_less_of(1, node1)
  *                 tracker.push_less_of(2, node2)
  *                 self.__query_pairs_traverse_checking(             # <<<<<<<<<<<<<<
  *                     results, node1.less, node2.less, tracker)
  *                 tracker.pop()
 */
-      __pyx_t_2 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_pairs_traverse_checking(__pyx_v_self, __pyx_v_results, __pyx_v_node1->less, __pyx_v_node2->less, __pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1729, __pyx_L1_error)
+      __pyx_t_2 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_pairs_traverse_checking(__pyx_v_self, __pyx_v_results, __pyx_v_node1->less, __pyx_v_node2->less, __pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1736, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":1731
+      /* "pyart/map/ckdtree.pyx":1738
  *                 self.__query_pairs_traverse_checking(
  *                     results, node1.less, node2.less, tracker)
  *                 tracker.pop()             # <<<<<<<<<<<<<<
- *
+ * 
  *                 tracker.push_greater_of(2, node2)
 */
-      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1731, __pyx_L1_error)
+      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1738, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":1733
+      /* "pyart/map/ckdtree.pyx":1740
  *                 tracker.pop()
- *
+ * 
  *                 tracker.push_greater_of(2, node2)             # <<<<<<<<<<<<<<
  *                 self.__query_pairs_traverse_checking(
  *                     results, node1.less, node2.greater, tracker)
 */
-      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_greater_of(__pyx_v_tracker, 2, __pyx_v_node2); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1733, __pyx_L1_error)
+      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_greater_of(__pyx_v_tracker, 2, __pyx_v_node2); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1740, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":1734
- *
+      /* "pyart/map/ckdtree.pyx":1741
+ * 
  *                 tracker.push_greater_of(2, node2)
  *                 self.__query_pairs_traverse_checking(             # <<<<<<<<<<<<<<
  *                     results, node1.less, node2.greater, tracker)
  *                 tracker.pop()
 */
-      __pyx_t_2 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_pairs_traverse_checking(__pyx_v_self, __pyx_v_results, __pyx_v_node1->less, __pyx_v_node2->greater, __pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1734, __pyx_L1_error)
+      __pyx_t_2 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_pairs_traverse_checking(__pyx_v_self, __pyx_v_results, __pyx_v_node1->less, __pyx_v_node2->greater, __pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1741, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":1736
+      /* "pyart/map/ckdtree.pyx":1743
  *                 self.__query_pairs_traverse_checking(
  *                     results, node1.less, node2.greater, tracker)
  *                 tracker.pop()             # <<<<<<<<<<<<<<
  *                 tracker.pop()
- *
+ * 
 */
-      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1736, __pyx_L1_error)
+      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1743, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":1737
+      /* "pyart/map/ckdtree.pyx":1744
  *                     results, node1.less, node2.greater, tracker)
  *                 tracker.pop()
  *                 tracker.pop()             # <<<<<<<<<<<<<<
- *
+ * 
  *                 tracker.push_greater_of(1, node1)
 */
-      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1737, __pyx_L1_error)
+      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1744, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":1739
+      /* "pyart/map/ckdtree.pyx":1746
  *                 tracker.pop()
- *
+ * 
  *                 tracker.push_greater_of(1, node1)             # <<<<<<<<<<<<<<
  *                 if node1 != node2:
  *                     # Avoid traversing (node1.less, node2.greater) and
 */
-      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_greater_of(__pyx_v_tracker, 1, __pyx_v_node1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1739, __pyx_L1_error)
+      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_greater_of(__pyx_v_tracker, 1, __pyx_v_node1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1746, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":1740
- *
+      /* "pyart/map/ckdtree.pyx":1747
+ * 
  *                 tracker.push_greater_of(1, node1)
  *                 if node1 != node2:             # <<<<<<<<<<<<<<
  *                     # Avoid traversing (node1.less, node2.greater) and
@@ -23508,38 +23529,38 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_pairs_traverse_
       if (__pyx_t_1) {
 
 
-        /* "pyart/map/ckdtree.pyx":1745
+        /* "pyart/map/ckdtree.pyx":1752
  *                     # twice over, which is the source of the complication in
  *                     # the original KDTree.query_pairs)
  *                     tracker.push_less_of(2, node2)             # <<<<<<<<<<<<<<
  *                     self.__query_pairs_traverse_checking(
  *                         results, node1.greater, node2.less, tracker)
 */
-        __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_less_of(__pyx_v_tracker, 2, __pyx_v_node2); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1745, __pyx_L1_error)
+        __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_less_of(__pyx_v_tracker, 2, __pyx_v_node2); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1752, __pyx_L1_error)
 
 
-        /* "pyart/map/ckdtree.pyx":1746
+        /* "pyart/map/ckdtree.pyx":1753
  *                     # the original KDTree.query_pairs)
  *                     tracker.push_less_of(2, node2)
  *                     self.__query_pairs_traverse_checking(             # <<<<<<<<<<<<<<
  *                         results, node1.greater, node2.less, tracker)
  *                     tracker.pop()
 */
-        __pyx_t_2 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_pairs_traverse_checking(__pyx_v_self, __pyx_v_results, __pyx_v_node1->greater, __pyx_v_node2->less, __pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1746, __pyx_L1_error)
+        __pyx_t_2 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_pairs_traverse_checking(__pyx_v_self, __pyx_v_results, __pyx_v_node1->greater, __pyx_v_node2->less, __pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1753, __pyx_L1_error)
 
 
-        /* "pyart/map/ckdtree.pyx":1748
+        /* "pyart/map/ckdtree.pyx":1755
  *                     self.__query_pairs_traverse_checking(
  *                         results, node1.greater, node2.less, tracker)
  *                     tracker.pop()             # <<<<<<<<<<<<<<
- *
+ * 
  *                 tracker.push_greater_of(2, node2)
 */
-        __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1748, __pyx_L1_error)
+        __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1755, __pyx_L1_error)
 
 
-        /* "pyart/map/ckdtree.pyx":1740
- *
+        /* "pyart/map/ckdtree.pyx":1747
+ * 
  *                 tracker.push_greater_of(1, node1)
  *                 if node1 != node2:             # <<<<<<<<<<<<<<
  *                     # Avoid traversing (node1.less, node2.greater) and
@@ -23547,56 +23568,56 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_pairs_traverse_
 */
       }
 
-      /* "pyart/map/ckdtree.pyx":1750
+      /* "pyart/map/ckdtree.pyx":1757
  *                     tracker.pop()
- *
+ * 
  *                 tracker.push_greater_of(2, node2)             # <<<<<<<<<<<<<<
  *                 self.__query_pairs_traverse_checking(
  *                     results, node1.greater, node2.greater, tracker)
 */
-      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_greater_of(__pyx_v_tracker, 2, __pyx_v_node2); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1750, __pyx_L1_error)
+      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_greater_of(__pyx_v_tracker, 2, __pyx_v_node2); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1757, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":1751
- *
+      /* "pyart/map/ckdtree.pyx":1758
+ * 
  *                 tracker.push_greater_of(2, node2)
  *                 self.__query_pairs_traverse_checking(             # <<<<<<<<<<<<<<
  *                     results, node1.greater, node2.greater, tracker)
  *                 tracker.pop()
 */
-      __pyx_t_2 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_pairs_traverse_checking(__pyx_v_self, __pyx_v_results, __pyx_v_node1->greater, __pyx_v_node2->greater, __pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1751, __pyx_L1_error)
+      __pyx_t_2 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_pairs_traverse_checking(__pyx_v_self, __pyx_v_results, __pyx_v_node1->greater, __pyx_v_node2->greater, __pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1758, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":1753
+      /* "pyart/map/ckdtree.pyx":1760
  *                 self.__query_pairs_traverse_checking(
  *                     results, node1.greater, node2.greater, tracker)
  *                 tracker.pop()             # <<<<<<<<<<<<<<
  *                 tracker.pop()
- *
+ * 
 */
-      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1753, __pyx_L1_error)
+      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1760, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":1754
+      /* "pyart/map/ckdtree.pyx":1761
  *                     results, node1.greater, node2.greater, tracker)
  *                 tracker.pop()
  *                 tracker.pop()             # <<<<<<<<<<<<<<
- *
+ * 
  *         return 0
 */
-      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1754, __pyx_L1_error)
+      __pyx_t_2 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 1761, __pyx_L1_error)
 
     }
     __pyx_L11:;
   }
   __pyx_L3:;
 
-  /* "pyart/map/ckdtree.pyx":1756
+  /* "pyart/map/ckdtree.pyx":1763
  *                 tracker.pop()
- *
+ * 
  *         return 0             # <<<<<<<<<<<<<<
- *
- *
+ * 
+ * 
 */
   {
 
@@ -23604,9 +23625,9 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_pairs_traverse_
   }
   goto __pyx_L0;
 
-  /* "pyart/map/ckdtree.pyx":1662
+  /* "pyart/map/ckdtree.pyx":1669
  *         return 0
- *
+ * 
  *     @cython.cdivision(True)             # <<<<<<<<<<<<<<
  *     cdef int __query_pairs_traverse_checking(cKDTree self,
  *                                              set results,
@@ -23627,16 +23648,16 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__query_pairs_traverse_
   return __pyx_r;
 }
 
-/* "pyart/map/ckdtree.pyx":1759
- *
- *
+/* "pyart/map/ckdtree.pyx":1766
+ * 
+ * 
  *     def query_pairs(cKDTree self, np.float64_t r, np.float64_t p=2.,             # <<<<<<<<<<<<<<
  *                     np.float64_t eps=0):
  *         """query_pairs(self, r, p, eps)
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5pyart_3map_7ckdtree_7cKDTree_11query_pairs(PyObject *__pyx_v_self,
+static PyObject *__pyx_pw_5pyart_3map_7ckdtree_7cKDTree_11query_pairs(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -23645,7 +23666,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 ); /*proto*/
 PyDoc_STRVAR(__pyx_doc_5pyart_3map_7ckdtree_7cKDTree_10query_pairs, "query_pairs(self, r, p, eps)\n\n        Find all pairs of points whose distance is at most r.\n\n        Parameters\n        ----------\n        r : positive float\n            The maximum distance.\n        p : float, optional\n            Which Minkowski norm to use.  `p` has to meet the condition\n            ``1 <= p <= infinity``.\n        eps : float, optional\n            Approximate search.  Branches of the tree are not explored\n            if their nearest points are further than ``r/(1+eps)``, and\n            branches are added in bulk if their furthest points are nearer\n            than ``r * (1+eps)``.  `eps` has to be non-negative.\n\n        Returns\n        -------\n        results : set\n            Set of pairs ``(i,j)``, with ``i < j`, for which the corresponding\n            positions are close.\n\n        ");
 static PyMethodDef __pyx_mdef_5pyart_3map_7ckdtree_7cKDTree_11query_pairs = {"query_pairs", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5pyart_3map_7ckdtree_7cKDTree_11query_pairs, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5pyart_3map_7ckdtree_7cKDTree_10query_pairs};
-static PyObject *__pyx_pw_5pyart_3map_7ckdtree_7cKDTree_11query_pairs(PyObject *__pyx_v_self,
+static PyObject *__pyx_pw_5pyart_3map_7ckdtree_7cKDTree_11query_pairs(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -23677,61 +23698,61 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_r,&__pyx_mstate_global->__pyx_n_u_p,&__pyx_mstate_global->__pyx_n_u_eps,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len < 0)) __PYX_ERR(0, 1759, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len < 0)) __PYX_ERR(0, 1766, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  3:
         values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 1759, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 1766, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 1759, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 1766, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1759, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1766, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "query_pairs", 0) < (0)) __PYX_ERR(0, 1759, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "query_pairs", 0) < (0)) __PYX_ERR(0, 1766, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("query_pairs", 0, 1, 3, i); __PYX_ERR(0, 1759, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("query_pairs", 0, 1, 3, i); __PYX_ERR(0, 1766, __pyx_L3_error) }
       }
     } else {
       switch (__pyx_nargs) {
         case  3:
         values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 1759, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 1766, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 1759, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 1766, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1759, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1766, __pyx_L3_error)
         break;
         default: goto __pyx_L5_argtuple_error;
       }
     }
-    __pyx_v_r = __Pyx_PyFloat_AsDouble(values[0]); if (unlikely((__pyx_v_r == ((npy_float64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 1759, __pyx_L3_error)
+    __pyx_v_r = __Pyx_PyFloat_AsDouble(values[0]); if (unlikely((__pyx_v_r == ((npy_float64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 1766, __pyx_L3_error)
     if (values[1]) {
-      __pyx_v_p = __Pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_p == ((npy_float64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 1759, __pyx_L3_error)
+      __pyx_v_p = __Pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_p == ((npy_float64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 1766, __pyx_L3_error)
     } else {
       __pyx_v_p = ((__pyx_t_5numpy_float64_t)2.);
     }
     if (values[2]) {
-      __pyx_v_eps = __Pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_eps == ((npy_float64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 1760, __pyx_L3_error)
+      __pyx_v_eps = __Pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_eps == ((npy_float64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 1767, __pyx_L3_error)
     } else {
       __pyx_v_eps = ((__pyx_t_5numpy_float64_t)0.0);
     }
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("query_pairs", 0, 1, 3, __pyx_nargs); __PYX_ERR(0, 1759, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("query_pairs", 0, 1, 3, __pyx_nargs); __PYX_ERR(0, 1766, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -23774,17 +23795,17 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_10query_pairs(struct __p
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("query_pairs", 0);
 
-  /* "pyart/map/ckdtree.pyx":1786
+  /* "pyart/map/ckdtree.pyx":1793
  *         """
- *
+ * 
  *         tracker = RectRectDistanceTracker(             # <<<<<<<<<<<<<<
  *             Rectangle(self.mins, self.maxes),
  *             Rectangle(self.mins, self.maxes),
 */
   __pyx_t_2 = NULL;
 
-  /* "pyart/map/ckdtree.pyx":1787
- *
+  /* "pyart/map/ckdtree.pyx":1794
+ * 
  *         tracker = RectRectDistanceTracker(
  *             Rectangle(self.mins, self.maxes),             # <<<<<<<<<<<<<<
  *             Rectangle(self.mins, self.maxes),
@@ -23796,16 +23817,16 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_10query_pairs(struct __p
     PyObject *__pyx_callargs[3] = {__pyx_t_4, ((PyObject *)__pyx_v_self->mins), ((PyObject *)__pyx_v_self->maxes)};
     __pyx_t_3 = __Pyx_PyObject_FastCall((PyObject*)__pyx_mstate_global->__pyx_ptype_5pyart_3map_7ckdtree_Rectangle, __pyx_callargs+__pyx_t_5, (3-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1787, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1794, __pyx_L1_error)
     __Pyx_GOTREF((PyObject *)__pyx_t_3);
   }
 
-  /* "pyart/map/ckdtree.pyx":1788
+  /* "pyart/map/ckdtree.pyx":1795
  *         tracker = RectRectDistanceTracker(
  *             Rectangle(self.mins, self.maxes),
  *             Rectangle(self.mins, self.maxes),             # <<<<<<<<<<<<<<
  *             p, eps, r)
- *
+ * 
 */
   __pyx_t_6 = NULL;
   __pyx_t_5 = 1;
@@ -23813,22 +23834,22 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_10query_pairs(struct __p
     PyObject *__pyx_callargs[3] = {__pyx_t_6, ((PyObject *)__pyx_v_self->mins), ((PyObject *)__pyx_v_self->maxes)};
     __pyx_t_4 = __Pyx_PyObject_FastCall((PyObject*)__pyx_mstate_global->__pyx_ptype_5pyart_3map_7ckdtree_Rectangle, __pyx_callargs+__pyx_t_5, (3-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1788, __pyx_L1_error)
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1795, __pyx_L1_error)
     __Pyx_GOTREF((PyObject *)__pyx_t_4);
   }
 
-  /* "pyart/map/ckdtree.pyx":1789
+  /* "pyart/map/ckdtree.pyx":1796
  *             Rectangle(self.mins, self.maxes),
  *             Rectangle(self.mins, self.maxes),
  *             p, eps, r)             # <<<<<<<<<<<<<<
- *
+ * 
  *         results = set()
 */
-  __pyx_t_6 = PyFloat_FromDouble(__pyx_v_p); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1789, __pyx_L1_error)
+  __pyx_t_6 = PyFloat_FromDouble(__pyx_v_p); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1796, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_7 = PyFloat_FromDouble(__pyx_v_eps); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1789, __pyx_L1_error)
+  __pyx_t_7 = PyFloat_FromDouble(__pyx_v_eps); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1796, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_8 = PyFloat_FromDouble(__pyx_v_r); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1789, __pyx_L1_error)
+  __pyx_t_8 = PyFloat_FromDouble(__pyx_v_r); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1796, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __pyx_t_5 = 1;
   {
@@ -23840,40 +23861,40 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_10query_pairs(struct __p
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1786, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1793, __pyx_L1_error)
     __Pyx_GOTREF((PyObject *)__pyx_t_1);
   }
   __pyx_v_tracker = ((struct __pyx_obj_5pyart_3map_7ckdtree_RectRectDistanceTracker *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "pyart/map/ckdtree.pyx":1791
+  /* "pyart/map/ckdtree.pyx":1798
  *             p, eps, r)
- *
+ * 
  *         results = set()             # <<<<<<<<<<<<<<
  *         self.__query_pairs_traverse_checking(
  *             results, self.tree, self.tree, tracker)
 */
-  __pyx_t_1 = PySet_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1791, __pyx_L1_error)
+  __pyx_t_1 = PySet_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1798, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_results = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "pyart/map/ckdtree.pyx":1792
- *
+  /* "pyart/map/ckdtree.pyx":1799
+ * 
  *         results = set()
  *         self.__query_pairs_traverse_checking(             # <<<<<<<<<<<<<<
  *             results, self.tree, self.tree, tracker)
- *
+ * 
 */
-  __pyx_t_9 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_pairs_traverse_checking(__pyx_v_self, __pyx_v_results, __pyx_v_self->tree, __pyx_v_self->tree, __pyx_v_tracker); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 1792, __pyx_L1_error)
+  __pyx_t_9 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__query_pairs_traverse_checking(__pyx_v_self, __pyx_v_results, __pyx_v_self->tree, __pyx_v_self->tree, __pyx_v_tracker); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 1799, __pyx_L1_error)
 
 
-  /* "pyart/map/ckdtree.pyx":1795
+  /* "pyart/map/ckdtree.pyx":1802
  *             results, self.tree, self.tree, tracker)
- *
+ * 
  *         return results             # <<<<<<<<<<<<<<
- *
- *
+ * 
+ * 
 */
   {
     PyObject *__pyx_temp;
@@ -23886,9 +23907,9 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_10query_pairs(struct __p
   }
   goto __pyx_L0;
 
-  /* "pyart/map/ckdtree.pyx":1759
- *
- *
+  /* "pyart/map/ckdtree.pyx":1766
+ * 
+ * 
  *     def query_pairs(cKDTree self, np.float64_t r, np.float64_t p=2.,             # <<<<<<<<<<<<<<
  *                     np.float64_t eps=0):
  *         """query_pairs(self, r, p, eps)
@@ -23913,7 +23934,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_10query_pairs(struct __p
   return __pyx_r;
 }
 
-/* "pyart/map/ckdtree.pyx":1801
+/* "pyart/map/ckdtree.pyx":1808
  *     # count_neighbors
  *     # ---------------
  *     cdef int __count_neighbors_traverse(cKDTree self,             # <<<<<<<<<<<<<<
@@ -23970,7 +23991,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__count_neighbors_trave
   __pyx_pybuffernd_inner_idx.data = NULL;
   __pyx_pybuffernd_inner_idx.rcbuffer = &__pyx_pybuffer_inner_idx;
 
-  /* "pyart/map/ckdtree.pyx":1818
+  /* "pyart/map/ckdtree.pyx":1825
  *         # Speed through pairs of nodes all of whose children are close
  *         # and see if any work remains to be done
  *         old_idx = idx             # <<<<<<<<<<<<<<
@@ -23979,29 +24000,29 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__count_neighbors_trave
 */
   __pyx_v_old_idx = __pyx_v_idx;
 
-  /* "pyart/map/ckdtree.pyx":1820
+  /* "pyart/map/ckdtree.pyx":1827
  *         old_idx = idx
  *         cdef np.ndarray[np.intp_t, ndim=1] inner_idx
  *         inner_idx = np.empty((n_queries,), dtype=np.intp)             # <<<<<<<<<<<<<<
  *         idx = &inner_idx[0]
- *
+ * 
 */
   __pyx_t_2 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1820, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1827, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_empty); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1820, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_empty); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1827, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyLong_From_npy_intp(__pyx_v_n_queries); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1820, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyLong_From_npy_intp(__pyx_v_n_queries); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1827, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_5 = PyTuple_New(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1820, __pyx_L1_error)
+  __pyx_t_5 = PyTuple_New(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1827, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_GIVEREF(__pyx_t_3);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_3) != (0)) __PYX_ERR(0, 1820, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_3) != (0)) __PYX_ERR(0, 1827, __pyx_L1_error);
   __pyx_t_3 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1820, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1827, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_intp); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1820, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_intp); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1827, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_7 = 1;
@@ -24020,13 +24041,13 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__count_neighbors_trave
     PyObject *__pyx_callargs[3] = {__pyx_t_2, __pyx_t_5, __pyx_t_6};
     #if CYTHON_VECTORCALL
     __pyx_t_3 = __pyx_mstate_global->__pyx_tuple[0];
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1820, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1827, __pyx_L1_error)
     __Pyx_INCREF(__pyx_t_3);
     #else
     {
       PyObject *__pyx_temp[1] = {__pyx_mstate_global->__pyx_n_u_dtype};
       __pyx_t_3 = __Pyx_MakeKwargDict(__pyx_temp, __pyx_callargs+2, 1);
-      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1820, __pyx_L1_error)
+      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1827, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
     }
     #endif
@@ -24036,10 +24057,10 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__count_neighbors_trave
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1820, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1827, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
-  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_mstate_global->__pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 1820, __pyx_L1_error)
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_mstate_global->__pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 1827, __pyx_L1_error)
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_inner_idx.rcbuffer->pybuffer);
@@ -24055,16 +24076,16 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__count_neighbors_trave
       __pyx_t_9 = __pyx_t_10 = __pyx_t_11 = 0;
     }
     __pyx_pybuffernd_inner_idx.diminfo[0].strides = __pyx_pybuffernd_inner_idx.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_inner_idx.diminfo[0].shape = __pyx_pybuffernd_inner_idx.rcbuffer->pybuffer.shape[0];
-    if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 1820, __pyx_L1_error)
+    if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 1827, __pyx_L1_error)
   }
   __pyx_v_inner_idx = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "pyart/map/ckdtree.pyx":1821
+  /* "pyart/map/ckdtree.pyx":1828
  *         cdef np.ndarray[np.intp_t, ndim=1] inner_idx
  *         inner_idx = np.empty((n_queries,), dtype=np.intp)
  *         idx = &inner_idx[0]             # <<<<<<<<<<<<<<
- *
+ * 
  *         old_n_queries = n_queries
 */
   __pyx_t_12 = 0;
@@ -24075,21 +24096,21 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__count_neighbors_trave
   } else if (unlikely(__pyx_t_12 >= __pyx_pybuffernd_inner_idx.diminfo[0].shape)) __pyx_t_8 = 0;
   if (unlikely(__pyx_t_8 != -1)) {
     __Pyx_RaiseBufferIndexError(__pyx_t_8);
-    __PYX_ERR(0, 1821, __pyx_L1_error)
+    __PYX_ERR(0, 1828, __pyx_L1_error)
   }
   __pyx_v_idx = (&(*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_intp_t *, __pyx_pybuffernd_inner_idx.rcbuffer->pybuffer.buf, __pyx_t_12, __pyx_pybuffernd_inner_idx.diminfo[0].strides)));
 
-  /* "pyart/map/ckdtree.pyx":1823
+  /* "pyart/map/ckdtree.pyx":1830
  *         idx = &inner_idx[0]
- *
+ * 
  *         old_n_queries = n_queries             # <<<<<<<<<<<<<<
  *         n_queries = 0
  *         for i in range(old_n_queries):
 */
   __pyx_v_old_n_queries = __pyx_v_n_queries;
 
-  /* "pyart/map/ckdtree.pyx":1824
- *
+  /* "pyart/map/ckdtree.pyx":1831
+ * 
  *         old_n_queries = n_queries
  *         n_queries = 0             # <<<<<<<<<<<<<<
  *         for i in range(old_n_queries):
@@ -24097,7 +24118,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__count_neighbors_trave
 */
   __pyx_v_n_queries = 0;
 
-  /* "pyart/map/ckdtree.pyx":1825
+  /* "pyart/map/ckdtree.pyx":1832
  *         old_n_queries = n_queries
  *         n_queries = 0
  *         for i in range(old_n_queries):             # <<<<<<<<<<<<<<
@@ -24111,7 +24132,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__count_neighbors_trave
   for (__pyx_t_15 = 0; __pyx_t_15 < __pyx_t_14; __pyx_t_15+=1) {
     __pyx_v_i = __pyx_t_15;
 
-    /* "pyart/map/ckdtree.pyx":1826
+    /* "pyart/map/ckdtree.pyx":1833
  *         n_queries = 0
  *         for i in range(old_n_queries):
  *             if tracker.max_distance < r[old_idx[i]]:             # <<<<<<<<<<<<<<
@@ -24123,7 +24144,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__count_neighbors_trave
     if (__pyx_t_16) {
 
 
-      /* "pyart/map/ckdtree.pyx":1827
+      /* "pyart/map/ckdtree.pyx":1834
  *         for i in range(old_n_queries):
  *             if tracker.max_distance < r[old_idx[i]]:
  *                 results[old_idx[i]] += node1.children * node2.children             # <<<<<<<<<<<<<<
@@ -24134,7 +24155,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__count_neighbors_trave
       __pyx_t_17 = (__pyx_v_old_idx[__pyx_v_i]);
       (__pyx_v_results[__pyx_t_17]) = ((__pyx_v_results[__pyx_t_17]) + (__pyx_v_node1->children * __pyx_v_node2->children));
 
-      /* "pyart/map/ckdtree.pyx":1826
+      /* "pyart/map/ckdtree.pyx":1833
  *         n_queries = 0
  *         for i in range(old_n_queries):
  *             if tracker.max_distance < r[old_idx[i]]:             # <<<<<<<<<<<<<<
@@ -24144,7 +24165,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__count_neighbors_trave
       goto __pyx_L5;
     }
 
-    /* "pyart/map/ckdtree.pyx":1828
+    /* "pyart/map/ckdtree.pyx":1835
  *             if tracker.max_distance < r[old_idx[i]]:
  *                 results[old_idx[i]] += node1.children * node2.children
  *             elif tracker.min_distance <= r[old_idx[i]]:             # <<<<<<<<<<<<<<
@@ -24156,25 +24177,25 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__count_neighbors_trave
     if (__pyx_t_16) {
 
 
-      /* "pyart/map/ckdtree.pyx":1829
+      /* "pyart/map/ckdtree.pyx":1836
  *                 results[old_idx[i]] += node1.children * node2.children
  *             elif tracker.min_distance <= r[old_idx[i]]:
  *                 idx[n_queries] = old_idx[i]             # <<<<<<<<<<<<<<
  *                 n_queries += 1
- *
+ * 
 */
       (__pyx_v_idx[__pyx_v_n_queries]) = (__pyx_v_old_idx[__pyx_v_i]);
 
-      /* "pyart/map/ckdtree.pyx":1830
+      /* "pyart/map/ckdtree.pyx":1837
  *             elif tracker.min_distance <= r[old_idx[i]]:
  *                 idx[n_queries] = old_idx[i]
  *                 n_queries += 1             # <<<<<<<<<<<<<<
- *
+ * 
  *         if n_queries > 0:
 */
       __pyx_v_n_queries = (__pyx_v_n_queries + 1);
 
-      /* "pyart/map/ckdtree.pyx":1828
+      /* "pyart/map/ckdtree.pyx":1835
  *             if tracker.max_distance < r[old_idx[i]]:
  *                 results[old_idx[i]] += node1.children * node2.children
  *             elif tracker.min_distance <= r[old_idx[i]]:             # <<<<<<<<<<<<<<
@@ -24186,9 +24207,9 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__count_neighbors_trave
   }
 
 
-  /* "pyart/map/ckdtree.pyx":1832
+  /* "pyart/map/ckdtree.pyx":1839
  *                 n_queries += 1
- *
+ * 
  *         if n_queries > 0:             # <<<<<<<<<<<<<<
  *             # OK, need to probe a bit deeper
  *             if node1.split_dim == -1:  # 1 is leaf node
@@ -24198,7 +24219,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__count_neighbors_trave
   if (__pyx_t_16) {
 
 
-    /* "pyart/map/ckdtree.pyx":1834
+    /* "pyart/map/ckdtree.pyx":1841
  *         if n_queries > 0:
  *             # OK, need to probe a bit deeper
  *             if node1.split_dim == -1:  # 1 is leaf node             # <<<<<<<<<<<<<<
@@ -24210,7 +24231,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__count_neighbors_trave
     if (__pyx_t_16) {
 
 
-      /* "pyart/map/ckdtree.pyx":1835
+      /* "pyart/map/ckdtree.pyx":1842
  *             # OK, need to probe a bit deeper
  *             if node1.split_dim == -1:  # 1 is leaf node
  *                 lnode1 = <leafnode*>node1             # <<<<<<<<<<<<<<
@@ -24219,29 +24240,29 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__count_neighbors_trave
 */
       __pyx_v_lnode1 = ((struct __pyx_t_5pyart_3map_7ckdtree_leafnode *)__pyx_v_node1);
 
-      /* "pyart/map/ckdtree.pyx":1836
+      /* "pyart/map/ckdtree.pyx":1843
  *             if node1.split_dim == -1:  # 1 is leaf node
  *                 lnode1 = <leafnode*>node1
  *                 if node2.split_dim == -1:  # 1 & 2 are leaves             # <<<<<<<<<<<<<<
  *                     lnode2 = <leafnode*>node2
- *
+ * 
 */
       __pyx_t_16 = (__pyx_v_node2->split_dim == -1L);
 
       if (__pyx_t_16) {
 
 
-        /* "pyart/map/ckdtree.pyx":1837
+        /* "pyart/map/ckdtree.pyx":1844
  *                 lnode1 = <leafnode*>node1
  *                 if node2.split_dim == -1:  # 1 & 2 are leaves
  *                     lnode2 = <leafnode*>node2             # <<<<<<<<<<<<<<
- *
+ * 
  *                     # brute-force
 */
         __pyx_v_lnode2 = ((struct __pyx_t_5pyart_3map_7ckdtree_leafnode *)__pyx_v_node2);
 
-        /* "pyart/map/ckdtree.pyx":1840
- *
+        /* "pyart/map/ckdtree.pyx":1847
+ * 
  *                     # brute-force
  *                     for i in range(lnode1.start_idx, lnode1.end_idx):             # <<<<<<<<<<<<<<
  *                         for j in range(lnode2.start_idx, lnode2.end_idx):
@@ -24254,7 +24275,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__count_neighbors_trave
         for (__pyx_t_15 = __pyx_v_lnode1->start_idx; __pyx_t_15 < __pyx_t_14; __pyx_t_15+=1) {
           __pyx_v_i = __pyx_t_15;
 
-          /* "pyart/map/ckdtree.pyx":1841
+          /* "pyart/map/ckdtree.pyx":1848
  *                     # brute-force
  *                     for i in range(lnode1.start_idx, lnode1.end_idx):
  *                         for j in range(lnode2.start_idx, lnode2.end_idx):             # <<<<<<<<<<<<<<
@@ -24268,17 +24289,17 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__count_neighbors_trave
           for (__pyx_t_19 = __pyx_v_lnode2->start_idx; __pyx_t_19 < __pyx_t_18; __pyx_t_19+=1) {
             __pyx_v_j = __pyx_t_19;
 
-            /* "pyart/map/ckdtree.pyx":1842
+            /* "pyart/map/ckdtree.pyx":1849
  *                     for i in range(lnode1.start_idx, lnode1.end_idx):
  *                         for j in range(lnode2.start_idx, lnode2.end_idx):
  *                             d = _distance_p(             # <<<<<<<<<<<<<<
  *                                 self.raw_data + self.raw_indices[i] * self.m,
  *                                 other.raw_data + other.raw_indices[j] * other.m,
 */
-            __pyx_t_20 = __pyx_f_5pyart_3map_7ckdtree__distance_p((__pyx_v_self->raw_data + ((__pyx_v_self->raw_indices[__pyx_v_i]) * __pyx_v_self->m)), (__pyx_v_other->raw_data + ((__pyx_v_other->raw_indices[__pyx_v_j]) * __pyx_v_other->m)), __pyx_v_tracker->p, __pyx_v_self->m, __pyx_v_tracker->max_distance); if (unlikely(__pyx_t_20 == ((__pyx_t_5numpy_float64_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 1842, __pyx_L1_error)
+            __pyx_t_20 = __pyx_f_5pyart_3map_7ckdtree__distance_p((__pyx_v_self->raw_data + ((__pyx_v_self->raw_indices[__pyx_v_i]) * __pyx_v_self->m)), (__pyx_v_other->raw_data + ((__pyx_v_other->raw_indices[__pyx_v_j]) * __pyx_v_other->m)), __pyx_v_tracker->p, __pyx_v_self->m, __pyx_v_tracker->max_distance); if (unlikely(__pyx_t_20 == ((__pyx_t_5numpy_float64_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 1849, __pyx_L1_error)
             __pyx_v_d = __pyx_t_20;
 
-            /* "pyart/map/ckdtree.pyx":1849
+            /* "pyart/map/ckdtree.pyx":1856
  *                             # than to generate a distance array, sort it, then
  *                             # search for all r's via binary search
  *                             for l in range(n_queries):             # <<<<<<<<<<<<<<
@@ -24292,35 +24313,35 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__count_neighbors_trave
             for (__pyx_t_23 = 0; __pyx_t_23 < __pyx_t_22; __pyx_t_23+=1) {
               __pyx_v_l = __pyx_t_23;
 
-              /* "pyart/map/ckdtree.pyx":1850
+              /* "pyart/map/ckdtree.pyx":1857
  *                             # search for all r's via binary search
  *                             for l in range(n_queries):
  *                                 if d <= r[idx[l]]:             # <<<<<<<<<<<<<<
  *                                     results[idx[l]] += 1
- *
+ * 
 */
               __pyx_t_16 = (__pyx_v_d <= (__pyx_v_r[(__pyx_v_idx[__pyx_v_l])]));
 
               if (__pyx_t_16) {
 
 
-                /* "pyart/map/ckdtree.pyx":1851
+                /* "pyart/map/ckdtree.pyx":1858
  *                             for l in range(n_queries):
  *                                 if d <= r[idx[l]]:
  *                                     results[idx[l]] += 1             # <<<<<<<<<<<<<<
- *
+ * 
  *                 else:  # 1 is a leaf node, 2 is inner node
 */
 
                 __pyx_t_24 = (__pyx_v_idx[__pyx_v_l]);
                 (__pyx_v_results[__pyx_t_24]) = ((__pyx_v_results[__pyx_t_24]) + 1);
 
-                /* "pyart/map/ckdtree.pyx":1850
+                /* "pyart/map/ckdtree.pyx":1857
  *                             # search for all r's via binary search
  *                             for l in range(n_queries):
  *                                 if d <= r[idx[l]]:             # <<<<<<<<<<<<<<
  *                                     results[idx[l]] += 1
- *
+ * 
 */
               }
             }
@@ -24330,80 +24351,80 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__count_neighbors_trave
         }
 
 
-        /* "pyart/map/ckdtree.pyx":1836
+        /* "pyart/map/ckdtree.pyx":1843
  *             if node1.split_dim == -1:  # 1 is leaf node
  *                 lnode1 = <leafnode*>node1
  *                 if node2.split_dim == -1:  # 1 & 2 are leaves             # <<<<<<<<<<<<<<
  *                     lnode2 = <leafnode*>node2
- *
+ * 
 */
         goto __pyx_L8;
       }
 
-      /* "pyart/map/ckdtree.pyx":1854
- *
+      /* "pyart/map/ckdtree.pyx":1861
+ * 
  *                 else:  # 1 is a leaf node, 2 is inner node
  *                     tracker.push_less_of(2, node2)             # <<<<<<<<<<<<<<
  *                     self.__count_neighbors_traverse(
  *                         other, n_queries, r, results, idx,
 */
       /*else*/ {
-        __pyx_t_8 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_less_of(__pyx_v_tracker, 2, __pyx_v_node2); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1854, __pyx_L1_error)
+        __pyx_t_8 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_less_of(__pyx_v_tracker, 2, __pyx_v_node2); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1861, __pyx_L1_error)
 
 
-        /* "pyart/map/ckdtree.pyx":1855
+        /* "pyart/map/ckdtree.pyx":1862
  *                 else:  # 1 is a leaf node, 2 is inner node
  *                     tracker.push_less_of(2, node2)
  *                     self.__count_neighbors_traverse(             # <<<<<<<<<<<<<<
  *                         other, n_queries, r, results, idx,
  *                         node1, node2.less, tracker)
 */
-        __pyx_t_8 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__count_neighbors_traverse(__pyx_v_self, __pyx_v_other, __pyx_v_n_queries, __pyx_v_r, __pyx_v_results, __pyx_v_idx, __pyx_v_node1, __pyx_v_node2->less, __pyx_v_tracker); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1855, __pyx_L1_error)
+        __pyx_t_8 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__count_neighbors_traverse(__pyx_v_self, __pyx_v_other, __pyx_v_n_queries, __pyx_v_r, __pyx_v_results, __pyx_v_idx, __pyx_v_node1, __pyx_v_node2->less, __pyx_v_tracker); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1862, __pyx_L1_error)
 
 
-        /* "pyart/map/ckdtree.pyx":1858
+        /* "pyart/map/ckdtree.pyx":1865
  *                         other, n_queries, r, results, idx,
  *                         node1, node2.less, tracker)
  *                     tracker.pop()             # <<<<<<<<<<<<<<
- *
+ * 
  *                     tracker.push_greater_of(2, node2)
 */
-        __pyx_t_8 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1858, __pyx_L1_error)
+        __pyx_t_8 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1865, __pyx_L1_error)
 
 
-        /* "pyart/map/ckdtree.pyx":1860
+        /* "pyart/map/ckdtree.pyx":1867
  *                     tracker.pop()
- *
+ * 
  *                     tracker.push_greater_of(2, node2)             # <<<<<<<<<<<<<<
  *                     self.__count_neighbors_traverse(
  *                         other, n_queries, r, results, idx,
 */
-        __pyx_t_8 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_greater_of(__pyx_v_tracker, 2, __pyx_v_node2); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1860, __pyx_L1_error)
+        __pyx_t_8 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_greater_of(__pyx_v_tracker, 2, __pyx_v_node2); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1867, __pyx_L1_error)
 
 
-        /* "pyart/map/ckdtree.pyx":1861
- *
+        /* "pyart/map/ckdtree.pyx":1868
+ * 
  *                     tracker.push_greater_of(2, node2)
  *                     self.__count_neighbors_traverse(             # <<<<<<<<<<<<<<
  *                         other, n_queries, r, results, idx,
  *                         node1, node2.greater, tracker)
 */
-        __pyx_t_8 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__count_neighbors_traverse(__pyx_v_self, __pyx_v_other, __pyx_v_n_queries, __pyx_v_r, __pyx_v_results, __pyx_v_idx, __pyx_v_node1, __pyx_v_node2->greater, __pyx_v_tracker); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1861, __pyx_L1_error)
+        __pyx_t_8 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__count_neighbors_traverse(__pyx_v_self, __pyx_v_other, __pyx_v_n_queries, __pyx_v_r, __pyx_v_results, __pyx_v_idx, __pyx_v_node1, __pyx_v_node2->greater, __pyx_v_tracker); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1868, __pyx_L1_error)
 
 
-        /* "pyart/map/ckdtree.pyx":1864
+        /* "pyart/map/ckdtree.pyx":1871
  *                         other, n_queries, r, results, idx,
  *                         node1, node2.greater, tracker)
  *                     tracker.pop()             # <<<<<<<<<<<<<<
- *
+ * 
  *             else:  # 1 is an inner node
 */
-        __pyx_t_8 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1864, __pyx_L1_error)
+        __pyx_t_8 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1871, __pyx_L1_error)
 
       }
       __pyx_L8:;
 
-      /* "pyart/map/ckdtree.pyx":1834
+      /* "pyart/map/ckdtree.pyx":1841
  *         if n_queries > 0:
  *             # OK, need to probe a bit deeper
  *             if node1.split_dim == -1:  # 1 is leaf node             # <<<<<<<<<<<<<<
@@ -24413,8 +24434,8 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__count_neighbors_trave
       goto __pyx_L7;
     }
 
-    /* "pyart/map/ckdtree.pyx":1867
- *
+    /* "pyart/map/ckdtree.pyx":1874
+ * 
  *             else:  # 1 is an inner node
  *                 if node2.split_dim == -1:  # 1 is an inner node, 2 is a leaf node             # <<<<<<<<<<<<<<
  *                     tracker.push_less_of(1, node1)
@@ -24426,68 +24447,68 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__count_neighbors_trave
       if (__pyx_t_16) {
 
 
-        /* "pyart/map/ckdtree.pyx":1868
+        /* "pyart/map/ckdtree.pyx":1875
  *             else:  # 1 is an inner node
  *                 if node2.split_dim == -1:  # 1 is an inner node, 2 is a leaf node
  *                     tracker.push_less_of(1, node1)             # <<<<<<<<<<<<<<
  *                     self.__count_neighbors_traverse(
  *                         other, n_queries, r, results, idx,
 */
-        __pyx_t_8 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_less_of(__pyx_v_tracker, 1, __pyx_v_node1); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1868, __pyx_L1_error)
+        __pyx_t_8 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_less_of(__pyx_v_tracker, 1, __pyx_v_node1); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1875, __pyx_L1_error)
 
 
-        /* "pyart/map/ckdtree.pyx":1869
+        /* "pyart/map/ckdtree.pyx":1876
  *                 if node2.split_dim == -1:  # 1 is an inner node, 2 is a leaf node
  *                     tracker.push_less_of(1, node1)
  *                     self.__count_neighbors_traverse(             # <<<<<<<<<<<<<<
  *                         other, n_queries, r, results, idx,
  *                         node1.less, node2, tracker)
 */
-        __pyx_t_8 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__count_neighbors_traverse(__pyx_v_self, __pyx_v_other, __pyx_v_n_queries, __pyx_v_r, __pyx_v_results, __pyx_v_idx, __pyx_v_node1->less, __pyx_v_node2, __pyx_v_tracker); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1869, __pyx_L1_error)
+        __pyx_t_8 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__count_neighbors_traverse(__pyx_v_self, __pyx_v_other, __pyx_v_n_queries, __pyx_v_r, __pyx_v_results, __pyx_v_idx, __pyx_v_node1->less, __pyx_v_node2, __pyx_v_tracker); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1876, __pyx_L1_error)
 
 
-        /* "pyart/map/ckdtree.pyx":1872
+        /* "pyart/map/ckdtree.pyx":1879
  *                         other, n_queries, r, results, idx,
  *                         node1.less, node2, tracker)
  *                     tracker.pop()             # <<<<<<<<<<<<<<
- *
+ * 
  *                     tracker.push_greater_of(1, node1)
 */
-        __pyx_t_8 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1872, __pyx_L1_error)
+        __pyx_t_8 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1879, __pyx_L1_error)
 
 
-        /* "pyart/map/ckdtree.pyx":1874
+        /* "pyart/map/ckdtree.pyx":1881
  *                     tracker.pop()
- *
+ * 
  *                     tracker.push_greater_of(1, node1)             # <<<<<<<<<<<<<<
  *                     self.__count_neighbors_traverse(
  *                         other, n_queries, r, results, idx,
 */
-        __pyx_t_8 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_greater_of(__pyx_v_tracker, 1, __pyx_v_node1); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1874, __pyx_L1_error)
+        __pyx_t_8 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_greater_of(__pyx_v_tracker, 1, __pyx_v_node1); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1881, __pyx_L1_error)
 
 
-        /* "pyart/map/ckdtree.pyx":1875
- *
+        /* "pyart/map/ckdtree.pyx":1882
+ * 
  *                     tracker.push_greater_of(1, node1)
  *                     self.__count_neighbors_traverse(             # <<<<<<<<<<<<<<
  *                         other, n_queries, r, results, idx,
  *                         node1.greater, node2, tracker)
 */
-        __pyx_t_8 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__count_neighbors_traverse(__pyx_v_self, __pyx_v_other, __pyx_v_n_queries, __pyx_v_r, __pyx_v_results, __pyx_v_idx, __pyx_v_node1->greater, __pyx_v_node2, __pyx_v_tracker); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1875, __pyx_L1_error)
+        __pyx_t_8 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__count_neighbors_traverse(__pyx_v_self, __pyx_v_other, __pyx_v_n_queries, __pyx_v_r, __pyx_v_results, __pyx_v_idx, __pyx_v_node1->greater, __pyx_v_node2, __pyx_v_tracker); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1882, __pyx_L1_error)
 
 
-        /* "pyart/map/ckdtree.pyx":1878
+        /* "pyart/map/ckdtree.pyx":1885
  *                         other, n_queries, r, results, idx,
  *                         node1.greater, node2, tracker)
  *                     tracker.pop()             # <<<<<<<<<<<<<<
- *
+ * 
  *                 else: # 1 and 2 are inner nodes
 */
-        __pyx_t_8 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1878, __pyx_L1_error)
+        __pyx_t_8 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1885, __pyx_L1_error)
 
 
-        /* "pyart/map/ckdtree.pyx":1867
- *
+        /* "pyart/map/ckdtree.pyx":1874
+ * 
  *             else:  # 1 is an inner node
  *                 if node2.split_dim == -1:  # 1 is an inner node, 2 is a leaf node             # <<<<<<<<<<<<<<
  *                     tracker.push_less_of(1, node1)
@@ -24496,185 +24517,185 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__count_neighbors_trave
         goto __pyx_L16;
       }
 
-      /* "pyart/map/ckdtree.pyx":1881
- *
+      /* "pyart/map/ckdtree.pyx":1888
+ * 
  *                 else: # 1 and 2 are inner nodes
  *                     tracker.push_less_of(1, node1)             # <<<<<<<<<<<<<<
  *                     tracker.push_less_of(2, node2)
  *                     self.__count_neighbors_traverse(
 */
       /*else*/ {
-        __pyx_t_8 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_less_of(__pyx_v_tracker, 1, __pyx_v_node1); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1881, __pyx_L1_error)
+        __pyx_t_8 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_less_of(__pyx_v_tracker, 1, __pyx_v_node1); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1888, __pyx_L1_error)
 
 
-        /* "pyart/map/ckdtree.pyx":1882
+        /* "pyart/map/ckdtree.pyx":1889
  *                 else: # 1 and 2 are inner nodes
  *                     tracker.push_less_of(1, node1)
  *                     tracker.push_less_of(2, node2)             # <<<<<<<<<<<<<<
  *                     self.__count_neighbors_traverse(
  *                         other, n_queries, r, results, idx,
 */
-        __pyx_t_8 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_less_of(__pyx_v_tracker, 2, __pyx_v_node2); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1882, __pyx_L1_error)
+        __pyx_t_8 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_less_of(__pyx_v_tracker, 2, __pyx_v_node2); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1889, __pyx_L1_error)
 
 
-        /* "pyart/map/ckdtree.pyx":1883
+        /* "pyart/map/ckdtree.pyx":1890
  *                     tracker.push_less_of(1, node1)
  *                     tracker.push_less_of(2, node2)
  *                     self.__count_neighbors_traverse(             # <<<<<<<<<<<<<<
  *                         other, n_queries, r, results, idx,
  *                         node1.less, node2.less, tracker)
 */
-        __pyx_t_8 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__count_neighbors_traverse(__pyx_v_self, __pyx_v_other, __pyx_v_n_queries, __pyx_v_r, __pyx_v_results, __pyx_v_idx, __pyx_v_node1->less, __pyx_v_node2->less, __pyx_v_tracker); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1883, __pyx_L1_error)
-
-
-        /* "pyart/map/ckdtree.pyx":1886
- *                         other, n_queries, r, results, idx,
- *                         node1.less, node2.less, tracker)
- *                     tracker.pop()             # <<<<<<<<<<<<<<
- *
- *                     tracker.push_greater_of(2, node2)
-*/
-        __pyx_t_8 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1886, __pyx_L1_error)
-
-
-        /* "pyart/map/ckdtree.pyx":1888
- *                     tracker.pop()
- *
- *                     tracker.push_greater_of(2, node2)             # <<<<<<<<<<<<<<
- *                     self.__count_neighbors_traverse(
- *                         other, n_queries, r, results, idx,
-*/
-        __pyx_t_8 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_greater_of(__pyx_v_tracker, 2, __pyx_v_node2); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1888, __pyx_L1_error)
-
-
-        /* "pyart/map/ckdtree.pyx":1889
- *
- *                     tracker.push_greater_of(2, node2)
- *                     self.__count_neighbors_traverse(             # <<<<<<<<<<<<<<
- *                         other, n_queries, r, results, idx,
- *                         node1.less, node2.greater, tracker)
-*/
-        __pyx_t_8 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__count_neighbors_traverse(__pyx_v_self, __pyx_v_other, __pyx_v_n_queries, __pyx_v_r, __pyx_v_results, __pyx_v_idx, __pyx_v_node1->less, __pyx_v_node2->greater, __pyx_v_tracker); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1889, __pyx_L1_error)
-
-
-        /* "pyart/map/ckdtree.pyx":1892
- *                         other, n_queries, r, results, idx,
- *                         node1.less, node2.greater, tracker)
- *                     tracker.pop()             # <<<<<<<<<<<<<<
- *                     tracker.pop()
- *
-*/
-        __pyx_t_8 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1892, __pyx_L1_error)
+        __pyx_t_8 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__count_neighbors_traverse(__pyx_v_self, __pyx_v_other, __pyx_v_n_queries, __pyx_v_r, __pyx_v_results, __pyx_v_idx, __pyx_v_node1->less, __pyx_v_node2->less, __pyx_v_tracker); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1890, __pyx_L1_error)
 
 
         /* "pyart/map/ckdtree.pyx":1893
- *                         node1.less, node2.greater, tracker)
- *                     tracker.pop()
+ *                         other, n_queries, r, results, idx,
+ *                         node1.less, node2.less, tracker)
  *                     tracker.pop()             # <<<<<<<<<<<<<<
- *
- *                     tracker.push_greater_of(1, node1)
+ * 
+ *                     tracker.push_greater_of(2, node2)
 */
         __pyx_t_8 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1893, __pyx_L1_error)
 
 
         /* "pyart/map/ckdtree.pyx":1895
  *                     tracker.pop()
- *
- *                     tracker.push_greater_of(1, node1)             # <<<<<<<<<<<<<<
- *                     tracker.push_less_of(2, node2)
+ * 
+ *                     tracker.push_greater_of(2, node2)             # <<<<<<<<<<<<<<
  *                     self.__count_neighbors_traverse(
+ *                         other, n_queries, r, results, idx,
 */
-        __pyx_t_8 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_greater_of(__pyx_v_tracker, 1, __pyx_v_node1); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1895, __pyx_L1_error)
+        __pyx_t_8 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_greater_of(__pyx_v_tracker, 2, __pyx_v_node2); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1895, __pyx_L1_error)
 
 
         /* "pyart/map/ckdtree.pyx":1896
- *
- *                     tracker.push_greater_of(1, node1)
- *                     tracker.push_less_of(2, node2)             # <<<<<<<<<<<<<<
- *                     self.__count_neighbors_traverse(
- *                         other, n_queries, r, results, idx,
-*/
-        __pyx_t_8 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_less_of(__pyx_v_tracker, 2, __pyx_v_node2); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1896, __pyx_L1_error)
-
-
-        /* "pyart/map/ckdtree.pyx":1897
- *                     tracker.push_greater_of(1, node1)
- *                     tracker.push_less_of(2, node2)
+ * 
+ *                     tracker.push_greater_of(2, node2)
  *                     self.__count_neighbors_traverse(             # <<<<<<<<<<<<<<
  *                         other, n_queries, r, results, idx,
- *                         node1.greater, node2.less, tracker)
+ *                         node1.less, node2.greater, tracker)
 */
-        __pyx_t_8 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__count_neighbors_traverse(__pyx_v_self, __pyx_v_other, __pyx_v_n_queries, __pyx_v_r, __pyx_v_results, __pyx_v_idx, __pyx_v_node1->greater, __pyx_v_node2->less, __pyx_v_tracker); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1897, __pyx_L1_error)
+        __pyx_t_8 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__count_neighbors_traverse(__pyx_v_self, __pyx_v_other, __pyx_v_n_queries, __pyx_v_r, __pyx_v_results, __pyx_v_idx, __pyx_v_node1->less, __pyx_v_node2->greater, __pyx_v_tracker); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1896, __pyx_L1_error)
+
+
+        /* "pyart/map/ckdtree.pyx":1899
+ *                         other, n_queries, r, results, idx,
+ *                         node1.less, node2.greater, tracker)
+ *                     tracker.pop()             # <<<<<<<<<<<<<<
+ *                     tracker.pop()
+ * 
+*/
+        __pyx_t_8 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1899, __pyx_L1_error)
 
 
         /* "pyart/map/ckdtree.pyx":1900
- *                         other, n_queries, r, results, idx,
- *                         node1.greater, node2.less, tracker)
+ *                         node1.less, node2.greater, tracker)
+ *                     tracker.pop()
  *                     tracker.pop()             # <<<<<<<<<<<<<<
- *
- *                     tracker.push_greater_of(2, node2)
+ * 
+ *                     tracker.push_greater_of(1, node1)
 */
         __pyx_t_8 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1900, __pyx_L1_error)
 
 
         /* "pyart/map/ckdtree.pyx":1902
  *                     tracker.pop()
- *
+ * 
+ *                     tracker.push_greater_of(1, node1)             # <<<<<<<<<<<<<<
+ *                     tracker.push_less_of(2, node2)
+ *                     self.__count_neighbors_traverse(
+*/
+        __pyx_t_8 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_greater_of(__pyx_v_tracker, 1, __pyx_v_node1); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1902, __pyx_L1_error)
+
+
+        /* "pyart/map/ckdtree.pyx":1903
+ * 
+ *                     tracker.push_greater_of(1, node1)
+ *                     tracker.push_less_of(2, node2)             # <<<<<<<<<<<<<<
+ *                     self.__count_neighbors_traverse(
+ *                         other, n_queries, r, results, idx,
+*/
+        __pyx_t_8 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_less_of(__pyx_v_tracker, 2, __pyx_v_node2); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1903, __pyx_L1_error)
+
+
+        /* "pyart/map/ckdtree.pyx":1904
+ *                     tracker.push_greater_of(1, node1)
+ *                     tracker.push_less_of(2, node2)
+ *                     self.__count_neighbors_traverse(             # <<<<<<<<<<<<<<
+ *                         other, n_queries, r, results, idx,
+ *                         node1.greater, node2.less, tracker)
+*/
+        __pyx_t_8 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__count_neighbors_traverse(__pyx_v_self, __pyx_v_other, __pyx_v_n_queries, __pyx_v_r, __pyx_v_results, __pyx_v_idx, __pyx_v_node1->greater, __pyx_v_node2->less, __pyx_v_tracker); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1904, __pyx_L1_error)
+
+
+        /* "pyart/map/ckdtree.pyx":1907
+ *                         other, n_queries, r, results, idx,
+ *                         node1.greater, node2.less, tracker)
+ *                     tracker.pop()             # <<<<<<<<<<<<<<
+ * 
+ *                     tracker.push_greater_of(2, node2)
+*/
+        __pyx_t_8 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1907, __pyx_L1_error)
+
+
+        /* "pyart/map/ckdtree.pyx":1909
+ *                     tracker.pop()
+ * 
  *                     tracker.push_greater_of(2, node2)             # <<<<<<<<<<<<<<
  *                     self.__count_neighbors_traverse(
  *                         other, n_queries, r, results, idx,
 */
-        __pyx_t_8 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_greater_of(__pyx_v_tracker, 2, __pyx_v_node2); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1902, __pyx_L1_error)
+        __pyx_t_8 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_greater_of(__pyx_v_tracker, 2, __pyx_v_node2); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1909, __pyx_L1_error)
 
 
-        /* "pyart/map/ckdtree.pyx":1903
- *
+        /* "pyart/map/ckdtree.pyx":1910
+ * 
  *                     tracker.push_greater_of(2, node2)
  *                     self.__count_neighbors_traverse(             # <<<<<<<<<<<<<<
  *                         other, n_queries, r, results, idx,
  *                         node1.greater, node2.greater, tracker)
 */
-        __pyx_t_8 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__count_neighbors_traverse(__pyx_v_self, __pyx_v_other, __pyx_v_n_queries, __pyx_v_r, __pyx_v_results, __pyx_v_idx, __pyx_v_node1->greater, __pyx_v_node2->greater, __pyx_v_tracker); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1903, __pyx_L1_error)
+        __pyx_t_8 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__count_neighbors_traverse(__pyx_v_self, __pyx_v_other, __pyx_v_n_queries, __pyx_v_r, __pyx_v_results, __pyx_v_idx, __pyx_v_node1->greater, __pyx_v_node2->greater, __pyx_v_tracker); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1910, __pyx_L1_error)
 
 
-        /* "pyart/map/ckdtree.pyx":1906
+        /* "pyart/map/ckdtree.pyx":1913
  *                         other, n_queries, r, results, idx,
  *                         node1.greater, node2.greater, tracker)
  *                     tracker.pop()             # <<<<<<<<<<<<<<
  *                     tracker.pop()
- *
+ * 
 */
-        __pyx_t_8 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1906, __pyx_L1_error)
+        __pyx_t_8 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1913, __pyx_L1_error)
 
 
-        /* "pyart/map/ckdtree.pyx":1907
+        /* "pyart/map/ckdtree.pyx":1914
  *                         node1.greater, node2.greater, tracker)
  *                     tracker.pop()
  *                     tracker.pop()             # <<<<<<<<<<<<<<
- *
+ * 
  *         return 0
 */
-        __pyx_t_8 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1907, __pyx_L1_error)
+        __pyx_t_8 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 1914, __pyx_L1_error)
 
       }
       __pyx_L16:;
     }
     __pyx_L7:;
 
-    /* "pyart/map/ckdtree.pyx":1832
+    /* "pyart/map/ckdtree.pyx":1839
  *                 n_queries += 1
- *
+ * 
  *         if n_queries > 0:             # <<<<<<<<<<<<<<
  *             # OK, need to probe a bit deeper
  *             if node1.split_dim == -1:  # 1 is leaf node
 */
   }
 
-  /* "pyart/map/ckdtree.pyx":1909
+  /* "pyart/map/ckdtree.pyx":1916
  *                     tracker.pop()
- *
+ * 
  *         return 0             # <<<<<<<<<<<<<<
- *
+ * 
  *     @cython.boundscheck(False)
 */
   {
@@ -24683,7 +24704,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__count_neighbors_trave
   }
   goto __pyx_L0;
 
-  /* "pyart/map/ckdtree.pyx":1801
+  /* "pyart/map/ckdtree.pyx":1808
  *     # count_neighbors
  *     # ---------------
  *     cdef int __count_neighbors_traverse(cKDTree self,             # <<<<<<<<<<<<<<
@@ -24729,16 +24750,16 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__count_neighbors_trave
   return __pyx_r;
 }
 
-/* "pyart/map/ckdtree.pyx":1911
+/* "pyart/map/ckdtree.pyx":1918
  *         return 0
- *
+ * 
  *     @cython.boundscheck(False)             # <<<<<<<<<<<<<<
  *     @cython.wraparound(False)
  *     def count_neighbors(cKDTree self, cKDTree other, object r, np.float64_t p=2.):
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5pyart_3map_7ckdtree_7cKDTree_13count_neighbors(PyObject *__pyx_v_self,
+static PyObject *__pyx_pw_5pyart_3map_7ckdtree_7cKDTree_13count_neighbors(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -24747,7 +24768,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 ); /*proto*/
 PyDoc_STRVAR(__pyx_doc_5pyart_3map_7ckdtree_7cKDTree_12count_neighbors, "count_neighbors(self, other, r, p)\n\n        Count how many nearby pairs can be formed.\n\n        Count the number of pairs (x1,x2) can be formed, with x1 drawn\n        from self and x2 drawn from `other`, and where\n        ``distance(x1, x2, p) <= r``.\n        This is the \"two-point correlation\" described in Gray and Moore 2000,\n        \"N-body problems in statistical learning\", and the code here is based\n        on their algorithm.\n\n        Parameters\n        ----------\n        other : KDTree instance\n            The other tree to draw points from.\n        r : float or one-dimensional array of floats\n            The radius to produce a count for. Multiple radii are searched with\n            a single tree traversal.\n        p : float, 1<=p<=infinity\n            Which Minkowski p-norm to use\n\n        Returns\n        -------\n        result : int or 1-D array of ints\n            The number of pairs. Note that this is internally stored in a numpy int,\n            and so may overflow if very large (2e9).\n\n        ");
 static PyMethodDef __pyx_mdef_5pyart_3map_7ckdtree_7cKDTree_13count_neighbors = {"count_neighbors", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5pyart_3map_7ckdtree_7cKDTree_13count_neighbors, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5pyart_3map_7ckdtree_7cKDTree_12count_neighbors};
-static PyObject *__pyx_pw_5pyart_3map_7ckdtree_7cKDTree_13count_neighbors(PyObject *__pyx_v_self,
+static PyObject *__pyx_pw_5pyart_3map_7ckdtree_7cKDTree_13count_neighbors(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -24779,40 +24800,40 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_other,&__pyx_mstate_global->__pyx_n_u_r,&__pyx_mstate_global->__pyx_n_u_p,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len < 0)) __PYX_ERR(0, 1911, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len < 0)) __PYX_ERR(0, 1918, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  3:
         values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 1911, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 1918, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 1911, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 1918, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1911, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1918, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "count_neighbors", 0) < (0)) __PYX_ERR(0, 1911, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "count_neighbors", 0) < (0)) __PYX_ERR(0, 1918, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 2; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("count_neighbors", 0, 2, 3, i); __PYX_ERR(0, 1911, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("count_neighbors", 0, 2, 3, i); __PYX_ERR(0, 1918, __pyx_L3_error) }
       }
     } else {
       switch (__pyx_nargs) {
         case  3:
         values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 1911, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 1918, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 1911, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 1918, __pyx_L3_error)
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1911, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 1918, __pyx_L3_error)
         break;
         default: goto __pyx_L5_argtuple_error;
       }
@@ -24820,14 +24841,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
     __pyx_v_other = ((struct __pyx_obj_5pyart_3map_7ckdtree_cKDTree *)values[0]);
     __pyx_v_r = values[1];
     if (values[2]) {
-      __pyx_v_p = __Pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_p == ((npy_float64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 1913, __pyx_L3_error)
+      __pyx_v_p = __Pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_p == ((npy_float64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 1920, __pyx_L3_error)
     } else {
       __pyx_v_p = ((__pyx_t_5numpy_float64_t)2.);
     }
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("count_neighbors", 0, 2, 3, __pyx_nargs); __PYX_ERR(0, 1911, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("count_neighbors", 0, 2, 3, __pyx_nargs); __PYX_ERR(0, 1918, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -24838,7 +24859,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_mstate_global->__pyx_ptype_5pyart_3map_7ckdtree_cKDTree, 1, "other", 0))) __PYX_ERR(0, 1913, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_mstate_global->__pyx_ptype_5pyart_3map_7ckdtree_cKDTree, 1, "other", 0))) __PYX_ERR(0, 1920, __pyx_L1_error)
   __pyx_r = __pyx_pf_5pyart_3map_7ckdtree_7cKDTree_12count_neighbors(((struct __pyx_obj_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self), __pyx_v_other, __pyx_v_r, __pyx_v_p);
 
   /* function exit code */
@@ -24910,23 +24931,23 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_12count_neighbors(struct
   __pyx_pybuffernd_idx.data = NULL;
   __pyx_pybuffernd_idx.rcbuffer = &__pyx_pybuffer_idx;
 
-  /* "pyart/map/ckdtree.pyx":1947
- *
+  /* "pyart/map/ckdtree.pyx":1954
+ * 
  *         # Make sure trees are compatible
  *         if self.m != other.m:             # <<<<<<<<<<<<<<
  *             raise ValueError("Trees passed to query_ball_trees have different dimensionality")
- *
+ * 
 */
   __pyx_t_1 = (__pyx_v_self->m != __pyx_v_other->m);
 
   if (unlikely(__pyx_t_1)) {
 
 
-    /* "pyart/map/ckdtree.pyx":1948
+    /* "pyart/map/ckdtree.pyx":1955
  *         # Make sure trees are compatible
  *         if self.m != other.m:
  *             raise ValueError("Trees passed to query_ball_trees have different dimensionality")             # <<<<<<<<<<<<<<
- *
+ * 
  *         # Make a copy of r array to ensure it's contiguous and to modify it
 */
     __pyx_t_3 = NULL;
@@ -24935,23 +24956,23 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_12count_neighbors(struct
       PyObject *__pyx_callargs[2] = {__pyx_t_3, __pyx_mstate_global->__pyx_kp_u_Trees_passed_to_query_ball_trees};
       __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)(((PyTypeObject*)PyExc_ValueError)), __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (__pyx_t_4*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1948, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1955, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
     __Pyx_Raise(__pyx_t_2, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __PYX_ERR(0, 1948, __pyx_L1_error)
+    __PYX_ERR(0, 1955, __pyx_L1_error)
 
-    /* "pyart/map/ckdtree.pyx":1947
- *
+    /* "pyart/map/ckdtree.pyx":1954
+ * 
  *         # Make sure trees are compatible
  *         if self.m != other.m:             # <<<<<<<<<<<<<<
  *             raise ValueError("Trees passed to query_ball_trees have different dimensionality")
- *
+ * 
 */
   }
 
-  /* "pyart/map/ckdtree.pyx":1952
+  /* "pyart/map/ckdtree.pyx":1959
  *         # Make a copy of r array to ensure it's contiguous and to modify it
  *         # below
  *         if np.shape(r) == ():             # <<<<<<<<<<<<<<
@@ -24959,9 +24980,9 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_12count_neighbors(struct
  *             n_queries = 1
 */
   __pyx_t_3 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1952, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1959, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_shape); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1952, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_shape); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1959, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __pyx_t_4 = 1;
@@ -24981,15 +25002,15 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_12count_neighbors(struct
     __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_6, __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (__pyx_t_4*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1952, __pyx_L1_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1959, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
   }
-  __pyx_t_1 = __Pyx_PyObject_RichCompareBool(__pyx_t_2, __pyx_mstate_global->__pyx_empty_tuple, Py_EQ); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 1952, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_RichCompareBool(__pyx_t_2, __pyx_mstate_global->__pyx_empty_tuple, Py_EQ); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 1959, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (__pyx_t_1) {
 
 
-    /* "pyart/map/ckdtree.pyx":1953
+    /* "pyart/map/ckdtree.pyx":1960
  *         # below
  *         if np.shape(r) == ():
  *             real_r = np.array([r], dtype=np.float64)             # <<<<<<<<<<<<<<
@@ -24997,19 +25018,19 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_12count_neighbors(struct
  *         elif len(np.shape(r))==1:
 */
     __pyx_t_6 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1953, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1960, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_array); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1953, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_array); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1960, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = PyList_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1953, __pyx_L1_error)
+    __pyx_t_3 = PyList_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1960, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_INCREF(__pyx_v_r);
     __Pyx_GIVEREF(__pyx_v_r);
-    if (__Pyx_PyList_SET_ITEM(__pyx_t_3, 0, __pyx_v_r) != (0)) __PYX_ERR(0, 1953, __pyx_L1_error);
-    __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1953, __pyx_L1_error)
+    if (__Pyx_PyList_SET_ITEM(__pyx_t_3, 0, __pyx_v_r) != (0)) __PYX_ERR(0, 1960, __pyx_L1_error);
+    __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1960, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_float64); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1953, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_float64); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1960, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __pyx_t_4 = 1;
@@ -25028,13 +25049,13 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_12count_neighbors(struct
       PyObject *__pyx_callargs[3] = {__pyx_t_6, __pyx_t_3, __pyx_t_8};
       #if CYTHON_VECTORCALL
       __pyx_t_7 = __pyx_mstate_global->__pyx_tuple[0];
-      if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1953, __pyx_L1_error)
+      if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1960, __pyx_L1_error)
       __Pyx_INCREF(__pyx_t_7);
       #else
       {
         PyObject *__pyx_temp[1] = {__pyx_mstate_global->__pyx_n_u_dtype};
         __pyx_t_7 = __Pyx_MakeKwargDict(__pyx_temp, __pyx_callargs+2, 1);
-        if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1953, __pyx_L1_error)
+        if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1960, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_7);
       }
       #endif
@@ -25044,10 +25065,10 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_12count_neighbors(struct
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1953, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1960, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
-    if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_mstate_global->__pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 1953, __pyx_L1_error)
+    if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_mstate_global->__pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 1960, __pyx_L1_error)
     {
       __Pyx_BufFmt_StackElem __pyx_stack[1];
       __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_real_r.rcbuffer->pybuffer);
@@ -25063,12 +25084,12 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_12count_neighbors(struct
         __pyx_t_10 = __pyx_t_11 = __pyx_t_12 = 0;
       }
       __pyx_pybuffernd_real_r.diminfo[0].strides = __pyx_pybuffernd_real_r.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_real_r.diminfo[0].shape = __pyx_pybuffernd_real_r.rcbuffer->pybuffer.shape[0];
-      if (unlikely((__pyx_t_9 < 0))) __PYX_ERR(0, 1953, __pyx_L1_error)
+      if (unlikely((__pyx_t_9 < 0))) __PYX_ERR(0, 1960, __pyx_L1_error)
     }
     __pyx_v_real_r = ((PyArrayObject *)__pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "pyart/map/ckdtree.pyx":1954
+    /* "pyart/map/ckdtree.pyx":1961
  *         if np.shape(r) == ():
  *             real_r = np.array([r], dtype=np.float64)
  *             n_queries = 1             # <<<<<<<<<<<<<<
@@ -25077,7 +25098,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_12count_neighbors(struct
 */
     __pyx_v_n_queries = 1;
 
-    /* "pyart/map/ckdtree.pyx":1952
+    /* "pyart/map/ckdtree.pyx":1959
  *         # Make a copy of r array to ensure it's contiguous and to modify it
  *         # below
  *         if np.shape(r) == ():             # <<<<<<<<<<<<<<
@@ -25087,7 +25108,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_12count_neighbors(struct
     goto __pyx_L4;
   }
 
-  /* "pyart/map/ckdtree.pyx":1955
+  /* "pyart/map/ckdtree.pyx":1962
  *             real_r = np.array([r], dtype=np.float64)
  *             n_queries = 1
  *         elif len(np.shape(r))==1:             # <<<<<<<<<<<<<<
@@ -25095,9 +25116,9 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_12count_neighbors(struct
  *             n_queries = r.shape[0]
 */
   __pyx_t_5 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1955, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1962, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_shape); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1955, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_shape); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1962, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __pyx_t_4 = 1;
@@ -25117,10 +25138,10 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_12count_neighbors(struct
     __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_8, __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (__pyx_t_4*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1955, __pyx_L1_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1962, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
   }
-  __pyx_t_13 = PyObject_Length(__pyx_t_2); if (unlikely(__pyx_t_13 == ((Py_ssize_t)-1))) __PYX_ERR(0, 1955, __pyx_L1_error)
+  __pyx_t_13 = PyObject_Length(__pyx_t_2); if (unlikely(__pyx_t_13 == ((Py_ssize_t)-1))) __PYX_ERR(0, 1962, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_1 = (__pyx_t_13 == 1);
 
@@ -25128,7 +25149,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_12count_neighbors(struct
   if (likely(__pyx_t_1)) {
 
 
-    /* "pyart/map/ckdtree.pyx":1956
+    /* "pyart/map/ckdtree.pyx":1963
  *             n_queries = 1
  *         elif len(np.shape(r))==1:
  *             real_r = np.array(r, dtype=np.float64)             # <<<<<<<<<<<<<<
@@ -25136,14 +25157,14 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_12count_neighbors(struct
  *         else:
 */
     __pyx_t_8 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1956, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1963, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_array); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1956, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_array); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1963, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1956, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1963, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_float64); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1956, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_float64); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1963, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __pyx_t_4 = 1;
@@ -25162,13 +25183,13 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_12count_neighbors(struct
       PyObject *__pyx_callargs[3] = {__pyx_t_8, __pyx_v_r, __pyx_t_3};
       #if CYTHON_VECTORCALL
       __pyx_t_5 = __pyx_mstate_global->__pyx_tuple[0];
-      if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1956, __pyx_L1_error)
+      if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1963, __pyx_L1_error)
       __Pyx_INCREF(__pyx_t_5);
       #else
       {
         PyObject *__pyx_temp[1] = {__pyx_mstate_global->__pyx_n_u_dtype};
         __pyx_t_5 = __Pyx_MakeKwargDict(__pyx_temp, __pyx_callargs+2, 1);
-        if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1956, __pyx_L1_error)
+        if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1963, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
       }
       #endif
@@ -25177,10 +25198,10 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_12count_neighbors(struct
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1956, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1963, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
-    if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_mstate_global->__pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 1956, __pyx_L1_error)
+    if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_mstate_global->__pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 1963, __pyx_L1_error)
     {
       __Pyx_BufFmt_StackElem __pyx_stack[1];
       __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_real_r.rcbuffer->pybuffer);
@@ -25196,28 +25217,28 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_12count_neighbors(struct
         __pyx_t_12 = __pyx_t_11 = __pyx_t_10 = 0;
       }
       __pyx_pybuffernd_real_r.diminfo[0].strides = __pyx_pybuffernd_real_r.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_real_r.diminfo[0].shape = __pyx_pybuffernd_real_r.rcbuffer->pybuffer.shape[0];
-      if (unlikely((__pyx_t_9 < 0))) __PYX_ERR(0, 1956, __pyx_L1_error)
+      if (unlikely((__pyx_t_9 < 0))) __PYX_ERR(0, 1963, __pyx_L1_error)
     }
     __pyx_v_real_r = ((PyArrayObject *)__pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "pyart/map/ckdtree.pyx":1957
+    /* "pyart/map/ckdtree.pyx":1964
  *         elif len(np.shape(r))==1:
  *             real_r = np.array(r, dtype=np.float64)
  *             n_queries = r.shape[0]             # <<<<<<<<<<<<<<
  *         else:
  *             raise ValueError("r must be either a single value or a one-dimensional array of values")
 */
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_r, __pyx_mstate_global->__pyx_n_u_shape); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1957, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_r, __pyx_mstate_global->__pyx_n_u_shape); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1964, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_7 = __Pyx_GetItemInt(__pyx_t_2, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1957, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_GetItemInt(__pyx_t_2, 0, long, 1, __Pyx_PyLong_From_long, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1964, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_14 = __Pyx_PyLong_As_npy_intp(__pyx_t_7); if (unlikely((__pyx_t_14 == ((npy_intp)-1)) && PyErr_Occurred())) __PYX_ERR(0, 1957, __pyx_L1_error)
+    __pyx_t_14 = __Pyx_PyLong_As_npy_intp(__pyx_t_7); if (unlikely((__pyx_t_14 == ((npy_intp)-1)) && PyErr_Occurred())) __PYX_ERR(0, 1964, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __pyx_v_n_queries = __pyx_t_14;
 
-    /* "pyart/map/ckdtree.pyx":1955
+    /* "pyart/map/ckdtree.pyx":1962
  *             real_r = np.array([r], dtype=np.float64)
  *             n_queries = 1
  *         elif len(np.shape(r))==1:             # <<<<<<<<<<<<<<
@@ -25227,11 +25248,11 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_12count_neighbors(struct
     goto __pyx_L4;
   }
 
-  /* "pyart/map/ckdtree.pyx":1959
+  /* "pyart/map/ckdtree.pyx":1966
  *             n_queries = r.shape[0]
  *         else:
  *             raise ValueError("r must be either a single value or a one-dimensional array of values")             # <<<<<<<<<<<<<<
- *
+ * 
  *         # Internally, we represent all distances as distance ** p
 */
   /*else*/ {
@@ -25241,17 +25262,17 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_12count_neighbors(struct
       PyObject *__pyx_callargs[2] = {__pyx_t_2, __pyx_mstate_global->__pyx_kp_u_r_must_be_either_a_single_value};
       __pyx_t_7 = __Pyx_PyObject_FastCall((PyObject*)(((PyTypeObject*)PyExc_ValueError)), __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (__pyx_t_4*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-      if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1959, __pyx_L1_error)
+      if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1966, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
     }
     __Pyx_Raise(__pyx_t_7, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    __PYX_ERR(0, 1959, __pyx_L1_error)
+    __PYX_ERR(0, 1966, __pyx_L1_error)
   }
   __pyx_L4:;
 
-  /* "pyart/map/ckdtree.pyx":1962
- *
+  /* "pyart/map/ckdtree.pyx":1969
+ * 
  *         # Internally, we represent all distances as distance ** p
  *         if p != infinity:             # <<<<<<<<<<<<<<
  *             for i in range(n_queries):
@@ -25262,7 +25283,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_12count_neighbors(struct
   if (__pyx_t_1) {
 
 
-    /* "pyart/map/ckdtree.pyx":1963
+    /* "pyart/map/ckdtree.pyx":1970
  *         # Internally, we represent all distances as distance ** p
  *         if p != infinity:
  *             for i in range(n_queries):             # <<<<<<<<<<<<<<
@@ -25276,12 +25297,12 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_12count_neighbors(struct
     for (__pyx_t_16 = 0; __pyx_t_16 < __pyx_t_15; __pyx_t_16+=1) {
       __pyx_v_i = __pyx_t_16;
 
-      /* "pyart/map/ckdtree.pyx":1964
+      /* "pyart/map/ckdtree.pyx":1971
  *         if p != infinity:
  *             for i in range(n_queries):
  *                 if real_r[i] != infinity:             # <<<<<<<<<<<<<<
  *                     real_r[i] = real_r[i] ** p
- *
+ * 
 */
       __pyx_t_17 = __pyx_v_i;
       __pyx_t_1 = ((*__Pyx_BufPtrCContig1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_real_r.rcbuffer->pybuffer.buf, __pyx_t_17, __pyx_pybuffernd_real_r.diminfo[0].strides)) != __pyx_v_5pyart_3map_7ckdtree_infinity);
@@ -25289,30 +25310,30 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_12count_neighbors(struct
       if (__pyx_t_1) {
 
 
-        /* "pyart/map/ckdtree.pyx":1965
+        /* "pyart/map/ckdtree.pyx":1972
  *             for i in range(n_queries):
  *                 if real_r[i] != infinity:
  *                     real_r[i] = real_r[i] ** p             # <<<<<<<<<<<<<<
- *
+ * 
  *         # Track node-to-node min/max distances
 */
         __pyx_t_17 = __pyx_v_i;
         __pyx_t_18 = __pyx_v_i;
         *__Pyx_BufPtrCContig1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_real_r.rcbuffer->pybuffer.buf, __pyx_t_18, __pyx_pybuffernd_real_r.diminfo[0].strides) = pow((*__Pyx_BufPtrCContig1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_real_r.rcbuffer->pybuffer.buf, __pyx_t_17, __pyx_pybuffernd_real_r.diminfo[0].strides)), __pyx_v_p);
 
-        /* "pyart/map/ckdtree.pyx":1964
+        /* "pyart/map/ckdtree.pyx":1971
  *         if p != infinity:
  *             for i in range(n_queries):
  *                 if real_r[i] != infinity:             # <<<<<<<<<<<<<<
  *                     real_r[i] = real_r[i] ** p
- *
+ * 
 */
       }
     }
 
 
-    /* "pyart/map/ckdtree.pyx":1962
- *
+    /* "pyart/map/ckdtree.pyx":1969
+ * 
  *         # Internally, we represent all distances as distance ** p
  *         if p != infinity:             # <<<<<<<<<<<<<<
  *             for i in range(n_queries):
@@ -25320,8 +25341,8 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_12count_neighbors(struct
 */
   }
 
-  /* "pyart/map/ckdtree.pyx":1968
- *
+  /* "pyart/map/ckdtree.pyx":1975
+ * 
  *         # Track node-to-node min/max distances
  *         tracker = RectRectDistanceTracker(             # <<<<<<<<<<<<<<
  *             Rectangle(self.mins, self.maxes),
@@ -25329,7 +25350,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_12count_neighbors(struct
 */
   __pyx_t_2 = NULL;
 
-  /* "pyart/map/ckdtree.pyx":1969
+  /* "pyart/map/ckdtree.pyx":1976
  *         # Track node-to-node min/max distances
  *         tracker = RectRectDistanceTracker(
  *             Rectangle(self.mins, self.maxes),             # <<<<<<<<<<<<<<
@@ -25342,16 +25363,16 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_12count_neighbors(struct
     PyObject *__pyx_callargs[3] = {__pyx_t_3, ((PyObject *)__pyx_v_self->mins), ((PyObject *)__pyx_v_self->maxes)};
     __pyx_t_5 = __Pyx_PyObject_FastCall((PyObject*)__pyx_mstate_global->__pyx_ptype_5pyart_3map_7ckdtree_Rectangle, __pyx_callargs+__pyx_t_4, (3-__pyx_t_4) | (__pyx_t_4*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1969, __pyx_L1_error)
+    if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1976, __pyx_L1_error)
     __Pyx_GOTREF((PyObject *)__pyx_t_5);
   }
 
-  /* "pyart/map/ckdtree.pyx":1970
+  /* "pyart/map/ckdtree.pyx":1977
  *         tracker = RectRectDistanceTracker(
  *             Rectangle(self.mins, self.maxes),
  *             Rectangle(other.mins, other.maxes),             # <<<<<<<<<<<<<<
  *             p, 0.0, 0.0)
- *
+ * 
 */
   __pyx_t_8 = NULL;
   __pyx_t_4 = 1;
@@ -25359,18 +25380,18 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_12count_neighbors(struct
     PyObject *__pyx_callargs[3] = {__pyx_t_8, ((PyObject *)__pyx_v_other->mins), ((PyObject *)__pyx_v_other->maxes)};
     __pyx_t_3 = __Pyx_PyObject_FastCall((PyObject*)__pyx_mstate_global->__pyx_ptype_5pyart_3map_7ckdtree_Rectangle, __pyx_callargs+__pyx_t_4, (3-__pyx_t_4) | (__pyx_t_4*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1970, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1977, __pyx_L1_error)
     __Pyx_GOTREF((PyObject *)__pyx_t_3);
   }
 
-  /* "pyart/map/ckdtree.pyx":1971
+  /* "pyart/map/ckdtree.pyx":1978
  *             Rectangle(self.mins, self.maxes),
  *             Rectangle(other.mins, other.maxes),
  *             p, 0.0, 0.0)             # <<<<<<<<<<<<<<
- *
+ * 
  *         # Go!
 */
-  __pyx_t_8 = PyFloat_FromDouble(__pyx_v_p); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1971, __pyx_L1_error)
+  __pyx_t_8 = PyFloat_FromDouble(__pyx_v_p); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1978, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __pyx_t_4 = 1;
   {
@@ -25380,35 +25401,35 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_12count_neighbors(struct
     __Pyx_DECREF((PyObject *)__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF((PyObject *)__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1968, __pyx_L1_error)
+    if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1975, __pyx_L1_error)
     __Pyx_GOTREF((PyObject *)__pyx_t_7);
   }
   __pyx_v_tracker = ((struct __pyx_obj_5pyart_3map_7ckdtree_RectRectDistanceTracker *)__pyx_t_7);
   __pyx_t_7 = 0;
 
-  /* "pyart/map/ckdtree.pyx":1974
- *
+  /* "pyart/map/ckdtree.pyx":1981
+ * 
  *         # Go!
  *         results = np.zeros((n_queries,), dtype=np.intp)             # <<<<<<<<<<<<<<
  *         idx = np.arange(n_queries, dtype=np.intp)
  *         self.__count_neighbors_traverse(other, n_queries,
 */
   __pyx_t_8 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1974, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1981, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_zeros); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1974, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_zeros); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1981, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyLong_From_npy_intp(__pyx_v_n_queries); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1974, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyLong_From_npy_intp(__pyx_v_n_queries); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1981, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1974, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1981, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_3);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_3) != (0)) __PYX_ERR(0, 1974, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_3) != (0)) __PYX_ERR(0, 1981, __pyx_L1_error);
   __pyx_t_3 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1974, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1981, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_intp); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1974, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_intp); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1981, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_4 = 1;
@@ -25427,13 +25448,13 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_12count_neighbors(struct
     PyObject *__pyx_callargs[3] = {__pyx_t_8, __pyx_t_2, __pyx_t_6};
     #if CYTHON_VECTORCALL
     __pyx_t_3 = __pyx_mstate_global->__pyx_tuple[0];
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1974, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1981, __pyx_L1_error)
     __Pyx_INCREF(__pyx_t_3);
     #else
     {
       PyObject *__pyx_temp[1] = {__pyx_mstate_global->__pyx_n_u_dtype};
       __pyx_t_3 = __Pyx_MakeKwargDict(__pyx_temp, __pyx_callargs+2, 1);
-      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1974, __pyx_L1_error)
+      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1981, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
     }
     #endif
@@ -25443,10 +25464,10 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_12count_neighbors(struct
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1974, __pyx_L1_error)
+    if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1981, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
   }
-  if (!(likely(((__pyx_t_7) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_7, __pyx_mstate_global->__pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 1974, __pyx_L1_error)
+  if (!(likely(((__pyx_t_7) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_7, __pyx_mstate_global->__pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 1981, __pyx_L1_error)
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_results.rcbuffer->pybuffer);
@@ -25462,12 +25483,12 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_12count_neighbors(struct
       __pyx_t_10 = __pyx_t_11 = __pyx_t_12 = 0;
     }
     __pyx_pybuffernd_results.diminfo[0].strides = __pyx_pybuffernd_results.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_results.diminfo[0].shape = __pyx_pybuffernd_results.rcbuffer->pybuffer.shape[0];
-    if (unlikely((__pyx_t_9 < 0))) __PYX_ERR(0, 1974, __pyx_L1_error)
+    if (unlikely((__pyx_t_9 < 0))) __PYX_ERR(0, 1981, __pyx_L1_error)
   }
   __pyx_v_results = ((PyArrayObject *)__pyx_t_7);
   __pyx_t_7 = 0;
 
-  /* "pyart/map/ckdtree.pyx":1975
+  /* "pyart/map/ckdtree.pyx":1982
  *         # Go!
  *         results = np.zeros((n_queries,), dtype=np.intp)
  *         idx = np.arange(n_queries, dtype=np.intp)             # <<<<<<<<<<<<<<
@@ -25475,16 +25496,16 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_12count_neighbors(struct
  *                                         &real_r[0], &results[0], &idx[0],
 */
   __pyx_t_5 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1975, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1982, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_arange); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1975, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_arange); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1982, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyLong_From_npy_intp(__pyx_v_n_queries); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1975, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyLong_From_npy_intp(__pyx_v_n_queries); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1982, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1975, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1982, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_intp); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1975, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_intp); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1982, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_4 = 1;
@@ -25503,13 +25524,13 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_12count_neighbors(struct
     PyObject *__pyx_callargs[3] = {__pyx_t_5, __pyx_t_3, __pyx_t_8};
     #if CYTHON_VECTORCALL
     __pyx_t_2 = __pyx_mstate_global->__pyx_tuple[0];
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1975, __pyx_L1_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1982, __pyx_L1_error)
     __Pyx_INCREF(__pyx_t_2);
     #else
     {
       PyObject *__pyx_temp[1] = {__pyx_mstate_global->__pyx_n_u_dtype};
       __pyx_t_2 = __Pyx_MakeKwargDict(__pyx_temp, __pyx_callargs+2, 1);
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1975, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1982, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
     #endif
@@ -25519,10 +25540,10 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_12count_neighbors(struct
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1975, __pyx_L1_error)
+    if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1982, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
   }
-  if (!(likely(((__pyx_t_7) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_7, __pyx_mstate_global->__pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 1975, __pyx_L1_error)
+  if (!(likely(((__pyx_t_7) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_7, __pyx_mstate_global->__pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 1982, __pyx_L1_error)
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_idx.rcbuffer->pybuffer);
@@ -25538,12 +25559,12 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_12count_neighbors(struct
       __pyx_t_12 = __pyx_t_11 = __pyx_t_10 = 0;
     }
     __pyx_pybuffernd_idx.diminfo[0].strides = __pyx_pybuffernd_idx.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_idx.diminfo[0].shape = __pyx_pybuffernd_idx.rcbuffer->pybuffer.shape[0];
-    if (unlikely((__pyx_t_9 < 0))) __PYX_ERR(0, 1975, __pyx_L1_error)
+    if (unlikely((__pyx_t_9 < 0))) __PYX_ERR(0, 1982, __pyx_L1_error)
   }
   __pyx_v_idx = ((PyArrayObject *)__pyx_t_7);
   __pyx_t_7 = 0;
 
-  /* "pyart/map/ckdtree.pyx":1977
+  /* "pyart/map/ckdtree.pyx":1984
  *         idx = np.arange(n_queries, dtype=np.intp)
  *         self.__count_neighbors_traverse(other, n_queries,
  *                                         &real_r[0], &results[0], &idx[0],             # <<<<<<<<<<<<<<
@@ -25554,27 +25575,27 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_12count_neighbors(struct
   __pyx_t_18 = 0;
   __pyx_t_19 = 0;
 
-  /* "pyart/map/ckdtree.pyx":1976
+  /* "pyart/map/ckdtree.pyx":1983
  *         results = np.zeros((n_queries,), dtype=np.intp)
  *         idx = np.arange(n_queries, dtype=np.intp)
  *         self.__count_neighbors_traverse(other, n_queries,             # <<<<<<<<<<<<<<
  *                                         &real_r[0], &results[0], &idx[0],
  *                                         self.tree, other.tree,
 */
-  __pyx_t_9 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__count_neighbors_traverse(__pyx_v_self, __pyx_v_other, __pyx_v_n_queries, (&(*__Pyx_BufPtrCContig1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_real_r.rcbuffer->pybuffer.buf, __pyx_t_17, __pyx_pybuffernd_real_r.diminfo[0].strides))), (&(*__Pyx_BufPtrCContig1d(__pyx_t_5numpy_intp_t *, __pyx_pybuffernd_results.rcbuffer->pybuffer.buf, __pyx_t_18, __pyx_pybuffernd_results.diminfo[0].strides))), (&(*__Pyx_BufPtrCContig1d(__pyx_t_5numpy_intp_t *, __pyx_pybuffernd_idx.rcbuffer->pybuffer.buf, __pyx_t_19, __pyx_pybuffernd_idx.diminfo[0].strides))), __pyx_v_self->tree, __pyx_v_other->tree, __pyx_v_tracker); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 1976, __pyx_L1_error)
+  __pyx_t_9 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__count_neighbors_traverse(__pyx_v_self, __pyx_v_other, __pyx_v_n_queries, (&(*__Pyx_BufPtrCContig1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_real_r.rcbuffer->pybuffer.buf, __pyx_t_17, __pyx_pybuffernd_real_r.diminfo[0].strides))), (&(*__Pyx_BufPtrCContig1d(__pyx_t_5numpy_intp_t *, __pyx_pybuffernd_results.rcbuffer->pybuffer.buf, __pyx_t_18, __pyx_pybuffernd_results.diminfo[0].strides))), (&(*__Pyx_BufPtrCContig1d(__pyx_t_5numpy_intp_t *, __pyx_pybuffernd_idx.rcbuffer->pybuffer.buf, __pyx_t_19, __pyx_pybuffernd_idx.diminfo[0].strides))), __pyx_v_self->tree, __pyx_v_other->tree, __pyx_v_tracker); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 1983, __pyx_L1_error)
 
 
-  /* "pyart/map/ckdtree.pyx":1981
+  /* "pyart/map/ckdtree.pyx":1988
  *                                         tracker)
- *
+ * 
  *         if np.shape(r) == ():             # <<<<<<<<<<<<<<
  *             if results[0] <= <np.intp_t> LONG_MAX:
  *                 return int(results[0])
 */
   __pyx_t_6 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1981, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1988, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_shape); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1981, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_shape); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1988, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_4 = 1;
@@ -25594,16 +25615,16 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_12count_neighbors(struct
     __pyx_t_7 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_8, __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (__pyx_t_4*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1981, __pyx_L1_error)
+    if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1988, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
   }
-  __pyx_t_1 = __Pyx_PyObject_RichCompareBool(__pyx_t_7, __pyx_mstate_global->__pyx_empty_tuple, Py_EQ); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 1981, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_RichCompareBool(__pyx_t_7, __pyx_mstate_global->__pyx_empty_tuple, Py_EQ); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 1988, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   if (__pyx_t_1) {
 
 
-    /* "pyart/map/ckdtree.pyx":1982
- *
+    /* "pyart/map/ckdtree.pyx":1989
+ * 
  *         if np.shape(r) == ():
  *             if results[0] <= <np.intp_t> LONG_MAX:             # <<<<<<<<<<<<<<
  *                 return int(results[0])
@@ -25615,7 +25636,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_12count_neighbors(struct
     if (__pyx_t_1) {
 
 
-      /* "pyart/map/ckdtree.pyx":1983
+      /* "pyart/map/ckdtree.pyx":1990
  *         if np.shape(r) == ():
  *             if results[0] <= <np.intp_t> LONG_MAX:
  *                 return int(results[0])             # <<<<<<<<<<<<<<
@@ -25624,7 +25645,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_12count_neighbors(struct
 */
       __pyx_t_8 = NULL;
       __pyx_t_19 = 0;
-      __pyx_t_6 = __Pyx_PyLong_From_npy_intp((*__Pyx_BufPtrCContig1d(__pyx_t_5numpy_intp_t *, __pyx_pybuffernd_results.rcbuffer->pybuffer.buf, __pyx_t_19, __pyx_pybuffernd_results.diminfo[0].strides))); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1983, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyLong_From_npy_intp((*__Pyx_BufPtrCContig1d(__pyx_t_5numpy_intp_t *, __pyx_pybuffernd_results.rcbuffer->pybuffer.buf, __pyx_t_19, __pyx_pybuffernd_results.diminfo[0].strides))); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1990, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __pyx_t_4 = 1;
       {
@@ -25632,7 +25653,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_12count_neighbors(struct
         __pyx_t_7 = __Pyx_PyObject_FastCall((PyObject*)(&PyLong_Type), __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (__pyx_t_4*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
         __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-        if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1983, __pyx_L1_error)
+        if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1990, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_7);
       }
       {
@@ -25646,8 +25667,8 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_12count_neighbors(struct
       __pyx_t_7 = 0;
       goto __pyx_L0;
 
-      /* "pyart/map/ckdtree.pyx":1982
- *
+      /* "pyart/map/ckdtree.pyx":1989
+ * 
  *         if np.shape(r) == ():
  *             if results[0] <= <np.intp_t> LONG_MAX:             # <<<<<<<<<<<<<<
  *                 return int(results[0])
@@ -25655,7 +25676,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_12count_neighbors(struct
 */
     }
 
-    /* "pyart/map/ckdtree.pyx":1985
+    /* "pyart/map/ckdtree.pyx":1992
  *                 return int(results[0])
  *             else:
  *                 return results[0]             # <<<<<<<<<<<<<<
@@ -25664,7 +25685,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_12count_neighbors(struct
 */
     /*else*/ {
       __pyx_t_19 = 0;
-      __pyx_t_7 = __Pyx_PyLong_From_npy_intp((*__Pyx_BufPtrCContig1d(__pyx_t_5numpy_intp_t *, __pyx_pybuffernd_results.rcbuffer->pybuffer.buf, __pyx_t_19, __pyx_pybuffernd_results.diminfo[0].strides))); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1985, __pyx_L1_error)
+      __pyx_t_7 = __Pyx_PyLong_From_npy_intp((*__Pyx_BufPtrCContig1d(__pyx_t_5numpy_intp_t *, __pyx_pybuffernd_results.rcbuffer->pybuffer.buf, __pyx_t_19, __pyx_pybuffernd_results.diminfo[0].strides))); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1992, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
       {
         PyObject *__pyx_temp;
@@ -25678,26 +25699,26 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_12count_neighbors(struct
       goto __pyx_L0;
     }
 
-    /* "pyart/map/ckdtree.pyx":1981
+    /* "pyart/map/ckdtree.pyx":1988
  *                                         tracker)
- *
+ * 
  *         if np.shape(r) == ():             # <<<<<<<<<<<<<<
  *             if results[0] <= <np.intp_t> LONG_MAX:
  *                 return int(results[0])
 */
   }
 
-  /* "pyart/map/ckdtree.pyx":1986
+  /* "pyart/map/ckdtree.pyx":1993
  *             else:
  *                 return results[0]
  *         elif len(np.shape(r))==1:             # <<<<<<<<<<<<<<
  *             return results
- *
+ * 
 */
   __pyx_t_6 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1986, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1993, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_shape); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1986, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_shape); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1993, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
   __pyx_t_4 = 1;
@@ -25717,10 +25738,10 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_12count_neighbors(struct
     __pyx_t_7 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_2, __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (__pyx_t_4*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1986, __pyx_L1_error)
+    if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1993, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
   }
-  __pyx_t_13 = PyObject_Length(__pyx_t_7); if (unlikely(__pyx_t_13 == ((Py_ssize_t)-1))) __PYX_ERR(0, 1986, __pyx_L1_error)
+  __pyx_t_13 = PyObject_Length(__pyx_t_7); if (unlikely(__pyx_t_13 == ((Py_ssize_t)-1))) __PYX_ERR(0, 1993, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __pyx_t_1 = (__pyx_t_13 == 1);
 
@@ -25728,11 +25749,11 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_12count_neighbors(struct
   if (__pyx_t_1) {
 
 
-    /* "pyart/map/ckdtree.pyx":1987
+    /* "pyart/map/ckdtree.pyx":1994
  *                 return results[0]
  *         elif len(np.shape(r))==1:
  *             return results             # <<<<<<<<<<<<<<
- *
+ * 
  *     # ----------------------
 */
     {
@@ -25746,18 +25767,18 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_12count_neighbors(struct
     }
     goto __pyx_L0;
 
-    /* "pyart/map/ckdtree.pyx":1986
+    /* "pyart/map/ckdtree.pyx":1993
  *             else:
  *                 return results[0]
  *         elif len(np.shape(r))==1:             # <<<<<<<<<<<<<<
  *             return results
- *
+ * 
 */
   }
 
-  /* "pyart/map/ckdtree.pyx":1911
+  /* "pyart/map/ckdtree.pyx":1918
  *         return 0
- *
+ * 
  *     @cython.boundscheck(False)             # <<<<<<<<<<<<<<
  *     @cython.wraparound(False)
  *     def count_neighbors(cKDTree self, cKDTree other, object r, np.float64_t p=2.):
@@ -25806,7 +25827,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_12count_neighbors(struct
   return __pyx_r;
 }
 
-/* "pyart/map/ckdtree.pyx":1992
+/* "pyart/map/ckdtree.pyx":1999
  *     # sparse_distance_matrix
  *     # ----------------------
  *     cdef int __sparse_distance_matrix_traverse(cKDTree self, cKDTree other,             # <<<<<<<<<<<<<<
@@ -25835,9 +25856,9 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__sparse_distance_matri
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
 
-  /* "pyart/map/ckdtree.pyx":2002
+  /* "pyart/map/ckdtree.pyx":2009
  *         cdef np.intp_t i, j, min_j
- *
+ * 
  *         if tracker.min_distance > tracker.upper_bound:             # <<<<<<<<<<<<<<
  *             return 0
  *         elif node1.split_dim == -1:  # 1 is leaf node
@@ -25847,8 +25868,8 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__sparse_distance_matri
   if (__pyx_t_1) {
 
 
-    /* "pyart/map/ckdtree.pyx":2003
- *
+    /* "pyart/map/ckdtree.pyx":2010
+ * 
  *         if tracker.min_distance > tracker.upper_bound:
  *             return 0             # <<<<<<<<<<<<<<
  *         elif node1.split_dim == -1:  # 1 is leaf node
@@ -25860,59 +25881,59 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__sparse_distance_matri
     }
     goto __pyx_L0;
 
-    /* "pyart/map/ckdtree.pyx":2002
+    /* "pyart/map/ckdtree.pyx":2009
  *         cdef np.intp_t i, j, min_j
- *
+ * 
  *         if tracker.min_distance > tracker.upper_bound:             # <<<<<<<<<<<<<<
  *             return 0
  *         elif node1.split_dim == -1:  # 1 is leaf node
 */
   }
 
-  /* "pyart/map/ckdtree.pyx":2004
+  /* "pyart/map/ckdtree.pyx":2011
  *         if tracker.min_distance > tracker.upper_bound:
  *             return 0
  *         elif node1.split_dim == -1:  # 1 is leaf node             # <<<<<<<<<<<<<<
  *             lnode1 = <leafnode*>node1
- *
+ * 
 */
   __pyx_t_1 = (__pyx_v_node1->split_dim == -1L);
 
   if (__pyx_t_1) {
 
 
-    /* "pyart/map/ckdtree.pyx":2005
+    /* "pyart/map/ckdtree.pyx":2012
  *             return 0
  *         elif node1.split_dim == -1:  # 1 is leaf node
  *             lnode1 = <leafnode*>node1             # <<<<<<<<<<<<<<
- *
+ * 
  *             if node2.split_dim == -1:  # 1 & 2 are leaves
 */
     __pyx_v_lnode1 = ((struct __pyx_t_5pyart_3map_7ckdtree_leafnode *)__pyx_v_node1);
 
-    /* "pyart/map/ckdtree.pyx":2007
+    /* "pyart/map/ckdtree.pyx":2014
  *             lnode1 = <leafnode*>node1
- *
+ * 
  *             if node2.split_dim == -1:  # 1 & 2 are leaves             # <<<<<<<<<<<<<<
  *                 lnode2 = <leafnode*>node2
- *
+ * 
 */
     __pyx_t_1 = (__pyx_v_node2->split_dim == -1L);
 
     if (__pyx_t_1) {
 
 
-      /* "pyart/map/ckdtree.pyx":2008
- *
+      /* "pyart/map/ckdtree.pyx":2015
+ * 
  *             if node2.split_dim == -1:  # 1 & 2 are leaves
  *                 lnode2 = <leafnode*>node2             # <<<<<<<<<<<<<<
- *
+ * 
  *                 # brute-force
 */
       __pyx_v_lnode2 = ((struct __pyx_t_5pyart_3map_7ckdtree_leafnode *)__pyx_v_node2);
 
-      /* "pyart/map/ckdtree.pyx":2011
- *
+      /* "pyart/map/ckdtree.pyx":2018
+ * 
  *                 # brute-force
  *                 for i in range(lnode1.start_idx, lnode1.end_idx):             # <<<<<<<<<<<<<<
  *                     # Special care here to avoid duplicate pairs
@@ -25925,7 +25946,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__sparse_distance_matri
       for (__pyx_t_4 = __pyx_v_lnode1->start_idx; __pyx_t_4 < __pyx_t_3; __pyx_t_4+=1) {
         __pyx_v_i = __pyx_t_4;
 
-        /* "pyart/map/ckdtree.pyx":2013
+        /* "pyart/map/ckdtree.pyx":2020
  *                 for i in range(lnode1.start_idx, lnode1.end_idx):
  *                     # Special care here to avoid duplicate pairs
  *                     if node1 == node2:             # <<<<<<<<<<<<<<
@@ -25937,7 +25958,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__sparse_distance_matri
         if (__pyx_t_1) {
 
 
-          /* "pyart/map/ckdtree.pyx":2014
+          /* "pyart/map/ckdtree.pyx":2021
  *                     # Special care here to avoid duplicate pairs
  *                     if node1 == node2:
  *                         min_j = i+1             # <<<<<<<<<<<<<<
@@ -25946,7 +25967,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__sparse_distance_matri
 */
           __pyx_v_min_j = (__pyx_v_i + 1);
 
-          /* "pyart/map/ckdtree.pyx":2013
+          /* "pyart/map/ckdtree.pyx":2020
  *                 for i in range(lnode1.start_idx, lnode1.end_idx):
  *                     # Special care here to avoid duplicate pairs
  *                     if node1 == node2:             # <<<<<<<<<<<<<<
@@ -25956,11 +25977,11 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__sparse_distance_matri
           goto __pyx_L7;
         }
 
-        /* "pyart/map/ckdtree.pyx":2016
+        /* "pyart/map/ckdtree.pyx":2023
  *                         min_j = i+1
  *                     else:
  *                         min_j = lnode2.end_idx             # <<<<<<<<<<<<<<
- *
+ * 
  *                     for j in range(min_j, lnode2.end_idx):
 */
         /*else*/ {
@@ -25970,9 +25991,9 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__sparse_distance_matri
         }
         __pyx_L7:;
 
-        /* "pyart/map/ckdtree.pyx":2018
+        /* "pyart/map/ckdtree.pyx":2025
  *                         min_j = lnode2.end_idx
- *
+ * 
  *                     for j in range(min_j, lnode2.end_idx):             # <<<<<<<<<<<<<<
  *                         d = _distance_p(
  *                             self.raw_data + self.raw_indices[i] * self.m,
@@ -25984,17 +26005,17 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__sparse_distance_matri
         for (__pyx_t_7 = __pyx_v_min_j; __pyx_t_7 < __pyx_t_6; __pyx_t_7+=1) {
           __pyx_v_j = __pyx_t_7;
 
-          /* "pyart/map/ckdtree.pyx":2019
- *
+          /* "pyart/map/ckdtree.pyx":2026
+ * 
  *                     for j in range(min_j, lnode2.end_idx):
  *                         d = _distance_p(             # <<<<<<<<<<<<<<
  *                             self.raw_data + self.raw_indices[i] * self.m,
  *                             other.raw_data + other.raw_indices[j] * self.m,
 */
-          __pyx_t_8 = __pyx_f_5pyart_3map_7ckdtree__distance_p((__pyx_v_self->raw_data + ((__pyx_v_self->raw_indices[__pyx_v_i]) * __pyx_v_self->m)), (__pyx_v_other->raw_data + ((__pyx_v_other->raw_indices[__pyx_v_j]) * __pyx_v_self->m)), __pyx_v_tracker->p, __pyx_v_self->m, __pyx_v_tracker->upper_bound); if (unlikely(__pyx_t_8 == ((__pyx_t_5numpy_float64_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 2019, __pyx_L1_error)
+          __pyx_t_8 = __pyx_f_5pyart_3map_7ckdtree__distance_p((__pyx_v_self->raw_data + ((__pyx_v_self->raw_indices[__pyx_v_i]) * __pyx_v_self->m)), (__pyx_v_other->raw_data + ((__pyx_v_other->raw_indices[__pyx_v_j]) * __pyx_v_self->m)), __pyx_v_tracker->p, __pyx_v_self->m, __pyx_v_tracker->upper_bound); if (unlikely(__pyx_t_8 == ((__pyx_t_5numpy_float64_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 2026, __pyx_L1_error)
           __pyx_v_d = __pyx_t_8;
 
-          /* "pyart/map/ckdtree.pyx":2023
+          /* "pyart/map/ckdtree.pyx":2030
  *                             other.raw_data + other.raw_indices[j] * self.m,
  *                             tracker.p, self.m, tracker.upper_bound)
  *                         if d <= tracker.upper_bound:             # <<<<<<<<<<<<<<
@@ -26006,16 +26027,16 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__sparse_distance_matri
           if (__pyx_t_1) {
 
 
-            /* "pyart/map/ckdtree.pyx":2024
+            /* "pyart/map/ckdtree.pyx":2031
  *                             tracker.p, self.m, tracker.upper_bound)
  *                         if d <= tracker.upper_bound:
  *                             results.add(self.raw_indices[i],             # <<<<<<<<<<<<<<
  *                                         self.raw_indices[j], d)
  *                             if node1 == node2:
 */
-            ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_coo_entries *)__pyx_v_results->__pyx_vtab)->add(__pyx_v_results, (__pyx_v_self->raw_indices[__pyx_v_i]), (__pyx_v_self->raw_indices[__pyx_v_j]), __pyx_v_d); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 2024, __pyx_L1_error)
+            ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_coo_entries *)__pyx_v_results->__pyx_vtab)->add(__pyx_v_results, (__pyx_v_self->raw_indices[__pyx_v_i]), (__pyx_v_self->raw_indices[__pyx_v_j]), __pyx_v_d); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 2031, __pyx_L1_error)
 
-            /* "pyart/map/ckdtree.pyx":2026
+            /* "pyart/map/ckdtree.pyx":2033
  *                             results.add(self.raw_indices[i],
  *                                         self.raw_indices[j], d)
  *                             if node1 == node2:             # <<<<<<<<<<<<<<
@@ -26027,16 +26048,16 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__sparse_distance_matri
             if (__pyx_t_1) {
 
 
-              /* "pyart/map/ckdtree.pyx":2027
+              /* "pyart/map/ckdtree.pyx":2034
  *                                         self.raw_indices[j], d)
  *                             if node1 == node2:
  *                                 results.add(self.raw_indices[j],             # <<<<<<<<<<<<<<
  *                                             self.raw_indices[i], d)
- *
+ * 
 */
-              ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_coo_entries *)__pyx_v_results->__pyx_vtab)->add(__pyx_v_results, (__pyx_v_self->raw_indices[__pyx_v_j]), (__pyx_v_self->raw_indices[__pyx_v_i]), __pyx_v_d); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 2027, __pyx_L1_error)
+              ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_coo_entries *)__pyx_v_results->__pyx_vtab)->add(__pyx_v_results, (__pyx_v_self->raw_indices[__pyx_v_j]), (__pyx_v_self->raw_indices[__pyx_v_i]), __pyx_v_d); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 2034, __pyx_L1_error)
 
-              /* "pyart/map/ckdtree.pyx":2026
+              /* "pyart/map/ckdtree.pyx":2033
  *                             results.add(self.raw_indices[i],
  *                                         self.raw_indices[j], d)
  *                             if node1 == node2:             # <<<<<<<<<<<<<<
@@ -26045,7 +26066,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__sparse_distance_matri
 */
             }
 
-            /* "pyart/map/ckdtree.pyx":2023
+            /* "pyart/map/ckdtree.pyx":2030
  *                             other.raw_data + other.raw_indices[j] * self.m,
  *                             tracker.p, self.m, tracker.upper_bound)
  *                         if d <= tracker.upper_bound:             # <<<<<<<<<<<<<<
@@ -26058,91 +26079,91 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__sparse_distance_matri
       }
 
 
-      /* "pyart/map/ckdtree.pyx":2007
+      /* "pyart/map/ckdtree.pyx":2014
  *             lnode1 = <leafnode*>node1
- *
+ * 
  *             if node2.split_dim == -1:  # 1 & 2 are leaves             # <<<<<<<<<<<<<<
  *                 lnode2 = <leafnode*>node2
- *
+ * 
 */
       goto __pyx_L4;
     }
 
-    /* "pyart/map/ckdtree.pyx":2031
- *
+    /* "pyart/map/ckdtree.pyx":2038
+ * 
  *             else:  # 1 is a leaf node, 2 is inner node
  *                 tracker.push_less_of(2, node2)             # <<<<<<<<<<<<<<
  *                 self.__sparse_distance_matrix_traverse(
  *                     other, results, node1, node2.less, tracker)
 */
     /*else*/ {
-      __pyx_t_9 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_less_of(__pyx_v_tracker, 2, __pyx_v_node2); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2031, __pyx_L1_error)
+      __pyx_t_9 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_less_of(__pyx_v_tracker, 2, __pyx_v_node2); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2038, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":2032
+      /* "pyart/map/ckdtree.pyx":2039
  *             else:  # 1 is a leaf node, 2 is inner node
  *                 tracker.push_less_of(2, node2)
  *                 self.__sparse_distance_matrix_traverse(             # <<<<<<<<<<<<<<
  *                     other, results, node1, node2.less, tracker)
  *                 tracker.pop()
 */
-      __pyx_t_9 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__sparse_distance_matrix_traverse(__pyx_v_self, __pyx_v_other, __pyx_v_results, __pyx_v_node1, __pyx_v_node2->less, __pyx_v_tracker); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2032, __pyx_L1_error)
+      __pyx_t_9 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__sparse_distance_matrix_traverse(__pyx_v_self, __pyx_v_other, __pyx_v_results, __pyx_v_node1, __pyx_v_node2->less, __pyx_v_tracker); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2039, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":2034
+      /* "pyart/map/ckdtree.pyx":2041
  *                 self.__sparse_distance_matrix_traverse(
  *                     other, results, node1, node2.less, tracker)
  *                 tracker.pop()             # <<<<<<<<<<<<<<
- *
+ * 
  *                 tracker.push_greater_of(2, node2)
 */
-      __pyx_t_9 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2034, __pyx_L1_error)
+      __pyx_t_9 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2041, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":2036
+      /* "pyart/map/ckdtree.pyx":2043
  *                 tracker.pop()
- *
+ * 
  *                 tracker.push_greater_of(2, node2)             # <<<<<<<<<<<<<<
  *                 self.__sparse_distance_matrix_traverse(
  *                     other, results, node1, node2.greater, tracker)
 */
-      __pyx_t_9 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_greater_of(__pyx_v_tracker, 2, __pyx_v_node2); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2036, __pyx_L1_error)
+      __pyx_t_9 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_greater_of(__pyx_v_tracker, 2, __pyx_v_node2); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2043, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":2037
- *
+      /* "pyart/map/ckdtree.pyx":2044
+ * 
  *                 tracker.push_greater_of(2, node2)
  *                 self.__sparse_distance_matrix_traverse(             # <<<<<<<<<<<<<<
  *                     other, results, node1, node2.greater, tracker)
  *                 tracker.pop()
 */
-      __pyx_t_9 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__sparse_distance_matrix_traverse(__pyx_v_self, __pyx_v_other, __pyx_v_results, __pyx_v_node1, __pyx_v_node2->greater, __pyx_v_tracker); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2037, __pyx_L1_error)
+      __pyx_t_9 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__sparse_distance_matrix_traverse(__pyx_v_self, __pyx_v_other, __pyx_v_results, __pyx_v_node1, __pyx_v_node2->greater, __pyx_v_tracker); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2044, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":2039
+      /* "pyart/map/ckdtree.pyx":2046
  *                 self.__sparse_distance_matrix_traverse(
  *                     other, results, node1, node2.greater, tracker)
  *                 tracker.pop()             # <<<<<<<<<<<<<<
- *
+ * 
  *         else:  # 1 is an inner node
 */
-      __pyx_t_9 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2039, __pyx_L1_error)
+      __pyx_t_9 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2046, __pyx_L1_error)
 
     }
     __pyx_L4:;
 
-    /* "pyart/map/ckdtree.pyx":2004
+    /* "pyart/map/ckdtree.pyx":2011
  *         if tracker.min_distance > tracker.upper_bound:
  *             return 0
  *         elif node1.split_dim == -1:  # 1 is leaf node             # <<<<<<<<<<<<<<
  *             lnode1 = <leafnode*>node1
- *
+ * 
 */
     goto __pyx_L3;
   }
 
-  /* "pyart/map/ckdtree.pyx":2042
- *
+  /* "pyart/map/ckdtree.pyx":2049
+ * 
  *         else:  # 1 is an inner node
  *             if node2.split_dim == -1:  # 1 is an inner node, 2 is a leaf node             # <<<<<<<<<<<<<<
  *                 tracker.push_less_of(1, node1)
@@ -26154,68 +26175,68 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__sparse_distance_matri
     if (__pyx_t_1) {
 
 
-      /* "pyart/map/ckdtree.pyx":2043
+      /* "pyart/map/ckdtree.pyx":2050
  *         else:  # 1 is an inner node
  *             if node2.split_dim == -1:  # 1 is an inner node, 2 is a leaf node
  *                 tracker.push_less_of(1, node1)             # <<<<<<<<<<<<<<
  *                 self.__sparse_distance_matrix_traverse(
  *                     other, results, node1.less, node2, tracker)
 */
-      __pyx_t_9 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_less_of(__pyx_v_tracker, 1, __pyx_v_node1); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2043, __pyx_L1_error)
+      __pyx_t_9 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_less_of(__pyx_v_tracker, 1, __pyx_v_node1); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2050, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":2044
+      /* "pyart/map/ckdtree.pyx":2051
  *             if node2.split_dim == -1:  # 1 is an inner node, 2 is a leaf node
  *                 tracker.push_less_of(1, node1)
  *                 self.__sparse_distance_matrix_traverse(             # <<<<<<<<<<<<<<
  *                     other, results, node1.less, node2, tracker)
  *                 tracker.pop()
 */
-      __pyx_t_9 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__sparse_distance_matrix_traverse(__pyx_v_self, __pyx_v_other, __pyx_v_results, __pyx_v_node1->less, __pyx_v_node2, __pyx_v_tracker); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2044, __pyx_L1_error)
+      __pyx_t_9 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__sparse_distance_matrix_traverse(__pyx_v_self, __pyx_v_other, __pyx_v_results, __pyx_v_node1->less, __pyx_v_node2, __pyx_v_tracker); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2051, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":2046
+      /* "pyart/map/ckdtree.pyx":2053
  *                 self.__sparse_distance_matrix_traverse(
  *                     other, results, node1.less, node2, tracker)
  *                 tracker.pop()             # <<<<<<<<<<<<<<
- *
+ * 
  *                 tracker.push_greater_of(1, node1)
 */
-      __pyx_t_9 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2046, __pyx_L1_error)
+      __pyx_t_9 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2053, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":2048
+      /* "pyart/map/ckdtree.pyx":2055
  *                 tracker.pop()
- *
+ * 
  *                 tracker.push_greater_of(1, node1)             # <<<<<<<<<<<<<<
  *                 self.__sparse_distance_matrix_traverse(
  *                     other, results, node1.greater, node2, tracker)
 */
-      __pyx_t_9 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_greater_of(__pyx_v_tracker, 1, __pyx_v_node1); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2048, __pyx_L1_error)
+      __pyx_t_9 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_greater_of(__pyx_v_tracker, 1, __pyx_v_node1); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2055, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":2049
- *
+      /* "pyart/map/ckdtree.pyx":2056
+ * 
  *                 tracker.push_greater_of(1, node1)
  *                 self.__sparse_distance_matrix_traverse(             # <<<<<<<<<<<<<<
  *                     other, results, node1.greater, node2, tracker)
  *                 tracker.pop()
 */
-      __pyx_t_9 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__sparse_distance_matrix_traverse(__pyx_v_self, __pyx_v_other, __pyx_v_results, __pyx_v_node1->greater, __pyx_v_node2, __pyx_v_tracker); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2049, __pyx_L1_error)
+      __pyx_t_9 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__sparse_distance_matrix_traverse(__pyx_v_self, __pyx_v_other, __pyx_v_results, __pyx_v_node1->greater, __pyx_v_node2, __pyx_v_tracker); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2056, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":2051
+      /* "pyart/map/ckdtree.pyx":2058
  *                 self.__sparse_distance_matrix_traverse(
  *                     other, results, node1.greater, node2, tracker)
  *                 tracker.pop()             # <<<<<<<<<<<<<<
- *
+ * 
  *             else: # 1 and 2 are inner nodes
 */
-      __pyx_t_9 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2051, __pyx_L1_error)
+      __pyx_t_9 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2058, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":2042
- *
+      /* "pyart/map/ckdtree.pyx":2049
+ * 
  *         else:  # 1 is an inner node
  *             if node2.split_dim == -1:  # 1 is an inner node, 2 is a leaf node             # <<<<<<<<<<<<<<
  *                 tracker.push_less_of(1, node1)
@@ -26224,99 +26245,99 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__sparse_distance_matri
       goto __pyx_L12;
     }
 
-    /* "pyart/map/ckdtree.pyx":2054
- *
+    /* "pyart/map/ckdtree.pyx":2061
+ * 
  *             else: # 1 and 2 are inner nodes
  *                 tracker.push_less_of(1, node1)             # <<<<<<<<<<<<<<
  *                 tracker.push_less_of(2, node2)
  *                 self.__sparse_distance_matrix_traverse(
 */
     /*else*/ {
-      __pyx_t_9 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_less_of(__pyx_v_tracker, 1, __pyx_v_node1); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2054, __pyx_L1_error)
+      __pyx_t_9 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_less_of(__pyx_v_tracker, 1, __pyx_v_node1); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2061, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":2055
+      /* "pyart/map/ckdtree.pyx":2062
  *             else: # 1 and 2 are inner nodes
  *                 tracker.push_less_of(1, node1)
  *                 tracker.push_less_of(2, node2)             # <<<<<<<<<<<<<<
  *                 self.__sparse_distance_matrix_traverse(
  *                     other, results, node1.less, node2.less, tracker)
 */
-      __pyx_t_9 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_less_of(__pyx_v_tracker, 2, __pyx_v_node2); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2055, __pyx_L1_error)
+      __pyx_t_9 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_less_of(__pyx_v_tracker, 2, __pyx_v_node2); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2062, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":2056
+      /* "pyart/map/ckdtree.pyx":2063
  *                 tracker.push_less_of(1, node1)
  *                 tracker.push_less_of(2, node2)
  *                 self.__sparse_distance_matrix_traverse(             # <<<<<<<<<<<<<<
  *                     other, results, node1.less, node2.less, tracker)
  *                 tracker.pop()
 */
-      __pyx_t_9 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__sparse_distance_matrix_traverse(__pyx_v_self, __pyx_v_other, __pyx_v_results, __pyx_v_node1->less, __pyx_v_node2->less, __pyx_v_tracker); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2056, __pyx_L1_error)
+      __pyx_t_9 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__sparse_distance_matrix_traverse(__pyx_v_self, __pyx_v_other, __pyx_v_results, __pyx_v_node1->less, __pyx_v_node2->less, __pyx_v_tracker); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2063, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":2058
+      /* "pyart/map/ckdtree.pyx":2065
  *                 self.__sparse_distance_matrix_traverse(
  *                     other, results, node1.less, node2.less, tracker)
  *                 tracker.pop()             # <<<<<<<<<<<<<<
- *
+ * 
  *                 tracker.push_greater_of(2, node2)
 */
-      __pyx_t_9 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2058, __pyx_L1_error)
+      __pyx_t_9 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2065, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":2060
+      /* "pyart/map/ckdtree.pyx":2067
  *                 tracker.pop()
- *
+ * 
  *                 tracker.push_greater_of(2, node2)             # <<<<<<<<<<<<<<
  *                 self.__sparse_distance_matrix_traverse(
  *                     other, results, node1.less, node2.greater, tracker)
 */
-      __pyx_t_9 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_greater_of(__pyx_v_tracker, 2, __pyx_v_node2); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2060, __pyx_L1_error)
+      __pyx_t_9 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_greater_of(__pyx_v_tracker, 2, __pyx_v_node2); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2067, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":2061
- *
+      /* "pyart/map/ckdtree.pyx":2068
+ * 
  *                 tracker.push_greater_of(2, node2)
  *                 self.__sparse_distance_matrix_traverse(             # <<<<<<<<<<<<<<
  *                     other, results, node1.less, node2.greater, tracker)
  *                 tracker.pop()
 */
-      __pyx_t_9 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__sparse_distance_matrix_traverse(__pyx_v_self, __pyx_v_other, __pyx_v_results, __pyx_v_node1->less, __pyx_v_node2->greater, __pyx_v_tracker); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2061, __pyx_L1_error)
+      __pyx_t_9 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__sparse_distance_matrix_traverse(__pyx_v_self, __pyx_v_other, __pyx_v_results, __pyx_v_node1->less, __pyx_v_node2->greater, __pyx_v_tracker); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2068, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":2063
+      /* "pyart/map/ckdtree.pyx":2070
  *                 self.__sparse_distance_matrix_traverse(
  *                     other, results, node1.less, node2.greater, tracker)
  *                 tracker.pop()             # <<<<<<<<<<<<<<
  *                 tracker.pop()
- *
+ * 
 */
-      __pyx_t_9 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2063, __pyx_L1_error)
+      __pyx_t_9 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2070, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":2064
+      /* "pyart/map/ckdtree.pyx":2071
  *                     other, results, node1.less, node2.greater, tracker)
  *                 tracker.pop()
  *                 tracker.pop()             # <<<<<<<<<<<<<<
- *
+ * 
  *                 tracker.push_greater_of(1, node1)
 */
-      __pyx_t_9 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2064, __pyx_L1_error)
+      __pyx_t_9 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2071, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":2066
+      /* "pyart/map/ckdtree.pyx":2073
  *                 tracker.pop()
- *
+ * 
  *                 tracker.push_greater_of(1, node1)             # <<<<<<<<<<<<<<
  *                 if node1 != node2:
  *                     # Avoid traversing (node1.less, node2.greater) and
 */
-      __pyx_t_9 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_greater_of(__pyx_v_tracker, 1, __pyx_v_node1); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2066, __pyx_L1_error)
+      __pyx_t_9 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_greater_of(__pyx_v_tracker, 1, __pyx_v_node1); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2073, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":2067
- *
+      /* "pyart/map/ckdtree.pyx":2074
+ * 
  *                 tracker.push_greater_of(1, node1)
  *                 if node1 != node2:             # <<<<<<<<<<<<<<
  *                     # Avoid traversing (node1.less, node2.greater) and
@@ -26327,38 +26348,38 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__sparse_distance_matri
       if (__pyx_t_1) {
 
 
-        /* "pyart/map/ckdtree.pyx":2072
+        /* "pyart/map/ckdtree.pyx":2079
  *                     # twice over, which is the source of the complication in
  *                     # the original KDTree.sparse_distance_matrix)
  *                     tracker.push_less_of(2, node2)             # <<<<<<<<<<<<<<
  *                     self.__sparse_distance_matrix_traverse(
  *                         other, results, node1.greater, node2.less, tracker)
 */
-        __pyx_t_9 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_less_of(__pyx_v_tracker, 2, __pyx_v_node2); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2072, __pyx_L1_error)
+        __pyx_t_9 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_less_of(__pyx_v_tracker, 2, __pyx_v_node2); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2079, __pyx_L1_error)
 
 
-        /* "pyart/map/ckdtree.pyx":2073
+        /* "pyart/map/ckdtree.pyx":2080
  *                     # the original KDTree.sparse_distance_matrix)
  *                     tracker.push_less_of(2, node2)
  *                     self.__sparse_distance_matrix_traverse(             # <<<<<<<<<<<<<<
  *                         other, results, node1.greater, node2.less, tracker)
  *                     tracker.pop()
 */
-        __pyx_t_9 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__sparse_distance_matrix_traverse(__pyx_v_self, __pyx_v_other, __pyx_v_results, __pyx_v_node1->greater, __pyx_v_node2->less, __pyx_v_tracker); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2073, __pyx_L1_error)
+        __pyx_t_9 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__sparse_distance_matrix_traverse(__pyx_v_self, __pyx_v_other, __pyx_v_results, __pyx_v_node1->greater, __pyx_v_node2->less, __pyx_v_tracker); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2080, __pyx_L1_error)
 
 
-        /* "pyart/map/ckdtree.pyx":2075
+        /* "pyart/map/ckdtree.pyx":2082
  *                     self.__sparse_distance_matrix_traverse(
  *                         other, results, node1.greater, node2.less, tracker)
  *                     tracker.pop()             # <<<<<<<<<<<<<<
- *
+ * 
  *                 tracker.push_greater_of(2, node2)
 */
-        __pyx_t_9 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2075, __pyx_L1_error)
+        __pyx_t_9 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2082, __pyx_L1_error)
 
 
-        /* "pyart/map/ckdtree.pyx":2067
- *
+        /* "pyart/map/ckdtree.pyx":2074
+ * 
  *                 tracker.push_greater_of(1, node1)
  *                 if node1 != node2:             # <<<<<<<<<<<<<<
  *                     # Avoid traversing (node1.less, node2.greater) and
@@ -26366,55 +26387,55 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__sparse_distance_matri
 */
       }
 
-      /* "pyart/map/ckdtree.pyx":2077
+      /* "pyart/map/ckdtree.pyx":2084
  *                     tracker.pop()
- *
+ * 
  *                 tracker.push_greater_of(2, node2)             # <<<<<<<<<<<<<<
  *                 self.__sparse_distance_matrix_traverse(
  *                     other, results, node1.greater, node2.greater, tracker)
 */
-      __pyx_t_9 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_greater_of(__pyx_v_tracker, 2, __pyx_v_node2); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2077, __pyx_L1_error)
+      __pyx_t_9 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_push_greater_of(__pyx_v_tracker, 2, __pyx_v_node2); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2084, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":2078
- *
+      /* "pyart/map/ckdtree.pyx":2085
+ * 
  *                 tracker.push_greater_of(2, node2)
  *                 self.__sparse_distance_matrix_traverse(             # <<<<<<<<<<<<<<
  *                     other, results, node1.greater, node2.greater, tracker)
  *                 tracker.pop()
 */
-      __pyx_t_9 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__sparse_distance_matrix_traverse(__pyx_v_self, __pyx_v_other, __pyx_v_results, __pyx_v_node1->greater, __pyx_v_node2->greater, __pyx_v_tracker); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2078, __pyx_L1_error)
+      __pyx_t_9 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__sparse_distance_matrix_traverse(__pyx_v_self, __pyx_v_other, __pyx_v_results, __pyx_v_node1->greater, __pyx_v_node2->greater, __pyx_v_tracker); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2085, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":2080
+      /* "pyart/map/ckdtree.pyx":2087
  *                 self.__sparse_distance_matrix_traverse(
  *                     other, results, node1.greater, node2.greater, tracker)
  *                 tracker.pop()             # <<<<<<<<<<<<<<
  *                 tracker.pop()
- *
+ * 
 */
-      __pyx_t_9 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2080, __pyx_L1_error)
+      __pyx_t_9 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2087, __pyx_L1_error)
 
 
-      /* "pyart/map/ckdtree.pyx":2081
+      /* "pyart/map/ckdtree.pyx":2088
  *                     other, results, node1.greater, node2.greater, tracker)
  *                 tracker.pop()
  *                 tracker.pop()             # <<<<<<<<<<<<<<
- *
+ * 
  *         return 0
 */
-      __pyx_t_9 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2081, __pyx_L1_error)
+      __pyx_t_9 = __pyx_f_5pyart_3map_7ckdtree_23RectRectDistanceTracker_pop(__pyx_v_tracker); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2088, __pyx_L1_error)
 
     }
     __pyx_L12:;
   }
   __pyx_L3:;
 
-  /* "pyart/map/ckdtree.pyx":2083
+  /* "pyart/map/ckdtree.pyx":2090
  *                 tracker.pop()
- *
+ * 
  *         return 0             # <<<<<<<<<<<<<<
- *
+ * 
  *     def sparse_distance_matrix(cKDTree self, cKDTree other,
 */
   {
@@ -26423,7 +26444,7 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__sparse_distance_matri
   }
   goto __pyx_L0;
 
-  /* "pyart/map/ckdtree.pyx":1992
+  /* "pyart/map/ckdtree.pyx":1999
  *     # sparse_distance_matrix
  *     # ----------------------
  *     cdef int __sparse_distance_matrix_traverse(cKDTree self, cKDTree other,             # <<<<<<<<<<<<<<
@@ -26446,16 +26467,16 @@ static int __pyx_f_5pyart_3map_7ckdtree_7cKDTree__cKDTree__sparse_distance_matri
   return __pyx_r;
 }
 
-/* "pyart/map/ckdtree.pyx":2085
+/* "pyart/map/ckdtree.pyx":2092
  *         return 0
- *
+ * 
  *     def sparse_distance_matrix(cKDTree self, cKDTree other,             # <<<<<<<<<<<<<<
  *                                np.float64_t max_distance,
  *                                np.float64_t p=2.):
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5pyart_3map_7ckdtree_7cKDTree_15sparse_distance_matrix(PyObject *__pyx_v_self,
+static PyObject *__pyx_pw_5pyart_3map_7ckdtree_7cKDTree_15sparse_distance_matrix(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -26464,7 +26485,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 ); /*proto*/
 PyDoc_STRVAR(__pyx_doc_5pyart_3map_7ckdtree_7cKDTree_14sparse_distance_matrix, "sparse_distance_matrix(self, max_distance, p)\n\n        Compute a sparse distance matrix\n\n        Computes a distance matrix between two KDTrees, leaving as zero\n        any distance greater than max_distance.\n\n        Parameters\n        ----------\n        other : cKDTree\n\n        max_distance : positive float\n\n        Returns\n        -------\n        result : dok_matrix\n            Sparse matrix representing the results in \"dictionary of keys\" format.\n            FIXME: Internally, built as a COO matrix, it would be more\n            efficient to return this COO matrix.\n\n        ");
 static PyMethodDef __pyx_mdef_5pyart_3map_7ckdtree_7cKDTree_15sparse_distance_matrix = {"sparse_distance_matrix", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5pyart_3map_7ckdtree_7cKDTree_15sparse_distance_matrix, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_5pyart_3map_7ckdtree_7cKDTree_14sparse_distance_matrix};
-static PyObject *__pyx_pw_5pyart_3map_7ckdtree_7cKDTree_15sparse_distance_matrix(PyObject *__pyx_v_self,
+static PyObject *__pyx_pw_5pyart_3map_7ckdtree_7cKDTree_15sparse_distance_matrix(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -26496,55 +26517,55 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_other,&__pyx_mstate_global->__pyx_n_u_max_distance,&__pyx_mstate_global->__pyx_n_u_p,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len < 0)) __PYX_ERR(0, 2085, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len < 0)) __PYX_ERR(0, 2092, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  3:
         values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 2085, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 2092, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 2085, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 2092, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 2085, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 2092, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "sparse_distance_matrix", 0) < (0)) __PYX_ERR(0, 2085, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "sparse_distance_matrix", 0) < (0)) __PYX_ERR(0, 2092, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 2; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("sparse_distance_matrix", 0, 2, 3, i); __PYX_ERR(0, 2085, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("sparse_distance_matrix", 0, 2, 3, i); __PYX_ERR(0, 2092, __pyx_L3_error) }
       }
     } else {
       switch (__pyx_nargs) {
         case  3:
         values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 2085, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 2092, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 2085, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 2092, __pyx_L3_error)
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 2085, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 2092, __pyx_L3_error)
         break;
         default: goto __pyx_L5_argtuple_error;
       }
     }
     __pyx_v_other = ((struct __pyx_obj_5pyart_3map_7ckdtree_cKDTree *)values[0]);
-    __pyx_v_max_distance = __Pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_max_distance == ((npy_float64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 2086, __pyx_L3_error)
+    __pyx_v_max_distance = __Pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_max_distance == ((npy_float64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 2093, __pyx_L3_error)
     if (values[2]) {
-      __pyx_v_p = __Pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_p == ((npy_float64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 2087, __pyx_L3_error)
+      __pyx_v_p = __Pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_p == ((npy_float64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 2094, __pyx_L3_error)
     } else {
       __pyx_v_p = ((__pyx_t_5numpy_float64_t)2.);
     }
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("sparse_distance_matrix", 0, 2, 3, __pyx_nargs); __PYX_ERR(0, 2085, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("sparse_distance_matrix", 0, 2, 3, __pyx_nargs); __PYX_ERR(0, 2092, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -26555,7 +26576,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_mstate_global->__pyx_ptype_5pyart_3map_7ckdtree_cKDTree, 1, "other", 0))) __PYX_ERR(0, 2085, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_mstate_global->__pyx_ptype_5pyart_3map_7ckdtree_cKDTree, 1, "other", 0))) __PYX_ERR(0, 2092, __pyx_L1_error)
   __pyx_r = __pyx_pf_5pyart_3map_7ckdtree_7cKDTree_14sparse_distance_matrix(((struct __pyx_obj_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self), __pyx_v_other, __pyx_v_max_distance, __pyx_v_p);
 
   /* function exit code */
@@ -26597,23 +26618,23 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_14sparse_distance_matrix
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("sparse_distance_matrix", 0);
 
-  /* "pyart/map/ckdtree.pyx":2111
- *
+  /* "pyart/map/ckdtree.pyx":2118
+ * 
  *         # Make sure trees are compatible
  *         if self.m != other.m:             # <<<<<<<<<<<<<<
  *             raise ValueError("Trees passed to query_ball_trees have different dimensionality")
- *
+ * 
 */
   __pyx_t_1 = (__pyx_v_self->m != __pyx_v_other->m);
 
   if (unlikely(__pyx_t_1)) {
 
 
-    /* "pyart/map/ckdtree.pyx":2112
+    /* "pyart/map/ckdtree.pyx":2119
  *         # Make sure trees are compatible
  *         if self.m != other.m:
  *             raise ValueError("Trees passed to query_ball_trees have different dimensionality")             # <<<<<<<<<<<<<<
- *
+ * 
  *         # Calculate mins and maxes to outer box
 */
     __pyx_t_3 = NULL;
@@ -26622,24 +26643,24 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_14sparse_distance_matrix
       PyObject *__pyx_callargs[2] = {__pyx_t_3, __pyx_mstate_global->__pyx_kp_u_Trees_passed_to_query_ball_trees};
       __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)(((PyTypeObject*)PyExc_ValueError)), __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (__pyx_t_4*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 2112, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 2119, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
     __Pyx_Raise(__pyx_t_2, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __PYX_ERR(0, 2112, __pyx_L1_error)
+    __PYX_ERR(0, 2119, __pyx_L1_error)
 
-    /* "pyart/map/ckdtree.pyx":2111
- *
+    /* "pyart/map/ckdtree.pyx":2118
+ * 
  *         # Make sure trees are compatible
  *         if self.m != other.m:             # <<<<<<<<<<<<<<
  *             raise ValueError("Trees passed to query_ball_trees have different dimensionality")
- *
+ * 
 */
   }
 
-  /* "pyart/map/ckdtree.pyx":2115
- *
+  /* "pyart/map/ckdtree.pyx":2122
+ * 
  *         # Calculate mins and maxes to outer box
  *         tracker = RectRectDistanceTracker(             # <<<<<<<<<<<<<<
  *             Rectangle(self.mins, self.maxes),
@@ -26647,7 +26668,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_14sparse_distance_matrix
 */
   __pyx_t_3 = NULL;
 
-  /* "pyart/map/ckdtree.pyx":2116
+  /* "pyart/map/ckdtree.pyx":2123
  *         # Calculate mins and maxes to outer box
  *         tracker = RectRectDistanceTracker(
  *             Rectangle(self.mins, self.maxes),             # <<<<<<<<<<<<<<
@@ -26660,16 +26681,16 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_14sparse_distance_matrix
     PyObject *__pyx_callargs[3] = {__pyx_t_6, ((PyObject *)__pyx_v_self->mins), ((PyObject *)__pyx_v_self->maxes)};
     __pyx_t_5 = __Pyx_PyObject_FastCall((PyObject*)__pyx_mstate_global->__pyx_ptype_5pyart_3map_7ckdtree_Rectangle, __pyx_callargs+__pyx_t_4, (3-__pyx_t_4) | (__pyx_t_4*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-    if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 2116, __pyx_L1_error)
+    if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 2123, __pyx_L1_error)
     __Pyx_GOTREF((PyObject *)__pyx_t_5);
   }
 
-  /* "pyart/map/ckdtree.pyx":2117
+  /* "pyart/map/ckdtree.pyx":2124
  *         tracker = RectRectDistanceTracker(
  *             Rectangle(self.mins, self.maxes),
  *             Rectangle(other.mins, other.maxes),             # <<<<<<<<<<<<<<
  *             p, 0, max_distance)
- *
+ * 
 */
   __pyx_t_7 = NULL;
   __pyx_t_4 = 1;
@@ -26677,20 +26698,20 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_14sparse_distance_matrix
     PyObject *__pyx_callargs[3] = {__pyx_t_7, ((PyObject *)__pyx_v_other->mins), ((PyObject *)__pyx_v_other->maxes)};
     __pyx_t_6 = __Pyx_PyObject_FastCall((PyObject*)__pyx_mstate_global->__pyx_ptype_5pyart_3map_7ckdtree_Rectangle, __pyx_callargs+__pyx_t_4, (3-__pyx_t_4) | (__pyx_t_4*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-    if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 2117, __pyx_L1_error)
+    if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 2124, __pyx_L1_error)
     __Pyx_GOTREF((PyObject *)__pyx_t_6);
   }
 
-  /* "pyart/map/ckdtree.pyx":2118
+  /* "pyart/map/ckdtree.pyx":2125
  *             Rectangle(self.mins, self.maxes),
  *             Rectangle(other.mins, other.maxes),
  *             p, 0, max_distance)             # <<<<<<<<<<<<<<
- *
+ * 
  *         results = coo_entries()
 */
-  __pyx_t_7 = PyFloat_FromDouble(__pyx_v_p); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 2118, __pyx_L1_error)
+  __pyx_t_7 = PyFloat_FromDouble(__pyx_v_p); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 2125, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_8 = PyFloat_FromDouble(__pyx_v_max_distance); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 2118, __pyx_L1_error)
+  __pyx_t_8 = PyFloat_FromDouble(__pyx_v_max_distance); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 2125, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __pyx_t_4 = 1;
   {
@@ -26701,15 +26722,15 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_14sparse_distance_matrix
     __Pyx_DECREF((PyObject *)__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 2115, __pyx_L1_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 2122, __pyx_L1_error)
     __Pyx_GOTREF((PyObject *)__pyx_t_2);
   }
   __pyx_v_tracker = ((struct __pyx_obj_5pyart_3map_7ckdtree_RectRectDistanceTracker *)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "pyart/map/ckdtree.pyx":2120
+  /* "pyart/map/ckdtree.pyx":2127
  *             p, 0, max_distance)
- *
+ * 
  *         results = coo_entries()             # <<<<<<<<<<<<<<
  *         self.__sparse_distance_matrix_traverse(other, results,
  *                                                self.tree, other.tree,
@@ -26720,39 +26741,39 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_14sparse_distance_matrix
     PyObject *__pyx_callargs[2] = {__pyx_t_8, NULL};
     __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_mstate_global->__pyx_ptype_5pyart_3map_7ckdtree_coo_entries, __pyx_callargs+__pyx_t_4, (1-__pyx_t_4) | (__pyx_t_4*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 2120, __pyx_L1_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 2127, __pyx_L1_error)
     __Pyx_GOTREF((PyObject *)__pyx_t_2);
   }
   __pyx_v_results = ((struct __pyx_obj_5pyart_3map_7ckdtree_coo_entries *)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "pyart/map/ckdtree.pyx":2121
- *
+  /* "pyart/map/ckdtree.pyx":2128
+ * 
  *         results = coo_entries()
  *         self.__sparse_distance_matrix_traverse(other, results,             # <<<<<<<<<<<<<<
  *                                                self.tree, other.tree,
  *                                                tracker)
 */
-  __pyx_t_9 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__sparse_distance_matrix_traverse(__pyx_v_self, __pyx_v_other, __pyx_v_results, __pyx_v_self->tree, __pyx_v_other->tree, __pyx_v_tracker); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2121, __pyx_L1_error)
+  __pyx_t_9 = ((struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree *)__pyx_v_self->__pyx_vtab)->_cKDTree__sparse_distance_matrix_traverse(__pyx_v_self, __pyx_v_other, __pyx_v_results, __pyx_v_self->tree, __pyx_v_other->tree, __pyx_v_tracker); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 2128, __pyx_L1_error)
 
 
-  /* "pyart/map/ckdtree.pyx":2125
+  /* "pyart/map/ckdtree.pyx":2132
  *                                                tracker)
- *
+ * 
  *         return results.to_matrix(shape=(self.n, other.n)).todok()             # <<<<<<<<<<<<<<
 */
   __pyx_t_6 = ((PyObject *)__pyx_v_results);
   __Pyx_INCREF(__pyx_t_6);
-  __pyx_t_5 = __Pyx_PyLong_From_npy_intp(__pyx_v_self->n); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 2125, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_npy_intp(__pyx_v_self->n); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 2132, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_3 = __Pyx_PyLong_From_npy_intp(__pyx_v_other->n); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 2125, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyLong_From_npy_intp(__pyx_v_other->n); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 2132, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_10 = PyTuple_New(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 2125, __pyx_L1_error)
+  __pyx_t_10 = PyTuple_New(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 2132, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __Pyx_GIVEREF(__pyx_t_5);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_t_5) != (0)) __PYX_ERR(0, 2125, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_t_5) != (0)) __PYX_ERR(0, 2132, __pyx_L1_error);
   __Pyx_GIVEREF(__pyx_t_3);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 1, __pyx_t_3) != (0)) __PYX_ERR(0, 2125, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_10, 1, __pyx_t_3) != (0)) __PYX_ERR(0, 2132, __pyx_L1_error);
   __pyx_t_5 = 0;
   __pyx_t_3 = 0;
   __pyx_t_4 = 0;
@@ -26760,13 +26781,13 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_14sparse_distance_matrix
     PyObject *__pyx_callargs[2] = {__pyx_t_6, __pyx_t_10};
     #if CYTHON_VECTORCALL
     __pyx_t_3 = __pyx_mstate_global->__pyx_tuple[1];
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 2125, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 2132, __pyx_L1_error)
     __Pyx_INCREF(__pyx_t_3);
     #else
     {
       PyObject *__pyx_temp[1] = {__pyx_mstate_global->__pyx_n_u_shape};
       __pyx_t_3 = __Pyx_MakeKwargDict(__pyx_temp, __pyx_callargs+1, 1);
-      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 2125, __pyx_L1_error)
+      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 2132, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
     }
     #endif
@@ -26774,7 +26795,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_14sparse_distance_matrix
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 2125, __pyx_L1_error)
+    if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 2132, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
   }
   __pyx_t_8 = __pyx_t_7;
@@ -26785,7 +26806,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_14sparse_distance_matrix
     __pyx_t_2 = __Pyx_PyObject_FastCallMethod((PyObject*)__pyx_mstate_global->__pyx_n_u_todok, __pyx_callargs+__pyx_t_4, (1-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 2125, __pyx_L1_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 2132, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
   }
   {
@@ -26799,9 +26820,9 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_14sparse_distance_matrix
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "pyart/map/ckdtree.pyx":2085
+  /* "pyart/map/ckdtree.pyx":2092
  *         return 0
- *
+ * 
  *     def sparse_distance_matrix(cKDTree self, cKDTree other,             # <<<<<<<<<<<<<<
  *                                np.float64_t max_distance,
  *                                np.float64_t p=2.):
@@ -26827,7 +26848,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_14sparse_distance_matrix
 }
 
 /* "pyart/map/ckdtree.pyx":835
- *
+ * 
  *     cdef innernode* tree
  *     cdef readonly np.ndarray data             # <<<<<<<<<<<<<<
  *     cdef np.float64_t* raw_data
@@ -27272,7 +27293,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_4mins___get__(struct __p
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5pyart_3map_7ckdtree_7cKDTree_17__reduce_cython__(PyObject *__pyx_v_self,
+static PyObject *__pyx_pw_5pyart_3map_7ckdtree_7cKDTree_17__reduce_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -27280,7 +27301,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
 static PyMethodDef __pyx_mdef_5pyart_3map_7ckdtree_7cKDTree_17__reduce_cython__ = {"__reduce_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5pyart_3map_7ckdtree_7cKDTree_17__reduce_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_5pyart_3map_7ckdtree_7cKDTree_17__reduce_cython__(PyObject *__pyx_v_self,
+static PyObject *__pyx_pw_5pyart_3map_7ckdtree_7cKDTree_17__reduce_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -27353,7 +27374,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_16__reduce_cython__(CYTH
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5pyart_3map_7ckdtree_7cKDTree_19__setstate_cython__(PyObject *__pyx_v_self,
+static PyObject *__pyx_pw_5pyart_3map_7ckdtree_7cKDTree_19__setstate_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -27361,7 +27382,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
 static PyMethodDef __pyx_mdef_5pyart_3map_7ckdtree_7cKDTree_19__setstate_cython__ = {"__setstate_cython__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_5pyart_3map_7ckdtree_7cKDTree_19__setstate_cython__, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_5pyart_3map_7ckdtree_7cKDTree_19__setstate_cython__(PyObject *__pyx_v_self,
+static PyObject *__pyx_pw_5pyart_3map_7ckdtree_7cKDTree_19__setstate_cython__(PyObject *__pyx_v_self, 
 #if CYTHON_VECTORCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -27471,7 +27492,7 @@ static PyObject *__pyx_pf_5pyart_3map_7ckdtree_7cKDTree_18__setstate_cython__(CY
 /* #### Code section: module_exttypes ### */
 static struct __pyx_vtabstruct_5pyart_3map_7ckdtree_heap __pyx_vtable_5pyart_3map_7ckdtree_heap;
 
-static PyObject *__pyx_tp_new__initialisation_5pyart_3map_7ckdtree_heap(PyObject *o,
+static PyObject *__pyx_tp_new__initialisation_5pyart_3map_7ckdtree_heap(PyObject *o, 
 #if CYTHON_VECTORCALL_TPNEW
     CYTHON_UNUSED PyObject *const *args, CYTHON_UNUSED Py_ssize_t nargs, CYTHON_UNUSED PyObject *kwnames
 #else
@@ -27483,7 +27504,7 @@ static PyObject *__pyx_tp_new__initialisation_5pyart_3map_7ckdtree_heap(PyObject
   return o;
 }
 
-static PyObject *__pyx_tp_new_vectorcall_5pyart_3map_7ckdtree_heap(PyTypeObject *t,
+static PyObject *__pyx_tp_new_vectorcall_5pyart_3map_7ckdtree_heap(PyTypeObject *t, 
 #if CYTHON_VECTORCALL_TPNEW
     PyObject *const *args, Py_ssize_t nargs, PyObject *kwnames
 #else
@@ -27493,7 +27514,7 @@ static PyObject *__pyx_tp_new_vectorcall_5pyart_3map_7ckdtree_heap(PyTypeObject 
   PyObject *o;
   o = __Pyx_AllocateExtensionType(t, 0);
   if (unlikely(!o)) return 0;
-  return __pyx_tp_new__initialisation_5pyart_3map_7ckdtree_heap(o,
+  return __pyx_tp_new__initialisation_5pyart_3map_7ckdtree_heap(o, 
 #if CYTHON_VECTORCALL_TPNEW
     args, nargs, kwnames
 #else
@@ -27666,7 +27687,7 @@ static PyTypeObject __pyx_type_5pyart_3map_7ckdtree_heap = {
 #endif
 static struct __pyx_vtabstruct_5pyart_3map_7ckdtree_coo_entries __pyx_vtable_5pyart_3map_7ckdtree_coo_entries;
 
-static PyObject *__pyx_tp_new__initialisation_5pyart_3map_7ckdtree_coo_entries(PyObject *o,
+static PyObject *__pyx_tp_new__initialisation_5pyart_3map_7ckdtree_coo_entries(PyObject *o, 
 #if CYTHON_VECTORCALL_TPNEW
     CYTHON_UNUSED PyObject *const *args, CYTHON_UNUSED Py_ssize_t nargs, CYTHON_UNUSED PyObject *kwnames
 #else
@@ -27681,7 +27702,7 @@ static PyObject *__pyx_tp_new__initialisation_5pyart_3map_7ckdtree_coo_entries(P
   return o;
 }
 
-static PyObject *__pyx_tp_new_vectorcall_5pyart_3map_7ckdtree_coo_entries(PyTypeObject *t,
+static PyObject *__pyx_tp_new_vectorcall_5pyart_3map_7ckdtree_coo_entries(PyTypeObject *t, 
 #if CYTHON_VECTORCALL_TPNEW
     PyObject *const *args, Py_ssize_t nargs, PyObject *kwnames
 #else
@@ -27691,7 +27712,7 @@ static PyObject *__pyx_tp_new_vectorcall_5pyart_3map_7ckdtree_coo_entries(PyType
   PyObject *o;
   o = __Pyx_AllocateExtensionType(t, 0);
   if (unlikely(!o)) return 0;
-  return __pyx_tp_new__initialisation_5pyart_3map_7ckdtree_coo_entries(o,
+  return __pyx_tp_new__initialisation_5pyart_3map_7ckdtree_coo_entries(o, 
 #if CYTHON_VECTORCALL_TPNEW
     args, nargs, kwnames
 #else
@@ -27897,7 +27918,7 @@ static PyTypeObject __pyx_type_5pyart_3map_7ckdtree_coo_entries = {
 };
 #endif
 
-static PyObject *__pyx_tp_new__initialisation_5pyart_3map_7ckdtree_Rectangle(PyObject *o,
+static PyObject *__pyx_tp_new__initialisation_5pyart_3map_7ckdtree_Rectangle(PyObject *o, 
 #if CYTHON_VECTORCALL_TPNEW
     CYTHON_UNUSED PyObject *const *args, CYTHON_UNUSED Py_ssize_t nargs, CYTHON_UNUSED PyObject *kwnames
 #else
@@ -27910,7 +27931,7 @@ static PyObject *__pyx_tp_new__initialisation_5pyart_3map_7ckdtree_Rectangle(PyO
   return o;
 }
 
-static PyObject *__pyx_tp_new_vectorcall_5pyart_3map_7ckdtree_Rectangle(PyTypeObject *t,
+static PyObject *__pyx_tp_new_vectorcall_5pyart_3map_7ckdtree_Rectangle(PyTypeObject *t, 
 #if CYTHON_VECTORCALL_TPNEW
     PyObject *const *args, Py_ssize_t nargs, PyObject *kwnames
 #else
@@ -27920,7 +27941,7 @@ static PyObject *__pyx_tp_new_vectorcall_5pyart_3map_7ckdtree_Rectangle(PyTypeOb
   PyObject *o;
   o = __Pyx_AllocateExtensionType(t, 0);
   if (unlikely(!o)) return 0;
-  return __pyx_tp_new__initialisation_5pyart_3map_7ckdtree_Rectangle(o,
+  return __pyx_tp_new__initialisation_5pyart_3map_7ckdtree_Rectangle(o, 
 #if CYTHON_VECTORCALL_TPNEW
     args, nargs, kwnames
 #else
@@ -28119,7 +28140,7 @@ static PyTypeObject __pyx_type_5pyart_3map_7ckdtree_Rectangle = {
 #endif
 static struct __pyx_vtabstruct_5pyart_3map_7ckdtree_RectRectDistanceTracker __pyx_vtable_5pyart_3map_7ckdtree_RectRectDistanceTracker;
 
-static PyObject *__pyx_tp_new__initialisation_5pyart_3map_7ckdtree_RectRectDistanceTracker(PyObject *o,
+static PyObject *__pyx_tp_new__initialisation_5pyart_3map_7ckdtree_RectRectDistanceTracker(PyObject *o, 
 #if CYTHON_VECTORCALL_TPNEW
     CYTHON_UNUSED PyObject *const *args, CYTHON_UNUSED Py_ssize_t nargs, CYTHON_UNUSED PyObject *kwnames
 #else
@@ -28133,7 +28154,7 @@ static PyObject *__pyx_tp_new__initialisation_5pyart_3map_7ckdtree_RectRectDista
   return o;
 }
 
-static PyObject *__pyx_tp_new_vectorcall_5pyart_3map_7ckdtree_RectRectDistanceTracker(PyTypeObject *t,
+static PyObject *__pyx_tp_new_vectorcall_5pyart_3map_7ckdtree_RectRectDistanceTracker(PyTypeObject *t, 
 #if CYTHON_VECTORCALL_TPNEW
     PyObject *const *args, Py_ssize_t nargs, PyObject *kwnames
 #else
@@ -28143,7 +28164,7 @@ static PyObject *__pyx_tp_new_vectorcall_5pyart_3map_7ckdtree_RectRectDistanceTr
   PyObject *o;
   o = __Pyx_AllocateExtensionType(t, 0);
   if (unlikely(!o)) return 0;
-  return __pyx_tp_new__initialisation_5pyart_3map_7ckdtree_RectRectDistanceTracker(o,
+  return __pyx_tp_new__initialisation_5pyart_3map_7ckdtree_RectRectDistanceTracker(o, 
 #if CYTHON_VECTORCALL_TPNEW
     args, nargs, kwnames
 #else
@@ -28350,7 +28371,7 @@ static PyTypeObject __pyx_type_5pyart_3map_7ckdtree_RectRectDistanceTracker = {
 #endif
 static struct __pyx_vtabstruct_5pyart_3map_7ckdtree_PointRectDistanceTracker __pyx_vtable_5pyart_3map_7ckdtree_PointRectDistanceTracker;
 
-static PyObject *__pyx_tp_new__initialisation_5pyart_3map_7ckdtree_PointRectDistanceTracker(PyObject *o,
+static PyObject *__pyx_tp_new__initialisation_5pyart_3map_7ckdtree_PointRectDistanceTracker(PyObject *o, 
 #if CYTHON_VECTORCALL_TPNEW
     CYTHON_UNUSED PyObject *const *args, CYTHON_UNUSED Py_ssize_t nargs, CYTHON_UNUSED PyObject *kwnames
 #else
@@ -28363,7 +28384,7 @@ static PyObject *__pyx_tp_new__initialisation_5pyart_3map_7ckdtree_PointRectDist
   return o;
 }
 
-static PyObject *__pyx_tp_new_vectorcall_5pyart_3map_7ckdtree_PointRectDistanceTracker(PyTypeObject *t,
+static PyObject *__pyx_tp_new_vectorcall_5pyart_3map_7ckdtree_PointRectDistanceTracker(PyTypeObject *t, 
 #if CYTHON_VECTORCALL_TPNEW
     PyObject *const *args, Py_ssize_t nargs, PyObject *kwnames
 #else
@@ -28373,7 +28394,7 @@ static PyObject *__pyx_tp_new_vectorcall_5pyart_3map_7ckdtree_PointRectDistanceT
   PyObject *o;
   o = __Pyx_AllocateExtensionType(t, 0);
   if (unlikely(!o)) return 0;
-  return __pyx_tp_new__initialisation_5pyart_3map_7ckdtree_PointRectDistanceTracker(o,
+  return __pyx_tp_new__initialisation_5pyart_3map_7ckdtree_PointRectDistanceTracker(o, 
 #if CYTHON_VECTORCALL_TPNEW
     args, nargs, kwnames
 #else
@@ -28560,7 +28581,7 @@ static PyTypeObject __pyx_type_5pyart_3map_7ckdtree_PointRectDistanceTracker = {
 #endif
 static struct __pyx_vtabstruct_5pyart_3map_7ckdtree_cKDTree __pyx_vtable_5pyart_3map_7ckdtree_cKDTree;
 
-static PyObject *__pyx_tp_new__initialisation_5pyart_3map_7ckdtree_cKDTree(PyObject *o,
+static PyObject *__pyx_tp_new__initialisation_5pyart_3map_7ckdtree_cKDTree(PyObject *o, 
 #if CYTHON_VECTORCALL_TPNEW
     CYTHON_UNUSED PyObject *const *args, CYTHON_UNUSED Py_ssize_t nargs, CYTHON_UNUSED PyObject *kwnames
 #else
@@ -28576,7 +28597,7 @@ static PyObject *__pyx_tp_new__initialisation_5pyart_3map_7ckdtree_cKDTree(PyObj
   return o;
 }
 
-static PyObject *__pyx_tp_new_vectorcall_5pyart_3map_7ckdtree_cKDTree(PyTypeObject *t,
+static PyObject *__pyx_tp_new_vectorcall_5pyart_3map_7ckdtree_cKDTree(PyTypeObject *t, 
 #if CYTHON_VECTORCALL_TPNEW
     PyObject *const *args, Py_ssize_t nargs, PyObject *kwnames
 #else
@@ -28586,7 +28607,7 @@ static PyObject *__pyx_tp_new_vectorcall_5pyart_3map_7ckdtree_cKDTree(PyTypeObje
   PyObject *o;
   o = __Pyx_AllocateExtensionType(t, 0);
   if (unlikely(!o)) return 0;
-  return __pyx_tp_new__initialisation_5pyart_3map_7ckdtree_cKDTree(o,
+  return __pyx_tp_new__initialisation_5pyart_3map_7ckdtree_cKDTree(o, 
 #if CYTHON_VECTORCALL_TPNEW
     args, nargs, kwnames
 #else
@@ -29574,7 +29595,7 @@ static CYTHON_SMALL_CODE int __pyx_pymod_exec_ckdtree(PyObject *__pyx_pyinit_mod
         Py_FatalError("failed to import 'refnanny' module");
   }
   #endif
-
+  
 __Pyx_RefNannySetupContext("PyInit_ckdtree", 0);
   __Pyx_init_runtime_version();
   if (__Pyx_check_binary_version(__PYX_LIMITED_VERSION_HEX, __Pyx_get_runtime_version(), CYTHON_COMPILING_IN_LIMITED_API) < (0)) __PYX_ERR(0, 1, __pyx_L1_error)
@@ -29622,7 +29643,7 @@ __Pyx_RefNannySetupContext("PyInit_ckdtree", 0);
  * # Released under the scipy license
  * import numpy as np             # <<<<<<<<<<<<<<
  * import scipy.sparse
- *
+ * 
 */
   __pyx_t_1 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_numpy, 0, 0, NULL, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 40, __pyx_L1_error)
   __pyx_t_2 = __pyx_t_1;
@@ -29634,7 +29655,7 @@ __Pyx_RefNannySetupContext("PyInit_ckdtree", 0);
  * # Released under the scipy license
  * import numpy as np
  * import scipy.sparse             # <<<<<<<<<<<<<<
- *
+ * 
  * cimport cython
 */
   __pyx_t_1 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_scipy_sparse, 0, 0, NULL, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 41, __pyx_L1_error)
@@ -29647,7 +29668,7 @@ __Pyx_RefNannySetupContext("PyInit_ckdtree", 0);
  * cdef extern from "limits.h":
  *     long LONG_MAX
  * cdef np.float64_t infinity = np.inf             # <<<<<<<<<<<<<<
- *
+ * 
  * __all__ = ['cKDTree']
 */
   __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 50, __pyx_L1_error)
@@ -29661,10 +29682,10 @@ __Pyx_RefNannySetupContext("PyInit_ckdtree", 0);
 
   /* "pyart/map/ckdtree.pyx":52
  * cdef np.float64_t infinity = np.inf
- *
+ * 
  * __all__ = ['cKDTree']             # <<<<<<<<<<<<<<
- *
- *
+ * 
+ * 
 */
   {
     PyObject* __pyx_temp[1] = {__pyx_mstate_global->__pyx_n_u_cKDTree};
@@ -29703,7 +29724,7 @@ __Pyx_RefNannySetupContext("PyInit_ckdtree", 0);
 
   /* "pyart/map/ckdtree.pyx":273
  *         self.n += 1
- *
+ * 
  *     def to_matrix(coo_entries self, shape=None):             # <<<<<<<<<<<<<<
  *         # Shrink arrays to size
  *         self.i.resize(self.n)
@@ -29773,18 +29794,18 @@ __Pyx_RefNannySetupContext("PyInit_ckdtree", 0);
 
   /* "pyart/map/ckdtree.pyx":455
  *     np.float64_t min_distance, max_distance
- *
+ * 
  * cdef np.intp_t LESS = 1             # <<<<<<<<<<<<<<
  * cdef np.intp_t GREATER = 2
- *
+ * 
 */
   __pyx_v_5pyart_3map_7ckdtree_LESS = 1;
 
   /* "pyart/map/ckdtree.pyx":456
- *
+ * 
  * cdef np.intp_t LESS = 1
  * cdef np.intp_t GREATER = 2             # <<<<<<<<<<<<<<
- *
+ * 
  * cdef class RectRectDistanceTracker(object):
 */
   __pyx_v_5pyart_3map_7ckdtree_GREATER = 2;
@@ -29843,120 +29864,120 @@ __Pyx_RefNannySetupContext("PyInit_ckdtree", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_setstate_cython, __pyx_t_3) < (0)) __PYX_ERR(2, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pyart/map/ckdtree.pyx":1207
+  /* "pyart/map/ckdtree.pyx":1214
  *     @cython.wraparound(False)
  *     def query(cKDTree self, object x, np.intp_t k=1, np.float64_t eps=0,
  *               np.float64_t p=2, np.float64_t distance_upper_bound=infinity):             # <<<<<<<<<<<<<<
  *         """query(self, x, k=1, eps=0, p=2, distance_upper_bound=np.inf)
- *
+ * 
 */
 
   __pyx_mstate_global->__pyx_k__2 = __pyx_v_5pyart_3map_7ckdtree_infinity;
 
 
-  /* "pyart/map/ckdtree.pyx":1204
- *
- *
+  /* "pyart/map/ckdtree.pyx":1211
+ * 
+ * 
  *     @cython.boundscheck(False)             # <<<<<<<<<<<<<<
  *     @cython.wraparound(False)
  *     def query(cKDTree self, object x, np.intp_t k=1, np.float64_t eps=0,
 */
-  __pyx_t_3 = PyFloat_FromDouble(__pyx_v_5pyart_3map_7ckdtree_infinity); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1207, __pyx_L1_error)
+  __pyx_t_3 = PyFloat_FromDouble(__pyx_v_5pyart_3map_7ckdtree_infinity); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1214, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   {
     PyObject* __pyx_temp[4] = {__pyx_mstate_global->__pyx_int_1, __pyx_mstate_global->__pyx_float_0_0, __pyx_mstate_global->__pyx_float_2_0, __pyx_t_3};
-    __pyx_t_2 = __Pyx_PyTuple_FromArray(__pyx_temp, 4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1204, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyTuple_FromArray(__pyx_temp, 4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1211, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
   }
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_5pyart_3map_7ckdtree_7cKDTree_5query, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_cKDTree_query, NULL, __pyx_mstate_global->__pyx_n_u_pyart_map_ckdtree, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[11])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1204, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_5pyart_3map_7ckdtree_7cKDTree_5query, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_cKDTree_query, NULL, __pyx_mstate_global->__pyx_n_u_pyart_map_ckdtree, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[11])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1211, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_3);
   #endif
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_3, __pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_5pyart_3map_7ckdtree_cKDTree, __pyx_mstate_global->__pyx_n_u_query, __pyx_t_3) < (0)) __PYX_ERR(0, 1204, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_5pyart_3map_7ckdtree_cKDTree, __pyx_mstate_global->__pyx_n_u_query, __pyx_t_3) < (0)) __PYX_ERR(0, 1211, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pyart/map/ckdtree.pyx":1384
- *
- *
+  /* "pyart/map/ckdtree.pyx":1391
+ * 
+ * 
  *     def query_ball_point(cKDTree self, object x, np.float64_t r,             # <<<<<<<<<<<<<<
  *                          np.float64_t p=2., np.float64_t eps=0):
  *         """query_ball_point(self, x, r, p, eps)
 */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_5pyart_3map_7ckdtree_7cKDTree_7query_ball_point, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_cKDTree_query_ball_point, NULL, __pyx_mstate_global->__pyx_n_u_pyart_map_ckdtree, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[12])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1384, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_5pyart_3map_7ckdtree_7cKDTree_7query_ball_point, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_cKDTree_query_ball_point, NULL, __pyx_mstate_global->__pyx_n_u_pyart_map_ckdtree, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[12])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1391, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_3);
   #endif
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_3, __pyx_mstate_global->__pyx_tuple[6]);
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_5pyart_3map_7ckdtree_cKDTree, __pyx_mstate_global->__pyx_n_u_query_ball_point, __pyx_t_3) < (0)) __PYX_ERR(0, 1384, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_5pyart_3map_7ckdtree_cKDTree, __pyx_mstate_global->__pyx_n_u_query_ball_point, __pyx_t_3) < (0)) __PYX_ERR(0, 1391, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pyart/map/ckdtree.pyx":1568
- *
- *
+  /* "pyart/map/ckdtree.pyx":1575
+ * 
+ * 
  *     def query_ball_tree(cKDTree self, cKDTree other,             # <<<<<<<<<<<<<<
  *                         np.float64_t r, np.float64_t p=2., np.float64_t eps=0):
  *         """query_ball_tree(self, other, r, p, eps)
 */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_5pyart_3map_7ckdtree_7cKDTree_9query_ball_tree, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_cKDTree_query_ball_tree, NULL, __pyx_mstate_global->__pyx_n_u_pyart_map_ckdtree, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[13])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1568, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_5pyart_3map_7ckdtree_7cKDTree_9query_ball_tree, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_cKDTree_query_ball_tree, NULL, __pyx_mstate_global->__pyx_n_u_pyart_map_ckdtree, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[13])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1575, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_3);
   #endif
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_3, __pyx_mstate_global->__pyx_tuple[6]);
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_5pyart_3map_7ckdtree_cKDTree, __pyx_mstate_global->__pyx_n_u_query_ball_tree, __pyx_t_3) < (0)) __PYX_ERR(0, 1568, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_5pyart_3map_7ckdtree_cKDTree, __pyx_mstate_global->__pyx_n_u_query_ball_tree, __pyx_t_3) < (0)) __PYX_ERR(0, 1575, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pyart/map/ckdtree.pyx":1759
- *
- *
+  /* "pyart/map/ckdtree.pyx":1766
+ * 
+ * 
  *     def query_pairs(cKDTree self, np.float64_t r, np.float64_t p=2.,             # <<<<<<<<<<<<<<
  *                     np.float64_t eps=0):
  *         """query_pairs(self, r, p, eps)
 */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_5pyart_3map_7ckdtree_7cKDTree_11query_pairs, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_cKDTree_query_pairs, NULL, __pyx_mstate_global->__pyx_n_u_pyart_map_ckdtree, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[14])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1759, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_5pyart_3map_7ckdtree_7cKDTree_11query_pairs, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_cKDTree_query_pairs, NULL, __pyx_mstate_global->__pyx_n_u_pyart_map_ckdtree, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[14])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1766, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_3);
   #endif
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_3, __pyx_mstate_global->__pyx_tuple[6]);
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_5pyart_3map_7ckdtree_cKDTree, __pyx_mstate_global->__pyx_n_u_query_pairs, __pyx_t_3) < (0)) __PYX_ERR(0, 1759, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_5pyart_3map_7ckdtree_cKDTree, __pyx_mstate_global->__pyx_n_u_query_pairs, __pyx_t_3) < (0)) __PYX_ERR(0, 1766, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pyart/map/ckdtree.pyx":1911
+  /* "pyart/map/ckdtree.pyx":1918
  *         return 0
- *
+ * 
  *     @cython.boundscheck(False)             # <<<<<<<<<<<<<<
  *     @cython.wraparound(False)
  *     def count_neighbors(cKDTree self, cKDTree other, object r, np.float64_t p=2.):
 */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_5pyart_3map_7ckdtree_7cKDTree_13count_neighbors, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_cKDTree_count_neighbors, NULL, __pyx_mstate_global->__pyx_n_u_pyart_map_ckdtree, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[15])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1911, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_5pyart_3map_7ckdtree_7cKDTree_13count_neighbors, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_cKDTree_count_neighbors, NULL, __pyx_mstate_global->__pyx_n_u_pyart_map_ckdtree, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[15])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1918, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_3);
   #endif
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_3, __pyx_mstate_global->__pyx_tuple[7]);
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_5pyart_3map_7ckdtree_cKDTree, __pyx_mstate_global->__pyx_n_u_count_neighbors, __pyx_t_3) < (0)) __PYX_ERR(0, 1911, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_5pyart_3map_7ckdtree_cKDTree, __pyx_mstate_global->__pyx_n_u_count_neighbors, __pyx_t_3) < (0)) __PYX_ERR(0, 1918, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pyart/map/ckdtree.pyx":2085
+  /* "pyart/map/ckdtree.pyx":2092
  *         return 0
- *
+ * 
  *     def sparse_distance_matrix(cKDTree self, cKDTree other,             # <<<<<<<<<<<<<<
  *                                np.float64_t max_distance,
  *                                np.float64_t p=2.):
 */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_5pyart_3map_7ckdtree_7cKDTree_15sparse_distance_matrix, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_cKDTree_sparse_distance_matrix, NULL, __pyx_mstate_global->__pyx_n_u_pyart_map_ckdtree, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[16])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 2085, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_5pyart_3map_7ckdtree_7cKDTree_15sparse_distance_matrix, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_cKDTree_sparse_distance_matrix, NULL, __pyx_mstate_global->__pyx_n_u_pyart_map_ckdtree, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[16])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 2092, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_3);
   #endif
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_3, __pyx_mstate_global->__pyx_tuple[7]);
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_5pyart_3map_7ckdtree_cKDTree, __pyx_mstate_global->__pyx_n_u_sparse_distance_matrix, __pyx_t_3) < (0)) __PYX_ERR(0, 2085, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_5pyart_3map_7ckdtree_cKDTree, __pyx_mstate_global->__pyx_n_u_sparse_distance_matrix, __pyx_t_3) < (0)) __PYX_ERR(0, 2092, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "(tree fragment)":1
@@ -30073,7 +30094,7 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
  *         self.n_max = self.n
  *         return scipy.sparse.coo_matrix((self.v, (self.i, self.j)),             # <<<<<<<<<<<<<<
  *                                        shape=shape)
- *
+ * 
 */
   {
     PyObject* __pyx_temp[1] = {__pyx_mstate_global->__pyx_n_u_shape};
@@ -30110,18 +30131,18 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
   }
   __Pyx_GIVEREF(__pyx_mstate_global->__pyx_tuple[3]);
 
-  /* "pyart/map/ckdtree.pyx":1258
+  /* "pyart/map/ckdtree.pyx":1265
  *         if len(x.shape)==1:
  *             single = True
  *             x = x[np.newaxis,:]             # <<<<<<<<<<<<<<
  *         else:
  *             single = False
 */
-  __pyx_mstate_global->__pyx_slice[0] = PySlice_New(Py_None, Py_None, Py_None); if (unlikely(!__pyx_mstate_global->__pyx_slice[0])) __PYX_ERR(0, 1258, __pyx_L1_error)
+  __pyx_mstate_global->__pyx_slice[0] = PySlice_New(Py_None, Py_None, Py_None); if (unlikely(!__pyx_mstate_global->__pyx_slice[0])) __PYX_ERR(0, 1265, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_mstate_global->__pyx_slice[0]);
   __Pyx_GIVEREF(__pyx_mstate_global->__pyx_slice[0]);
 
-  /* "pyart/map/ckdtree.pyx":1295
+  /* "pyart/map/ckdtree.pyx":1302
  *                             # C long overlow, return array of dtype=np.int_p
  *                             if k==1:
  *                                 return np.reshape(dd[...,0],retshape), np.reshape(ii[...,0],retshape)             # <<<<<<<<<<<<<<
@@ -30130,25 +30151,25 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
 */
   {
     PyObject* __pyx_temp[2] = {Py_Ellipsis, __pyx_mstate_global->__pyx_int_0};
-    __pyx_mstate_global->__pyx_tuple[4] = __Pyx_PyTuple_FromArray(__pyx_temp, 2); if (unlikely(!__pyx_mstate_global->__pyx_tuple[4])) __PYX_ERR(0, 1295, __pyx_L1_error)
+    __pyx_mstate_global->__pyx_tuple[4] = __Pyx_PyTuple_FromArray(__pyx_temp, 2); if (unlikely(!__pyx_mstate_global->__pyx_tuple[4])) __PYX_ERR(0, 1302, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_mstate_global->__pyx_tuple[4]);
   }
   __Pyx_GIVEREF(__pyx_mstate_global->__pyx_tuple[4]);
 
-  /* "pyart/map/ckdtree.pyx":1437
+  /* "pyart/map/ckdtree.pyx":1444
  *             return self.__query_ball_point(&xx[0], r, p, eps)
  *         else:
  *             retshape = x.shape[:-1]             # <<<<<<<<<<<<<<
  *             result = np.empty(retshape, dtype=np.object)
  *             for c in np.ndindex(retshape):
 */
-  __pyx_mstate_global->__pyx_slice[1] = PySlice_New(Py_None, __pyx_mstate_global->__pyx_int_neg_1, Py_None); if (unlikely(!__pyx_mstate_global->__pyx_slice[1])) __PYX_ERR(0, 1437, __pyx_L1_error)
+  __pyx_mstate_global->__pyx_slice[1] = PySlice_New(Py_None, __pyx_mstate_global->__pyx_int_neg_1, Py_None); if (unlikely(!__pyx_mstate_global->__pyx_slice[1])) __PYX_ERR(0, 1444, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_mstate_global->__pyx_slice[1]);
   __Pyx_GIVEREF(__pyx_mstate_global->__pyx_slice[1]);
 
   /* "pyart/map/ckdtree.pyx":273
  *         self.n += 1
- *
+ * 
  *     def to_matrix(coo_entries self, shape=None):             # <<<<<<<<<<<<<<
  *         # Shrink arrays to size
  *         self.i.resize(self.n)
@@ -30160,30 +30181,30 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
   }
   __Pyx_GIVEREF(__pyx_mstate_global->__pyx_tuple[5]);
 
-  /* "pyart/map/ckdtree.pyx":1384
- *
- *
+  /* "pyart/map/ckdtree.pyx":1391
+ * 
+ * 
  *     def query_ball_point(cKDTree self, object x, np.float64_t r,             # <<<<<<<<<<<<<<
  *                          np.float64_t p=2., np.float64_t eps=0):
  *         """query_ball_point(self, x, r, p, eps)
 */
   {
     PyObject* __pyx_temp[2] = {__pyx_mstate_global->__pyx_float_2_, __pyx_mstate_global->__pyx_float_0_0};
-    __pyx_mstate_global->__pyx_tuple[6] = __Pyx_PyTuple_FromArray(__pyx_temp, 2); if (unlikely(!__pyx_mstate_global->__pyx_tuple[6])) __PYX_ERR(0, 1384, __pyx_L1_error)
+    __pyx_mstate_global->__pyx_tuple[6] = __Pyx_PyTuple_FromArray(__pyx_temp, 2); if (unlikely(!__pyx_mstate_global->__pyx_tuple[6])) __PYX_ERR(0, 1391, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_mstate_global->__pyx_tuple[6]);
   }
   __Pyx_GIVEREF(__pyx_mstate_global->__pyx_tuple[6]);
 
-  /* "pyart/map/ckdtree.pyx":1911
+  /* "pyart/map/ckdtree.pyx":1918
  *         return 0
- *
+ * 
  *     @cython.boundscheck(False)             # <<<<<<<<<<<<<<
  *     @cython.wraparound(False)
  *     def count_neighbors(cKDTree self, cKDTree other, object r, np.float64_t p=2.):
 */
   {
     PyObject* __pyx_temp[1] = {__pyx_mstate_global->__pyx_float_2_};
-    __pyx_mstate_global->__pyx_tuple[7] = __Pyx_PyTuple_FromArray(__pyx_temp, 1); if (unlikely(!__pyx_mstate_global->__pyx_tuple[7])) __PYX_ERR(0, 1911, __pyx_L1_error)
+    __pyx_mstate_global->__pyx_tuple[7] = __Pyx_PyTuple_FromArray(__pyx_temp, 1); if (unlikely(!__pyx_mstate_global->__pyx_tuple[7])) __PYX_ERR(0, 1918, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_mstate_global->__pyx_tuple[7]);
   }
   __Pyx_GIVEREF(__pyx_mstate_global->__pyx_tuple[7]);
@@ -30253,7 +30274,7 @@ static int __Pyx_InitConstants(__pyx_mstatetype *__pyx_mstate) {
       #define CYTHON_COMPRESS_STRINGS 90
     #endif
     #if (CYTHON_COMPRESS_STRINGS) == 1 /* compression: zlib (2777 bytes) */
-static const char cstring[] = "x\332\245WIs\333F\026\016m\305Q\034el-^f&S\323\262\306\221\024\323\264)+\216\263(S\222eg2\331D\212N\234R4T\023h\222\260@\000\304\"\221\251JU\216<\342\210#\2168\362\310#\217:\362\310#\177\202~\302|\335\000AP\224<\025\017\253$\000\257\037\336\372\365\327\017\244\344\330\244J-\253J\rF\210b\263\232E$\252i\272MJ\214\230\314R~e2\261u\262b\233\214\221\262I+5\246\331\253\367e\005WK\3215\252\222o\266\013X\034\023\031\272\242\331D\321\010%\377\374\027\243\006\221t\315\246\212\246h\025\362\275n3bW\251M\2366\355\252\256\021\305\"2S\225\0223\251\315\324&\261lS\221lfr%\215\354<\333\271\277\376d\235PMF@\257\230d[\304rJ\222\212\260\231E\3642)9\212j\303\227\3354\230\225!_\227ISw\210\306\302\310\r\350%_\260\253L#\026\263\371\rY\026\271R\033Q\027\361:\302[&\262b\302\211r\304\370\333\317\251j\261\314\017\032\3022\356k\272\211\372\034+v\225d\277\3300\276\330P\2642r\262\261\306\314\232b\333L\336e\324\224\252<\315\262n\"{^\031K\304\020FSw\230\331,\226\250\252\026m\261T\245p$+\34523QX\222(\"\354RY.\">&\205%\316$\336\016+\274\242*\032#\331GO\326We\305\242%\2251\215\377\257H\212\025\336\311*\243e\336FRs,\321U\024\0362\334g5\247f43EI7Y\246\346\240\206\3244i\223\224\251\242\206\321*5C7\355\244\232S\243\310\376\254\206\321\244\246\375\240F\215\007\322\241\314\363\312\030\315\306\331`W,\246\226\323\244\221&f\232\030i\302\014k\365\352U\022\375\236+\350/tC\350\204UFO\221\225M5\tX\344\235\216\354\254\222Ff\364\346\0165i\215\001/V,\272\037\377bQ\203|FDzEU9di\022B\336v\014\225\221{D\304\226\251\245Wc}\376+\000!a\235\321\313(.\344l\211\036\213\006kL\251TK\272\311q\230\211\3375\341\313\320-E\200\250\254\352\324\2360kRYq\2548\047a\327d\266cj#3\006\314\210\267\323D7l\201\2111;?U\025\204\361\235\242\035\352\307\326\241\022\001\224[r\200YBv\253\272\243\312\274\345|s\010\247Z\205\221\275l\032\202\362\376\310\021:\001W\232\256i\254BGA_\340v\3230L\275\241\000\010,*E\206l\301\264T\r\267#\367$\330\202\232\214p&a\rC\005vd\242\210E\305\0343\247\301\004\003\032\243:\360\227\312\216\t\275h\377\037\034\230\344\001Y""\311\242K\0341\007\007iA\005\245\241G\2740f\017{\206\273\322@\013\352a\3542\2629\356G\270\016\335\214\231\340.?J\272L\240-/\2324\001\265Q\357\231\205\235\304\353\251\002\272\0348\341\246Ba\270\300\032s\004\252:h\034p\002\244\304\002i\250\021\336\322\021\026\270<4\023\226\025{D\221\342*\237)\343\010\211\334h&i\\\033\005\021\246\237p\240\021\275\304Yu\274\210C\365\3446Ip\270H\205\257\307n\023%\342\004\177\246@W\023\031sr\026\254W\243Z3\336\356U\335b\211$\270\3221\305\316\003\232\301\261rZHj\010\312\302\253\2619\360:\347\0070\227JhMw\2640*\033,JJ0\356\3306\017\027\305\252\205\247Q\304\244\002B\016/yl\352\0143\047\362y\326\2405\344?I/\261\340\313/\277\304\331\250\327\210%)F3\"Eb\031\224\0076\246\005\366k\222\r\242\031\231Z\305T\344\275\207\237\255\247\t\376\355\217iEE\331 \277*\306J#c\"eue\025\257\016oW\307\324\305n\333\030\372\313D9\256\204V&U\047\216\221\225\2755\004\261\237&\331\221\362\036\342z\222&\237B\270\266\1775Am\303c\204)b\217\306\300=\242\252\303\004\336\211\256\215O\0031\232\204\216\305\217\327lt\236K\366\332\205G\240%H\271*\306\207x&\001\010\217\230i\207\247\017%;\341\010\021BXP\262\241H\2078\025+\342e\245(S\233\246\305\375\253\304\375\221\270\177c\2635\332`Vh\251\246h\326\033\3331\354\320\0100,\035\276\261\025\223\036\047R\343O\021O\214\004\211\200\305#\202\016\237\004t\336\324\361\033\207\335\010Q\004}+b\267#\250D\344\2452\255\202\031\343\351\016\207f\036\362\355h\006(\230p\307\314\213\344\231b\021\207\214#\261\242$\034\027\213\257\321\304\000\010\221=\322\345j\347\250^ \236\364u\261\342\271\256(\3373\361\315\371\346\206K\023\006\220Y\263\201\277m\214\311\305\357Y\003\216\313\305\"\337\316\370E\023-\343\367b\346-V\230\315\047{.(;\232\304\257\225\241I\374j\340tq\325eG\025\022\r\363\024\277b\210+Fj\374\366\310\346\003%_\250;T\035*E\201\027\047R\210\005\254\301\037\220El\330J\270?\047;\034\0376.\212\305gN\335\001\2053\n\004S\300\226\212\031F\020\n\265\242\013?\227\224\212\243;C\001\377\020\240VS\223\024=\023[\260hC\261\244\210\033\207\003\365D\320\243\205""\211\270\206K\022?f\212\361Q56\233_4\250\237#\267\023a\204b\203*#s s\323b\305\341\374\213.\341\253\250!\361y\037\333\033oS\211\225\0001I\327\213`MSaV\342\366\234\304\306\026\047\223K,\333\372\320\233>\272\033\313Y\346t#\313qp\216\201\017\240b\tJ\262\314\213\317j\206\335\304\350TVTU\214\222\217\3279\215\363\277\311\310\"\351DH\212\"7\024%\372\304\302\271V\344_1\250\245!>S_\035\016?l\200\214\270L\202\347\212\200\001g8~\325\264\"/.\322\002%j2kh\354\230\003A3\304WM\310M\272)3S\347\307\231a\350|\272\225\305\007\rh\336\310D\0374\242Cg\273z\246\233\211.\232&C\300\2468\351\304!\207\261\220OR\341\027u8#F\223\"\0061\261$F\007\361/\352=\247X\024Efe\312\365\252\241\2268l#\205s!\022w\317\326e\375\320\016i(\321\240\360\014n4\032\210C\267~O\365\247\256\266\356\271\271\3377\373+\033\235\334\351\313\324[\357\276\337\332jU]\352\232\336-?\345\317\371\331\376\364{\255l\353\271{\307}\352Z\336?<\332\237\231s?\3626\275\\\377\311\347\235lg\263\363cw\255\373\342d\351$w\"\367\362\273\\\377Q\213\266\352\356\264w\331\313\366gf\335\271\336\374]?\347K\301\315\300l\317\366g\346\335\365\336\255\217\202\305 \033l\0054\260\333\217\332Rgv0s\313\255{W<\311\207\312\r7\357\036y9\357Up%(\265S\375\231\353\356\333\0205\274\272\237\352_\307j\357\326j0+Ll\267\257\264K\035Ho\"l\307\333\356\221G\355l{\263\235o\327;S\235\247\035\253\273\310]f\221\345\047\337\236l\236~\366\326\2733\255\365\226\345.\271/\274\3058\233\323+o\275;\337\233\203U\356=\347\312\336\262\277\340\347\302\007\346}\342\337\365\353\375\231k-\307\335\034L\317\271\213\356#\250\334\365\034\177\323/\340\235\351\231\336\314C\036\350\274\373\251\267\355\277\343;\301W\355\354`\372Z\253\376\373\346 \363\340\364\341\377\347\326r\027\271\333{(;w\225A\335\216\333\264\377\340Q\373\223\316\335N\275\377\340!\367u\354\276B\327n\005S\250\312\333\355B\347f\207{_{\336\245\375\277mu\027O\013\347w\370\375V\276u\004\177\2247o\255\225kI\356,\342\314\271\2227\217dR\243\226\337\313\210\206}\334\271\324\371\260\233\352\316\206/\344[\365\221J\334\377w\340\"\314\212""\267/\005\223wP;\361\234\3648\357\256\tO\263\000W\t\276\246gZ\337z\227PZ\336j\241\330\000..{k^\001\310\340\202\336\265E\177\326_\362\177\014\326\202\330V\036\336\346\275\347\376\035\177\263?}\265u\027\001\244^\2636\345nrO\317\334\033(E\235\0078\355\245\020\303\035\344\260\353O\241\253y\277\036\\\016\326\203z\373R{\021\020\245\375?\177\340=\363\347}\364\037[\2027\245\356^r\027\373\327\347\335\r\377\222\2778X\270\3053\206\211\247\236\345\337Ch\267\377\356\231\210\364\216\277\rK!\330\261\001\006\t\361%@\030I\000\0057>@\2069T`\312\337\362\251o\006\263\203\353\241=Q\026\037\373\343Z\3537o\313\243\203\353\013\3563\357\206G\275z\177\341\266\367\266\367\302_D\027o\37752p\331_\363\367\332\251\301\007\177G\t\021W\237,\303\334\355\366l\373\016\266E\2413\337\371\246k\236\334\356\345\362\275|\241Wx\321{\361s\357\347_z\277\354\017b\305\245\366\313N\276s\324\315w\033\047\365\336\316now\257\267\267\337\333\377\017\002\235]p\263\356\026:\267\300\035\276\304\306.\005\251`!\330m\277\327Y\353\274\354\346\272\245\223\324\311\302\311no\007v\017z\007\264GK\203XY\202\203\271\366\343\316\\\347I7\333}\n\007f/\207\030x\000\334\301\364\037q\220\373\037v\363@\377\367?\234n\247.\330|\323\\\276\326\372\021\0169\273-\216\210\207z\266\3778\230\013\320\347\333^\252\377>\007\360\234\373\030\355X\362\362(|\254(\3717y\263\204\232w\223\203v\220\334\333\334\374\256\033\021\030|\203\021\201\227\320\316.\000\276\360\027\310>\366\257\240\345V\260\024\374\021\032\022\252\330S\317\201\270\357\"n\235\376S\253\204\215W\367\336\213\242\347d\261\014$\277\023\324\373+\253\320\252\267\247\200\202\237\300\333\205\356lw\t\325\244\375\2254\310\352cp\350\312\352@l\350DA8\251P\334.y\277 &@\022R\204\001\304q|\036\013\024NV\007|\333\233\002\305\017\260\307\266Z\025\221\310b\377\265\017\377vu\177\037;m\275]?\357\261ws\331\377M\340\227\223m\353k\267\000r\231\346\205\370\312\373\034\010\231\n\236\265\027\260\272\320\311\365\227\357\007\271\336\324&\350\351\356\207\247\353\257)h\374\020\361\272\340&T,\035lr\205\002(r\312\377*""\010y\374\277\324\311\217*";
+static const char cstring[] = "x\332\245WIs\333F\026\016m\305Q\034el-^f&S\323\262\306\221\024\323\264)+\216\263(S\222eg2\331D\212N\234R4T\023h\222\260@\000\304\"\221\251JU\216<\342\210#\2168\362\310#\217:\362\310#\177\202~\302|\335\000AP\224<\025\017\253$\000\257\037\336\372\365\327\017\244\344\330\244J-\253J\rF\210b\263\232E$\252i\272MJ\214\230\314R~e2\261u\262b\233\214\221\262I+5\246\331\253\367e\005WK\3215\252\222o\266\013X\034\023\031\272\242\331D\321\010%\377\374\027\243\006\221t\315\246\212\246h\025\362\275n3bW\251M\2366\355\252\256\021\305\"2S\225\0223\251\315\324&\261lS\221lfr%\215\354<\333\271\277\376d\235PMF@\257\230d[\304rJ\222\212\260\231E\3642)9\212j\303\227\3354\230\225!_\227ISw\210\306\302\310\r\350%_\260\253L#\026\263\371\rY\026\271R\033Q\027\361:\302[&\262b\302\211r\304\370\333\317\251j\261\314\017\032\3022\356k\272\211\372\034+v\225d\277\3300\276\330P\2642r\262\261\306\314\232b\333L\336e\324\224\252<\315\262n\"{^\031K\304\020FSw\230\331,\226\250\252\026m\261T\245p$+\34523QX\222(\"\354RY.\">&\205%\316$\336\016+\274\242*\032#\331G\237fWe\305\242%\2251\215\377\257H\212\025\336\311*\243e\336FRs,\321U\024\0362\334g5\247f43EI7Y\246\346\240\206\3244i\223\224\251\242\206\321*5C7\355\244\232S\243\310\376\254\206\321\244\246\375\240F\215\007\322\241\314\363\312\030\315\306\331`W,\246\226\323\244\221&f\232\030i\302\014k\365\352U\022\375\236+\350/tC\350\204UFO\221\225M5\tX\344\235\216\354\254\222Ff\364\346\0165i\215\001/V,\272\037\377bQ\203|FDzEU9di\022B\336v\014\225\221{D\304\226\251\245Wc}\376+\000!a\235\321\313(.\344l\211\036\213\006kL\251TK\272\311q\230\211\3375\341\313\320-E\200\250\254\352\324\2360kRYq\2548\047a\327d\266cj#3\006\314\210\267\323D7l\201\2111;?U\025\204\361\235\242\035\352\307\326\241\022\001\224[r\200YBv\253\272\243\312\274\345|s\010\247Z\205\221\275l\032\202\362\376\310\021:\001W\232\256i\254BGA_\340v\3230L\275\241\000\010,*E\206l\301\264T\r\267#\367$\330\202\232\214p&a\rC\005vd\242\210E\305\0343\247\301\004\003\032\243:\360\227\312\216\t\275h\377\037\034\230\344\001Y""\311\242K\0341\007\007iA\005\245\241G\2740f\017{\206\273\322@\013\352a\3542\2629\356G\270\016\335\214\231\340.?J\272L\240-/\2324\001\265Q\357\231\205\235\304\353\251\002\272\0348\341\246Ba\270\300\032s\004\252:h\034p\002\244\304\002i\250\021\336\322\021\026\270<4\023\226\025{D\221\342*\237)\343\010\211\334h&i\\\033\005\021\246\237p\240\021\275\304Yu\274\210C\365\3446Ip\270H\205\257\307n\023%\342\004\177\246@W\023\031sr\026\254W\243Z3\336\356U\335b\211$\270\3221\305\316\003\232\301\261rZHj\010\312\302\253\2619\360:\347\0070\227JhMw\2640*\033,JJ0\356\3306\017\027\305\252\205\247Q\304\244\002B\016/yl\352\0143\047\362y\326\2405\344?I/\261\340\313/\277\304\331\250\327\210%)F3\"Eb\031\224\0076\246\005\366k\222\r\242\031\231Z\305T\344\275\207\237\255\247\t\376\355\217iEE\331 \277*\306J#c\"eue\025\257\016oW\307\324\305n\333\030\372\313D9\256\204V&U\047\216\221\225\2755\004\261\237&\331\221\362\036\342z\222&\237B\270\266\1775Am\303c\204)b\217\306\300=\242\252\303\004\336\211\256\215O\0031\232\204\216\305\217\327lt\236K\366\332\205G\240%H\271*\306\207x&\001\010\217\230i\207\247\017%;\341\010\021BXP\262\241H\2078\025+\342e\245(S\233\246\305\375\253\304\375\221\270\177c\2635\332`Vh\251\246h\326\033\3331\354\320\0100,\035\276\261\025\223\036\047R\343O\021O\214\004\211\200\305#\202\016\237\004t\336\324\361\033\207\335\010Q\004}+b\267#\250D\344\2452\255\202\031\343\351\016\207f\036\362\355h\006(\230p\307\314\213\344\231b\021\207\214#\261\242$\034\027\213\257\321\304\000\010\221=\322\345j\347\250^ \236\364u\261\342\271\256(\3373\361\315\371\346\206K\023\006\220Y\263\201\277m\214\311\305\357Y\003\216\313\305\"\337\316\370E\023-\343\367b\346-V\230\315\047{.(;\232\304\257\225\241I\374j\340tq\325eG\025\022\r\363\024\277b\210+Fj\374\366\310\346\003%_\250;T\035*E\201\027\047R\210\005\254\301\037\220El\330J\270?\047;\034\0376.\212\305gN\335\001\2053\n\004S\300\226\212\031F\020\n\265\242\013?\227\224\212\243;C\001\377\020\240VS\223\024=\023[\260hC\261\244\210\033\207\003\365D\320\243\205""\211\270\206K\022?f\212\361Q56\233_4\250\237#\267\023a\204b\203*#s s\323b\305\341\374\213.\341\253\250!\361y\037\333\033oS\211\225\0001I\327\213`MSaV\342\366\234\304\306\026\047\223K,\333\372\320\233>\272\033\313Y\346t#\313qp\216\201\017\240b\tJ\262\314\213\317j\206\335\304\350TVTU\214\222\217\3279\215\363\277\311\310\"\351DH\212\"7\024%\372\304\302\271V\344_1\250\245!>S_\035\016?l\200\214\270L\202\347\212\200\001g8~\325\264\"/.\322\002%j2kh\354\230\003A3\304WM\310M\272)3S\347\307\231a\350|\272\225\305\007\rh\336\310D\0374\242Cg\273z\246\233\211.\232&C\300\2468\351\304!\207\261\220OR\341\027u8#F\223\"\0061\261$F\007\361/\352=\247X\024Efe\312\365\252\241\2268l#\205s!\022w\317\326e\375\320\016i(\321\240\360\014n4\032\210C\267~O\365\247\256\266\356\271\271\3377\373+\033\235\334\351\313\324[\357\276\337\332jU]\352\232\336-?\345\317\371\331\376\364{\255l\353\271{\307}\352Z\336?<\332\237\231s?\3626\275\\\377\311\347\235lg\263\363cw\255\373\342d\351$w\"\367\362\273\\\377Q\213\266\352\356\264w\331\313\366gf\335\271\336\374]?\347K\301\315\300l\317\366g\346\335\365\336\255\217\202\305 \033l\0054\260\333\217\332Rgv0s\313\255{W<\311\207\312\r7\357\036y9\357Up%(\265S\375\231\353\356\333\0205\274\272\237\352_\307j\357\326j0+Ll\267\257\264K\035Ho\"l\307\333\356\221G\355l{\263\235o\327;S\235\247\035\253\273\310]f\221\345\047\337\236l\236~\366\326\2733\255\365\226\345.\271/\274\3058\233\323+o\275;\337\233\203U\356=\347\312\336\262\277\340\347\302\007\346}\342\337\365\353\375\231k-\307\335\034L\317\271\213\356#\250\334\365\034\177\323/\340\235\351\231\336\314C\036\350\274\373\251\267\355\277\343;\301W\355\354`\372Z\253\376\373\346 \363\340\364\341\377\347\326r\027\271\333{(;w\225A\335\216\333\264\377\340Q\373\223\316\335N\275\377\340!\367u\354\276B\327n\005S\250\312\333\355B\347f\207{_{\336\245\375\277mu\027O\013\347w\370\375V\276u\004\177\2247o\255\225kI\356,\342\314\271\2227\217dR\243\226\337\313\210\206}\334\271\324\371\260\233\352\316\206/\344[\365\221J\334\377w\340\"\314\212""\267/\005\223wP;\361\234\3648\357\256\tO\263\000W\t\276\246gZ\337z\227PZ\336j\241\330\000..{k^\001\310\340\202\336\265E\177\326_\362\177\014\326\202\330V\036\336\346\275\347\376\035\177\263?}\265u\027\001\244^\2636\345nrO\317\334\033(E\235\0078\355\245\020\303\035\344\260\353O\241\253y\277\036\\\016\326\203z\373R{\021\020\245\375?\177\340=\363\347}\364\037[\2027\245\356^r\027\373\327\347\335\r\377\222\2778X\270\3053\206\211\247\236\345\337Ch\267\377\356\231\210\364\216\277\rK!\330\261\001\006\t\361%@\030I\000\0057>@\2069T`\312\337\362\251o\006\263\203\353\241=Q\026\037\373\343Z\3537o\313\243\203\353\013\3563\357\206G\275z\177\341\266\367\266\367\302_D\027o\37752p\331_\363\367\332\251\301\007\177G\t\021W\237,\303\334\355\366l\373\016\266E\2413\337\371\246k\236\334\356\345\362\275|\241Wx\321{\361s\357\347_z\277\354\017b\305\245\366\313N\276s\324\315w\033\047\365\336\316now\257\267\267\337\333\377\017\002\235]p\263\356\026:\267\300\035\276\304\306.\005\251`!\330m\277\327Y\353\274\354\346\272\245\223\324\311\302\311no\007v\017z\007\264GK\203XY\202\203\271\366\343\316\\\347I7\333}\n\007f/\207\030x\000\334\301\364\037q\220\373\037v\363@\377\367?\234n\247.\330|\323\\\276\326\372\021\0169\273-\216\210\207z\266\3778\230\013\320\347\333^\252\377>\007\360\234\373\030\355X\362\362(|\254(\3717y\263\204\232w\223\203v\220\334\333\334\374\256\033\021\030|\203\021\201\227\320\316.\000\276\360\027\310>\366\257\240\345V\260\024\374\021\032\022\252\330S\317\201\270\357\"n\235\376S\253\204\215W\367\336\213\242\347d\261\014$\277\023\324\373+\253\320\252\267\247\200\202\237\300\333\205\356lw\t\325\244\375\2254\310\352cp\350\312\352@l\350DA8\251P\334.y\277 &@\022R\204\001\304q|\036\013\024NV\007|\333\233\002\305\017\260\307\266Z\025\221\310b\377\265\017\377vu\177\037;m\275]?\357\261ws\331\377M\340\227\223m\353k\267\000r\231\346\205\370\312\373\034\010\231\n\236\265\027\260\272\320\311\365\227\357\007\271\336\324&\350\351\356\207\247\353\257)h\374\020\361\272\340&T,\035lr\205\002(r\312\377*""\010y\374\277\251\372\217(";
     PyObject *data = __Pyx_DecompressString(cstring, 2777, 1);
     #define __Pyx_DecompressString_LZSS_UNUSED
     if (unlikely(!data)) __PYX_ERR(0, 1, __pyx_L1_error)
@@ -30262,7 +30283,7 @@ static const char cstring[] = "x\332\245WIs\333F\026\016m\305Q\034el-^f&S\323\26
     if (likely(bytes)); else { Py_DECREF(data); __PYX_ERR(0, 1, __pyx_L1_error) }
     #endif
     #elif (CYTHON_COMPRESS_STRINGS) > 0 && (CYTHON_COMPRESS_STRINGS) <= 90 /* compression: lzss (3671 bytes) */
-static const char cstring[] = "\377 but has\377shape  i\377tems can\377not be r\377esized t\377o (tree \377fragment\357)-di\005\000sio\177nal KDT\032\000\376\006\npoint i\377n a ?Hea\377p contai\377ning Not\377e that C\377ython is\377 deliber\377ately st\277ricter!\001n\377 PEP-484\357 and\216\000jec\377ts subcl\276\264\000es of\302\000i\373lti\000types\377. If you\227 ne\264\003p\334\000%\tt\177hen set\200\000\267e \047\347\002at\306\000_|<\000\234\000\047 dirb\000\373iv\242\000o Fal\337se.On\224\000p-\367nor\235 with\377 1<=p<=i\373nf\321\000ty pe\377rmittedS\337earch\343\001fo\231r\373\000\226!s \200\001\302#q\377uery_bal\313l_\316!s\373 f\000di\257ffer\326  \315(i\277tyadd_\211@e\345c\335#.3\010\334#(li\377ne 1384)\377disablee\275n\002\001gcis\004\003d\357leaf\303A mu\341s\321B\366 \021\000\t\0001nu\377mpy._cor\357e.mu\301 arr\177ay fail\360C\277import\033\tu\363ma\373\000\022\rpyar\377t/map/ck\275d\246a.pyx\235\r(\377self, x,\377 r, p, e\377ps)\n\n   \236\000\000  Fi\335@\224  \306\266bs \342!\275`\323\000ta\237nce r\346A\322b(\337s) x.0\007Pa\257rame\255`sD\006-\343--\000\000\002\001W\006x :\375 \332\002_like,\375 \355\204\003tuple {+ \227\002.m,)\207\006.\224\001The\211\003 \311@\221\004\323to\272`\340A \335Ane\277ighbor\204\204\001.\372\303\006ri\000posit\276\301afloatF\016r_adius\313\006s\340\205\001\277return=\007p\274\260\0009\002, op\237\204\001a\375l\222\nWhich \377Minkowsk\363i \233\204\003\252\206\001use.\377  Should\370\305\206\001\231\205\001\311\000range\377 [1, inf\361]\246\007\207@\233 nonn\347ega\253\007`\024App\257roxi\206`e\204$.[ BX\000ch\211\206\003t\263 \336\251\207\002are \306\207\001ex{pl\340`d if\361\205\001\333ir\330*ne%\000st|\360E1\001furth\370\206\005\377``r / (1\\\243@\256a``,\206\207\002bj\005\274c\000\250Jaddeh\000n_ bulkj\006 N\003 Z\013v\002\341\207\003\353Jo\001*g\t\343h\361R\240B\332n\362Gesul{ts\353`list\265a\256\317\205\003of \r\001s\324jI\337f `x`\375\210\001a \337singl\351d, \216\206cs a1\002\342\210\001\323!i\017ndic\335&\270,\200\204\007Q\001\214\203""\211\002U\005n |\006\331\205\003V\010n\307 ob\322\211\001\267+\204\207\002of\000\232\205\n\271\212\010\306\002\370\211\001\370\204\006\206\206\010\335\212\001\375\205\014\374\336\206\006\226\212\004have mwany\346\206\006hos\253`\274\306\205\006\276\212\001want\370\213\001f\357ind,\317\212\002may\363 s8\000\255\207\006subs\375t$\000ial am\357ount\215\213\002tim\377e by put=t\357\213\001them\210\214\003\303\211\004\302\311\213\002u\357!\370\207\006\213\212\014\326\207\010Ex\237ample\315\207\017\264\210\006>\377>> from \277scipy \261\211\003 \237spati\251\206\010\"\001x\376\306\000 = np.m\377grid[0:4\313, \002\000]?\n\375\210\004= \177zip(x.r\253 \047l()\201 \003\005)n\n\227\216\002\025=h\005.\247\213\004(\304\211\003\031\017\266\213\016\367([2\202\000], 1z\366\210\007[\225\0008, 9\022\000k2]\235\212\007r\276\213\006ei\237\206\002\276\260\204\006value\353\204\002 Gone\224\217\n\371\204\006\037\002s\333\215\001]1\311\216\004ct2\352\214\026s\255\213\001\363.h\272\217\002\213\220\006convwert\220\220\003a P\275\217\003\374\275\204\003\216\212\002pickli\373ng8\002i_dat+a,D\002j\001\010v\023\002\340\220\010\276)+maxesP\003m\267ins\0176pt\225\003s\357tackU6raw\000\334\010\n\001\241\207\004\362\003\033\001\246\010\n\002\262\000\244\217#\322\222\002c\247\2014~6x\207\220\003c\367ons\240\211\002f ve\373ct\301\215\003 leng\337th CP\300\223\001Re\357ctDi\340\206\001ceT\355r\243 er\000\025.__\377reduce_c\366\323\223\002__\017\030sets\007tat\"\007e\001Z\020\000\024Z\017\004\017\027V\022a\351\212\001\331\001\004\0029\023\023\005\374\233\016\327\000yx_PyD\377ict_Next_Ref__\320\223\001_\004\000\360\272\226\001\326\001\t\000\240\225\002_get|\326\226\001\031\000_func\004\001yg\367\005.\000main\030\001\277module\"\001nKam\003\002pc\000\240#_\007\001\363vt\335\223\001C\001quald\035\005\355$_\355.\206Fexw\001/set_Q\005st\010\313\020otest\307\000is\227\224\001\377outineam\177axamina\277\220\002\346\243\224\002as\000\004\330\227\001igu\363ou\t\005\205\227\001asyn\177cio.cor<\003?saxisc\303""\225\004\311\225\005P\242n\017\007\221n\375\225\005c\343\213\001_\361\222\006\340\217\226\n\221\226\025\256\226\020\315\231\001\312\226\013pai\373rs\343\226\005spars\373e_\370\224\005_matr\327ixc\354\226\001_\255@tr\377acebackc\377oo_entri\203es\000\010\372\204\017\017\013\313\017=\007.\353tof\005o\000\007unt\332\352\007d\322\211\001dd\224\006up\377per_boun\373dd\202\232\001empty\177epsfill\373\224\002\20364\303\212\001\307\212\001\224\206\017\017\004\201\206\016i\337idxii\334\231\004ia{l_\211\234\001intp\242\234\002;jk\321\230\005max\236&\224\212\002\317_arr\223\212\001\004\001nn\371_\357\231\001\233 ndind\337exnew\205anp\374\370\230\002\365\220\003ordero\256\357\223\001ppo\332\224\001d\314\230\002.\017map.\312\230\004\263\232\002\357\231\r\276\232\014\\\326\232\003\301Brre\256\000r\345\214\002N\312\233\0012re\337\235\002\314\235\003r\237\223\002\036\000\003sret\372\235\002\266\217\002\273\217\002\371.\366C\253\231\001setde\013fa\316\223\001h \003\241\223\002\032\004\216r~\265Ftodokt\256\211\003\274\226H\376\215\003xxxz\361\000s\377\200\001\330\004\n\210+\220\377Q\200A\330(=\270Q\377\360X\001\000\t\r\210B\377\210h\220a\220r\230\027\377\240\001\240\022\2401\330\010\377\013\2101\210F\220\"\220\377C\220s\230$\230a\330\377\014\022\220*\230A\230Q\377\3308;\2701\270A\270\377V\3002\300U\310#\310\277Q\310d\320RS,\0013\377\210a\210q\220\010\230\003\377\2301\330\014\021\220\022\320\377\023%\240Q\240c\250\026\377\250r\260\021\330\014\023\220\3774\320\027*\250!\2501\377\250B\250a\250t\2603\377\260c\270\021\340\014\027\220\277q\230\006\230c\240 \000\025\377\220R\220v\230Q\230j\377\250\006\250b\260\001\330\014\367\020\220\005\020\000x\230q\240\367\001\330\020\033\000\320\027)\250\375\021>\002D\260\006\260b\270\372\023\000\026\264\000u\230D\320 \3773\2601\260A\260R\260\377q\270\004\270C\270s\300\365!o\0011\343\0007L\310A\377\360:\000\t\014\2104\210\177s\220#\220U\230!\305\006\177\360\006\000\t\023\320\022S\000\377\330\014\025\220Q\220d\230\337\047\240\024\240Q\007\003e\230\3777""\240%\240q\330\014\017\377\210u\220A\340\010\022\220\367!\2203 \000%\230u\240\377A\240T\250\021\330\010\014\367\320\0140\245\001\023\2209\230\377D\240\007\240u\250G\260\3771\340\010\017\210q\200A\337\340./\36009;s\220\245!s\001+\364 g\001.\265 w\377\260a\330/3\2607\270\277%\270q\330/0h\001w\373\220j\263@\027\250\004\250D\177\260\005\260T\270\026\270z\001\3772F\300a\330\035B\300\367!\360T\314S\r\210R\210\365v\361\000a\351A2\210Q\210\367c\220\021\234 Q\220c\230\325\023\312\000\001\351G+u\001t\260\3775\270\002\270&\300\001\300\035\021+\003R\210q\214g\255`\372Cq\007\302`\306B\302 \020\220\001P\000\331\"\271 \331!\330\010g\010\023\220]2\354 c\230\021\332`b\333@\377\010\014\210L\230\002\230%\364\346B$\002x\225`\003\2302\230\371T\227`6\001\320\017!\240\021\377\240#\240V\2502\250Q\356D\005R\220r\252\000F\240\"\177\240A\330\010\n\210%\376`\355\001\001\030\004\220$\000\014\210E\337\220\025\220a\220\326@\020\220\367\010\230\001\201\000\"\230A\230\367S\240\004\323@R\240q\250\377\003\2504\250q\260\002\260\367!\2603\352 \031\034\230Ew\240\023\240\375@\013\2101\210a\377q\220\002\220!\330\020\023\377\220=\240\002\240!\340\024\375\027\356\001\230\"\230C\230s{\240+\230\000\030\037\230r\247\000\347\"\240DG\000\347\204\003r\260\021\235\340\014\010\002\250!\301\001\372`\025\335\034\337\000Q\230by\000B\240\177a\240r\250\021\340\020J\003\275$\022\000\001\240\021\340\372`}\377\230B\230a\340\020\024\220\377E\230\025\230a\230q\330\377\024\030\230\005\230U\240!\337\2401\330\030\033:\004\003\240\3772\240[\260\001\340\034\037\273\230q\224\001\330 \047L\000\030\277\260\021\260\"\260A\222`\023\377\270K\300r\310\030\320Q\377R\320RT\320TU\320\377UY\320Y\\\320\\]\375\340 \006#\260X\270R\270\377v\300R\300x\310q\320\377PS\320S[\320[]\377\320]^\360\006\000\021\024\377\2201\220B\220a\330\024\376m\001X\240Q\240b\250\001\377\250\024\250S\260\013\2702\377\270X\300Q\300b\310\001\277\310\024\310S\320PU\000`\177\320`a\320ab\340$\006\377c\250\030\260\022\2606\270\177\022\2708\3001\300C^\000Gr\320Q\201\000}""\001]\001\0105)\375Q9\034R\200A\340NO\327\360D\001\335\206\024\010\210\207\0012\210\311V\317\000\332\210\001!\367\206\001\363\207\003a\230\377t\2406\250\022\2501\330\277\014\030\230\001\330\r\275\204\001\022\377\2206\230\021\230#\230R:\366 \014\232\210\005c\240\026\251A\"\002\313\230\026\234\210\001\340\231\211\005\317\207\001\014\210\3572\210S\220\272\210\004U\230!\363\2301\254aB\003S\240\001\330\273\024\032\021\0005\240\006\360@s\317\250#\250Q\334\207(\255\210\002\220\"\353\220F\357`M\325\211\004\010\016\210\177b\220\007\220q\230\013\267\004\376\224\210\001\047\240q\250\007\250q\377\330()\250\026\250q\260\377\004\260A\260W\270A\270\337T\300\021\300#\254@a\330\377(,\250G\2605\270\001\336\037\000\340\010\013\210\204*\017\210\337w\220a\220s\364\000\\\250\277\021\330\020\027\220s\302\0007\344\356a\234\204\001w\201\204\002\214/\023\2201\377\320\004*\250!\340\010\014o\210B\210g\313\211\002!\330\000\n\376\n\rJ\220o\240]\260!\317\2604\260q%\001\000\014J\320\317\026\047\240}\273\204\002\351\211\001\210I\277\220T\230\021\330\010\214\212\001G\377\230;\240b\250\004\250E\377\260\024\260T\270\024\270Q\377\330\047-\250Q\320\004A\177\300\021\330%&\3604\275\212\030\334\334\212\006\321\212\004\025\220Q\305\212\002,\250\375A\202\213\001T\230\027\240\004\240\003G\250\302\212\003";
+static const char cstring[] = "\377 but has\377shape  i\377tems can\377not be r\377esized t\377o (tree \377fragment\357)-di\005\000sio\177nal KDT\032\000\376\006\npoint i\377n a ?Hea\377p contai\377ning Not\377e that C\377ython is\377 deliber\377ately st\277ricter!\001n\377 PEP-484\357 and\216\000jec\377ts subcl\276\264\000es of\302\000i\373lti\000types\377. If you\227 ne\264\003p\334\000%\tt\177hen set\200\000\267e \047\347\002at\306\000_|<\000\234\000\047 dirb\000\373iv\242\000o Fal\337se.On\224\000p-\367nor\235 with\377 1<=p<=i\373nf\321\000ty pe\377rmittedS\337earch\343\001fo\231r\373\000\226!s \200\001\302#q\377uery_bal\313l_\316!s\373 f\000di\257ffer\326  \315(i\277tyadd_\211@e\345c\335#.3\010\334#(li\377ne 1391)\377disablee\275n\002\001gcis\004\003d\357leaf\303A mu\341s\321B\366 \021\000\t\0001nu\377mpy._cor\357e.mu\301 arr\177ay fail\360C\277import\033\tu\363ma\373\000\022\rpyar\377t/map/ck\275d\246a.pyx\235\r(\377self, x,\377 r, p, e\377ps)\n\n   \236\000\000  Fi\335@\224  \306\266bs \342!\275`\323\000ta\237nce r\346A\322b(\337s) x.0\007Pa\257rame\255`sD\006-\343--\000\000\002\001W\006x :\375 \332\002_like,\375 \355\204\003tuple {+ \227\002.m,)\207\006.\224\001The\211\003 \311@\221\004\323to\272`\340A \335Ane\277ighbor\204\204\001.\372\303\006ri\000posit\276\301afloatF\016r_adius\313\006s\340\205\001\277return=\007p\274\260\0009\002, op\237\204\001a\375l\222\nWhich \377Minkowsk\363i \233\204\003\252\206\001use.\377  Should\370\305\206\001\231\205\001\311\000range\377 [1, inf\361]\246\007\207@\233 nonn\347ega\253\007`\024App\257roxi\206`e\204$.[ BX\000ch\211\206\003t\263 \336\251\207\002are \306\207\001ex{pl\340`d if\361\205\001\333ir\330*ne%\000st|\360E1\001furth\370\206\005\377``r / (1\\\243@\256a``,\206\207\002bj\005\274c\000\250Jaddeh\000n_ bulkj\006 N\003 Z\013v\002\341\207\003\353Jo\001*g\t\343h\361R\240B\332n\362Gesul{ts\353`list\265a\256\317\205\003of \r\001s\324jI\337f `x`\375\210\001a \337singl\351d, \216\206cs a1\002\342\210\001\323!i\017ndic\335&\270,\200\204\007Q\001\214\203""\211\002U\005n |\006\331\205\003V\010n\307 ob\322\211\001\267+\204\207\002of\000\232\205\n\271\212\010\306\002\370\211\001\370\204\006\206\206\010\335\212\001\375\205\014\374\336\206\006\226\212\004have mwany\346\206\006hos\253`\274\306\205\006\276\212\001want\370\213\001f\357ind,\317\212\002may\363 s8\000\255\207\006subs\375t$\000ial am\357ount\215\213\002tim\377e by put=t\357\213\001them\210\214\003\303\211\004\302\311\213\002u\357!\370\207\006\213\212\014\326\207\010Ex\237ample\315\207\017\264\210\006>\377>> from \277scipy \261\211\003 \237spati\251\206\010\"\001x\376\306\000 = np.m\377grid[0:4\313, \002\000]?\n\375\210\004= \177zip(x.r\253 \047l()\201 \003\005)n\n\227\216\002\025=h\005.\247\213\004(\304\211\003\031\017\266\213\016\367([2\202\000], 1z\366\210\007[\225\0008, 9\022\000k2]\235\212\007r\276\213\006ei\237\206\002\276\260\204\006value\353\204\002 Gone\224\217\n\371\204\006\037\002s\333\215\001]1\311\216\004ct2\352\214\026s\255\213\001\363.h\272\217\002\213\220\006convwert\220\220\003a P\275\217\003\374\275\204\003\216\212\002pickli\373ng8\002i_dat+a,D\002j\001\010v\023\002\340\220\010\276)+maxesP\003m\267ins\0176pt\225\003s\357tackU6raw\000\334\010\n\001\241\207\004\362\003\033\001\246\010\n\002\262\000\244\217#\322\222\002c\247\2014~6x\207\220\003c\367ons\240\211\002f ve\373ct\301\215\003 leng\337th CP\300\223\001Re\357ctDi\340\206\001ceT\355r\243 er\000\025.__\377reduce_c\366\323\223\002__\017\030sets\007tat\"\007e\001Z\020\000\024Z\017\004\017\027V\022a\351\212\001\331\001\004\0029\023\023\005\374\233\016\327\000yx_PyD\377ict_Next_Ref__\320\223\001_\004\000\360\272\226\001\326\001\t\000\240\225\002_get|\326\226\001\031\000_func\004\001yg\367\005.\000main\030\001\277module\"\001nKam\003\002pc\000\240#_\007\001\363vt\335\223\001C\001quald\035\005\355$_\355.\206Fexw\001/set_Q\005st\010\313\020otest\307\000is\227\224\001\377outineam\177axamina\277\220\002\346\243\224\002as\000\004\330\227\001igu\363ou\t\005\205\227\001asyn\177cio.cor<\003?saxisc\303""\225\004\311\225\005P\242n\017\007\221n\375\225\005c\343\213\001_\361\222\006\340\217\226\n\221\226\025\256\226\020\315\231\001\312\226\013pai\373rs\343\226\005spars\373e_\370\224\005_matr\327ixc\354\226\001_\255@tr\377acebackc\377oo_entri\203es\000\010\372\204\017\017\013\313\017=\007.\353tof\005o\000\007unt\332\352\007d\322\211\001dd\224\006up\377per_boun\373dd\202\232\001empty\177epsfill\373\224\002\20364\303\212\001\307\212\001\224\206\017\017\004\201\206\016i\337idxii\334\231\004ia{l_\211\234\001intp\242\234\002;jk\321\230\005max\236&\224\212\002\317_arr\223\212\001\004\001nn\371_\357\231\001\233 ndind\337exnew\205anp\374\370\230\002\365\220\003ordero\256\357\223\001ppo\332\224\001d\314\230\002.\017map.\312\230\004\263\232\002\357\231\r\276\232\014\\\326\232\003\301Brre\256\000r\345\214\002N\312\233\0012re\337\235\002\314\235\003r\237\223\002\036\000\003sret\372\235\002\266\217\002\273\217\002\371.\366C\253\231\001setde\013fa\316\223\001h \003\241\223\002\032\004\216r~\265Ftodokt\256\211\003\274\226H\376\215\003xxxz\361\000s\377\200\001\330\004\n\210+\220\377Q\200A\330(=\270Q\377\360X\001\000\t\r\210B\377\210h\220a\220r\230\027\377\240\001\240\022\2401\330\010\377\013\2101\210F\220\"\220\377C\220s\230$\230a\330\377\014\022\220*\230A\230Q\377\3308;\2701\270A\270\377V\3002\300U\310#\310\277Q\310d\320RS,\0013\377\210a\210q\220\010\230\003\377\2301\330\014\021\220\022\320\377\023%\240Q\240c\250\026\377\250r\260\021\330\014\023\220\3774\320\027*\250!\2501\377\250B\250a\250t\2603\377\260c\270\021\340\014\027\220\277q\230\006\230c\240 \000\025\377\220R\220v\230Q\230j\377\250\006\250b\260\001\330\014\367\020\220\005\020\000x\230q\240\367\001\330\020\033\000\320\027)\250\375\021>\002D\260\006\260b\270\372\023\000\026\264\000u\230D\320 \3773\2601\260A\260R\260\377q\270\004\270C\270s\300\365!o\0011\343\0007L\310A\377\360:\000\t\014\2104\210\177s\220#\220U\230!\305\006\177\360\006\000\t\023\320\022S\000\377\330\014\025\220Q\220d\230\337\047\240\024\240Q\007\003e\230\3777""\240%\240q\330\014\017\377\210u\220A\340\010\022\220\367!\2203 \000%\230u\240\377A\240T\250\021\330\010\014\367\320\0140\245\001\023\2209\230\377D\240\007\240u\250G\260\3771\340\010\017\210q\200A\337\340./\36009;s\220\245!s\001+\364 g\001.\265 w\377\260a\330/3\2607\270\277%\270q\330/0h\001w\373\220j\263@\027\250\004\250D\177\260\005\260T\270\026\270z\001\3772F\300a\330\035B\300\367!\360T\314S\r\210R\210\365v\361\000a\351A2\210Q\210\367c\220\021\234 Q\220c\230\325\023\312\000\001\351G+u\001t\260\3775\270\002\270&\300\001\300\035\021+\003R\210q\214g\255`\372Cq\007\302`\306B\302 \020\220\001P\000\331\"\271 \331!\330\010g\010\023\220]2\354 c\230\021\332`b\333@\377\010\014\210L\230\002\230%\364\346B$\002x\225`\003\2302\230\371T\227`6\001\320\017!\240\021\377\240#\240V\2502\250Q\356D\005R\220r\252\000F\240\"\177\240A\330\010\n\210%\376`\355\001\001\030\004\220$\000\014\210E\337\220\025\220a\220\326@\020\220\367\010\230\001\201\000\"\230A\230\367S\240\004\323@R\240q\250\377\003\2504\250q\260\002\260\367!\2603\352 \031\034\230Ew\240\023\240\375@\013\2101\210a\377q\220\002\220!\330\020\023\377\220=\240\002\240!\340\024\375\027\356\001\230\"\230C\230s{\240+\230\000\030\037\230r\247\000\347\"\240DG\000\347\204\003r\260\021\235\340\014\010\002\250!\301\001\372`\025\335\034\337\000Q\230by\000B\240\177a\240r\250\021\340\020J\003\275$\022\000\001\240\021\340\372`}\377\230B\230a\340\020\024\220\377E\230\025\230a\230q\330\377\024\030\230\005\230U\240!\337\2401\330\030\033:\004\003\240\3772\240[\260\001\340\034\037\273\230q\224\001\330 \047L\000\030\277\260\021\260\"\260A\222`\023\377\270K\300r\310\030\320Q\377R\320RT\320TU\320\377UY\320Y\\\320\\]\375\340 \006#\260X\270R\270\377v\300R\300x\310q\320\377PS\320S[\320[]\377\320]^\360\006\000\021\024\377\2201\220B\220a\330\024\376m\001X\240Q\240b\250\001\377\250\024\250S\260\013\2702\377\270X\300Q\300b\310\001\277\310\024\310S\320PU\000`\177\320`a\320ab\340$\006\377c\250\030\260\022\2606\270\177\022\2708\3001\300C^\000Gr\320Q\201\000}""\001]\001\0105)\375Q9\034R\200A\340NO\327\360D\001\335\206\024\010\210\207\0012\210\311V\317\000\332\210\001!\367\206\001\363\207\003a\230\377t\2406\250\022\2501\330\277\014\030\230\001\330\r\275\204\001\022\377\2206\230\021\230#\230R:\366 \014\232\210\005c\240\026\251A\"\002\313\230\026\234\210\001\340\231\211\005\317\207\001\014\210\3572\210S\220\272\210\004U\230!\363\2301\254aB\003S\240\001\330\273\024\032\021\0005\240\006\360@s\317\250#\250Q\334\207(\255\210\002\220\"\353\220F\357`M\325\211\004\010\016\210\177b\220\007\220q\230\013\267\004\376\224\210\001\047\240q\250\007\250q\377\330()\250\026\250q\260\377\004\260A\260W\270A\270\337T\300\021\300#\254@a\330\377(,\250G\2605\270\001\336\037\000\340\010\013\210\204*\017\210\337w\220a\220s\364\000\\\250\277\021\330\020\027\220s\302\0007\344\356a\234\204\001w\201\204\002\214/\023\2201\377\320\004*\250!\340\010\014o\210B\210g\313\211\002!\330\000\n\376\n\rJ\220o\240]\260!\317\2604\260q%\001\000\014J\320\317\026\047\240}\273\204\002\351\211\001\210I\277\220T\230\021\330\010\214\212\001G\377\230;\240b\250\004\250E\377\260\024\260T\270\024\270Q\377\330\047-\250Q\320\004A\177\300\021\330%&\3604\275\212\030\334\334\212\006\321\212\004\025\220Q\305\212\002,\250\375A\202\213\001T\230\027\240\004\240\003G\250\302\212\003";
     PyObject *data = __Pyx_DecompressString_LZSS(cstring, 3671, 5938);
     #define __Pyx_DecompressString_UNUSED
     if (unlikely(!data)) __PYX_ERR(0, 1, __pyx_L1_error)
@@ -30271,7 +30292,7 @@ static const char cstring[] = "\377 but has\377shape  i\377tems can\377not be r\
     if (likely(bytes)); else { Py_DECREF(data); __PYX_ERR(0, 1, __pyx_L1_error) }
     #endif
     #else /* compression: none (5938 bytes) */
-static const char bytes[] = " but hasshape  items cannot be resized to (tree fragment)-dimensional KDTree-dimensional point in a ?Heap containing Note that Cython is deliberately stricter than PEP-484 and rejects subclasses of builtin types. If you need to pass subclasses then set the \047annotation_typing\047 directive to False.Only p-norms with 1<=p<=infinity permittedSearching for a Trees passed to query_ball_trees have different dimensionalityadd_notecKDTree.query_ball_point (line 1384)disableenablegcisenabledleafsize must be at least 1numpy._core.multiarray failed to importnumpy._core.umath failed to importpyart/map/ckdtree.pyxquery_ball_point(self, x, r, p, eps)\n\n        Find all points within distance r of point(s) x.\n\n        Parameters\n        ----------\n        x : array_like, shape tuple + (self.m,)\n            The point or points to search for neighbors of.\n        r : positive float\n            The radius of points to return.\n        p : float, optional\n            Which Minkowski p-norm to use.  Should be in the range [1, inf].\n        eps : nonnegative float, optional\n            Approximate search. Branches of the tree are not explored if their\n            nearest points are further than ``r / (1 + eps)``, and branches are\n            added in bulk if their furthest points are nearer than\n            ``r * (1 + eps)``.\n\n        Returns\n        -------\n        results : list or array of lists\n            If `x` is a single point, returns a list of the indices of the\n            neighbors of `x`. If `x` is an array of points, returns an object\n            array of shape tuple containing lists of neighbors.\n\n        Notes\n        -----\n        If you have many points whose neighbors you want to find, you may save\n        substantial amounts of time by putting them in a cKDTree and using\n        query_ball_tree.\n\n        Examples\n        --------\n        >>> from scipy import spatial\n        >>> x, y = np.mgrid[0:4, 0:4]\n        >>> points = zip(x.""ravel(), y.ravel())\n        >>> tree = spatial.cKDTree(points)\n        >>> tree.query_ball_point([2, 0], 1)\n        [4, 8, 9, 12]\n\n        r must be either a single value or a one-dimensional array of valuesrect1 and rect2 have different dimensionsself.heap cannot be converted to a Python object for picklingself.i_data,self.j_data,self.v_data cannot be converted to a Python object for picklingself.maxes,self.mins cannot be converted to a Python object for picklingself.pt,self.stack cannot be converted to a Python object for picklingself.raw_data,self.raw_indices,self.raw_maxes,self.raw_mins,self.tree cannot be converted to a Python object for picklingself.stack cannot be converted to a Python object for picklingx must consist of vectors of length CPointRectDistanceTrackerPointRectDistanceTracker.__reduce_cython__PointRectDistanceTracker.__setstate_cython__RectRectDistanceTrackerRectRectDistanceTracker.__reduce_cython__RectRectDistanceTracker.__setstate_cython__RectangleRectangle.__reduce_cython__Rectangle.__setstate_cython____Pyx_PyDict_NextRef__all____annotate____class_getitem____func____getstate____main____module____name____pyx_state__pyx_vtable____qualname____reduce____reduce_cython____reduce_ex____set_name____setstate____setstate_cython____test___is_coroutineamaxaminarangearrayasarrayascontiguousarrayastypeasyncio.coroutinesaxisccKDTreecKDTree.__reduce_cython__cKDTree.__setstate_cython__cKDTree.count_neighborscKDTree.querycKDTree.query_ball_pointcKDTree.query_ball_treecKDTree.query_pairscKDTree.sparse_distance_matrixcline_in_tracebackcoo_entriescoo_entries.__reduce_cython__coo_entries.__setstate_cython__coo_entries.to_matrixcoo_matrixcount_neighborsddatadddistance_upper_bounddtypeemptyepsfillfloat64heapheap.__reduce_cython__heap.__setstate_cython__iidxiiinfinitial_sizeintpitemsjkleafsizemax_distancemaxes_arrmins_arrnn_queriesndindexnewaxisnpnumpyobjectorderotherppopprodpyart.map.ckdtreequeryquery_ball_pointquery_ball_treequery_pairsrreal_rrect1rect2reshaper""esizeresultresultsretshapescipyscipy.sparseselfsetdefaultshshapesinglesparsesparse_distance_matrixto_matrixtodoktrackerupper_boundvaluesxxxzeros\200\001\330\004\n\210+\220Q\200A\330(=\270Q\360X\001\000\t\r\210B\210h\220a\220r\230\027\240\001\240\022\2401\330\010\013\2101\210F\220\"\220C\220s\230$\230a\330\014\022\220*\230A\230Q\3308;\2701\270A\270V\3002\300U\310#\310Q\310d\320RS\330\010\013\2103\210a\210q\220\010\230\003\2301\330\014\021\220\022\320\023%\240Q\240c\250\026\250r\260\021\330\014\023\2204\320\027*\250!\2501\250B\250a\250t\2603\260c\270\021\340\014\027\220q\230\006\230c\240\021\330\014\025\220R\220v\230Q\230j\250\006\250b\260\001\330\014\020\220\005\220R\220x\230q\240\001\330\020\025\220R\320\027)\250\021\250!\2501\250D\260\006\260b\270\001\330\020\026\220a\220u\230D\320 3\2601\260A\260R\260q\270\004\270C\270s\300!\330\014\023\2201\200A\3307L\310A\360:\000\t\014\2104\210s\220#\220U\230!\330\014\022\220*\230A\230Q\360\006\000\t\023\320\022)\250\021\330\014\025\220Q\220d\230\047\240\024\240Q\330\014\025\220Q\220e\2307\240%\240q\330\014\017\210u\220A\340\010\022\220!\2203\220d\230%\230u\240A\240T\250\021\330\010\014\320\0140\260\001\330\014\023\2209\230D\240\007\240u\250G\2601\340\010\017\210q\200A\340./\3600\000\t\014\2104\210s\220#\220U\230!\330\014\022\220*\230A\230Q\360\006\000\t\023\320\022)\250\021\330\014\025\220Q\220d\230\047\240\024\240Q\330\014\025\220Q\220e\2307\240%\240q\330\014\017\210s\220!\340\010\022\220+\230Q\330\010\014\320\014.\250a\250w\260a\330/3\2607\270%\270q\330/0\340\010\017\210w\220j\240\001\240\027\250\004\250D\260\005\260T\270\026\270q\200A\3402F\300a\330\035B\300!\360T\001\000\t\r\210B\210h\220a\220r\230\027\240\001\240\022\2401\330\010\r\210R\210v\220Q\220a\330\010\013\2102\210Q\210c\220\021\220#\220Q\220c\230\023\230D\240\001\330\014\022\220*\230A\230Q\330+.\250a\250t\2605\270\002\270&\300\001\300\021\330\010\013\2102\210R\210q\330\014\022\220*\230A\230Q\330\010\013\2103\210a\210q\220\007\220r\230\021\330\014\025\220Q\330\014""\020\220\001\220\021\220\"\220A\340\014\025\220Q\330\010\r\210R\210v\220Q\220a\330\010\023\2202\220Q\220c\230\021\230$\230b\240\001\330\010\014\210L\230\002\230%\230q\240\001\330\010\r\210R\210x\220q\230\003\2302\230T\240\021\330\010\r\210R\320\017!\240\021\240#\240V\2502\250Q\330\010\r\210R\210v\220R\220r\230\023\230F\240\"\240A\330\010\n\210%\210q\220\001\330\010\r\210R\210v\220R\220r\230\023\230F\240\"\240A\330\010\n\210%\210q\220\004\220A\330\010\014\210E\220\025\220a\220q\330\014\020\220\010\230\001\230\021\230\"\230A\230S\240\004\240A\240R\240q\250\003\2504\250q\260\002\260!\2603\260a\330\031\034\230E\240\023\240A\340\010\013\2101\330\014\017\210q\220\002\220!\330\020\023\220=\240\002\240!\340\024\027\220r\230\021\230\"\230C\230s\240+\250Q\330\030\037\230r\240\021\240\"\240D\250\003\2501\250B\250a\250r\260\021\340\030\037\230r\240\021\240\"\240D\250\002\250!\2502\250Q\360\006\000\025\034\2302\230Q\230b\240\004\240B\240a\240r\250\021\340\020\027\220r\230\021\230$\230b\240\001\240\021\340\014\017\210}\230B\230a\340\020\024\220E\230\025\230a\230q\330\024\030\230\005\230U\240!\2401\330\030\033\2302\230Q\230b\240\003\2402\240[\260\001\340\034\037\230q\240\002\240!\330 \047\240r\250\030\260\021\260\"\260A\260T\270\023\270K\300r\310\030\320QR\320RT\320TU\320UY\320Y\\\320\\]\340 \047\240r\250\030\260\021\260#\260X\270R\270v\300R\300x\310q\320PS\320S[\320[]\320]^\360\006\000\021\024\2201\220B\220a\330\024\033\2302\230X\240Q\240b\250\001\250\024\250S\260\013\2702\270X\300Q\300b\310\001\310\024\310S\320PY\320Y`\320`a\320ab\340\024\033\2302\230X\240Q\240c\250\030\260\022\2606\270\022\2708\3001\300C\300x\310r\320QU\320U\\\320\\]\320]^\360\010\000\021\024\2201\220B\220a\330\024\033\2302\230X\240Q\240b\250\001\250\024\250S\260\013\2702\270X\300Q\300b\310\001\310\024\310S\320PQ\340\024\033\2302\230X\240Q\240c\250\030\260\022\2606\270\022\2708\3001\300C\300x\310r\320QR\200A\340NO\360D\001\000\t\014\2104\210s\220#\220U\230!\330\014\022\220*\230A\230Q\360\010\000\t\014\2102\210V""\2201\220C\220s\230!\330\014\025\220R\220v\230Q\230a\230t\2406\250\022\2501\330\014\030\230\001\330\r\020\220\001\220\022\2206\230\021\230#\230R\230q\330\014\025\220R\220v\230Q\230c\240\026\240r\250\021\330\014\030\230\001\230\026\230q\240\001\340\014\022\220*\230A\230Q\360\006\000\t\014\2102\210S\220\001\330\014\020\220\005\220U\230!\2301\330\020\023\2206\230\021\230#\230S\240\001\330\024\032\230!\2305\240\006\240a\240s\250#\250Q\360\006\000\t\023\320\022)\250\021\330\014\025\220Q\220d\230\047\240\024\240Q\330\014\025\220Q\220e\2307\240%\240q\330\014\017\210u\220A\360\006\000\t\023\220\"\220F\230\"\230M\250\026\250r\260\021\330\010\016\210b\220\007\220q\230\013\2406\250\022\2501\330\010\014\320\014\047\240q\250\007\250q\330()\250\026\250q\260\004\260A\260W\270A\270T\300\021\300#\300Q\300a\330(,\250G\2605\270\001\330()\340\010\013\2102\210V\2201\220C\220s\230!\330\014\017\210w\220a\220s\230#\230\\\250\021\330\020\027\220s\230!\2307\240!\2401\340\020\027\220w\230a\230q\330\r\020\220\001\220\022\2206\230\021\230#\230R\230q\330\014\023\2201\320\004*\250!\340\010\014\210B\210g\220Q\220d\230!\330\010\014\210B\210g\220Q\220d\230!\330\010\014\210B\210g\220Q\220d\230!\330\010\014\210J\220o\240]\260!\2604\260q\330\010\014\210J\220o\240]\260!\2604\260q\330\010\014\210J\320\026\047\240}\260A\260T\270\021\330\010\014\210I\220T\230\021\330\010\017\210u\220G\230;\240b\250\004\250E\260\024\260T\270\024\270Q\330\047-\250Q\320\004A\300\021\330%&\3604\000\t\023\320\022)\250\021\330\014\025\220Q\220d\230\047\240\024\240Q\330\014\025\220Q\220d\230\047\240\024\240Q\330\014\017\210u\220A\340\010\025\220Q\330\010\014\320\014,\250A\330\014\025\220T\230\027\240\004\240G\2501\340\010\017\210q";
+static const char bytes[] = " but hasshape  items cannot be resized to (tree fragment)-dimensional KDTree-dimensional point in a ?Heap containing Note that Cython is deliberately stricter than PEP-484 and rejects subclasses of builtin types. If you need to pass subclasses then set the \047annotation_typing\047 directive to False.Only p-norms with 1<=p<=infinity permittedSearching for a Trees passed to query_ball_trees have different dimensionalityadd_notecKDTree.query_ball_point (line 1391)disableenablegcisenabledleafsize must be at least 1numpy._core.multiarray failed to importnumpy._core.umath failed to importpyart/map/ckdtree.pyxquery_ball_point(self, x, r, p, eps)\n\n        Find all points within distance r of point(s) x.\n\n        Parameters\n        ----------\n        x : array_like, shape tuple + (self.m,)\n            The point or points to search for neighbors of.\n        r : positive float\n            The radius of points to return.\n        p : float, optional\n            Which Minkowski p-norm to use.  Should be in the range [1, inf].\n        eps : nonnegative float, optional\n            Approximate search. Branches of the tree are not explored if their\n            nearest points are further than ``r / (1 + eps)``, and branches are\n            added in bulk if their furthest points are nearer than\n            ``r * (1 + eps)``.\n\n        Returns\n        -------\n        results : list or array of lists\n            If `x` is a single point, returns a list of the indices of the\n            neighbors of `x`. If `x` is an array of points, returns an object\n            array of shape tuple containing lists of neighbors.\n\n        Notes\n        -----\n        If you have many points whose neighbors you want to find, you may save\n        substantial amounts of time by putting them in a cKDTree and using\n        query_ball_tree.\n\n        Examples\n        --------\n        >>> from scipy import spatial\n        >>> x, y = np.mgrid[0:4, 0:4]\n        >>> points = zip(x.""ravel(), y.ravel())\n        >>> tree = spatial.cKDTree(points)\n        >>> tree.query_ball_point([2, 0], 1)\n        [4, 8, 9, 12]\n\n        r must be either a single value or a one-dimensional array of valuesrect1 and rect2 have different dimensionsself.heap cannot be converted to a Python object for picklingself.i_data,self.j_data,self.v_data cannot be converted to a Python object for picklingself.maxes,self.mins cannot be converted to a Python object for picklingself.pt,self.stack cannot be converted to a Python object for picklingself.raw_data,self.raw_indices,self.raw_maxes,self.raw_mins,self.tree cannot be converted to a Python object for picklingself.stack cannot be converted to a Python object for picklingx must consist of vectors of length CPointRectDistanceTrackerPointRectDistanceTracker.__reduce_cython__PointRectDistanceTracker.__setstate_cython__RectRectDistanceTrackerRectRectDistanceTracker.__reduce_cython__RectRectDistanceTracker.__setstate_cython__RectangleRectangle.__reduce_cython__Rectangle.__setstate_cython____Pyx_PyDict_NextRef__all____annotate____class_getitem____func____getstate____main____module____name____pyx_state__pyx_vtable____qualname____reduce____reduce_cython____reduce_ex____set_name____setstate____setstate_cython____test___is_coroutineamaxaminarangearrayasarrayascontiguousarrayastypeasyncio.coroutinesaxisccKDTreecKDTree.__reduce_cython__cKDTree.__setstate_cython__cKDTree.count_neighborscKDTree.querycKDTree.query_ball_pointcKDTree.query_ball_treecKDTree.query_pairscKDTree.sparse_distance_matrixcline_in_tracebackcoo_entriescoo_entries.__reduce_cython__coo_entries.__setstate_cython__coo_entries.to_matrixcoo_matrixcount_neighborsddatadddistance_upper_bounddtypeemptyepsfillfloat64heapheap.__reduce_cython__heap.__setstate_cython__iidxiiinfinitial_sizeintpitemsjkleafsizemax_distancemaxes_arrmins_arrnn_queriesndindexnewaxisnpnumpyobjectorderotherppopprodpyart.map.ckdtreequeryquery_ball_pointquery_ball_treequery_pairsrreal_rrect1rect2reshaper""esizeresultresultsretshapescipyscipy.sparseselfsetdefaultshshapesinglesparsesparse_distance_matrixto_matrixtodoktrackerupper_boundvaluesxxxzeros\200\001\330\004\n\210+\220Q\200A\330(=\270Q\360X\001\000\t\r\210B\210h\220a\220r\230\027\240\001\240\022\2401\330\010\013\2101\210F\220\"\220C\220s\230$\230a\330\014\022\220*\230A\230Q\3308;\2701\270A\270V\3002\300U\310#\310Q\310d\320RS\330\010\013\2103\210a\210q\220\010\230\003\2301\330\014\021\220\022\320\023%\240Q\240c\250\026\250r\260\021\330\014\023\2204\320\027*\250!\2501\250B\250a\250t\2603\260c\270\021\340\014\027\220q\230\006\230c\240\021\330\014\025\220R\220v\230Q\230j\250\006\250b\260\001\330\014\020\220\005\220R\220x\230q\240\001\330\020\025\220R\320\027)\250\021\250!\2501\250D\260\006\260b\270\001\330\020\026\220a\220u\230D\320 3\2601\260A\260R\260q\270\004\270C\270s\300!\330\014\023\2201\200A\3307L\310A\360:\000\t\014\2104\210s\220#\220U\230!\330\014\022\220*\230A\230Q\360\006\000\t\023\320\022)\250\021\330\014\025\220Q\220d\230\047\240\024\240Q\330\014\025\220Q\220e\2307\240%\240q\330\014\017\210u\220A\340\010\022\220!\2203\220d\230%\230u\240A\240T\250\021\330\010\014\320\0140\260\001\330\014\023\2209\230D\240\007\240u\250G\2601\340\010\017\210q\200A\340./\3600\000\t\014\2104\210s\220#\220U\230!\330\014\022\220*\230A\230Q\360\006\000\t\023\320\022)\250\021\330\014\025\220Q\220d\230\047\240\024\240Q\330\014\025\220Q\220e\2307\240%\240q\330\014\017\210s\220!\340\010\022\220+\230Q\330\010\014\320\014.\250a\250w\260a\330/3\2607\270%\270q\330/0\340\010\017\210w\220j\240\001\240\027\250\004\250D\260\005\260T\270\026\270q\200A\3402F\300a\330\035B\300!\360T\001\000\t\r\210B\210h\220a\220r\230\027\240\001\240\022\2401\330\010\r\210R\210v\220Q\220a\330\010\013\2102\210Q\210c\220\021\220#\220Q\220c\230\023\230D\240\001\330\014\022\220*\230A\230Q\330+.\250a\250t\2605\270\002\270&\300\001\300\021\330\010\013\2102\210R\210q\330\014\022\220*\230A\230Q\330\010\013\2103\210a\210q\220\007\220r\230\021\330\014\025\220Q\330\014""\020\220\001\220\021\220\"\220A\340\014\025\220Q\330\010\r\210R\210v\220Q\220a\330\010\023\2202\220Q\220c\230\021\230$\230b\240\001\330\010\014\210L\230\002\230%\230q\240\001\330\010\r\210R\210x\220q\230\003\2302\230T\240\021\330\010\r\210R\320\017!\240\021\240#\240V\2502\250Q\330\010\r\210R\210v\220R\220r\230\023\230F\240\"\240A\330\010\n\210%\210q\220\001\330\010\r\210R\210v\220R\220r\230\023\230F\240\"\240A\330\010\n\210%\210q\220\004\220A\330\010\014\210E\220\025\220a\220q\330\014\020\220\010\230\001\230\021\230\"\230A\230S\240\004\240A\240R\240q\250\003\2504\250q\260\002\260!\2603\260a\330\031\034\230E\240\023\240A\340\010\013\2101\330\014\017\210q\220\002\220!\330\020\023\220=\240\002\240!\340\024\027\220r\230\021\230\"\230C\230s\240+\250Q\330\030\037\230r\240\021\240\"\240D\250\003\2501\250B\250a\250r\260\021\340\030\037\230r\240\021\240\"\240D\250\002\250!\2502\250Q\360\006\000\025\034\2302\230Q\230b\240\004\240B\240a\240r\250\021\340\020\027\220r\230\021\230$\230b\240\001\240\021\340\014\017\210}\230B\230a\340\020\024\220E\230\025\230a\230q\330\024\030\230\005\230U\240!\2401\330\030\033\2302\230Q\230b\240\003\2402\240[\260\001\340\034\037\230q\240\002\240!\330 \047\240r\250\030\260\021\260\"\260A\260T\270\023\270K\300r\310\030\320QR\320RT\320TU\320UY\320Y\\\320\\]\340 \047\240r\250\030\260\021\260#\260X\270R\270v\300R\300x\310q\320PS\320S[\320[]\320]^\360\006\000\021\024\2201\220B\220a\330\024\033\2302\230X\240Q\240b\250\001\250\024\250S\260\013\2702\270X\300Q\300b\310\001\310\024\310S\320PY\320Y`\320`a\320ab\340\024\033\2302\230X\240Q\240c\250\030\260\022\2606\270\022\2708\3001\300C\300x\310r\320QU\320U\\\320\\]\320]^\360\010\000\021\024\2201\220B\220a\330\024\033\2302\230X\240Q\240b\250\001\250\024\250S\260\013\2702\270X\300Q\300b\310\001\310\024\310S\320PQ\340\024\033\2302\230X\240Q\240c\250\030\260\022\2606\270\022\2708\3001\300C\300x\310r\320QR\200A\340NO\360D\001\000\t\014\2104\210s\220#\220U\230!\330\014\022\220*\230A\230Q\360\010\000\t\014\2102\210V""\2201\220C\220s\230!\330\014\025\220R\220v\230Q\230a\230t\2406\250\022\2501\330\014\030\230\001\330\r\020\220\001\220\022\2206\230\021\230#\230R\230q\330\014\025\220R\220v\230Q\230c\240\026\240r\250\021\330\014\030\230\001\230\026\230q\240\001\340\014\022\220*\230A\230Q\360\006\000\t\014\2102\210S\220\001\330\014\020\220\005\220U\230!\2301\330\020\023\2206\230\021\230#\230S\240\001\330\024\032\230!\2305\240\006\240a\240s\250#\250Q\360\006\000\t\023\320\022)\250\021\330\014\025\220Q\220d\230\047\240\024\240Q\330\014\025\220Q\220e\2307\240%\240q\330\014\017\210u\220A\360\006\000\t\023\220\"\220F\230\"\230M\250\026\250r\260\021\330\010\016\210b\220\007\220q\230\013\2406\250\022\2501\330\010\014\320\014\047\240q\250\007\250q\330()\250\026\250q\260\004\260A\260W\270A\270T\300\021\300#\300Q\300a\330(,\250G\2605\270\001\330()\340\010\013\2102\210V\2201\220C\220s\230!\330\014\017\210w\220a\220s\230#\230\\\250\021\330\020\027\220s\230!\2307\240!\2401\340\020\027\220w\230a\230q\330\r\020\220\001\220\022\2206\230\021\230#\230R\230q\330\014\023\2201\320\004*\250!\340\010\014\210B\210g\220Q\220d\230!\330\010\014\210B\210g\220Q\220d\230!\330\010\014\210B\210g\220Q\220d\230!\330\010\014\210J\220o\240]\260!\2604\260q\330\010\014\210J\220o\240]\260!\2604\260q\330\010\014\210J\320\026\047\240}\260A\260T\270\021\330\010\014\210I\220T\230\021\330\010\017\210u\220G\230;\240b\250\004\250E\260\024\260T\270\024\270Q\330\047-\250Q\320\004A\300\021\330%&\3604\000\t\023\320\022)\250\021\330\014\025\220Q\220d\230\047\240\024\240Q\330\014\025\220Q\220d\230\047\240\024\240Q\330\014\017\210u\220A\340\010\025\220Q\330\010\014\320\014,\250A\330\014\025\220T\230\027\240\004\240G\2501\340\010\017\210q";
     PyObject *data = NULL;
     #define __Pyx_DecompressString_UNUSED
     #define __Pyx_DecompressString_LZSS_UNUSED
@@ -30457,32 +30478,32 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
     __pyx_mstate_global->__pyx_codeobj_tab[10] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_tree_fragment, __pyx_mstate->__pyx_n_u_setstate_cython, __pyx_mstate->__pyx_kp_b_iso88591_Q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[10])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {6, 0, 0, 16, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1204};
+    const __Pyx_PyCode_New_function_description descr = {6, 0, 0, 16, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1211};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_x, __pyx_mstate->__pyx_n_u_k, __pyx_mstate->__pyx_n_u_eps, __pyx_mstate->__pyx_n_u_p, __pyx_mstate->__pyx_n_u_distance_upper_bound, __pyx_mstate->__pyx_n_u_ii, __pyx_mstate->__pyx_n_u_dd, __pyx_mstate->__pyx_n_u_xx, __pyx_mstate->__pyx_n_u_c, __pyx_mstate->__pyx_n_u_n, __pyx_mstate->__pyx_n_u_i, __pyx_mstate->__pyx_n_u_j, __pyx_mstate->__pyx_n_u_sh, __pyx_mstate->__pyx_n_u_single, __pyx_mstate->__pyx_n_u_retshape};
     __pyx_mstate_global->__pyx_codeobj_tab[11] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_pyart_map_ckdtree_pyx, __pyx_mstate->__pyx_n_u_query, __pyx_mstate->__pyx_kp_b_iso88591_A2Fa_B_T_Bhar_1_RvQa_2Qc_Qc_D_AQ, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[11])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {5, 0, 0, 9, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1384};
+    const __Pyx_PyCode_New_function_description descr = {5, 0, 0, 9, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1391};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_x, __pyx_mstate->__pyx_n_u_r, __pyx_mstate->__pyx_n_u_p, __pyx_mstate->__pyx_n_u_eps, __pyx_mstate->__pyx_n_u_xx, __pyx_mstate->__pyx_n_u_retshape, __pyx_mstate->__pyx_n_u_result, __pyx_mstate->__pyx_n_u_c};
     __pyx_mstate_global->__pyx_codeobj_tab[12] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_pyart_map_ckdtree_pyx, __pyx_mstate->__pyx_n_u_query_ball_point, __pyx_mstate->__pyx_kp_b_iso88591_A_QX_Bhar_1_1F_Cs_a_AQ8_1AV2U_Qd, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[12])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {5, 0, 0, 8, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1568};
+    const __Pyx_PyCode_New_function_description descr = {5, 0, 0, 8, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1575};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_other, __pyx_mstate->__pyx_n_u_r, __pyx_mstate->__pyx_n_u_p, __pyx_mstate->__pyx_n_u_eps, __pyx_mstate->__pyx_n_u_tracker, __pyx_mstate->__pyx_n_u_results, __pyx_mstate->__pyx_n_u_i};
     __pyx_mstate_global->__pyx_codeobj_tab[13] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_pyart_map_ckdtree_pyx, __pyx_mstate->__pyx_n_u_query_ball_tree, __pyx_mstate->__pyx_kp_b_iso88591_A7LA_4s_U_AQ_Qd_Q_Qe7_q_uA_3d_uA, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[13])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {4, 0, 0, 6, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1759};
+    const __Pyx_PyCode_New_function_description descr = {4, 0, 0, 6, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1766};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_r, __pyx_mstate->__pyx_n_u_p, __pyx_mstate->__pyx_n_u_eps, __pyx_mstate->__pyx_n_u_tracker, __pyx_mstate->__pyx_n_u_results};
     __pyx_mstate_global->__pyx_codeobj_tab[14] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_pyart_map_ckdtree_pyx, __pyx_mstate->__pyx_n_u_query_pairs, __pyx_mstate->__pyx_kp_b_iso88591_A_4_Qd_Q_Qd_Q_uA_Q_A_T_G1_q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[14])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {4, 0, 0, 10, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1911};
+    const __Pyx_PyCode_New_function_description descr = {4, 0, 0, 10, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 1918};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_other, __pyx_mstate->__pyx_n_u_r, __pyx_mstate->__pyx_n_u_p, __pyx_mstate->__pyx_n_u_n_queries, __pyx_mstate->__pyx_n_u_i, __pyx_mstate->__pyx_n_u_real_r, __pyx_mstate->__pyx_n_u_results, __pyx_mstate->__pyx_n_u_idx, __pyx_mstate->__pyx_n_u_tracker};
     __pyx_mstate_global->__pyx_codeobj_tab[15] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_pyart_map_ckdtree_pyx, __pyx_mstate->__pyx_n_u_count_neighbors, __pyx_mstate->__pyx_kp_b_iso88591_ANOD_4s_U_AQ_2V1Cs_RvQat6_1_6_Rq, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[15])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {4, 0, 0, 6, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 2085};
+    const __Pyx_PyCode_New_function_description descr = {4, 0, 0, 6, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 2092};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_other, __pyx_mstate->__pyx_n_u_max_distance, __pyx_mstate->__pyx_n_u_p, __pyx_mstate->__pyx_n_u_tracker, __pyx_mstate->__pyx_n_u_results};
     __pyx_mstate_global->__pyx_codeobj_tab[16] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_pyart_map_ckdtree_pyx, __pyx_mstate->__pyx_n_u_sparse_distance_matrix, __pyx_mstate->__pyx_kp_b_iso88591_A_0_4s_U_AQ_Qd_Q_Qe7_q_s_Q_awa_3, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[16])) goto bad;
   }
@@ -30510,12 +30531,12 @@ static int __Pyx_InitGlobals(void) {
   int __pyx_clineno = 0;
   /* PythonCompatibility.init */
   if (likely(__Pyx_init_co_variables() == 0 && __Pyx_init_tpflags_variables() == 0)); else
-
+  
   if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 1, __pyx_L1_error)
 
   /* AssertionsEnabled.init */
   if (likely(__Pyx_init_assertions_enabled() == 0)); else
-
+  
   if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 1, __pyx_L1_error)
 
   /* PyFrozenDict.init */
@@ -30537,7 +30558,7 @@ static int __Pyx_InitGlobals(void) {
       }
   } // error handling follows
   #endif
-
+  
   if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 1, __pyx_L1_error)
 
   /* NumpyImportArray.init */
@@ -30556,12 +30577,12 @@ static int __Pyx_InitGlobals(void) {
   }
   #endif
   #endif
-
+  
   if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 1, __pyx_L1_error)
 
   /* CommonTypesMetaclass.init */
   if (likely(__pyx_CommonTypesMetaclass_init(__pyx_m) == 0)); else
-
+  
   if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 1, __pyx_L1_error)
 
   /* CachedMethodType.init */
@@ -30575,7 +30596,7 @@ static int __Pyx_InitGlobals(void) {
       }
   } // error handling follows
   #endif
-
+  
   if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 1, __pyx_L1_error)
 
   return 0;
@@ -30590,7 +30611,7 @@ static int __Pyx_InitAfterSharedUtility(void) {
   int __pyx_clineno = 0;
   /* CythonFunctionPerModule.init */
   if (likely(__pyx_CyFunction_init(__pyx_m) == 0)); else
-
+  
   if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 1, __pyx_L1_error)
 
   return 0;
@@ -31321,7 +31342,7 @@ static CYTHON_INLINE int __Pyx_PyObject_CompareBoolEq_str_str(PyObject *op1, PyO
     if (unlikely(op2 == Py_None)) {
         if (op1 == Py_None) goto __pyx_return_true; else goto __pyx_return_false;
     }
-
+    
     if (likely(op1 != Py_None)) {
         if (op1 == op2) goto __pyx_return_true;
         if (likely(op2 != Py_None)) {
@@ -31329,7 +31350,7 @@ static CYTHON_INLINE int __Pyx_PyObject_CompareBoolEq_str_str(PyObject *op1, PyO
         }
         goto __pyx_richcmp;
     }
-
+    
     if ((0)) goto __pyx_richcmp;
     if ((0)) goto __pyx_return_true;
     if ((0)) goto __pyx_return_false;

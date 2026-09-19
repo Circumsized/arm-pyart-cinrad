@@ -49,6 +49,16 @@ def lowpass_maesaka_term(
     ng = k.shape[1]
     dr2 = dr**2.
 
+    # FU-04 (21f732, CWE-125): the boundary stencils below read k[r, g+2]
+    # and k[r, g-2]; with boundscheck/wraparound disabled those accesses
+    # leave the memoryview buffer for rays with fewer than 3 gates. The
+    # number of gates is data-derived, so enforce the contract explicitly.
+    if ng < 3:
+        raise ValueError(
+            "lowpass_maesaka_term requires at least 3 gates per ray, got "
+            + str(ng)
+        )
+
     # Use a low order finite difference scheme to compute the second-order
     # range derivative
     if finite_order == 'low':
@@ -111,6 +121,17 @@ def lowpass_maesaka_jac(
 
     nr = d2kdr2.shape[0]
     ng = d2kdr2.shape[1]
+
+    # FU-04 (291237, CWE-125): the six boundary branches below use a
+    # g-2 .. g+2 stencil that is only defined for rays with at least 4
+    # gates. With boundscheck/wraparound disabled the g==2 (and smaller-ng)
+    # branches read outside the memoryview buffer, so reject those inputs
+    # before any pointer arithmetic happens.
+    if ng < 4:
+        raise ValueError(
+            "lowpass_maesaka_jac requires at least 4 gates per ray, got "
+            + str(ng)
+        )
 
     # The low-pass filter cost is defined as,
     # Jlpf = 0.5 * Clpf * sum[ (d2k/dr2)**2 ] ,

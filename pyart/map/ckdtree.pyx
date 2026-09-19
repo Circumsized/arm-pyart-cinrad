@@ -963,11 +963,18 @@ cdef class cKDTree:
                 ni.children = ni.less.children + ni.greater.children
 
             except:
-                # free ni if it cannot be returned
+                # FU-05 (CWE-415, SEI CERT C MEM31-C): free each allocation
+                # exactly once, and never dereference a pointer after freeing
+                # it. The previous code freed mids while testing ni for NULL
+                # (leaking ni) and then freed mids a second time, a double
+                # free reachable from any allocation failure inside the
+                # recursive build.
                 if ni !=  <innernode*> NULL:
-                    stdlib.free(mids)
+                    stdlib.free(ni)
+                    ni = <innernode*> NULL
                 if mids != <np.float64_t*> NULL:
                     stdlib.free(mids)
+                    mids = <np.float64_t*> NULL
                 raise
             else:
                 if mids != <np.float64_t*> NULL:

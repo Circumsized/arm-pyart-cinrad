@@ -801,6 +801,17 @@ cdef _mask_gates_not_collected(
     full_nbins = mask.shape[1]
     for i in range(nrays):
         nbin = nbins[i]
+        # FU-03 (6ff3be, CWE-787): nbin comes from an untrusted per-ray
+        # int16 header word. With boundscheck disabled, Cython only rebases
+        # a negative index once (idx += shape), so any nbin below
+        # -full_nbins keeps a negative offset and mask[i, j] = 1 writes
+        # before the allocation. Clamp into [0, full_nbins]; this also
+        # preserves the legitimate -1 missing-ray behaviour, since a whole
+        # row is masked either way.
+        if nbin < 0:
+            nbin = 0
+        elif nbin > full_nbins:
+            nbin = full_nbins
         for j in range(nbin, full_nbins):
             mask[i, j] = 1
     return

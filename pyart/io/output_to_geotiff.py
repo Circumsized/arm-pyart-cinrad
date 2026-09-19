@@ -1,10 +1,9 @@
 """
 Write a Py-ART Grid object to a GeoTIFF file.
-
 """
-
 import os
 import shutil
+import subprocess
 
 import matplotlib.colors as colors
 import matplotlib.pyplot as plt
@@ -96,11 +95,9 @@ def write_grid_geotiff(
         False - Don't do this.
 
     use_doublequotes : bool, optional
-        True - Use double quotes in the gdalwarp call (requires warp=True),
-               which may help if that command is producing and error like:
-               'Translating source or target SRS failed'.
-
-        False - Use single quotes instead.
+        Deprecated and ignored. The gdalwarp invocation is now an argv list
+        executed without a shell (see FU-01, CWE-78), so the SRS parameter
+        is always passed literally and no quoting style is required.
 
     transparent_bg : bool, optional
         True - Sets alpha value of masked pixels to zero producing a
@@ -197,24 +194,21 @@ def write_grid_geotiff(
     if warp:
         # Warps TIFF to lat/lon WGS84 projection that is more useful
         # for web mapping applications. Likely changes array shape.
-        if use_doublequotes:
-            os.system(
-                'gdalwarp -q -t_srs "+proj=longlat +ellps=WGS84 '
-                + '+datum=WGS84 +no_defs" '
-                + ofile
-                + " "
-                + ofile
-                + "_tmp.tif"
-            )
-        else:
-            os.system(
-                "gdalwarp -q -t_srs '+proj=longlat +ellps=WGS84 "
-                + "+datum=WGS84 +no_defs' "
-                + ofile
-                + " "
-                + ofile
-                + "_tmp.tif"
-            )
+        # SECURITY (FU-01, ed8eb0/CWE-78): the output filename reaches this
+        # module through a public API and may be influenced by untrusted
+        # input. It is passed as a literal argv element to a shell-free
+        # subprocess so shell metacharacters cannot be interpreted.
+        subprocess.run(
+            [
+                "gdalwarp",
+                "-q",
+                "-t_srs",
+                "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
+                ofile,
+                ofile + "_tmp.tif",
+            ],
+            check=True,
+        )
         shutil.move(ofile + "_tmp.tif", ofile)
 
 
@@ -321,8 +315,12 @@ def _create_sld(cmap, vmin, vmax, filename, color_levels=None):
     cmap = plt.get_cmap(cmap)
     if color_levels is None:
         color_levels = 255
-    name, _ = filename.split(".")
-    ofile = name + ".sld"
+    # FU-01 hardening: os.path.splitext keeps the directory component intact
+    # for paths whose directory names contain dots, which ``split('.')``
+    # mangled into a ValueError.
+    dirname, base = os.path.split(filename)
+    name, _ext = os.path.splitext(base)
+    ofile = os.path.join(dirname, name + ".sld")
     fileobj = open(ofile, "w")
 
     header = (

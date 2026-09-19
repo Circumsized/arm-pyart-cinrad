@@ -1305,6 +1305,19 @@ def kdp_maesaka(
     European Conference on Radar in Meteorology and Hydrology.
 
     """
+    # FU-04 (21f732/291237, CWE-125): the Maesaka low-pass kernels
+    # (lowpass_maesaka_term needs >=3 gates, lowpass_maesaka_jac >=4) are
+    # compiled with boundscheck/wraparound disabled, and the number of
+    # gates per ray is derived from the input radar data. Enforce the
+    # strictest kernel contract at this public boundary so a crafted
+    # radar with too few gates is rejected with a clear ValueError
+    # instead of reading outside the NumPy buffers.
+    if radar.ngates < 4:
+        raise ValueError(
+            "kdp_maesaka requires at least 4 gates per ray, got "
+            f"{radar.ngates}"
+        )
+
     # parse fill value
     if fill_value is None:
         fill_value = get_fillvalue()

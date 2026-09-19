@@ -23,6 +23,22 @@ from matplotlib.ticker import NullFormatter
 warnings.filterwarnings("ignore")
 
 
+def _safe_filename_component(value, fallback):
+    """Reduce *value* to a single safe filename component.
+
+    FU-06 (94f00e, CWE-22): ``instrument_name`` originates from the input
+    file's metadata and ``title`` from the caller, so both must be treated
+    as untrusted when they reach the output path. Backslashes are normalized
+    to forward slashes, only the final path component is kept, and
+    directory-traversal components are replaced by *fallback*.
+    """
+    text = str(value).replace("\\", "/")
+    text = os.path.basename(text)
+    if text in ("", ".", ".."):
+        return fallback
+    return text
+
+
 def plot_maxcappi(
     grid,
     field,
@@ -372,7 +388,29 @@ def plot_maxcappi(
     if savedir is not None:
         radar_name = ds.attrs.get("instrument_name", "Radar")
         time_str = ds["time"].dt.strftime("%Y%m%d%H%M%S").values.item()
-        figname = f"{savedir}{os.sep}{title}_{radar_name}_{time_str}.png"
+        # FU-06 (94f00e, CWE-22): sanitize the two interpolated components so
+        # neither the file-derived instrument_name nor the caller-supplied
+        # title can escape savedir through path traversal.
+        safe_title = _safe_filename_component(title, "plot")
+        safe_radar_name = _safe_filename_component(radar_name, "Radar")
+        figname = os.path.join(
+            savedir, f"{safe_title}_{safe_radar_name}_{time_str}.png"
+        )
+        savedir_real = os.path.realpath(savedir)
+        try:
+            contained = (
+                os.path.commonpath([savedir_real, os.path.realpath(figname)])
+                == savedir_real
+            )
+        except ValueError:
+            contained = False
+        if not contained:
+            warnings.warn(
+                "plot_maxcappi: refusing to save outside savedir; using a "
+                "sanitized filename instead.",
+                RuntimeWarning,
+            )
+            figname = os.path.join(savedir, f"plot_Radar_{time_str}.png")
         plt.savefig(fname=figname, dpi=dpi, bbox_inches="tight")
         print(f"Figure(s) saved as {figname}")
 
