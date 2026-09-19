@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pyart.io.nexrad_archive &#8212; Py-ART 0.0.post3300 documentation</title>
+    <title>pyart.io.nexrad_archive &#8212; Py-ART 0.0.post3301 documentation</title>
   
   
   
@@ -46,7 +46,7 @@
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67" />
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67" />
 
-    <script src="../../../_static/documentation_options.js?v=74ed0a4e"></script>
+    <script src="../../../_static/documentation_options.js?v=d0958e57"></script>
     <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -152,7 +152,7 @@
   
   
   
-    <p class="title logo__title">Py-ART 0.0.post3300 documentation</p>
+    <p class="title logo__title">Py-ART 0.0.post3301 documentation</p>
   
 </a></div>
     
@@ -497,6 +497,7 @@
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">..config</span><span class="w"> </span><span class="kn">import</span> <span class="n">FileMetadata</span><span class="p">,</span> <span class="n">get_fillvalue</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">..core.radar</span><span class="w"> </span><span class="kn">import</span> <span class="n">Radar</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">PyARTDataError</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">..lazydict</span><span class="w"> </span><span class="kn">import</span> <span class="n">LazyLoadDict</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">.common</span><span class="w"> </span><span class="kn">import</span> <span class="n">_test_arguments</span><span class="p">,</span> <span class="n">make_time_unit_str</span><span class="p">,</span> <span class="n">prepare_for_read</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">.nexrad_common</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_nexrad_location</span>
@@ -626,6 +627,14 @@
     <span class="c1"># range</span>
     <span class="n">_range</span> <span class="o">=</span> <span class="n">filemetadata</span><span class="p">(</span><span class="s2">"range"</span><span class="p">)</span>
     <span class="n">first_gate</span><span class="p">,</span> <span class="n">gate_spacing</span><span class="p">,</span> <span class="n">last_gate</span> <span class="o">=</span> <span class="n">_find_range_params</span><span class="p">(</span><span class="n">scan_info</span><span class="p">,</span> <span class="n">filemetadata</span><span class="p">)</span>
+    <span class="c1"># determine which moments need interpolation before building the range,</span>
+    <span class="c1"># so the range can leave room for the interpolated gates (FU-10)</span>
+    <span class="n">interpolate</span> <span class="o">=</span> <span class="n">_find_scans_to_interp</span><span class="p">(</span>
+        <span class="n">scan_info</span><span class="p">,</span> <span class="n">first_gate</span><span class="p">,</span> <span class="n">gate_spacing</span><span class="p">,</span> <span class="n">filemetadata</span>
+    <span class="p">)</span>
+    <span class="n">last_gate</span> <span class="o">=</span> <span class="n">_interp_headroom_last_gate</span><span class="p">(</span>
+        <span class="n">scan_info</span><span class="p">,</span> <span class="n">interpolate</span><span class="p">,</span> <span class="n">first_gate</span><span class="p">,</span> <span class="n">gate_spacing</span><span class="p">,</span> <span class="n">last_gate</span>
+    <span class="p">)</span>
     <span class="n">_range</span><span class="p">[</span><span class="s2">"data"</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">first_gate</span><span class="p">,</span> <span class="n">last_gate</span><span class="p">,</span> <span class="n">gate_spacing</span><span class="p">,</span> <span class="s2">"float32"</span><span class="p">)</span>
     <span class="n">_range</span><span class="p">[</span><span class="s2">"meters_to_center_of_first_gate"</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">first_gate</span><span class="p">)</span>
     <span class="n">_range</span><span class="p">[</span><span class="s2">"meters_between_gates"</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">gate_spacing</span><span class="p">)</span>
@@ -704,9 +713,6 @@
     <span class="c1"># fields</span>
     <span class="n">max_ngates</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">_range</span><span class="p">[</span><span class="s2">"data"</span><span class="p">])</span>
     <span class="n">available_moments</span> <span class="o">=</span> <span class="p">{</span><span class="n">m</span> <span class="k">for</span> <span class="n">scan</span> <span class="ow">in</span> <span class="n">scan_info</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">scan</span><span class="p">[</span><span class="s2">"moments"</span><span class="p">]}</span>
-    <span class="n">interpolate</span> <span class="o">=</span> <span class="n">_find_scans_to_interp</span><span class="p">(</span>
-        <span class="n">scan_info</span><span class="p">,</span> <span class="n">first_gate</span><span class="p">,</span> <span class="n">gate_spacing</span><span class="p">,</span> <span class="n">filemetadata</span>
-    <span class="p">)</span>
 
     <span class="n">fields</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">for</span> <span class="n">moment</span> <span class="ow">in</span> <span class="n">available_moments</span><span class="p">:</span>
@@ -782,11 +788,15 @@
     <span class="n">min_gate_spacing</span> <span class="o">=</span> <span class="mi">999999</span>
     <span class="n">max_last_gate</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">scan_params</span> <span class="ow">in</span> <span class="n">scan_info</span><span class="p">:</span>
-        <span class="n">ngates</span> <span class="o">=</span> <span class="n">scan_params</span><span class="p">[</span><span class="s2">"ngates"</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
         <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">moment</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">scan_params</span><span class="p">[</span><span class="s2">"moments"</span><span class="p">]):</span>
             <span class="k">if</span> <span class="n">filemetadata</span><span class="o">.</span><span class="n">get_field_name</span><span class="p">(</span><span class="n">moment</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="c1"># moment is not read, skip</span>
                 <span class="k">continue</span>
+            <span class="c1"># FU-10 (3b55ab, CWE-787): use this moment's own gate count.</span>
+            <span class="c1"># The previous code used ngates[0] for every moment, so a</span>
+            <span class="c1"># moment with more gates than the first one produced a range</span>
+            <span class="c1"># (and data width) too narrow to hold it.</span>
+            <span class="n">ngates</span> <span class="o">=</span> <span class="n">scan_params</span><span class="p">[</span><span class="s2">"ngates"</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
             <span class="n">first_gate</span> <span class="o">=</span> <span class="n">scan_params</span><span class="p">[</span><span class="s2">"first_gate"</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
             <span class="n">gate_spacing</span> <span class="o">=</span> <span class="n">scan_params</span><span class="p">[</span><span class="s2">"gate_spacing"</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
             <span class="n">last_gate</span> <span class="o">=</span> <span class="n">first_gate</span> <span class="o">+</span> <span class="n">gate_spacing</span> <span class="o">*</span> <span class="p">(</span><span class="n">ngates</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span>
@@ -795,6 +805,57 @@
             <span class="n">min_gate_spacing</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">min_gate_spacing</span><span class="p">,</span> <span class="n">gate_spacing</span><span class="p">)</span>
             <span class="n">max_last_gate</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">max_last_gate</span><span class="p">,</span> <span class="n">last_gate</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">min_first_gate</span><span class="p">,</span> <span class="n">min_gate_spacing</span><span class="p">,</span> <span class="n">max_last_gate</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_interp_headroom_last_gate</span><span class="p">(</span>
+    <span class="n">scan_info</span><span class="p">,</span> <span class="n">interpolate</span><span class="p">,</span> <span class="n">first_gate</span><span class="p">,</span> <span class="n">gate_spacing</span><span class="p">,</span> <span class="n">last_gate</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Return ``last_gate`` widened so interpolated moments fit the range.</span>
+
+<span class="sd">    A moment interpolated from a coarser to the finest gate spacing produces</span>
+<span class="sd">    ``multiplier * ngates`` gates (``2 * ngates - 1`` for multiplier 2).</span>
+<span class="sd">    Those interpolated gates can extend past the last physical gate center,</span>
+<span class="sd">    so the range -- and therefore the per-ray data width allocated by</span>
+<span class="sd">    ``get_data`` -- must cover that many gates at the finest spacing or the</span>
+<span class="sd">    interpolation kernels would write past the end of each ray.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    scan_info : list of dict</span>
+<span class="sd">        Per-scan moment/gate information.</span>
+<span class="sd">    interpolate : dict</span>
+<span class="sd">        Result of `_find_scans_to_interp`; empty when nothing needs</span>
+<span class="sd">        interpolation.</span>
+<span class="sd">    first_gate, gate_spacing : float</span>
+<span class="sd">        Finest first gate and spacing, as returned by `_find_range_params`.</span>
+<span class="sd">    last_gate : float</span>
+<span class="sd">        Physical last gate center.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    last_gate : float</span>
+<span class="sd">        The wider of the physical and interpolation-required last gate.</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">interpolate</span> <span class="ow">or</span> <span class="s2">"multiplier"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">interpolate</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">last_gate</span>
+    <span class="n">multiplier</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">interpolate</span><span class="p">[</span><span class="s2">"multiplier"</span><span class="p">])</span>
+    <span class="n">needed_gates</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">moment</span><span class="p">,</span> <span class="n">scan_nums</span> <span class="ow">in</span> <span class="n">interpolate</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">moment</span> <span class="o">==</span> <span class="s2">"multiplier"</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="k">for</span> <span class="n">scan_num</span> <span class="ow">in</span> <span class="n">scan_nums</span><span class="p">:</span>
+            <span class="n">scan</span> <span class="o">=</span> <span class="n">scan_info</span><span class="p">[</span><span class="n">scan_num</span><span class="p">]</span>
+            <span class="n">idx</span> <span class="o">=</span> <span class="n">scan</span><span class="p">[</span><span class="s2">"moments"</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">moment</span><span class="p">)</span>
+            <span class="n">ngates</span> <span class="o">=</span> <span class="n">scan</span><span class="p">[</span><span class="s2">"ngates"</span><span class="p">][</span><span class="n">idx</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">multiplier</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+                <span class="n">needed_gates</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">needed_gates</span><span class="p">,</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">ngates</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">needed_gates</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">needed_gates</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">ngates</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">needed_gates</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">last_gate</span>
+    <span class="n">widened</span> <span class="o">=</span> <span class="n">first_gate</span> <span class="o">+</span> <span class="n">needed_gates</span> <span class="o">*</span> <span class="n">gate_spacing</span>
+    <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="n">last_gate</span><span class="p">,</span> <span class="n">widened</span><span class="p">)</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">_find_scans_to_interp</span><span class="p">(</span><span class="n">scan_info</span><span class="p">,</span> <span class="n">first_gate</span><span class="p">,</span> <span class="n">gate_spacing</span><span class="p">,</span> <span class="n">filemetadata</span><span class="p">):</span>
@@ -831,6 +892,26 @@
 <span class="w">    </span><span class="sd">"""Interpolate a single NEXRAD moment scan from 1000 m to 250 m."""</span>
     <span class="n">fill_value</span> <span class="o">=</span> <span class="o">-</span><span class="mi">9999</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">mdata</span><span class="o">.</span><span class="n">filled</span><span class="p">(</span><span class="n">fill_value</span><span class="p">)</span>
+
+    <span class="c1"># FU-10 (3b55ab+89582b, CWE-787): moment_ngates comes from the file's</span>
+    <span class="c1"># scan info while the data width comes from a range derived from</span>
+    <span class="c1"># possibly another moment's gate count. Validate the contract before</span>
+    <span class="c1"># entering the kernels: the interpolated width must fit in the ray row</span>
+    <span class="c1"># and the ray range must be inside the array.</span>
+    <span class="k">if</span> <span class="n">multiplier</span> <span class="o">==</span> <span class="s2">"4"</span><span class="p">:</span>
+        <span class="n">needed_gates</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">moment_ngates</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">needed_gates</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">moment_ngates</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">moment_ngates</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">needed_gates</span> <span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+        <span class="k">raise</span> <span class="n">PyARTDataError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"moment with </span><span class="si">{</span><span class="n">moment_ngates</span><span class="si">}</span><span class="s2"> gates needs </span><span class="si">{</span><span class="n">needed_gates</span><span class="si">}</span><span class="s2"> interpolated "</span>
+            <span class="sa">f</span><span class="s2">"gates but the data array only provides </span><span class="si">{</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2"> gates per ray"</span>
+        <span class="p">)</span>
+    <span class="k">if</span> <span class="n">start</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">end</span> <span class="o">&gt;=</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">or</span> <span class="n">start</span> <span class="o">&gt;</span> <span class="n">end</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">PyARTDataError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"invalid ray range [</span><span class="si">{</span><span class="n">start</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">end</span><span class="si">}</span><span class="s2">] for </span><span class="si">{</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> rays"</span>
+        <span class="p">)</span>
+
     <span class="n">scratch_ray</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">multiplier</span> <span class="o">==</span> <span class="s2">"4"</span><span class="p">:</span>
         <span class="n">_fast_interpolate_scan_4</span><span class="p">(</span>

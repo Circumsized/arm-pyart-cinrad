@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pyart.aux_io.d3r_gcpex_nc &#8212; Py-ART 0.0.post3300 documentation</title>
+    <title>pyart.aux_io.d3r_gcpex_nc &#8212; Py-ART 0.0.post3301 documentation</title>
   
   
   
@@ -46,7 +46,7 @@
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67" />
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67" />
 
-    <script src="../../../_static/documentation_options.js?v=74ed0a4e"></script>
+    <script src="../../../_static/documentation_options.js?v=d0958e57"></script>
     <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -152,7 +152,7 @@
   
   
   
-    <p class="title logo__title">Py-ART 0.0.post3300 documentation</p>
+    <p class="title logo__title">Py-ART 0.0.post3301 documentation</p>
   
 </a></div>
     
@@ -498,6 +498,8 @@
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">..config</span><span class="w"> </span><span class="kn">import</span> <span class="n">FileMetadata</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">..core.radar</span><span class="w"> </span><span class="kn">import</span> <span class="n">Radar</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">PyARTDataError</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..io._validate</span><span class="w"> </span><span class="kn">import</span> <span class="n">MAX_NGATES</span><span class="p">,</span> <span class="n">MAX_NRAYS</span><span class="p">,</span> <span class="n">validate_dims</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">..io.common</span><span class="w"> </span><span class="kn">import</span> <span class="n">_test_arguments</span><span class="p">,</span> <span class="n">make_time_unit_str</span>
 
 <span class="n">D3R_FIELD_NAMES</span> <span class="o">=</span> <span class="p">{</span>
@@ -631,7 +633,69 @@
     <span class="n">sweep_start_ray_index</span> <span class="o">=</span> <span class="n">filemetadata</span><span class="p">(</span><span class="s2">"sweep_start_ray_index"</span><span class="p">)</span>
     <span class="n">sweep_end_ray_index</span> <span class="o">=</span> <span class="n">filemetadata</span><span class="p">(</span><span class="s2">"sweep_end_ray_index"</span><span class="p">)</span>
 
-    <span class="n">rays_per_sweep</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">ncvars</span><span class="p">[</span><span class="s2">"Azimuth"</span><span class="p">][:])</span>
+    <span class="c1"># FU-24 (db0886, CWE-789): NumGates is a file-controlled global</span>
+    <span class="c1"># attribute that sizes the range axis (np.arange(nbins)); a crafted</span>
+    <span class="c1"># NumGates=1e10 used to request a multi-exabyte allocation. Bound it,</span>
+    <span class="c1"># and cross-check it against the gate dimension the moment variables</span>
+    <span class="c1"># are actually stored with, so the range axis can never describe more</span>
+    <span class="c1"># gates than the file carries.</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">nbins</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">ncobj</span><span class="o">.</span><span class="n">NumGates</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">AttributeError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">PyARTDataError</span><span class="p">(</span><span class="s2">"D3R file is missing the NumGates attribute"</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">err</span>
+    <span class="n">validate_dims</span><span class="p">(</span><span class="n">nbins</span><span class="p">,</span> <span class="n">limits</span><span class="o">=</span><span class="p">(</span><span class="n">MAX_NGATES</span><span class="p">,),</span> <span class="n">name</span><span class="o">=</span><span class="s2">"D3R NumGates"</span><span class="p">)</span>
+    <span class="n">gate_vars</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">ncvars</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span> <span class="n">v</span><span class="o">.</span><span class="n">dimensions</span> <span class="o">==</span> <span class="p">(</span><span class="s2">"Radial"</span><span class="p">,</span> <span class="s2">"Gate"</span><span class="p">)]</span>
+    <span class="n">stored_gates</span> <span class="o">=</span> <span class="p">{</span><span class="n">v</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">gate_vars</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">}</span>
+    <span class="k">if</span> <span class="n">stored_gates</span> <span class="ow">and</span> <span class="n">nbins</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stored_gates</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">PyARTDataError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"D3R file declares NumGates=</span><span class="si">{</span><span class="n">nbins</span><span class="si">}</span><span class="s2"> but its moment variables are "</span>
+            <span class="sa">f</span><span class="s2">"stored with </span><span class="si">{</span><span class="nb">sorted</span><span class="p">(</span><span class="n">stored_gates</span><span class="p">)</span><span class="si">}</span><span class="s2"> gates"</span>
+        <span class="p">)</span>
+
+    <span class="c1"># FU-24 (db0886): the ray-length variables must describe exactly one</span>
+    <span class="c1"># sweep, and every moment must be stored with the (Radial, Gate) shape</span>
+    <span class="c1"># the Radar object advertises; a mismatch used to flow straight into</span>
+    <span class="c1"># radar.fields and the Cython kernels index the fields as (ray, gate).</span>
+    <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"Azimuth"</span><span class="p">,</span> <span class="s2">"Elevation"</span><span class="p">,</span> <span class="s2">"Time"</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ncvars</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">PyARTDataError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"D3R file is missing the </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> variable"</span><span class="p">)</span>
+
+    <span class="n">azimuth_values</span> <span class="o">=</span> <span class="n">ncvars</span><span class="p">[</span><span class="s2">"Azimuth"</span><span class="p">][:]</span>
+    <span class="k">if</span> <span class="n">azimuth_values</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">azimuth_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">azimuth_values</span><span class="p">])</span>
+    <span class="c1"># A partially written variable keeps its declared length but masks the</span>
+    <span class="c1"># unwritten tail, so count the real entries.</span>
+    <span class="n">nrays</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">azimuth_values</span><span class="p">))</span>
+    <span class="n">validate_dims</span><span class="p">(</span><span class="n">nrays</span><span class="p">,</span> <span class="n">limits</span><span class="o">=</span><span class="p">(</span><span class="n">MAX_NRAYS</span><span class="p">,),</span> <span class="n">name</span><span class="o">=</span><span class="s2">"D3R Radial count"</span><span class="p">)</span>
+
+    <span class="n">expected_shape</span> <span class="o">=</span> <span class="p">(</span><span class="n">nrays</span><span class="p">,</span> <span class="n">nbins</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">variable</span> <span class="ow">in</span> <span class="n">ncvars</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+        <span class="k">if</span> <span class="p">(</span>
+            <span class="n">variable</span><span class="o">.</span><span class="n">dimensions</span> <span class="o">==</span> <span class="p">(</span><span class="s2">"Radial"</span><span class="p">,</span> <span class="s2">"Gate"</span><span class="p">)</span>
+            <span class="ow">and</span> <span class="n">variable</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <span class="n">expected_shape</span>
+        <span class="p">):</span>
+            <span class="k">raise</span> <span class="n">PyARTDataError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">"D3R variable </span><span class="si">{</span><span class="n">variable</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> has shape </span><span class="si">{</span><span class="n">variable</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2"> but "</span>
+                <span class="sa">f</span><span class="s2">"the NumGates/Radial counts declare </span><span class="si">{</span><span class="n">expected_shape</span><span class="si">}</span><span class="s2">"</span>
+            <span class="p">)</span>
+    <span class="n">ray_values</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"Azimuth"</span><span class="p">,</span> <span class="s2">"Elevation"</span><span class="p">,</span> <span class="s2">"Time"</span><span class="p">):</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="n">ncvars</span><span class="p">[</span><span class="n">name</span><span class="p">][:]</span>
+        <span class="k">if</span> <span class="n">values</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">values</span><span class="p">])</span>
+        <span class="n">n_entries</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">values</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">n_entries</span> <span class="o">!=</span> <span class="n">nrays</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">PyARTDataError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">"D3R variable </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> has </span><span class="si">{</span><span class="n">n_entries</span><span class="si">}</span><span class="s2"> entries but the Radial "</span>
+                <span class="sa">f</span><span class="s2">"count is </span><span class="si">{</span><span class="n">nrays</span><span class="si">}</span><span class="s2">"</span>
+            <span class="p">)</span>
+        <span class="n">ray_values</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">values</span>
+
+    <span class="n">azimuth_values</span> <span class="o">=</span> <span class="n">ray_values</span><span class="p">[</span><span class="s2">"Azimuth"</span><span class="p">]</span>
+    <span class="n">elevation_values</span> <span class="o">=</span> <span class="n">ray_values</span><span class="p">[</span><span class="s2">"Elevation"</span><span class="p">]</span>
+    <span class="n">time_values</span> <span class="o">=</span> <span class="n">ray_values</span><span class="p">[</span><span class="s2">"Time"</span><span class="p">]</span>
+
+    <span class="n">rays_per_sweep</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">azimuth_values</span><span class="p">)</span>
     <span class="n">ssri</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span> <span class="n">rays_per_sweep</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">"int32"</span><span class="p">)</span>
     <span class="n">seri</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">rays_per_sweep</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">"int32"</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
     <span class="n">sweep_start_ray_index</span><span class="p">[</span><span class="s2">"data"</span><span class="p">]</span> <span class="o">=</span> <span class="n">ssri</span>
@@ -654,14 +718,14 @@
     <span class="c1"># fixed_angle</span>
     <span class="n">fixed_angle</span> <span class="o">=</span> <span class="n">filemetadata</span><span class="p">(</span><span class="s2">"fixed_angle"</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">ncobj</span><span class="o">.</span><span class="n">ScanType</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-        <span class="n">sweep_el</span> <span class="o">=</span> <span class="n">ncvars</span><span class="p">[</span><span class="s2">"Elevation"</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">sweep_el</span> <span class="o">=</span> <span class="n">elevation_values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">sweep_el</span> <span class="o">=</span> <span class="n">ncvars</span><span class="p">[</span><span class="s2">"Azimuth"</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">sweep_el</span> <span class="o">=</span> <span class="n">azimuth_values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">fixed_angle</span><span class="p">[</span><span class="s2">"data"</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">sweep_el</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">"float32"</span><span class="p">)</span>
 
     <span class="c1"># elevation</span>
     <span class="n">elevation</span> <span class="o">=</span> <span class="n">filemetadata</span><span class="p">(</span><span class="s2">"elevation"</span><span class="p">)</span>
-    <span class="n">elevation</span><span class="p">[</span><span class="s2">"data"</span><span class="p">]</span> <span class="o">=</span> <span class="n">ncvars</span><span class="p">[</span><span class="s2">"Elevation"</span><span class="p">]</span>
+    <span class="n">elevation</span><span class="p">[</span><span class="s2">"data"</span><span class="p">]</span> <span class="o">=</span> <span class="n">elevation_values</span>
 
     <span class="c1"># range</span>
     <span class="n">_range</span> <span class="o">=</span> <span class="n">filemetadata</span><span class="p">(</span><span class="s2">"range"</span><span class="p">)</span>
@@ -673,20 +737,19 @@
     <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">rscale</span> <span class="o">!=</span> <span class="n">rscale</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"range scale changes between sweeps"</span><span class="p">)</span>
 
-    <span class="n">nbins</span> <span class="o">=</span> <span class="n">ncobj</span><span class="o">.</span><span class="n">NumGates</span>
     <span class="n">_range</span><span class="p">[</span><span class="s2">"data"</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">nbins</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">"float32"</span><span class="p">)</span> <span class="o">*</span> <span class="n">rscale</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">rstart</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1000.0</span>
     <span class="n">_range</span><span class="p">[</span><span class="s2">"meters_to_center_of_first_gate"</span><span class="p">]</span> <span class="o">=</span> <span class="n">rstart</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">_range</span><span class="p">[</span><span class="s2">"meters_between_gates"</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">rscale</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 
     <span class="c1"># azimuth</span>
     <span class="n">azimuth</span> <span class="o">=</span> <span class="n">filemetadata</span><span class="p">(</span><span class="s2">"azimuth"</span><span class="p">)</span>
-    <span class="n">azimuth</span><span class="p">[</span><span class="s2">"data"</span><span class="p">]</span> <span class="o">=</span> <span class="n">ncvars</span><span class="p">[</span><span class="s2">"Azimuth"</span><span class="p">][:]</span>
+    <span class="n">azimuth</span><span class="p">[</span><span class="s2">"data"</span><span class="p">]</span> <span class="o">=</span> <span class="n">azimuth_values</span>
 
     <span class="c1"># time</span>
     <span class="n">_time</span> <span class="o">=</span> <span class="n">filemetadata</span><span class="p">(</span><span class="s2">"time"</span><span class="p">)</span>
     <span class="n">start_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcfromtimestamp</span><span class="p">(</span><span class="n">ncobj</span><span class="o">.</span><span class="n">Time</span><span class="p">)</span>
     <span class="n">_time</span><span class="p">[</span><span class="s2">"units"</span><span class="p">]</span> <span class="o">=</span> <span class="n">make_time_unit_str</span><span class="p">(</span><span class="n">start_time</span><span class="p">)</span>
-    <span class="n">_time</span><span class="p">[</span><span class="s2">"data"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">ncvars</span><span class="p">[</span><span class="s2">"Time"</span><span class="p">]</span> <span class="o">-</span> <span class="n">ncobj</span><span class="o">.</span><span class="n">Time</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">"float32"</span><span class="p">)</span>
+    <span class="n">_time</span><span class="p">[</span><span class="s2">"data"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">time_values</span> <span class="o">-</span> <span class="n">ncobj</span><span class="o">.</span><span class="n">Time</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">"float32"</span><span class="p">)</span>
 
     <span class="c1"># fields</span>
     <span class="c1"># all variables with dimensions of 'Radial', 'Gate' are fields</span>
