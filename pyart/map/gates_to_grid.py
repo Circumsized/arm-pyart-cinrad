@@ -120,12 +120,25 @@ def map_gates_to_grid(
             grid_origin_alt = np.mean(radars[0].altitude["data"])
 
     # convert input h_factor and dist_factor from scalar, tuple, or list to array
-    if isinstance(h_factor, (tuple, list)):
-        h_factor = np.array(h_factor, dtype="float32")
+    if isinstance(h_factor, (tuple, list, np.ndarray)):
+        # FU-11 (4f04a8, CWE-125): DistBeamRoI.get_roi indexes
+        # h_factor[0..2] under boundscheck(False); anything other than
+        # three components reads outside the buffer.
+        h_factor = np.asarray(h_factor, dtype="float32")
+        if h_factor.ndim != 1 or h_factor.shape[0] != 3:
+            raise ValueError(
+                f"h_factor must have exactly 3 components, got shape "
+                f"{tuple(h_factor.shape)}"
+            )
     elif isinstance(h_factor, float):
         h_factor = np.full(3, h_factor, dtype="float32")
-    if isinstance(dist_factor, (tuple, list)):
-        dist_factor = np.array(dist_factor, dtype="float32")
+    if isinstance(dist_factor, (tuple, list, np.ndarray)):
+        dist_factor = np.asarray(dist_factor, dtype="float32")
+        if dist_factor.ndim != 1 or dist_factor.shape[0] != 3:
+            raise ValueError(
+                f"dist_factor must have exactly 3 components, got shape "
+                f"{tuple(dist_factor.shape)}"
+            )
     elif isinstance(dist_factor, float):
         dist_factor = np.full(3, dist_factor, dtype="float32")
 

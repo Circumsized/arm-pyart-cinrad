@@ -20,6 +20,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
+#include <limits.h>
+#include <stdint.h>
 
 #ifndef M_PI
 #define M_PI 3.1415926535897932384626433832795
@@ -1017,21 +1019,60 @@ void  returnVolume(VOXELM *voxel, double *unwrappedVolume, int volume_width, int
 }
 
 //the main function of the unwrapper
-void
+//returns 0 on success, -1 for invalid dimensions, -2 on allocation failure
+int
 unwrap3D(double* wrapped_volume, double* unwrapped_volume, unsigned char* input_mask,
 	 int volume_width, int volume_height, int volume_depth,
 	 int wrap_around_x, int wrap_around_y, int wrap_around_z)
 {
   params_t params = {TWOPI, wrap_around_x, wrap_around_y, wrap_around_z, 0};
-  unsigned char *extended_mask;
-  VOXELM *voxel;
-  EDGE *edge;
-  int volume_size = volume_height * volume_width * volume_depth;
-  int No_of_Edges_initially = 3 * volume_width * volume_height * volume_depth;
+  unsigned char *extended_mask = NULL;
+  VOXELM *voxel = NULL;
+  EDGE *edge = NULL;
+  size_t volume_size;
+  size_t no_of_edges_initially;
 
+  // FU-08 (1a7f21, CWE-476/190): validate the dimensions and every
+  // multiplication before allocating anything. The internal routines
+  // index the volume with int and the edge count reaches three times the
+  // volume size, so the product must additionally stay below INT_MAX/3;
+  // a larger volume is rejected here instead of silently overflowing to
+  // a negative int and under-allocating the buffers (INT30-C form:
+  // reject when a > SIZE_MAX / b).
+  if (volume_width < 1 || volume_height < 1 || volume_depth < 1) {
+    return -1;
+  }
+  if ((size_t)volume_width > SIZE_MAX / (size_t)volume_height) {
+    return -1;
+  }
+  volume_size = (size_t)volume_width * (size_t)volume_height;
+  if (volume_size > SIZE_MAX / (size_t)volume_depth) {
+    return -1;
+  }
+  volume_size *= (size_t)volume_depth;
+  if (volume_size > (size_t)INT_MAX / 3 || volume_size > SIZE_MAX / 3) {
+    return -1;
+  }
+  no_of_edges_initially = 3 * volume_size;
+
+  // Each allocation is checked; on failure the already allocated buffers
+  // are released and an error is returned instead of dereferencing NULL
+  // inside the unwrapping routines (CERT MEM32-C).
   extended_mask = (unsigned char *) calloc(volume_size, sizeof(unsigned char));
+  if (extended_mask == NULL) {
+    return -2;
+  }
   voxel = (VOXELM *) calloc(volume_size, sizeof(VOXELM));
-  edge = (EDGE *) calloc(No_of_Edges_initially, sizeof(EDGE));;
+  if (voxel == NULL) {
+    free(extended_mask);
+    return -2;
+  }
+  edge = (EDGE *) calloc(no_of_edges_initially, sizeof(EDGE));
+  if (edge == NULL) {
+    free(extended_mask);
+    free(voxel);
+    return -2;
+  }
 
   extend_mask(input_mask, extended_mask, volume_width, volume_height, volume_depth, &params);
   initialiseVOXELs(wrapped_volume, input_mask, extended_mask, voxel, volume_width, volume_height, volume_depth);
@@ -1057,4 +1098,5 @@ unwrap3D(double* wrapped_volume, double* unwrapped_volume, unsigned char* input_
   free(edge);
   free(voxel);
   free(extended_mask);
+  return 0;
 }

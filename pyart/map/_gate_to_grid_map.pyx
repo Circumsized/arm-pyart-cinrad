@@ -104,6 +104,17 @@ cdef class DistBeamRoI(RoIFunction):
     def __init__(self, float[::1] h_factor, float nb, float bsp, float min_radius, offsets):
         """ initalize. """
         cdef int i
+
+        # FU-11 (4f04a8, CWE-125): get_roi indexes h_factor[0..2] with
+        # boundscheck(False)/wraparound(False), so a buffer shorter than
+        # three components reads past its end. The documented contract is
+        # exactly three components (z, y, x weighting); enforce it here at
+        # the boundary rather than relying on callers.
+        if h_factor.shape[0] != 3:
+            raise ValueError(
+                "h_factor must have exactly 3 components, got %d" % h_factor.shape[0]
+            )
+
         self.h_factor = h_factor
         self.min_radius = min_radius
         self.beam_factor = tan(nb * bsp * PI / 180.)

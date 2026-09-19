@@ -6,6 +6,8 @@ from datetime import datetime, timedelta
 
 import numpy as np
 
+from ..exceptions import PyARTDataError
+
 
 class C98DRadFile:
     """
@@ -62,7 +64,12 @@ class C98DRadFile:
 
         self._get_cut_header(buf)
 
-        while 1:
+        # FU-19 (e756f4, CWE-400): every iteration consumes at least one
+        # radial header, so the maximum iteration count is derived from the
+        # buffer itself. A crafted radial_state sequence can therefore never
+        # spin the parser forever; the loop is clamped, not trusted.
+        max_radials = len(buf) // _structure_size(RADIAL_HEADER) + 1
+        for _ in range(max_radials):
             self._get_radial_header(buf)
 
             if self.radial_header["radial_state"] in [0, 3]:
@@ -90,6 +97,11 @@ class C98DRadFile:
                 return
 
             num += 1
+
+        raise PyARTDataError(
+            "C98D file is malformed: no radial with state 4 (end of volume) "
+            f"was found in {max_radials} radials"
+        )
 
     def get_data(self, moment, cutnum=None, raw=False):
         """Return the decoded data for a moment with shape (nrays, ngates)."""
@@ -261,6 +273,15 @@ class C98DRadFile:
 
     def _get_cut_header(self, buf):
         """get cut header"""
+        # FU-19 (e756f4, CWE-400): cut_number is a signed 32-bit field; a
+        # bogus count used to loop reading cut headers until a struct.error
+        # ran off the end of the buffer. Bound it by the room actually left.
+        remaining_cuts = (len(buf) - self.pos) // _structure_size(CUT_CONFIG)
+        if self.cutnum < 0 or self.cutnum > remaining_cuts:
+            raise PyARTDataError(
+                f"C98D task declares {self.cutnum} cuts but only "
+                f"{remaining_cuts} cut headers fit in the file"
+            )
         for _ in range(self.cutnum):
             self.cut = _unpack_from_buf(buf, self.pos, CUT_CONFIG)
             self.pos += _structure_size(CUT_CONFIG)
@@ -283,10 +304,29 @@ class C98DRadFile:
 
     def _get_moment_data(self, buf):
         """get moment data"""
-        key, leng = (
-            MOMENTS_TYPE[self.moment_header["data_type"]],
-            self.moment_header["length"],
-        )
+        # FU-19 (e756f4, CWE-789/CWE-400): 'length' is a signed 32-bit field.
+        # A negative value used to move self.pos backwards (silently
+        # re-parsing bytes) and an oversized value used to abort with a raw
+        # ValueError from np.frombuffer because the clamped slice was shorter
+        # than count. Bound the length against the bytes that actually remain
+        # before the cursor or the count is touched.
+        key = MOMENTS_TYPE.get(self.moment_header["data_type"])
+        if key is None:
+            raise PyARTDataError(
+                f"C98D moment has unknown data type {self.moment_header['data_type']}"
+            )
+        leng = self.moment_header["length"]
+        remaining = len(buf) - self.pos
+        if leng <= 0:
+            raise PyARTDataError(
+                f"C98D moment {key} declares a non-positive data length of {leng} "
+                f"bytes"
+            )
+        if leng > remaining:
+            raise PyARTDataError(
+                f"C98D moment {key} declares {leng} data bytes but only "
+                f"{remaining} bytes remain in the file"
+            )
         data = np.frombuffer(
             buf[self.pos : self.pos + leng], dtype=np.uint8, count=leng
         )
@@ -313,6 +353,14 @@ def _structure_size(structure):
 def _unpack_from_buf(buf, pos, structure):
     """Unpack a structure from a buffer."""
     size = _structure_size(structure)
+    # FU-19 (e756f4): a truncated file used to surface as a bare struct.error
+    # from struct.unpack; reject the short read before it reaches struct.
+    if pos < 0 or pos + size > len(buf):
+        available = max(len(buf) - pos, 0)
+        raise PyARTDataError(
+            f"C98D file is truncated: {size} bytes needed at offset {pos} but "
+            f"only {available} bytes are available"
+        )
     return _unpack_structure(buf[pos : pos + size], structure)
 
 

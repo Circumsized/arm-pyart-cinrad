@@ -10,6 +10,8 @@ import numpy as np
 
 from ..config import FileMetadata
 from ..core.radar import Radar
+from ..exceptions import PyARTDataError
+from ..io._validate import MAX_NGATES, MAX_NRAYS, validate_dims
 from ..io.common import _test_arguments, make_time_unit_str
 
 D3R_FIELD_NAMES = {
@@ -141,7 +143,69 @@ def read_d3r_gcpex_nc(
     sweep_start_ray_index = filemetadata("sweep_start_ray_index")
     sweep_end_ray_index = filemetadata("sweep_end_ray_index")
 
-    rays_per_sweep = np.shape(ncvars["Azimuth"][:])
+    # FU-24 (db0886, CWE-789): NumGates is a file-controlled global
+    # attribute that sizes the range axis (np.arange(nbins)); a crafted
+    # NumGates=1e10 used to request a multi-exabyte allocation. Bound it,
+    # and cross-check it against the gate dimension the moment variables
+    # are actually stored with, so the range axis can never describe more
+    # gates than the file carries.
+    try:
+        nbins = int(ncobj.NumGates)
+    except AttributeError as err:
+        raise PyARTDataError("D3R file is missing the NumGates attribute") from err
+    validate_dims(nbins, limits=(MAX_NGATES,), name="D3R NumGates")
+    gate_vars = [v for v in ncvars.values() if v.dimensions == ("Radial", "Gate")]
+    stored_gates = {v.shape[1] for v in gate_vars if len(v.shape) == 2}
+    if stored_gates and nbins not in stored_gates:
+        raise PyARTDataError(
+            f"D3R file declares NumGates={nbins} but its moment variables are "
+            f"stored with {sorted(stored_gates)} gates"
+        )
+
+    # FU-24 (db0886): the ray-length variables must describe exactly one
+    # sweep, and every moment must be stored with the (Radial, Gate) shape
+    # the Radar object advertises; a mismatch used to flow straight into
+    # radar.fields and the Cython kernels index the fields as (ray, gate).
+    for name in ("Azimuth", "Elevation", "Time"):
+        if name not in ncvars:
+            raise PyARTDataError(f"D3R file is missing the {name} variable")
+
+    azimuth_values = ncvars["Azimuth"][:]
+    if azimuth_values.ndim == 0:
+        azimuth_values = np.array([azimuth_values])
+    # A partially written variable keeps its declared length but masks the
+    # unwritten tail, so count the real entries.
+    nrays = int(np.ma.count(azimuth_values))
+    validate_dims(nrays, limits=(MAX_NRAYS,), name="D3R Radial count")
+
+    expected_shape = (nrays, nbins)
+    for variable in ncvars.values():
+        if (
+            variable.dimensions == ("Radial", "Gate")
+            and variable.shape != expected_shape
+        ):
+            raise PyARTDataError(
+                f"D3R variable {variable.name} has shape {variable.shape} but "
+                f"the NumGates/Radial counts declare {expected_shape}"
+            )
+    ray_values = {}
+    for name in ("Azimuth", "Elevation", "Time"):
+        values = ncvars[name][:]
+        if values.ndim == 0:
+            values = np.array([values])
+        n_entries = int(np.ma.count(values))
+        if n_entries != nrays:
+            raise PyARTDataError(
+                f"D3R variable {name} has {n_entries} entries but the Radial "
+                f"count is {nrays}"
+            )
+        ray_values[name] = values
+
+    azimuth_values = ray_values["Azimuth"]
+    elevation_values = ray_values["Elevation"]
+    time_values = ray_values["Time"]
+
+    rays_per_sweep = np.shape(azimuth_values)
     ssri = np.cumsum(np.append([0], rays_per_sweep[:-1])).astype("int32")
     seri = np.cumsum(rays_per_sweep).astype("int32") - 1
     sweep_start_ray_index["data"] = ssri
@@ -164,14 +228,14 @@ def read_d3r_gcpex_nc(
     # fixed_angle
     fixed_angle = filemetadata("fixed_angle")
     if ncobj.ScanType == 2:
-        sweep_el = ncvars["Elevation"][0]
+        sweep_el = elevation_values[0]
     else:
-        sweep_el = ncvars["Azimuth"][0]
+        sweep_el = azimuth_values[0]
     fixed_angle["data"] = np.array([sweep_el], dtype="float32")
 
     # elevation
     elevation = filemetadata("elevation")
-    elevation["data"] = ncvars["Elevation"]
+    elevation["data"] = elevation_values
 
     # range
     _range = filemetadata("range")
@@ -183,20 +247,19 @@ def read_d3r_gcpex_nc(
     if any(rscale != rscale[0]):
         raise ValueError("range scale changes between sweeps")
 
-    nbins = ncobj.NumGates
     _range["data"] = np.arange(nbins, dtype="float32") * rscale[0] + rstart[0] * 1000.0
     _range["meters_to_center_of_first_gate"] = rstart[0]
     _range["meters_between_gates"] = float(rscale[0])
 
     # azimuth
     azimuth = filemetadata("azimuth")
-    azimuth["data"] = ncvars["Azimuth"][:]
+    azimuth["data"] = azimuth_values
 
     # time
     _time = filemetadata("time")
     start_time = datetime.datetime.utcfromtimestamp(ncobj.Time)
     _time["units"] = make_time_unit_str(start_time)
-    _time["data"] = (ncvars["Time"] - ncobj.Time).astype("float32")
+    _time["data"] = (time_values - ncobj.Time).astype("float32")
 
     # fields
     # all variables with dimensions of 'Radial', 'Gate' are fields
