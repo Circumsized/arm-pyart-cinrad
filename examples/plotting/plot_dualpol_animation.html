@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>CINRAD X/S/C-band dual-polarization animation example &#8212; Py-ART 0.0.post3294 documentation</title>
+    <title>CINRAD X/S/C-band dual-polarization animation example &#8212; Py-ART 0.0.post3298 documentation</title>
   
   
   
@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=fd6457a4" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=c83e6b79" />
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
@@ -47,7 +47,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67" />
 
-    <script src="../../_static/documentation_options.js?v=0d1a0456"></script>
+    <script src="../../_static/documentation_options.js?v=d2f82dfe"></script>
     <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -155,7 +155,7 @@
   
   
   
-    <p class="title logo__title">Py-ART 0.0.post3294 documentation</p>
+    <p class="title logo__title">Py-ART 0.0.post3298 documentation</p>
   
 </a></div>
     
@@ -563,9 +563,8 @@ to download the full example code.</p>
 <p>Build a GIF animation from a series of radar files (any band supported by
 the readers) or Radar objects, and save it as <code class="docutils literal notranslate"><span class="pre">dualpol_animation.gif</span></code>.</p>
 <p>When run as a script <strong>with</strong> file arguments, those files are animated:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">plot_dualpol_animation</span><span class="o">.</span><span class="n">py</span> <span class="n">frame1</span><span class="o">.</span><span class="n">bin</span> <span class="n">frame2</span><span class="o">.</span><span class="n">bin</span> <span class="o">...</span>
-</pre></div>
-</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="n">python</span> <span class="n">plot_dualpol_animation</span><span class="o">.</span><span class="n">py</span> <span class="n">frame1</span><span class="o">.</span><span class="n">bin</span> <span class="n">frame2</span><span class="o">.</span><span class="n">bin</span> <span class="o">.</span><span class="o">.</span><span class="o">.</span><span class="w">
+</span></pre></div></div>
 <p>When executed <strong>without</strong> arguments – which is how Sphinx-Gallery renders
 this example – a pair of synthetic PPI radars is generated so the example
 is fully self-contained and does not need any external data.</p>
@@ -575,92 +574,91 @@ is fully self-contained and does not need any external data.</p>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
-
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">font_manager</span>
-
-<span class="kn">from</span><span class="w"> </span><span class="nn">pyart.graph.animation</span><span class="w"> </span><span class="kn">import</span> <span class="n">animate_ppi</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">pyart.testing</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_empty_ppi_radar</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">configure_chinese_font</span><span class="p">():</span>
-<span class="w">    </span><span class="sd">"""Select the first available CJK font, or leave the default in place."""</span>
-    <span class="n">preferred</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="s2">"Microsoft YaHei"</span><span class="p">,</span>
-        <span class="s2">"SimHei"</span><span class="p">,</span>
-        <span class="s2">"SimSun"</span><span class="p">,</span>
-        <span class="s2">"Noto Sans CJK SC"</span><span class="p">,</span>
-        <span class="s2">"PingFang SC"</span><span class="p">,</span>
-    <span class="p">]</span>
-    <span class="n">installed</span> <span class="o">=</span> <span class="p">{</span><span class="n">f</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <a href="https://docs.python.org/3/builtins/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">font_manager</span><span class="o">.</span><span class="n">fontManager</span><span class="o">.</span><span class="n">ttflist</span></a><span class="p">}</span>
-    <a href="https://matplotlib.org/stable/api/matplotlib_configuration_api.html#matplotlib.RcParams" title="matplotlib.RcParams" class="sphx-glr-backref-module-matplotlib sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span></a><span class="p">[</span><span class="s2">"axes.unicode_minus"</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
-    <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">preferred</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">installed</span><span class="p">:</span>
-            <a href="https://matplotlib.org/stable/api/matplotlib_configuration_api.html#matplotlib.RcParams" title="matplotlib.RcParams" class="sphx-glr-backref-module-matplotlib sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span></a><span class="p">[</span><span class="s2">"font.sans-serif"</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">name</span><span class="p">]</span>
-            <span class="k">return</span> <span class="n">name</span>
-    <span class="k">return</span> <span class="kc">None</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">make_synthetic_frames</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Return ``n`` synthetic PPI radars carrying a reflectivity field."""</span>
-    <span class="n">frames</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-        <span class="n">radar</span> <span class="o">=</span> <span class="n">make_empty_ppi_radar</span><span class="p">(</span><span class="n">ngates</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">rays_per_sweep</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">nsweeps</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-        <span class="c1"># A simple range-dependent, frame-varying echo so the GIF differs</span>
-        <span class="c1"># from one frame to the next.</span>
-        <span class="n">gates</span> <span class="o">=</span> <span class="n">radar</span><span class="o">.</span><span class="n">range</span><span class="p">[</span><span class="s2">"data"</span><span class="p">]</span>
-        <span class="n">rays</span> <span class="o">=</span> <span class="n">radar</span><span class="o">.</span><span class="n">azimuth</span><span class="p">[</span><span class="s2">"data"</span><span class="p">]</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="mf">40.0</span>
-            <span class="o">*</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ufunc.html#numpy.ufunc" title="numpy.ufunc" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">np</span><span class="o">.</span><span class="n">exp</span></a><span class="p">(</span><span class="o">-</span><span class="p">((</span><span class="n">gates</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]</span> <span class="o">-</span> <span class="p">(</span><span class="mf">20.0</span> <span class="o">+</span> <span class="mf">5.0</span> <span class="o">*</span> <span class="n">i</span><span class="p">))</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="mf">12.0</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
-            <span class="o">*</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ufunc.html#numpy.ufunc" title="numpy.ufunc" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">np</span><span class="o">.</span><span class="n">cos</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ufunc.html#numpy.ufunc" title="numpy.ufunc" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span></a><span class="p">(</span><span class="n">rays</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]))</span>
-        <span class="p">)</span>
-        <span class="n">radar</span><span class="o">.</span><span class="n">add_field</span><span class="p">(</span>
-            <span class="s2">"reflectivity"</span><span class="p">,</span>
-            <span class="p">{</span>
-                <span class="s2">"data"</span><span class="p">:</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ma.masked_invalid.html#numpy.ma.masked_invalid" title="numpy.ma.masked_invalid" class="sphx-glr-backref-module-numpy-ma sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_invalid</span></a><span class="p">(</span><span class="n">data</span><span class="p">),</span>
-                <span class="s2">"units"</span><span class="p">:</span> <span class="s2">"dBZ"</span><span class="p">,</span>
-                <span class="s2">"long_name"</span><span class="p">:</span> <span class="s2">"Synthetic reflectivity"</span><span class="p">,</span>
-            <span class="p">},</span>
-        <span class="p">)</span>
-        <span class="n">frames</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">radar</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">frames</span>
-
-
-<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">files</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Animate ``files`` if given, otherwise fall back to synthetic frames."""</span>
-    <span class="n">target</span> <span class="o">=</span> <span class="n">files</span> <span class="ow">or</span> <span class="n">make_synthetic_frames</span><span class="p">()</span>
-
-    <span class="n">animate_ppi</span><span class="p">(</span>
-        <span class="n">target</span><span class="p">,</span>
-        <span class="s2">"reflectivity"</span><span class="p">,</span>
-        <span class="n">sweep</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
-        <span class="n">out</span><span class="o">=</span><span class="s2">"ppi_animation.gif"</span><span class="p">,</span>
-        <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
-        <span class="n">vmax</span><span class="o">=</span><span class="mi">70</span><span class="p">,</span>
-        <span class="n">fps</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
-        <span class="n">title_fmt</span><span class="o">=</span><span class="s2">"PPI Frame </span><span class="si">{i}</span><span class="s2">"</span><span class="p">,</span>
-    <span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"saved ppi_animation.gif"</span><span class="p">)</span>
-
-    <span class="c1"># --- RHI animation (single radar, several tilts shown as frames) -----</span>
-    <span class="c1"># animate_rhi(target, 'reflectivity', out='rhi_animation.gif')</span>
-
-    <span class="c1"># --- Map-projected animation (requires cartopy) ----------------------</span>
-    <span class="c1"># animate_map_ppi(target, 'reflectivity', out='map_animation.gif',</span>
-    <span class="c1">#                 extent=(116., 123., 30., 35.))</span>
-
-
-<span class="c1"># Sphinx-Gallery imports this module and executes the body, so run the</span>
-<span class="c1"># example unconditionally. When invoked from a shell the ``if __name__``</span>
-<span class="c1"># guard simply re-uses the same entry point with the user's file paths.</span>
-<span class="n">configure_chinese_font</span><span class="p">()</span>
-<span class="n">main</span><span class="p">(</span><a href="https://docs.python.org/3/builtins/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">sys</span><span class="o">.</span><span class="n">argv</span></a><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
-</pre></div>
-</div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.323 seconds)</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span><span class="w">
+</span><span class="w">
+</span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w">
+</span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span><span class="w">
+</span><span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">font_manager</span><span class="w">
+</span><span class="w">
+</span><span class="kn">from</span><span class="w"> </span><span class="nn">pyart</span><span class="nn">.</span><span class="nn">graph</span><span class="nn">.</span><span class="nn">animation</span><span class="w"> </span><span class="kn">import</span> <a class="sphx-glr-backref-module-pyart-graph sphx-glr-backref-type-py-function reference internal" href="../../API/generated/pyart.graph.animate_ppi.html#pyart.graph.animate_ppi" title="pyart.graph.animate_ppi"><span class="n">animate_ppi</span></a><span class="w">
+</span><span class="kn">from</span><span class="w"> </span><span class="nn">pyart</span><span class="nn">.</span><span class="nn">testing</span><span class="w"> </span><span class="kn">import</span> <a class="sphx-glr-backref-module-pyart-testing sphx-glr-backref-type-py-function reference internal" href="../../API/generated/pyart.testing.make_empty_ppi_radar.html#pyart.testing.make_empty_ppi_radar" title="pyart.testing.make_empty_ppi_radar"><span class="n">make_empty_ppi_radar</span></a><span class="w">
+</span><span class="w">
+</span><span class="w">
+</span><span class="k">def</span><span class="w"> </span><span class="nf">configure_chinese_font</span><span class="p">(</span><span class="p">)</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Select the first available CJK font, or leave the default in place.&quot;&quot;&quot;</span><span class="w">
+</span>    <span class="n">preferred</span> <span class="o">=</span> <span class="p">[</span><span class="w">
+</span>        <span class="s2">&quot;</span><span class="s2">Microsoft YaHei</span><span class="s2">&quot;</span><span class="p">,</span><span class="w">
+</span>        <span class="s2">&quot;</span><span class="s2">SimHei</span><span class="s2">&quot;</span><span class="p">,</span><span class="w">
+</span>        <span class="s2">&quot;</span><span class="s2">SimSun</span><span class="s2">&quot;</span><span class="p">,</span><span class="w">
+</span>        <span class="s2">&quot;</span><span class="s2">Noto Sans CJK SC</span><span class="s2">&quot;</span><span class="p">,</span><span class="w">
+</span>        <span class="s2">&quot;</span><span class="s2">PingFang SC</span><span class="s2">&quot;</span><span class="p">,</span><span class="w">
+</span>    <span class="p">]</span><span class="w">
+</span>    <span class="n">installed</span> <span class="o">=</span> <span class="p">{</span><span class="n">f</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="list"><span class="n">font_manager</span><span class="o">.</span><span class="n">fontManager</span><span class="o">.</span><span class="n">ttflist</span></a><span class="p">}</span><span class="w">
+</span>    <a class="sphx-glr-backref-module-matplotlib sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://matplotlib.org/stable/api/matplotlib_configuration_api.html#matplotlib.RcParams" title="matplotlib.RcParams"><span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span></a><span class="p">[</span><span class="s2">&quot;</span><span class="s2">axes.unicode_minus</span><span class="s2">&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="w">
+</span>    <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">preferred</span><span class="p">:</span><span class="w">
+</span>        <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">installed</span><span class="p">:</span><span class="w">
+</span>            <a class="sphx-glr-backref-module-matplotlib sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://matplotlib.org/stable/api/matplotlib_configuration_api.html#matplotlib.RcParams" title="matplotlib.RcParams"><span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span></a><span class="p">[</span><span class="s2">&quot;</span><span class="s2">font.sans-serif</span><span class="s2">&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="w">
+</span>            <span class="k">return</span> <span class="n">name</span><span class="w">
+</span>    <span class="k">return</span> <span class="kc">None</span><span class="w">
+</span><span class="w">
+</span><span class="w">
+</span><span class="k">def</span><span class="w"> </span><span class="nf">make_synthetic_frames</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Return ``n`` synthetic PPI radars carrying a reflectivity field.&quot;&quot;&quot;</span><span class="w">
+</span>    <span class="n">frames</span> <span class="o">=</span> <span class="p">[</span><span class="p">]</span><span class="w">
+</span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="p">:</span><span class="w">
+</span>        <span class="n">radar</span> <span class="o">=</span> <a class="sphx-glr-backref-module-pyart-testing sphx-glr-backref-type-py-function reference internal" href="../../API/generated/pyart.testing.make_empty_ppi_radar.html#pyart.testing.make_empty_ppi_radar" title="pyart.testing.make_empty_ppi_radar"><span class="n">make_empty_ppi_radar</span></a><span class="p">(</span><span class="n">ngates</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">rays_per_sweep</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">nsweeps</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="w">
+</span>        <span class="c1"># A simple range-dependent, frame-varying echo so the GIF differs</span><span class="w">
+</span>        <span class="c1"># from one frame to the next.</span><span class="w">
+</span>        <span class="n">gates</span> <span class="o">=</span> <span class="n">radar</span><span class="o">.</span><span class="n">range</span><span class="p">[</span><span class="s2">&quot;</span><span class="s2">data</span><span class="s2">&quot;</span><span class="p">]</span><span class="w">
+</span>        <span class="n">rays</span> <span class="o">=</span> <span class="n">radar</span><span class="o">.</span><span class="n">azimuth</span><span class="p">[</span><span class="s2">&quot;</span><span class="s2">data</span><span class="s2">&quot;</span><span class="p">]</span><span class="w">
+</span>        <span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="w">
+</span>            <span class="mf">40.0</span><span class="w">
+</span>            <span class="o">*</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ufunc.html#numpy.ufunc" title="numpy.ufunc"><span class="n">np</span><span class="o">.</span><span class="n">exp</span></a><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="p">(</span><span class="n">gates</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:</span><span class="p">]</span> <span class="o">-</span> <span class="p">(</span><span class="mf">20.0</span> <span class="o">+</span> <span class="mf">5.0</span> <span class="o">*</span> <span class="n">i</span><span class="p">)</span><span class="p">)</span> <span class="o">*</span><span class="o">*</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="mf">12.0</span><span class="o">*</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span><span class="p">)</span><span class="w">
+</span>            <span class="o">*</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ufunc.html#numpy.ufunc" title="numpy.ufunc"><span class="n">np</span><span class="o">.</span><span class="n">cos</span></a><span class="p">(</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ufunc.html#numpy.ufunc" title="numpy.ufunc"><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span></a><span class="p">(</span><span class="n">rays</span><span class="p">[</span><span class="p">:</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span><span class="p">)</span><span class="p">)</span><span class="w">
+</span>        <span class="p">)</span><span class="w">
+</span>        <span class="n">radar</span><span class="o">.</span><span class="n">add_field</span><span class="p">(</span><span class="w">
+</span>            <span class="s2">&quot;</span><span class="s2">reflectivity</span><span class="s2">&quot;</span><span class="p">,</span><span class="w">
+</span>            <span class="p">{</span><span class="w">
+</span>                <span class="s2">&quot;</span><span class="s2">data</span><span class="s2">&quot;</span><span class="p">:</span> <a class="sphx-glr-backref-module-numpy-ma sphx-glr-backref-type-py-function reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ma.masked_invalid.html#numpy.ma.masked_invalid" title="numpy.ma.masked_invalid"><span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_invalid</span></a><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="p">,</span><span class="w">
+</span>                <span class="s2">&quot;</span><span class="s2">units</span><span class="s2">&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="s2">dBZ</span><span class="s2">&quot;</span><span class="p">,</span><span class="w">
+</span>                <span class="s2">&quot;</span><span class="s2">long_name</span><span class="s2">&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="s2">Synthetic reflectivity</span><span class="s2">&quot;</span><span class="p">,</span><span class="w">
+</span>            <span class="p">}</span><span class="p">,</span><span class="w">
+</span>        <span class="p">)</span><span class="w">
+</span>        <span class="n">frames</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">radar</span><span class="p">)</span><span class="w">
+</span>    <span class="k">return</span> <span class="n">frames</span><span class="w">
+</span><span class="w">
+</span><span class="w">
+</span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">files</span><span class="p">)</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Animate ``files`` if given, otherwise fall back to synthetic frames.&quot;&quot;&quot;</span><span class="w">
+</span>    <span class="n">target</span> <span class="o">=</span> <span class="n">files</span> <span class="ow">or</span> <span class="n">make_synthetic_frames</span><span class="p">(</span><span class="p">)</span><span class="w">
+</span><span class="w">
+</span>    <a class="sphx-glr-backref-module-pyart-graph sphx-glr-backref-type-py-function reference internal" href="../../API/generated/pyart.graph.animate_ppi.html#pyart.graph.animate_ppi" title="pyart.graph.animate_ppi"><span class="n">animate_ppi</span></a><span class="p">(</span><span class="w">
+</span>        <span class="n">target</span><span class="p">,</span><span class="w">
+</span>        <span class="s2">&quot;</span><span class="s2">reflectivity</span><span class="s2">&quot;</span><span class="p">,</span><span class="w">
+</span>        <span class="n">sweep</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="w">
+</span>        <span class="n">out</span><span class="o">=</span><span class="s2">&quot;</span><span class="s2">ppi_animation.gif</span><span class="s2">&quot;</span><span class="p">,</span><span class="w">
+</span>        <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="w">
+</span>        <span class="n">vmax</span><span class="o">=</span><span class="mi">70</span><span class="p">,</span><span class="w">
+</span>        <span class="n">fps</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="w">
+</span>        <span class="n">title_fmt</span><span class="o">=</span><span class="s2">&quot;</span><span class="s2">PPI Frame </span><span class="si">{i}</span><span class="s2">&quot;</span><span class="p">,</span><span class="w">
+</span>    <span class="p">)</span><span class="w">
+</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="s2">saved ppi_animation.gif</span><span class="s2">&quot;</span><span class="p">)</span><span class="w">
+</span><span class="w">
+</span>    <span class="c1"># --- RHI animation (single radar, several tilts shown as frames) -----</span><span class="w">
+</span>    <span class="c1"># animate_rhi(target, 'reflectivity', out='rhi_animation.gif')</span><span class="w">
+</span><span class="w">
+</span>    <span class="c1"># --- Map-projected animation (requires cartopy) ----------------------</span><span class="w">
+</span>    <span class="c1"># animate_map_ppi(target, 'reflectivity', out='map_animation.gif',</span><span class="w">
+</span>    <span class="c1">#                 extent=(116., 123., 30., 35.))</span><span class="w">
+</span><span class="w">
+</span><span class="w">
+</span><span class="c1"># Sphinx-Gallery imports this module and executes the body, so run the</span><span class="w">
+</span><span class="c1"># example unconditionally. When invoked from a shell the ``if __name__``</span><span class="w">
+</span><span class="c1"># guard simply re-uses the same entry point with the user's file paths.</span><span class="w">
+</span><span class="n">configure_chinese_font</span><span class="p">(</span><span class="p">)</span><span class="w">
+</span><span class="n">main</span><span class="p">(</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="list"><span class="n">sys</span><span class="o">.</span><span class="n">argv</span></a><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="p">]</span><span class="p">)</span><span class="w">
+</span></pre></div></div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.286 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-plotting-plot-dualpol-animation-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/e1af47654d748d651cdd653ad7b7bb14/plot_dualpol_animation.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_dualpol_animation.ipynb</span></code></a></p>

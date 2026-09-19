@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pyart.graph.max_cappi &#8212; Py-ART 0.0.post3294 documentation</title>
+    <title>pyart.graph.max_cappi &#8212; Py-ART 0.0.post3298 documentation</title>
   
   
   
@@ -33,7 +33,7 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=fd6457a4" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=c83e6b79" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
@@ -46,7 +46,7 @@
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67" />
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67" />
 
-    <script src="../../../_static/documentation_options.js?v=0d1a0456"></script>
+    <script src="../../../_static/documentation_options.js?v=d2f82dfe"></script>
     <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -152,7 +152,7 @@
   
   
   
-    <p class="title logo__title">Py-ART 0.0.post3294 documentation</p>
+    <p class="title logo__title">Py-ART 0.0.post3298 documentation</p>
   
 </a></div>
     
@@ -511,6 +511,22 @@
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">"ignore"</span><span class="p">)</span>
 
 
+<span class="k">def</span><span class="w"> </span><span class="nf">_safe_filename_component</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">fallback</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Reduce *value* to a single safe filename component.</span>
+
+<span class="sd">    FU-06 (94f00e, CWE-22): ``instrument_name`` originates from the input</span>
+<span class="sd">    file's metadata and ``title`` from the caller, so both must be treated</span>
+<span class="sd">    as untrusted when they reach the output path. Backslashes are normalized</span>
+<span class="sd">    to forward slashes, only the final path component is kept, and</span>
+<span class="sd">    directory-traversal components are replaced by *fallback*.</span>
+<span class="sd">    """</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"</span><span class="se">\\</span><span class="s2">"</span><span class="p">,</span> <span class="s2">"/"</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">text</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">""</span><span class="p">,</span> <span class="s2">"."</span><span class="p">,</span> <span class="s2">".."</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">fallback</span>
+    <span class="k">return</span> <span class="n">text</span>
+
+
 <div class="viewcode-block" id="plot_maxcappi">
 <a class="viewcode-back" href="../../../API/generated/pyart.graph.plot_maxcappi.html#pyart.graph.plot_maxcappi">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">plot_maxcappi</span><span class="p">(</span>
@@ -862,7 +878,29 @@
     <span class="k">if</span> <span class="n">savedir</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">radar_name</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">attrs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"instrument_name"</span><span class="p">,</span> <span class="s2">"Radar"</span><span class="p">)</span>
         <span class="n">time_str</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s2">"time"</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">"%Y%m</span><span class="si">%d</span><span class="s2">%H%M%S"</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
-        <span class="n">figname</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">savedir</span><span class="si">}{</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="si">}{</span><span class="n">title</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">radar_name</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">time_str</span><span class="si">}</span><span class="s2">.png"</span>
+        <span class="c1"># FU-06 (94f00e, CWE-22): sanitize the two interpolated components so</span>
+        <span class="c1"># neither the file-derived instrument_name nor the caller-supplied</span>
+        <span class="c1"># title can escape savedir through path traversal.</span>
+        <span class="n">safe_title</span> <span class="o">=</span> <span class="n">_safe_filename_component</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="s2">"plot"</span><span class="p">)</span>
+        <span class="n">safe_radar_name</span> <span class="o">=</span> <span class="n">_safe_filename_component</span><span class="p">(</span><span class="n">radar_name</span><span class="p">,</span> <span class="s2">"Radar"</span><span class="p">)</span>
+        <span class="n">figname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+            <span class="n">savedir</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">safe_title</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">safe_radar_name</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">time_str</span><span class="si">}</span><span class="s2">.png"</span>
+        <span class="p">)</span>
+        <span class="n">savedir_real</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="n">savedir</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">contained</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">commonpath</span><span class="p">([</span><span class="n">savedir_real</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="n">figname</span><span class="p">)])</span>
+                <span class="o">==</span> <span class="n">savedir_real</span>
+            <span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="n">contained</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">contained</span><span class="p">:</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                <span class="s2">"plot_maxcappi: refusing to save outside savedir; using a "</span>
+                <span class="s2">"sanitized filename instead."</span><span class="p">,</span>
+                <span class="ne">RuntimeWarning</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="n">figname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">savedir</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"plot_Radar_</span><span class="si">{</span><span class="n">time_str</span><span class="si">}</span><span class="s2">.png"</span><span class="p">)</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">fname</span><span class="o">=</span><span class="n">figname</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="n">dpi</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">"tight"</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Figure(s) saved as </span><span class="si">{</span><span class="n">figname</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 

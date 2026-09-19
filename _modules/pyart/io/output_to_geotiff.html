@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pyart.io.output_to_geotiff &#8212; Py-ART 0.0.post3294 documentation</title>
+    <title>pyart.io.output_to_geotiff &#8212; Py-ART 0.0.post3298 documentation</title>
   
   
   
@@ -33,7 +33,7 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=fd6457a4" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=c83e6b79" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
@@ -46,7 +46,7 @@
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67" />
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67" />
 
-    <script src="../../../_static/documentation_options.js?v=0d1a0456"></script>
+    <script src="../../../_static/documentation_options.js?v=d2f82dfe"></script>
     <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -152,7 +152,7 @@
   
   
   
-    <p class="title logo__title">Py-ART 0.0.post3294 documentation</p>
+    <p class="title logo__title">Py-ART 0.0.post3298 documentation</p>
   
 </a></div>
     
@@ -488,11 +488,11 @@
                    <h1>Source code for pyart.io.output_to_geotiff</h1><div class="highlight"><pre>
 <span></span><span class="sd">"""</span>
 <span class="sd">Write a Py-ART Grid object to a GeoTIFF file.</span>
-
 <span class="sd">"""</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.colors</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">colors</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
@@ -586,11 +586,9 @@
 <span class="sd">        False - Don't do this.</span>
 
 <span class="sd">    use_doublequotes : bool, optional</span>
-<span class="sd">        True - Use double quotes in the gdalwarp call (requires warp=True),</span>
-<span class="sd">               which may help if that command is producing and error like:</span>
-<span class="sd">               'Translating source or target SRS failed'.</span>
-
-<span class="sd">        False - Use single quotes instead.</span>
+<span class="sd">        Deprecated and ignored. The gdalwarp invocation is now an argv list</span>
+<span class="sd">        executed without a shell (see FU-01, CWE-78), so the SRS parameter</span>
+<span class="sd">        is always passed literally and no quoting style is required.</span>
 
 <span class="sd">    transparent_bg : bool, optional</span>
 <span class="sd">        True - Sets alpha value of masked pixels to zero producing a</span>
@@ -687,24 +685,21 @@
     <span class="k">if</span> <span class="n">warp</span><span class="p">:</span>
         <span class="c1"># Warps TIFF to lat/lon WGS84 projection that is more useful</span>
         <span class="c1"># for web mapping applications. Likely changes array shape.</span>
-        <span class="k">if</span> <span class="n">use_doublequotes</span><span class="p">:</span>
-            <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span>
-                <span class="s1">'gdalwarp -q -t_srs "+proj=longlat +ellps=WGS84 '</span>
-                <span class="o">+</span> <span class="s1">'+datum=WGS84 +no_defs" '</span>
-                <span class="o">+</span> <span class="n">ofile</span>
-                <span class="o">+</span> <span class="s2">" "</span>
-                <span class="o">+</span> <span class="n">ofile</span>
-                <span class="o">+</span> <span class="s2">"_tmp.tif"</span>
-            <span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span>
-                <span class="s2">"gdalwarp -q -t_srs '+proj=longlat +ellps=WGS84 "</span>
-                <span class="o">+</span> <span class="s2">"+datum=WGS84 +no_defs' "</span>
-                <span class="o">+</span> <span class="n">ofile</span>
-                <span class="o">+</span> <span class="s2">" "</span>
-                <span class="o">+</span> <span class="n">ofile</span>
-                <span class="o">+</span> <span class="s2">"_tmp.tif"</span>
-            <span class="p">)</span>
+        <span class="c1"># SECURITY (FU-01, ed8eb0/CWE-78): the output filename reaches this</span>
+        <span class="c1"># module through a public API and may be influenced by untrusted</span>
+        <span class="c1"># input. It is passed as a literal argv element to a shell-free</span>
+        <span class="c1"># subprocess so shell metacharacters cannot be interpreted.</span>
+        <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="s2">"gdalwarp"</span><span class="p">,</span>
+                <span class="s2">"-q"</span><span class="p">,</span>
+                <span class="s2">"-t_srs"</span><span class="p">,</span>
+                <span class="s2">"+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"</span><span class="p">,</span>
+                <span class="n">ofile</span><span class="p">,</span>
+                <span class="n">ofile</span> <span class="o">+</span> <span class="s2">"_tmp.tif"</span><span class="p">,</span>
+            <span class="p">],</span>
+            <span class="n">check</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="p">)</span>
         <span class="n">shutil</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="n">ofile</span> <span class="o">+</span> <span class="s2">"_tmp.tif"</span><span class="p">,</span> <span class="n">ofile</span><span class="p">)</span></div>
 
 
@@ -812,8 +807,12 @@
     <span class="n">cmap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="n">cmap</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">color_levels</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">color_levels</span> <span class="o">=</span> <span class="mi">255</span>
-    <span class="n">name</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">filename</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"."</span><span class="p">)</span>
-    <span class="n">ofile</span> <span class="o">=</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">".sld"</span>
+    <span class="c1"># FU-01 hardening: os.path.splitext keeps the directory component intact</span>
+    <span class="c1"># for paths whose directory names contain dots, which ``split('.')``</span>
+    <span class="c1"># mangled into a ValueError.</span>
+    <span class="n">dirname</span><span class="p">,</span> <span class="n">base</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+    <span class="n">name</span><span class="p">,</span> <span class="n">_ext</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">base</span><span class="p">)</span>
+    <span class="n">ofile</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dirname</span><span class="p">,</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">".sld"</span><span class="p">)</span>
     <span class="n">fileobj</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">ofile</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span>
 
     <span class="n">header</span> <span class="o">=</span> <span class="p">(</span>

@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pyart.io.remote &#8212; Py-ART 0.0.post3294 documentation</title>
+    <title>pyart.io.remote &#8212; Py-ART 0.0.post3298 documentation</title>
   
   
   
@@ -33,7 +33,7 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=fd6457a4" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=c83e6b79" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
@@ -46,7 +46,7 @@
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=cb8930eaaf36d9849b67" />
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=cb8930eaaf36d9849b67" />
 
-    <script src="../../../_static/documentation_options.js?v=0d1a0456"></script>
+    <script src="../../../_static/documentation_options.js?v=d2f82dfe"></script>
     <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -152,7 +152,7 @@
   
   
   
-    <p class="title logo__title">Py-ART 0.0.post3294 documentation</p>
+    <p class="title logo__title">Py-ART 0.0.post3298 documentation</p>
   
 </a></div>
     
@@ -745,14 +745,41 @@
         <span class="k">return</span> <span class="n">radars</span>
 
     <span class="c1"># -- HTTP helpers -------------------------------------------------------</span>
+    <span class="c1"># FU-02 (d9214c, CWE-918): networks that ipaddress does not classify as</span>
+    <span class="c1"># private/loopback/link-local on every Python version but that must never</span>
+    <span class="c1"># be reachable through a caller-supplied URL.</span>
+    <span class="n">_EXTRA_BLOCKED_NETWORKS</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">"0.0.0.0/8"</span><span class="p">,</span>  <span class="c1"># "this host on this network"</span>
+        <span class="s2">"100.64.0.0/10"</span><span class="p">,</span>  <span class="c1"># carrier-grade NAT</span>
+        <span class="s2">"192.0.0.0/24"</span><span class="p">,</span>  <span class="c1"># IETF protocol assignments</span>
+        <span class="s2">"198.18.0.0/15"</span><span class="p">,</span>  <span class="c1"># benchmarking</span>
+        <span class="s2">"64:ff9b::/96"</span><span class="p">,</span>  <span class="c1"># NAT64 (embeds IPv4)</span>
+    <span class="p">)</span>
+
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">_validate_url</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">allow_private</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_validate_url</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">allow_private</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">allowlist</span><span class="o">=</span><span class="p">()):</span>
 <span class="w">        </span><span class="sd">"""Return True when ``url`` is safe to request.</span>
 
-<span class="sd">        Restricts the scheme to ``http``/``https`` and (unless</span>
-<span class="sd">        ``allow_private``) rejects loopback, link-local, private, and cloud</span>
-<span class="sd">        metadata hosts. This is an SSRF guard for caller-supplied URLs</span>
-<span class="sd">        (``key['url']``, ``station_config['template']``).</span>
+<span class="sd">        FU-02 (e690e4/d9214c, CWE-918). The guard now:</span>
+
+<span class="sd">        1. restricts the scheme to ``http``/``https``;</span>
+<span class="sd">        2. matches the hostname against an explicit operator allowlist;</span>
+<span class="sd">        3. resolves the hostname and classifies **every** resolved address</span>
+<span class="sd">           against loopback / private / link-local / reserved / multicast /</span>
+<span class="sd">           unspecified ranges, including IPv4-mapped IPv6 and 6to4 forms;</span>
+<span class="sd">        4. rejects hostnames that do not resolve at all.</span>
+
+<span class="sd">        Hostnames are not trusted by string shape: any DNS name (localtest.me,</span>
+<span class="sd">        an attacker-controlled A record, ...) is resolved first, and</span>
+<span class="sd">        alternative IP literal encodings (decimal, octal, hex, short form)</span>
+<span class="sd">        are normalized by the resolver, so none of them bypass</span>
+<span class="sd">        classification. Redirect targets are re-validated per hop by</span>
+<span class="sd">        :meth:`_http_get`.</span>
+
+<span class="sd">        ``allow_private`` remains available for callers that *explicitly*</span>
+<span class="sd">        opt in (for example an internal mirror configured through</span>
+<span class="sd">        ``station_config``); it can no longer be enabled implicitly for a</span>
+<span class="sd">        caller-supplied URL.</span>
 <span class="sd">        """</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="kn">from</span><span class="w"> </span><span class="nn">urllib.parse</span><span class="w"> </span><span class="kn">import</span> <span class="n">urlparse</span>
@@ -762,26 +789,54 @@
             <span class="k">return</span> <span class="kc">False</span>
         <span class="k">if</span> <span class="n">parsed</span><span class="o">.</span><span class="n">scheme</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"http"</span><span class="p">,</span> <span class="s2">"https"</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">parsed</span><span class="o">.</span><span class="n">hostname</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">False</span>
-        <span class="k">if</span> <span class="n">allow_private</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">True</span>
-        <span class="n">host</span> <span class="o">=</span> <span class="n">parsed</span><span class="o">.</span><span class="n">hostname</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-        <span class="k">if</span> <span class="n">host</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"localhost"</span><span class="p">,</span> <span class="s2">"127.0.0.1"</span><span class="p">,</span> <span class="s2">"::1"</span><span class="p">,</span> <span class="s2">"169.254.169.254"</span><span class="p">):</span>
-            <span class="k">return</span> <span class="kc">False</span>
-        <span class="kn">import</span><span class="w"> </span><span class="nn">ipaddress</span>
+        <span class="n">host</span> <span class="o">=</span> <span class="n">parsed</span><span class="o">.</span><span class="n">hostname</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">"[]"</span><span class="p">)</span>
 
-        <span class="k">try</span><span class="p">:</span>
-            <span class="n">ip</span> <span class="o">=</span> <span class="n">ipaddress</span><span class="o">.</span><span class="n">ip_address</span><span class="p">(</span><span class="n">host</span><span class="p">)</span>
-        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
-            <span class="c1"># Not a raw IP; could be a DNS name. Allow (we cannot resolve it</span>
-            <span class="c1"># here without a DNS call, which itself is out of scope).</span>
+        <span class="k">if</span> <span class="n">host</span> <span class="ow">in</span> <span class="p">{</span><span class="nb">str</span><span class="p">(</span><span class="n">h</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">allowlist</span><span class="p">}:</span>
             <span class="k">return</span> <span class="kc">True</span>
-        <span class="k">return</span> <span class="ow">not</span> <span class="p">(</span>
-            <span class="n">ip</span><span class="o">.</span><span class="n">is_private</span>
-            <span class="ow">or</span> <span class="n">ip</span><span class="o">.</span><span class="n">is_loopback</span>
-            <span class="ow">or</span> <span class="n">ip</span><span class="o">.</span><span class="n">is_link_local</span>
-            <span class="ow">or</span> <span class="n">ip</span><span class="o">.</span><span class="n">is_reserved</span>
-            <span class="ow">or</span> <span class="n">ip</span><span class="o">.</span><span class="n">is_multicast</span>
-        <span class="p">)</span>
+
+        <span class="kn">import</span><span class="w"> </span><span class="nn">ipaddress</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">socket</span>
+
+        <span class="c1"># Resolve every address the host maps to. A name that cannot be</span>
+        <span class="c1"># resolved cannot be validated, so it is refused.</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">infos</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">getaddrinfo</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">except</span> <span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">gaierror</span><span class="p">,</span> <span class="ne">UnicodeError</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">,</span> <span class="ne">OSError</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">infos</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="n">extra_blocked</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">ipaddress</span><span class="o">.</span><span class="n">ip_network</span><span class="p">(</span><span class="n">net</span><span class="p">)</span> <span class="k">for</span> <span class="n">net</span> <span class="ow">in</span> <span class="n">_BaseSource</span><span class="o">.</span><span class="n">_EXTRA_BLOCKED_NETWORKS</span>
+        <span class="p">]</span>
+        <span class="k">for</span> <span class="n">info</span> <span class="ow">in</span> <span class="n">infos</span><span class="p">:</span>
+            <span class="n">addr</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">ip</span> <span class="o">=</span> <span class="n">ipaddress</span><span class="o">.</span><span class="n">ip_address</span><span class="p">(</span><span class="n">addr</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">False</span>
+            <span class="c1"># Unwrap IPv4-mapped IPv6 (::ffff:a.b.c.d) and 6to4 (2002::/16).</span>
+            <span class="n">mapped</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">ip</span><span class="p">,</span> <span class="s2">"ipv4_mapped"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">mapped</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">ip</span> <span class="o">=</span> <span class="n">mapped</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">sixtofour</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">ip</span><span class="p">,</span> <span class="s2">"sixtofour"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">sixtofour</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">ip</span> <span class="o">=</span> <span class="n">sixtofour</span>
+            <span class="k">if</span> <span class="n">allow_private</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="k">if</span> <span class="p">(</span>
+                <span class="n">ip</span><span class="o">.</span><span class="n">is_private</span>
+                <span class="ow">or</span> <span class="n">ip</span><span class="o">.</span><span class="n">is_loopback</span>
+                <span class="ow">or</span> <span class="n">ip</span><span class="o">.</span><span class="n">is_link_local</span>
+                <span class="ow">or</span> <span class="n">ip</span><span class="o">.</span><span class="n">is_reserved</span>
+                <span class="ow">or</span> <span class="n">ip</span><span class="o">.</span><span class="n">is_multicast</span>
+                <span class="ow">or</span> <span class="n">ip</span><span class="o">.</span><span class="n">is_unspecified</span>
+            <span class="p">):</span>
+                <span class="k">return</span> <span class="kc">False</span>
+            <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">ip</span> <span class="ow">in</span> <span class="n">net</span> <span class="k">for</span> <span class="n">net</span> <span class="ow">in</span> <span class="n">extra_blocked</span><span class="p">):</span>
+                <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="kc">True</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_http_get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mf">15.0</span><span class="p">,</span> <span class="n">allow_private</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">max_redirects</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""GET ``url`` and return bytes, with bounded retries.</span>
@@ -1484,9 +1539,13 @@
                     <span class="s2">"MUSIC file entry has no recognized download URL field: "</span>
                     <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span>
                 <span class="p">)</span>
-        <span class="c1"># 天擎 download URLs may sit on private address space, so allow them</span>
-        <span class="c1"># through the SSRF guard explicitly.</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_http_get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">allow_private</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="c1"># FU-02 (e690e4, CWE-918): MUSIC download URLs reach this point from</span>
+        <span class="c1"># a caller-supplied key or an upstream service response, so they must</span>
+        <span class="c1"># run through the same SSRF guard as every other fetch. If a trusted</span>
+        <span class="c1"># deployment legitimately needs private address space, pass an</span>
+        <span class="c1"># explicit ``allowlist`` to ``_validate_url`` instead of disabling</span>
+        <span class="c1"># the guard.</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_http_get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_atomic_write</span><span class="p">(</span><span class="n">local</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">local</span></div>
 

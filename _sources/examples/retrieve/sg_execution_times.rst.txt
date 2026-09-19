@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:05.308** total execution time for 2 files **from examples/retrieve**:
+**00:05.421** total execution time for 2 files **from examples/retrieve**:
 
 .. container::
 
@@ -33,8 +33,8 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_examples_retrieve_plot_composite_reflectivity.py` (``plot_composite_reflectivity.py``)
-     - 00:03.115
+     - 00:03.249
      - 0.0
    * - :ref:`sphx_glr_examples_retrieve_plot_column_subset.py` (``plot_column_subset.py``)
-     - 00:02.193
+     - 00:02.172
      - 0.0
