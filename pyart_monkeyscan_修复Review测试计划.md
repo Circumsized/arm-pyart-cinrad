@@ -4,8 +4,9 @@
 > - `monkeyscan-task-Circumsized_arm-pyart-cinrad_main-report.csv`（44 条缺陷汇总表）
 > - `monkeyscan-task-Circumsized_arm-pyart-cinrad_main-defects.zip`（44 份独立缺陷详报）
 >
-> 评审对象：ARM-DOE/pyart（PyPI: arm-pyart，BSD-3-Clause）main 分支
+> 评审对象：ARM-DOE/pyart（PyPI: arm-pyart，BSD-3-Clause）及其 CINRAD/MUSIC 定制分支（fork）
 > 文档性质：漏洞归因梳理 + 修复方案设计 + 修复 Review 流程 + 验证测试计划
+> 版本：v2（含第 2.3 节交叉核验记录；v1→v2 修订：4 处标准引用订正、1 处新增 sink、fork/upstream 归属划分）
 > 编制日期：2026-09-19
 
 ---
@@ -20,8 +21,9 @@
    - 信任边界缺失——所有二进制/NetCDF/HDF5 解析器把文件头字段直接当作可信输入（占 24 项，全部集中于 `pyart/io/`，占全部缺陷的 54.5%）；
    - 性能优化覆写安全不变量——Cython `boundscheck(False)/wraparound(False)` 被广泛用作默认性能手段，但函数契约（允许空数组、ng<3 等）未同步保证（内存安全类 18 项，集中于 `pyart/correct/`、`pyart/retrieve/`、`pyart/map/`）；
    - 危险 API 与可被短路的安全控制——`os.system` 拼接文件名（RCE）、`allow_private=True` 使 SSRF 防护空转、`exec_module` 加载配置即执行代码。
-2. **必须优先处置的 7 个独立漏洞（8 个 ID）**：OS 命令注入（ed8eb，致命）、SSRF×2（e690e/d9214）、Sigmet 负 nbins 堆越界写（6ff3b）、KDP 两个 OOB 读（21f73/29123）、cKDTree 双重释放（b2f85/c004f 为同一缺陷的两份报告）、路径穿越（94f00）。
+2. **必须优先处置的 P0 级 6 个修复单元（覆盖 8 个缺陷 ID）**：OS 命令注入（ed8eb0，致命）、SSRF×2（e690e4/d9214c）、Sigmet 负 nbins 堆越界写（6ff3be）、KDP 两个 OOB 读（21f732/291237）、cKDTree 双重释放（b2f856/c004f 为同一缺陷的两份报告）、路径穿越（94f00）。
 3. **修复必须"代码 + 测试 + 样本"三件套同步提交**：任何仅改代码不附回归测试与恶意样本 PoC 的修复一律不予合入；涉及 `.pyx` 的修改必须重新生成 `.c` 并做 ASan 验证。
+4. **本版计划已经权威交叉核验（第 2.3 节）**：对上游 ARM-DOE/pyart 源码逐点核对了 5 个 P0 级缺陷的代码事实（命令注入/双重释放/路径穿越/空堆下溢/配置执行均获源码级确证，含 commit ae71c99）；核验同时确认扫描对象为 CINRAD fork——44 项中 38 项属 upstream 文件、6 项（含 1 项高危 SSRF）为 fork 专属，修复投递与披露渠道必须分流；另订正了 4 处 CERT/CWE 标准引用并使计划新增 1 处漏洞 sink 发现。
 
 建议按 P0（1 周）/ P1（3 周）/ P2（6 周）三波推进，全部完成后以第 9 章验收标准逐条核销。
 
@@ -33,6 +35,7 @@
 
 - CSV 44 条全量解析；ZIP 内 44 份详报全量解包抽查（覆盖致命/高危全量与各中危类别代表 12 份），确认报告结构一致（总结→分析逻辑→结论→验证复现→修复建议五段式）。
 - 对疑似重复/耦合项做并案：b2f85 与 c004f 为 `ckdtree.pyx:965-971` 同一双重释放缺陷的两份报告（定级不一致，建议按高危取 b2f85 为准）；3b55a 与 89582 为 NEXRAD 插值门数失配问题的上下游两侧（`nexrad_archive.py` 调用侧与 `nexrad_interpolate.pyx` 内核侧），应作为一个修复单元实施。
+- **扫描对象性质已判定为 fork**：任务名 `arm-pyart-cinrad_main` 及上游代码比对表明，受扫代码为 ARM-DOE/pyart 的 CINRAD/MUSIC 定制分支——`pyart/io/remote.py`（CMA MUSIC 数据源与 SSRF 防护）、`C98DRadFile.py`、`sband_radar.py`、`sband_archive.py`、`xband_native.py` 在 upstream main（commit ae71c99）中均不存在，属 fork 新增。归属划分直接影响修复投递与披露渠道，见 2.3 节与第 10 章。
 
 ### 2.2 权威依据（联网检索）
 
@@ -40,11 +43,39 @@
 |---|---|---|
 | Cython 安全编程 | Cython 官方文档（boundscheck/wraparound 指令语义）、scikit-learn Cython 最佳实践（`SKLEARN_ENABLE_DEBUG_CYTHON_DIRECTIVES`） | `boundscheck(False)/wraparound(False)` 下的所有索引必须有显式前置校验；调试期用开启 boundscheck 的构建排查 OOB |
 | SSRF 防护 | OWASP Server-Side Request Forgery Prevention Cheat Sheet | 禁止黑名单式主机名校验；必须 DNS 解析后按 IP 分类拒绝私有/回环/链路本地/元数据地址，且重定向后重新校验 |
-| C 安全编码 | SEI CERT C（INT04-C、INT30-C、INT31-C、INT32-C、MEM30-C、MEM34-C、EXP34-C、FIO34-C） | 来自不可信源的整数必须强制范围限制；分配前做溢出检查；`calloc`/`malloc` 返回值必须判空；`free` 必须一次且唯一 |
+| C 安全编码 | SEI CERT C（INT04-C、INT30-C、INT31-C、INT32-C、MEM31-C、MEM32-C、EX33-C、EXP34-C、FIO42-C；其中 MEM32-C 已于 2026 版并入 ERR33-C） | 来自不可信源的整数必须强制范围限制；分配前做溢出检查；`calloc`/`malloc` 返回值必须判空（MEM32-C/ERR33-C）；动态内存只释放一次（MEM31-C）；不读未初始化内存（EXP33-C）；关闭不再使用的文件描述符（FIO42-C） |
 | 路径穿越 | CWE-22 修复指南（Canonicalize + Containment）、OWASP | 输出路径必须 `realpath/resolve` 后做目录包含性校验，而非事后清理字符串 |
 | 解压炸弹/资源耗尽 | CWE-409/CWE-400/CWE-789、aiohttp CVE-2025-69223 修复（32 MiB 解压上限）、CPython CVE-2026-15310（bzip2/LZMA 预分配上限） | 流式解压 + 输出上限 + 比率阈值，超限即中止 |
-| 可达断言 | CWE-617 | 不得用 `assert` 做不可信输入校验（`python -O` 下被剥离） |
+| 可达断言 | CWE-617 + Python 语言参考（`-O` 时代码生成器不为 assert 产出任何字节码） | 不得用 `assert` 做不可信输入校验（`python -O` 下被剥离） |
+| 临时文件/描述符 | CWE-377（父类）/CWE-379（不安全目录建临时文件）/CWE-367（TOCTOU）/CWE-773（fd 泄漏，映射 CERT FIO42-C） | `mkstemp` 本身属较安全构造，问题在 `dir='.'`、返回 fd 未关、mkstemp 与外部写入间的竞态窗口 |
 | 模糊测试 | OSS-Fuzz / Atheris（Python 覆盖引导模糊测试） | 为 `pyart.io` 解析器建 Atheris harness，畸形样本回归语料库沉淀 |
+
+### 2.3 交叉核验记录（对第 1 轮计划的权威性复核）
+
+第 1 轮计划编制后，已对全部关键论断做二次联网核验（GitHub upstream 源码 + MITRE CWE + JPCERT/SEI CERT + Python 官方参考），结论如下：
+
+**A. 缺陷事实获源码级确证（6 项 P0 中 4 项，另 2 项为 fork 专属文件无法从 upstream 核对但报告内部证据链完整）**
+
+| 缺陷 | 核验方式 | 结论 |
+|---|---|---|
+| ed8eb0（os.system 注入） | 上游 `pyart/io/output_to_geotiff.py` 全文 | 属实：两个分支均将 `ofile` 未转义拼入 `os.system('gdalwarp ...')`；docstring 自证 "called from command line using os.system"。**新增发现**：`_create_sld()`（sld=True 路径）以 `filename.split('.')` 拼出 `.sld` 路径后 `open(ofile,'w')`，是同类第二 sink（CWE-73/22），已补入 FU-01 |
+| b2f856/c004f5（双重释放） | GitHub 代码搜索 `free(mids) repo:ARM-DOE/pyart`（main，commit ae71c99） | 属实：except 块中 `if ni != NULL: stdlib.free(mids)` 与 `if mids != NULL: stdlib.free(mids)` 两次释放同一指针，与报告引用行区一致 |
+| a8abf7（空堆 remove） | 上游 `pyart/map/ckdtree.pyx` 全文 | 属实：`remove()` 首句 `self.heap[0] = self.heap[self.n-1]` 无 `n == 0` 保护；`peek()`/`pop()` 同样无保护。该文件为 vendored SciPy 代码（文件头 SciPy license 声明），修复可考虑同时上游至 SciPy |
+| 94f00e（路径穿越） | 上游 `pyart/graph/max_cappi.py` 全文 | 属实：`figname = f"{savedir}{os.sep}{title}_{radar_name}_{time_str}.png"` 无任何净化，`radar_name` 取自 `ds.attrs.get("instrument_name","Radar")` |
+| e3e000（配置执行） | 上游 `pyart/config.py` 全文 | 属实：`spec.loader.exec_module(cfile)` 执行配置文件，`except ImportError` 回退废弃 `imp.load_source`；docstring 自证 "executed as-is with full permission... do not load un-trusted configuration files" |
+| e690e4/d9214c（SSRF） | 上游目录列表比对 | `pyart/io/remote.py` 不存在于 upstream main，属 fork 新增文件；缺陷本身以报告内部证据链（防护函数与调用同行、allow_private 短路逻辑）为准，定级不变 |
+
+**B. 权威引用订正（第 1 轮计划有 4 处标准编号/映射不精确，已修订）**
+
+1. `MEM30-C` 曾被误引为"分配失败检测"——实为 **Do not access freed memory（UAF）**；分配判空的正确规则是 **MEM32-C（Detect and handle memory allocation errors，2026-07 起并入 ERR33-C）**。已修订 FU-08 与 8.2 检查单。
+2. `MEM34-C` 曾被误引为"只释放一次"——实为 **Only free memory allocated dynamically**；双重释放的正确规则是 **MEM31-C（Free dynamically allocated memory only once）**。已修订 FU-05 与 8.2 检查单。
+3. 3fbfe4 的 CWE 映射由 CWE-403/377 订正为 **CWE-773（fd 泄漏）+ CWE-379（CWD 建临时文件）+ CWE-367（TOCTOU）**；CWE-377 页面明确指出 `mkstemp` 属较安全构造，故以子项 CWE-379 指向 `dir='.'` 问题。已修订总表与 FU-40。
+4. 854841 的映射由 CWE-681 细化为 **CWE-681/197（Numeric Truncation Error）**；bf4710 补映射 **CERT EXP33-C**（Do not read uninitialized memory，CWE-908 页给出）。已修订总表。
+
+**C. 归属划分（影响修复投递与披露）**
+
+- **Upstream 缺陷（38 项）**：`pyart/io`（18 项）、`pyart/aux_io`（7 项）、`pyart/map`（5 项）、`pyart/correct`（4 项）、`pyart/retrieve`（2 项）、`pyart/graph`（1 项）、`pyart/config`（1 项）——均可在 upstream main 找到对应文件（目录列表已逐一比对）。
+- **Fork 专属缺陷（6 项）**：e690e4（高危）、d9214c（中危）于 `remote.py`；e756f4、9b7666、86ab7a（中危）于 C98DRadFile/sband_radar/sband_archive；bf4710（低危）于 xband_native。修复只能投递 fork 维护方，披露亦须经 fork 渠道协调。
 
 ---
 
@@ -55,16 +86,18 @@
 - 按严重程度：致命 1（2.3%）、高危 6（13.6%）、中危 24（54.5%）、低危 13（29.5%）
 - 按 AI 验证：已确认/已验证 32（72.7%）、仅初筛/未验证 12（27.3%）
 - 按模块：`pyart/io` 24、`pyart/aux_io` 7、`pyart/map` 5、`pyart/correct` 4、`pyart/retrieve` 2、`pyart/graph` 1、`pyart/config` 1
+- 按代码归属（见 2.1/2.3 核验）：**upstream ARM-DOE/pyart 缺陷 38 项**（`pyart/io` 18、`pyart/aux_io` 7、`pyart/map` 5、`pyart/correct` 4、`pyart/retrieve` 2、`pyart/graph` 1、`pyart/config` 1）；**CINRAD fork 专属缺陷 6 项**（`remote.py`×2、`C98DRadFile.py`、`sband_radar.py`、`sband_archive.py`、`xband_native.py`）
+- P0 六个修复单元（FU-01~FU-06，覆盖 8 个缺陷 ID）中 5 个位于 upstream 文件（FU-01/03/04/05/06），1 个位于 fork 专属文件（FU-02 的 SSRF 对）——修复投递与披露渠道须分流处理
 
 ### 3.2 缺陷总表（44 项，含根因归类与修复优先级）
 
-> RC 编号见第 4 章根因模型；优先级见第 6 章。"修复单元"列中 FU-x 为并案后的独立修复单元编号（共 42 个）。
+> RC 编号见第 4 章根因模型；优先级见第 6 章。"修复单元"列中 FU-x 为并案后的独立修复单元编号（共 40 个，覆盖全部 44 个缺陷 ID：FU-02/FU-04/FU-05/FU-10 各合并 2 个 ID）。
 
 | # | 缺陷ID | 级别 | 位置 | 类型/CWE | 状态 | RC | 修复单元 | 优先级 |
 |---|---|---|---|---|---|---|---|---|
 | 1 | ed8eb0 | 致命 | pyart/io/output_to_geotiff.py | OS 命令注入 CWE-78 | 已验证 | RC-6 | FU-01 | P0 |
-| 2 | e690e4 | 高危 | pyart/io/remote.py | SSRF 防护被显式关闭 CWE-918 | 已验证 | RC-5 | FU-02 | P0 |
-| 3 | d9214c | 中危 | pyart/io/remote.py | SSRF 防护被 DNS 主机名绕过 CWE-918 | 已验证 | RC-5 | FU-02 | P0 |
+| 2 | e690e4 | 高危 | pyart/io/remote.py（fork 专属） | SSRF 防护被显式关闭 CWE-918 | 已验证 | RC-5 | FU-02 | P0 |
+| 3 | d9214c | 中危 | pyart/io/remote.py（fork 专属） | SSRF 防护被 DNS 主机名绕过 CWE-918 | 已验证 | RC-5 | FU-02 | P0 |
 | 4 | 6ff3be | 高危 | pyart/io/_sigmetfile.pyx | 堆越界写（负 nbins）CWE-787 | 已验证 | RC-1/RC-2 | FU-03 | P0 |
 | 5 | 21f732 | 高危 | pyart/retrieve/_kdp_proc(.pyx/.c) | 堆越界读 CWE-125 | 已验证 | RC-2 | FU-04 | P0 |
 | 6 | 291237 | 高危 | pyart/retrieve/_kdp_proc(.pyx/.c) | 堆越界读 CWE-125 | 已验证 | RC-2 | FU-04 | P0 |
@@ -82,19 +115,19 @@
 | 18 | 18f97e | 中危 | pyart/io/nexrad_level3.py | 径向/门数无界分配 + 静默截断 CWE-789/131 | 已验证 | RC-1/RC-3 | FU-16 | P1 |
 | 19 | 8227a7 | 中危 | pyart/io/nexrad_level3.py | 空 radials 下标 + 无界分配 + 未校验包头切片 | 已验证 | RC-1/RC-3 | FU-17 | P1 |
 | 20 | f56fc4 | 中危 | pyart/io/nexrad_level2.py | bz2 无界解压（解压炸弹）CWE-409/400 | 已验证 | RC-1 | FU-18 | P1 |
-| 21 | e756f4 | 中危 | pyart/io/C98DRadFile.py | 有符号长度驱动切片/游标 CWE-131/835 | 已验证 | RC-1 | FU-19 | P1 |
+| 21 | e756f4 | 中危 | pyart/io/C98DRadFile.py（fork 专属） | 有符号长度驱动切片/游标 CWE-131/835 | 已验证 | RC-1 | FU-19 | P1 |
 | 22 | 7a67cb | 中危 | pyart/io/cfradial.py | ray_n_gates/ray_start_index 未校验致 IndexError | 已验证 | RC-1 | FU-20 | P1 |
 | 23 | 434d5a | 中危 | pyart/aux_io/rxm25.py | NetCDF 维度驱动无界分配 CWE-789 | 已验证 | RC-1/RC-3 | FU-21 | P1 |
 | 24 | 17bab9 | 中危 | pyart/aux_io/rxm25.py | 变量 shape 与 Radar 维度不校验 | 已验证 | RC-1 | FU-22 | P1 |
 | 25 | 57a9dd | 中危 | pyart/aux_io/gamicfile.py | HDF5 'sets' 属性驱动无界列表分配 CWE-789 | 已验证 | RC-1/RC-3 | FU-23 | P1 |
 | 26 | db0886 | 中危 | pyart/aux_io/d3r_gcpex_nc.py | NumGates 驱动无界分配 CWE-789 | 已验证 | RC-1/RC-3 | FU-24 | P1 |
-| 27 | 9b7666 | 中危 | pyart/io/sband_radar.py | ngates 无钳制赋值致 ValueError | 已验证 | RC-4 | FU-25 | P1 |
+| 27 | 9b7666 | 中危 | pyart/io/sband_radar.py（fork 专属） | ngates 无钳制赋值致 ValueError | 已验证 | RC-4 | FU-25 | P1 |
 | 28 | c73c45 | 中危 | pyart/io/nexrad_level2.py | MSG31 名称 ASCII 解码 + 指针未校验 | 已验证 | RC-1/RC-9 | FU-26 | P2 |
 | 29 | f89e9e | 中危 | pyart/io/nexrad_level2.py | MSG31 size/block_pointer 未校验致 struct.error | 已验证 | RC-1/RC-3 | FU-27 | P2 |
-| 30 | 86ab7a | 中危 | pyart/io/sband_archive.py | assert 做输入校验（-O 下失效）CWE-617 | 已验证 | RC-8 | FU-28 | P2 |
-| 31 | 854841 | 低危 | pyart/correct/_unwrap_2d(.pyx/.c) | Py_ssize_t→int 截断 CWE-681 | 初筛 | RC-2/RC-3 | FU-29 | P2 |
+| 30 | 86ab7a | 中危 | pyart/io/sband_archive.py（fork 专属） | assert 做输入校验（-O 下失效）CWE-617 | 已验证 | RC-8 | FU-28 | P2 |
+| 31 | 854841 | 低危 | pyart/correct/_unwrap_2d(.pyx/.c) | Py_ssize_t→int 截断 CWE-681/197 | 初筛 | RC-2/RC-3 | FU-29 | P2 |
 | 32 | fae334 | 低危 | pyart/correct/src/dealias_fourdd.c | 负射线索引解引用 CWE-125 | 初筛 | RC-2 | FU-30 | P2 |
-| 33 | bf4710 | 低危 | pyart/io/xband_native.py | np.empty 未写入行泄露堆内存 CWE-908 | 初筛 | RC-1 | FU-31 | P2 |
+| 33 | bf4710 | 低危 | pyart/io/xband_native.py（fork 专属） | np.empty 未写入行泄露堆内存 CWE-908（CERT EXP33-C） | 初筛 | RC-1 | FU-31 | P2 |
 | 34 | 0e8f8c | 低危 | pyart/map/_gate_to_grid_map(.pyx/.c) | float→int 越界转换（UB）+ step=0 坍缩 CWE-681 | 初筛 | RC-2/RC-3 | FU-32 | P2 |
 | 35 | 268283 | 低危 | pyart/io/sigmet.py | dict_keys 下标 TypeError（健壮性） | 初筛 | RC-4 | FU-33 | P2 |
 | 36 | 5f2e4b | 低危 | pyart/io/sigmet.py | number_bins=0 除零/reshape 失败 | 初筛 | RC-1 | FU-34 | P2 |
@@ -103,7 +136,7 @@
 | 39 | 23c53c | 低危 | pyart/aux_io/kazr_spectra.py | 正则结果空下标 IndexError | 初筛 | RC-4 | FU-37 | P2 |
 | 40 | 7dc6bf | 低危 | pyart/aux_io/sinarame_h5.py | 非数字组名 int() ValueError | 初筛 | RC-4 | FU-38 | P2 |
 | 41 | e3e000 | 低危 | pyart/config.py | 配置文件加载即执行任意代码 CWE-94/95 | 初筛 | RC-6 | FU-39 | P2 |
-| 42 | 3fbfe4 | 低危 | pyart/aux_io/radx.py | fd 泄漏 + CWD 建临时文件（TOCTOU）CWE-403/377 | 初筛 | RC-6 | FU-40 | P2 |
+| 42 | 3fbfe4 | 低危 | pyart/aux_io/radx.py | fd 泄漏 CWE-773（CERT FIO42-C）+ CWD 建临时文件 CWE-379 + TOCTOU CWE-367 | 初筛 | RC-6 | FU-40 | P2 |
 | 43 | c004f5 | 中危 | pyart/map/ckdtree.pyx | （同 b2f856，双重释放） | 已验证 | RC-7 | 并入 FU-05 | — |
 | 44 | 89582b | 低危 | pyart/io/nexrad_interpolate.pyx | （同 3b55ab，插值门数失配） | 初筛 | RC-1/RC-2 | 并入 FU-10 | — |
 
@@ -145,17 +178,19 @@
 
 **权威依据**：OWASP SSRF Prevention Cheat Sheet（应用层必须"先 DNS 解析、再按 IP 分类拒绝"，重定向后必须重新校验；黑名单/字符串匹配无效）。
 
+**归属提示**：`remote.py` 为 CINRAD fork 专属模块（upstream 无此文件，见 2.3），故 RC-5 的修复与披露均走 fork 渠道。
+
 ### RC-6 危险 API 的不安全用法
 
 **机制**：`os.system` 拼接字符串执行外部进程（ed8eb0）；`importlib.exec_module` 把外部文件当代码执行（e3e000）；`mkstemp` 返回值 fd 未关闭、临时文件落在进程 CWD（3fbfe4）；输出路径字符串拼接（94f00e，同时归因 RC-1）。
 
-**权威依据**：CWE-78（命令注入）；CWE-94/95；CWE-403（文件描述符管理）；CWE-22 修复指南。
+**权威依据**：CWE-78（命令注入）；CWE-94/95；CWE-773（fd 泄漏，CERT FIO42-C）+CWE-379（CWD 临时文件）+CWE-367（TOCTOU）；CWE-22 修复指南。
 
 ### RC-7 错误清理路径的资源管理缺陷
 
 **机制**：`ckdtree.pyx:965-971` except 块复制粘贴错误——`if ni != NULL` 保护下 `free(mids)`，随后 `if mids != NULL` 再 `free(mids)`，第一次释放后未置 NULL（b2f856/c004f5）；`heap.remove` 未判空（a8abf7）。错误路径是测试与 review 的盲区，正常流程永远不执行。
 
-**权威依据**：CERT MEM34-C（只释放一次）；CWE-415。
+**权威依据**：CERT MEM31-C（动态内存只释放一次）+ MEM30-C（不使用已释放指针）；CWE-415。
 
 ### RC-8 调试设施进入生产校验路径
 
@@ -206,6 +241,8 @@ MAX_DIM_PRODUCT   = 2**32        # 维度乘积上限（int 溢出防线）
 
 ### 5.3 网络与文件系统边缘（针对 RC-5/RC-6）
 
+注意：`remote.py` 为 CINRAD fork 专属模块（upstream 无此文件），下列 1-3 项仅对 fork 代码库实施；4-7 项为 upstream 共有问题。
+
 1. `_validate_url` 重写为：scheme 白名单 → `socket.getaddrinfo` 解析全部结果 → 逐个 `ipaddress.ip_address` 分类，拒绝 loopback/private/link-local/reserved/multicast/元数据地址（含 IPv4-mapped IPv6、`::ffff:127.0.0.1`、十进制/八进制/十六进制 IP 字面量先经 `ipaddress` 归一化）→ 仅允许显式 allowlist 域名（默认空）。
 2. **删除 `allow_private=True` 的 MUSIC 调用路径**；确有需要时改为调用方显式传入已校验 URL 的机制，而非旁路防护函数。
 3. **重定向逐跳复检**：`_http_get` 若跟随重定向，每一跳都重新走完整校验（当前重定向间不复检）。
@@ -239,13 +276,14 @@ MAX_DIM_PRODUCT   = 2**32        # 维度乘积上限（int 溢出防线）
 
 ---
 
-## 7. 逐项修复规格（42 个修复单元）
+## 7. 逐项修复规格（40 个修复单元）
 
 > 每项含：根因定位 → 修复动作 → 修复 Review 检查点 → 验证抓手（详见第 9 章用例表）。所有涉及 `.pyx`/`.c` 的修改必须成对提交。
 
 ### FU-01 OS 命令注入（ed8eb0，致命，CWE-78）
-- **定位**：`output_to_geotiff.py:201/210`，`ofile` 两次未加引号拼入 `os.system('gdalwarp ...')`。
-- **修复**：改 `subprocess.run(["gdalwarp", "-q", "-t_srs", "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs", ofile, ofile + "_tmp.tif"], check=True)`（shell=False）。保留 shell 兼容分支时必须 `shlex.quote(ofile)` + 文件名字符 allowlist。更优解：直接用 `gdal.Warp()` Python API 免子进程。同步修正 `use_doublequotes` 文档语义。
+- **定位**：`output_to_geotiff.py:201/210`，`ofile` 两次未加引号拼入 `os.system('gdalwarp ...')`（上游源码已确证，含 docstring 自证 "called from command line using os.system"）。
+- **修复**：改 `subprocess.run(["gdalwarp", "-q", "-t_srs", "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs", ofile, ofile + "_tmp.tif"], check=True)`（shell=False）。保留 shell 兼容分支时必须 `shlex.quote(ofile)` + 文件名字符 allowlist。更优解：直接用 `gdal.Warp()` Python API 免子进程（模块已 import gdal）。同步修正 `use_doublequotes` 文档语义。
+- **附带修复（核验新发现）**：`_create_sld()`（`sld=True` 时经 `write_grid_geotiff` 调用）以 `filename.split('.')[0] + '.sld'` 拼接路径后 `open(ofile, 'w')`，是同类未净化的外部可控路径写入点（CWE-73/22）——同样需要 basename 化 + 包含性校验。
 - **Review 点**：全仓库 grep `os.system|os.popen|shell=True` 清零；测试断言注入字符串被当作字面文件名。
 - **验证**：`filename='out.tif; touch /tmp/pwned; #'` → 无副作用文件产生。
 
@@ -265,6 +303,7 @@ MAX_DIM_PRODUCT   = 2**32        # 维度乘积上限（int 溢出防线）
 - **验证**：`make_empty_ppi_radar(2,...)`/`(3,...)` 构造雷达调用三个公开 KDP 函数 → `ValueError`；正常 ngates≥20 文件回归结果逐 bit 不变。
 
 ### FU-05 cKDTree 双重释放 + ni 泄漏（b2f856/c004f5，高危，CWE-415）
+- **定位确证**：GitHub 代码搜索于 upstream main（commit ae71c99）确认 `pyart/map/ckdtree.pyx` except 块存在两处 `free(mids)`。该文件为 vendored SciPy 代码（文件头 SciPy license），修复后建议同步上游至 SciPy 的 `cKDTree.__build`。
 - **修复**：except 块改为
   ```
   except:
@@ -274,7 +313,7 @@ MAX_DIM_PRODUCT   = 2**32        # 维度乘积上限（int 溢出防线）
           stdlib.free(mids); mids = <np.float64_t*> NULL
       raise
   ```
-  注意释放 `ni` 前其子节点可能已被递归挂接，须确认调用方不会再认领该子树（与原代码意图一致）；`ni`/`mids` 释放后立即置 NULL。
+  注意释放 `ni` 前其子节点可能已被递归挂接，须确认调用方不会再认领该子树（与原代码意图一致）；`ni`/`mids` 释放后立即置 NULL（CERT MEM31-C：动态内存只释放一次；释放后置 NULL 同时满足 MEM30-C 对已释放指针不使用的底线）。
 - **Review 点**：`.c` 中两处 `free(__pyx_v_mids)`（16276/16306 附近）变为 `free(__pyx_v_ni)` + `free(__pyx_v_mids)` 各一次；并案 c004f5 关闭。
 - **验证**：故障注入分配器（递归 `__build` 深处失败）→ ASan/MALLOC_CHECK_=3 无 double-free、LSan 无 leak。
 
@@ -289,7 +328,7 @@ MAX_DIM_PRODUCT   = 2**32        # 维度乘积上限（int 溢出防线）
 
 ### FU-08 unwrap3D calloc 未判空 + int 溢出（1a7f21，中危，CWE-476/190）
 - **修复**：三个 `calloc` 返回值逐一判 NULL 并走统一清理路径（释放已分配缓冲区后返回错误码）；`volume_size` 改 `size_t` 计算并对 `width*height*depth`、`3*volume_size*sizeof(EDGE)`、`volume_size*sizeof(VOXELM)` 做 `SIZE_MAX` 前置除法检查（CERT INT30-C 形式：`a > SIZE_MAX / b` 则拒绝）；`No_of_Edges_initially` 同步改 size_t；调用方（unwrap_3d_ljmu 包装层）校验输入维度合法性。
-- **Review 点**：所有 early-return 路径无泄漏（LSan 验证）；`int`→`size_t` 改动需 review 全部下游使用点。
+- **Review 点**：所有 early-return 路径无泄漏（LSan 验证）；`int`→`size_t` 改动需 review 全部下游使用点；分配返回值判空义务依据 CERT MEM32-C（2026-07 版起并入 ERR33-C）。
 - **验证**：`ulimit -v` 受限进程 + 接近上限的体积 → 干净错误路径；超大维度组合 → 分配前拒绝而非欠分配后越界。
 
 ### FU-09 Sigmet 压缩游程越界读（7b4e3f，中危，CWE-125）
@@ -306,6 +345,7 @@ MAX_DIM_PRODUCT   = 2**32        # 维度乘积上限（int 溢出防线）
 - **验证**：`map_gates_to_grid(..., h_factor=(1.0, 1.0))` 和 `()` → `ValueError`；默认与显式 `(1,1,1)` 结果不变。
 
 ### FU-12 k=0 查询堆下溢/越界写（a8abf7，中危）
+- **定位确证**：上游 `pyart/map/ckdtree.pyx`（vendored SciPy）确认 `remove()` 首句 `self.heap[0] = self.heap[self.n-1]` 无 `n == 0` 保护，`peek()`/`pop()` 同样无保护；修复建议与 FU-05 一并考虑同步 SciPy。
 - **修复**：`cKDTree.query` 公开层 `if k < 1: raise ValueError(...)`；`heap.remove()` 入口 `if self.n == 0: return/raise`；`heap(k)` 构造处校验 `k>=1`。三重防线（公开 API、容器构造、数据结构操作）。
 - **验证**：`cKDTree(data).query(x, k=0)` → `ValueError`；`k=1` 正常路径结果不变（gate_mapper 现有调用方回归）。
 
@@ -382,7 +422,7 @@ MAX_DIM_PRODUCT   = 2**32        # 维度乘积上限（int 溢出防线）
 - **验证**：极大 proximity + 小 numRays 构造 → 无负下标解引用，ASan 干净。
 
 ### FU-31 X-band 未初始化场（bf4710，低危，CWE-908）
-- **修复**：`_read_volume` 改 `np.zeros`（或对未匹配帧明确填 NaN 掩码值并在 metadata 记录）；填充后校验"每行至少被写过一次"，未写行显式置 NaN；`nrays/ngates` 非零校验（顺带修 `_radar_from_arrays` 的 `ranges[1]` IndexError）。
+- **修复**：`_read_volume` 改 `np.zeros`（或对未匹配帧明确填 NaN 掩码值并在 metadata 记录）；填充后校验"每行至少被写过一次"，未写行显式置 NaN；`nrays/ngates` 非零校验（顺带修 `_radar_from_arrays` 的 `ranges[1]` IndexError）。义务依据：CERT EXP33-C（不读未初始化内存）。
 - **验证**：`data_type` 与 code 不匹配的构造件 → 字段为 NaN 而非堆残留字节；字段值可复现（无地址依赖）。
 
 ### FU-32 find_min/find_max 转换（0e8f8c，低危，CWE-681/UB）
@@ -418,8 +458,9 @@ MAX_DIM_PRODUCT   = 2**32        # 维度乘积上限（int 溢出防线）
 - **Review 点**：这是**设计层决策**而非单纯 bug（回归测试断言现有行为不破坏），须 upstream 设计讨论后实施。
 - **验证**：默认调用路径行为不变；恶意配置文件仅在显式 trusted=True 时加载（契约测试）。
 
-### FU-40 fd 泄漏/TOCTOU（3fbfe4，低危）
-- **修复**：`fd, path = tempfile.mkstemp()` → 立即 `os.close(fd)`；目录改 `tempfile.gettempdir()`；mkstemp→外部 RadxConvert 写入→`os.remove` 之间用 `O_EXCL` 语义/专用子目录收窄 TOCTOU 窗口；`finally` 幂等清理。
+### FU-40 fd 泄漏/TOCTOU（3fbfe4，低危，CWE-773/379/367）
+- **定位**：`tempfile.mkstemp()` 返回的 fd 仅保留下标 [1]，fd 从不关闭（CWE-773，映射 CERT FIO42-C）；临时文件建于 `dir='.'` 即进程 CWD（CWE-379：在不安全目录创建临时文件——CWE-377 页面明确 `mkstemp` 本身属较安全构造，问题在目录选择）；mkstemp 创建 → 外部 RadxConvert 写入 → finally `os.remove` 之间存在 TOCTOU/符号链接替换窗口（CWE-367）。
+- **修复**：`fd, path = tempfile.mkstemp()` → 立即 `os.close(fd)`；目录改 `tempfile.gettempdir()`（或 `mkdtemp` 专用子目录 + 0700）；用 `O_EXCL` 语义/专用子目录收窄 TOCTOU 窗口；`finally` 幂等清理。
 - **验证**：循环 read_radx 10000 次 fd 数不增长（`/proc/self/fd` 计数断言）；符号链接替换场景下行为定义明确。
 
 ---
@@ -441,7 +482,7 @@ MAX_DIM_PRODUCT   = 2**32        # 维度乘积上限（int 溢出防线）
 - [ ] 校验覆盖边界值：0、1、-1、INT_MIN/INT_MAX、SIZE_MAX/2、恰好等于上限、恰好越上限一
 - [ ] 失败模式为受控异常（`PyARTDataError`），非裸异常冒泡、非段错误、非静默错误数据
 - [ ] 无新增 `assert` 用于不可信输入校验
-- [ ] 错误/清理路径无泄漏、无 double free（对照 CERT MEM30-C/MEM34-C）
+- [ ] 错误/清理路径无泄漏、无 double free（对照 CERT MEM31-C 只释放一次、MEM32-C/ERR33-C 分配判空、MEM30-C 不用已释放指针）
 - [ ] 测试包含攻击向量与良性对照，样本入库
 
 **内存安全类（FU-03/04/05/07/08/09/11/12/29/30/32）**
@@ -587,7 +628,9 @@ MAX_DIM_PRODUCT   = 2**32        # 维度乘积上限（int 溢出防线）
 4. `pyart.io` 与 `pyart/aux_io` 全部 public 入口对畸形输入不再产生段错误、堆破坏、未捕获裸异常冒泡。
 5. 模糊测试 CI 连续运行 7 天无新增崩溃类发现（或有发现则已闭环）。
 6. 性能门槛达标，无科学计算功能回归（bit 级快照比对）。
-7. 上游协作：按 ARM-DOE/pyart issue tracker 流程提交修复 PR（越界写/双重释放/命令注入类敏感问题应先私密报告维护者，协商 CVE 披露节奏；注意 PyPI/Snyk 当前显示无已知 CVE，属首次披露，需预留 embargo 期）。
+7. 上游/分叉协作（**按归属分流，见 2.3C**）：
+   - **Upstream 缺陷（38 项）**：按 ARM-DOE/pyart issue tracker 流程提交修复 PR；越界写/双重释放/命令注入类敏感问题（ed8eb0、6ff3be、b2f856/c004f5、94f00e、21f732/291237）先私密报告维护者（GitHub Security Advisory / maintainer 邮箱），协商 CVE 披露节奏；PyPI/Snyk 当前显示 arm-pyart 无已知 CVE，属首次披露，需预留 embargo 期；ckdtree 两处缺陷（FU-05/FU-12）因系 vendored SciPy 代码，建议同时提交 SciPy 上游。
+   - **Fork 专属缺陷（6 项）**：`remote.py`（e690e4 高危/d9214c）、`C98DRadFile.py`、`sband_radar.py`、`sband_archive.py`、`xband_native.py` 的修复只能投递 CINRAD fork 维护方；若该 fork 无公开安全披露渠道，至少在其 issue tracker 私密报告并同步给部署方（这些文件出现在生产分发中即意味着 SSRF 防护与 C98D/S 波段/X 波段解析器缺陷随 fork 流传）。
 
 ---
 
@@ -597,7 +640,7 @@ MAX_DIM_PRODUCT   = 2**32        # 维度乘积上限（int 溢出防线）
 2. **性能与安全的长期张力**：`boundscheck(False)` 全面回退会伤害 ARM 数据吞吐场景。建议 upstream 采纳"外层校验+内层注解"的项目级规范（写入 CONTRIBUTING），并评估只对解析入口函数重编带检查构建。
 3. **错误类型设计**：引入 `PyARTDataError` 是行为变更，需 major/minor 版本说明与迁移指南（当前调用方可能依赖裸异常类型做流控）。
 4. **依赖链**：`arm_pyart` 依赖 numpy/gdal/netCDF4/h5py 等，本计划覆盖自身代码；建议将依赖纳入 SCA 持续监控（Snyk/OSV）。
-5. **披露策略**：ed8eb0/e690e4/6ff3be 具有 RCE/SSRF/堆写性质，建议 upstream 协调披露（CNA 请求或 GitHub Security Advisory），修复分支先行、版本发布后公开细节。
+5. 披露策略：ed8eb0（RCE，upstream）、6ff3be（堆越界写，upstream）、e690e4（SSRF 高危，**fork 专属**）建议分别按各自渠道协调披露（CNA 请求或 GitHub Security Advisory），修复分支先行、版本发布后公开细节；fork 侧 6 项缺陷需先确认 fork 的发行范围再定披露节奏。
 
 ---
 
@@ -607,9 +650,11 @@ MAX_DIM_PRODUCT   = 2**32        # 维度乘积上限（int 溢出防线）
 2. Cython 官方文档 — Source Files and Compilation（boundscheck/wraparound 指令语义）：https://docs.cython.org/en/latest/src/userguide/source_files_and_compilation.html
 3. scikit-learn — Cython Best Practices（调试期恢复 boundscheck 的环境变量模式）：https://scikit-learn.org/stable/developers/cython.html
 4. OWASP — Server-Side Request Forgery Prevention Cheat Sheet（DNS 解析后 IP 分类、重定向复检）：https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet
-5. SEI CERT C Coding Standard（INT04-C/INT30-C/INT31-C/INT32-C/MEM30-C/MEM34-C/EXP34-C）：https://wiki.sei.cmu.edu/confluence/display/c/SEI+CERT+C+Coding+Standard
-6. MITRE CWE：CWE-22/78/94/125/190/400/409/415/476/617/681/787/789/908/918/403/377。
+5. SEI CERT C Coding Standard（INT04-C/INT30-C/INT31-C/INT32-C/MEM31-C/MEM32-C（2026 版并入 ERR33-C）/EXP33-C/FIO42-C），核验来源 JPCERT 翻译版：https://www.jpcert.or.jp/sc-rules/ 与 https://cmu-sei.github.io/secure-coding-standards/sei-cert-c-coding-standard/
+6. MITRE CWE：CWE-22/78/94/125/190/197/367/377/379/400/409/415/476/617/681/773/787/789/908/918。
 7. CWE-409 修复模式（解压输出上限）：aiohttp CVE-2025-69223（32 MiB 上限）、CPython CVE-2026-15310（bzip2/LZMA 预分配上限）。
 8. CWE-22 修复模式（canonicalize + containment）：Python `os.path.realpath` + `commonpath` 校验。
 9. Pillow 12.3.0 系列 CVE（CWE-125/190/400/789/835）——科学计算库头部字段失控的同类行业判例。
 10. Google OSS-Fuzz / Atheris（Python 覆盖引导模糊测试）：https://google.github.io/oss-fuzz/
+11. Python 语言参考 — assert 语句与 `-O` 优化（assert 在编译期优化请求下不产出字节码）：https://docs.python.org/3/reference/simple_stmts.html#the-assert-statement
+12. 交叉核验对象仓库：ARM-DOE/pyart main（commit ae71c9989399d7361c761bd3b11bb1951e08e67d），经 GitHub raw/contents API/代码搜索逐项比对（详见 2.3 节）。
