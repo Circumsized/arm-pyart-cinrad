@@ -1,6 +1,5 @@
 """
 Routines for Ridgeline Instruments RXM-25 formatted NetCDF files.
-
 """
 
 import datetime
@@ -11,7 +10,36 @@ import numpy as np
 import pyart
 
 from ..config import get_metadata
+from ..exceptions import PyARTDataError
+from ..io._validate import validate_volume_dims
 from ..testing import make_empty_ppi_radar
+
+# (Py-ART field name, RXM-25 variable name, metadata configuration key).
+RXM25_MOMENT_VARIABLES = (
+    ("reflectivity", "Reflectivity", "reflectivity"),
+    ("normalized_coherent_power", "NormalizedCoherentPower", "normalized_coherent_power"),
+    ("spectral_width", "SpectralWidth", "spectral_width"),
+    ("velocity", "Velocity", "velocity"),
+    ("corrected_reflectivity", "CorrectedReflectivity", "correct_reflectivity"),
+    ("differential_reflectivity", "DifferentialReflectivity", "differential_reflectivity"),
+    ("differential_phase", "DifferentialPhase", "differential_phase"),
+    (
+        "specific_differential_phase",
+        "SpecificPhase",
+        "specific_differential_phase",
+    ),
+    (
+        "corrected_differential_reflectivity",
+        "CorrectedDifferentialReflectivity",
+        "corrected_differential_reflectivity",
+    ),
+    ("signal_to_noise_ratio", "SignalToNoiseRatio", "signal_to_noise_ratio"),
+    ("rain_rate", "RainfallRate", "rain_rate"),
+    ("cross_correlation_ratio", "CrossPolCorrelation", "cross_correlation_ratio"),
+)
+
+# Ray-length variables: they must cover exactly one sweep of rays.
+RXM25_RAY_VARIABLES = ("Time", "Azimuth", "Elevation")
 
 
 def read_rxm25(filename, cfradial_outfile=None, heading=None):
@@ -37,88 +65,109 @@ def read_rxm25(filename, cfradial_outfile=None, heading=None):
     """
     data = netCDF4.Dataset(filename, "r")
 
-    ngates = data.dimensions["Gate"].size
-    rays_per_sweep = data.dimensions["Radial"].size
-    radar = make_empty_ppi_radar(ngates, rays_per_sweep, 1)
+    try:
+        # FU-21 (434d5a, CWE-789): the Gate/Radial dimension declarations
+        # drive every allocation below (make_empty_ppi_radar, the range
+        # axis, each moment array). A crafted Gate=1e10 / Radial=1e10 file
+        # used to request a multi-exabyte allocation before any data was
+        # inspected; the declarations now go through the shared validation
+        # layer, which caps each dimension and the (Radial, Gate) product.
+        try:
+            ngates = data.dimensions["Gate"].size
+            rays_per_sweep = data.dimensions["Radial"].size
+        except KeyError as err:
+            raise PyARTDataError(
+                f"RXM-25 file is missing the {err.args[0]} dimension"
+            ) from err
+        validate_volume_dims(
+            1, rays_per_sweep, ngates, name="RXM-25 Gate/Radial dimensions"
+        )
 
-    # Time needs to be converted from nss1970 to nss1989 and added to
-    # Radar object.
-    nineteen89 = datetime.datetime(1989, 1, 1, 0, 0, 1, tzinfo=datetime.timezone.utc)
-    baseTime = np.array(
-        [
-            datetime.datetime.fromtimestamp(t, tz=datetime.timezone.utc)
-            for t in data.variables["Time"][:]
-        ]
-    )
-    radar.time["data"] = np.array([t.total_seconds() for t in baseTime - nineteen89])
+        # FU-22 (17bab9, CWE-129): moment variables are assigned straight
+        # into radar.fields and the Cython kernels index them as
+        # (ray, gate), so the stored shape must match the geometry the
+        # Radar object advertises. A crafted velocity stored with a
+        # different shape used to yield an internally inconsistent Radar
+        # object instead of an error.
+        expected_shape = (rays_per_sweep, ngates)
+        moment_values = {}
+        for field_name, variable, _metadata_key in RXM25_MOMENT_VARIABLES:
+            if variable not in data.variables:
+                raise PyARTDataError(f"RXM-25 file is missing the {variable} variable")
+            values = data[variable][:]
+            if values.shape != expected_shape:
+                raise PyARTDataError(
+                    f"RXM-25 variable {variable} has shape {values.shape} but "
+                    f"the Gate/Radial dimensions declare {expected_shape}"
+                )
+            moment_values[field_name] = values
 
-    if heading is not None:
-        radar.heading = heading
-        radar.azimuth["data"] = np.mod(data["Azimuth"][:] - radar.heading, 360.0)
-    else:
-        radar.azimuth["data"] = data["Azimuth"][:]
+        # The ray-length variables must cover exactly one sweep; a shorter
+        # Time/Azimuth/Elevation used to corrupt the Radar object (or crash
+        # in datetime.fromtimestamp on the masked tail).
+        ray_values = {}
+        for variable in RXM25_RAY_VARIABLES:
+            if variable not in data.variables:
+                raise PyARTDataError(f"RXM-25 file is missing the {variable} variable")
+            values = data[variable][:]
+            if len(values) != rays_per_sweep:
+                raise PyARTDataError(
+                    f"RXM-25 variable {variable} has {len(values)} entries but "
+                    f"the Radial dimension declares {rays_per_sweep}"
+                )
+            ray_values[variable] = values
 
-    radar.longitude["data"] = np.array([data.Longitude], dtype="float64")
-    radar.latitude["data"] = np.array([data.Latitude], dtype="float64")
-    radar.elevation["data"] = data["Elevation"][:]
-    radar.altitude["data"] = np.array([data.Height], dtype="float64")
+        radar = make_empty_ppi_radar(ngates, rays_per_sweep, 1)
 
-    fixed_agl_data = np.empty((1,), dtype="float32")
-    fixed_agl_data[:] = np.mean(radar.elevation["data"][:rays_per_sweep])
+        # Time needs to be converted from nss1970 to nss1989 and added to
+        # Radar object.
+        nineteen89 = datetime.datetime(
+            1989, 1, 1, 0, 0, 1, tzinfo=datetime.timezone.utc
+        )
+        baseTime = np.array(
+            [
+                datetime.datetime.fromtimestamp(t, tz=datetime.timezone.utc)
+                for t in ray_values["Time"]
+            ]
+        )
+        radar.time["data"] = np.array(
+            [t.total_seconds() for t in baseTime - nineteen89]
+        )
 
-    radar.fixed_angle["data"] = fixed_agl_data
+        if heading is not None:
+            radar.heading = heading
+            radar.azimuth["data"] = np.mod(
+                ray_values["Azimuth"] - radar.heading, 360.0
+            )
+        else:
+            radar.azimuth["data"] = ray_values["Azimuth"]
 
-    radar.range["data"] = np.linspace(
-        data["StartRange"][0] / 1000,
-        (ngates - 1) * data["GateWidth"][0] / 1000 + data["StartRange"][0] / 1000,
-        ngates,
-    )
+        radar.longitude["data"] = np.array([data.Longitude], dtype="float64")
+        radar.latitude["data"] = np.array([data.Latitude], dtype="float64")
+        radar.elevation["data"] = ray_values["Elevation"]
+        radar.altitude["data"] = np.array([data.Height], dtype="float64")
 
-    ref = data["Reflectivity"][:]
-    norm_pow = data["NormalizedCoherentPower"][:]
-    spec_w = data["SpectralWidth"][:]
-    vel = data["Velocity"][:]
-    corr_ref = data["CorrectedReflectivity"][:]
-    diff_ref = data["DifferentialReflectivity"][:]
-    diff_phase = data["DifferentialPhase"][:]
-    spec_phase = data["SpecificPhase"][:]
-    corr_diff_ref = data["CorrectedDifferentialReflectivity"][:]
-    sig_noise = data["SignalToNoiseRatio"][:]
-    rain_rate = data["RainfallRate"][:]
-    cross_ra = data["CrossPolCorrelation"][:]
+        fixed_agl_data = np.empty((1,), dtype="float32")
+        fixed_agl_data[:] = np.mean(radar.elevation["data"][:rays_per_sweep])
 
-    fields = {
-        "reflectivity": get_metadata("reflectivity"),
-        "normalized_coherent_power": get_metadata("normalized_coherent_power"),
-        "spectral_width": get_metadata("spectral_width"),
-        "velocity": get_metadata("velocity"),
-        "corrected_reflectivity": get_metadata("correct_reflectivity"),
-        "differential_reflectivity": get_metadata("differential_reflectivity"),
-        "differential_phase": get_metadata("differential_phase"),
-        "specific_differential_phase": get_metadata("specific_differential_phase"),
-        "corrected_differential_reflectivity": get_metadata(
-            "corrected_differential_reflectivity"
-        ),
-        "signal_to_noise_ratio": get_metadata("signal_to_noise_ratio"),
-        "rain_rate": get_metadata("rain_rate"),
-        "cross_correlation_ratio": get_metadata("cross_correlation_ratio"),
-    }
+        radar.fixed_angle["data"] = fixed_agl_data
 
-    radar.fields = fields
-    radar.fields["reflectivity"]["data"] = ref
-    radar.fields["normalized_coherent_power"]["data"] = norm_pow
-    radar.fields["spectral_width"]["data"] = spec_w
-    radar.fields["velocity"]["data"] = vel
-    radar.fields["corrected_reflectivity"]["data"] = corr_ref
-    radar.fields["differential_reflectivity"]["data"] = diff_ref
-    radar.fields["differential_phase"]["data"] = diff_phase
-    radar.fields["specific_differential_phase"]["data"] = spec_phase
-    radar.fields["corrected_differential_reflectivity"]["data"] = corr_diff_ref
-    radar.fields["signal_to_noise_ratio"]["data"] = sig_noise
-    radar.fields["rain_rate"]["data"] = rain_rate
-    radar.fields["cross_correlation_ratio"]["data"] = cross_ra
+        radar.range["data"] = np.linspace(
+            data["StartRange"][0] / 1000,
+            (ngates - 1) * data["GateWidth"][0] / 1000 + data["StartRange"][0] / 1000,
+            ngates,
+        )
 
-    radar.metadata["instrument_name"] = "RXM-25"
+        fields = {}
+        for field_name, _variable, metadata_key in RXM25_MOMENT_VARIABLES:
+            fields[field_name] = get_metadata(metadata_key)
+        radar.fields = fields
+        for field_name in moment_values:
+            radar.fields[field_name]["data"] = moment_values[field_name]
+
+        radar.metadata["instrument_name"] = "RXM-25"
+    finally:
+        data.close()
 
     if cfradial_outfile is not None:
         pyart.io.write_cfradial(cfradial_outfile, radar, arm_time_variables=True)

@@ -12,6 +12,20 @@ class MissingOptionalDependency(Exception):
     pass
 
 
+class PyARTDataError(Exception):
+    """
+    Exception raised when data read from a file or stream fails validation.
+
+    Raised by the readers in :py:mod:`pyart.io` when content-derived
+    dimensions, cursors or decompression sizes violate the shared limits in
+    :py:mod:`pyart.io._validate`. It replaces the bare ``MemoryError`` /
+    ``IndexError`` / ``ValueError`` that used to bubble up from deep inside
+    the parsers when handed malformed input.
+    """
+
+    pass
+
+
 class DeprecatedAttribute(DeprecationWarning):
     """Warning category for an attribute which has been renamed/moved."""
 

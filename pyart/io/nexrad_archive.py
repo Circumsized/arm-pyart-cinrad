@@ -9,6 +9,7 @@ import numpy as np
 
 from ..config import FileMetadata, get_fillvalue
 from ..core.radar import Radar
+from ..exceptions import PyARTDataError
 from ..lazydict import LazyLoadDict
 from .common import _test_arguments, make_time_unit_str, prepare_for_read
 from .nexrad_common import get_nexrad_location
@@ -136,6 +137,12 @@ def read_nexrad_archive(
     # range
     _range = filemetadata("range")
     first_gate, gate_spacing, last_gate = _find_range_params(scan_info, filemetadata)
+    # determine which moments need interpolation before building the range,
+    # so the range can leave room for the interpolated gates (FU-10)
+    interpolate = _find_scans_to_interp(scan_info, first_gate, gate_spacing, filemetadata)
+    last_gate = _interp_headroom_last_gate(
+        scan_info, interpolate, first_gate, gate_spacing, last_gate
+    )
     _range["data"] = np.arange(first_gate, last_gate, gate_spacing, "float32")
     _range["meters_to_center_of_first_gate"] = float(first_gate)
     _range["meters_between_gates"] = float(gate_spacing)
@@ -214,9 +221,6 @@ def read_nexrad_archive(
     # fields
     max_ngates = len(_range["data"])
     available_moments = {m for scan in scan_info for m in scan["moments"]}
-    interpolate = _find_scans_to_interp(
-        scan_info, first_gate, gate_spacing, filemetadata
-    )
 
     fields = {}
     for moment in available_moments:
@@ -291,11 +295,15 @@ def _find_range_params(scan_info, filemetadata):
     min_gate_spacing = 999999
     max_last_gate = 0
     for scan_params in scan_info:
-        ngates = scan_params["ngates"][0]
         for i, moment in enumerate(scan_params["moments"]):
             if filemetadata.get_field_name(moment) is None:
                 # moment is not read, skip
                 continue
+            # FU-10 (3b55ab, CWE-787): use this moment's own gate count.
+            # The previous code used ngates[0] for every moment, so a
+            # moment with more gates than the first one produced a range
+            # (and data width) too narrow to hold it.
+            ngates = scan_params["ngates"][i]
             first_gate = scan_params["first_gate"][i]
             gate_spacing = scan_params["gate_spacing"][i]
             last_gate = first_gate + gate_spacing * (ngates - 0.5)
@@ -304,6 +312,57 @@ def _find_range_params(scan_info, filemetadata):
             min_gate_spacing = min(min_gate_spacing, gate_spacing)
             max_last_gate = max(max_last_gate, last_gate)
     return min_first_gate, min_gate_spacing, max_last_gate
+
+
+def _interp_headroom_last_gate(
+    scan_info, interpolate, first_gate, gate_spacing, last_gate
+):
+    """
+    Return ``last_gate`` widened so interpolated moments fit the range.
+
+    A moment interpolated from a coarser to the finest gate spacing produces
+    ``multiplier * ngates`` gates (``2 * ngates - 1`` for multiplier 2).
+    Those interpolated gates can extend past the last physical gate center,
+    so the range -- and therefore the per-ray data width allocated by
+    ``get_data`` -- must cover that many gates at the finest spacing or the
+    interpolation kernels would write past the end of each ray.
+
+    Parameters
+    ----------
+    scan_info : list of dict
+        Per-scan moment/gate information.
+    interpolate : dict
+        Result of `_find_scans_to_interp`; empty when nothing needs
+        interpolation.
+    first_gate, gate_spacing : float
+        Finest first gate and spacing, as returned by `_find_range_params`.
+    last_gate : float
+        Physical last gate center.
+
+    Returns
+    -------
+    last_gate : float
+        The wider of the physical and interpolation-required last gate.
+    """
+    if not interpolate or "multiplier" not in interpolate:
+        return last_gate
+    multiplier = int(interpolate["multiplier"])
+    needed_gates = 0
+    for moment, scan_nums in interpolate.items():
+        if moment == "multiplier":
+            continue
+        for scan_num in scan_nums:
+            scan = scan_info[scan_num]
+            idx = scan["moments"].index(moment)
+            ngates = scan["ngates"][idx]
+            if multiplier == 4:
+                needed_gates = max(needed_gates, 4 * ngates)
+            else:
+                needed_gates = max(needed_gates, 2 * ngates - 1)
+    if needed_gates == 0:
+        return last_gate
+    widened = first_gate + needed_gates * gate_spacing
+    return max(last_gate, widened)
 
 
 def _find_scans_to_interp(scan_info, first_gate, gate_spacing, filemetadata):
@@ -340,6 +399,28 @@ def _interpolate_scan(mdata, start, end, moment_ngates, multiplier, linear_inter
     """Interpolate a single NEXRAD moment scan from 1000 m to 250 m."""
     fill_value = -9999
     data = mdata.filled(fill_value)
+
+    # FU-10 (3b55ab+89582b, CWE-787): moment_ngates comes from the file's
+    # scan info while the data width comes from a range derived from
+    # possibly another moment's gate count. Validate the contract before
+    # entering the kernels: the interpolated width must fit in the ray row
+    # and the ray range must be inside the array.
+    if multiplier == "4":
+        needed_gates = 4 * moment_ngates
+    else:
+        needed_gates = 2 * moment_ngates - 1
+    if moment_ngates < 1 or needed_gates > data.shape[1]:
+        raise PyARTDataError(
+            "moment with %d gates needs %d interpolated gates but the data "
+            "array only provides %d gates per ray"
+            % (moment_ngates, needed_gates, data.shape[1])
+        )
+    if start < 0 or end >= data.shape[0] or start > end + 1:
+        raise PyARTDataError(
+            "invalid ray range [%d, %d] for %d rays"
+            % (start, end, data.shape[0])
+        )
+
     scratch_ray = np.empty((data.shape[1],), dtype=data.dtype)
     if multiplier == "4":
         _fast_interpolate_scan_4(
