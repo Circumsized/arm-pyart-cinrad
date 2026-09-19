@@ -298,8 +298,7 @@ class _BaseSource:
             return False
 
         extra_blocked = [
-            ipaddress.ip_network(net)
-            for net in _BaseSource._EXTRA_BLOCKED_NETWORKS
+            ipaddress.ip_network(net) for net in _BaseSource._EXTRA_BLOCKED_NETWORKS
         ]
         for info in infos:
             addr = info[4][0]

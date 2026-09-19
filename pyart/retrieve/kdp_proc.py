@@ -1314,8 +1314,7 @@ def kdp_maesaka(
     # instead of reading outside the NumPy buffers.
     if radar.ngates < 4:
         raise ValueError(
-            "kdp_maesaka requires at least 4 gates per ray, got "
-            f"{radar.ngates}"
+            "kdp_maesaka requires at least 4 gates per ray, got " f"{radar.ngates}"
         )
 
     # parse fill value

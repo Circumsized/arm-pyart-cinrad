@@ -18,9 +18,8 @@ import pytest
 
 pytest.importorskip("pyart")
 
-from pyart.testing import sample_objects  # noqa: E402
-
 import pyart.io.output_to_geotiff as og  # noqa: E402
+from pyart.testing import sample_objects  # noqa: E402
 
 
 class _SentinelExec(Exception):
@@ -63,7 +62,9 @@ class _FakeGdal:
 
 
 def _grid_with_field():
-    grid = sample_objects.make_empty_grid((2, 40, 40), ((0, 1000), (-40000, 40000), (-40000, 40000)))
+    grid = sample_objects.make_empty_grid(
+        (2, 40, 40), ((0, 1000), (-40000, 40000), (-40000, 40000))
+    )
     grid.fields["reflectivity"] = {
         "data": np.ma.masked_array(np.zeros((2, 40, 40), dtype="float32"))
     }
@@ -117,7 +118,9 @@ def test_write_grid_geotiff_warp_does_not_use_shell(monkeypatch, tmp_path):
     assert not marker.exists(), "shell metacharacters must not execute commands"
 
 
-def test_write_grid_geotiff_warp_quotes_or_argv_escapes_metacharacters(monkeypatch, tmp_path):
+def test_write_grid_geotiff_warp_quotes_or_argv_escapes_metacharacters(
+    monkeypatch, tmp_path
+):
     """Metacharacters must remain a single literal argv element."""
     calls = _patch_sinks(monkeypatch, tmp_path)
     crafted = "out.tif; touch /tmp/pwned; #"
@@ -129,10 +132,15 @@ def test_write_grid_geotiff_warp_quotes_or_argv_escapes_metacharacters(monkeypat
 
     cmd, _ = calls["subprocess"][0]
     argv = list(cmd)
-    assert argv[0] in ("gdalwarp", os.path.join(os.sep, "usr", "bin", "gdalwarp")) or argv[0].endswith("gdalwarp")
+    assert argv[0] in (
+        "gdalwarp",
+        os.path.join(os.sep, "usr", "bin", "gdalwarp"),
+    ) or argv[0].endswith("gdalwarp")
     literal = [a for a in argv if crafted in a]
     assert len(literal) == 2, "input and output filenames must be literal argv elements"
-    assert not any(a in (";", "&&", "|") for a in argv), "no separate shell operator tokens"
+    assert not any(
+        a in (";", "&&", "|") for a in argv
+    ), "no separate shell operator tokens"
 
 
 def test_create_sld_uses_splitext_for_dotted_directories(tmp_path):

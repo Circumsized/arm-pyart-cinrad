@@ -15,8 +15,8 @@ import pytest
 
 pytest.importorskip("pyart")
 
-from pyart.testing import sample_objects  # noqa: E402
 from pyart.graph.max_cappi import plot_maxcappi  # noqa: E402
+from pyart.testing import sample_objects  # noqa: E402
 
 FIELD = "reflectivity"
 
@@ -62,9 +62,7 @@ def test_plot_maxcappi_absolute_instrument_name_stays_in_savedir(tmp_path):
     savedir = tmp_path / "plots"
     savedir.mkdir()
     grid = _grid_with_instrument_name("/tmp/abs_pwned")
-    plot_maxcappi(
-        grid, FIELD, savedir=str(savedir), show_figure=False, add_map=False
-    )
+    plot_maxcappi(grid, FIELD, savedir=str(savedir), show_figure=False, add_map=False)
     _assert_contained(tmp_path, savedir)
 
 
@@ -88,8 +86,6 @@ def test_plot_maxcappi_benign_names_still_written(tmp_path):
     savedir = tmp_path / "plots"
     savedir.mkdir()
     grid = _grid_with_instrument_name("KAZR")
-    plot_maxcappi(
-        grid, FIELD, savedir=str(savedir), show_figure=False, add_map=False
-    )
+    plot_maxcappi(grid, FIELD, savedir=str(savedir), show_figure=False, add_map=False)
     _assert_contained(tmp_path, savedir)
     assert len(_all_pngs(savedir)) == 1

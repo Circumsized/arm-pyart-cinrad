@@ -89,6 +89,18 @@ def test_validate_url_rejects_unresolvable_host(monkeypatch):
     assert _BaseSource._validate_url("http://nonexistent.invalid/") is False
 
 
+def test_validate_url_allowlist_is_the_only_opt_in(monkeypatch):
+    """An exact hostname allowlist entry is the operator opt-in that
+    replaced the removed ``allow_private=True`` bypass; unlisted hosts
+    (including lookalikes) still go through full classification."""
+    monkeypatch.setattr(socket, "getaddrinfo", _fake_getaddrinfo("10.0.0.5"))
+    url = "http://music-mirror.internal/data.nc"
+    assert _BaseSource._validate_url(url) is False
+    assert _BaseSource._validate_url(url, allowlist=["music-mirror.internal"]) is True
+    # substring/suffix lookalikes must not match
+    assert _BaseSource._validate_url(url, allowlist=["mirror.internal"]) is False
+
+
 def test_http_get_refuses_internal_url_without_any_connection(monkeypatch, tmp_path):
     """No socket may be opened for an internal destination."""
     import requests

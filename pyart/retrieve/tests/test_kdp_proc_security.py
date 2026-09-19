@@ -21,8 +21,8 @@ import pytest
 
 pytest.importorskip("pyart")
 
-from pyart.testing import sample_objects  # noqa: E402
 from pyart.retrieve import _kdp_proc, kdp_proc  # noqa: E402
+from pyart.testing import sample_objects  # noqa: E402
 
 
 def _radar_with_psidp(ngates, nrays=2, nsweeps=1):

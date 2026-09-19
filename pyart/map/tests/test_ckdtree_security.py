@@ -57,7 +57,7 @@ BAD_MARKERS = (
     "realloc(): invalid",
 )
 
-CHILD_PY = """
+CHILD_PY = f"""
 import sys
 import ctypes
 
@@ -67,7 +67,7 @@ import numpy as np
 from pyart.map.ckdtree import cKDTree
 
 rng = np.random.RandomState(123456)
-data = rng.random_sample(({n_points}, 2))
+data = rng.random_sample(({N_POINTS}, 2))
 
 libc = ctypes.CDLL(None)
 libc.malloc.restype = ctypes.c_void_p
@@ -85,7 +85,7 @@ except MemoryError:
     print("CHILD-RESULT: memory-error")
 except Exception as exc:
     print("CHILD-RESULT: other-error %s: %s" % (type(exc).__name__, exc))
-""".format(n_points=N_POINTS)
+"""
 
 
 def _compiler():
@@ -103,19 +103,20 @@ def interposer_so(tmp_path_factory):
     if cc is None:
         pytest.skip("no C compiler available to build the interposer")
     if not os.path.exists(INTERPOSER_C):
-        pytest.skip("interposer source missing: %s" % INTERPOSER_C)
+        pytest.skip(f"interposer source missing: {INTERPOSER_C}")
     so = str(tmp_path_factory.mktemp("fu05") / "fail_malloc.so")
     proc = subprocess.run(
         [cc, "-shared", "-fPIC", "-O1", "-o", so, INTERPOSER_C],
-        capture_output=True, text=True,
+        capture_output=True,
+        text=True,
     )
     if proc.returncode != 0:
-        pytest.skip("interposer build failed: %s" % proc.stderr.strip())
+        pytest.skip(f"interposer build failed: {proc.stderr.strip()}")
     return so
 
 
 def _run_child(interposer_so, fail_at, tmp_path):
-    child = tmp_path / ("fu05_child_%d.py" % fail_at)
+    child = tmp_path / f"fu05_child_{fail_at}.py"
     child.write_text(CHILD_PY)
     env = dict(os.environ)
     env["LD_PRELOAD"] = interposer_so
@@ -124,7 +125,10 @@ def _run_child(interposer_so, fail_at, tmp_path):
     env["FU05_FAIL_AT"] = str(fail_at)
     return subprocess.run(
         [sys.executable, str(child), str(MAGIC_SIZE)],
-        capture_output=True, text=True, timeout=CHILD_TIMEOUT, env=env,
+        capture_output=True,
+        text=True,
+        timeout=CHILD_TIMEOUT,
+        env=env,
     )
 
 
@@ -135,13 +139,15 @@ def _combined(proc):
 def _assert_no_double_free(proc):
     out = _combined(proc)
     for marker in BAD_MARKERS:
-        assert marker not in out, (
-            "FU-05: heap corruption marker %r in child output:\n%s" % (marker, out)
-        )
+        assert (
+            marker not in out
+        ), f"FU-05: heap corruption marker {marker!r} in child output:\n{out}"
     # glibc abort (SIGABRT = -6) or a kill is never acceptable either
-    assert proc.returncode not in (-6, -11, -4), (
-        "FU-05: child died from signal %d:\n%s" % (-proc.returncode, out)
-    )
+    assert proc.returncode not in (
+        -6,
+        -11,
+        -4,
+    ), f"FU-05: child died from signal {-proc.returncode}:\n{out}"
     return out
 
 
@@ -156,8 +162,8 @@ def test_build_survives_injected_allocation_failure(interposer_so, fail_at, tmp_
 
 
 def test_harness_reaches_tree_build_and_basics_still_work(interposer_so, tmp_path):
-    """No injection: the tree builds, queries correctly, and the interposer
-    proves its window covered the build (thousands of 16/24/40 B allocations)."""
+    """No injection: the tree builds, and the interposer proves its window
+    covered the build (thousands of 16/24/40 B allocations)."""
     proc = _run_child(interposer_so, 0, tmp_path)
     out = _assert_no_double_free(proc)
     assert "CHILD-RESULT: built-ok" in out
@@ -166,4 +172,4 @@ def test_harness_reaches_tree_build_and_basics_still_work(interposer_so, tmp_pat
     # a 20000-point tree with leafsize 10 allocates far more than this many
     # innernode/leafnode/mids blocks; a small count would mean the window
     # never covered the build and the injection tests above would be vacuous.
-    assert total >= 5000, "injection window did not cover the tree build: %d" % total
+    assert total >= 5000, f"injection window did not cover the tree build: {total}"
